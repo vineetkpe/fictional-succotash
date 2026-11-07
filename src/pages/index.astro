@@ -55,10 +55,14 @@ const plans = sharedHosting.plans;
                                         <span class="font-still-black">Launch Your Dream Website</span>
                                     </span>
                                     <span class="headline-row-bottom">
-                                        <span class="font-still-black">With&nbsp;</span>
-                                        <span class="font-moving-orange">77% Discount</span>
+                                        <span class="font-still-black">With&nbsp;</span><span class="typewriter-slot"><span id="offerWord" class="font-moving-orange">77% Discount</span></span>
                                     </span>
                                 </h1>
+
+                                <script>
+                                    import { initTypewriter } from '../scripts/typewriter';
+                                    initTypewriter();
+                                </script>
 
                                 <p class="hero-lead-text mb-4" data-sal="slide-up" data-sal-delay="200" data-sal-duration="800">
                                     Ultra-fast NVMe cloud hosting with LiteSpeed &amp; 24/7 dedicated support.
@@ -184,11 +188,11 @@ const plans = sharedHosting.plans;
             .headline-row-bottom {
                 display: inline-flex;
                 align-items: baseline;
-                flex-wrap: wrap;
+                min-height: 1.25em;
                 line-height: 1.2;
             }
 
-            /* Black text */
+            /* Black text: All still text in bold solid black */
             .font-still-black {
                 font-family: 'Plus Jakarta Sans', var(--font-primary), -apple-system, sans-serif;
                 font-weight: 900;
@@ -196,7 +200,18 @@ const plans = sharedHosting.plans;
                 letter-spacing: -0.035em;
             }
 
-            /* Orange accent text in distinct italic serif */
+            /* Fitted slot: Perfectly fitted so text change never shifts or moves the block */
+            .typewriter-slot {
+                display: inline-block;
+                vertical-align: baseline;
+                min-width: 380px;
+                min-height: 1.25em;
+                line-height: 1.2;
+                text-align: left;
+                white-space: nowrap;
+            }
+
+            /* Orange moving text: Different font ('Playfair Display' italic) in brand orange */
             .font-moving-orange {
                 font-family: 'Playfair Display', Georgia, serif;
                 font-style: italic;
@@ -207,6 +222,28 @@ const plans = sharedHosting.plans;
                 line-height: 1.2;
                 letter-spacing: -0.015em;
                 text-shadow: 0 4px 18px rgba(255, 80, 26, 0.22);
+            }
+
+            @media (max-width: 991px) {
+                .typewriter-slot {
+                    min-width: 320px;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .typewriter-slot {
+                    min-width: 270px;
+                }
+            }
+
+            @media (max-width: 576px) {
+                .headline-row-bottom {
+                    flex-wrap: wrap;
+                }
+                .typewriter-slot {
+                    min-width: 220px;
+                    white-space: normal;
+                }
             }
 
             /* Lead text */
