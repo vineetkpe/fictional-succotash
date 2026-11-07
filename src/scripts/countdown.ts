@@ -31,3 +31,4 @@ export function initCountdown(
   tick();
   setInterval(tick, 1000);
 }
+

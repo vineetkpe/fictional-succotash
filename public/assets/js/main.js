@@ -27,13 +27,23 @@
         
         
         headerSticky: function () {
-            $(window).scroll(function () {
-                if ($(this).scrollTop() > 250) {
-                    $('.header-sticky').addClass('sticky')
+            var $header = $('.header-sticky');
+            if (!$header.length) return;
+            var isSticky = false;
+            $(window).on('scroll', function () {
+                var scrollTop = $(this).scrollTop();
+                if (scrollTop > 250) {
+                    if (!isSticky) {
+                        $header.addClass('sticky');
+                        isSticky = true;
+                    }
                 } else {
-                    $('.header-sticky').removeClass('sticky')
+                    if (isSticky) {
+                        $header.removeClass('sticky');
+                        isSticky = false;
+                    }
                 }
-            })
+            });
         },
         
         popupMobileMenu: function (e) {

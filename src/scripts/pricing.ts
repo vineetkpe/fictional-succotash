@@ -36,3 +36,4 @@ export function updatePricing(plan: 'monthly' | 'quarterly' | 'semiannual' | 'an
 if (typeof window !== 'undefined') {
   (window as any).updatePricing = updatePricing;
 }
+
