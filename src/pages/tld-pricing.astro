@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { domainPricing } from '../data/pricing';
+const { heroStartPrice, allTlds } = domainPricing;
 ---
 
 <Layout title="Domain TLD Pricing List — Register, Transfer & Renew | Hostamble">
@@ -12,7 +14,7 @@ import Layout from '../layouts/Layout.astro';
           <div class="inner">
             <div class="content">
               <span class="pre-title" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                Transparent Pricing • Free Privacy Protection • Starts at <span data-inr="₹139 /yr" data-usd="$1.65 /yr">₹139 /yr</span>
+                Transparent Pricing • Free Privacy Protection • Starts at <span data-inr={heroStartPrice.inr} data-usd={heroStartPrice.usd}>{heroStartPrice.inr}</span>
               </span>
               <h1 class="title" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
                 Complete Domain TLD Pricing List
@@ -94,175 +96,28 @@ import Layout from '../layouts/Layout.astro';
             </tr>
           </thead>
           <tbody id="tldTableBody">
-            <!-- .com -->
-            <tr data-tld=".com" data-category="popular business">
-              <td><strong class="text-dark fs-6">.com</strong> <span class="badge bg-danger text-white ms-1">Hot</span></td>
-              <td><span class="badge bg-light text-dark">Universal / Business</span></td>
-              <td><span class="text-success font-weight-bold" data-inr="₹999 /yr" data-usd="$11.99 /yr">₹999 /yr</span> <del class="text-muted small ms-1" data-inr="₹1265" data-usd="$14.99">₹1265</del></td>
-              <td><span data-inr="₹1265 /yr" data-usd="$14.99 /yr">₹1265 /yr</span></td>
-              <td><span data-inr="₹986" data-usd="$11.75">₹986</span></td>
-              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
-            </tr>
-
-            <!-- .in -->
-            <tr data-tld=".in" data-category="popular india">
-              <td><strong class="text-dark fs-6">.in</strong> <span class="badge bg-primary text-white ms-1">India</span></td>
-              <td><span class="badge bg-light text-dark">National / Regional</span></td>
-              <td><span class="text-success font-weight-bold" data-inr="₹499 /yr" data-usd="$5.95 /yr">₹499 /yr</span> <del class="text-muted small ms-1" data-inr="₹723" data-usd="$8.60">₹723</del></td>
-              <td><span data-inr="₹699 /yr" data-usd="$8.30 /yr">₹699 /yr</span></td>
-              <td><span data-inr="₹599" data-usd="$7.15">₹599</span></td>
-              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
-            </tr>
-
-            <!-- .co.in -->
-            <tr data-tld=".co.in" data-category="india business">
-              <td><strong class="text-dark fs-6">.co.in</strong></td>
-              <td><span class="badge bg-light text-dark">India Business</span></td>
-              <td><span class="text-success font-weight-bold" data-inr="₹399 /yr" data-usd="$4.75 /yr">₹399 /yr</span> <del class="text-muted small ms-1" data-inr="₹599" data-usd="$7.15">₹599</del></td>
-              <td><span data-inr="₹549 /yr" data-usd="$6.55 /yr">₹549 /yr</span></td>
-              <td><span data-inr="₹499" data-usd="$5.95">₹499</span></td>
-              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
-            </tr>
-
-            <!-- .net -->
-            <tr data-tld=".net" data-category="popular tech">
-              <td><strong class="text-dark fs-6">.net</strong></td>
-              <td><span class="badge bg-light text-dark">Network / Tech</span></td>
-              <td><span class="text-success font-weight-bold" data-inr="₹1399 /yr" data-usd="$16.65 /yr">₹1399 /yr</span> <del class="text-muted small ms-1" data-inr="₹1679" data-usd="$19.99">₹1679</del></td>
-              <td><span data-inr="₹1679 /yr" data-usd="$19.99 /yr">₹1679 /yr</span></td>
-              <td><span data-inr="₹1399" data-usd="$16.65">₹1399</span></td>
-              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
-            </tr>
-
-            <!-- .org -->
-            <tr data-tld=".org" data-category="popular business">
-              <td><strong class="text-dark fs-6">.org</strong></td>
-              <td><span class="badge bg-light text-dark">Organization / Non-profit</span></td>
-              <td><span class="text-success font-weight-bold" data-inr="₹1199 /yr" data-usd="$14.30 /yr">₹1199 /yr</span> <del class="text-muted small ms-1" data-inr="₹1499" data-usd="$17.90">₹1499</del></td>
-              <td><span data-inr="₹1499 /yr" data-usd="$17.90 /yr">₹1499 /yr</span></td>
-              <td><span data-inr="₹1199" data-usd="$14.30">₹1199</span></td>
-              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
-            </tr>
-
-            <!-- .io -->
-            <tr data-tld=".io" data-category="popular tech">
-              <td><strong class="text-dark fs-6">.io</strong> <span class="badge bg-warning text-dark ms-1">Startup</span></td>
-              <td><span class="badge bg-light text-dark">Developers / SaaS</span></td>
-              <td><span class="text-success font-weight-bold" data-inr="₹3499 /yr" data-usd="$41.99 /yr">₹3499 /yr</span> <del class="text-muted small ms-1" data-inr="₹4199" data-usd="$50.00">₹4199</del></td>
-              <td><span data-inr="₹4199 /yr" data-usd="$50.00 /yr">₹4199 /yr</span></td>
-              <td><span data-inr="₹3499" data-usd="$41.99">₹3499</span></td>
-              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
-            </tr>
-
-            <!-- .ai -->
-            <tr data-tld=".ai" data-category="popular tech">
-              <td><strong class="text-dark fs-6">.ai</strong> <span class="badge bg-info text-white ms-1">AI Trending</span></td>
-              <td><span class="badge bg-light text-dark">Artificial Intelligence</span></td>
-              <td><span class="text-success font-weight-bold" data-inr="₹6499 /yr" data-usd="$77.99 /yr">₹6499 /yr</span> <del class="text-muted small ms-1" data-inr="₹7999" data-usd="$95.50">₹7999</del></td>
-              <td><span data-inr="₹7999 /yr" data-usd="$95.50 /yr">₹7999 /yr</span></td>
-              <td><span data-inr="₹6499" data-usd="$77.99">₹6499</span></td>
-              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
-            </tr>
-
-            <!-- .store -->
-            <tr data-tld=".store" data-category="business">
-              <td><strong class="text-dark fs-6">.store</strong></td>
-              <td><span class="badge bg-light text-dark">eCommerce / Retail</span></td>
-              <td><span class="text-success font-weight-bold" data-inr="₹299 /yr" data-usd="$3.59 /yr">₹299 /yr</span> <del class="text-muted small ms-1" data-inr="₹3499" data-usd="$41.99">₹3499</del></td>
-              <td><span data-inr="₹3499 /yr" data-usd="$41.99 /yr">₹3499 /yr</span></td>
-              <td><span data-inr="₹299" data-usd="$3.59">₹299</span></td>
-              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
-            </tr>
-
-            <!-- .shop -->
-            <tr data-tld=".shop" data-category="business">
-              <td><strong class="text-dark fs-6">.shop</strong></td>
-              <td><span class="badge bg-light text-dark">Online Store</span></td>
-              <td><span class="text-success font-weight-bold" data-inr="₹266 /yr" data-usd="$3.19 /yr">₹266 /yr</span> <del class="text-muted small ms-1" data-inr="₹867" data-usd="$10.39">₹867</del></td>
-              <td><span data-inr="₹2499 /yr" data-usd="$29.90 /yr">₹2499 /yr</span></td>
-              <td><span data-inr="₹266" data-usd="$3.19">₹266</span></td>
-              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
-            </tr>
-
-            <!-- .tech -->
-            <tr data-tld=".tech" data-category="tech">
-              <td><strong class="text-dark fs-6">.tech</strong></td>
-              <td><span class="badge bg-light text-dark">Tech / Engineering</span></td>
-              <td><span class="text-success font-weight-bold" data-inr="₹399 /yr" data-usd="$4.79 /yr">₹399 /yr</span> <del class="text-muted small ms-1" data-inr="₹3899" data-usd="$46.50">₹3899</del></td>
-              <td><span data-inr="₹3899 /yr" data-usd="$46.50 /yr">₹3899 /yr</span></td>
-              <td><span data-inr="₹399" data-usd="$4.79">₹399</span></td>
-              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
-            </tr>
-
-            <!-- .online -->
-            <tr data-tld=".online" data-category="popular">
-              <td><strong class="text-dark fs-6">.online</strong></td>
-              <td><span class="badge bg-light text-dark">General Presence</span></td>
-              <td><span class="text-success font-weight-bold" data-inr="₹299 /yr" data-usd="$3.59 /yr">₹299 /yr</span> <del class="text-muted small ms-1" data-inr="₹1679" data-usd="$19.99">₹1679</del></td>
-              <td><span data-inr="₹2699 /yr" data-usd="$32.20 /yr">₹2699 /yr</span></td>
-              <td><span data-inr="₹299" data-usd="$3.59">₹299</span></td>
-              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
-            </tr>
-
-            <!-- .site -->
-            <tr data-tld=".site" data-category="popular">
-              <td><strong class="text-dark fs-6">.site</strong></td>
-              <td><span class="badge bg-light text-dark">General Website</span></td>
-              <td><span class="text-success font-weight-bold" data-inr="₹199 /yr" data-usd="$2.39 /yr">₹199 /yr</span> <del class="text-muted small ms-1" data-inr="₹643" data-usd="$7.69">₹643</del></td>
-              <td><span data-inr="₹1999 /yr" data-usd="$23.90 /yr">₹1999 /yr</span></td>
-              <td><span data-inr="₹199" data-usd="$2.39">₹199</span></td>
-              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
-            </tr>
-
-            <!-- .xyz -->
-            <tr data-tld=".xyz" data-category="popular tech">
-              <td><strong class="text-dark fs-6">.xyz</strong></td>
-              <td><span class="badge bg-light text-dark">Next Generation / Web3</span></td>
-              <td><span class="text-success font-weight-bold" data-inr="₹338 /yr" data-usd="$4.09 /yr">₹338 /yr</span> <del class="text-muted small ms-1" data-inr="₹883" data-usd="$10.59">₹883</del></td>
-              <td><span data-inr="₹999 /yr" data-usd="$11.95 /yr">₹999 /yr</span></td>
-              <td><span data-inr="₹338" data-usd="$4.09">₹338</span></td>
-              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
-            </tr>
-
-            <!-- .app -->
-            <tr data-tld=".app" data-category="tech">
-              <td><strong class="text-dark fs-6">.app</strong></td>
-              <td><span class="badge bg-light text-dark">Mobile &amp; Web Apps (HTTPS default)</span></td>
-              <td><span class="text-success font-weight-bold" data-inr="₹1299 /yr" data-usd="$15.55 /yr">₹1299 /yr</span> <del class="text-muted small ms-1" data-inr="₹1599" data-usd="$19.10">₹1599</del></td>
-              <td><span data-inr="₹1599 /yr" data-usd="$19.10 /yr">₹1599 /yr</span></td>
-              <td><span data-inr="₹1299" data-usd="$15.55">₹1299</span></td>
-              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
-            </tr>
-
-            <!-- .dev -->
-            <tr data-tld=".dev" data-category="tech">
-              <td><strong class="text-dark fs-6">.dev</strong></td>
-              <td><span class="badge bg-light text-dark">Developers / Software</span></td>
-              <td><span class="text-success font-weight-bold" data-inr="₹1199 /yr" data-usd="$14.35 /yr">₹1199 /yr</span> <del class="text-muted small ms-1" data-inr="₹1499" data-usd="$17.90">₹1499</del></td>
-              <td><span data-inr="₹1499 /yr" data-usd="$17.90 /yr">₹1499 /yr</span></td>
-              <td><span data-inr="₹1199" data-usd="$14.35">₹1199</span></td>
-              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
-            </tr>
-
-            <!-- .co -->
-            <tr data-tld=".co" data-category="popular business">
-              <td><strong class="text-dark fs-6">.co</strong></td>
-              <td><span class="badge bg-light text-dark">Companies &amp; Startups</span></td>
-              <td><span class="text-success font-weight-bold" data-inr="₹699 /yr" data-usd="$8.30 /yr">₹699 /yr</span> <del class="text-muted small ms-1" data-inr="₹2499" data-usd="$29.90">₹2499</del></td>
-              <td><span data-inr="₹2499 /yr" data-usd="$29.90 /yr">₹2499 /yr</span></td>
-              <td><span data-inr="₹699" data-usd="$8.30">₹699</span></td>
-              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
-            </tr>
-
-            <!-- .biz -->
-            <tr data-tld=".biz" data-category="business">
-              <td><strong class="text-dark fs-6">.biz</strong></td>
-              <td><span class="badge bg-light text-dark">Small Businesses</span></td>
-              <td><span class="text-success font-weight-bold" data-inr="₹499 /yr" data-usd="$5.95 /yr">₹499 /yr</span> <del class="text-muted small ms-1" data-inr="₹1299" data-usd="$15.50">₹1299</del></td>
-              <td><span data-inr="₹1299 /yr" data-usd="$15.50 /yr">₹1299 /yr</span></td>
-              <td><span data-inr="₹499" data-usd="$5.95">₹499</span></td>
-              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
-            </tr>
+            {allTlds.map((item) => (
+              <tr data-tld={item.tld} data-category={item.category}>
+                <td>
+                  <strong class="text-dark fs-6">{item.tld}</strong>
+                  {item.badge && (
+                    <span class={`badge ${item.badge === 'Hot' ? 'bg-danger' : item.badge === 'India' ? 'bg-primary' : item.badge === 'Startup' ? 'bg-warning text-dark' : 'bg-info'} text-white ms-1`}>
+                      {item.badge}
+                    </span>
+                  )}
+                </td>
+                <td><span class="badge bg-light text-dark text-capitalize">{item.category}</span></td>
+                <td>
+                  <span class="text-success font-weight-bold" data-inr={item.register.inr} data-usd={item.register.usd}>{item.register.inr}</span>
+                  {item.originalRegister && (
+                    <del class="text-muted small ms-1" data-inr={item.originalRegister.inr} data-usd={item.originalRegister.usd}>{item.originalRegister.inr}</del>
+                  )}
+                </td>
+                <td><span data-inr={item.renew.inr} data-usd={item.renew.usd}>{item.renew.inr}</span></td>
+                <td><span data-inr={item.transfer.inr} data-usd={item.transfer.usd}>{item.transfer.inr}</span></td>
+                <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { n8nHosting } from '../data/pricing';
+const { heroStartPrice, savingsHeadline, plans } = n8nHosting;
 ---
 
 <Layout title="Managed n8n Workflow Automation Servers | Hostamble">
@@ -12,7 +14,7 @@ import Layout from '../layouts/Layout.astro';
           <div class="inner">
             <div class="content">
               <span class="pre-title" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                Self-Hosted Power • Zero Task Limits • Starts at <span data-inr="₹399 /mo" data-usd="$4.79 /mo">₹399 /mo</span>
+                Self-Hosted Power • Zero Task Limits • Starts at <span data-inr={heroStartPrice.inr} data-usd={heroStartPrice.usd}>{heroStartPrice.inr}</span>
               </span>
               <h1 class="title" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
                 Managed n8n Workflow Automation Servers
@@ -48,7 +50,7 @@ import Layout from '../layouts/Layout.astro';
     <div class="container aceorbit-animated-shape">
       <div class="row g-5 align-items-center">
         <div class="col-lg-6 col-md-6">
-          <div class="section-title text-start" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+          <div class="section-title text-start" data-sal-slide-up data-sal-delay="150" data-sal-duration="800">
             <span class="pre-title">Transparent n8n Hosting</span>
             <h3 class="title">Choose Your n8n Automation Plan</h3>
           </div>
@@ -78,22 +80,22 @@ import Layout from '../layouts/Layout.astro';
         <div class="col-xl-4 col-lg-6 col-md-6 col-12" data-sal="slide-up" data-sal-delay="100" data-sal-duration="800">
           <div class="pricing-table h-100">
             <div class="pricing-header">
-              <h3 class="title">n8n Starter</h3>
+              <h3 class="title">{plans.starter.name}</h3>
               <div class="price-wrap">
                 <div class="n8n-pricing-opt n8n-monthly" style="display: block;">
-                  <span class="amount" data-inr="₹399" data-usd="$4.79">₹399</span>
+                  <span class="amount" data-inr={plans.starter.pricing.monthly.inr} data-usd={plans.starter.pricing.monthly.usd}>{plans.starter.pricing.monthly.inr}</span>
                   <span class="duration">/monthly</span>
                 </div>
                 <div class="n8n-pricing-opt n8n-quarterly" style="display: none;">
-                  <span class="amount" data-inr="₹1140" data-usd="$13.65">₹1140</span>
+                  <span class="amount" data-inr={plans.starter.pricing.quarterly.inr} data-usd={plans.starter.pricing.quarterly.usd}>{plans.starter.pricing.quarterly.inr}</span>
                   <span class="duration">/quarterly</span>
                 </div>
                 <div class="n8n-pricing-opt n8n-semiannual" style="display: none;">
-                  <span class="amount" data-inr="₹2150" data-usd="$25.80">₹2150</span>
+                  <span class="amount" data-inr={plans.starter.pricing.semiannual.inr} data-usd={plans.starter.pricing.semiannual.usd}>{plans.starter.pricing.semiannual.inr}</span>
                   <span class="duration">/semiannual</span>
                 </div>
                 <div class="n8n-pricing-opt n8n-annual" style="display: none;">
-                  <span class="amount" data-inr="₹3990" data-usd="$47.90">₹3990</span>
+                  <span class="amount" data-inr={plans.starter.pricing.annual.inr} data-usd={plans.starter.pricing.annual.usd}>{plans.starter.pricing.annual.inr}</span>
                   <span class="duration">/annual</span>
                 </div>
               </div>
@@ -121,22 +123,22 @@ import Layout from '../layouts/Layout.astro';
           <div class="pricing-table featured-plan h-100" style="border: 2px solid #ff501a; position: relative;">
             <div class="plan-badge" style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: #ff501a; color: #fff; font-size: 11px; font-weight: 700; text-transform: uppercase; padding: 3px 14px; border-radius: 20px; letter-spacing: 0.05em;">Best For Growing Teams</div>
             <div class="pricing-header">
-              <h3 class="title">n8n Pro</h3>
+              <h3 class="title">{plans.pro.name}</h3>
               <div class="price-wrap">
                 <div class="n8n-pricing-opt n8n-monthly" style="display: block;">
-                  <span class="amount" data-inr="₹799" data-usd="$9.59">₹799</span>
+                  <span class="amount" data-inr={plans.pro.pricing.monthly.inr} data-usd={plans.pro.pricing.monthly.usd}>{plans.pro.pricing.monthly.inr}</span>
                   <span class="duration">/monthly</span>
                 </div>
                 <div class="n8n-pricing-opt n8n-quarterly" style="display: none;">
-                  <span class="amount" data-inr="₹2275" data-usd="$27.30">₹2275</span>
+                  <span class="amount" data-inr={plans.pro.pricing.quarterly.inr} data-usd={plans.pro.pricing.quarterly.usd}>{plans.pro.pricing.quarterly.inr}</span>
                   <span class="duration">/quarterly</span>
                 </div>
                 <div class="n8n-pricing-opt n8n-semiannual" style="display: none;">
-                  <span class="amount" data-inr="₹4315" data-usd="$51.75">₹4315</span>
+                  <span class="amount" data-inr={plans.pro.pricing.semiannual.inr} data-usd={plans.pro.pricing.semiannual.usd}>{plans.pro.pricing.semiannual.inr}</span>
                   <span class="duration">/semiannual</span>
                 </div>
                 <div class="n8n-pricing-opt n8n-annual" style="display: none;">
-                  <span class="amount" data-inr="₹7990" data-usd="$95.90">₹7990</span>
+                  <span class="amount" data-inr={plans.pro.pricing.annual.inr} data-usd={plans.pro.pricing.annual.usd}>{plans.pro.pricing.annual.inr}</span>
                   <span class="duration">/annual</span>
                 </div>
               </div>
@@ -163,22 +165,22 @@ import Layout from '../layouts/Layout.astro';
         <div class="col-xl-4 col-lg-6 col-md-6 col-12" data-sal="slide-up" data-sal-delay="200" data-sal-duration="800">
           <div class="pricing-table h-100">
             <div class="pricing-header">
-              <h3 class="title">n8n Enterprise</h3>
+              <h3 class="title">{plans.enterprise.name}</h3>
               <div class="price-wrap">
                 <div class="n8n-pricing-opt n8n-monthly" style="display: block;">
-                  <span class="amount" data-inr="₹1499" data-usd="$17.99">₹1499</span>
+                  <span class="amount" data-inr={plans.enterprise.pricing.monthly.inr} data-usd={plans.enterprise.pricing.monthly.usd}>{plans.enterprise.pricing.monthly.inr}</span>
                   <span class="duration">/monthly</span>
                 </div>
                 <div class="n8n-pricing-opt n8n-quarterly" style="display: none;">
-                  <span class="amount" data-inr="₹4270" data-usd="$51.25">₹4270</span>
+                  <span class="amount" data-inr={plans.enterprise.pricing.quarterly.inr} data-usd={plans.enterprise.pricing.quarterly.usd}>{plans.enterprise.pricing.quarterly.inr}</span>
                   <span class="duration">/quarterly</span>
                 </div>
                 <div class="n8n-pricing-opt n8n-semiannual" style="display: none;">
-                  <span class="amount" data-inr="₹8095" data-usd="$97.15">₹8095</span>
+                  <span class="amount" data-inr={plans.enterprise.pricing.semiannual.inr} data-usd={plans.enterprise.pricing.semiannual.usd}>{plans.enterprise.pricing.semiannual.inr}</span>
                   <span class="duration">/semiannual</span>
                 </div>
                 <div class="n8n-pricing-opt n8n-annual" style="display: none;">
-                  <span class="amount" data-inr="₹14990" data-usd="$179.90">₹14990</span>
+                  <span class="amount" data-inr={plans.enterprise.pricing.annual.inr} data-usd={plans.enterprise.pricing.annual.usd}>{plans.enterprise.pricing.annual.inr}</span>
                   <span class="duration">/annual</span>
                 </div>
               </div>
@@ -220,7 +222,7 @@ import Layout from '../layouts/Layout.astro';
         <div class="col-lg-4 text-lg-end">
           <div class="p-3 bg-white border rounded shadow-sm text-center">
             <span class="d-block text-muted small text-uppercase font-weight-bold">Average Annual Savings</span>
-            <h4 class="text-success mb-0 font-weight-bold" data-inr="₹65,000+ /yr" data-usd="$800+ /yr">₹65,000+ /yr</h4>
+            <h4 class="text-success mb-0 font-weight-bold" data-inr={savingsHeadline.inr} data-usd={savingsHeadline.usd}>{savingsHeadline.inr}</h4>
           </div>
         </div>
       </div>
@@ -244,7 +246,7 @@ import Layout from '../layouts/Layout.astro';
             </tr>
             <tr>
               <td class="text-start"><strong>Starting Monthly Cost</strong></td>
-              <td><strong class="text-success" data-inr="₹399 /mo" data-usd="$4.79 /mo">₹399 /mo</strong></td>
+              <td><strong class="text-success" data-inr={heroStartPrice.inr} data-usd={heroStartPrice.usd}>{heroStartPrice.inr}</strong></td>
               <td>$73.50 /mo (~₹6,100)</td>
               <td>$29.00 /mo (~₹2,400)</td>
             </tr>

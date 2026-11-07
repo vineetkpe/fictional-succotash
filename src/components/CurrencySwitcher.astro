@@ -29,6 +29,7 @@ const { variant = 'header', class: className = '' } = Astro.props;
     >
       <span class="currency-item-symbol">₹</span>
       <span class="currency-item-code">INR</span>
+      <i class="ri-check-line currency-item-check" aria-hidden="true"></i>
     </button>
     <button 
       type="button" 
@@ -39,6 +40,7 @@ const { variant = 'header', class: className = '' } = Astro.props;
     >
       <span class="currency-item-symbol">$</span>
       <span class="currency-item-code">USD</span>
+      <i class="ri-check-line currency-item-check" aria-hidden="true"></i>
     </button>
   </div>
 </div>
@@ -146,17 +148,30 @@ const { variant = 'header', class: className = '' } = Astro.props;
   }
 
   .currency-dropdown-item.active {
+    background: rgba(229, 57, 53, 0.06);
     color: #e53935;
     font-weight: 700;
   }
 
   .currency-item-symbol {
     font-weight: 600;
-    min-width: 12px;
+    min-width: 14px;
   }
 
   .currency-item-code {
     letter-spacing: 0.02em;
+  }
+
+  .currency-item-check {
+    margin-left: auto;
+    font-size: 16px;
+    color: #e53935;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+  }
+
+  .currency-dropdown-item.active .currency-item-check {
+    opacity: 1;
   }
 
   /* Header Variant */

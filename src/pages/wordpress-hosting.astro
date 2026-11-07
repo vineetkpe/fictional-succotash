@@ -1,5 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { wordpressHosting } from '../data/pricing';
+
+const plans = wordpressHosting.plans;
 ---
 
 <Layout title="Best Wordpress Hosting">
@@ -12,7 +15,7 @@ import Layout from '../layouts/Layout.astro';
                         <div class="inner">
                             <div class="content">
                                 <span class="pre-title" data-sal-delay="150" data-sal="slide-up"
-                                    data-sal-duration="800">Starts at just <span data-inr="₹ 59/mo" data-usd="$0.79/mo">₹ 59/mo</span></span>
+                                    data-sal-duration="800">Starts at just <span data-inr={wordpressHosting.heroStartPrice.inr} data-usd={wordpressHosting.heroStartPrice.usd}>{wordpressHosting.heroStartPrice.inr}</span></span>
                                 <h1 class="title" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
                                     Ease Your working with Wordpress Hosting
                                 </h1>
@@ -81,10 +84,10 @@ import Layout from '../layouts/Layout.astro';
                         data-sal-duration="800">
                         <div class="princing-table-two">
                             <h4 class="price top-50 yearly-pricing" style="display: none;">
-                                <span data-inr="₹708" data-usd="$8.40">₹708</span> <span class="durection">/Year</span>
+                                <span data-inr={plans.starter.pricing.yearly.inr} data-usd={plans.starter.pricing.yearly.usd}>{plans.starter.pricing.yearly.inr}</span> <span class="durection">/Year</span>
                             </h4>
                             <h4 class="price monthly-pricing">
-                                <span data-inr="₹59" data-usd="$0.79">₹59</span> <span class="durection">/Month</span>
+                                <span data-inr={plans.starter.pricing.monthly.inr} data-usd={plans.starter.pricing.monthly.usd}>{plans.starter.pricing.monthly.inr}</span> <span class="durection">/Month</span>
                             </h4>
                             <div class="inner">
                                 <h4 class="name">Starter </h4>
@@ -110,10 +113,10 @@ import Layout from '../layouts/Layout.astro';
                         data-sal-duration="800">
                         <div class="princing-table-two">
                             <h4 class="price top-50 yearly-pricing" style="display: none;">
-                                <span data-inr="₹1188" data-usd="$14.15">₹1188</span> <span class="durection">/Year</span>
+                                <span data-inr={plans.essential.pricing.yearly.inr} data-usd={plans.essential.pricing.yearly.usd}>{plans.essential.pricing.yearly.inr}</span> <span class="durection">/Year</span>
                             </h4>
                             <h4 class="price monthly-pricing" style="display: block;">
-                                <span data-inr="₹99" data-usd="$1.19">₹99</span> <span class="durection">/Month</span>
+                                <span data-inr={plans.essential.pricing.monthly.inr} data-usd={plans.essential.pricing.monthly.usd}>{plans.essential.pricing.monthly.inr}</span> <span class="durection">/Month</span>
                             </h4>
                             <div class="inner">
                                 <h4 class="name">Essential</h4>
@@ -139,10 +142,10 @@ import Layout from '../layouts/Layout.astro';
                         data-sal-duration="800">
                         <div class="princing-table-two">
                             <h4 class="price top-50 yearly-pricing" style="display: none;">
-                                <span data-inr="₹1168" data-usd="$13.90">₹1168</span> <span class="durection">/Year</span>
+                                <span data-inr={plans.growth.pricing.yearly.inr} data-usd={plans.growth.pricing.yearly.usd}>{plans.growth.pricing.yearly.inr}</span> <span class="durection">/Year</span>
                             </h4>
                             <h4 class="price monthly-pricing" style="display: block;">
-                                <span data-inr="₹139" data-usd="$1.65">₹139</span> <span class="durection">/Month</span>
+                                <span data-inr={plans.growth.pricing.monthly.inr} data-usd={plans.growth.pricing.monthly.usd}>{plans.growth.pricing.monthly.inr}</span> <span class="durection">/Month</span>
                             </h4>
                             <div class="inner">
 
@@ -169,10 +172,10 @@ import Layout from '../layouts/Layout.astro';
                         data-sal-duration="800">
                         <div class="princing-table-two">
                             <h4 class="price top-50 yearly-pricing" style="display: none;">
-                                <span data-inr="₹2148" data-usd="$25.60">₹2148</span> <span class="durection">/Year</span>
+                                <span data-inr={plans.prime.pricing.yearly.inr} data-usd={plans.prime.pricing.yearly.usd}>{plans.prime.pricing.yearly.inr}</span> <span class="durection">/Year</span>
                             </h4>
                             <h4 class="price monthly-pricing" style="display: block;">
-                                <span data-inr="₹179" data-usd="$2.15">₹179</span> <span class="durection">/Month</span>
+                                <span data-inr={plans.prime.pricing.monthly.inr} data-usd={plans.prime.pricing.monthly.usd}>{plans.prime.pricing.monthly.inr}</span> <span class="durection">/Month</span>
                             </h4>
                             <div class="inner">
                                 <h4 class="name">Prime</h4>

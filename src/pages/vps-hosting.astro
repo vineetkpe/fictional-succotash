@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { vpsHosting } from '../data/pricing';
+const { heroStartPrice, plans } = vpsHosting;
 ---
 
 <Layout title="High-Performance Cloud VPS Servers | Hostamble">
@@ -12,7 +14,7 @@ import Layout from '../layouts/Layout.astro';
           <div class="inner">
             <div class="content">
               <span class="pre-title" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                Pure NVMe KVM Cloud • Starts at <span data-inr="₹499 /mo" data-usd="$5.99 /mo">₹499 /mo</span>
+                Pure NVMe KVM Cloud • Starts at <span data-inr={heroStartPrice.inr} data-usd={heroStartPrice.usd}>{heroStartPrice.inr}</span>
               </span>
               <h1 class="title" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
                 High-Performance Cloud VPS Servers
@@ -78,22 +80,22 @@ import Layout from '../layouts/Layout.astro';
         <div class="col-xl-3 col-lg-6 col-md-6 col-12" data-sal="slide-up" data-sal-delay="100" data-sal-duration="800">
           <div class="pricing-table h-100">
             <div class="pricing-header">
-              <h3 class="title">VPS Starter</h3>
+              <h3 class="title">{plans.starter.name}</h3>
               <div class="price-wrap">
                 <div class="vps-pricing-opt vps-monthly" style="display: block;">
-                  <span class="amount" data-inr="₹499" data-usd="$5.99">₹499</span>
+                  <span class="amount" data-inr={plans.starter.pricing.monthly.inr} data-usd={plans.starter.pricing.monthly.usd}>{plans.starter.pricing.monthly.inr}</span>
                   <span class="duration">/monthly</span>
                 </div>
                 <div class="vps-pricing-opt vps-quarterly" style="display: none;">
-                  <span class="amount" data-inr="₹1425" data-usd="$17.10">₹1425</span>
+                  <span class="amount" data-inr={plans.starter.pricing.quarterly.inr} data-usd={plans.starter.pricing.quarterly.usd}>{plans.starter.pricing.quarterly.inr}</span>
                   <span class="duration">/quarterly</span>
                 </div>
                 <div class="vps-pricing-opt vps-semiannual" style="display: none;">
-                  <span class="amount" data-inr="₹2695" data-usd="$32.35">₹2695</span>
+                  <span class="amount" data-inr={plans.starter.pricing.semiannual.inr} data-usd={plans.starter.pricing.semiannual.usd}>{plans.starter.pricing.semiannual.inr}</span>
                   <span class="duration">/semiannual</span>
                 </div>
                 <div class="vps-pricing-opt vps-annual" style="display: none;">
-                  <span class="amount" data-inr="₹4990" data-usd="$59.90">₹4990</span>
+                  <span class="amount" data-inr={plans.starter.pricing.annual.inr} data-usd={plans.starter.pricing.annual.usd}>{plans.starter.pricing.annual.inr}</span>
                   <span class="duration">/annual</span>
                 </div>
               </div>
@@ -121,22 +123,22 @@ import Layout from '../layouts/Layout.astro';
           <div class="pricing-table featured-plan h-100" style="border: 2px solid #ff501a; position: relative;">
             <div class="plan-badge" style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: #ff501a; color: #fff; font-size: 11px; font-weight: 700; text-transform: uppercase; padding: 3px 14px; border-radius: 20px; letter-spacing: 0.05em;">Most Popular</div>
             <div class="pricing-header">
-              <h3 class="title">VPS Growth</h3>
+              <h3 class="title">{plans.growth.name}</h3>
               <div class="price-wrap">
                 <div class="vps-pricing-opt vps-monthly" style="display: block;">
-                  <span class="amount" data-inr="₹899" data-usd="$10.79">₹899</span>
+                  <span class="amount" data-inr={plans.growth.pricing.monthly.inr} data-usd={plans.growth.pricing.monthly.usd}>{plans.growth.pricing.monthly.inr}</span>
                   <span class="duration">/monthly</span>
                 </div>
                 <div class="vps-pricing-opt vps-quarterly" style="display: none;">
-                  <span class="amount" data-inr="₹2560" data-usd="$30.70">₹2560</span>
+                  <span class="amount" data-inr={plans.growth.pricing.quarterly.inr} data-usd={plans.growth.pricing.quarterly.usd}>{plans.growth.pricing.quarterly.inr}</span>
                   <span class="duration">/quarterly</span>
                 </div>
                 <div class="vps-pricing-opt vps-semiannual" style="display: none;">
-                  <span class="amount" data-inr="₹4850" data-usd="$58.20">₹4850</span>
+                  <span class="amount" data-inr={plans.growth.pricing.semiannual.inr} data-usd={plans.growth.pricing.semiannual.usd}>{plans.growth.pricing.semiannual.inr}</span>
                   <span class="duration">/semiannual</span>
                 </div>
                 <div class="vps-pricing-opt vps-annual" style="display: none;">
-                  <span class="amount" data-inr="₹8990" data-usd="$107.90">₹8990</span>
+                  <span class="amount" data-inr={plans.growth.pricing.annual.inr} data-usd={plans.growth.pricing.annual.usd}>{plans.growth.pricing.annual.inr}</span>
                   <span class="duration">/annual</span>
                 </div>
               </div>
@@ -163,22 +165,22 @@ import Layout from '../layouts/Layout.astro';
         <div class="col-xl-3 col-lg-6 col-md-6 col-12" data-sal="slide-up" data-sal-delay="200" data-sal-duration="800">
           <div class="pricing-table h-100">
             <div class="pricing-header">
-              <h3 class="title">VPS Pro</h3>
+              <h3 class="title">{plans.pro.name}</h3>
               <div class="price-wrap">
                 <div class="vps-pricing-opt vps-monthly" style="display: block;">
-                  <span class="amount" data-inr="₹1699" data-usd="$20.39">₹1699</span>
+                  <span class="amount" data-inr={plans.pro.pricing.monthly.inr} data-usd={plans.pro.pricing.monthly.usd}>{plans.pro.pricing.monthly.inr}</span>
                   <span class="duration">/monthly</span>
                 </div>
                 <div class="vps-pricing-opt vps-quarterly" style="display: none;">
-                  <span class="amount" data-inr="₹4840" data-usd="$58.10">₹4840</span>
+                  <span class="amount" data-inr={plans.pro.pricing.quarterly.inr} data-usd={plans.pro.pricing.quarterly.usd}>{plans.pro.pricing.quarterly.inr}</span>
                   <span class="duration">/quarterly</span>
                 </div>
                 <div class="vps-pricing-opt vps-semiannual" style="display: none;">
-                  <span class="amount" data-inr="₹9170" data-usd="$110.10">₹9170</span>
+                  <span class="amount" data-inr={plans.pro.pricing.semiannual.inr} data-usd={plans.pro.pricing.semiannual.usd}>{plans.pro.pricing.semiannual.inr}</span>
                   <span class="duration">/semiannual</span>
                 </div>
                 <div class="vps-pricing-opt vps-annual" style="display: none;">
-                  <span class="amount" data-inr="₹16990" data-usd="$203.90">₹16990</span>
+                  <span class="amount" data-inr={plans.pro.pricing.annual.inr} data-usd={plans.pro.pricing.annual.usd}>{plans.pro.pricing.annual.inr}</span>
                   <span class="duration">/annual</span>
                 </div>
               </div>
@@ -205,22 +207,22 @@ import Layout from '../layouts/Layout.astro';
         <div class="col-xl-3 col-lg-6 col-md-6 col-12" data-sal="slide-up" data-sal-delay="250" data-sal-duration="800">
           <div class="pricing-table h-100">
             <div class="pricing-header">
-              <h3 class="title">VPS Enterprise</h3>
+              <h3 class="title">{plans.enterprise.name}</h3>
               <div class="price-wrap">
                 <div class="vps-pricing-opt vps-monthly" style="display: block;">
-                  <span class="amount" data-inr="₹3199" data-usd="$38.39">₹3199</span>
+                  <span class="amount" data-inr={plans.enterprise.pricing.monthly.inr} data-usd={plans.enterprise.pricing.monthly.usd}>{plans.enterprise.pricing.monthly.inr}</span>
                   <span class="duration">/monthly</span>
                 </div>
                 <div class="vps-pricing-opt vps-quarterly" style="display: none;">
-                  <span class="amount" data-inr="₹9115" data-usd="$109.40">₹9115</span>
+                  <span class="amount" data-inr={plans.enterprise.pricing.quarterly.inr} data-usd={plans.enterprise.pricing.quarterly.usd}>{plans.enterprise.pricing.quarterly.inr}</span>
                   <span class="duration">/quarterly</span>
                 </div>
                 <div class="vps-pricing-opt vps-semiannual" style="display: none;">
-                  <span class="amount" data-inr="₹17275" data-usd="$207.30">₹17275</span>
+                  <span class="amount" data-inr={plans.enterprise.pricing.semiannual.inr} data-usd={plans.enterprise.pricing.semiannual.usd}>{plans.enterprise.pricing.semiannual.inr}</span>
                   <span class="duration">/semiannual</span>
                 </div>
                 <div class="vps-pricing-opt vps-annual" style="display: none;">
-                  <span class="amount" data-inr="₹31990" data-usd="$383.90">₹31990</span>
+                  <span class="amount" data-inr={plans.enterprise.pricing.annual.inr} data-usd={plans.enterprise.pricing.annual.usd}>{plans.enterprise.pricing.annual.inr}</span>
                   <span class="duration">/annual</span>
                 </div>
               </div>

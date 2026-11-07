@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { domainPricing } from '../data/pricing';
 ---
 
 <Layout title="Hostamble | Web Hosting And Domains us">
@@ -30,30 +31,15 @@ import Layout from '../layouts/Layout.astro';
                                 </form>
                             </div>
                             <ul class="select-tlds">
-                               <li>
-                                  <span class="name">.com</span>
-                                  <span class="original-price prices" data-inr="₹1265" data-usd="$14.99">₹1265</span>
-                                  <span class="discount-price prices" data-inr="₹999" data-usd="$11.99">₹999</span>
-                               </li>
-                               <li>
-                                  <span class="name">.net</span>
-                                  <span class="original-price prices" data-inr="₹1679" data-usd="$19.99">₹1679</span>
-                                  <span class="discount-price prices" data-inr="₹1399" data-usd="$16.65">₹1399</span>
-                               </li>
-                               <li>
-                                  <span class="name">.online</span>
-                                  <span class="original-price prices" data-inr="₹643" data-usd="$7.65">₹643</span>
-                                  <span class="discount-price prices" data-inr="₹139" data-usd="$1.65">₹139</span>
-                               </li>
-                               <li>
-                                  <span class="name">.in</span>
-                                  <span class="original-price prices" data-inr="₹883" data-usd="$10.50">₹883</span>
-                                  <span class="discount-price prices" data-inr="₹699" data-usd="$8.30">₹699</span>
-                               </li>
-                               <li>
-                                  <span class="name">.Co.in</span>
-                                  <span class="original-price prices" data-inr="₹723" data-usd="$8.60">₹723</span>
-                                  <span class="discount-price prices" data-inr="₹499" data-usd="$5.95">₹499</span>
+                               {domainPricing.searchTlds.map((tld) => (
+                                   <li>
+                                       <span class="name">{tld.name}</span>
+                                       <span class="original-price prices" data-inr={tld.original.inr} data-usd={tld.original.usd}>{tld.original.inr}</span>
+                                       <span class="discount-price prices" data-inr={tld.discount.inr} data-usd={tld.discount.usd}>{tld.discount.inr}</span>
+                                   </li>
+                               ))}
+                               <li class="bg-none border-0 p-0 box-shadow-none">
+                                   <a class="m-auto border-0 ace-btn btn-small" href="/tld-pricing">View All TLDs</a>
                                </li>
                             </ul>
                         </div>

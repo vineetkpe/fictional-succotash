@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { sslCertificates } from '../data/pricing';
+const { heroStartPrice, plans } = sslCertificates;
 ---
 
 <Layout title="SSL Certificates — 256-Bit Encryption & Padlock Security | Hostamble">
@@ -12,7 +14,7 @@ import Layout from '../layouts/Layout.astro';
           <div class="inner">
             <div class="content">
               <span class="pre-title" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                Trusted 256-Bit Encryption • Starts at <span data-inr="₹599 /yr" data-usd="$7.19 /yr">₹599 /yr</span>
+                Trusted 256-Bit Encryption • Starts at <span data-inr={heroStartPrice.inr} data-usd={heroStartPrice.usd}>{heroStartPrice.inr}</span>
               </span>
               <h1 class="title" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
                 SSL Certificates for Unbreakable Web Security
@@ -63,10 +65,10 @@ import Layout from '../layouts/Layout.astro';
         <div class="col-xl-4 col-lg-6 col-md-6 col-12" data-sal="slide-up" data-sal-delay="100" data-sal-duration="800">
           <div class="pricing-table h-100">
             <div class="pricing-header">
-              <h3 class="title">PositiveSSL (DV)</h3>
-              <p class="text-muted small">Standard Domain Validation</p>
+              <h3 class="title">{plans.positiveSsl.name}</h3>
+              <p class="text-muted small">{plans.positiveSsl.subtitle}</p>
               <div class="price-wrap">
-                <span class="amount" data-inr="₹599" data-usd="$7.19">₹599</span>
+                <span class="amount" data-inr={plans.positiveSsl.price.inr} data-usd={plans.positiveSsl.price.usd}>{plans.positiveSsl.price.inr}</span>
                 <span class="duration">/year</span>
               </div>
             </div>
@@ -93,10 +95,10 @@ import Layout from '../layouts/Layout.astro';
           <div class="pricing-table featured-plan h-100" style="border: 2px solid #ff501a; position: relative;">
             <div class="plan-badge" style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: #ff501a; color: #fff; font-size: 11px; font-weight: 700; text-transform: uppercase; padding: 3px 14px; border-radius: 20px; letter-spacing: 0.05em;">Most Popular Value</div>
             <div class="pricing-header">
-              <h3 class="title">Wildcard SSL (DV)</h3>
-              <p class="text-muted small">1 Domain + Unlimited Subdomains</p>
+              <h3 class="title">{plans.wildcardSsl.name}</h3>
+              <p class="text-muted small">{plans.wildcardSsl.subtitle}</p>
               <div class="price-wrap">
-                <span class="amount" data-inr="₹2499" data-usd="$29.99">₹2499</span>
+                <span class="amount" data-inr={plans.wildcardSsl.price.inr} data-usd={plans.wildcardSsl.price.usd}>{plans.wildcardSsl.price.inr}</span>
                 <span class="duration">/year</span>
               </div>
             </div>
@@ -122,10 +124,10 @@ import Layout from '../layouts/Layout.astro';
         <div class="col-xl-4 col-lg-6 col-md-6 col-12" data-sal="slide-up" data-sal-delay="200" data-sal-duration="800">
           <div class="pricing-table h-100">
             <div class="pricing-header">
-              <h3 class="title">EV Business SSL</h3>
-              <p class="text-muted small">Extended Business Verification</p>
+              <h3 class="title">{plans.evSsl.name}</h3>
+              <p class="text-muted small">{plans.evSsl.subtitle}</p>
               <div class="price-wrap">
-                <span class="amount" data-inr="₹5999" data-usd="$71.99">₹5999</span>
+                <span class="amount" data-inr={plans.evSsl.price.inr} data-usd={plans.evSsl.price.usd}>{plans.evSsl.price.inr}</span>
                 <span class="duration">/year</span>
               </div>
             </div>
@@ -362,4 +364,3 @@ import Layout from '../layouts/Layout.astro';
   </div>
 
 </Layout>
-

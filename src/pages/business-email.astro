@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { businessEmail } from '../data/pricing';
+const { heroStartPrice, plans } = businessEmail;
 ---
 
 <Layout title="Professional Business Email Hosting | Hostamble">
@@ -12,7 +14,7 @@ import Layout from '../layouts/Layout.astro';
           <div class="inner">
             <div class="content">
               <span class="pre-title" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                Custom Domain Email • High Inbox Delivery • Starts at <span data-inr="₹39 /mo" data-usd="$0.49 /mo">₹39 /mo</span>
+                Custom Domain Email • High Inbox Delivery • Starts at <span data-inr={heroStartPrice.inr} data-usd={heroStartPrice.usd}>{heroStartPrice.inr}</span>
               </span>
               <h1 class="title" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
                 Professional Business Email for Your Brand
@@ -48,7 +50,7 @@ import Layout from '../layouts/Layout.astro';
     <div class="container aceorbit-animated-shape">
       <div class="row g-5 align-items-center">
         <div class="col-lg-6 col-md-6">
-          <div class="section-title text-start" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+          <div class="section-title text-start" data-sal-slide-up data-sal-delay="150" data-sal-duration="800">
             <span class="pre-title">Reliable Communication</span>
             <h3 class="title">Choose Your Business Email Plan</h3>
           </div>
@@ -72,15 +74,15 @@ import Layout from '../layouts/Layout.astro';
         <div class="col-xl-4 col-lg-6 col-md-6 col-12" data-sal="slide-up" data-sal-delay="100" data-sal-duration="800">
           <div class="pricing-table h-100">
             <div class="pricing-header">
-              <h3 class="title">Email Starter</h3>
-              <p class="text-muted small">For Freelancers &amp; Solo Founders</p>
+              <h3 class="title">{plans.starter.name}</h3>
+              <p class="text-muted small">{plans.starter.subtitle}</p>
               <div class="price-wrap">
                 <div class="email-pricing-opt email-monthly" style="display: block;">
-                  <span class="amount" data-inr="₹39" data-usd="$0.49">₹39</span>
+                  <span class="amount" data-inr={plans.starter.pricing.monthly.inr} data-usd={plans.starter.pricing.monthly.usd}>{plans.starter.pricing.monthly.inr}</span>
                   <span class="duration">/monthly /account</span>
                 </div>
                 <div class="email-pricing-opt email-annual" style="display: none;">
-                  <span class="amount" data-inr="₹390" data-usd="$4.90">₹390</span>
+                  <span class="amount" data-inr={plans.starter.pricing.annual.inr} data-usd={plans.starter.pricing.annual.usd}>{plans.starter.pricing.annual.inr}</span>
                   <span class="duration">/annual /account</span>
                 </div>
               </div>
@@ -108,15 +110,15 @@ import Layout from '../layouts/Layout.astro';
           <div class="pricing-table featured-plan h-100" style="border: 2px solid #ff501a; position: relative;">
             <div class="plan-badge" style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: #ff501a; color: #fff; font-size: 11px; font-weight: 700; text-transform: uppercase; padding: 3px 14px; border-radius: 20px; letter-spacing: 0.05em;">Most Popular</div>
             <div class="pricing-header">
-              <h3 class="title">Email Pro</h3>
-              <p class="text-muted small">For Growing Teams &amp; SMBs</p>
+              <h3 class="title">{plans.pro.name}</h3>
+              <p class="text-muted small">{plans.pro.subtitle}</p>
               <div class="price-wrap">
                 <div class="email-pricing-opt email-monthly" style="display: block;">
-                  <span class="amount" data-inr="₹79" data-usd="$0.99">₹79</span>
+                  <span class="amount" data-inr={plans.pro.pricing.monthly.inr} data-usd={plans.pro.pricing.monthly.usd}>{plans.pro.pricing.monthly.inr}</span>
                   <span class="duration">/monthly /account</span>
                 </div>
                 <div class="email-pricing-opt email-annual" style="display: none;">
-                  <span class="amount" data-inr="₹790" data-usd="$9.90">₹790</span>
+                  <span class="amount" data-inr={plans.pro.pricing.annual.inr} data-usd={plans.pro.pricing.annual.usd}>{plans.pro.pricing.annual.inr}</span>
                   <span class="duration">/annual /account</span>
                 </div>
               </div>
@@ -143,15 +145,15 @@ import Layout from '../layouts/Layout.astro';
         <div class="col-xl-4 col-lg-6 col-md-6 col-12" data-sal="slide-up" data-sal-delay="200" data-sal-duration="800">
           <div class="pricing-table h-100">
             <div class="pricing-header">
-              <h3 class="title">Email Enterprise</h3>
-              <p class="text-muted small">For Corporate &amp; Heavy Senders</p>
+              <h3 class="title">{plans.enterprise.name}</h3>
+              <p class="text-muted small">{plans.enterprise.subtitle}</p>
               <div class="price-wrap">
                 <div class="email-pricing-opt email-monthly" style="display: block;">
-                  <span class="amount" data-inr="₹149" data-usd="$1.79">₹149</span>
+                  <span class="amount" data-inr={plans.enterprise.pricing.monthly.inr} data-usd={plans.enterprise.pricing.monthly.usd}>{plans.enterprise.pricing.monthly.inr}</span>
                   <span class="duration">/monthly /account</span>
                 </div>
                 <div class="email-pricing-opt email-annual" style="display: none;">
-                  <span class="amount" data-inr="₹1490" data-usd="$17.90">₹1490</span>
+                  <span class="amount" data-inr={plans.enterprise.pricing.annual.inr} data-usd={plans.enterprise.pricing.annual.usd}>{plans.enterprise.pricing.annual.inr}</span>
                   <span class="duration">/annual /account</span>
                 </div>
               </div>
@@ -433,4 +435,3 @@ import Layout from '../layouts/Layout.astro';
     document.querySelectorAll(`.email-${duration}`).forEach(el => el.style.display = 'block');
   }
 </script>
-

@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { googleWorkspace } from '../data/pricing';
+const { heroStartPrice, plans } = googleWorkspace;
 ---
 
 <Layout title="Google Workspace (Formerly G Suite) for Business | Hostamble">
@@ -12,7 +14,7 @@ import Layout from '../layouts/Layout.astro';
           <div class="inner">
             <div class="content">
               <span class="pre-title" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                Official Google Cloud Partner • Starts at <span data-inr="₹149 /mo" data-usd="$1.79 /mo">₹149 /mo</span>
+                Official Google Cloud Partner • Starts at <span data-inr={heroStartPrice.inr} data-usd={heroStartPrice.usd}>{heroStartPrice.inr}</span>
               </span>
               <h1 class="title" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
                 Google Workspace for Modern Teams
@@ -48,7 +50,7 @@ import Layout from '../layouts/Layout.astro';
     <div class="container aceorbit-animated-shape">
       <div class="row g-5 align-items-center">
         <div class="col-lg-6 col-md-6">
-          <div class="section-title text-start" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+          <div class="section-title text-start" data-sal-slide-up data-sal-delay="150" data-sal-duration="800">
             <span class="pre-title">Official Google Cloud Partner</span>
             <h3 class="title">Choose Your Workspace Edition</h3>
           </div>
@@ -72,15 +74,15 @@ import Layout from '../layouts/Layout.astro';
         <div class="col-xl-4 col-lg-6 col-md-6 col-12" data-sal="slide-up" data-sal-delay="100" data-sal-duration="800">
           <div class="pricing-table h-100">
             <div class="pricing-header">
-              <h3 class="title">Business Starter</h3>
+              <h3 class="title">{plans.starter.name}</h3>
               <p class="text-muted small">For Startups &amp; Small Businesses</p>
               <div class="price-wrap">
                 <div class="gw-pricing-opt gw-monthly" style="display: block;">
-                  <span class="amount" data-inr="₹149" data-usd="$1.79">₹149</span>
+                  <span class="amount" data-inr={plans.starter.pricing.monthly.inr} data-usd={plans.starter.pricing.monthly.usd}>{plans.starter.pricing.monthly.inr}</span>
                   <span class="duration">/user /monthly</span>
                 </div>
                 <div class="gw-pricing-opt gw-annual" style="display: none;">
-                  <span class="amount" data-inr="₹1788" data-usd="$21.45">₹1788</span>
+                  <span class="amount" data-inr={plans.starter.pricing.annual.inr} data-usd={plans.starter.pricing.annual.usd}>{plans.starter.pricing.annual.inr}</span>
                   <span class="duration">/user /annual</span>
                 </div>
               </div>
@@ -108,15 +110,15 @@ import Layout from '../layouts/Layout.astro';
           <div class="pricing-table featured-plan h-100" style="border: 2px solid #ff501a; position: relative;">
             <div class="plan-badge" style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: #ff501a; color: #fff; font-size: 11px; font-weight: 700; text-transform: uppercase; padding: 3px 14px; border-radius: 20px; letter-spacing: 0.05em;">Best For Growing Teams</div>
             <div class="pricing-header">
-              <h3 class="title">Business Standard</h3>
+              <h3 class="title">{plans.standard.name}</h3>
               <p class="text-muted small">Most Popular for Growing Companies</p>
               <div class="price-wrap">
                 <div class="gw-pricing-opt gw-monthly" style="display: block;">
-                  <span class="amount" data-inr="₹699" data-usd="$8.39">₹699</span>
+                  <span class="amount" data-inr={plans.standard.pricing.monthly.inr} data-usd={plans.standard.pricing.monthly.usd}>{plans.standard.pricing.monthly.inr}</span>
                   <span class="duration">/user /monthly</span>
                 </div>
                 <div class="gw-pricing-opt gw-annual" style="display: none;">
-                  <span class="amount" data-inr="₹8388" data-usd="$100.65">₹8388</span>
+                  <span class="amount" data-inr={plans.standard.pricing.annual.inr} data-usd={plans.standard.pricing.annual.usd}>{plans.standard.pricing.annual.inr}</span>
                   <span class="duration">/user /annual</span>
                 </div>
               </div>
@@ -143,15 +145,15 @@ import Layout from '../layouts/Layout.astro';
         <div class="col-xl-4 col-lg-6 col-md-6 col-12" data-sal="slide-up" data-sal-delay="200" data-sal-duration="800">
           <div class="pricing-table h-100">
             <div class="pricing-header">
-              <h3 class="title">Business Plus</h3>
+              <h3 class="title">{plans.plus.name}</h3>
               <p class="text-muted small">Advanced Security &amp; Compliance</p>
               <div class="price-wrap">
                 <div class="gw-pricing-opt gw-monthly" style="display: block;">
-                  <span class="amount" data-inr="₹1299" data-usd="$15.59">₹1299</span>
+                  <span class="amount" data-inr={plans.plus.pricing.monthly.inr} data-usd={plans.plus.pricing.monthly.usd}>{plans.plus.pricing.monthly.inr}</span>
                   <span class="duration">/user /monthly</span>
                 </div>
                 <div class="gw-pricing-opt gw-annual" style="display: none;">
-                  <span class="amount" data-inr="₹15588" data-usd="$187.05">₹15588</span>
+                  <span class="amount" data-inr={plans.plus.pricing.annual.inr} data-usd={plans.plus.pricing.annual.usd}>{plans.plus.pricing.annual.inr}</span>
                   <span class="duration">/user /annual</span>
                 </div>
               </div>
