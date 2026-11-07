@@ -2,7 +2,6 @@
 interface Props {
   showSearch?: boolean;
 }
-const { showSearch = true } = Astro.props;
 import CurrencySwitcher from './CurrencySwitcher.astro';
 ---
 <header class="ace-header header-sticky header-transparent header-style-one header-default">
@@ -57,11 +56,6 @@ import CurrencySwitcher from './CurrencySwitcher.astro';
             <div class="header-right d-flex justify-content-end align-items-center">
                 <CurrencySwitcher variant="header" />
                 <div class="header-menu-bar">
-                    {showSearch && (
-                      <div class="quote-icon quote-search">
-                        <button class="white-box-icon search-trigger header-search"><i class="ri-search-line"></i></button>
-                      </div>
-                    )}
                     <!-- For larger screens, show "Login / Register" text -->
                     <div class="quote-icon quote-user d-none d-md-block ml--15 ml_sm--5">
                         <a class="ace-btn btn-medium left-icon header-button text-nowrap" href="/login">

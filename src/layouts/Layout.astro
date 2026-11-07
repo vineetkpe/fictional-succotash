@@ -11,7 +11,7 @@ const {
   title = "Hostamble >> #1 India's Best And Cheap Web Hosting Provider",
   description = "cheap web hosting at cheap price , best cheap hosting , best cheap web hosting in india , best web hosting for small business",
   keywords = "web hosting , web hosting cheap price , hostamble , hostmble , cheapest web hosting , free domain name",
-  showSearch = true,
+  showSearch = false,
   showTopBanner = true
 }: Props = Astro.props;
 
@@ -60,7 +60,7 @@ import '../styles/style.css';
         {showTopBanner && <TopBanner />}
         <Header showSearch={showSearch} />
         <MobileMenu />
-        <SearchPopup />
+        {showSearch && <SearchPopup />}
         
         <slot />
 
