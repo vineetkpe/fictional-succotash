@@ -197,29 +197,8 @@ import Layout from '../layouts/Layout.astro';
           <div class="section-title text-start" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800"><span class="pre-title">&quot;Only Annual Plans are eligible for free domain names. &quot;</span></div>
           </div>
           </div>
-          <script is:inline>
-          function updatePricing(plan) {
-            // Hide all pricing and discounts
-            document.querySelectorAll('.monthly-pricing').forEach(el => el.style.display = 'none');
-            document.querySelectorAll('.quarterly-pricing').forEach(el => el.style.display = 'none');
-            document.querySelectorAll('.semiannual-pricing').forEach(el => el.style.display = 'none');
-            document.querySelectorAll('.annual-pricing').forEach(el => el.style.display = 'none');
-            
-            // Hide all "Free Domain" features
-            document.querySelectorAll('.free-domain').forEach(el => el.style.display = 'none');
-            
-            // Reset all discounts
-            document.querySelectorAll('.discount').forEach(el => el.style.display = 'none');
-            
-            // Show relevant pricing and discount
-            document.querySelectorAll('.' + plan + '-pricing').forEach(el => el.style.display = 'block');
-            document.querySelectorAll('.' + plan + '-pricing .discount').forEach(el => el.style.display = 'block');
-            
-            // Show "Free Domain" for semiannual and annual plans
-            if (plan === 'semiannual' || plan === 'annual') {
-                document.querySelectorAll('.' + plan + '-pricing .free-domain').forEach(el => el.style.display = 'block');
-            }
-          }
+          <script>
+            import '../scripts/pricing';
           </script>
 
 

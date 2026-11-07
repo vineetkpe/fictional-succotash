@@ -11,7 +11,7 @@ const {
   description = "cheap web hosting at cheap price , best cheap hosting , best cheap web hosting in india , best web hosting for small business",
   keywords = "web hosting , web hosting cheap price , hostamble , hostmble , cheapest web hosting , free domain name",
   showSearch = true
-} = Astro.props;
+}: Props = Astro.props;
 
 import Header from '../components/Header.astro';
 import MobileMenu from '../components/MobileMenu.astro';
@@ -46,17 +46,6 @@ import Footer from '../components/Footer.astro';
         });
       });
     </script>
-    <script is:inline>
-      document.addEventListener('DOMContentLoaded', function () {
-        document.oncontextmenu = null;
-        document.onselectstart = null;
-        document.onmousedown = null;
-        window.addEventListener('contextmenu', e => e.stopPropagation(), true);
-        window.addEventListener('copy', e => e.stopPropagation(), true);
-        window.addEventListener('cut', e => e.stopPropagation(), true);
-        window.addEventListener('keydown', e => e.stopPropagation(), true);
-      });
-    </script>
     <meta name="google-adsense-account" content="ca-pub-4201280122010738">
     <slot name="head" />
 </head>
@@ -88,7 +77,11 @@ import Footer from '../components/Footer.astro';
     <script is:inline src="/assets/js/vendor/slick.js"></script>
     <script is:inline src="/assets/js/vendor/wow.js"></script>
     <script is:inline src="/assets/js/main.js"></script>
+    
+    <script>
+      import { initAntiCopy } from '../scripts/protection';
+      initAntiCopy();
+    </script>
     <slot name="scripts" />
 </body>
 </html>
-

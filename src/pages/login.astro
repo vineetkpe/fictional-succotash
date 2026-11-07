@@ -13,8 +13,7 @@ import AuthLayout from '../layouts/AuthLayout.astro';
                  <a href="/" class="logo">
                  <img src="/assets/images/logo.png" alt="logo">
               </a>
-              <h4 class="title">
-              </h4>
+              <h4 class="title"></h4>
               
               <form>
                  <a href="https://hostamble.com/dash/login.php" style="text-decoration:none;">
@@ -30,37 +29,4 @@ import AuthLayout from '../layouts/AuthLayout.astro';
         </div>
      </div>
   </div>
-
-  <script is:inline slot="scripts">
-    var addHandler = function (element, type, handler) {
-       if (element.addEventListener) {
-          element.addEventListener(type, handler, false);
-       } else if (element.attachEvent) {
-          element.attachEvent("on" + type, handler);
-       } else {
-          element["on" + type] = handler;
-       }
-    };
-
-    var preventDefault = function (event) {
-       if (event.preventDefault) {
-          event.preventDefault();
-       } else {
-          event.returnValue = false;
-       }
-    };
-
-    addHandler(window, "contextmenu", function (event) {
-       preventDefault(event);
-       alert('Developer mode disable in this site!!');
-    });
-    document.onkeydown = function (event) {
-       if (event.keyCode == 123) {
-          return false;
-       }
-       else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
-          return false;
-       }
-    };
-  </script>
 </AuthLayout>

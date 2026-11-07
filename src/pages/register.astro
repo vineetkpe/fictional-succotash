@@ -31,44 +31,4 @@ import AuthLayout from '../layouts/AuthLayout.astro';
         </div>
      </div>
   </div>
-
-  <script is:inline slot="scripts">
-    $(document).ready(function() {
-       $('body').bind('cut copy paste', function(e) {
-          e.preventDefault();
-          alert('You may not copy any content from this website. please contact redcheap theme')
-       });
-    });
-
-    var addHandler = function (element, type, handler) {
-       if (element.addEventListener) {
-          element.addEventListener(type, handler, false);
-       } else if (element.attachEvent) {
-          element.attachEvent("on" + type, handler);
-       } else {
-          element["on" + type] = handler;
-       }
-    };
-
-    var preventDefault = function (event) {
-       if (event.preventDefault) {
-          event.preventDefault();
-       } else {
-          event.returnValue = false;
-       }
-    };
-
-    addHandler(window, "contextmenu", function (event) {
-       preventDefault(event);
-       alert('Developer mode disable in this site!!');
-    });
-    document.onkeydown = function (event) {
-       if (event.keyCode == 123) {
-          return false;
-       }
-       else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
-          return false;
-       }
-    };
-  </script>
 </AuthLayout>

@@ -6,16 +6,15 @@ import Layout from '../layouts/Layout.astro';
 <!--mobile menu end here-->
 
         <!--Start of Tawk.to Script-->
-        <script is:inline type="text/javascript">
-            var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-            (function () {
-                var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-                s1.async = true;
-                s1.src = 'https://embed.tawk.to/6293998f7b967b117991d451/1g488vnei';
-                s1.charset = 'UTF-8';
-                s1.setAttribute('crossorigin', '*');
-                s0.parentNode.insertBefore(s1, s0);
-            })();
+        <script>
+            window.Tawk_API = window.Tawk_API || {};
+            window.Tawk_LoadStart = new Date();
+            const s1 = document.createElement("script");
+            const s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/6293998f7b967b117991d451/1g488vnei';
+            s1.setAttribute('crossorigin', '*');
+            s0?.parentNode?.insertBefore(s1, s0);
         </script>
 
         <!--End of Tawk.to Script--><!--First Block -->
@@ -63,59 +62,9 @@ import Layout from '../layouts/Layout.astro';
                                         77% OFF
                                     </span>
 
-                                    <script is:inline>
-                                        (function () {
-
-                                            const words = [
-                                                "77% OFF",
-                                                "Free Domain",
-                                                "Fast Support",
-                                                "Fast Setup",
-                                                "Free SSL",
-                                                "WordPress"
-                                            ];
-
-                                            const el = document.getElementById("offerWord");
-
-                                            let wordIndex = 0;
-                                            let charIndex = 0;
-                                            let deleting = false;
-
-                                            function typeEffect() {
-
-                                                const current = words[wordIndex];
-
-                                                if (!deleting) {
-
-                                                    charIndex++;
-                                                    el.textContent = current.substring(0, charIndex);
-
-                                                    // finished typing
-                                                    if (charIndex === current.length) {
-                                                        deleting = true;
-                                                        setTimeout(typeEffect, 1200);   // pause after full word
-                                                        return;
-                                                    }
-
-                                                    setTimeout(typeEffect, 70);         // slower typing
-
-                                                } else {
-
-                                                    charIndex--;
-                                                    el.textContent = current.substring(0, charIndex);
-
-                                                    if (charIndex === 0) {
-                                                        deleting = false;
-                                                        wordIndex = (wordIndex + 1) % words.length;
-                                                    }
-
-                                                    setTimeout(typeEffect, 40);         // faster deleting
-                                                }
-                                            }
-
-                                            typeEffect();
-
-                                        })();
+                                    <script>
+                                        import { initTypewriter } from '../scripts/typewriter';
+                                        initTypewriter();
                                     </script>
 
                                 </h1>
@@ -254,31 +203,9 @@ import Layout from '../layouts/Layout.astro';
             }
         </style>
 
-        <script is:inline>
-            (function () {
-                const end = new Date("August 29, 2026 23:59:59").getTime();
-                const el = document.getElementById("sale-timer");
-
-                function tick() {
-                    const now = new Date().getTime();
-                    const diff = end - now;
-
-                    if (diff <= 0) {
-                        el.innerHTML = "Expired";
-                        return;
-                    }
-
-                    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-                    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-                    const m = Math.floor((diff / (1000 * 60)) % 60);
-                    const s = Math.floor((diff / 1000) % 60);
-
-                    el.innerHTML = `${d}d ${h}h ${m}m ${s}s`;
-                }
-
-                tick();
-                setInterval(tick, 1000);
-            })();
+        <script>
+            import { initCountdown } from '../scripts/countdown';
+            initCountdown();
         </script>
 
  
@@ -630,29 +557,8 @@ import Layout from '../layouts/Layout.astro';
                 </div>
             </div>
         </div>
-        <script is:inline>
-            function updatePricing(plan) {
-                // Hide all pricing and discounts
-                document.querySelectorAll('.monthly-pricing').forEach(el => el.style.display = 'none');
-                document.querySelectorAll('.quarterly-pricing').forEach(el => el.style.display = 'none');
-                document.querySelectorAll('.semiannual-pricing').forEach(el => el.style.display = 'none');
-                document.querySelectorAll('.annual-pricing').forEach(el => el.style.display = 'none');
-
-                // Hide all "Free Domain" features
-                document.querySelectorAll('.free-domain').forEach(el => el.style.display = 'none');
-
-                // Reset all discounts
-                document.querySelectorAll('.discount').forEach(el => el.style.display = 'none');
-
-                // Show relevant pricing and discount
-                document.querySelectorAll('.' + plan + '-pricing').forEach(el => el.style.display = 'block');
-                document.querySelectorAll('.' + plan + '-pricing .discount').forEach(el => el.style.display = 'block');
-
-                // Show "Free Domain" for semiannual and annual plans
-                if (plan === 'semiannual' || plan === 'annual') {
-                    document.querySelectorAll('.' + plan + '-pricing .free-domain').forEach(el => el.style.display = 'block');
-                }
-            }
+        <script>
+            import '../scripts/pricing';
         </script>
         <!--end here -->
 
@@ -899,27 +805,9 @@ overflow:hidden">
   </div>
 </section>
 
-<script is:inline>
-document.querySelectorAll('.fitem').forEach((card,i)=>{
-  card.style.opacity=0;
-  card.style.transform="translateY(40px)";
-  setTimeout(()=>{
-    card.style.transition="all .7s cubic-bezier(.2,.8,.2,1)";
-    card.style.opacity=1;
-    card.style.transform="translateY(0)";
-  },120*i);
-});
-
-document.querySelectorAll('.num').forEach(el=>{
-  el.onmouseenter=()=>{
-    el.style.transform="translateY(-8px) scale(1.1)";
-    el.style.boxShadow="0 18px 45px rgba(var(--color-primary-rgb),.45)";
-  };
-  el.onmouseleave=()=>{
-    el.style.transform="translateY(0) scale(1)";
-    el.style.boxShadow="0 8px 22px rgba(var(--color-primary-rgb),.25)";
-  };
-});
+<script>
+  import { initFeatureAnimations } from '../scripts/features';
+  initFeatureAnimations();
 </script>
 
 
