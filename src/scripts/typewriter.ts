@@ -5,10 +5,10 @@ export function initTypewriter(
   elementId: string = "offerWord",
   words: string[] = [
     "77% Discount",
-    "Free .COM Domain",
-    "10x Turbo Speed",
-    "Free SSL & Backups",
-    "24/7 Expert Support",
+    "Free Domain",
+    "Turbo Power",
+    "Free SSL",
+    "Expert Support",
     "1-Click WordPress"
   ]
 ): void {
