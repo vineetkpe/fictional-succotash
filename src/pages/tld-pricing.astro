@@ -1,0 +1,494 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Domain TLD Pricing List — Register, Transfer & Renew | Hostamble">
+
+  <!-- Block 1: Hero Area -->
+  <div class="slider-area banner img2 bg-image d-flex align-items-center">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-7 col-md-12">
+          <div class="inner">
+            <div class="content">
+              <span class="pre-title" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+                Transparent Pricing • Free Privacy Protection • Starts at <span data-inr="₹139 /yr" data-usd="$1.65 /yr">₹139 /yr</span>
+              </span>
+              <h1 class="title" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
+                Complete Domain TLD Pricing List
+              </h1>
+              <p class="description" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
+                Compare registration, renewal, and transfer rates across popular top-level domain extensions. Free DNS management, email forwarding, and privacy protection included with every domain.
+              </p>
+              <div class="mt-4" data-sal-delay="300" data-sal="slide-up" data-sal-duration="800">
+                <a class="ace-btn" href="#tld-table">View All TLD Prices <i class="icon-arrow-right-line-right"></i></a>
+                <a class="ace-btn btn-border ml--15" href="/domain-search">Domain Search</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="banner-thumbnail text-center">
+            <img class="img-thumb" src="/assets/images/banner01.png" alt="Domain TLD Search" data-sal-delay="150" data-sal="fade" data-sal-duration="800">
+          </div>
+        </div>
+      </div>
+      <div class="shape-dot-wrapper shape-wrapper d-xl-block d-none">
+        <div class="shape-image shape-image-1"><img src="/assets/images/shape19.png" alt="Shape"></div>
+        <div class="shape-image shape-image-2"><img src="/assets/images/shape0501.png" alt="Shape"></div>
+        <div class="shape-image shape-image-3"><img src="/assets/images/shape1901.png" alt="Shape"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Block 2: Interactive Searchable TLD Table -->
+  <div class="ace-section-gap bg-image" id="tld-table">
+    <div class="container aceorbit-animated-shape">
+      <div class="row align-items-center mb-4">
+        <div class="col-lg-6 col-md-12 mb-3 mb-lg-0">
+          <div class="section-title text-start">
+            <span class="pre-title">Live Rate Card</span>
+            <h3 class="title">All Domain Extensions &amp; Rates</h3>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12">
+          <div class="d-flex align-items-center justify-content-lg-end gap-2">
+            <div class="input-group" style="max-width: 320px;">
+              <span class="input-group-text bg-white border-end-0"><i class="ri-search-line text-muted"></i></span>
+              <input 
+                type="text" 
+                id="tldFilterInput" 
+                class="form-control border-start-0 ps-0" 
+                placeholder="Filter TLD e.g. .com, .in, tech..." 
+                onkeyup="filterTldTable()"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter Category Buttons -->
+      <div class="row mb-4">
+        <div class="col-12">
+          <div class="d-flex flex-wrap gap-2" id="tldCategoryPills">
+            <button type="button" class="btn btn-sm btn-dark px-3 py-2 rounded-pill tld-cat-btn active" onclick="filterTldCategory('all', this)">All Extensions</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary px-3 py-2 rounded-pill tld-cat-btn" onclick="filterTldCategory('popular', this)">🔥 Popular</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary px-3 py-2 rounded-pill tld-cat-btn" onclick="filterTldCategory('india', this)">🇮🇳 India (.IN)</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary px-3 py-2 rounded-pill tld-cat-btn" onclick="filterTldCategory('tech', this)">💻 Tech &amp; Dev</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary px-3 py-2 rounded-pill tld-cat-btn" onclick="filterTldCategory('business', this)">🏢 Business &amp; Commerce</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TLD Table -->
+      <div class="table-responsive bg-white rounded-3 shadow-sm border p-3">
+        <table class="table table-hover align-middle mb-0" id="domainTldPricingTable">
+          <thead class="table-light">
+            <tr>
+              <th scope="col" style="width: 22%;">Domain TLD</th>
+              <th scope="col" style="width: 18%;">Category</th>
+              <th scope="col" style="width: 20%;">Register (1st Year)</th>
+              <th scope="col" style="width: 20%;">Renew (Annual)</th>
+              <th scope="col" style="width: 20%;">Transfer</th>
+              <th scope="col" class="text-end" style="width: 15%;">Action</th>
+            </tr>
+          </thead>
+          <tbody id="tldTableBody">
+            <!-- .com -->
+            <tr data-tld=".com" data-category="popular business">
+              <td><strong class="text-dark fs-6">.com</strong> <span class="badge bg-danger text-white ms-1">Hot</span></td>
+              <td><span class="badge bg-light text-dark">Universal / Business</span></td>
+              <td><span class="text-success font-weight-bold" data-inr="₹999 /yr" data-usd="$11.99 /yr">₹999 /yr</span> <del class="text-muted small ms-1" data-inr="₹1265" data-usd="$14.99">₹1265</del></td>
+              <td><span data-inr="₹1265 /yr" data-usd="$14.99 /yr">₹1265 /yr</span></td>
+              <td><span data-inr="₹986" data-usd="$11.75">₹986</span></td>
+              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
+            </tr>
+
+            <!-- .in -->
+            <tr data-tld=".in" data-category="popular india">
+              <td><strong class="text-dark fs-6">.in</strong> <span class="badge bg-primary text-white ms-1">India</span></td>
+              <td><span class="badge bg-light text-dark">National / Regional</span></td>
+              <td><span class="text-success font-weight-bold" data-inr="₹499 /yr" data-usd="$5.95 /yr">₹499 /yr</span> <del class="text-muted small ms-1" data-inr="₹723" data-usd="$8.60">₹723</del></td>
+              <td><span data-inr="₹699 /yr" data-usd="$8.30 /yr">₹699 /yr</span></td>
+              <td><span data-inr="₹599" data-usd="$7.15">₹599</span></td>
+              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
+            </tr>
+
+            <!-- .co.in -->
+            <tr data-tld=".co.in" data-category="india business">
+              <td><strong class="text-dark fs-6">.co.in</strong></td>
+              <td><span class="badge bg-light text-dark">India Business</span></td>
+              <td><span class="text-success font-weight-bold" data-inr="₹399 /yr" data-usd="$4.75 /yr">₹399 /yr</span> <del class="text-muted small ms-1" data-inr="₹599" data-usd="$7.15">₹599</del></td>
+              <td><span data-inr="₹549 /yr" data-usd="$6.55 /yr">₹549 /yr</span></td>
+              <td><span data-inr="₹499" data-usd="$5.95">₹499</span></td>
+              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
+            </tr>
+
+            <!-- .net -->
+            <tr data-tld=".net" data-category="popular tech">
+              <td><strong class="text-dark fs-6">.net</strong></td>
+              <td><span class="badge bg-light text-dark">Network / Tech</span></td>
+              <td><span class="text-success font-weight-bold" data-inr="₹1399 /yr" data-usd="$16.65 /yr">₹1399 /yr</span> <del class="text-muted small ms-1" data-inr="₹1679" data-usd="$19.99">₹1679</del></td>
+              <td><span data-inr="₹1679 /yr" data-usd="$19.99 /yr">₹1679 /yr</span></td>
+              <td><span data-inr="₹1399" data-usd="$16.65">₹1399</span></td>
+              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
+            </tr>
+
+            <!-- .org -->
+            <tr data-tld=".org" data-category="popular business">
+              <td><strong class="text-dark fs-6">.org</strong></td>
+              <td><span class="badge bg-light text-dark">Organization / Non-profit</span></td>
+              <td><span class="text-success font-weight-bold" data-inr="₹1199 /yr" data-usd="$14.30 /yr">₹1199 /yr</span> <del class="text-muted small ms-1" data-inr="₹1499" data-usd="$17.90">₹1499</del></td>
+              <td><span data-inr="₹1499 /yr" data-usd="$17.90 /yr">₹1499 /yr</span></td>
+              <td><span data-inr="₹1199" data-usd="$14.30">₹1199</span></td>
+              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
+            </tr>
+
+            <!-- .io -->
+            <tr data-tld=".io" data-category="popular tech">
+              <td><strong class="text-dark fs-6">.io</strong> <span class="badge bg-warning text-dark ms-1">Startup</span></td>
+              <td><span class="badge bg-light text-dark">Developers / SaaS</span></td>
+              <td><span class="text-success font-weight-bold" data-inr="₹3499 /yr" data-usd="$41.99 /yr">₹3499 /yr</span> <del class="text-muted small ms-1" data-inr="₹4199" data-usd="$50.00">₹4199</del></td>
+              <td><span data-inr="₹4199 /yr" data-usd="$50.00 /yr">₹4199 /yr</span></td>
+              <td><span data-inr="₹3499" data-usd="$41.99">₹3499</span></td>
+              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
+            </tr>
+
+            <!-- .ai -->
+            <tr data-tld=".ai" data-category="popular tech">
+              <td><strong class="text-dark fs-6">.ai</strong> <span class="badge bg-info text-white ms-1">AI Trending</span></td>
+              <td><span class="badge bg-light text-dark">Artificial Intelligence</span></td>
+              <td><span class="text-success font-weight-bold" data-inr="₹6499 /yr" data-usd="$77.99 /yr">₹6499 /yr</span> <del class="text-muted small ms-1" data-inr="₹7999" data-usd="$95.50">₹7999</del></td>
+              <td><span data-inr="₹7999 /yr" data-usd="$95.50 /yr">₹7999 /yr</span></td>
+              <td><span data-inr="₹6499" data-usd="$77.99">₹6499</span></td>
+              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
+            </tr>
+
+            <!-- .store -->
+            <tr data-tld=".store" data-category="business">
+              <td><strong class="text-dark fs-6">.store</strong></td>
+              <td><span class="badge bg-light text-dark">eCommerce / Retail</span></td>
+              <td><span class="text-success font-weight-bold" data-inr="₹299 /yr" data-usd="$3.59 /yr">₹299 /yr</span> <del class="text-muted small ms-1" data-inr="₹3499" data-usd="$41.99">₹3499</del></td>
+              <td><span data-inr="₹3499 /yr" data-usd="$41.99 /yr">₹3499 /yr</span></td>
+              <td><span data-inr="₹299" data-usd="$3.59">₹299</span></td>
+              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
+            </tr>
+
+            <!-- .shop -->
+            <tr data-tld=".shop" data-category="business">
+              <td><strong class="text-dark fs-6">.shop</strong></td>
+              <td><span class="badge bg-light text-dark">Online Store</span></td>
+              <td><span class="text-success font-weight-bold" data-inr="₹266 /yr" data-usd="$3.19 /yr">₹266 /yr</span> <del class="text-muted small ms-1" data-inr="₹867" data-usd="$10.39">₹867</del></td>
+              <td><span data-inr="₹2499 /yr" data-usd="$29.90 /yr">₹2499 /yr</span></td>
+              <td><span data-inr="₹266" data-usd="$3.19">₹266</span></td>
+              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
+            </tr>
+
+            <!-- .tech -->
+            <tr data-tld=".tech" data-category="tech">
+              <td><strong class="text-dark fs-6">.tech</strong></td>
+              <td><span class="badge bg-light text-dark">Tech / Engineering</span></td>
+              <td><span class="text-success font-weight-bold" data-inr="₹399 /yr" data-usd="$4.79 /yr">₹399 /yr</span> <del class="text-muted small ms-1" data-inr="₹3899" data-usd="$46.50">₹3899</del></td>
+              <td><span data-inr="₹3899 /yr" data-usd="$46.50 /yr">₹3899 /yr</span></td>
+              <td><span data-inr="₹399" data-usd="$4.79">₹399</span></td>
+              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
+            </tr>
+
+            <!-- .online -->
+            <tr data-tld=".online" data-category="popular">
+              <td><strong class="text-dark fs-6">.online</strong></td>
+              <td><span class="badge bg-light text-dark">General Presence</span></td>
+              <td><span class="text-success font-weight-bold" data-inr="₹299 /yr" data-usd="$3.59 /yr">₹299 /yr</span> <del class="text-muted small ms-1" data-inr="₹1679" data-usd="$19.99">₹1679</del></td>
+              <td><span data-inr="₹2699 /yr" data-usd="$32.20 /yr">₹2699 /yr</span></td>
+              <td><span data-inr="₹299" data-usd="$3.59">₹299</span></td>
+              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
+            </tr>
+
+            <!-- .site -->
+            <tr data-tld=".site" data-category="popular">
+              <td><strong class="text-dark fs-6">.site</strong></td>
+              <td><span class="badge bg-light text-dark">General Website</span></td>
+              <td><span class="text-success font-weight-bold" data-inr="₹199 /yr" data-usd="$2.39 /yr">₹199 /yr</span> <del class="text-muted small ms-1" data-inr="₹643" data-usd="$7.69">₹643</del></td>
+              <td><span data-inr="₹1999 /yr" data-usd="$23.90 /yr">₹1999 /yr</span></td>
+              <td><span data-inr="₹199" data-usd="$2.39">₹199</span></td>
+              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
+            </tr>
+
+            <!-- .xyz -->
+            <tr data-tld=".xyz" data-category="popular tech">
+              <td><strong class="text-dark fs-6">.xyz</strong></td>
+              <td><span class="badge bg-light text-dark">Next Generation / Web3</span></td>
+              <td><span class="text-success font-weight-bold" data-inr="₹338 /yr" data-usd="$4.09 /yr">₹338 /yr</span> <del class="text-muted small ms-1" data-inr="₹883" data-usd="$10.59">₹883</del></td>
+              <td><span data-inr="₹999 /yr" data-usd="$11.95 /yr">₹999 /yr</span></td>
+              <td><span data-inr="₹338" data-usd="$4.09">₹338</span></td>
+              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
+            </tr>
+
+            <!-- .app -->
+            <tr data-tld=".app" data-category="tech">
+              <td><strong class="text-dark fs-6">.app</strong></td>
+              <td><span class="badge bg-light text-dark">Mobile &amp; Web Apps (HTTPS default)</span></td>
+              <td><span class="text-success font-weight-bold" data-inr="₹1299 /yr" data-usd="$15.55 /yr">₹1299 /yr</span> <del class="text-muted small ms-1" data-inr="₹1599" data-usd="$19.10">₹1599</del></td>
+              <td><span data-inr="₹1599 /yr" data-usd="$19.10 /yr">₹1599 /yr</span></td>
+              <td><span data-inr="₹1299" data-usd="$15.55">₹1299</span></td>
+              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
+            </tr>
+
+            <!-- .dev -->
+            <tr data-tld=".dev" data-category="tech">
+              <td><strong class="text-dark fs-6">.dev</strong></td>
+              <td><span class="badge bg-light text-dark">Developers / Software</span></td>
+              <td><span class="text-success font-weight-bold" data-inr="₹1199 /yr" data-usd="$14.35 /yr">₹1199 /yr</span> <del class="text-muted small ms-1" data-inr="₹1499" data-usd="$17.90">₹1499</del></td>
+              <td><span data-inr="₹1499 /yr" data-usd="$17.90 /yr">₹1499 /yr</span></td>
+              <td><span data-inr="₹1199" data-usd="$14.35">₹1199</span></td>
+              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
+            </tr>
+
+            <!-- .co -->
+            <tr data-tld=".co" data-category="popular business">
+              <td><strong class="text-dark fs-6">.co</strong></td>
+              <td><span class="badge bg-light text-dark">Companies &amp; Startups</span></td>
+              <td><span class="text-success font-weight-bold" data-inr="₹699 /yr" data-usd="$8.30 /yr">₹699 /yr</span> <del class="text-muted small ms-1" data-inr="₹2499" data-usd="$29.90">₹2499</del></td>
+              <td><span data-inr="₹2499 /yr" data-usd="$29.90 /yr">₹2499 /yr</span></td>
+              <td><span data-inr="₹699" data-usd="$8.30">₹699</span></td>
+              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
+            </tr>
+
+            <!-- .biz -->
+            <tr data-tld=".biz" data-category="business">
+              <td><strong class="text-dark fs-6">.biz</strong></td>
+              <td><span class="badge bg-light text-dark">Small Businesses</span></td>
+              <td><span class="text-success font-weight-bold" data-inr="₹499 /yr" data-usd="$5.95 /yr">₹499 /yr</span> <del class="text-muted small ms-1" data-inr="₹1299" data-usd="$15.50">₹1299</del></td>
+              <td><span data-inr="₹1299 /yr" data-usd="$15.50 /yr">₹1299 /yr</span></td>
+              <td><span data-inr="₹499" data-usd="$5.95">₹499</span></td>
+              <td class="text-end"><a class="ace-btn btn-small" href="/domain-search">Register</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Block 3: Included Free With Every Domain (4 Cards) -->
+  <div class="ace-feature-area ace-section-gap bg-image bg-color-light">
+    <div class="container aceorbit-animated-shape">
+      <div class="row mb-5 text-center">
+        <div class="col-lg-12">
+          <div class="section-title">
+            <span class="pre-title">Zero Hidden Fees</span>
+            <h3 class="title">Everything Included Free with Your Domain</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6 col-12">
+          <div class="service-card service-card-3 shape-bg-1 h-100 p-4 bg-white border rounded-3 text-center">
+            <div class="icon mb-3 fs-1 text-primary"><i class="ri-shield-user-line"></i></div>
+            <h5 class="title font-weight-bold">Free WHOIS Privacy</h5>
+            <p class="description small mb-0">Mask your personal phone number, home address, and email from public spam harvesters at no extra cost.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-12">
+          <div class="service-card service-card-3 shape-bg-2 h-100 p-4 bg-white border rounded-3 text-center">
+            <div class="icon mb-3 fs-1 text-success"><i class="ri-global-line"></i></div>
+            <h5 class="title font-weight-bold">Anycast DNS Manager</h5>
+            <p class="description small mb-0">Instant DNS record changes for A, CNAME, MX, TXT, and SPF records backed by globally distributed Anycast nameservers.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-12">
+          <div class="service-card service-card-3 shape-bg-1 h-100 p-4 bg-white border rounded-3 text-center">
+            <div class="icon mb-3 fs-1 text-warning"><i class="ri-mail-forward-line"></i></div>
+            <h5 class="title font-weight-bold">2 Free Email Accounts</h5>
+            <p class="description small mb-0">Create custom branded email forwarders (e.g. `hello@yourdomain.com`) routed straight to your existing personal inbox.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-12">
+          <div class="service-card service-card-3 shape-bg-2 h-100 p-4 bg-white border rounded-3 text-center">
+            <div class="icon mb-3 fs-1 text-danger"><i class="ri-lock-2-line"></i></div>
+            <h5 class="title font-weight-bold">Domain Theft Lock</h5>
+            <p class="description small mb-0">Prevent unauthorized domain hijacking or accidental transfer with automated registrar-level security locking.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Block 4: Domain Lifecycle & Easy 3-Step Process -->
+  <div class="ace-section-gap bg-image">
+    <div class="container">
+      <div class="row text-center mb-5">
+        <div class="col-lg-12">
+          <div class="section-title">
+            <span class="pre-title">Simple Steps</span>
+            <h3 class="title">How to Register or Transfer Your Domain</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-4 col-md-6 col-12 text-center">
+          <div class="p-4 bg-white rounded-3 border shadow-sm h-100">
+            <div class="step-num bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 48px; height: 48px; font-weight: bold; font-size: 20px;">1</div>
+            <h5 class="font-weight-bold">Search Domain Name</h5>
+            <p class="text-muted small">Type your desired brand or business name into our real-time search engine to verify instant availability.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-12 text-center">
+          <div class="p-4 bg-white rounded-3 border shadow-sm h-100">
+            <div class="step-num bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 48px; height: 48px; font-weight: bold; font-size: 20px;">2</div>
+            <h5 class="font-weight-bold">Select TLD &amp; Configure</h5>
+            <p class="text-muted small">Choose your extension (.com, .in, etc.) and add free DNS management and WHOIS privacy with a single click.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-12 text-center">
+          <div class="p-4 bg-white rounded-3 border shadow-sm h-100">
+            <div class="step-num bg-warning text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 48px; height: 48px; font-weight: bold; font-size: 20px;">3</div>
+            <h5 class="font-weight-bold">Instant Activation</h5>
+            <p class="text-muted small">Complete checkout with secure Indian UPI, cards, or international payment methods. Your domain is active in minutes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Block 5: Transfer Domain Help Banner -->
+  <div class="ace-help-area bg-image domain-style-3 ace-section-gap bg-color-primary">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-7">
+          <div class="inner">
+            <div class="section-title text-white text-start">
+              <span class="pre-title">Transfer &amp; Save</span>
+              <h3 class="title">Have domains registered elsewhere?</h3>
+              <p class="content">Consolidate your domains with Hostamble and save up to 40% on annual renewal rates with zero interruption to your website or business email.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="domain-right-content d-block d-sm-flex align-items-center justify-content-start justify-content-lg-end">
+            <div class="contact-btn mr--15 mr_sm--0 mb_sm--10">
+              <a class="ace-btn btn-white" href="/transfer-domain">Transfer Domain Now <i class="icon-arrow-right-line-right"></i></a>
+            </div>
+            <div class="contact-info">
+              <a href="/contacts"><i class="icon-Headphone"></i> Help Desk</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Block 6: Domain FAQs Accordion -->
+  <div class="aceorbit-progress ace-service-area ace-section-gap bg-image faq">
+    <div class="container aceorbit-animated-shape">
+      <div class="row mb-5 text-center">
+        <div class="col-lg-12">
+          <div class="section-title">
+            <span class="pre-title">Got Questions?</span>
+            <h3 class="title">Frequently Asked Questions About Domain Pricing</h3>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
+          <div class="accordion accordion-flush" id="tldFaqs">
+            <div class="accordion-item">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#tld-faq-1" aria-expanded="true">
+                Are there any hidden fees or ICANN charges added at checkout?
+              </button>
+              <div id="tld-faq-1" class="accordion-collapse collapse show" data-bs-parent="#tldFaqs">
+                <div class="accordion-body">
+                  No. Hostamble practices transparent pricing. The price you see includes all mandatory registry fees and standard ICANN fees. What you see is what you pay.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tld-faq-2" aria-expanded="false">
+                Is WHOIS domain privacy protection really free?
+              </button>
+              <div id="tld-faq-2" class="accordion-collapse collapse" data-bs-parent="#tldFaqs">
+                <div class="accordion-body">
+                  Yes, WHOIS privacy protection is 100% free forever for all eligible TLDs (.com, .net, .org, .co, etc.) where registry regulations allow privacy masking.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tld-faq-3" aria-expanded="false">
+                How does transferring a domain to Hostamble work?
+              </button>
+              <div id="tld-faq-3" class="accordion-collapse collapse" data-bs-parent="#tldFaqs">
+                <div class="accordion-body">
+                  Simply unlock your domain at your current registrar, obtain the EPP/Auth code, and submit the transfer request on our Domain Transfer page. Most transfers include an additional 1-year registration extension.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tld-faq-4" aria-expanded="false">
+                Can I register a domain without purchasing web hosting?
+              </button>
+              <div id="tld-faq-4" class="accordion-collapse collapse" data-bs-parent="#tldFaqs">
+                <div class="accordion-body">
+                  Yes! You can register and hold domains independently. You still get full access to our free Anycast DNS Manager, URL forwarding, and email forwarding controls.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tld-faq-5" aria-expanded="false">
+                What payment methods are supported for domain purchases?
+              </button>
+              <div id="tld-faq-5" class="accordion-collapse collapse" data-bs-parent="#tldFaqs">
+                <div class="accordion-body">
+                  We accept UPI (Google Pay, PhonePe, Paytm), Indian Netbanking, Debit &amp; Credit Cards, International Visa/Mastercard/Amex, and PayPal.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</Layout>
+
+<script is:inline>
+  function filterTldTable() {
+    const input = document.getElementById('tldFilterInput');
+    const filter = input.value.toLowerCase().trim();
+    const rows = document.querySelectorAll('#tldTableBody tr');
+
+    rows.forEach(row => {
+      const text = row.textContent.toLowerCase();
+      if (text.includes(filter)) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+
+  function filterTldCategory(category, btn) {
+    document.querySelectorAll('.tld-cat-btn').forEach(b => {
+      b.classList.remove('active', 'btn-dark');
+      b.classList.add('btn-outline-secondary');
+    });
+    if (btn) {
+      btn.classList.add('active', 'btn-dark');
+      btn.classList.remove('btn-outline-secondary');
+    }
+
+    const rows = document.querySelectorAll('#tldTableBody tr');
+    rows.forEach(row => {
+      const cats = row.getAttribute('data-category') || '';
+      if (category === 'all' || cats.includes(category)) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+</script>

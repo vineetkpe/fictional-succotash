@@ -1,0 +1,542 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Managed n8n Workflow Automation Servers | Hostamble">
+
+  <!-- Block 1: Hero Area -->
+  <div class="slider-area banner img2 bg-image d-flex align-items-center">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6 col-md-12">
+          <div class="inner">
+            <div class="content">
+              <span class="pre-title" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+                Self-Hosted Power • Zero Task Limits • Starts at <span data-inr="₹399 /mo" data-usd="$4.79 /mo">₹399 /mo</span>
+              </span>
+              <h1 class="title" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
+                Managed n8n Workflow Automation Servers
+              </h1>
+              <p class="description" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
+                Run unlimited AI agents, CRM syncs, and custom business automations without per-task limits. Pre-configured with dedicated resources, production PostgreSQL, and free SSL on your own domain.
+              </p>
+              <div class="read-more-btn" data-sal-delay="300" data-sal="slide-up" data-sal-duration="800">
+                <a class="ace-btn" href="#n8n-plans">Launch n8n Instance <i class="icon-arrow-right-line-right"></i></a>
+              </div>
+              <div class="arrow-sign d-lg-block d-none">
+                <img src="/assets/images/arrow.png" alt="Arrow Indicator" data-sal-delay="150" data-sal="fade" data-sal-duration="800">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="banner-thumbnail text-center">
+            <img class="img-thumb" src="/assets/images/banner06.png" alt="n8n Automation Flow" data-sal-delay="150" data-sal="fade" data-sal-duration="800">
+          </div>
+        </div>
+      </div>
+      <div class="shape-dot-wrapper shape-wrapper d-xl-block d-none">
+        <div class="shape-image shape-image-1"><img src="/assets/images/shape19.png" alt="Shape"></div>
+        <div class="shape-image shape-image-2"><img src="/assets/images/shape0501.png" alt="Shape"></div>
+        <div class="shape-image shape-image-3"><img src="/assets/images/shape1901.png" alt="Shape"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Block 2: n8n Pricing Plans -->
+  <div class="ace-pricing-area aceorbit-pricing-plan-page ace-section-gap bg-image" id="n8n-plans">
+    <div class="container aceorbit-animated-shape">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6 col-md-6">
+          <div class="section-title text-start" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+            <span class="pre-title">Transparent n8n Hosting</span>
+            <h3 class="title">Choose Your n8n Automation Plan</h3>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <div class="pricing-billing-duration">
+            <ul>
+              <li class="nav-item">
+                <button class="nav-link active" id="n8n-monthly-btn" type="button" onclick="switchN8nBilling('monthly')">Monthly</button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link" id="n8n-quarterly-btn" type="button" onclick="switchN8nBilling('quarterly')">Quarterly</button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link" id="n8n-semiannual-btn" type="button" onclick="switchN8nBilling('semiannual')">Semi-Annual</button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link" id="n8n-annual-btn" type="button" onclick="switchN8nBilling('annual')">Annual</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-5 mt--20">
+        <!-- Plan 1: n8n Starter -->
+        <div class="col-xl-4 col-lg-6 col-md-6 col-12" data-sal="slide-up" data-sal-delay="100" data-sal-duration="800">
+          <div class="pricing-table h-100">
+            <div class="pricing-header">
+              <h3 class="title">n8n Starter</h3>
+              <div class="price-wrap">
+                <div class="n8n-pricing-opt n8n-monthly" style="display: block;">
+                  <span class="amount" data-inr="₹399" data-usd="$4.79">₹399</span>
+                  <span class="duration">/monthly</span>
+                </div>
+                <div class="n8n-pricing-opt n8n-quarterly" style="display: none;">
+                  <span class="amount" data-inr="₹1140" data-usd="$13.65">₹1140</span>
+                  <span class="duration">/quarterly</span>
+                </div>
+                <div class="n8n-pricing-opt n8n-semiannual" style="display: none;">
+                  <span class="amount" data-inr="₹2150" data-usd="$25.80">₹2150</span>
+                  <span class="duration">/semiannual</span>
+                </div>
+                <div class="n8n-pricing-opt n8n-annual" style="display: none;">
+                  <span class="amount" data-inr="₹3990" data-usd="$47.90">₹3990</span>
+                  <span class="duration">/annual</span>
+                </div>
+              </div>
+            </div>
+            <div class="pricing-body">
+              <ul class="list-item">
+                <li style="color: #000; font-weight: bold;">Unlimited Workflows</li>
+                <li style="color: #000; font-weight: bold;">Up to 50,000 Executions/mo</li>
+                <li style="color: #000; font-weight: bold;">2 GB RAM • 1 vCPU Core</li>
+                <li>25 GB NVMe SSD Storage</li>
+                <li>Custom Subdomain &amp; Free SSL</li>
+                <li>Production PostgreSQL Database</li>
+                <li>Automated Daily Cloud Backups</li>
+                <li>1-Click n8n Version Updates</li>
+              </ul>
+            </div>
+            <div class="pricing-footer text-center">
+              <a class="ace-btn btn-border" href="https://hostamble.com/dash/index.php/store/n8n-hosting">Deploy Starter</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plan 2: n8n Pro (Recommended) -->
+        <div class="col-xl-4 col-lg-6 col-md-6 col-12" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+          <div class="pricing-table featured-plan h-100" style="border: 2px solid #ff501a; position: relative;">
+            <div class="plan-badge" style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: #ff501a; color: #fff; font-size: 11px; font-weight: 700; text-transform: uppercase; padding: 3px 14px; border-radius: 20px; letter-spacing: 0.05em;">Best For Growing Teams</div>
+            <div class="pricing-header">
+              <h3 class="title">n8n Pro</h3>
+              <div class="price-wrap">
+                <div class="n8n-pricing-opt n8n-monthly" style="display: block;">
+                  <span class="amount" data-inr="₹799" data-usd="$9.59">₹799</span>
+                  <span class="duration">/monthly</span>
+                </div>
+                <div class="n8n-pricing-opt n8n-quarterly" style="display: none;">
+                  <span class="amount" data-inr="₹2275" data-usd="$27.30">₹2275</span>
+                  <span class="duration">/quarterly</span>
+                </div>
+                <div class="n8n-pricing-opt n8n-semiannual" style="display: none;">
+                  <span class="amount" data-inr="₹4315" data-usd="$51.75">₹4315</span>
+                  <span class="duration">/semiannual</span>
+                </div>
+                <div class="n8n-pricing-opt n8n-annual" style="display: none;">
+                  <span class="amount" data-inr="₹7990" data-usd="$95.90">₹7990</span>
+                  <span class="duration">/annual</span>
+                </div>
+              </div>
+            </div>
+            <div class="pricing-body">
+              <ul class="list-item">
+                <li style="color: #000; font-weight: bold;">Unlimited Workflows</li>
+                <li style="color: #000; font-weight: bold;">Unlimited Executions</li>
+                <li style="color: #000; font-weight: bold;">4 GB RAM • 2 vCPU Cores</li>
+                <li>60 GB NVMe Gen4 Storage</li>
+                <li>Custom Custom Domain with SSL</li>
+                <li>High-Concurrency Webhook Engine</li>
+                <li>Custom NPM &amp; Python Packages</li>
+                <li>Priority 24/7 Automation Support</li>
+              </ul>
+            </div>
+            <div class="pricing-footer text-center">
+              <a class="ace-btn" href="https://hostamble.com/dash/index.php/store/n8n-hosting">Deploy Pro</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plan 3: n8n Enterprise Cluster -->
+        <div class="col-xl-4 col-lg-6 col-md-6 col-12" data-sal="slide-up" data-sal-delay="200" data-sal-duration="800">
+          <div class="pricing-table h-100">
+            <div class="pricing-header">
+              <h3 class="title">n8n Enterprise</h3>
+              <div class="price-wrap">
+                <div class="n8n-pricing-opt n8n-monthly" style="display: block;">
+                  <span class="amount" data-inr="₹1499" data-usd="$17.99">₹1499</span>
+                  <span class="duration">/monthly</span>
+                </div>
+                <div class="n8n-pricing-opt n8n-quarterly" style="display: none;">
+                  <span class="amount" data-inr="₹4270" data-usd="$51.25">₹4270</span>
+                  <span class="duration">/quarterly</span>
+                </div>
+                <div class="n8n-pricing-opt n8n-semiannual" style="display: none;">
+                  <span class="amount" data-inr="₹8095" data-usd="$97.15">₹8095</span>
+                  <span class="duration">/semiannual</span>
+                </div>
+                <div class="n8n-pricing-opt n8n-annual" style="display: none;">
+                  <span class="amount" data-inr="₹14990" data-usd="$179.90">₹14990</span>
+                  <span class="duration">/annual</span>
+                </div>
+              </div>
+            </div>
+            <div class="pricing-body">
+              <ul class="list-item">
+                <li style="color: #000; font-weight: bold;">Unlimited Workflows &amp; Tasks</li>
+                <li style="color: #000; font-weight: bold;">Heavy AI &amp; LLM Batch Pipelines</li>
+                <li style="color: #000; font-weight: bold;">8 GB RAM • 4 vCPU Cores</li>
+                <li>120 GB NVMe Gen4 Storage</li>
+                <li>Redis Queue Worker Decoupling</li>
+                <li>Multi-Tenant &amp; Team Collaboration</li>
+                <li>Hourly Snapshot Data Protection</li>
+                <li>Dedicated Account Architect SLA</li>
+              </ul>
+            </div>
+            <div class="pricing-footer text-center">
+              <a class="ace-btn btn-border" href="https://hostamble.com/dash/index.php/store/n8n-hosting">Deploy Enterprise</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Block 3: Cost Comparison vs Zapier / Make / n8n Cloud -->
+  <div class="ace-section-gap bg-image bg-color-light">
+    <div class="container">
+      <div class="row align-items-center mb-5">
+        <div class="col-lg-8">
+          <div class="section-title text-start">
+            <span class="pre-title">Massive Cost Savings</span>
+            <h3 class="title">Save up to 85% compared to Cloud Automation Platforms</h3>
+            <p class="description mt-2">
+              Cloud platforms charge you per task, quickly ballooning your bill into thousands of dollars. With Hostamble self-hosted n8n, you pay one predictable flat monthly fee for unlimited workflow runs.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4 text-lg-end">
+          <div class="p-3 bg-white border rounded shadow-sm text-center">
+            <span class="d-block text-muted small text-uppercase font-weight-bold">Average Annual Savings</span>
+            <h4 class="text-success mb-0 font-weight-bold" data-inr="₹65,000+ /yr" data-usd="$800+ /yr">₹65,000+ /yr</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-responsive bg-white rounded-3 shadow-sm border p-3">
+        <table class="table table-hover align-middle mb-0 text-center">
+          <thead class="table-light">
+            <tr>
+              <th scope="col" class="text-start" style="width: 28%;">Feature</th>
+              <th scope="col" style="width: 24%; color: #ff501a; font-weight: bold;">Hostamble n8n Hosting</th>
+              <th scope="col" style="width: 24%;">Zapier Professional</th>
+              <th scope="col" style="width: 24%;">Make.com (Integromat)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-start"><strong>Monthly Execution Limit</strong></td>
+              <td><span class="badge bg-success text-white px-3 py-1">UNLIMITED</span></td>
+              <td>2,000 tasks (extra billed)</td>
+              <td>10,000 ops (extra billed)</td>
+            </tr>
+            <tr>
+              <td class="text-start"><strong>Starting Monthly Cost</strong></td>
+              <td><strong class="text-success" data-inr="₹399 /mo" data-usd="$4.79 /mo">₹399 /mo</strong></td>
+              <td>$73.50 /mo (~₹6,100)</td>
+              <td>$29.00 /mo (~₹2,400)</td>
+            </tr>
+            <tr>
+              <td class="text-start"><strong>Data Privacy &amp; Ownership</strong></td>
+              <td><span class="text-success"><i class="ri-check-line"></i> 100% in your dedicated DB</span></td>
+              <td>Stored on third-party cloud</td>
+              <td>Stored on third-party cloud</td>
+            </tr>
+            <tr>
+              <td class="text-start"><strong>Custom Code &amp; Libraries</strong></td>
+              <td><span class="text-success"><i class="ri-check-line"></i> Full NPM &amp; Python Modules</span></td>
+              <td>Very limited execution sandbox</td>
+              <td>Restricted JS modules</td>
+            </tr>
+            <tr>
+              <td class="text-start"><strong>AI &amp; LangChain Integration</strong></td>
+              <td><span class="text-success"><i class="ri-check-line"></i> Native LangChain &amp; OpenAI Nodes</span></td>
+              <td>Paid AI add-on credits</td>
+              <td>Paid AI operations</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Block 4: 400+ Pre-Built Integrations Showcase -->
+  <div class="ace-service-area ace-section-gap bg-image">
+    <div class="container aceorbit-animated-shape">
+      <div class="row text-center mb-5">
+        <div class="col-lg-12">
+          <div class="section-title" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+            <span class="pre-title">Endless Connectivity</span>
+            <h3 class="title">Connect with 400+ Popular Apps &amp; APIs</h3>
+            <p class="description max-w-700 mx-auto mt-3">
+              Trigger actions from webhooks, automate database backups, send WhatsApp notifications, sync leads to CRMs, and orchestrate complex autonomous AI agent loops with pre-built community nodes.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4 justify-content-center text-center">
+        <div class="col-lg-2 col-md-3 col-4">
+          <div class="p-3 bg-white border rounded shadow-sm h-100">
+            <i class="ri-openai-fill text-success" style="font-size: 32px;"></i>
+            <h6 class="mt-2 mb-0 font-weight-bold">OpenAI / GPT</h6>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-4">
+          <div class="p-3 bg-white border rounded shadow-sm h-100">
+            <i class="ri-whatsapp-fill text-success" style="font-size: 32px;"></i>
+            <h6 class="mt-2 mb-0 font-weight-bold">WhatsApp API</h6>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-4">
+          <div class="p-3 bg-white border rounded shadow-sm h-100">
+            <i class="ri-slack-fill text-warning" style="font-size: 32px;"></i>
+            <h6 class="mt-2 mb-0 font-weight-bold">Slack</h6>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-4">
+          <div class="p-3 bg-white border rounded shadow-sm h-100">
+            <i class="ri-google-fill text-primary" style="font-size: 32px;"></i>
+            <h6 class="mt-2 mb-0 font-weight-bold">Google Sheets</h6>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-4">
+          <div class="p-3 bg-white border rounded shadow-sm h-100">
+            <i class="ri-database-2-fill text-info" style="font-size: 32px;"></i>
+            <h6 class="mt-2 mb-0 font-weight-bold">PostgreSQL / MySQL</h6>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-4">
+          <div class="p-3 bg-white border rounded shadow-sm h-100">
+            <i class="ri-shopping-cart-fill text-danger" style="font-size: 32px;"></i>
+            <h6 class="mt-2 mb-0 font-weight-bold">Shopify / Stripe</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Block 5: Infrastructure & Production Architecture (6 Cards) -->
+  <div class="ace-feature-area ace-section-gap bg-image bg-color-light">
+    <div class="container aceorbit-animated-shape">
+      <div class="row mb-5 text-center">
+        <div class="col-lg-12">
+          <div class="section-title" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+            <span class="pre-title">Production Stability</span>
+            <h3 class="title">Enterprise n8n Architecture Under The Hood</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-5">
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="service-card service-card-3 shape-bg-1 h-100">
+            <div class="inner p-4">
+              <div class="icon mb-3"><span><i class="ri-server-line"></i></span></div>
+              <div class="content">
+                <h5 class="title">Isolated Docker Container</h5>
+                <p class="description">Every n8n customer gets a separate, secure Docker container with dedicated memory allocation to prevent memory leaks and out-of-memory crashes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="service-card service-card-3 shape-bg-2 h-100">
+            <div class="inner p-4">
+              <div class="icon mb-3"><span><i class="ri-database-line"></i></span></div>
+              <div class="content">
+                <h5 class="title">PostgreSQL Persistence</h5>
+                <p class="description">No fragile SQLite databases. We deploy robust PostgreSQL with WAL archiving so workflow execution logs and credentials are never corrupted.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="service-card service-card-3 shape-bg-1 h-100">
+            <div class="inner p-4">
+              <div class="icon mb-3"><span><i class="ri-lock-password-line"></i></span></div>
+              <div class="content">
+                <h5 class="title">Automatic SSL on Custom Domain</h5>
+                <p class="description">Map your own domain (e.g. `n8n.yourbrand.com`). Automated Let's Encrypt SSL certificates are provisioned and auto-renewed indefinitely.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="service-card service-card-3 shape-bg-2 h-100">
+            <div class="inner p-4">
+              <div class="icon mb-3"><span><i class="ri-refresh-line"></i></span></div>
+              <div class="content">
+                <h5 class="title">1-Click n8n Updates &amp; Rollbacks</h5>
+                <p class="description">Stay current with the newest n8n releases, community nodes, and security patches with automated 1-click updates and seamless rollback protection.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="service-card service-card-3 shape-bg-1 h-100">
+            <div class="inner p-4">
+              <div class="icon mb-3"><span><i class="ri-cloud-line"></i></span></div>
+              <div class="content">
+                <h5 class="title">Automated Daily Cloud Backups</h5>
+                <p class="description">Daily offsite snapshot backups of your entire n8n environment, credentials, and workflow nodes ensure total peace of mind.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="service-card service-card-3 shape-bg-2 h-100">
+            <div class="inner p-4">
+              <div class="icon mb-3"><span><i class="ri-plug-line"></i></span></div>
+              <div class="content">
+                <h5 class="title">Custom NPM &amp; Python Packages</h5>
+                <p class="description">Need extra node libraries or specialized Python scripts inside your code nodes? Easily inject custom environment variables and libraries.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Block 6: Free Workflow Migration Banner -->
+  <div class="ace-help-area bg-image domain-style-3 ace-section-gap bg-color-primary">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-7">
+          <div class="inner">
+            <div class="section-title text-white text-start">
+              <span class="pre-title">Expert Migration Support</span>
+              <h3 class="title">Have existing Zapier, Make, or n8n Cloud workflows?</h3>
+              <p class="content">We will migrate all your workflow JSON files, webhook endpoints, and database connection settings to your new Hostamble instance with zero downtime.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="domain-right-content d-block d-sm-flex align-items-center justify-content-start justify-content-lg-end">
+            <div class="contact-btn mr--15 mr_sm--0 mb_sm--10">
+              <a class="ace-btn btn-white" href="/contacts">Talk to Automation Engineer <i class="icon-arrow-right-line-right"></i></a>
+            </div>
+            <div class="contact-info">
+              <a href="tel:+916284719083"><i class="icon-Headphone"></i> (+91) 628 471 9083</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Block 7: n8n FAQs Accordion -->
+  <div class="aceorbit-progress ace-service-area ace-section-gap bg-image faq">
+    <div class="container aceorbit-animated-shape">
+      <div class="row mb-5 text-center">
+        <div class="col-lg-12">
+          <div class="section-title">
+            <span class="pre-title">Common Questions</span>
+            <h3 class="title">Frequently Asked Questions About n8n Hosting</h3>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
+          <div class="accordion accordion-flush" id="n8nFaqs">
+            <div class="accordion-item">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#n8n-faq-1" aria-expanded="true">
+                What is n8n and why should I choose self-hosted over Zapier?
+              </button>
+              <div id="n8n-faq-1" class="accordion-collapse collapse show" data-bs-parent="#n8nFaqs">
+                <div class="accordion-body">
+                  n8n is a powerful open-source workflow automation platform with a visual drag-and-drop builder. Self-hosting on Hostamble gives you 100% data ownership, zero per-execution fees, support for custom code and npm modules, and the ability to run heavy AI agents and big data syncs at a fraction of the cost of Zapier or Make.com.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#n8n-faq-2" aria-expanded="false">
+                Can I connect my own custom domain name?
+              </button>
+              <div id="n8n-faq-2" class="accordion-collapse collapse" data-bs-parent="#n8nFaqs">
+                <div class="accordion-body">
+                  Yes, you can easily point any domain or subdomain (e.g. `automation.yourcompany.com`) to your instance. We handle the reverse proxy and SSL certificate setup automatically.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#n8n-faq-3" aria-expanded="false">
+                How are webhook requests handled for high-traffic workflows?
+              </button>
+              <div id="n8n-faq-3" class="accordion-collapse collapse" data-bs-parent="#n8nFaqs">
+                <div class="accordion-body">
+                  Our servers run high-performance Nginx reverse proxies with tuned HTTP/2 buffers and production PostgreSQL backend, enabling your n8n webhooks to comfortably ingest hundreds of concurrent events per second without dropping requests.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#n8n-faq-4" aria-expanded="false">
+                Are my API keys and credentials secure?
+              </button>
+              <div id="n8n-faq-4" class="accordion-collapse collapse" data-bs-parent="#n8nFaqs">
+                <div class="accordion-body">
+                  Yes, credentials stored in n8n are encrypted at rest with a custom encryption key unique to your instance. Your data is isolated in your dedicated container and never shared with other tenants.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#n8n-faq-5" aria-expanded="false">
+                How do I upgrade when my automation volume increases?
+              </button>
+              <div id="n8n-faq-5" class="accordion-collapse collapse" data-bs-parent="#n8nFaqs">
+                <div class="accordion-body">
+                  You can upgrade to higher RAM and CPU tiers instantly from your client dashboard. Resource adjustments apply within seconds without altering your existing workflows or database state.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#n8n-faq-6" aria-expanded="false">
+                Do you provide assistance if a workflow node fails?
+              </button>
+              <div id="n8n-faq-6" class="accordion-collapse collapse" data-bs-parent="#n8nFaqs">
+                <div class="accordion-body">
+                  Yes, our technical team provides semi-managed support to ensure your server environment, PostgreSQL database, Docker container, and network webhooks run smoothly around the clock.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</Layout>
+
+<script is:inline>
+  function switchN8nBilling(duration) {
+    document.querySelectorAll('.pricing-billing-duration .nav-link').forEach(btn => btn.classList.remove('active'));
+    const activeBtn = document.getElementById(`n8n-${duration}-btn`);
+    if (activeBtn) activeBtn.classList.add('active');
+
+    document.querySelectorAll('.n8n-pricing-opt').forEach(el => el.style.display = 'none');
+    document.querySelectorAll(`.n8n-${duration}`).forEach(el => el.style.display = 'block');
+  }
+</script>
