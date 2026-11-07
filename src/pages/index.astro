@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import InteractiveHeroIllustration from "../components/InteractiveHeroIllustration.astro";
 import TrustGuaranteesStrip from "../components/TrustGuaranteesStrip.astro";
+import ServicesBlock from "../components/ServicesBlock.astro";
 import { sharedHosting, domainPricing } from "../data/pricing";
 
 const plans = sharedHosting.plans;
@@ -1191,6 +1192,9 @@ const plans = sharedHosting.plans;
         import "../scripts/pricing";
     </script>
     <!--end here -->
+
+    <!-- Core Services Showcase Block -->
+    <ServicesBlock />
 
     <div
         class="aceorbit-service ace-service-area ace-section-gap bg-color-white position-relative border-bottom-1"
