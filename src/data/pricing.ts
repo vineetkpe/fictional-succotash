@@ -84,7 +84,7 @@ export const sharedHosting = {
       id: "basic",
       name: "Basic",
       pricing: {
-        monthly: { inr: "₹49", usd: "$0.59" },
+        monthly: { inr: "₹149", usd: "$0.59" },
         quarterly: { inr: "₹147", usd: "$1.75" },
         semiannual: { inr: "₹294", usd: "$3.50" },
         annual: { inr: "₹588", usd: "$7.00" }

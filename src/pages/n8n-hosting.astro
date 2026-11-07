@@ -418,6 +418,183 @@ const { heroStartPrice, savingsHeadline, plans } = n8nHosting;
     </div>
   </div>
 
+  <!-- New Block 1: Ready-to-Deploy Workflow Templates Gallery -->
+  <div class="ace-section-gap bg-image" style="background: #0d0d12; color: #fff;">
+    <div class="container">
+      <div class="row align-items-center g-5 mb-5">
+        <div class="col-lg-6" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+          <div class="section-title text-start mb-4">
+            <span class="pre-title" style="color: #ff501a;">Instant Productivity</span>
+            <h3 class="title text-white">Pre-Built Automation Blueprints</h3>
+            <p class="description text-muted">
+              Don't build from scratch. Import battle-tested automation templates into your Hostamble n8n node in just 1-click. From autonomous LangChain agents to multi-channel lead funnels.
+            </p>
+          </div>
+
+          <!-- Template Filter Pills -->
+          <div class="d-flex flex-wrap gap-2 mb-4">
+            <button type="button" class="btn btn-sm btn-outline-danger template-btn active" onclick="filterTemplates('all', this)">All Blueprints</button>
+            <button type="button" class="btn btn-sm btn-outline-danger template-btn" onclick="filterTemplates('ai', this)">🤖 AI &amp; LLMs</button>
+            <button type="button" class="btn btn-sm btn-outline-danger template-btn" onclick="filterTemplates('crm', this)">📊 CRM &amp; Sales</button>
+            <button type="button" class="btn btn-sm btn-outline-danger template-btn" onclick="filterTemplates('devops', this)">⚡ DevOps &amp; Cloud</button>
+          </div>
+
+          <div class="template-list">
+            <div class="template-item p-3 rounded-3 border border-secondary mb-3" data-cat="ai" style="background: rgba(255,255,255,0.03);">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <span class="badge bg-danger text-white mb-1">AI Agent</span>
+                  <h6 class="text-white mb-1">Autonomous Customer Support Bot</h6>
+                  <p class="small text-muted mb-0">OpenAI + Vector DB + WhatsApp API + Zendesk sync.</p>
+                </div>
+                <span class="badge bg-dark border border-secondary text-white">12 Nodes</span>
+              </div>
+            </div>
+
+            <div class="template-item p-3 rounded-3 border border-secondary mb-3" data-cat="crm" style="background: rgba(255,255,255,0.03);">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <span class="badge bg-warning text-dark mb-1">E-Commerce</span>
+                  <h6 class="text-white mb-1">Stripe Checkout to Multi-Channel Alert</h6>
+                  <p class="small text-muted mb-0">Generate invoice PDF + send customer WhatsApp receipt + Slack alert.</p>
+                </div>
+                <span class="badge bg-dark border border-secondary text-white">8 Nodes</span>
+              </div>
+            </div>
+
+            <div class="template-item p-3 rounded-3 border border-secondary mb-3" data-cat="devops" style="background: rgba(255,255,255,0.03);">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <span class="badge bg-info text-dark mb-1">DevOps</span>
+                  <h6 class="text-white mb-1">Automated GitHub Release to Production</h6>
+                  <p class="small text-muted mb-0">Trigger Docker image build, verify health check, post changelog.</p>
+                </div>
+                <span class="badge bg-dark border border-secondary text-white">15 Nodes</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 text-center" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
+          <div class="position-relative">
+            <img src="/assets/images/n8n-workflow-visual.jpg" alt="Hostamble n8n Automation Visual Canvas" class="img-fluid rounded-4 shadow-lg border border-secondary" style="max-height: 440px; object-fit: cover; width: 100%;" />
+            <div class="position-absolute bottom-0 start-50 translate-middle-x mb-3 px-3 py-2 bg-dark rounded-pill border border-danger text-white small" style="white-space: nowrap;">
+              <i class="ri-checkbox-circle-fill text-success me-1"></i> Visual Drag &amp; Drop Canvas Included
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- New Block 2: Scalable High-Availability Queue Architecture -->
+  <div class="ace-section-gap bg-image">
+    <div class="container">
+      <div class="row text-center mb-5">
+        <div class="col-lg-12">
+          <div class="section-title" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+            <span class="pre-title">Zero Data Loss</span>
+            <h3 class="title">Production-Grade Queue &amp; Worker Architecture</h3>
+            <p class="description max-w-700 mx-auto mt-2">
+              Unlike single-process desktop installs, Hostamble configures an isolated Docker stack with dedicated Redis and PostgreSQL backend tuned for 100% reliable execution.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6" data-sal-delay="100" data-sal="slide-up" data-sal-duration="800">
+          <div class="p-4 bg-white rounded-3 shadow-sm border text-center h-100">
+            <div class="mb-3 text-danger fs-1"><i class="ri-radar-fill"></i></div>
+            <h5 class="mb-2 font-weight-bold">Webhook Gateway</h5>
+            <p class="small text-muted mb-0">Non-blocking incoming HTTP listener that captures 10,000+ webhooks/minute with instant 200 OK responses.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+          <div class="p-4 bg-white rounded-3 shadow-sm border text-center h-100">
+            <div class="mb-3 text-danger fs-1"><i class="ri-database-fill"></i></div>
+            <h5 class="mb-2 font-weight-bold">Redis Job Queue</h5>
+            <p class="small text-muted mb-0">Buffers burst spikes in memory. Features automatic retries and exponential backoff if destination APIs fail.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
+          <div class="p-4 bg-white rounded-3 shadow-sm border text-center h-100">
+            <div class="mb-3 text-danger fs-1"><i class="ri-cpu-fill"></i></div>
+            <h5 class="mb-2 font-weight-bold">Multi-Worker Engine</h5>
+            <p class="small text-muted mb-0">Executes computationally heavy AI embeddings, image generation, and PDF tasks on dedicated CPU worker threads.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
+          <div class="p-4 bg-white rounded-3 shadow-sm border text-center h-100">
+            <div class="mb-3 text-danger fs-1"><i class="ri-shield-check-fill"></i></div>
+            <h5 class="mb-2 font-weight-bold">Dedicated PostgreSQL</h5>
+            <p class="small text-muted mb-0">Your workflows, execution logs, and credentials stored safely on isolated encrypted Gen4 NVMe disk arrays.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- New Block 3: Scalability Savings Case Study vs Zapier & Make -->
+  <div class="ace-section-gap bg-image" style="background: #f8f9fc;">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+          <div class="section-title text-start">
+            <span class="pre-title">Real Savings Breakdown</span>
+            <h3 class="title">How Growing Startups Save ₹3,00,000+ Annually</h3>
+            <p class="description">
+              SaaS automation tools penalize you for growing. As your customer base scales, Zapier bills each step as a separate billable operation. Hostamble n8n gives you completely uncapped execution freedom.
+            </p>
+            <div class="mt-4">
+              <a href="#plans" class="ace-btn">View All n8n Plans</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
+          <div class="p-4 p-md-5 bg-white rounded-4 shadow-sm border">
+            <h5 class="mb-3 font-weight-bold">Monthly Cost Comparison (100,000 Executions)</h5>
+            <div class="mb-4">
+              <div class="d-flex justify-content-between small mb-1">
+                <span class="font-weight-bold text-success"><i class="ri-checkbox-circle-fill me-1"></i> Hostamble n8n Pro</span>
+                <strong class="text-success fs-5">₹799 /mo</strong>
+              </div>
+              <div class="progress" style="height: 14px;">
+                <div class="progress-bar bg-success" style="width: 5%;"></div>
+              </div>
+              <small class="text-muted">Fixed price. Zero overage fees no matter how many tasks you run.</small>
+            </div>
+
+            <div class="mb-4">
+              <div class="d-flex justify-content-between small mb-1">
+                <span class="text-muted">Make.com (Integromat) 100k Ops</span>
+                <strong class="text-dark">₹7,400 /mo ($89)</strong>
+              </div>
+              <div class="progress" style="height: 14px;">
+                <div class="progress-bar bg-warning" style="width: 45%;"></div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="d-flex justify-content-between small mb-1">
+                <span class="text-muted">Zapier Team Plan (100k Tasks)</span>
+                <strong class="text-danger fs-6">₹32,000+ /mo ($385)</strong>
+              </div>
+              <div class="progress" style="height: 14px;">
+                <div class="progress-bar bg-danger" style="width: 100%;"></div>
+              </div>
+              <small class="text-danger font-weight-bold">40x more expensive than Hostamble n8n!</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Block 6: Free Workflow Migration Banner -->
   <div class="ace-help-area bg-image domain-style-3 ace-section-gap bg-color-primary">
     <div class="container">
@@ -540,5 +717,17 @@ const { heroStartPrice, savingsHeadline, plans } = n8nHosting;
 
     document.querySelectorAll('.n8n-pricing-opt').forEach(el => el.style.display = 'none');
     document.querySelectorAll(`.n8n-${duration}`).forEach(el => el.style.display = 'block');
+  }
+
+  function filterTemplates(cat, btn) {
+    document.querySelectorAll('.template-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.template-item').forEach(item => {
+      if (cat === 'all' || item.getAttribute('data-cat') === cat) {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
   }
 </script>

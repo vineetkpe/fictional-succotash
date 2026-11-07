@@ -262,6 +262,183 @@ const { heroStartPrice, plans } = sslCertificates;
     </div>
   </div>
 
+  <!-- New Block 1: Interactive "Which SSL Do I Need?" Decision Helper -->
+  <div class="ace-section-gap bg-image" style="background: #0d0d12; color: #fff;">
+    <div class="container">
+      <div class="row text-center mb-5">
+        <div class="col-lg-12">
+          <div class="section-title" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+            <span class="pre-title" style="color: #ff501a;">SSL Selector Quiz</span>
+            <h3 class="title text-white">Which Certificate Type Is Right for Your Project?</h3>
+            <p class="description text-muted max-w-700 mx-auto mt-2">
+              Select your primary use case below to instantly identify the optimal validation level, issuance speed, and cost efficiency.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <!-- Option 1 -->
+        <div class="col-lg-4 col-md-6" data-sal-delay="100" data-sal="slide-up" data-sal-duration="800">
+          <div class="ssl-choice-card p-4 rounded-4 border border-secondary text-start h-100 position-relative" style="background: rgba(255,255,255,0.03); cursor: pointer;" onclick="highlightSslChoice(1)">
+            <span class="badge bg-danger text-white mb-3">Single Domain</span>
+            <h5 class="text-white mb-2">Standard Domain Validation (DV)</h5>
+            <p class="small text-muted mb-3">Best for blogs, portfolios, personal sites, and small business homepages.</p>
+            <ul class="list-unstyled small text-muted mb-4">
+              <li class="mb-1"><i class="ri-check-line text-success me-1"></i> Issued in under 10 minutes</li>
+              <li class="mb-1"><i class="ri-check-line text-success me-1"></i> No paperwork required</li>
+              <li class="mb-1"><i class="ri-check-line text-success me-1"></i> Covers domain.com and www.domain.com</li>
+            </ul>
+            <div class="border-top border-secondary pt-3 d-flex justify-content-between align-items-center">
+              <strong class="text-white fs-5" data-inr={plans.positiveSsl.price.inr} data-usd={plans.positiveSsl.price.usd}>{plans.positiveSsl.price.inr}</strong>
+              <a href="#ssl-plans" class="ace-btn btn-small">Select DV</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Option 2 -->
+        <div class="col-lg-4 col-md-6" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+          <div class="ssl-choice-card p-4 rounded-4 border border-danger text-start h-100 position-relative" style="background: rgba(255,80,26,0.08); cursor: pointer;" onclick="highlightSslChoice(2)">
+            <div class="position-absolute top-0 end-0 mt-3 me-3">
+              <span class="badge bg-warning text-dark font-weight-bold">Popular for SaaS</span>
+            </div>
+            <span class="badge bg-danger text-white mb-3">Unlimited Subdomains</span>
+            <h5 class="text-white mb-2">Wildcard SSL (*.domain.com)</h5>
+            <p class="small text-muted mb-3">Ideal for software apps with multiple subdomains like app., api., blog., portal.domain.com.</p>
+            <ul class="list-unstyled small text-muted mb-4">
+              <li class="mb-1"><i class="ri-check-line text-success me-1"></i> Secures unlimited first-level subdomains</li>
+              <li class="mb-1"><i class="ri-check-line text-success me-1"></i> Add new subdomains anytime without reissuing</li>
+              <li class="mb-1"><i class="ri-check-line text-success me-1"></i> Single certificate simplifies server maintenance</li>
+            </ul>
+            <div class="border-top border-danger pt-3 d-flex justify-content-between align-items-center">
+              <strong class="text-white fs-5" data-inr={plans.wildcardSsl.price.inr} data-usd={plans.wildcardSsl.price.usd}>{plans.wildcardSsl.price.usd}</strong>
+              <a href="#ssl-plans" class="ace-btn btn-small">Select Wildcard</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Option 3 -->
+        <div class="col-lg-4 col-md-6" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
+          <div class="ssl-choice-card p-4 rounded-4 border border-secondary text-start h-100 position-relative" style="background: rgba(255,255,255,0.03); cursor: pointer;" onclick="highlightSslChoice(3)">
+            <span class="badge bg-success text-white mb-3">Max Enterprise Trust</span>
+            <h5 class="text-white mb-2">Extended Validation (EV)</h5>
+            <p class="small text-muted mb-3">Crucial for e-commerce, banking, healthcare, and high-volume corporate transaction sites.</p>
+            <ul class="list-unstyled small text-muted mb-4">
+              <li class="mb-1"><i class="ri-check-line text-success me-1"></i> Displays officially verified company name</li>
+              <li class="mb-1"><i class="ri-check-line text-success me-1"></i> Strict business identity verification</li>
+              <li class="mb-1"><i class="ri-check-line text-success me-1"></i> $1,750,000 maximum warranty guarantee</li>
+            </ul>
+            <div class="border-top border-secondary pt-3 d-flex justify-content-between align-items-center">
+              <strong class="text-white fs-5" data-inr={plans.evSsl.price.inr} data-usd={plans.evSsl.price.usd}>{plans.evSsl.price.inr}</strong>
+              <a href="#ssl-plans" class="ace-btn btn-small">Select EV</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- New Block 2: Trust Seals & Browser Visual Security Preview -->
+  <div class="ace-section-gap bg-image">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+          <div class="section-title text-start mb-4">
+            <span class="pre-title">Visual Proof of Trust</span>
+            <h3 class="title">Turn Hesitant Visitors into Confident Customers</h3>
+            <p class="description">
+              Over 84% of online shoppers immediately abandon a purchase if they see an insecure browser warning. Commercial SSL certificates give your brand verifiable authority that measurably boosts checkout conversion.
+            </p>
+          </div>
+
+          <div class="p-3 bg-light rounded-3 border mb-3">
+            <div class="d-flex align-items-center">
+              <span class="badge bg-danger text-white me-3 p-2 fs-6">❌ Without SSL</span>
+              <div>
+                <strong class="d-block text-danger">"Not Secure" Warning in Chrome &amp; Safari</strong>
+                <small class="text-muted">Browsers block form submissions and flag credit card inputs as dangerous.</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-3 bg-white rounded-3 border border-success shadow-sm mb-4">
+            <div class="d-flex align-items-center">
+              <span class="badge bg-success text-white me-3 p-2 fs-6">✅ With Hostamble SSL</span>
+              <div>
+                <strong class="d-block text-success">Verified Padlock &amp; HTTPS Green Seal</strong>
+                <small class="text-muted">Protects passwords, complies with Google SEO ranking boosts, and unlocks online payments.</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex gap-3">
+            <a href="#ssl-plans" class="ace-btn">Get Secured Now</a>
+          </div>
+        </div>
+
+        <div class="col-lg-6 text-center" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
+          <div class="position-relative">
+            <img src="/assets/images/ssl-lock-shield.jpg" alt="Hostamble Cyber Security SSL Padlock Shield" class="img-fluid rounded-4 shadow-lg border" style="max-height: 440px; object-fit: cover; width: 100%;" />
+            <div class="position-absolute bottom-0 start-50 translate-middle-x mb-3 px-3 py-2 bg-dark rounded-pill border border-danger text-white small" style="white-space: nowrap;">
+              <i class="ri-shield-check-fill text-success me-1"></i> Sectigo &amp; Comodo Underwritten Certificate
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- New Block 3: Cryptographic Specs & Warranty Underwriting Breakdown -->
+  <div class="ace-section-gap bg-image" style="background: #f8f9fc;">
+    <div class="container">
+      <div class="row text-center mb-5">
+        <div class="col-lg-12">
+          <div class="section-title" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+            <span class="pre-title">Cryptographic Integrity</span>
+            <h3 class="title">Bank-Grade Encryption Protocols &amp; Device Ubiquity</h3>
+            <p class="description max-w-700 mx-auto mt-2">
+              Every SSL certificate issued by Hostamble is verified against modern cryptographic standards to ensure zero vulnerabilities across all devices.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6" data-sal-delay="100" data-sal="slide-up" data-sal-duration="800">
+          <div class="p-4 bg-white rounded-3 shadow-sm border text-center h-100">
+            <div class="mb-3 text-danger fs-1"><i class="ri-key-2-line"></i></div>
+            <h5 class="mb-2 font-weight-bold">2048-Bit RSA Keys</h5>
+            <p class="small text-muted mb-0">Compliant with NIST security guidelines. Also supports modern ECC 256-bit keys for faster handshake speed.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+          <div class="p-4 bg-white rounded-3 shadow-sm border text-center h-100">
+            <div class="mb-3 text-danger fs-1"><i class="ri-cpu-line"></i></div>
+            <h5 class="mb-2 font-weight-bold">SHA-256 Signature</h5>
+            <p class="small text-muted mb-0">Latest cryptographic hash algorithm preventing digital signature forgery and man-in-the-middle exploits.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
+          <div class="p-4 bg-white rounded-3 shadow-sm border text-center h-100">
+            <div class="mb-3 text-danger fs-1"><i class="ri-smartphone-line"></i></div>
+            <h5 class="mb-2 font-weight-bold">99.9% Device Ubiquity</h5>
+            <p class="small text-muted mb-0">Recognized natively by all desktop browsers, Android, iOS, smart TVs, and mobile payment terminals.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
+          <div class="p-4 bg-white rounded-3 shadow-sm border text-center h-100">
+            <div class="mb-3 text-danger fs-1"><i class="ri-shield-user-line"></i></div>
+            <h5 class="mb-2 font-weight-bold">Up to $1.75M Warranty</h5>
+            <p class="small text-muted mb-0">Backed by financial underwriting guaranteeing compensation if your certificate is ever compromised.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Block 5: Free Installation Assistance Banner -->
   <div class="ace-help-area bg-image domain-style-3 ace-section-gap bg-color-primary">
     <div class="container">
