@@ -6,10 +6,10 @@ export function initTypewriter(
   words: string[] = [
     "77% Discount",
     "Free .COM Domain",
-    "10x LiteSpeed Turbo",
-    "Free SSL & Backups",
-    "Instant 1-Click Setup",
-    "24/7 Expert Support"
+    "10x Turbo Speed",
+    "Free SSL & Backup",
+    "Instant 1-Click",
+    "24/7 Live Support"
   ]
 ): void {
   const el = document.getElementById(elementId);
@@ -29,17 +29,22 @@ export function initTypewriter(
 
       if (charIndex === current.length) {
         deleting = true;
-        setTimeout(typeEffect, 1200);
+        setTimeout(typeEffect, 1500);
         return;
       }
-      setTimeout(typeEffect, 70);
+      setTimeout(typeEffect, 75);
     } else {
       charIndex--;
-      el.textContent = current.substring(0, charIndex);
-
-      if (charIndex === 0) {
+      if (charIndex <= 0) {
+        // Crucial: use non-breaking space when 0 chars so line height never collapses
+        el.textContent = "\u00A0";
+        charIndex = 0;
         deleting = false;
         wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(typeEffect, 300);
+        return;
+      } else {
+        el.textContent = current.substring(0, charIndex);
       }
       setTimeout(typeEffect, 40);
     }

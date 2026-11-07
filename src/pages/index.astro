@@ -51,10 +51,13 @@ const plans = sharedHosting.plans;
                                 </div>
 
                                 <h1 class="hero-headline mb-3" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
-                                    <span class="font-sans-bold">Launch Your</span>
-                                    <span class="font-serif-italic">Dream Website</span>
-                                    <br class="d-none d-sm-block" />
-                                    <span class="font-sans-bold">With&nbsp;</span><span id="offerWord" class="font-typewriter-highlight">77% Discount</span>
+                                    <span class="headline-row-top">
+                                        <span class="font-sans-bold">Launch Your</span>
+                                        <span class="font-serif-italic">Dream Website</span>
+                                    </span>
+                                    <span class="headline-row-bottom">
+                                        <span class="font-sans-bold">With&nbsp;</span><span class="typewriter-lock"><span id="offerWord" class="font-typewriter-highlight">77% Discount</span></span>
+                                    </span>
                                 </h1>
 
                                 <script>
@@ -63,7 +66,7 @@ const plans = sharedHosting.plans;
                                 </script>
 
                                 <p class="hero-lead-text mb-4" data-sal="slide-up" data-sal-delay="200" data-sal-duration="800">
-                                    Blazing-fast cloud infrastructure powered by 100% NVMe SSD storage, LiteSpeed enterprise web servers, and 24/7 dedicated WordPress engineers.
+                                    Ultra-fast NVMe cloud hosting with LiteSpeed &amp; 24/7 dedicated support.
                                 </p>
 
                                 <div class="hero-features-list mb-4" data-sal="slide-up" data-sal-delay="250" data-sal-duration="800">
@@ -84,19 +87,14 @@ const plans = sharedHosting.plans;
                                 </div>
 
                                 <div class="hero-action-bar mb-4" data-sal="slide-up" data-sal-delay="300" data-sal-duration="800">
-                                    <!-- 10-Day Countdown Box -->
-                                    <div class="hero-countdown-wrap">
-                                        <div class="countdown-pulse-glow"></div>
-                                        <div class="countdown-inner-box">
-                                            <div class="countdown-eyebrow">
-                                                <span class="fire-emoji">🔥</span>
-                                                <span>LIMITED TIME DEAL · CLOSES IN</span>
-                                            </div>
-                                            <div id="sale-timer" class="countdown-digits-row">
-                                                <!-- Dynamic 10-day countdown rendered by initCountdown() -->
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <!-- Offer CTA Pill -->
+                                    <a href="#plans" class="hero-offer-cta">
+                                        <span class="offer-tag">SPECIAL DEAL</span>
+                                        <span class="offer-label">
+                                            <span>Get 77% Off Today</span>
+                                            <i class="ri-arrow-right-line offer-arrow"></i>
+                                        </span>
+                                    </a>
 
                                     <!-- Plan Scroll Anchor Button -->
                                     <a href="#plans" class="hero-scroll-btn" title="Explore Hosting Plans" aria-label="Explore Hosting Plans">
@@ -178,10 +176,31 @@ const plans = sharedHosting.plans;
 
             /* Multi-Font Headline */
             .hero-headline {
-                font-size: clamp(38px, 4.8vw, 62px);
-                line-height: 1.15;
-                margin-bottom: 20px;
+                font-size: clamp(34px, 4.4vw, 56px);
+                line-height: 1.2;
+                margin-bottom: 18px;
                 letter-spacing: -0.035em;
+            }
+
+            .headline-row-top {
+                display: block;
+            }
+
+            .headline-row-bottom {
+                display: inline-flex;
+                align-items: baseline;
+                min-height: 1.25em;
+                line-height: 1.2;
+            }
+
+            .typewriter-lock {
+                display: inline-block;
+                vertical-align: baseline;
+                min-width: 330px;
+                min-height: 1.25em;
+                line-height: 1.2;
+                text-align: left;
+                white-space: nowrap;
             }
 
             .font-sans-bold {
@@ -209,17 +228,32 @@ const plans = sharedHosting.plans;
                 background-clip: text;
                 -webkit-text-fill-color: transparent;
                 display: inline-block;
-                min-width: 220px;
+                line-height: 1.2;
                 letter-spacing: -0.02em;
+            }
+
+            @media (max-width: 768px) {
+                .typewriter-lock {
+                    min-width: 260px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .headline-row-bottom {
+                    flex-wrap: wrap;
+                }
+                .typewriter-lock {
+                    min-width: 200px;
+                }
             }
 
             /* Lead text */
             .hero-lead-text {
-                font-size: clamp(16px, 1.25vw, 19px);
-                line-height: 1.6;
+                font-size: clamp(16px, 1.2vw, 18px);
+                line-height: 1.55;
                 color: #374151;
                 font-weight: 500;
-                max-width: 540px;
+                max-width: 520px;
             }
 
             /* Features List */
@@ -250,7 +284,7 @@ const plans = sharedHosting.plans;
             .text-success-accent { color: #10b981; font-size: 16px; }
             .text-info-accent { color: #06b6d4; font-size: 16px; }
 
-            /* 10-Day Countdown Box */
+            /* Hero Action Bar & Offer CTA */
             .hero-action-bar {
                 display: flex;
                 align-items: center;
@@ -258,83 +292,56 @@ const plans = sharedHosting.plans;
                 flex-wrap: wrap;
             }
 
-            .hero-countdown-wrap {
-                position: relative;
-                display: inline-block;
-            }
-
-            .countdown-pulse-glow {
-                position: absolute;
-                inset: 0;
-                border-radius: 14px;
-                animation: pulseGlow 1.8s infinite;
-                pointer-events: none;
-            }
-
-            .countdown-inner-box {
-                position: relative;
-                padding: 12px 20px;
-                border-radius: 14px;
-                background: linear-gradient(135deg, #e53935 0%, #ff501a 50%, #ff9800 100%);
-                box-shadow: 0 8px 24px rgba(229, 57, 53, 0.35);
-            }
-
-            .countdown-eyebrow {
-                display: flex;
+            .hero-offer-cta {
+                display: inline-flex;
                 align-items: center;
-                gap: 6px;
+                gap: 12px;
+                padding: 11px 22px 11px 14px;
+                background: linear-gradient(135deg, #ff501a 0%, #ff7a00 100%);
+                border-radius: 9999px;
+                color: #ffffff !important;
+                text-decoration: none;
+                box-shadow: 0 10px 25px rgba(255, 80, 26, 0.35);
+                transition: transform 0.25s ease, box-shadow 0.25s ease;
+                animation: pulseGlow 2.4s infinite;
+            }
+
+            .hero-offer-cta:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 14px 32px rgba(255, 80, 26, 0.45);
+                color: #ffffff !important;
+            }
+
+            .offer-tag {
+                background: rgba(0, 0, 0, 0.22);
+                color: #ffffff;
                 font-size: 11px;
                 font-weight: 800;
-                color: rgba(255, 255, 255, 0.95);
-                letter-spacing: 0.08em;
-                text-transform: uppercase;
-                margin-bottom: 6px;
+                padding: 4px 10px;
+                border-radius: 9999px;
+                letter-spacing: 0.05em;
+                border: 1px solid rgba(255, 255, 255, 0.25);
+                white-space: nowrap;
             }
 
-            .countdown-digits-row {
+            .offer-label {
                 display: inline-flex;
                 align-items: center;
-                gap: 4px;
-                min-width: 210px;
-                font-variant-numeric: tabular-nums;
-            }
-
-            .countdown-digits-row .timer-unit {
-                display: inline-flex;
-                align-items: baseline;
-                gap: 2px;
-                background: rgba(0, 0, 0, 0.22);
-                padding: 3px 6px;
-                border-radius: 6px;
-                border: 1px solid rgba(255, 255, 255, 0.2);
-            }
-
-            .countdown-digits-row .timer-digits {
-                font-size: 22px;
-                font-weight: 900;
-                color: #ffffff;
-                line-height: 1;
-                font-family: 'Plus Jakarta Sans', monospace, sans-serif;
-            }
-
-            .countdown-digits-row .timer-tag {
-                font-size: 10px;
+                gap: 8px;
+                font-size: 16px;
                 font-weight: 800;
-                color: rgba(255, 255, 255, 0.85);
-                text-transform: uppercase;
+                font-family: 'Plus Jakarta Sans', var(--font-primary), sans-serif;
+                letter-spacing: -0.01em;
+                white-space: nowrap;
             }
 
-            .countdown-digits-row .timer-colon {
+            .offer-arrow {
                 font-size: 18px;
-                font-weight: 900;
-                color: rgba(255, 255, 255, 0.85);
-                margin: 0 1px;
-                animation: colonBlink 1s infinite;
+                transition: transform 0.2s ease;
             }
 
-            @keyframes colonBlink {
-                0%, 100% { opacity: 1; }
-                50% { opacity: 0.3; }
+            .hero-offer-cta:hover .offer-arrow {
+                transform: translateX(4px);
             }
 
             .hero-scroll-btn {
@@ -383,10 +390,7 @@ const plans = sharedHosting.plans;
             }
         </style>
 
-        <script>
-            import { initCountdown } from '../scripts/countdown';
-            initCountdown();
-        </script>
+
 
  
 
