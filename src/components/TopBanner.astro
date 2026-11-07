@@ -14,9 +14,9 @@ const {
 ---
 
 <div class="top-sale-strip" id="topSaleStrip">
-  <div class="container">
-    <div class="top-sale-inner">
-      <div class="top-sale-content">
+  <div class="marquee-track">
+    <div class="marquee-group">
+      <div class="top-sale-item">
         <span class="sale-badge">
           <span class="badge-icon">🪔</span>
           <span class="badge-text">{badge}</span>
@@ -28,6 +28,76 @@ const {
           {linkText}
         </a>
       </div>
+      <span class="sale-divider">✦</span>
+      <div class="top-sale-item">
+        <span class="sale-badge">
+          <span class="badge-icon">🪔</span>
+          <span class="badge-text">{badge}</span>
+        </span>
+        <span class="sale-message">
+          Special Festive Hosting Deals — Fast, Reliable & Secure!
+        </span>
+        <a href={linkUrl} class="sale-link">
+          {linkText}
+        </a>
+      </div>
+      <span class="sale-divider">✦</span>
+      <div class="top-sale-item">
+        <span class="sale-badge">
+          <span class="badge-icon">🪔</span>
+          <span class="badge-text">{badge}</span>
+        </span>
+        <span class="sale-message">
+          Get ready for Diwali Sale! Up to <strong class="sale-highlight">77% OFF</strong> on Hosting + Free Domain!
+        </span>
+        <a href={linkUrl} class="sale-link">
+          {linkText}
+        </a>
+      </div>
+      <span class="sale-divider">✦</span>
+    </div>
+
+    <!-- Duplicate group for seamless infinite continuous scroll -->
+    <div class="marquee-group" aria-hidden="true">
+      <div class="top-sale-item">
+        <span class="sale-badge">
+          <span class="badge-icon">🪔</span>
+          <span class="badge-text">{badge}</span>
+        </span>
+        <span class="sale-message">
+          Get ready for Diwali Sale! Up to <strong class="sale-highlight">77% OFF</strong> on Hosting + Free Domain!
+        </span>
+        <a href={linkUrl} class="sale-link">
+          {linkText}
+        </a>
+      </div>
+      <span class="sale-divider">✦</span>
+      <div class="top-sale-item">
+        <span class="sale-badge">
+          <span class="badge-icon">🪔</span>
+          <span class="badge-text">{badge}</span>
+        </span>
+        <span class="sale-message">
+          Special Festive Hosting Deals — Fast, Reliable & Secure!
+        </span>
+        <a href={linkUrl} class="sale-link">
+          {linkText}
+        </a>
+      </div>
+      <span class="sale-divider">✦</span>
+      <div class="top-sale-item">
+        <span class="sale-badge">
+          <span class="badge-icon">🪔</span>
+          <span class="badge-text">{badge}</span>
+        </span>
+        <span class="sale-message">
+          Get ready for Diwali Sale! Up to <strong class="sale-highlight">77% OFF</strong> on Hosting + Free Domain!
+        </span>
+        <a href={linkUrl} class="sale-link">
+          {linkText}
+        </a>
+      </div>
+      <span class="sale-divider">✦</span>
     </div>
   </div>
 </div>
@@ -37,29 +107,53 @@ const {
     background: #ff6027;
     color: #ffffff;
     font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     position: relative;
     z-index: 100;
     width: 100%;
-    padding: 8px 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-  }
-
-  .top-sale-inner {
+    padding: 4px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    height: 32px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    min-height: 28px;
   }
 
-  .top-sale-content {
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    user-select: none;
+  }
+
+  .marquee-track:hover .marquee-group {
+    animation-play-state: paused;
+  }
+
+  .marquee-group {
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    text-align: center;
-    line-height: 1.4;
+    flex-shrink: 0;
+    gap: 28px;
+    padding-right: 28px;
+    animation: marqueeScroll 30s linear infinite;
+  }
+
+  @keyframes marqueeScroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  .top-sale-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 1;
   }
 
   .sale-badge {
@@ -68,13 +162,13 @@ const {
     gap: 4px;
     background: #202133;
     color: #ffffff;
-    padding: 2px 10px;
+    padding: 2px 8px;
     border-radius: 4px;
     font-weight: 800;
-    font-size: 11px;
-    letter-spacing: 0.05em;
+    font-size: 10.5px;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     transform: rotate(-2deg);
     transition: transform 0.2s ease;
   }
@@ -84,7 +178,7 @@ const {
   }
 
   .badge-icon {
-    font-size: 13px;
+    font-size: 11px;
     line-height: 1;
   }
 
@@ -107,37 +201,36 @@ const {
     text-underline-offset: 3px;
     transition: all 0.2s ease;
     white-space: nowrap;
+    margin-left: 2px;
   }
 
   .sale-link:hover {
     color: #202133;
     text-decoration: none;
-    transform: translateX(2px);
+  }
+
+  .sale-divider {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 11px;
+    display: inline-block;
   }
 
   @media (max-width: 767px) {
     .top-sale-strip {
-      padding: 7px 0;
       font-size: 12px;
+      height: 30px;
+      padding: 3px 0;
     }
 
-    .top-sale-content {
-      gap: 6px;
+    .marquee-group {
+      gap: 20px;
+      padding-right: 20px;
+      animation-duration: 24s;
     }
 
     .sale-badge {
-      font-size: 10px;
-      padding: 1px 7px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .top-sale-strip {
-      font-size: 11.5px;
-    }
-
-    .sale-message {
-      display: inline;
+      font-size: 9.5px;
+      padding: 1.5px 6px;
     }
   }
 </style>
