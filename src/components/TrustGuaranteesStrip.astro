@@ -1,0 +1,205 @@
+---
+// Trust & Guarantees Strip between Hero and Promo Blocks
+---
+
+<section class="trust-guarantees-section" aria-label="Hostamble Guarantees">
+  <div class="container">
+    <div class="trust-guarantees-card">
+      
+      <!-- 1: 99.9% Uptime -->
+      <a href="#plans" class="trust-guarantee-item">
+        <div class="trust-icon-pill icon-uptime">
+          <i class="ri-pulse-fill" aria-hidden="true"></i>
+        </div>
+        <div class="trust-text-wrap">
+          <span class="trust-heading">99.9% Uptime</span>
+          <span class="trust-sub">Zero-Downtime Guarantee</span>
+        </div>
+      </a>
+
+      <div class="trust-sep d-none d-lg-block" aria-hidden="true"></div>
+
+      <!-- 2: WhatsApp Support -->
+      <a href="https://wa.me/916284719083?text=Hi%20Hostamble,%20I%20have%20a%20question%20about%20hosting" target="_blank" rel="noopener noreferrer" class="trust-guarantee-item">
+        <div class="trust-icon-pill icon-whatsapp">
+          <i class="ri-whatsapp-fill" aria-hidden="true"></i>
+        </div>
+        <div class="trust-text-wrap">
+          <span class="trust-heading">WhatsApp Support</span>
+          <span class="trust-sub">Instant Live Assistance</span>
+        </div>
+      </a>
+
+      <div class="trust-sep d-none d-lg-block" aria-hidden="true"></div>
+
+      <!-- 3: 7-Day Refund Policy -->
+      <a href="/refund-and-cancellation-policy" class="trust-guarantee-item">
+        <div class="trust-icon-pill icon-refund">
+          <i class="ri-refund-2-fill" aria-hidden="true"></i>
+        </div>
+        <div class="trust-text-wrap">
+          <span class="trust-heading">7-Day Refund Policy</span>
+          <span class="trust-sub">100% Risk-Free Guarantee</span>
+        </div>
+      </a>
+
+      <div class="trust-sep d-none d-lg-block" aria-hidden="true"></div>
+
+      <!-- 4: Trusted by 10,000+ Webmasters -->
+      <div class="trust-guarantee-item">
+        <div class="trust-icon-pill icon-webmasters">
+          <i class="ri-user-star-fill" aria-hidden="true"></i>
+        </div>
+        <div class="trust-text-wrap">
+          <span class="trust-heading">10,000+ Webmasters</span>
+          <span class="trust-sub">Trusted Globally</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .trust-guarantees-section {
+    position: relative;
+    z-index: 10;
+    margin-top: -20px;
+    margin-bottom: 25px;
+    padding: 0;
+  }
+
+  .trust-guarantees-card {
+    background: #ffffff;
+    border: 1px solid rgba(220, 226, 235, 0.95);
+    border-radius: 18px;
+    padding: 20px 28px;
+    box-shadow: 0 14px 38px rgba(17, 24, 39, 0.06), 0 2px 8px rgba(0, 0, 0, 0.02);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .trust-guarantees-card:hover {
+    box-shadow: 0 18px 45px rgba(255, 80, 26, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
+    border-color: rgba(255, 80, 26, 0.25);
+  }
+
+  .trust-guarantee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease;
+  }
+
+  .trust-guarantee-item:hover {
+    transform: translateY(-2px);
+    color: inherit;
+  }
+
+  .trust-icon-pill {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+  }
+
+  .trust-guarantee-item:hover .trust-icon-pill {
+    transform: scale(1.08);
+  }
+
+  .icon-uptime {
+    background: rgba(16, 185, 129, 0.12);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+  }
+
+  .icon-whatsapp {
+    background: rgba(37, 211, 102, 0.12);
+    color: #25d366;
+    border: 1px solid rgba(37, 211, 102, 0.25);
+  }
+
+  .icon-refund {
+    background: rgba(255, 80, 26, 0.12);
+    color: #ff501a;
+    border: 1px solid rgba(255, 80, 26, 0.25);
+  }
+
+  .icon-webmasters {
+    background: rgba(59, 130, 246, 0.12);
+    color: #3b82f6;
+    border: 1px solid rgba(59, 130, 246, 0.25);
+  }
+
+  .trust-text-wrap {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .trust-heading {
+    font-family: 'Plus Jakarta Sans', var(--font-primary), -apple-system, sans-serif;
+    font-size: 15.5px;
+    font-weight: 800;
+    color: #111827;
+    letter-spacing: -0.015em;
+    line-height: 1.25;
+    margin-bottom: 2px;
+    white-space: nowrap;
+  }
+
+  .trust-sub {
+    font-size: 12px;
+    font-weight: 500;
+    color: #6b7280;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .trust-sep {
+    width: 1px;
+    height: 38px;
+    background: rgba(220, 226, 235, 0.85);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 991px) {
+    .trust-guarantees-card {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      padding: 22px;
+    }
+    .trust-guarantees-section {
+      margin-top: 10px;
+      margin-bottom: 30px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .trust-guarantees-card {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      padding: 18px 20px;
+    }
+    .trust-heading {
+      font-size: 14.5px;
+    }
+    .trust-icon-pill {
+      width: 44px;
+      height: 44px;
+      font-size: 22px;
+    }
+  }
+</style>
