@@ -1148,13 +1148,27 @@ transition: 0.4s;
 text-align: center;
 }
 
-.banner.homepage-banner .new-items.ace-slick-button .slick-dots {
-  bottom: -40px;
+.banner .new-items.ace-slick-button {
+  margin-bottom: 40px;
 }
 
+.banner .new-items.ace-slick-button .slick-dots,
+.banner.homepage-banner .new-items.ace-slick-button .slick-dots {
+  bottom: -32px;
+}
 
 .banner.homepage-banner {
-  min-height: 780px;
+  min-height: 820px;
+  padding-top: 40px;
+  padding-bottom: 70px;
+}
+
+@media only screen and (max-width: 1199px) {
+  .banner.homepage-banner {
+    min-height: auto;
+    padding-top: 50px;
+    padding-bottom: 70px;
+  }
 }
 
 .card-style-banners{
