@@ -1161,6 +1161,41 @@ text-align: center;
   min-height: 820px;
   padding-top: 40px;
   padding-bottom: 70px;
+  position: relative;
+}
+
+.slider-area.banner {
+  position: relative;
+}
+
+.slider-area.banner .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Seamless natural blend between hero block and second offers block */
+.slider-area.banner:not(.homepage-banner)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 140px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.95) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.slider-area.banner.homepage-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 140px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 100%);
+  z-index: 1;
+  pointer-events: none;
 }
 
 @media only screen and (max-width: 1199px) {
