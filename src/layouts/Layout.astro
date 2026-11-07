@@ -1,0 +1,94 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  showSearch?: boolean;
+}
+
+const {
+  title = "Hostamble >> #1 India's Best And Cheap Web Hosting Provider",
+  description = "cheap web hosting at cheap price , best cheap hosting , best cheap web hosting in india , best web hosting for small business",
+  keywords = "web hosting , web hosting cheap price , hostamble , hostmble , cheapest web hosting , free domain name",
+  showSearch = true
+} = Astro.props;
+
+import Header from '../components/Header.astro';
+import MobileMenu from '../components/MobileMenu.astro';
+import SearchPopup from '../components/SearchPopup.astro';
+import Footer from '../components/Footer.astro';
+---
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content={keywords}>
+    <meta name="description" content={description}>
+    <meta name="author" content="Hostamble">
+    <title>{title}</title>
+    <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/x-icon" />
+    <link href="/assets/css/vendor/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assets/css/vendor/remixicon.css" rel="stylesheet" />
+    <link href="/assets/css/vendor/aceorbit-font.css" rel="stylesheet" />
+    <link href="/assets/css/vendor/magnifypopup.css" rel="stylesheet" />
+    <link href="/assets/css/vendor/slick.css" rel="stylesheet" />
+    <link href="/assets/css/vendor/animation.css" rel="stylesheet" />
+    <link href="/assets/css/vendor/custom.css" rel="stylesheet" />
+    <link href="/assets/css/style.css" rel="stylesheet" />
+    
+    <script is:inline src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+    <script is:inline>
+      window.OneSignalDeferred = window.OneSignalDeferred || [];
+      OneSignalDeferred.push(async function(OneSignal) {
+        await OneSignal.init({
+          appId: "814b3eff-a174-4f8b-803e-753cfec07eea",
+        });
+      });
+    </script>
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', function () {
+        document.oncontextmenu = null;
+        document.onselectstart = null;
+        document.onmousedown = null;
+        window.addEventListener('contextmenu', e => e.stopPropagation(), true);
+        window.addEventListener('copy', e => e.stopPropagation(), true);
+        window.addEventListener('cut', e => e.stopPropagation(), true);
+        window.addEventListener('keydown', e => e.stopPropagation(), true);
+      });
+    </script>
+    <meta name="google-adsense-account" content="ca-pub-4201280122010738">
+    <slot name="head" />
+</head>
+
+<body>
+    <div id="header"></div>
+
+    <div class="main-wrapper">
+        <Header showSearch={showSearch} />
+        <MobileMenu />
+        <SearchPopup />
+        
+        <slot />
+
+        <Footer />
+    </div>
+
+    <div class="rn-progress-parent">
+        <svg class="rn-back-circle svg-inner" height="100%" viewBox="-1 -1 102 102" width="100%">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+        </svg>
+    </div>
+
+    <script is:inline src="/assets/js/vendor/jquery.js"></script>
+    <script is:inline src="/assets/js/vendor/bootstrap.min.js"></script>
+    <script is:inline src="/assets/js/vendor/sal.min.js"></script>
+    <script is:inline src="/assets/js/vendor/backtotop.js"></script>
+    <script is:inline src="/assets/js/vendor/magnifypopup.js"></script>
+    <script is:inline src="/assets/js/vendor/slick.js"></script>
+    <script is:inline src="/assets/js/vendor/wow.js"></script>
+    <script is:inline src="/assets/js/main.js"></script>
+    <slot name="scripts" />
+</body>
+</html>
+

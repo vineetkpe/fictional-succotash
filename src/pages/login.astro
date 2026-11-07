@@ -1,0 +1,66 @@
+---
+import AuthLayout from '../layouts/AuthLayout.astro';
+---
+<AuthLayout title="Hostamble | Client Login">
+  <div class="loginnow">
+     <div class="container inner">
+        <div class="row align-items-center">
+           <div class="col-lg-6 d-none d-md-block">
+              <img src="/assets/images/banner07.png" alt="Login images">
+           </div>
+           <div class="col-lg-6">
+             <div class="login-contents">
+                 <a href="/" class="logo">
+                 <img src="/assets/images/logo.png" alt="logo">
+              </a>
+              <h4 class="title">
+              </h4>
+              
+              <form>
+                 <a href="https://hostamble.com/dash/login.php" style="text-decoration:none;">
+                    <button class="ace-btn w-100 mt-3" type="button">
+                      click to Login Now <i class="icon-arrow-right-line-right"></i>
+                    </button>
+                  </a>
+                 <a href="/register" class="mt--10 color-body text-center d-block">Don't Have an Account? Register Now</a>
+                 <a href="https://hostamble.com/dash/index.php?rp=/password/reset" class="mt--10 color-body text-center d-block">Don't Have Password ? Forgot Password</a>
+              </form>
+             </div>
+           </div>
+        </div>
+     </div>
+  </div>
+
+  <script is:inline slot="scripts">
+    var addHandler = function (element, type, handler) {
+       if (element.addEventListener) {
+          element.addEventListener(type, handler, false);
+       } else if (element.attachEvent) {
+          element.attachEvent("on" + type, handler);
+       } else {
+          element["on" + type] = handler;
+       }
+    };
+
+    var preventDefault = function (event) {
+       if (event.preventDefault) {
+          event.preventDefault();
+       } else {
+          event.returnValue = false;
+       }
+    };
+
+    addHandler(window, "contextmenu", function (event) {
+       preventDefault(event);
+       alert('Developer mode disable in this site!!');
+    });
+    document.onkeydown = function (event) {
+       if (event.keyCode == 123) {
+          return false;
+       }
+       else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
+          return false;
+       }
+    };
+  </script>
+</AuthLayout>

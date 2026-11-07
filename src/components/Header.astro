@@ -1,0 +1,78 @@
+---
+interface Props {
+  showSearch?: boolean;
+}
+const { showSearch = true } = Astro.props;
+---
+<header class="ace-header header-sticky header-transparent header-style-one header-default">
+    <div class="row align-items-center">
+        <div class="col-lg-4 col-xl-3 col-md-6 col-6">
+            <div class="logo">
+                <a href="/">
+                    <img class="logo-light" src="/assets/images/logo.png" alt="Site Logo">
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-6 d-none d-xl-block">
+            <nav class="mainmenu-nav d-none d-lg-block">
+                <ul class="mainmenu">
+                    <li class="mainmenu"><a href="/">Home</a></li>
+                    <li class="has-droupdown"><a href="#">Domain</a>
+                        <ul class="submenu">
+                            <li><a href="/domain-search">Domain Search</a></li>
+                            <li><a href="/transfer-domain">Domain Transfer</a></li>
+                            <li><a href="https://hostamble.com/dash/index.php/domain/pricing">All Domain Pricing</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-droupdown"><a href="#">Hosting</a>
+                        <ul class="submenu">
+                            <li><a href="/shared-hosting">Shared Hosting</a></li>
+                            <li><a href="/wordpress-hosting">WordPress Hosting</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-droupdown"><a href="#">Pages</a>
+                        <ul class="submenu">
+                            <li><a href="/about-us">About Us</a></li>
+                            <li class="has-droupdown"><a href="#">Company</a>
+                                <ul class="submenu">
+                                    <li><a href="/contacts">Contact Us</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-lg-8 col-xl-3 col-md-6 col-6">
+            <div class="header-right d-flex justify-content-end">
+                <div class="header-menu-bar">
+                    {showSearch && (
+                      <div class="quote-icon quote-search">
+                        <button class="white-box-icon search-trigger header-search"><i class="ri-search-line"></i></button>
+                      </div>
+                    )}
+                    <!-- For larger screens, show "Login / Register" text -->
+                    <div class="quote-icon quote-user d-none d-md-block ml--15 ml_sm--5">
+                        <a class="ace-btn btn-medium left-icon header-button" href="/login">
+                            <i class="ri-user-line"></i>Login / Register
+                        </a>
+                    </div>
+                    <!-- For mobile devices, show only the icon -->
+                    <div class="quote-icon quote-user d-block d-md-none ml--15 ml_sm--5">
+                        <a class="white-box-icon" href="/login">
+                            <i class="ri-user-line"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="mobile-menu-bar ml--15 ml_sm--5 d-block d-xl-none">
+                    <div class="hamberger">
+                        <button class="white-box-icon hamberger-button header-menu">
+                            <i class="ri-menu-line"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+

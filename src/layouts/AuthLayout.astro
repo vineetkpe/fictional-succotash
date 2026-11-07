@@ -1,0 +1,49 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = "Hostamble | Client Access",
+  description = "Hostamble Login and Registration"
+} = Astro.props;
+---
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content={description}>
+    <meta name="author" content="Hostamble">
+    <title>{title}</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png">
+    <link rel="stylesheet" href="/assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/vendor/remixicon.css">
+    <link rel="stylesheet" href="/assets/css/vendor/aceorbit-font.css">
+    <link rel="stylesheet" href="/assets/css/vendor/magnifypopup.css">
+    <link rel="stylesheet" href="/assets/css/vendor/slick.css">
+    <link rel="stylesheet" href="/assets/css/vendor/animation.css">
+    <link rel="stylesheet" href="/assets/css/vendor/custom.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <slot />
+
+    <div class="rn-progress-parent">
+        <svg class="rn-back-circle svg-inner" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+    <script is:inline src="/assets/js/vendor/jquery.js"></script>
+    <script is:inline src="/assets/js/vendor/bootstrap.min.js"></script>
+    <script is:inline src="/assets/js/vendor/sal.min.js"></script>
+    <script is:inline src="/assets/js/vendor/backtotop.js"></script>
+    <script is:inline src="/assets/js/vendor/magnifypopup.js"></script>
+    <script is:inline src="/assets/js/vendor/slick.js"></script>
+    <script is:inline src="/assets/js/vendor/wow.js"></script>
+    <script is:inline src="/assets/js/vendor/countdown.js"></script>
+    <script is:inline src="/assets/js/main.js"></script>
+    <slot name="scripts" />
+</body>
+</html>
+
