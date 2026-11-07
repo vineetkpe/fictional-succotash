@@ -785,6 +785,23 @@ body {
 /*-------------------------
     Back To Top  
 ---------------------------*/
+@keyframes border-transform {
+  0%,
+  100% {
+    border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%; }
+  14% {
+    border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; }
+  28% {
+    border-radius: 54% 46% 38% 62% / 49% 70% 30% 51%; }
+  42% {
+    border-radius: 61% 39% 55% 45% / 61% 38% 62% 39%; }
+  56% {
+    border-radius: 61% 39% 67% 33% / 70% 50% 50% 30%; }
+  70% {
+    border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%; }
+  84% {
+    border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%; } }
+
 @-webkit-keyframes border-transform {
   0%,
   100% {
@@ -854,6 +871,7 @@ body {
     font-size: 24px;
     opacity: 0;
     background: #0d0d12;
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     left: 0;
@@ -981,15 +999,6 @@ body {
           bottom: -12px; }
           .banner .inner .content .arrow-sign img {
             max-width: 40%; } }
-  .banner .banner-thumbnail {
-    /*position: absolute;
-    bottom: 0;
-    right: 111px;
-    z-index: 1*/ }
-    @media only screen and (min-width: 1200px) and (max-width: 1599px) {
-      .banner .banner-thumbnail {
-/*        right: 31px;*/
-         } }
     .banner .banner-thumbnail img {
       max-width: calc(100% - 60px); }
     @media only screen and (min-width: 1200px) and (max-width: 1400px) {
@@ -1885,11 +1894,6 @@ border-radius: 0px 0 0 0;
 
 [dir="rtl"] .table-plans>.table-responsive>table thead th:first-child{
   border-radius: 0px 4px 0 0;
-}
-
-
-.table-plans > .table-responsive > table thead th:nth-child(4) {
-  
 }
 
 [dir="rtl"] .table-plans>.table-responsive>table thead th{
@@ -3161,10 +3165,6 @@ transform: scale(1.1);
            /*===========================
             Underhood
             =============================*/
-       .aceorbit-underhood{
-/*           background-image: url(/assets/images/services.jpg);*/
-         }
-
            .underhood-thumbnail{
             background-color: var(--color-shade);
             padding: 20px 20px 30px;
