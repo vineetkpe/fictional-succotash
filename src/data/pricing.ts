@@ -95,20 +95,20 @@ export const sharedHosting = {
       name: "Starter",
       isPopular: true,
       pricing: {
-        monthly: { inr: "₹99", usd: "$1.19" },
-        quarterly: { inr: "₹297", usd: "$3.55" },
-        semiannual: { inr: "₹594", usd: "$7.10" },
-        annual: { inr: "₹1188", usd: "$14.15" }
+        monthly: { inr: "₹79", usd: "$0.99" },
+        quarterly: { inr: "₹237", usd: "$2.80" },
+        semiannual: { inr: "₹474", usd: "$5.60" },
+        annual: { inr: "₹948", usd: "$11.20" }
       }
     },
     elite: {
       id: "elite",
       name: "Elite",
       pricing: {
-        monthly: { inr: "₹149", usd: "$1.79" },
-        quarterly: { inr: "₹447", usd: "$5.35" },
-        semiannual: { inr: "₹894", usd: "$10.70" },
-        annual: { inr: "₹1788", usd: "$21.40" }
+        monthly: { inr: "₹109", usd: "$1.29" },
+        quarterly: { inr: "₹327", usd: "$3.90" },
+        semiannual: { inr: "₹654", usd: "$7.80" },
+        annual: { inr: "₹1308", usd: "$15.50" }
       }
     }
   }
@@ -147,6 +147,39 @@ export const wordpressHosting = {
     },
     prime: {
       id: "prime",
+      name: "Prime",
+      pricing: {
+        monthly: { inr: "₹179", usd: "$2.15" },
+        yearly: { inr: "₹2148", usd: "$25.60" }
+      }
+    },
+    personal: {
+      id: "personal",
+      name: "Starter",
+      pricing: {
+        monthly: { inr: "₹59", usd: "$0.79" },
+        yearly: { inr: "₹708", usd: "$8.40" }
+      }
+    },
+    plus: {
+      id: "plus",
+      name: "Essential",
+      isPopular: true,
+      pricing: {
+        monthly: { inr: "₹99", usd: "$1.19" },
+        yearly: { inr: "₹1188", usd: "$14.15" }
+      }
+    },
+    expert: {
+      id: "expert",
+      name: "Growth",
+      pricing: {
+        monthly: { inr: "₹139", usd: "$1.65" },
+        yearly: { inr: "₹1168", usd: "$13.90" }
+      }
+    },
+    ultimate: {
+      id: "ultimate",
       name: "Prime",
       pricing: {
         monthly: { inr: "₹179", usd: "$2.15" },
@@ -535,3 +568,4 @@ export const domainPricing = {
     }
   ]
 };
+

@@ -785,7 +785,7 @@ body {
 /*-------------------------
     Back To Top  
 ---------------------------*/
-@keyframes border-transform {
+@-webkit-keyframes border-transform {
   0%,
   100% {
     border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%; }
@@ -802,7 +802,7 @@ body {
   84% {
     border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%; } }
 
-@-webkit-keyframes border-transform {
+@keyframes border-transform {
   0%,
   100% {
     border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%; }
@@ -871,8 +871,8 @@ body {
     font-size: 24px;
     opacity: 0;
     background: #0d0d12;
-    background-clip: text;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     left: 0;
     top: 0;
