@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import CurrencySwitcher from '../components/CurrencySwitcher.astro';
 ---
 
 <Layout title="Hostamble >> #1 India's Best And Cheap Web Hosting Provider">
@@ -64,8 +63,6 @@ import CurrencySwitcher from '../components/CurrencySwitcher.astro';
           </div>
           
           <div class="col-lg-6 col-md-6">
-          <div class="d-flex align-items-center justify-content-md-end flex-wrap gap-3">
-          <CurrencySwitcher variant="section" />
           <div class="pricing-billing-duration">
           <ul>
             <li class="nav-item"><button class="nav-link active" id="monthly-plan-btn" onclick="updatePricing('monthly')" type="button">Monthly</button></li>
@@ -73,7 +70,6 @@ import CurrencySwitcher from '../components/CurrencySwitcher.astro';
             <li class="nav-item"><button class="nav-link" id="semiannual-plan-btn" onclick="updatePricing('semiannual')" type="button">Semi-Annual</button></li>
             <li class="nav-item"><button class="nav-link" id="annual-plan-btn" onclick="updatePricing('annual')" type="button">Annual</button></li>
           </ul>
-          </div>
           </div>
           </div>
           </div>

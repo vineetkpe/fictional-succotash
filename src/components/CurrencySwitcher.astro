@@ -1,35 +1,46 @@
 ---
 interface Props {
-  variant?: 'header' | 'section' | 'mobile';
+  variant?: 'header' | 'mobile';
   class?: string;
 }
 
 const { variant = 'header', class: className = '' } = Astro.props;
 ---
 
-<div class={`currency-switcher currency-${variant} ${className}`} id="currencySwitcher">
+<div class={`currency-dropdown-wrap currency-${variant} ${className}`} id={variant === 'header' ? 'currencySwitcherHeader' : 'currencySwitcherMobile'}>
   <button 
     type="button" 
-    class="currency-toggle-btn active" 
-    data-currency="INR" 
-    title="Switch currency to Indian Rupee (INR)"
-    aria-label="INR Currency"
-    aria-pressed="true"
+    class="currency-dropdown-btn" 
+    aria-expanded="false" 
+    aria-haspopup="listbox"
+    aria-label="Select Currency"
   >
-    <span class="currency-flag">🇮🇳</span>
-    <span class="currency-label">INR <small class="currency-symbol">(₹)</small></span>
+    <span class="currency-current-label">₹ INR</span>
+    <i class="ri-arrow-down-s-line currency-chevron" aria-hidden="true"></i>
   </button>
-  <button 
-    type="button" 
-    class="currency-toggle-btn" 
-    data-currency="USD" 
-    title="Switch currency to US Dollar (USD)"
-    aria-label="USD Currency"
-    aria-pressed="false"
-  >
-    <span class="currency-flag">🇺🇸</span>
-    <span class="currency-label">USD <small class="currency-symbol">($)</small></span>
-  </button>
+
+  <div class="currency-dropdown-card" role="listbox" aria-label="Currency options">
+    <button 
+      type="button" 
+      class="currency-dropdown-item active" 
+      data-currency="INR" 
+      role="option" 
+      aria-selected="true"
+    >
+      <span class="currency-item-symbol">₹</span>
+      <span class="currency-item-code">INR</span>
+    </button>
+    <button 
+      type="button" 
+      class="currency-dropdown-item" 
+      data-currency="USD" 
+      role="option" 
+      aria-selected="false"
+    >
+      <span class="currency-item-symbol">$</span>
+      <span class="currency-item-code">USD</span>
+    </button>
+  </div>
 </div>
 
 <script>
@@ -38,96 +49,152 @@ const { variant = 'header', class: className = '' } = Astro.props;
 </script>
 
 <style>
-  .currency-switcher {
+  .currency-dropdown-wrap {
+    position: relative;
     display: inline-flex;
     align-items: center;
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid #e2e4e8;
-    border-radius: 30px;
-    padding: 2px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
     user-select: none;
-    transition: all 0.2s ease;
+    font-family: inherit;
   }
 
-  .currency-toggle-btn {
+  .currency-dropdown-btn {
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    padding: 4px 10px;
-    border: none;
     background: transparent;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-    color: #4b5162;
+    border: none;
+    padding: 6px 8px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #e53935;
     cursor: pointer;
     line-height: 1.2;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.2s ease;
+    border-radius: 4px;
   }
 
-  .currency-toggle-btn:hover:not(.active) {
-    color: #ff6027;
-    background: rgba(255, 96, 39, 0.06);
+  .currency-dropdown-btn:hover {
+    color: #c62828;
+    background: rgba(229, 57, 53, 0.05);
   }
 
-  .currency-toggle-btn.active {
-    background: #ff6027;
-    color: #ffffff;
-    box-shadow: 0 2px 6px rgba(255, 96, 39, 0.35);
-  }
-
-  .currency-toggle-btn.active .currency-symbol {
-    opacity: 0.95;
-    color: #ffffff;
-  }
-
-  .currency-flag {
-    font-size: 13px;
-    line-height: 1;
-    display: inline-block;
-  }
-
-  .currency-label {
+  .currency-current-label {
     letter-spacing: 0.02em;
+    white-space: nowrap;
   }
 
-  .currency-symbol {
-    font-size: 11px;
-    opacity: 0.75;
+  .currency-chevron {
+    font-size: 17px;
+    line-height: 1;
+    color: #e53935;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .currency-dropdown-wrap.open .currency-chevron {
+    transform: rotate(180deg);
+  }
+
+  /* Dropdown Card */
+  .currency-dropdown-card {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    min-width: 130px;
+    background: #ffffff;
+    border: 1px solid #ebebeb;
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    padding: 8px 0;
+    z-index: 1050;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-6px);
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0.2s;
+  }
+
+  .currency-dropdown-wrap.open .currency-dropdown-card {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  /* Items */
+  .currency-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 9px 18px;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 500;
+    color: #2b2f38;
+    text-align: left;
+    cursor: pointer;
+    line-height: 1.4;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .currency-dropdown-item:hover {
+    background: #f7f8fa;
+    color: #e53935;
+  }
+
+  .currency-dropdown-item.active {
+    color: #e53935;
+    font-weight: 700;
+  }
+
+  .currency-item-symbol {
+    font-weight: 600;
+    min-width: 12px;
+  }
+
+  .currency-item-code {
+    letter-spacing: 0.02em;
   }
 
   /* Header Variant */
   .currency-header {
-    margin-right: 12px;
+    margin-right: 14px;
   }
 
-  /* Section Variant (e.g. on pricing tables) */
-  .currency-section {
-    background: #ffffff;
-    border: 1.5px solid #e7e9ee;
-    padding: 3px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
-  }
-
-  .currency-section .currency-toggle-btn {
-    padding: 6px 14px;
-    font-size: 13px;
-  }
-
-  /* Mobile Variant */
+  /* Mobile Drawer Variant */
   .currency-mobile {
     width: 100%;
-    justify-content: center;
-    margin: 15px 0;
-    background: #f5f6f9;
+    margin: 10px 0 15px 0;
   }
 
-  .currency-mobile .currency-toggle-btn {
-    flex: 1;
-    justify-content: center;
-    padding: 8px 12px;
-    font-size: 13px;
+  .currency-mobile .currency-dropdown-btn {
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: #f4f5f8;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  .currency-mobile .currency-dropdown-card {
+    position: static;
+    display: none;
+    width: 100%;
+    margin-top: 6px;
+    box-shadow: none;
+    border: 1px solid #e5e7eb;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .currency-mobile.open .currency-dropdown-card {
+    display: block;
   }
 
   @media (max-width: 991px) {
@@ -135,23 +202,19 @@ const { variant = 'header', class: className = '' } = Astro.props;
       margin-right: 8px;
     }
 
-    .currency-header .currency-toggle-btn {
-      padding: 3px 6px;
-      font-size: 11px;
+    .currency-header .currency-dropdown-btn {
+      padding: 4px 6px;
+      font-size: 13px;
     }
 
-    .currency-header .currency-symbol {
-      display: none;
+    .currency-header .currency-chevron {
+      font-size: 15px;
     }
   }
 
-  @media (max-width: 480px) {
-    .currency-header .currency-label {
-      font-size: 10px;
-    }
-
-    .currency-header .currency-flag {
-      font-size: 11px;
+  @media (max-width: 576px) {
+    .currency-header {
+      display: none !important;
     }
   }
 </style>
