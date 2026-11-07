@@ -4,12 +4,12 @@
 export function initTypewriter(
   elementId: string = "offerWord",
   words: string[] = [
-    "77% OFF",
-    "Free Domain",
-    "Fast Support",
-    "Fast Setup",
-    "Free SSL",
-    "WordPress"
+    "77% Discount",
+    "Free .COM Domain",
+    "10x LiteSpeed Turbo",
+    "Free SSL & Backups",
+    "Instant 1-Click Setup",
+    "24/7 Expert Support"
   ]
 ): void {
   const el = document.getElementById(elementId);
