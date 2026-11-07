@@ -9,7 +9,7 @@ export function initTypewriter(
     "Turbo Power",
     "Free SSL",
     "Expert Support",
-    "1-Click WordPress"
+    "1-Click Install"
   ]
 ): void {
   const el = document.getElementById(elementId);
