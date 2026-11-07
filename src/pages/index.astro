@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import CurrencySwitcher from '../components/CurrencySwitcher.astro';
 ---
 
 <Layout title="Hostamble >> #1 India's Best And Cheap Web Hosting Provider">
@@ -291,20 +292,20 @@ import Layout from '../layouts/Layout.astro';
 
                                         <ul class="select-tlds justify-content-lg-start">
                                             <li><span class="name">.com</span> <span
-                                                    class="original-price prices">₹1999</span> <span
-                                                    class="discount-price prices">₹1299</span></li>
+                                                    class="original-price prices" data-inr="₹1999" data-usd="$23.99">₹1999</span> <span
+                                                    class="discount-price prices" data-inr="₹1299" data-usd="$15.49">₹1299</span></li>
                                             <li><span class="name">.online</span> <span
-                                                    class="original-price prices">₹1679</span> <span
-                                                    class="discount-price prices">₹299</span></li>
+                                                    class="original-price prices" data-inr="₹1679" data-usd="$19.99">₹1679</span> <span
+                                                    class="discount-price prices" data-inr="₹299" data-usd="$3.59">₹299</span></li>
                                             <li><span class="name">.site</span> <span
-                                                    class="original-price prices">₹643</span> <span
-                                                    class="discount-price prices">₹199</span></li>
+                                                    class="original-price prices" data-inr="₹643" data-usd="$7.69">₹643</span> <span
+                                                    class="discount-price prices" data-inr="₹199" data-usd="$2.39">₹199</span></li>
                                             <li><span class="name">.xyz</span> <span
-                                                    class="original-price prices">₹883</span> <span
-                                                    class="discount-price prices">₹338</span></li>
+                                                    class="original-price prices" data-inr="₹883" data-usd="$10.59">₹883</span> <span
+                                                    class="discount-price prices" data-inr="₹338" data-usd="$4.09">₹338</span></li>
                                             <li><span class="name">.shop</span> <span
-                                                    class="original-price prices">₹867</span> <span
-                                                    class="discount-price prices">₹266</span></li>
+                                                    class="original-price prices" data-inr="₹867" data-usd="$10.39">₹867</span> <span
+                                                    class="discount-price prices" data-inr="₹266" data-usd="$3.19">₹266</span></li>
                                             <li class="bg-none border-0 p-0 box-shadow-none"><a
                                                     class="m-auto border-0 ace-btn btn-small"
                                                     href="https://hostamble.com/dash/index.php/domain/pricing">View All
@@ -376,46 +377,49 @@ import Layout from '../layouts/Layout.astro';
                     </div>
         
                     <div class="col-lg-6 col-md-6">
-                        <div class="pricing-billing-duration">
-                            <ul>
-        
-                                <li class="nav-item">
-                                    <button class="nav-link active" id="monthly-plan-btn" onclick="
-                        document.querySelectorAll('.pricing-billing-duration .nav-link')
-                        .forEach(btn=>btn.classList.remove('active'));
-                        this.classList.add('active');
-                        updatePricing('monthly');
-                        " type="button">Monthly</button>
-                                </li>
-        
-                                <li class="nav-item">
-                                    <button class="nav-link" id="quarterly-plan-btn" onclick="
-                        document.querySelectorAll('.pricing-billing-duration .nav-link')
-                        .forEach(btn=>btn.classList.remove('active'));
-                        this.classList.add('active');
-                        updatePricing('quarterly');
-                        " type="button">Quarterly</button>
-                                </li>
-        
-                                <li class="nav-item">
-                                    <button class="nav-link" id="semiannual-plan-btn" onclick="
-                        document.querySelectorAll('.pricing-billing-duration .nav-link')
-                        .forEach(btn=>btn.classList.remove('active'));
-                        this.classList.add('active');
-                        updatePricing('semiannual');
-                        " type="button">Semi-Annual</button>
-                                </li>
-        
-                                <li class="nav-item">
-                                    <button class="nav-link" id="annual-plan-btn" onclick="
-                        document.querySelectorAll('.pricing-billing-duration .nav-link')
-                        .forEach(btn=>btn.classList.remove('active'));
-                        this.classList.add('active');
-                        updatePricing('annual');
-                        " type="button">Annual</button>
-                                </li>
-        
-                            </ul>
+                        <div class="d-flex align-items-center justify-content-md-end flex-wrap gap-3">
+                            <CurrencySwitcher variant="section" />
+                            <div class="pricing-billing-duration">
+                                <ul>
+            
+                                    <li class="nav-item">
+                                        <button class="nav-link active" id="monthly-plan-btn" onclick="
+                            document.querySelectorAll('.pricing-billing-duration .nav-link')
+                            .forEach(btn=>btn.classList.remove('active'));
+                            this.classList.add('active');
+                            updatePricing('monthly');
+                            " type="button">Monthly</button>
+                                    </li>
+            
+                                    <li class="nav-item">
+                                        <button class="nav-link" id="quarterly-plan-btn" onclick="
+                            document.querySelectorAll('.pricing-billing-duration .nav-link')
+                            .forEach(btn=>btn.classList.remove('active'));
+                            this.classList.add('active');
+                            updatePricing('quarterly');
+                            " type="button">Quarterly</button>
+                                    </li>
+            
+                                    <li class="nav-item">
+                                        <button class="nav-link" id="semiannual-plan-btn" onclick="
+                            document.querySelectorAll('.pricing-billing-duration .nav-link')
+                            .forEach(btn=>btn.classList.remove('active'));
+                            this.classList.add('active');
+                            updatePricing('semiannual');
+                            " type="button">Semi-Annual</button>
+                                    </li>
+            
+                                    <li class="nav-item">
+                                        <button class="nav-link" id="annual-plan-btn" onclick="
+                            document.querySelectorAll('.pricing-billing-duration .nav-link')
+                            .forEach(btn=>btn.classList.remove('active'));
+                            this.classList.add('active');
+                            updatePricing('annual');
+                            " type="button">Annual</button>
+                                    </li>
+            
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
@@ -429,16 +433,16 @@ import Layout from '../layouts/Layout.astro';
                                 <h3 class="title">Basic</h3>
 
                                 <div class="price-wrap">
-                                    <div class="monthly-pricing" style="display: block;"><span class="amount">₹59</span>
+                                    <div class="monthly-pricing" style="display: block;"><span class="amount" data-inr="₹59" data-usd="$0.79">₹59</span>
                                         <span class="duration">/monthly</span></div>
 
                                     <div class="quarterly-pricing" style="display: none;"><span
-                                            class="amount">₹177</span> <span class="duration">/quarterly</span></div>
+                                            class="amount" data-inr="₹177" data-usd="$2.10">₹177</span> <span class="duration">/quarterly</span></div>
 
                                     <div class="semiannual-pricing" style="display: none;"><span
-                                            class="amount">₹354</span> <span class="duration">/semiannual</span></div>
+                                            class="amount" data-inr="₹354" data-usd="$4.20">₹354</span> <span class="duration">/semiannual</span></div>
 
-                                    <div class="annual-pricing" style="display: none;"><span class="amount">₹708</span>
+                                    <div class="annual-pricing" style="display: none;"><span class="amount" data-inr="₹708" data-usd="$8.40">₹708</span>
                                         <span class="duration">/annual</span></div>
                                 </div>
                             </div>
@@ -473,16 +477,16 @@ import Layout from '../layouts/Layout.astro';
                                 <h3 class="title">Starter</h3>
 
                                 <div class="price-wrap">
-                                    <div class="monthly-pricing" style="display: block;"><span class="amount">₹79</span>
+                                    <div class="monthly-pricing" style="display: block;"><span class="amount" data-inr="₹79" data-usd="$0.99">₹79</span>
                                         <span class="duration">/monthly</span></div>
 
                                     <div class="quarterly-pricing" style="display: none;"><span
-                                            class="amount">₹237</span> <span class="duration">/quarterly</span></div>
+                                            class="amount" data-inr="₹237" data-usd="$2.80">₹237</span> <span class="duration">/quarterly</span></div>
 
                                     <div class="semiannual-pricing" style="display: none;"><span
-                                            class="amount">₹474</span> <span class="duration">/semiannual</span></div>
+                                            class="amount" data-inr="₹474" data-usd="$5.60">₹474</span> <span class="duration">/semiannual</span></div>
 
-                                    <div class="annual-pricing" style="display: none;"><span class="amount">₹948</span>
+                                    <div class="annual-pricing" style="display: none;"><span class="amount" data-inr="₹948" data-usd="$11.20">₹948</span>
                                         <span class="duration">/annual</span> <span class="free-domain">+ Free
                                             Domain</span></div>
                                 </div>
@@ -518,15 +522,15 @@ import Layout from '../layouts/Layout.astro';
 
                                 <div class="price-wrap">
                                     <div class="monthly-pricing" style="display: block;"><span
-                                            class="amount">₹109</span> <span class="duration">/monthly</span></div>
+                                            class="amount" data-inr="₹109" data-usd="$1.29">₹109</span> <span class="duration">/monthly</span></div>
 
                                     <div class="quarterly-pricing" style="display: none;"><span
-                                            class="amount">₹327</span> <span class="duration">/quarterly</span></div>
+                                            class="amount" data-inr="₹327" data-usd="$3.90">₹327</span> <span class="duration">/quarterly</span></div>
 
                                     <div class="semiannual-pricing" style="display: none;"><span
-                                            class="amount">₹654</span> <span class="duration">/semiannual</span></div>
+                                            class="amount" data-inr="₹654" data-usd="$7.80">₹654</span> <span class="duration">/semiannual</span></div>
 
-                                    <div class="annual-pricing" style="display: none;"><span class="amount">₹1308</span>
+                                    <div class="annual-pricing" style="display: none;"><span class="amount" data-inr="₹1308" data-usd="$15.50">₹1308</span>
                                         <span class="duration">/annual</span> <span class="free-domain">+ Free
                                             Domain</span></div>
                                 </div>

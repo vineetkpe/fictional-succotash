@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import CurrencySwitcher from '../components/CurrencySwitcher.astro';
 ---
 
 <Layout title="Hostamble >> #1 India's Best And Cheap Web Hosting Provider">
@@ -14,7 +15,7 @@ import Layout from '../layouts/Layout.astro';
                   <div class="col-lg-6 col-md-12">
                      <div class="inner">
                         <div class="content">
-                           <span class="pre-title" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">Start Building your web presence at ₹49 /mo</span>
+                           <span class="pre-title" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">Start Building your web presence at <span data-inr="₹49 /mo" data-usd="$0.59 /mo">₹49 /mo</span></span>
                            <h1 class="title" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
                               Shared Hosting - At it's Simplest Best
                            </h1>
@@ -63,6 +64,8 @@ import Layout from '../layouts/Layout.astro';
           </div>
           
           <div class="col-lg-6 col-md-6">
+          <div class="d-flex align-items-center justify-content-md-end flex-wrap gap-3">
+          <CurrencySwitcher variant="section" />
           <div class="pricing-billing-duration">
           <ul>
             <li class="nav-item"><button class="nav-link active" id="monthly-plan-btn" onclick="updatePricing('monthly')" type="button">Monthly</button></li>
@@ -70,6 +73,7 @@ import Layout from '../layouts/Layout.astro';
             <li class="nav-item"><button class="nav-link" id="semiannual-plan-btn" onclick="updatePricing('semiannual')" type="button">Semi-Annual</button></li>
             <li class="nav-item"><button class="nav-link" id="annual-plan-btn" onclick="updatePricing('annual')" type="button">Annual</button></li>
           </ul>
+          </div>
           </div>
           </div>
           </div>
@@ -81,13 +85,13 @@ import Layout from '../layouts/Layout.astro';
           <h3 class="title">Basic</h3>
           
           <div class="price-wrap">
-          <div class="monthly-pricing" style="display: block;"><span class="amount">₹49</span> <span class="duration">/monthly</span></div>
+          <div class="monthly-pricing" style="display: block;"><span class="amount" data-inr="₹49" data-usd="$0.59">₹49</span> <span class="duration">/monthly</span></div>
           
-          <div class="quarterly-pricing" style="display: none;"><span class="amount">₹147</span> <span class="duration">/quarterly</span></div>
+          <div class="quarterly-pricing" style="display: none;"><span class="amount" data-inr="₹147" data-usd="$1.75">₹147</span> <span class="duration">/quarterly</span></div>
           
-          <div class="semiannual-pricing" style="display: none;"><span class="amount">₹294</span> <span class="duration">/semiannual</span></div>
+          <div class="semiannual-pricing" style="display: none;"><span class="amount" data-inr="₹294" data-usd="$3.50">₹294</span> <span class="duration">/semiannual</span></div>
           
-          <div class="annual-pricing" style="display: none;"><span class="amount">₹588</span> <span class="duration">/annual</span></div>
+          <div class="annual-pricing" style="display: none;"><span class="amount" data-inr="₹588" data-usd="$7.00">₹588</span> <span class="duration">/annual</span></div>
           </div>
           </div>
           
@@ -118,13 +122,13 @@ import Layout from '../layouts/Layout.astro';
           <h3 class="title">Starter</h3>
           
           <div class="price-wrap">
-          <div class="monthly-pricing" style="display: block;"><span class="amount">₹99</span> <span class="duration">/monthly</span></div>
+          <div class="monthly-pricing" style="display: block;"><span class="amount" data-inr="₹99" data-usd="$1.19">₹99</span> <span class="duration">/monthly</span></div>
           
-          <div class="quarterly-pricing" style="display: none;"><span class="amount">₹297</span> <span class="duration">/quarterly</span></div>
+          <div class="quarterly-pricing" style="display: none;"><span class="amount" data-inr="₹297" data-usd="$3.55">₹297</span> <span class="duration">/quarterly</span></div>
           
-          <div class="semiannual-pricing" style="display: none;"><span class="amount">₹594</span> <span class="duration">/semiannual</span></div>
+          <div class="semiannual-pricing" style="display: none;"><span class="amount" data-inr="₹594" data-usd="$7.10">₹594</span> <span class="duration">/semiannual</span></div>
           
-          <div class="annual-pricing" style="display: none;"><span class="amount">₹1188</span> <span class="duration">/annual</span> <span class="free-domain">+ Free Domain</span></div>
+          <div class="annual-pricing" style="display: none;"><span class="amount" data-inr="₹1188" data-usd="$14.15">₹1188</span> <span class="duration">/annual</span> <span class="free-domain">+ Free Domain</span></div>
           </div>
           </div>
           
@@ -153,13 +157,13 @@ import Layout from '../layouts/Layout.astro';
           <h3 class="title">Elite</h3>
           
           <div class="price-wrap">
-          <div class="monthly-pricing" style="display: block;"><span class="amount">₹149</span> <span class="duration">/monthly</span></div>
+          <div class="monthly-pricing" style="display: block;"><span class="amount" data-inr="₹149" data-usd="$1.79">₹149</span> <span class="duration">/monthly</span></div>
           
-          <div class="quarterly-pricing" style="display: none;"><span class="amount">₹447</span> <span class="duration">/quarterly</span></div>
+          <div class="quarterly-pricing" style="display: none;"><span class="amount" data-inr="₹447" data-usd="$5.35">₹447</span> <span class="duration">/quarterly</span></div>
           
-          <div class="semiannual-pricing" style="display: none;"><span class="amount">₹894</span> <span class="duration">/semiannual</span></div>
+          <div class="semiannual-pricing" style="display: none;"><span class="amount" data-inr="₹894" data-usd="$10.70">₹894</span> <span class="duration">/semiannual</span></div>
           
-          <div class="annual-pricing" style="display: none;"><span class="amount">₹1788</span> <span class="duration">/annual</span> <span class="free-domain">+ Free Domain</span></div>
+          <div class="annual-pricing" style="display: none;"><span class="amount" data-inr="₹1788" data-usd="$21.40">₹1788</span> <span class="duration">/annual</span> <span class="free-domain">+ Free Domain</span></div>
           </div>
           </div>
           

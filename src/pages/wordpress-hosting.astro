@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import CurrencySwitcher from '../components/CurrencySwitcher.astro';
 ---
 
 <Layout title="Best Wordpress Hosting">
@@ -12,7 +13,7 @@ import Layout from '../layouts/Layout.astro';
                         <div class="inner">
                             <div class="content">
                                 <span class="pre-title" data-sal-delay="150" data-sal="slide-up"
-                                    data-sal-duration="800">Starts at just ₹ 59/mo</span>
+                                    data-sal-duration="800">Starts at just <span data-inr="₹ 59/mo" data-usd="$0.79/mo">₹ 59/mo</span></span>
                                 <h1 class="title" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
                                     Ease Your working with Wordpress Hosting
                                 </h1>
@@ -64,15 +65,18 @@ import Layout from '../layouts/Layout.astro';
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
-                        <div class="pricing-billing-duration">
-                            <ul>
-                                <li class="nav-item">
-                                    <button class="nav-link" id="yearly-plan-btn" type="button">Yearly</button>
-                                </li>
-                                <li class="nav-item">
-                                    <button class="nav-link active" id="monthly-plan-btn" type="button">Monthly</button>
-                                </li>
-                            </ul>
+                        <div class="d-flex align-items-center justify-content-md-end flex-wrap gap-3">
+                            <CurrencySwitcher variant="section" />
+                            <div class="pricing-billing-duration">
+                                <ul>
+                                    <li class="nav-item">
+                                        <button class="nav-link" id="yearly-plan-btn" type="button">Yearly</button>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button class="nav-link active" id="monthly-plan-btn" type="button">Monthly</button>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -81,10 +85,10 @@ import Layout from '../layouts/Layout.astro';
                         data-sal-duration="800">
                         <div class="princing-table-two">
                             <h4 class="price top-50 yearly-pricing" style="display: none;">
-                                ₹708 <span class="durection">/Year</span>
+                                <span data-inr="₹708" data-usd="$8.40">₹708</span> <span class="durection">/Year</span>
                             </h4>
                             <h4 class="price monthly-pricing">
-                                ₹59 <span class="durection">/Month</span>
+                                <span data-inr="₹59" data-usd="$0.79">₹59</span> <span class="durection">/Month</span>
                             </h4>
                             <div class="inner">
                                 <h4 class="name">Starter </h4>
@@ -110,10 +114,10 @@ import Layout from '../layouts/Layout.astro';
                         data-sal-duration="800">
                         <div class="princing-table-two">
                             <h4 class="price top-50 yearly-pricing" style="display: none;">
-                                ₹1188 <span class="durection">/Year</span>
+                                <span data-inr="₹1188" data-usd="$14.15">₹1188</span> <span class="durection">/Year</span>
                             </h4>
                             <h4 class="price monthly-pricing" style="display: block;">
-                                ₹99 <span class="durection">/Month</span>
+                                <span data-inr="₹99" data-usd="$1.19">₹99</span> <span class="durection">/Month</span>
                             </h4>
                             <div class="inner">
                                 <h4 class="name">Essential</h4>
@@ -139,10 +143,10 @@ import Layout from '../layouts/Layout.astro';
                         data-sal-duration="800">
                         <div class="princing-table-two">
                             <h4 class="price top-50 yearly-pricing" style="display: none;">
-                                ₹1168 <span class="durection">/Year</span>
+                                <span data-inr="₹1168" data-usd="$13.90">₹1168</span> <span class="durection">/Year</span>
                             </h4>
                             <h4 class="price monthly-pricing" style="display: block;">
-                                ₹139 <span class="durection">/Month</span>
+                                <span data-inr="₹139" data-usd="$1.65">₹139</span> <span class="durection">/Month</span>
                             </h4>
                             <div class="inner">
 
@@ -169,10 +173,10 @@ import Layout from '../layouts/Layout.astro';
                         data-sal-duration="800">
                         <div class="princing-table-two">
                             <h4 class="price top-50 yearly-pricing" style="display: none;">
-                                ₹2148 <span class="durection">/Year</span>
+                                <span data-inr="₹2148" data-usd="$25.60">₹2148</span> <span class="durection">/Year</span>
                             </h4>
                             <h4 class="price monthly-pricing" style="display: block;">
-                                ₹179 <span class="durection">/Month</span>
+                                <span data-inr="₹179" data-usd="$2.15">₹179</span> <span class="durection">/Month</span>
                             </h4>
                             <div class="inner">
                                 <h4 class="name">Prime</h4>

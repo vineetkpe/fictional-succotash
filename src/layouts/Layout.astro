@@ -82,6 +82,11 @@ import '../styles/style.css';
     <script is:inline src="/assets/js/vendor/wow.js"></script>
     <script is:inline src="/assets/js/main.js"></script>
     
+    <script>
+      import { initCurrency } from '../scripts/currency';
+      initCurrency();
+    </script>
+    
     <slot name="scripts" />
 </body>
 </html>

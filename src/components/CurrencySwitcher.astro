@@ -1,0 +1,157 @@
+---
+interface Props {
+  variant?: 'header' | 'section' | 'mobile';
+  class?: string;
+}
+
+const { variant = 'header', class: className = '' } = Astro.props;
+---
+
+<div class={`currency-switcher currency-${variant} ${className}`} id="currencySwitcher">
+  <button 
+    type="button" 
+    class="currency-toggle-btn active" 
+    data-currency="INR" 
+    title="Switch currency to Indian Rupee (INR)"
+    aria-label="INR Currency"
+    aria-pressed="true"
+  >
+    <span class="currency-flag">🇮🇳</span>
+    <span class="currency-label">INR <small class="currency-symbol">(₹)</small></span>
+  </button>
+  <button 
+    type="button" 
+    class="currency-toggle-btn" 
+    data-currency="USD" 
+    title="Switch currency to US Dollar (USD)"
+    aria-label="USD Currency"
+    aria-pressed="false"
+  >
+    <span class="currency-flag">🇺🇸</span>
+    <span class="currency-label">USD <small class="currency-symbol">($)</small></span>
+  </button>
+</div>
+
+<script>
+  import { initCurrency } from '../scripts/currency';
+  initCurrency();
+</script>
+
+<style>
+  .currency-switcher {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #e2e4e8;
+    border-radius: 30px;
+    padding: 2px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    user-select: none;
+    transition: all 0.2s ease;
+  }
+
+  .currency-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border: none;
+    background: transparent;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #4b5162;
+    cursor: pointer;
+    line-height: 1.2;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .currency-toggle-btn:hover:not(.active) {
+    color: #ff6027;
+    background: rgba(255, 96, 39, 0.06);
+  }
+
+  .currency-toggle-btn.active {
+    background: #ff6027;
+    color: #ffffff;
+    box-shadow: 0 2px 6px rgba(255, 96, 39, 0.35);
+  }
+
+  .currency-toggle-btn.active .currency-symbol {
+    opacity: 0.95;
+    color: #ffffff;
+  }
+
+  .currency-flag {
+    font-size: 13px;
+    line-height: 1;
+    display: inline-block;
+  }
+
+  .currency-label {
+    letter-spacing: 0.02em;
+  }
+
+  .currency-symbol {
+    font-size: 11px;
+    opacity: 0.75;
+  }
+
+  /* Header Variant */
+  .currency-header {
+    margin-right: 12px;
+  }
+
+  /* Section Variant (e.g. on pricing tables) */
+  .currency-section {
+    background: #ffffff;
+    border: 1.5px solid #e7e9ee;
+    padding: 3px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .currency-section .currency-toggle-btn {
+    padding: 6px 14px;
+    font-size: 13px;
+  }
+
+  /* Mobile Variant */
+  .currency-mobile {
+    width: 100%;
+    justify-content: center;
+    margin: 15px 0;
+    background: #f5f6f9;
+  }
+
+  .currency-mobile .currency-toggle-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  @media (max-width: 991px) {
+    .currency-header {
+      margin-right: 8px;
+    }
+
+    .currency-header .currency-toggle-btn {
+      padding: 3px 6px;
+      font-size: 11px;
+    }
+
+    .currency-header .currency-symbol {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .currency-header .currency-label {
+      font-size: 10px;
+    }
+
+    .currency-header .currency-flag {
+      font-size: 11px;
+    }
+  }
+</style>
