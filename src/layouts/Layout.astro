@@ -3,14 +3,22 @@ interface Props {
   title?: string;
   description?: string;
   keywords?: string;
+  canonical?: string;
+  ogType?: string;
+  ogImage?: string;
+  noindex?: boolean;
   showSearch?: boolean;
   showTopBanner?: boolean;
 }
 
 const {
   title = "Hostamble >> #1 India's Best And Cheap Web Hosting Provider",
-  description = "cheap web hosting at cheap price , best cheap hosting , best cheap web hosting in india , best web hosting for small business",
-  keywords = "web hosting , web hosting cheap price , hostamble , hostmble , cheapest web hosting , free domain name",
+  description = "Fast, reliable NVMe cloud hosting with LiteSpeed, free domain, SSL, and 24/7 dedicated support. Deploy your WordPress or custom website in seconds.",
+  keywords = "web hosting, cloud hosting, wordpress hosting, cheap hosting india, nvme vps, free domain name, litespeed hosting, hostamble",
+  canonical,
+  ogType = "website",
+  ogImage = "https://hostamble.com/assets/images/banner06.png",
+  noindex = false,
   showSearch = false,
   showTopBanner = true
 }: Props = Astro.props;
@@ -21,20 +29,93 @@ import MobileMenu from '../components/MobileMenu.astro';
 import SearchPopup from '../components/SearchPopup.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/style.css';
+
+// Absolute Canonical & OG URL
+const siteUrl = (Astro.site ? Astro.site.toString().replace(/\/$/, '') : 'https://hostamble.com');
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const currentUrl = canonical || `${siteUrl}${currentPath === '/' ? '' : currentPath}`;
+
+// JSON-LD Structured Data
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://hostamble.com/#organization",
+      "name": "Hostamble",
+      "url": "https://hostamble.com",
+      "logo": "https://hostamble.com/assets/images/favicon.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-628-471-9083",
+        "contactType": "customer service",
+        "email": "support@hostamble.com",
+        "areaServed": ["IN", "Worldwide"],
+        "availableLanguage": ["English", "Hindi"]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://hostamble.com/#website",
+      "url": "https://hostamble.com",
+      "name": "Hostamble",
+      "publisher": {
+        "@id": "https://hostamble.com/#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://hostamble.com/domain-search?domain={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ]
+};
 ---
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content={keywords}>
-    <meta name="description" content={description}>
-    <meta name="author" content="Hostamble">
+    
+    <!-- Primary SEO Meta Tags -->
     <title>{title}</title>
+    <meta name="title" content={title}>
+    <meta name="description" content={description}>
+    <meta name="keywords" content={keywords}>
+    <meta name="author" content="Hostamble">
+    <link rel="canonical" href={currentUrl}>
+    {noindex ? (
+      <meta name="robots" content="noindex, nofollow" />
+    ) : (
+      <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    )}
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content={ogType}>
+    <meta property="og:url" content={currentUrl}>
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:image" content={ogImage}>
+    <meta property="og:site_name" content="Hostamble">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content={currentUrl}>
+    <meta name="twitter:title" content={title}>
+    <meta name="twitter:description" content={description}>
+    <meta name="twitter:image" content={ogImage}>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+    <!-- Fonts & Favicon -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Playfair+Display:ital,wght@1,700;1,900&display=swap" rel="stylesheet">
     <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/x-icon" />
+    
+    <!-- Vendor Stylesheets -->
     <link href="/assets/css/vendor/bootstrap.min.css" rel="stylesheet" />
     <link href="/assets/css/vendor/remixicon.css" rel="stylesheet" />
     <link href="/assets/css/vendor/aceorbit-font.css" rel="stylesheet" />
@@ -58,24 +139,18 @@ import '../styles/style.css';
 
 <body>
     <div id="header"></div>
-
-    <div class="main-wrapper">
-        {showTopBanner && <TopBanner />}
-        <Header showSearch={showSearch} />
-        <MobileMenu />
-        {showSearch && <SearchPopup />}
-        
-        <slot />
-
-        <Footer />
-    </div>
-
+    {showTopBanner && <TopBanner />}
+    <Header />
+    <MobileMenu />
+    {showSearch && <SearchPopup />}
+    <slot />
+    <Footer />
     <div class="rn-progress-parent">
         <svg class="rn-back-circle svg-inner" height="100%" viewBox="-1 -1 102 102" width="100%">
             <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
         </svg>
     </div>
-
+    
     <script is:inline src="/assets/js/vendor/jquery.js"></script>
     <script is:inline src="/assets/js/vendor/bootstrap.min.js"></script>
     <script is:inline src="/assets/js/vendor/sal.min.js"></script>
@@ -84,12 +159,5 @@ import '../styles/style.css';
     <script is:inline src="/assets/js/vendor/slick.js"></script>
     <script is:inline src="/assets/js/vendor/wow.js"></script>
     <script is:inline src="/assets/js/main.js"></script>
-    
-    <script>
-      import { initCurrency } from '../scripts/currency';
-      initCurrency();
-    </script>
-    
-    <slot name="scripts" />
 </body>
 </html>

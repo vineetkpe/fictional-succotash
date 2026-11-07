@@ -1,3 +1,10 @@
 User-agent: *
 Allow: /
 
+# Disallow private auth and error routes
+Disallow: /login
+Disallow: /register
+Disallow: /404
+
+# XML Sitemap
+Sitemap: https://hostamble.com/sitemap-index.xml
