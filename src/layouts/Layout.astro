@@ -4,16 +4,19 @@ interface Props {
   description?: string;
   keywords?: string;
   showSearch?: boolean;
+  showTopBanner?: boolean;
 }
 
 const {
   title = "Hostamble >> #1 India's Best And Cheap Web Hosting Provider",
   description = "cheap web hosting at cheap price , best cheap hosting , best cheap web hosting in india , best web hosting for small business",
   keywords = "web hosting , web hosting cheap price , hostamble , hostmble , cheapest web hosting , free domain name",
-  showSearch = true
+  showSearch = true,
+  showTopBanner = true
 }: Props = Astro.props;
 
 import Header from '../components/Header.astro';
+import TopBanner from '../components/TopBanner.astro';
 import MobileMenu from '../components/MobileMenu.astro';
 import SearchPopup from '../components/SearchPopup.astro';
 import Footer from '../components/Footer.astro';
@@ -54,6 +57,7 @@ import Footer from '../components/Footer.astro';
     <div id="header"></div>
 
     <div class="main-wrapper">
+        {showTopBanner && <TopBanner />}
         <Header showSearch={showSearch} />
         <MobileMenu />
         <SearchPopup />

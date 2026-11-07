@@ -1,0 +1,143 @@
+---
+interface Props {
+  badge?: string;
+  text?: string;
+  linkText?: string;
+  linkUrl?: string;
+}
+
+const {
+  badge = "Diwali Sale",
+  linkText = "See offers →",
+  linkUrl = "#plans"
+} = Astro.props;
+---
+
+<div class="top-sale-strip" id="topSaleStrip">
+  <div class="container">
+    <div class="top-sale-inner">
+      <div class="top-sale-content">
+        <span class="sale-badge">
+          <span class="badge-icon">🪔</span>
+          <span class="badge-text">{badge}</span>
+        </span>
+        <span class="sale-message">
+          Get ready for Diwali Sale! Up to <strong class="sale-highlight">77% OFF</strong> on Hosting + Free Domain!
+        </span>
+        <a href={linkUrl} class="sale-link">
+          {linkText}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .top-sale-strip {
+    background: linear-gradient(90deg, #d3751d 0%, #ff6027 50%, #e05e1b 100%);
+    color: #ffffff;
+    font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    padding: 8px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  }
+
+  .top-sale-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 28px;
+  }
+
+  .top-sale-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .sale-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #202133;
+    color: #ffffff;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    transform: rotate(-2deg);
+    transition: transform 0.2s ease;
+  }
+
+  .sale-badge:hover {
+    transform: rotate(0deg) scale(1.05);
+  }
+
+  .badge-icon {
+    font-size: 13px;
+    line-height: 1;
+  }
+
+  .sale-message {
+    color: #ffffff;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+
+  .sale-highlight {
+    color: #ffffff;
+    font-weight: 800;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .sale-link {
+    color: #ffffff;
+    font-weight: 800;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .sale-link:hover {
+    color: #202133;
+    text-decoration: none;
+    transform: translateX(2px);
+  }
+
+  @media (max-width: 767px) {
+    .top-sale-strip {
+      padding: 7px 0;
+      font-size: 12px;
+    }
+
+    .top-sale-content {
+      gap: 6px;
+    }
+
+    .sale-badge {
+      font-size: 10px;
+      padding: 1px 7px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .top-sale-strip {
+      font-size: 11.5px;
+    }
+
+    .sale-message {
+      display: inline;
+    }
+  }
+</style>
