@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import InteractiveHeroIllustration from '../components/InteractiveHeroIllustration.astro';
 import { sharedHosting, domainPricing } from '../data/pricing';
 
 const plans = sharedHosting.plans;
@@ -156,10 +157,7 @@ const plans = sharedHosting.plans;
                     </div>
 
                     <div class="col-lg-6">
-                        <div class="banner-thumbnail"> <img alt="Banner Images" class="img-thumb"
-                                src="/assets/images/banner06.png"
-                                style="animation-delay: 150ms; animation-name: fade; animation-duration: 800ms;" />
-                        </div>
+                        <InteractiveHeroIllustration />
                     </div>
 
                 </div>
