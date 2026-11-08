@@ -1,13 +1,21 @@
 ---
+// Hostamble Main Footer with Giant Typography & Bottom Legal Strip
 ---
+
 <footer class="aceorbit-footer-one ace-footer footer-style-default">
     <div class="footer-top">
         <div class="container aceorbit-animated-shape">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6 col-sm-12 col-12">
                     <div class="ace-footer-widget">
-                        <div class="logo"><a href="/"><img alt="Site Logo" class="logo-light" src="/assets/images/amble.png" /> </a></div>
-                        <p class="description">Hostamble Hosting offers superior, reliable and affordable Web Hosting to individuals and small businesses <b>worldwide.</b></p>
+                        <div class="logo">
+                            <a href="/" title="Hostamble Home">
+                                <img alt="Site Logo" class="logo-light" src="/assets/images/amble.png" />
+                            </a>
+                        </div>
+                        <p class="description">
+                            Hostamble Hosting offers superior, reliable and affordable Web Hosting to individuals and small businesses <b>worldwide.</b>
+                        </p>
                         <ul class="social-share">
                             <li></li>
                             <li></li>
@@ -61,7 +69,7 @@
                                 <ul class="information-list">
                                     <li>Asia, India</li>
                                     <li><a href="tel:+916284719083">(+91) 628 471 9083</a></li>
-                                    <li><a href="mailto:support@hostamble.com" target="_blank">support@hostamble.com</a></li>
+                                    <li><a href="mailto:support@hostamble.com" target="_blank" rel="noopener noreferrer">support@hostamble.com</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -69,23 +77,191 @@
                 </div>
             </div>
 
-            <div class="shape-dot-wrapper shape-wrapper d-md-block d-none">
+            <div class="shape-dot-wrapper shape-wrapper d-md-block d-none" aria-hidden="true">
                 <div class="shape-image shape-image-1"><img alt="Shape Thumb" src="/assets/images/shape2101.png" /></div>
                 <div class="shape-image shape-image-2"><img alt="Shape Thumb" src="/assets/images/shape35.png" /></div>
             </div>
         </div>
     </div>
 
+    <!-- Giant Edge-to-Edge Typography Display (HOSTAMBLE) -->
+    <div class="footer-giant-brand-wrap" aria-hidden="true">
+        <span class="footer-giant-brand-text">HOSTAMBLE</span>
+    </div>
+
+    <!-- Sleek Bottom Legal & Copyright Bar -->
     <div class="copyright-area copyright-default">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="inner text-center">
-                        <p>Copyright &copy; 2020 - 2026 <a href="/">Hostamble</a>. All Rights Reserved</p>
-                    </div>
+            <div class="row align-items-center g-3">
+                <div class="col-lg-4 col-md-6 col-12 text-center text-md-start">
+                    <p class="copyright-text">
+                        &copy; 2020 &ndash; 2026 <a href="/">Hostamble</a>. All rights reserved.
+                    </p>
+                </div>
+
+                <div class="col-lg-5 col-md-6 col-12 text-center">
+                    <ul class="footer-bottom-links">
+                        <li><a href="/privacy-policy">Privacy policy</a></li>
+                        <li class="separator">&bull;</li>
+                        <li><a href="/legal-agreement">Terms of service</a></li>
+                        <li class="separator">&bull;</li>
+                        <li><a href="/refund-and-cancellation-policy">Refund policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-12 text-center text-lg-end">
+                    <button 
+                        type="button" 
+                        class="footer-scroll-top-btn" 
+                        onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+                        title="Back to top"
+                    >
+                        <span>Back to top</span>
+                        <span class="top-arrow-circle" aria-hidden="true">
+                            <i class="ri-arrow-up-line"></i>
+                        </span>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 </footer>
 
+<style>
+  /* Giant Brand Typography Display */
+  .footer-giant-brand-wrap {
+    width: 100%;
+    overflow: hidden;
+    padding: 36px 0 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    pointer-events: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    background: transparent;
+  }
+
+  .footer-giant-brand-text {
+    font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: clamp(60px, 15.6vw, 240px);
+    font-weight: 900;
+    line-height: 0.82;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: var(--color-primary, #ff501a);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    white-space: nowrap;
+    opacity: 0.98;
+  }
+
+  /* Bottom Copyright & Links Strip */
+  .copyright-area {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 22px 0;
+  }
+
+  .copyright-text {
+    color: #8c96a7;
+    font-size: 13.5px;
+    margin: 0;
+  }
+
+  .copyright-text a {
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .copyright-text a:hover {
+    color: var(--color-primary, #ff501a);
+  }
+
+  .footer-bottom-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-bottom-links a {
+    color: #8c96a7;
+    font-size: 13.5px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-bottom-links a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+
+  .footer-bottom-links .separator {
+    color: #4a5468;
+    font-size: 12px;
+  }
+
+  .footer-scroll-top-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    color: #8c96a7;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    padding: 0;
+  }
+
+  .top-arrow-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    transition: all 0.25s ease;
+  }
+
+  .footer-scroll-top-btn:hover {
+    color: #ffffff;
+  }
+
+  .footer-scroll-top-btn:hover .top-arrow-circle {
+    background: var(--color-primary, #ff501a);
+    border-color: var(--color-primary, #ff501a);
+    transform: translateY(-2px);
+  }
+
+  @media only screen and (max-width: 991px) {
+    .footer-bottom-links {
+      justify-content: center;
+      margin: 6px 0;
+    }
+    .footer-scroll-top-btn {
+      justify-content: center;
+    }
+  }
+
+  @media only screen and (max-width: 575px) {
+    .footer-giant-brand-wrap {
+      padding: 20px 0 0px;
+    }
+    .footer-bottom-links {
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+  }
+</style>

@@ -1,0 +1,410 @@
+---
+// Hostamble Blog & News Block
+// Modern, elevated layout with category pills, reading times, image hover zooms, and hosting tutorials.
+
+interface BlogPost {
+  title: string;
+  excerpt: string;
+  category: string;
+  readTime: string;
+  date: string;
+  image: string;
+  link: string;
+}
+
+const posts: BlogPost[] = [
+  {
+    title: "How to Apply Free SSL on Your Website in Just 5 Minutes",
+    excerpt: "Step-by-step walkthrough to automated Let's Encrypt HTTPS installation, forced SSL redirection in cPanel, and fixing mixed content warnings.",
+    category: "SSL & Security",
+    readTime: "4 Min Read",
+    date: "24 Apr",
+    image: "/assets/images/post01.jpg",
+    link: "/ssl-certificates",
+  },
+  {
+    title: "How to Add and Manage Addon Domains in cPanel",
+    excerpt: "Learn how to host multiple websites, assign distinct document roots, configure subdomains, and manage DNS records on a single hosting account.",
+    category: "cPanel Guides",
+    readTime: "5 Min Read",
+    date: "25 Apr",
+    image: "/assets/images/post02.jpg",
+    link: "/domain-search",
+  },
+  {
+    title: "How to 1-Click Install WordPress & Configure LiteSpeed Cache",
+    excerpt: "Turbocharge your TTFB and page loading speed with optimized LiteSpeed server caching, Redis object cache, and 1-click WordPress deployment.",
+    category: "WordPress & Speed",
+    readTime: "3 Min Read",
+    date: "26 Apr",
+    image: "/assets/images/post03.jpg",
+    link: "/wordpress-hosting",
+  },
+];
+---
+
+<section class="hostamble-blog-section ace-section-gap position-relative bg-image" aria-labelledby="blog-main-title">
+  <div class="container aceorbit-animated-shape position-relative">
+    
+    <!-- Section Header -->
+    <div class="row align-items-end g-4 mb-5">
+      <div class="col-lg-7 col-md-8 col-12">
+        <div class="section-title text-start mb-0">
+          <div class="blog-eyebrow-pill mb-2">
+            <i class="ri-article-line"></i>
+            <span>Knowledge Base &amp; Insights</span>
+          </div>
+          <h2 id="blog-main-title" class="blog-main-heading">Our Latest Hosting &amp; Tech Feed</h2>
+          <p class="blog-lead-subtext">Practical tutorials, cPanel walkthroughs, and server optimization tips written by our cloud sysadmins.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-5 col-md-4 col-12 text-start text-md-end">
+        <a class="ace-btn blog-browse-btn" href="/contacts">
+          <span>Browse All Posts</span>
+          <i class="ri-arrow-right-line" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Blog Posts Grid -->
+    <div class="row g-4">
+      {posts.map((post) => (
+        <div class="col-lg-4 col-md-6 col-12">
+          <article class="modern-blog-card">
+            <!-- Thumbnail with Hover Zoom -->
+            <div class="blog-thumb-wrap">
+              <a href={post.link} class="blog-thumb-link" title={post.title}>
+                <img alt={post.title} src={post.image} loading="lazy" class="blog-thumb-img" />
+              </a>
+
+              <!-- Floating Badges -->
+              <div class="blog-floating-badges">
+                <span class="blog-cat-badge">{post.category}</span>
+                <span class="blog-read-badge">
+                  <i class="ri-time-line"></i> {post.readTime}
+                </span>
+              </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="blog-card-body">
+              <div class="blog-meta-date">
+                <i class="ri-calendar-event-line"></i>
+                <span>Published {post.date}</span>
+              </div>
+
+              <h3 class="blog-card-title">
+                <a href={post.link} title={post.title}>{post.title}</a>
+              </h3>
+
+              <p class="blog-card-excerpt">{post.excerpt}</p>
+
+              <div class="blog-card-footer">
+                <a href={post.link} class="blog-read-more" title={`Read full guide: ${post.title}`}>
+                  <span>Read Guide</span>
+                  <i class="ri-arrow-right-line"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      ))}
+    </div>
+
+    <!-- Ambient Decorative Theme Shapes -->
+    <div class="shape-dot-wrapper shape-wrapper d-xl-block d-none" aria-hidden="true">
+      <div class="shape-image shape-image-1">
+        <img alt="Shape Thumb" src="/assets/images/shape32.png" />
+      </div>
+      <div class="shape-image shape-image-2">
+        <img alt="Shape Thumb" src="/assets/images/shape0308.png" />
+      </div>
+      <div class="shape-image shape-image-3">
+        <img alt="Shape Thumb" src="/assets/images/shape2701.png" />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* =========================================================
+     Hostamble Modern Blog & News Section
+     Clean, elevated cards with category pills, image zooms,
+     Urbanist typography, and theme orange hover interactions.
+     ========================================================= */
+
+  .hostamble-blog-section {
+    background-color: #ffffff;
+    background-image: url(/assets/images/blog.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Eyebrow Pill */
+  .blog-eyebrow-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 80, 26, 0.08);
+    border: 1px solid rgba(255, 80, 26, 0.2);
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--color-primary, #ff501a);
+    width: fit-content;
+  }
+
+  .blog-eyebrow-pill i {
+    font-size: 14px;
+  }
+
+  .blog-main-heading {
+    font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: clamp(30px, 3.6vw, 42px);
+    font-weight: 900;
+    line-height: 1.18;
+    color: #12141d;
+    margin: 8px 0 10px;
+    letter-spacing: -0.025em;
+  }
+
+  .blog-lead-subtext {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #616c7f;
+    margin: 0;
+    max-width: 580px;
+  }
+
+  .blog-browse-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 28px;
+    height: 52px;
+    line-height: 52px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    transition: all 0.3s ease;
+  }
+
+  .blog-browse-btn i {
+    font-size: 17px;
+    transition: transform 0.25s ease;
+  }
+
+  .blog-browse-btn:hover i {
+    transform: translateX(4px);
+  }
+
+  /* Modern Blog Card */
+  .modern-blog-card {
+    background: #ffffff;
+    border: 1px solid #e8ecf4;
+    border-radius: 16px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .modern-blog-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(255, 80, 26, 0.35);
+    box-shadow: 0 16px 36px -10px rgba(255, 80, 26, 0.16);
+  }
+
+  /* Thumbnail Area */
+  .blog-thumb-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #f1f4f9;
+  }
+
+  .blog-thumb-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .blog-thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .modern-blog-card:hover .blog-thumb-img {
+    transform: scale(1.06);
+  }
+
+  /* Floating Badges */
+  .blog-floating-badges {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .blog-cat-badge {
+    background: var(--color-primary, #ff501a);
+    color: #ffffff;
+    font-size: 11.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(255, 80, 26, 0.35);
+  }
+
+  .blog-read-badge {
+    background: rgba(18, 20, 29, 0.75);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .blog-read-badge i {
+    font-size: 12px;
+    color: #ff9d7a;
+  }
+
+  /* Card Body */
+  .blog-card-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .blog-meta-date {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #838e9e;
+    margin-bottom: 8px;
+  }
+
+  .blog-meta-date i {
+    font-size: 14px;
+    color: var(--color-primary, #ff501a);
+  }
+
+  .blog-card-title {
+    font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 19px;
+    font-weight: 800;
+    line-height: 1.35;
+    margin: 0 0 10px;
+    color: #12141d;
+  }
+
+  .blog-card-title a {
+    color: #12141d;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .blog-card-title a:hover {
+    color: var(--color-primary, #ff501a);
+  }
+
+  .blog-card-excerpt {
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: #555f70;
+    margin: 0 0 18px;
+    flex-grow: 1;
+  }
+
+  /* Card Footer */
+  .blog-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 14px;
+    border-top: 1px solid #f0f3f8;
+  }
+
+  .blog-read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--color-primary, #ff501a);
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+
+  .blog-read-more i {
+    font-size: 16px;
+    transition: transform 0.25s ease;
+  }
+
+  .blog-read-more:hover {
+    color: #e64512;
+  }
+
+  .blog-read-more:hover i {
+    transform: translateX(4px);
+  }
+
+  /* Shape Positions */
+  .hostamble-blog-section .shape-image {
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .hostamble-blog-section .shape-image-1 {
+    top: 20px;
+    left: -120px;
+  }
+
+  .hostamble-blog-section .shape-image-2 {
+    bottom: -30px;
+    right: -40px;
+  }
+
+  .hostamble-blog-section .shape-image-3 {
+    bottom: -40px;
+    left: -40px;
+  }
+
+  @media only screen and (max-width: 767px) {
+    .blog-card-body {
+      padding: 18px;
+    }
+    .blog-card-title {
+      font-size: 17.5px;
+    }
+  }
+</style>
