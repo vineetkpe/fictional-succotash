@@ -190,51 +190,23 @@ const faqSchema = {
             </div>
           </nav>
 
-          <!-- Live Engineering Help Desk Widget -->
-          <div class="kb-live-desk-card">
-            <div class="desk-status-bar">
-              <span class="desk-pulse-indicator">
-                <span class="desk-dot-ring"></span>
-                <span class="desk-dot-core"></span>
-              </span>
-              <span class="desk-status-text">Server Engineers Online</span>
-            </div>
-
-            <h4 class="desk-card-title">Need personalized assistance?</h4>
-            <p class="desk-card-desc">Speak directly with our technical team in Hindi or English.</p>
-
-            <div class="desk-actions-stack">
-              <button 
-                type="button" 
-                class="desk-primary-btn" 
-                onclick="window.Tawk_API && window.Tawk_API.toggle ? window.Tawk_API.toggle() : window.location.href='/contacts'"
-              >
-                <i class="ri-chat-voice-line"></i>
-                <span>Start Live Chat</span>
-              </button>
-
-              <div class="desk-secondary-row">
-                <a 
-                  href="https://wa.me/916284719083?text=Hi%20Hostamble,%20I%20have%20a%20question%20about%20hosting" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  class="desk-sub-btn wa-sub-btn"
-                >
-                  <i class="ri-whatsapp-fill"></i>
-                  <span>WhatsApp</span>
-                </a>
-
-                <a href="/contacts" class="desk-sub-btn ticket-sub-btn">
-                  <i class="ri-mail-send-line"></i>
-                  <span>Contact Us</span>
-                </a>
-              </div>
-            </div>
-
-            <div class="desk-guarantee-note">
-              <i class="ri-time-line"></i>
-              <span>Average response time: <strong>&lt; 3 mins</strong></span>
-            </div>
+          <!-- Ask Your Question Direct CTA Button -->
+          <div class="kb-ask-action-wrap">
+            <a 
+              href="https://hostamble.com/dash/submitticket.php?step=2&deptid=1" 
+              class="kb-ask-question-btn"
+              target="_blank" 
+              rel="noopener noreferrer"
+              title="Open a ticket and ask your question"
+            >
+              <i class="ri-question-answer-line" aria-hidden="true"></i>
+              <span>Ask Your Question</span>
+              <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            </a>
+            <span class="kb-ask-helper-text">
+              <i class="ri-shield-check-line" aria-hidden="true"></i>
+              <span>Direct Support Ticket · In-House Engineers</span>
+            </span>
           </div>
 
         </div>
@@ -668,162 +640,63 @@ const faqSchema = {
     color: #ffffff;
   }
 
-  /* Live Help Desk Widget */
-  .kb-live-desk-card {
-    background: #ffffff;
-    border: 1px solid rgba(255, 80, 26, 0.18);
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: 0 12px 32px -12px rgba(255, 80, 26, 0.12), 0 4px 12px rgba(0, 0, 0, 0.02);
-  }
-
-  .desk-status-bar {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: #f0fdf4;
-    border: 1px solid #bbf7d0;
-    padding: 4px 10px;
-    border-radius: 999px;
-    margin-bottom: 12px;
-  }
-
-  .desk-pulse-indicator {
-    position: relative;
-    width: 8px;
-    height: 8px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .desk-dot-core {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #16a34a;
-  }
-
-  .desk-dot-ring {
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: rgba(22, 163, 74, 0.35);
-    animation: livePulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
-  .desk-status-text {
-    font-size: 11.5px;
-    font-weight: 700;
-    color: #15803d;
-  }
-
-  .desk-card-title {
-    margin: 0 0 4px;
-    font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 17px;
-    font-weight: 800;
-    color: #11141d;
-  }
-
-  .desk-card-desc {
-    margin: 0 0 16px;
-    font-size: 13px;
-    color: #647083;
-    line-height: 1.45;
-  }
-
-  .desk-actions-stack {
+  /* Ask Your Question Action Button */
+  .kb-ask-action-wrap {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
+    margin-top: 4px;
   }
 
-  .desk-primary-btn {
+  .kb-ask-question-btn {
     width: 100%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    min-height: 44px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #ff501a 0%, #ff6b32 100%);
+    gap: 10px;
+    min-height: 52px;
+    padding: 0 24px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ff501a 0%, #ff6e36 100%);
     color: #ffffff;
-    font-size: 14px;
-    font-weight: 700;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 6px 16px -4px rgba(255, 80, 26, 0.45);
-    transition: all 0.25s ease;
-  }
-
-  .desk-primary-btn:hover {
-    background: linear-gradient(135deg, #e64512 0%, #ff501a 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 22px -4px rgba(255, 80, 26, 0.55);
-  }
-
-  .desk-secondary-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-  }
-
-  .desk-sub-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    min-height: 38px;
-    border-radius: 8px;
-    background: #ffffff;
-    border: 1px solid #e2e7f0;
-    font-size: 13px;
-    font-weight: 600;
-    color: #17181c;
+    font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 15.5px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
     text-decoration: none;
-    transition: all 0.2s ease;
+    box-shadow: 0 8px 24px -6px rgba(255, 80, 26, 0.45);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .desk-sub-btn.wa-sub-btn i {
-    color: #25d366;
-    font-size: 16px;
+  .kb-ask-question-btn i {
+    font-size: 18px;
+    transition: transform 0.25s ease;
   }
 
-  .desk-sub-btn.ticket-sub-btn i {
-    color: var(--color-primary, #ff501a);
-    font-size: 16px;
+  .kb-ask-question-btn:hover {
+    background: linear-gradient(135deg, #e64512 0%, #ff501a 100%);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px -6px rgba(255, 80, 26, 0.55);
   }
 
-  .desk-sub-btn:hover {
-    transform: translateY(-1px);
+  .kb-ask-question-btn:hover .ri-arrow-right-line {
+    transform: translateX(4px);
   }
 
-  .desk-sub-btn.wa-sub-btn:hover {
-    border-color: #25d366;
-    background: #f6fdf8;
-    color: #128c7e;
-  }
-
-  .desk-sub-btn.ticket-sub-btn:hover {
-    border-color: var(--color-primary, #ff501a);
-    background: #fff9f6;
-    color: var(--color-primary, #ff501a);
-  }
-
-  .desk-guarantee-note {
+  .kb-ask-helper-text {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
-    margin-top: 12px;
-    font-size: 12px;
-    color: #717d91;
+    gap: 6px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #7b8699;
   }
 
-  .desk-guarantee-note i {
-    color: var(--color-primary, #ff501a);
+  .kb-ask-helper-text i {
+    color: #22c55e;
+    font-size: 14px;
   }
 
   /* =========================================================
@@ -1172,10 +1045,6 @@ const faqSchema = {
 
     .kb-card-num-badge {
       display: none;
-    }
-
-    .desk-secondary-row {
-      grid-template-columns: 1fr;
     }
   }
 </style>
