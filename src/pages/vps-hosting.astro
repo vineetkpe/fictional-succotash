@@ -532,7 +532,7 @@ const { heroStartPrice, plans } = vpsHosting;
                 <div class="p-4 rounded-3 text-center" style="background: #f8f9fc; border: 2px dashed #ff501a;">
                   <span class="text-muted text-uppercase small font-weight-bold">Estimated Server Cost</span>
                   <div class="my-3">
-                    <span class="display-5 font-weight-bold text-danger prices" id="calc-vps-price" data-inr="₹1699" data-usd="$20.39">₹1699</span>
+                    <span class="display-5 font-weight-bold text-danger prices" id="calc-vps-price" data-inr={plans.pro.pricing.monthly.inr} data-usd={plans.pro.pricing.monthly.usd}>{plans.pro.pricing.monthly.inr}</span>
                     <span class="text-muted">/month</span>
                   </div>
                   <ul class="list-unstyled text-start small mb-4">

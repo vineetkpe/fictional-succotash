@@ -565,7 +565,7 @@ const { heroStartPrice, savingsHeadline, plans } = n8nHosting;
             <div class="mb-4">
               <div class="d-flex justify-content-between small mb-1">
                 <span class="font-weight-bold text-success"><i class="ri-checkbox-circle-fill me-1"></i> Hostamble n8n Pro</span>
-                <strong class="text-success fs-5">₹799 /mo</strong>
+                <strong class="text-success fs-5" data-inr={`${plans.pro.pricing.monthly.inr} /mo`} data-usd={`${plans.pro.pricing.monthly.usd} /mo`}>{plans.pro.pricing.monthly.inr} /mo</strong>
               </div>
               <div class="progress" style="height: 14px;">
                 <div class="progress-bar bg-success" style="width: 5%;"></div>
