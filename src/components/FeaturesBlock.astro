@@ -164,11 +164,7 @@ const featurePods: FeaturePod[] = [
         >
           <div 
             class={`feature-organic-pod fitem ${pod.morphClass} accent-${pod.accent}`}
-            style={`
-              --float-delay: ${pod.floatDelay};
-              --float-dur: ${pod.floatDuration};
-              --item-idx: ${idx};
-            `}
+            style={`--item-idx: ${idx};`}
           >
             <!-- Ambient Pod Liquid Halo -->
             <div class="pod-liquid-halo" aria-hidden="true"></div>
@@ -398,17 +394,17 @@ const featurePods: FeaturePod[] = [
 
   /* Wave Staggering: Breaks standard grid squares into an organic wave! */
   .pod-offset-down {
-    transform: translateY(26px);
+    margin-top: 26px;
   }
   .pod-offset-up {
-    transform: translateY(0);
+    margin-top: 0;
   }
 
   .pod-wrapper {
-    transition: transform 0.4s ease;
+    position: relative;
   }
 
-  /* The Organic Moving Pod (Non-Square, Morphing, Floating Liquid Pod) */
+  /* The Organic Pod (Non-Square, Morphing on Hover) */
   .feature-organic-pod {
     background: rgba(255, 255, 255, 0.94);
     backdrop-filter: blur(14px);
@@ -420,54 +416,62 @@ const featurePods: FeaturePod[] = [
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    animation: floatPod var(--float-dur) ease-in-out infinite alternate;
-    animation-delay: var(--float-delay);
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
                 box-shadow 0.4s ease,
                 border-color 0.4s ease,
                 border-radius 0.6s ease;
   }
 
-  /* 8 Distinct Asymmetric Organic Morphing Shapes */
+  /* 8 Distinct Asymmetric Organic Non-Square Shapes */
   .morph-shape-1 {
     border-radius: 38px 24px 34px 22px / 24px 34px 22px 38px;
-    animation: morph1 9s ease-in-out infinite alternate, floatPod var(--float-dur) ease-in-out infinite alternate;
-    animation-delay: 0s, var(--float-delay);
   }
   .morph-shape-2 {
     border-radius: 24px 38px 22px 34px / 36px 22px 36px 22px;
-    animation: morph2 10s ease-in-out infinite alternate, floatPod var(--float-dur) ease-in-out infinite alternate;
-    animation-delay: 0.5s, var(--float-delay);
   }
   .morph-shape-3 {
     border-radius: 34px 22px 38px 26px / 26px 36px 24px 36px;
-    animation: morph3 8.5s ease-in-out infinite alternate, floatPod var(--float-dur) ease-in-out infinite alternate;
-    animation-delay: 1.2s, var(--float-delay);
   }
   .morph-shape-4 {
     border-radius: 22px 36px 26px 38px / 38px 24px 36px 24px;
-    animation: morph4 11s ease-in-out infinite alternate, floatPod var(--float-dur) ease-in-out infinite alternate;
-    animation-delay: 0.8s, var(--float-delay);
   }
   .morph-shape-5 {
     border-radius: 36px 24px 34px 24px / 24px 36px 24px 36px;
-    animation: morph5 9.5s ease-in-out infinite alternate, floatPod var(--float-dur) ease-in-out infinite alternate;
-    animation-delay: 1.5s, var(--float-delay);
   }
   .morph-shape-6 {
     border-radius: 24px 36px 24px 36px / 36px 24px 36px 24px;
-    animation: morph6 10.5s ease-in-out infinite alternate, floatPod var(--float-dur) ease-in-out infinite alternate;
-    animation-delay: 0.3s, var(--float-delay);
   }
   .morph-shape-7 {
     border-radius: 38px 22px 36px 26px / 24px 36px 22px 38px;
-    animation: morph7 9s ease-in-out infinite alternate, floatPod var(--float-dur) ease-in-out infinite alternate;
-    animation-delay: 1.0s, var(--float-delay);
   }
   .morph-shape-8 {
     border-radius: 24px 36px 24px 38px / 36px 24px 38px 22px;
-    animation: morph8 11.5s ease-in-out infinite alternate, floatPod var(--float-dur) ease-in-out infinite alternate;
-    animation-delay: 0.7s, var(--float-delay);
+  }
+
+  /* Smooth shape morphing strictly when THAT specific pod is hovered */
+  .feature-organic-pod.morph-shape-1:hover {
+    border-radius: 26px 36px 22px 38px / 36px 24px 36px 24px;
+  }
+  .feature-organic-pod.morph-shape-2:hover {
+    border-radius: 36px 24px 34px 22px / 22px 36px 22px 36px;
+  }
+  .feature-organic-pod.morph-shape-3:hover {
+    border-radius: 24px 36px 24px 38px / 38px 24px 36px 24px;
+  }
+  .feature-organic-pod.morph-shape-4:hover {
+    border-radius: 36px 24px 38px 24px / 24px 38px 24px 36px;
+  }
+  .feature-organic-pod.morph-shape-5:hover {
+    border-radius: 24px 38px 22px 36px / 36px 22px 38px 24px;
+  }
+  .feature-organic-pod.morph-shape-6:hover {
+    border-radius: 38px 22px 36px 24px / 22px 38px 24px 36px;
+  }
+  .feature-organic-pod.morph-shape-7:hover {
+    border-radius: 24px 36px 24px 38px / 36px 22px 38px 24px;
+  }
+  .feature-organic-pod.morph-shape-8:hover {
+    border-radius: 36px 24px 36px 22px / 24px 36px 22px 38px;
   }
 
   /* Pod Liquid Glow Aura on Hover */
@@ -646,52 +650,8 @@ const featurePods: FeaturePod[] = [
   }
 
   /* ========================================================
-     KEYFRAME ANIMATIONS: MORPHING, FLOATING & PARTICLES
+     KEYFRAME ANIMATIONS: BACKGROUND BLOBS & PARTICLES
      ======================================================== */
-
-  /* Gentle Floating Physics */
-  @keyframes floatPod {
-    0% {
-      transform: translateY(0px) rotate(0deg);
-    }
-    100% {
-      transform: translateY(-9px) rotate(0.8deg);
-    }
-  }
-
-  /* 8 Morphing Shape Variations */
-  @keyframes morph1 {
-    0% { border-radius: 38px 24px 34px 22px / 24px 34px 22px 38px; }
-    100% { border-radius: 26px 36px 22px 38px / 36px 24px 36px 24px; }
-  }
-  @keyframes morph2 {
-    0% { border-radius: 24px 38px 22px 34px / 36px 22px 36px 22px; }
-    100% { border-radius: 36px 24px 34px 22px / 22px 36px 22px 36px; }
-  }
-  @keyframes morph3 {
-    0% { border-radius: 34px 22px 38px 26px / 26px 36px 24px 36px; }
-    100% { border-radius: 24px 36px 24px 38px / 38px 24px 36px 24px; }
-  }
-  @keyframes morph4 {
-    0% { border-radius: 22px 36px 26px 38px / 38px 24px 36px 24px; }
-    100% { border-radius: 36px 24px 38px 24px / 24px 38px 24px 36px; }
-  }
-  @keyframes morph5 {
-    0% { border-radius: 36px 24px 34px 24px / 24px 36px 24px 36px; }
-    100% { border-radius: 24px 38px 22px 36px / 36px 22px 38px 24px; }
-  }
-  @keyframes morph6 {
-    0% { border-radius: 24px 36px 24px 36px / 36px 24px 36px 24px; }
-    100% { border-radius: 38px 22px 36px 24px / 22px 38px 24px 36px; }
-  }
-  @keyframes morph7 {
-    0% { border-radius: 38px 22px 36px 26px / 24px 36px 22px 38px; }
-    100% { border-radius: 24px 36px 24px 38px / 36px 22px 38px 24px; }
-  }
-  @keyframes morph8 {
-    0% { border-radius: 24px 36px 24px 38px / 36px 24px 38px 22px; }
-    100% { border-radius: 36px 24px 36px 22px / 24px 36px 22px 38px; }
-  }
 
   /* Background Liquid Blob Keyframes */
   @keyframes morphBlob1 {
@@ -801,44 +761,39 @@ const featurePods: FeaturePod[] = [
 </style>
 
 <script>
-  // Interactive Smooth Magnetic Parallax Drift for Organic Pods
-  const stage = document.getElementById('featuresPodsStage');
-  if (stage && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const wrappers = stage.querySelectorAll<HTMLElement>('.pod-wrapper');
-    let bounds = stage.getBoundingClientRect();
-    let isMouseInside = false;
+  // ONLY the selected/hovered block moves - all other blocks remain still
+  const pods = document.querySelectorAll<HTMLElement>('.feature-organic-pod');
 
-    const updateBounds = () => {
-      bounds = stage.getBoundingClientRect();
-    };
+  pods.forEach((pod) => {
+    let isHovering = false;
 
-    window.addEventListener('resize', updateBounds, { passive: true });
-    window.addEventListener('scroll', updateBounds, { passive: true });
-
-    stage.addEventListener('mouseenter', () => {
-      isMouseInside = true;
+    pod.addEventListener('mouseenter', () => {
+      isHovering = true;
+      pod.style.transition = 'transform 0.12s ease-out, box-shadow 0.3s ease, border-color 0.3s ease, border-radius 0.4s ease';
     });
 
-    stage.addEventListener('mouseleave', () => {
-      isMouseInside = false;
-      wrappers.forEach((w) => {
-        w.style.transform = '';
-      });
+    pod.addEventListener('mousemove', (e) => {
+      if (!isHovering) return;
+      const rect = pod.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      // Magnetic 3D tilt & smooth translation applied STRICTLY to this single hovered pod
+      const rotateX = ((y - centerY) / centerY) * -8;
+      const rotateY = ((x - centerX) / centerX) * 8;
+      const moveX = ((x - centerX) / centerX) * 7;
+      const moveY = ((y - centerY) / centerY) * 7 - 12; // lift up by 12px
+
+      pod.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translate3d(${moveX}px, ${moveY}px, 0) scale(1.035)`;
     });
 
-    stage.addEventListener('mousemove', (e) => {
-      if (!isMouseInside) return;
-      const mouseX = (e.clientX - bounds.left) / bounds.width - 0.5;
-      const mouseY = (e.clientY - bounds.top) / bounds.height - 0.5;
-
-      wrappers.forEach((w) => {
-        const depth = parseFloat(w.style.getPropertyValue('--pod-depth') || '20');
-        const moveX = mouseX * depth;
-        const moveY = mouseY * depth;
-        const isOffsetDown = w.classList.contains('pod-offset-down');
-        const baseY = isOffsetDown && window.innerWidth >= 992 ? 26 : 0;
-        w.style.transform = `translate3d(${moveX}px, ${baseY + moveY}px, 0)`;
-      });
+    pod.addEventListener('mouseleave', () => {
+      isHovering = false;
+      pod.style.transition = 'transform 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.35s ease, border-color 0.35s ease, border-radius 0.6s ease';
+      pod.style.transform = '';
     });
-  }
+  });
 </script>
