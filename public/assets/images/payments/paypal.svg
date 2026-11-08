@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 34" fill="none">
+  <!-- Double P Monogram -->
+  <g transform="translate(4, 5)">
+    <path d="M4 0h9c4.2 0 7 2.6 6.2 7.2-.8 4.4-4 7.2-8.2 7.2H7.2L5.4 24H0L4 0z" fill="#003087"/>
+    <path d="M8 6h7.5c3.6 0 6 2.2 5.3 6.1-.7 3.8-3.4 6.1-7 6.1H10.7L9.2 24H5.2L8 6z" fill="#0079c1"/>
+  </g>
+  <!-- PayPal Wordmark -->
+  <text x="32" y="23" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif" font-size="16" font-weight="900" letter-spacing="-0.03em"><tspan fill="#003087">Pay</tspan><tspan fill="#0079c1">Pal</tspan></text>
+</svg>

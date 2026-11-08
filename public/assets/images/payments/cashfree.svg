@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 34" fill="none">
+  <!-- Cashfree Geometric Origami Chevron Icon -->
+  <g transform="translate(2, 6)">
+    <path d="M7 0L14 7L7 14L4 11L8 7L4 3L7 0Z" fill="#008450"/>
+    <path d="M0 7L7 14L4 17L-3 10L0 7Z" fill="#ef5a24" opacity="0"/>
+    <path d="M11 7L18 14L15 17L8 10L11 7Z" fill="#ef5a24"/>
+    <path d="M3 15L10 22L7 25L0 18L3 15Z" fill="#008450"/>
+  </g>
+  <!-- Cashfree Wordmark -->
+  <text x="28" y="23" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif" font-size="16" font-weight="800" fill="#181818" letter-spacing="-0.02em">Cashfree</text>
+</svg>
