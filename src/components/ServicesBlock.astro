@@ -1,12 +1,20 @@
 ---
-// Hostamble Premium Native Services Showcase
-// Engineered to perfectly align with Hostamble's typography, color tokens, and layout patterns
+// Hostamble Central Services Showcase
+// Synced dynamically with src/data/pricing.ts origin pricing configuration
+import {
+  sharedHosting,
+  wordpressHosting,
+  vpsHosting,
+  businessEmail,
+  sslCertificates,
+  domainPricing
+} from "../data/pricing";
 ---
 
 <div class="aceorbit-service ace-service-area ace-section-gap position-relative border-bottom-1 hostamble-services-ecosystem" id="services">
   <div class="container aceorbit-animated-shape">
     
-    <!-- Section Title -->
+    <!-- Section Title (strictly adhering to site's global typography classes) -->
     <div class="row">
       <div class="col-lg-12">
         <div 
@@ -17,373 +25,373 @@
         >
           <span class="pre-title">Our Services</span>
           <h3 class="title">Explore Our Web &amp; Hosting Solutions</h3>
-          <p class="section-subtitle">
-            Reliable cloud hosting, tuned WordPress environments, domain management, and ironclad web security designed for maximum uptime and speed.
+          <p class="description" style="max-width: 680px; margin: 12px auto 0;">
+            Reliable cloud hosting, managed WordPress environments, domain registration, and ironclad web security built for speed and scale.
           </p>
         </div>
       </div>
     </div>
 
-    <!-- 6 Core Services Grid (3x2 Balanced Cards) -->
+    <!-- 6 Core Services Grid (Square Shaped Cards) -->
     <div class="row g-4 mt--20 justify-content-center">
 
       <!-- 1. Shared Hosting (Featured) -->
       <div class="col-lg-4 col-md-6 col-12" data-sal="slide-up" data-sal-delay="100" data-sal-duration="800">
-        <div class="service-box-card card-featured">
+        <div class="service-square-card card-featured">
           <div class="card-top-accent"></div>
-          <div class="card-inner-wrap">
-            
-            <div class="card-header-row">
-              <div class="service-icon-wrap icon-primary">
+          
+          <div class="card-top">
+            <div class="card-head-bar">
+              <div class="service-icon-box icon-primary">
                 <i class="ri-server-line" aria-hidden="true"></i>
               </div>
-              <span class="service-pill badge-primary">Most Popular</span>
+              <span class="service-badge badge-primary">Most Popular</span>
             </div>
 
-            <div class="card-title-pricing">
-              <h4 class="service-title">Shared Hosting</h4>
-              <div class="service-price-tag">
-                <span class="price-from-text">Starts at</span>
-                <span class="price-value" data-inr="₹39/mo" data-usd="$0.47/mo">₹39/mo</span>
+            <div class="card-heading-row">
+              <h5 class="service-name">Shared Hosting</h5>
+              <div class="service-pricing">
+                <span class="price-prefix">From</span>
+                <span 
+                  class="price-tag" 
+                  data-inr={sharedHosting.heroStartPrice.inr} 
+                  data-usd={sharedHosting.heroStartPrice.usd}
+                >
+                  {sharedHosting.heroStartPrice.inr}
+                </span>
               </div>
             </div>
 
-            <p class="service-desc">
-              Cost-effective, lightning-fast cPanel hosting powered by LiteSpeed Enterprise and pure NVMe SSDs for blogs and personal websites.
+            <p class="service-summary">
+              Cost-effective cPanel hosting powered by LiteSpeed Enterprise and NVMe SSDs with 99.9% uptime SLA.
             </p>
 
-            <ul class="service-feature-checklist">
+            <ul class="service-highlights">
               <li>
-                <i class="ri-checkbox-circle-fill text-primary-theme" aria-hidden="true"></i>
+                <i class="ri-checkbox-circle-fill" aria-hidden="true"></i>
                 <span>LiteSpeed Turbo + LSCache</span>
               </li>
               <li>
-                <i class="ri-checkbox-circle-fill text-primary-theme" aria-hidden="true"></i>
+                <i class="ri-checkbox-circle-fill" aria-hidden="true"></i>
                 <span>Pure Gen4 NVMe SSD Storage</span>
               </li>
               <li>
-                <i class="ri-checkbox-circle-fill text-primary-theme" aria-hidden="true"></i>
+                <i class="ri-checkbox-circle-fill" aria-hidden="true"></i>
                 <span>Free cPanel &amp; Unlimited SSLs</span>
               </li>
-              <li>
-                <i class="ri-checkbox-circle-fill text-primary-theme" aria-hidden="true"></i>
-                <span>Automated Daily JetBackups</span>
-              </li>
             </ul>
-
-            <div class="service-card-divider"></div>
-
-            <div class="card-footer-row">
-              <span class="service-sla-tag">
-                <i class="ri-flashlight-line" aria-hidden="true"></i> Instant Setup
-              </span>
-              <a href="/shared-hosting" class="service-cta-btn btn-featured">
-                <span>Explore Plans</span>
-                <i class="ri-arrow-right-line" aria-hidden="true"></i>
-              </a>
-            </div>
-
           </div>
+
+          <div class="card-bottom">
+            <span class="service-sla">
+              <i class="ri-flashlight-line" aria-hidden="true"></i> Instant Setup
+            </span>
+            <a href="/shared-hosting" class="service-square-btn btn-featured">
+              <span>Explore</span>
+              <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            </a>
+          </div>
+
         </div>
       </div>
 
       <!-- 2. WordPress Hosting -->
       <div class="col-lg-4 col-md-6 col-12" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
-        <div class="service-box-card">
+        <div class="service-square-card">
           <div class="card-top-accent"></div>
-          <div class="card-inner-wrap">
-            
-            <div class="card-header-row">
-              <div class="service-icon-wrap icon-purple">
+          
+          <div class="card-top">
+            <div class="card-head-bar">
+              <div class="service-icon-box icon-purple">
                 <i class="ri-wordpress-fill" aria-hidden="true"></i>
               </div>
-              <span class="service-pill badge-purple">Turbo Optimized</span>
+              <span class="service-badge badge-purple">Turbo Speed</span>
             </div>
 
-            <div class="card-title-pricing">
-              <h4 class="service-title">WordPress Hosting</h4>
-              <div class="service-price-tag">
-                <span class="price-from-text">Starts at</span>
-                <span class="price-value" data-inr="₹79/mo" data-usd="$0.95/mo">₹79/mo</span>
+            <div class="card-heading-row">
+              <h5 class="service-name">WordPress Hosting</h5>
+              <div class="service-pricing">
+                <span class="price-prefix">From</span>
+                <span 
+                  class="price-tag" 
+                  data-inr={wordpressHosting.heroStartPrice.inr} 
+                  data-usd={wordpressHosting.heroStartPrice.usd}
+                >
+                  {wordpressHosting.heroStartPrice.inr}
+                </span>
               </div>
             </div>
 
-            <p class="service-desc">
-              Engineered specifically for WordPress with server-level caching layers, 1-click staging sandbox, and automated security patches.
+            <p class="service-summary">
+              Engineered specifically for WordPress with built-in LSCache caching, 1-click staging, and auto-updates.
             </p>
 
-            <ul class="service-feature-checklist">
+            <ul class="service-highlights">
               <li>
                 <i class="ri-checkbox-circle-fill text-purple" aria-hidden="true"></i>
-                <span>300% Faster PHP 8.x Performance</span>
+                <span>300% Faster PHP 8.x Execution</span>
               </li>
               <li>
                 <i class="ri-checkbox-circle-fill text-purple" aria-hidden="true"></i>
-                <span>1-Click Staging &amp; Cloning Sandbox</span>
+                <span>1-Click Safe Staging &amp; Clone</span>
               </li>
               <li>
                 <i class="ri-checkbox-circle-fill text-purple" aria-hidden="true"></i>
-                <span>Smart WP-CLI &amp; Plugin Shield</span>
-              </li>
-              <li>
-                <i class="ri-checkbox-circle-fill text-purple" aria-hidden="true"></i>
-                <span>Free Hassle-Free Migration</span>
+                <span>Smart WP-CLI &amp; Malware Shield</span>
               </li>
             </ul>
-
-            <div class="service-card-divider"></div>
-
-            <div class="card-footer-row">
-              <span class="service-sla-tag">
-                <i class="ri-speed-up-line" aria-hidden="true"></i> Sub-Sec TTFB
-              </span>
-              <a href="/wordpress-hosting" class="service-cta-btn">
-                <span>Explore Plans</span>
-                <i class="ri-arrow-right-line" aria-hidden="true"></i>
-              </a>
-            </div>
-
           </div>
+
+          <div class="card-bottom">
+            <span class="service-sla">
+              <i class="ri-speed-up-line" aria-hidden="true"></i> Sub-Sec TTFB
+            </span>
+            <a href="/wordpress-hosting" class="service-square-btn">
+              <span>Explore</span>
+              <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            </a>
+          </div>
+
         </div>
       </div>
 
       <!-- 3. Domain Names -->
       <div class="col-lg-4 col-md-6 col-12" data-sal="slide-up" data-sal-delay="200" data-sal-duration="800">
-        <div class="service-box-card">
+        <div class="service-square-card">
           <div class="card-top-accent"></div>
-          <div class="card-inner-wrap">
-            
-            <div class="card-header-row">
-              <div class="service-icon-wrap icon-amber">
+          
+          <div class="card-top">
+            <div class="card-head-bar">
+              <div class="service-icon-box icon-amber">
                 <i class="ri-global-line" aria-hidden="true"></i>
               </div>
-              <span class="service-pill badge-amber">500+ Extensions</span>
+              <span class="service-badge badge-amber">500+ Extensions</span>
             </div>
 
-            <div class="card-title-pricing">
-              <h4 class="service-title">Domain Names</h4>
-              <div class="service-price-tag">
-                <span class="price-from-text">Starts at</span>
-                <span class="price-value" data-inr="₹199/yr" data-usd="$2.39/yr">₹199/yr</span>
+            <div class="card-heading-row">
+              <h5 class="service-name">Domain Names</h5>
+              <div class="service-pricing">
+                <span class="price-prefix">From</span>
+                <span 
+                  class="price-tag" 
+                  data-inr={domainPricing.heroStartPrice.inr} 
+                  data-usd={domainPricing.heroStartPrice.usd}
+                >
+                  {domainPricing.heroStartPrice.inr}
+                </span>
               </div>
             </div>
 
-            <p class="service-desc">
-              Claim your digital identity with 500+ extensions (.com, .in, .org), complete DNS record control, and integrated domain privacy.
+            <p class="service-summary">
+              Secure your perfect digital brand identity with competitive renewal pricing and full DNS routing controls.
             </p>
 
-            <ul class="service-feature-checklist">
+            <ul class="service-highlights">
               <li>
                 <i class="ri-checkbox-circle-fill text-amber" aria-hidden="true"></i>
-                <span>Instant DNS Management &amp; Records</span>
+                <span>Free DNS Records Management</span>
               </li>
               <li>
                 <i class="ri-checkbox-circle-fill text-amber" aria-hidden="true"></i>
-                <span>WHOIS Privacy &amp; Domain Theft Lock</span>
+                <span>WHOIS Privacy &amp; Theft Protection</span>
               </li>
               <li>
                 <i class="ri-checkbox-circle-fill text-amber" aria-hidden="true"></i>
                 <span>Real-Time Anycast Propagation</span>
               </li>
-              <li>
-                <i class="ri-checkbox-circle-fill text-amber" aria-hidden="true"></i>
-                <span>Free Email &amp; URL Forwarding</span>
-              </li>
             </ul>
-
-            <div class="service-card-divider"></div>
-
-            <div class="card-footer-row">
-              <span class="service-sla-tag">
-                <i class="ri-search-eye-line" aria-hidden="true"></i> Live Search
-              </span>
-              <a href="/domain-search" class="service-cta-btn">
-                <span>Find Domain</span>
-                <i class="ri-arrow-right-line" aria-hidden="true"></i>
-              </a>
-            </div>
-
           </div>
+
+          <div class="card-bottom">
+            <span class="service-sla">
+              <i class="ri-search-eye-line" aria-hidden="true"></i> Live Search
+            </span>
+            <a href="/domain-search" class="service-square-btn">
+              <span>Find Domain</span>
+              <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            </a>
+          </div>
+
         </div>
       </div>
 
-      <!-- 4. VPS Cloud Hosting -->
+      <!-- 4. Cloud VPS Hosting -->
       <div class="col-lg-4 col-md-6 col-12" data-sal="slide-up" data-sal-delay="250" data-sal-duration="800">
-        <div class="service-box-card">
+        <div class="service-square-card">
           <div class="card-top-accent"></div>
-          <div class="card-inner-wrap">
-            
-            <div class="card-header-row">
-              <div class="service-icon-wrap icon-blue">
+          
+          <div class="card-top">
+            <div class="card-head-bar">
+              <div class="service-icon-box icon-blue">
                 <i class="ri-hard-drive-2-line" aria-hidden="true"></i>
               </div>
-              <span class="service-pill badge-blue">Dedicated Compute</span>
+              <span class="service-badge badge-blue">Dedicated KVM</span>
             </div>
 
-            <div class="card-title-pricing">
-              <h4 class="service-title">Cloud VPS Hosting</h4>
-              <div class="service-price-tag">
-                <span class="price-from-text">Starts at</span>
-                <span class="price-value" data-inr="₹499/mo" data-usd="$5.99/mo">₹499/mo</span>
+            <div class="card-heading-row">
+              <h5 class="service-name">Cloud VPS Hosting</h5>
+              <div class="service-pricing">
+                <span class="price-prefix">From</span>
+                <span 
+                  class="price-tag" 
+                  data-inr={vpsHosting.heroStartPrice.inr} 
+                  data-usd={vpsHosting.heroStartPrice.usd}
+                >
+                  {vpsHosting.heroStartPrice.inr}
+                </span>
               </div>
             </div>
 
-            <p class="service-desc">
-              Dedicated KVM virtualization with isolated CPU &amp; RAM resources, unmetered network uplink, and instant server reboot controls.
+            <p class="service-summary">
+              Guaranteed KVM virtualization with isolated CPU &amp; RAM, unmetered network bandwidth, and full SSH root access.
             </p>
 
-            <ul class="service-feature-checklist">
+            <ul class="service-highlights">
               <li>
                 <i class="ri-checkbox-circle-fill text-blue" aria-hidden="true"></i>
                 <span>100% Dedicated KVM Hypervisor</span>
               </li>
               <li>
                 <i class="ri-checkbox-circle-fill text-blue" aria-hidden="true"></i>
-                <span>Full Root SSH &amp; Multi-OS Installs</span>
+                <span>Full Root SSH &amp; Instant Reboots</span>
               </li>
               <li>
                 <i class="ri-checkbox-circle-fill text-blue" aria-hidden="true"></i>
-                <span>1 Gbps High-Speed Uplink Port</span>
-              </li>
-              <li>
-                <i class="ri-checkbox-circle-fill text-blue" aria-hidden="true"></i>
-                <span>Dedicated Static IPv4 &amp; DDoS Shield</span>
+                <span>1 Gbps Uplink &amp; Anti-DDoS Shield</span>
               </li>
             </ul>
-
-            <div class="service-card-divider"></div>
-
-            <div class="card-footer-row">
-              <span class="service-sla-tag">
-                <i class="ri-shield-keyhole-line" aria-hidden="true"></i> Full Root KVM
-              </span>
-              <a href="/vps-hosting" class="service-cta-btn">
-                <span>Configure VPS</span>
-                <i class="ri-arrow-right-line" aria-hidden="true"></i>
-              </a>
-            </div>
-
           </div>
+
+          <div class="card-bottom">
+            <span class="service-sla">
+              <i class="ri-shield-keyhole-line" aria-hidden="true"></i> Full Root KVM
+            </span>
+            <a href="/vps-hosting" class="service-square-btn">
+              <span>Configure</span>
+              <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            </a>
+          </div>
+
         </div>
       </div>
 
       <!-- 5. Business Email -->
       <div class="col-lg-4 col-md-6 col-12" data-sal="slide-up" data-sal-delay="300" data-sal-duration="800">
-        <div class="service-box-card">
+        <div class="service-square-card">
           <div class="card-top-accent"></div>
-          <div class="card-inner-wrap">
-            
-            <div class="card-header-row">
-              <div class="service-icon-wrap icon-cyan">
+          
+          <div class="card-top">
+            <div class="card-head-bar">
+              <div class="service-icon-box icon-cyan">
                 <i class="ri-mail-star-line" aria-hidden="true"></i>
               </div>
-              <span class="service-pill badge-cyan">Corporate Grade</span>
+              <span class="service-badge badge-cyan">Custom Mail</span>
             </div>
 
-            <div class="card-title-pricing">
-              <h4 class="service-title">Business Email</h4>
-              <div class="service-price-tag">
-                <span class="price-from-text">Starts at</span>
-                <span class="price-value" data-inr="₹29/mo" data-usd="$0.35/mo">₹29/mo</span>
+            <div class="card-heading-row">
+              <h5 class="service-name">Business Email</h5>
+              <div class="service-pricing">
+                <span class="price-prefix">From</span>
+                <span 
+                  class="price-tag" 
+                  data-inr={businessEmail.heroStartPrice.inr} 
+                  data-usd={businessEmail.heroStartPrice.usd}
+                >
+                  {businessEmail.heroStartPrice.inr}
+                </span>
               </div>
             </div>
 
-            <p class="service-desc">
-              Build instant trust with branded email addresses (you@yourdomain.com), responsive webmail access, and intelligent anti-spam filters.
+            <p class="service-summary">
+              Build client trust with branded email addresses (you@yourdomain.com), modern webmail, and anti-spam filters.
             </p>
 
-            <ul class="service-feature-checklist">
+            <ul class="service-highlights">
               <li>
                 <i class="ri-checkbox-circle-fill text-cyan" aria-hidden="true"></i>
                 <span>Custom Branded Domain Mailboxes</span>
               </li>
               <li>
                 <i class="ri-checkbox-circle-fill text-cyan" aria-hidden="true"></i>
-                <span>SpamExperts™ Inbound &amp; Outbound Filter</span>
+                <span>SpamExperts™ Inbound/Outbound Filter</span>
               </li>
               <li>
                 <i class="ri-checkbox-circle-fill text-cyan" aria-hidden="true"></i>
                 <span>DKIM, SPF &amp; DMARC Deliverability</span>
               </li>
-              <li>
-                <i class="ri-checkbox-circle-fill text-cyan" aria-hidden="true"></i>
-                <span>Sync with Outlook, Apple Mail &amp; Mobile</span>
-              </li>
             </ul>
-
-            <div class="service-card-divider"></div>
-
-            <div class="card-footer-row">
-              <span class="service-sla-tag">
-                <i class="ri-mail-check-line" aria-hidden="true"></i> 99.9% Clean Inbox
-              </span>
-              <a href="/business-email" class="service-cta-btn">
-                <span>Get Email</span>
-                <i class="ri-arrow-right-line" aria-hidden="true"></i>
-              </a>
-            </div>
-
           </div>
+
+          <div class="card-bottom">
+            <span class="service-sla">
+              <i class="ri-mail-check-line" aria-hidden="true"></i> 99.9% Spam-Free
+            </span>
+            <a href="/business-email" class="service-square-btn">
+              <span>Get Email</span>
+              <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            </a>
+          </div>
+
         </div>
       </div>
 
       <!-- 6. SSL Certificates -->
       <div class="col-lg-4 col-md-6 col-12" data-sal="slide-up" data-sal-delay="350" data-sal-duration="800">
-        <div class="service-box-card">
+        <div class="service-square-card">
           <div class="card-top-accent"></div>
-          <div class="card-inner-wrap">
-            
-            <div class="card-header-row">
-              <div class="service-icon-wrap icon-green">
+          
+          <div class="card-top">
+            <div class="card-head-bar">
+              <div class="service-icon-box icon-green">
                 <i class="ri-shield-check-line" aria-hidden="true"></i>
               </div>
-              <span class="service-pill badge-green">256-Bit TLS</span>
+              <span class="service-badge badge-green">256-Bit TLS</span>
             </div>
 
-            <div class="card-title-pricing">
-              <h4 class="service-title">SSL Certificates</h4>
-              <div class="service-price-tag">
-                <span class="price-from-text">From</span>
-                <span class="price-value text-success-theme" data-inr="Included Free" data-usd="Included Free">Included Free</span>
+            <div class="card-heading-row">
+              <h5 class="service-name">SSL Certificates</h5>
+              <div class="service-pricing">
+                <span class="price-prefix">From</span>
+                <span 
+                  class="price-tag" 
+                  data-inr={sslCertificates.heroStartPrice.inr} 
+                  data-usd={sslCertificates.heroStartPrice.usd}
+                >
+                  {sslCertificates.heroStartPrice.inr}
+                </span>
               </div>
             </div>
 
-            <p class="service-desc">
-              Protect visitor transactions and passwords with robust 256-bit encryption, browser padlock trust indicators, and higher Google rankings.
+            <p class="service-summary">
+              Protect visitor transactions and passwords with 256-bit encryption, browser padlock trust, and SEO ranking boost.
             </p>
 
-            <ul class="service-feature-checklist">
+            <ul class="service-highlights">
               <li>
                 <i class="ri-checkbox-circle-fill text-green" aria-hidden="true"></i>
                 <span>Industry-Grade 256-Bit TLS Encryption</span>
               </li>
               <li>
                 <i class="ri-checkbox-circle-fill text-green" aria-hidden="true"></i>
-                <span>Trusted Browser Green Padlock Status</span>
+                <span>Trusted Browser Padlock Indicator</span>
               </li>
               <li>
                 <i class="ri-checkbox-circle-fill text-green" aria-hidden="true"></i>
-                <span>Automated Let's Encrypt Auto-Renewal</span>
-              </li>
-              <li>
-                <i class="ri-checkbox-circle-fill text-green" aria-hidden="true"></i>
-                <span>Boosts Google SEO &amp; Customer Trust</span>
+                <span>Automated Let's Encrypt / DV Support</span>
               </li>
             </ul>
-
-            <div class="service-card-divider"></div>
-
-            <div class="card-footer-row">
-              <span class="service-sla-tag">
-                <i class="ri-lock-2-line" aria-hidden="true"></i> High-Trust HTTPS
-              </span>
-              <a href="/ssl-certificates" class="service-cta-btn">
-                <span>Explore SSL</span>
-                <i class="ri-arrow-right-line" aria-hidden="true"></i>
-              </a>
-            </div>
-
           </div>
+
+          <div class="card-bottom">
+            <span class="service-sla">
+              <i class="ri-lock-2-line" aria-hidden="true"></i> 100% Secure
+            </span>
+            <a href="/ssl-certificates" class="service-square-btn">
+              <span>View Plans</span>
+              <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            </a>
+          </div>
+
         </div>
       </div>
 
@@ -411,37 +419,37 @@
 <style>
   .hostamble-services-ecosystem {
     background: #FAFBFC;
-    border-top: 1px solid #ECEEF2;
-    border-bottom: 1px solid #ECEEF2;
+    border-top: 1px solid var(--color-border, #EEEEEE);
+    border-bottom: 1px solid var(--color-border, #EEEEEE);
   }
 
-  .section-subtitle {
-    max-width: 680px;
-    margin: 12px auto 0;
-    color: var(--color-body, #606060);
-    font-size: 16px;
-    line-height: 1.6;
-    font-family: var(--font-primary, "Urbanist", sans-serif);
-  }
-
-  /* Service Card Box */
-  .service-box-card {
-    background: #ffffff;
-    border: 1px solid #E6E9EE;
-    border-radius: 12px;
+  /* Square Card Architecture */
+  .service-square-card {
+    background: var(--color-white, #ffffff);
+    border: 1px solid var(--color-border, #eef0f4);
+    border-radius: var(--radius, 10px);
+    padding: 24px 22px 20px;
     position: relative;
     overflow: hidden;
-    height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
     box-shadow: 0 4px 16px rgba(32, 33, 51, 0.03);
+    height: 100%;
   }
 
-  .service-box-card:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 16px 36px rgba(32, 33, 51, 0.08);
-    border-color: rgba(255, 80, 26, 0.35);
+  /* Desktop and Tablet: 1:1 Aspect Ratio for true square cards */
+  @media (min-width: 768px) {
+    .service-square-card {
+      aspect-ratio: 1 / 1;
+    }
+  }
+
+  .service-square-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(32, 33, 51, 0.08);
+    border-color: rgba(var(--color-primary-rgb, 210, 116, 29), 0.4);
   }
 
   /* Top Accent Line */
@@ -455,117 +463,108 @@
     transition: background 0.3s ease;
   }
 
-  .service-box-card:hover .card-top-accent,
-  .service-box-card.card-featured .card-top-accent {
-    background: linear-gradient(90deg, #ff501a 0%, #ff8c42 100%);
+  .service-square-card:hover .card-top-accent,
+  .service-square-card.card-featured .card-top-accent {
+    background: var(--color-primary, #ff501a);
   }
 
-  /* Featured Card Highlight */
-  .service-box-card.card-featured {
-    border-color: rgba(255, 80, 26, 0.28);
-    box-shadow: 0 6px 20px rgba(255, 80, 26, 0.06);
+  .service-square-card.card-featured {
+    border-color: rgba(var(--color-primary-rgb, 210, 116, 29), 0.3);
+    box-shadow: 0 6px 20px rgba(var(--color-primary-rgb, 210, 116, 29), 0.06);
   }
 
-  /* Inner Content */
-  .card-inner-wrap {
-    padding: 30px 28px 24px;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-
-  /* Header Row: Icon + Badge */
-  .card-header-row {
+  /* Header Bar */
+  .card-head-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
   }
 
-  /* Signature Hostamble Shaped Icon Container */
-  .service-icon-wrap {
-    width: 54px;
-    height: 54px;
-    border-radius: 27px 27px 6px 6px;
+  /* Square Icon Box */
+  .service-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-small, 6px);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
-    transition: all 0.35s ease;
+    font-size: 22px;
+    transition: all 0.3s ease;
   }
 
-  .service-box-card:hover .service-icon-wrap {
-    transform: scale(1.06);
+  .service-square-card:hover .service-icon-box {
+    transform: scale(1.05);
   }
 
   .icon-primary {
-    background: rgba(255, 80, 26, 0.1);
-    color: #ff501a;
+    background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.1);
+    color: var(--color-primary, #ff501a);
   }
-  .service-box-card:hover .icon-primary {
-    background: #ff501a;
-    color: #ffffff;
+  .service-square-card:hover .icon-primary {
+    background: var(--color-primary, #ff501a);
+    color: var(--color-white, #ffffff);
   }
 
   .icon-purple {
     background: rgba(124, 58, 237, 0.1);
     color: #7c3aed;
   }
-  .service-box-card:hover .icon-purple {
+  .service-square-card:hover .icon-purple {
     background: #7c3aed;
-    color: #ffffff;
+    color: var(--color-white, #ffffff);
   }
 
   .icon-amber {
     background: rgba(217, 119, 6, 0.1);
     color: #d97706;
   }
-  .service-box-card:hover .icon-amber {
+  .service-square-card:hover .icon-amber {
     background: #d97706;
-    color: #ffffff;
+    color: var(--color-white, #ffffff);
   }
 
   .icon-blue {
     background: rgba(37, 99, 235, 0.1);
     color: #2563eb;
   }
-  .service-box-card:hover .icon-blue {
+  .service-square-card:hover .icon-blue {
     background: #2563eb;
-    color: #ffffff;
+    color: var(--color-white, #ffffff);
   }
 
   .icon-cyan {
     background: rgba(14, 165, 233, 0.1);
     color: #0284c7;
   }
-  .service-box-card:hover .icon-cyan {
+  .service-square-card:hover .icon-cyan {
     background: #0284c7;
-    color: #ffffff;
+    color: var(--color-white, #ffffff);
   }
 
   .icon-green {
     background: rgba(16, 185, 129, 0.1);
     color: #059669;
   }
-  .service-box-card:hover .icon-green {
+  .service-square-card:hover .icon-green {
     background: #059669;
-    color: #ffffff;
+    color: var(--color-white, #ffffff);
   }
 
-  /* Eyebrow Pill Badges */
-  .service-pill {
-    font-size: 11px;
+  /* Badges */
+  .service-badge {
+    font-size: 10.5px;
     font-weight: 700;
-    letter-spacing: 0.4px;
+    letter-spacing: 0.3px;
     text-transform: uppercase;
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-family: var(--font-primary, "Urbanist", sans-serif);
+    padding: 3px 8px;
+    border-radius: var(--radius-small, 5px);
+    font-family: var(--font-primary);
   }
 
   .badge-primary {
-    background: rgba(255, 80, 26, 0.1);
-    color: #ff501a;
+    background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.1);
+    color: var(--color-primary, #ff501a);
   }
   .badge-purple {
     background: rgba(124, 58, 237, 0.1);
@@ -589,198 +588,171 @@
   }
 
   /* Title & Pricing */
-  .card-title-pricing {
+  .card-heading-row {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 8px;
+    gap: 8px;
+    margin-bottom: 6px;
   }
 
-  .service-title {
-    font-size: 20px;
-    font-weight: 800;
+  .service-name {
+    font-size: 18px;
+    font-weight: 700;
     color: var(--color-heading, #202133);
     margin: 0;
-    font-family: var(--font-primary, "Urbanist", sans-serif);
+    font-family: var(--font-primary);
     line-height: 1.3;
   }
 
-  .service-price-tag {
+  .service-pricing {
     text-align: right;
     flex-shrink: 0;
   }
 
-  .price-from-text {
-    display: block;
-    font-size: 10.5px;
+  .price-prefix {
+    font-size: 10px;
     text-transform: uppercase;
-    color: #8892a0;
+    color: var(--color-body, #6F6B80);
     font-weight: 600;
+    display: block;
     line-height: 1;
     margin-bottom: 2px;
+    font-family: var(--font-primary);
   }
 
-  .price-value {
-    font-size: 17px;
+  .price-tag {
+    font-size: 16px;
     font-weight: 800;
     color: var(--color-primary, #ff501a);
-    font-family: var(--font-primary, "Urbanist", sans-serif);
+    font-family: var(--font-primary);
     line-height: 1;
-  }
-
-  .text-success-theme {
-    color: #059669 !important;
   }
 
   /* Description */
-  .service-desc {
-    font-size: 13.5px;
-    line-height: 1.6;
-    color: var(--color-body, #606060);
-    margin: 6px 0 16px 0;
-    min-height: 44px;
-    font-family: var(--font-primary, "Urbanist", sans-serif);
+  .service-summary {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--color-body, #6F6B80);
+    margin: 0 0 12px 0;
+    font-family: var(--font-primary);
   }
 
-  /* Feature Checklist */
-  .service-feature-checklist {
+  /* Highlights */
+  .service-highlights {
     list-style: none;
     padding: 0;
-    margin: 0 0 20px 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 9px;
-    flex-grow: 1;
+    gap: 6px;
   }
 
-  .service-feature-checklist li {
+  .service-highlights li {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 13px;
+    gap: 7px;
+    font-size: 12.5px;
     font-weight: 600;
-    color: #2c3442;
-    font-family: var(--font-primary, "Urbanist", sans-serif);
+    color: var(--color-heading, #202133);
+    font-family: var(--font-primary);
   }
 
-  .service-feature-checklist li i {
-    font-size: 15px;
+  .service-highlights li i {
+    font-size: 14px;
+    color: var(--color-primary, #ff501a);
     flex-shrink: 0;
   }
 
-  .text-primary-theme {
-    color: #ff501a;
-  }
   .text-purple {
-    color: #7c3aed;
+    color: #7c3aed !important;
   }
   .text-amber {
-    color: #d97706;
+    color: #d97706 !important;
   }
   .text-blue {
-    color: #2563eb;
+    color: #2563eb !important;
   }
   .text-cyan {
-    color: #0284c7;
+    color: #0284c7 !important;
   }
   .text-green {
-    color: #059669;
-  }
-
-  /* Divider */
-  .service-card-divider {
-    height: 1px;
-    background: #E8EBF0;
-    margin: 0 0 16px 0;
+    color: #059669 !important;
   }
 
   /* Footer */
-  .card-footer-row {
+  .card-bottom {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px solid var(--color-border, #EEEEEE);
   }
 
-  .service-sla-tag {
-    font-size: 12px;
+  .service-sla {
+    font-size: 11.5px;
     font-weight: 600;
-    color: #64748b;
+    color: var(--color-body, #6F6B80);
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    font-family: var(--font-primary, "Urbanist", sans-serif);
+    font-family: var(--font-primary);
   }
 
-  .service-sla-tag i {
-    font-size: 14px;
+  .service-sla i {
+    font-size: 13px;
     color: var(--color-primary, #ff501a);
   }
 
-  /* CTA Button */
-  .service-cta-btn {
+  /* Button */
+  .service-square-btn {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
-    padding: 7px 15px;
-    border-radius: 6px;
+    gap: 4px;
+    padding: 6px 14px;
+    border-radius: var(--radius-small, 5px);
     font-size: 13px;
     font-weight: 700;
     text-decoration: none;
-    font-family: var(--font-primary, "Urbanist", sans-serif);
-    transition: all 0.25s ease;
     color: var(--color-primary, #ff501a);
-    background: rgba(255, 80, 26, 0.08);
-    border: 1px solid rgba(255, 80, 26, 0.2);
+    background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.08);
+    border: 1px solid rgba(var(--color-primary-rgb, 210, 116, 29), 0.2);
+    transition: all 0.25s ease;
+    font-family: var(--font-primary);
   }
 
-  .service-cta-btn i {
-    font-size: 14px;
+  .service-square-btn:hover {
+    color: var(--color-white, #ffffff);
+    background: var(--color-primary, #ff501a);
+    border-color: var(--color-primary, #ff501a);
+    box-shadow: 0 4px 12px rgba(var(--color-primary-rgb, 210, 116, 29), 0.25);
+  }
+
+  .service-square-btn i {
+    font-size: 13px;
     transition: transform 0.25s ease;
   }
 
-  .service-cta-btn:hover {
-    color: #ffffff;
-    background: var(--color-primary, #ff501a);
-    border-color: var(--color-primary, #ff501a);
-    box-shadow: 0 4px 12px rgba(255, 80, 26, 0.25);
-  }
-
-  .service-cta-btn:hover i {
+  .service-square-btn:hover i {
     transform: translateX(3px);
   }
 
-  /* Featured Button */
-  .service-cta-btn.btn-featured {
-    color: #ffffff;
+  .service-square-btn.btn-featured {
+    color: var(--color-white, #ffffff);
     background: var(--color-primary, #ff501a);
     border-color: var(--color-primary, #ff501a);
   }
 
-  .service-cta-btn.btn-featured:hover {
+  .service-square-btn.btn-featured:hover {
     background: #e04414;
     border-color: #e04414;
-    box-shadow: 0 5px 16px rgba(255, 80, 26, 0.3);
-  }
-
-  @media (max-width: 991px) {
-    .service-desc {
-      min-height: auto;
-    }
   }
 
   @media (max-width: 575px) {
-    .card-inner-wrap {
-      padding: 24px 20px 20px;
-    }
-    .card-title-pricing {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 4px;
-    }
-    .service-price-tag {
-      text-align: left;
+    .service-square-card {
+      padding: 20px 18px 16px;
     }
   }
 </style>
