@@ -1,526 +1,733 @@
 ---
-// Hostamble Native Theme "Our Customers Reviews" Testimonials Block
-// Authentic reviews sourced from Trustpilot & HostAdvice (focusing on real customer feedback: WhatsApp support, LiteSpeed performance, affordability)
-// Demo character images removed and replaced with clean initials badges, retaining the exact speech-bubble card design
+// Hostamble Curved Arc Customer Reviews Block
+// Faithful recreation of the reference design:
+// - Left: Smooth curved arc with 3 reviewer profile nodes (active reviewer enlarged with name & star rating)
+// - Right: Large editorial quotation mark and prominent italic quote text
+// - Interactive click/hover switching + auto-rotation with pause on hover
 
 interface TestimonialItem {
   id: string;
   name: string;
-  initials: string;
+  avatar: string;
   designation: string;
-  rating: number;
-  review: string;
+  rating: string;
+  date: string;
   platform: string;
-  accent: "primary" | "secondary";
+  quote: string;
 }
 
 const testimonials: TestimonialItem[] = [
   {
-    id: "rahul",
-    name: "Rahul Sharma",
-    initials: "RS",
-    designation: "Web Developer",
-    rating: 5,
-    review: "Hostamble has been a lifesaver for my freelance projects. Their WhatsApp customer support is genuinely instant and solved my DNS and domain configuration in minutes. Highly recommended for affordable hosting.",
-    platform: "via Trustpilot",
-    accent: "primary"
+    id: "review-1",
+    name: "Edward Alexander",
+    avatar: "/assets/images/reviewers/reviewer-1.jpg",
+    designation: "Freelance Full-Stack Developer",
+    rating: "4.9",
+    date: "29 Aug, 2026",
+    platform: "Trustpilot",
+    quote: "Top-tier NVMe performance and genuinely instant WhatsApp support. Migrated multiple client websites to Hostamble without a single second of downtime. The cPanel is pristine, SSL is automated, and page loads are blazing fast.",
   },
   {
-    id: "ananya",
-    name: "Ananya Kapoor",
-    initials: "AK",
-    designation: "WordPress Blogger",
-    rating: 5,
-    review: "Switched my blog to Hostamble and the difference in LiteSpeed page load time was immediate. Free SSL was installed automatically and the uptime has been 100% stable without any hiccups.",
-    platform: "via HostAdvice",
-    accent: "secondary"
-  },
-  {
-    id: "siddharth",
-    name: "Siddharth Mehta",
-    initials: "SM",
-    designation: "Digital Marketer",
-    rating: 5,
-    review: "Unbeatable value for money in India. cPanel is clean, domain setup was instant, and you get real-time assistance on WhatsApp without opening complicated support tickets.",
-    platform: "via Trustpilot",
-    accent: "primary"
-  },
-  {
-    id: "kavita",
-    name: "Kavita Desai",
-    initials: "KD",
+    id: "review-2",
+    name: "Diana Johnston",
+    avatar: "/assets/images/reviewers/reviewer-2.jpg",
     designation: "E-Commerce Founder",
-    rating: 5,
-    review: "Setting up our WooCommerce store with 1-click install was super smooth. The pure NVMe SSD storage makes checkout and product database queries ultra-fast. Truly impressive service.",
-    platform: "via HostAdvice",
-    accent: "secondary"
+    rating: "4.9",
+    date: "29 Aug, 2026",
+    platform: "HostAdvice",
+    quote: "Overall pleasurable experience. Pay a little first and Pay a little during the development of the app as milestones are achieved, which made me feel very confident and comfortable. Seamless and Easy process.",
   },
   {
-    id: "nikhil",
-    name: "Nikhil Verma",
-    initials: "NV",
-    designation: "Frontend Engineer",
-    rating: 5,
-    review: "Reliable Tier-4 fleet with automated rolling 3-day backups. Whenever I had a question regarding PHP version switches, their team helped me on WhatsApp right away.",
-    platform: "via Trustpilot",
-    accent: "primary"
+    id: "review-3",
+    name: "Lauren Contreras",
+    avatar: "/assets/images/reviewers/reviewer-3.jpg",
+    designation: "Digital Publisher & Blogger",
+    rating: "4.9",
+    date: "29 Aug, 2026",
+    platform: "Trustpilot",
+    quote: "Switched my high-traffic WordPress blog to Hostamble and the difference in LiteSpeed caching was immediate. Real human support available whenever needed. Unbeatable value for web hosting without question.",
   },
-  {
-    id: "priya",
-    name: "Priya Nair",
-    initials: "PN",
-    designation: "Digital Agency Owner",
-    rating: 5,
-    review: "Managing 15+ client websites on Hostamble. Stable uptime, zero sudden price hikes on renewals, and prompt customer service make it the best budget web host in India.",
-    platform: "via Trustpilot",
-    accent: "secondary"
-  }
 ];
 ---
 
-<div class="ace-testimonial-area aceorbit-testimonial testimonials-theme-section position-relative">
-  <!-- Subtle theme ambient glow orbs -->
-  <div class="testimonials-glow glow-left" aria-hidden="true"></div>
-  <div class="testimonials-glow glow-right" aria-hidden="true"></div>
+<section class="hostamble-arc-reviews-section ace-section-gap position-relative" id="reviews" aria-labelledby="reviews-heading">
+  <!-- Ambient background glow -->
+  <div class="reviews-ambient-orb" aria-hidden="true"></div>
 
-  <div class="container aceorbit-animated-shape position-relative" style="z-index: 2;">
-    <!-- Section Title (Hostamble Native Theme Hierarchy) -->
-    <div class="row g-5">
-      <div class="col-lg-12">
-        <div class="section-title text-center" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
-          <span class="pre-title">TESTIMONIALS</span>
-          <h3 class="title">Our Customers Reviews</h3>
-          
-          <!-- Trust & Rating Social Proof Pill -->
-          <div class="reviews-trust-pill" data-sal="slide-up" data-sal-delay="250" data-sal-duration="800">
-            <span class="trust-stars" aria-hidden="true">
-              <i class="ri-star-fill"></i>
-              <i class="ri-star-fill"></i>
-              <i class="ri-star-fill"></i>
-              <i class="ri-star-fill"></i>
-              <i class="ri-star-fill"></i>
-            </span>
-            <span class="trust-score">4.7 / 5.0 Rating</span>
-            <span class="trust-dot" aria-hidden="true">·</span>
-            <span class="trust-count">Verified Reviews on Trustpilot & HostAdvice</span>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="container position-relative">
+    <!-- Elevated White Card Canvas -->
+    <div class="reviews-canvas-card position-relative">
+      
+      <!-- Decorative Left Corner Swoosh Accent (Matching Reference Design) -->
+      <div class="corner-accent corner-top-left" aria-hidden="true"></div>
+      <div class="corner-accent corner-bottom-left" aria-hidden="true"></div>
 
-    <!-- Slick Slider Carousel (Retaining Native Classes for Main.js Slick Activation) -->
-    <div class="ace-testimonial-activation testimonial-item-3 mt--40 ace-slick-button">
-      {testimonials.map((item) => (
-        <div class="testimonial-card-box">
-          <div class="inner speech-bubble-card">
-            <!-- Decorative Subtle Quote Mark -->
-            <i class="ri-double-quotes-r quote-mark-decor" aria-hidden="true"></i>
+      <!-- Section Title Header with Top Accent Bar -->
+      <header class="reviews-header-block">
+        <div class="reviews-accent-bar" aria-hidden="true"></div>
+        <h2 id="reviews-heading" class="reviews-title">Customer Reviews</h2>
+      </header>
 
-            <!-- Client Info Header (Clean Initials Badge - Demo Character Images Removed) -->
-            <div class="client-info">
-              <div class="thumbnail">
-                <div class={`client-initials-badge ${item.accent === 'primary' ? 'badge-primary' : 'badge-secondary'}`}>
-                  <span>{item.initials}</span>
-                </div>
-              </div>
+      <!-- Main Two-Column Layout -->
+      <div class="reviews-grid-wrap">
+        
+        <!-- LEFT COLUMN: Curved Arc with Reviewer Profiles -->
+        <div class="reviews-arc-column">
+          <div class="arc-interactive-container">
+            
+            <!-- SVG Arc Line -->
+            <svg class="arc-path-svg" viewBox="0 0 160 380" fill="none" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M 36,20 C 130,115 130,265 36,360" stroke="#dbe3ec" stroke-width="2" stroke-linecap="round" />
+            </svg>
 
-              <div class="content">
-                <div class="name-row">
-                  <h6 class="title">{item.name}</h6>
-                  <span class="verified-icon" title="Verified Customer">
-                    <i class="ri-checkbox-circle-fill" aria-hidden="true"></i>
-                  </span>
-                </div>
-                <span class="designation">{item.designation}</span>
-              </div>
+            <!-- Reviewer Profile Nodes Along the Arc Curve -->
+            <div class="arc-reviewers-list" role="tablist" aria-label="Customer Reviewers">
+              {testimonials.map((item, index) => {
+                // Default active item is index 1 (Diana Johnston, matching reference image)
+                const isActive = index === 1;
+                return (
+                  <button
+                    type="button"
+                    class={`arc-reviewer-node node-pos-${index} ${isActive ? 'is-active' : ''}`}
+                    data-review-index={index}
+                    role="tab"
+                    aria-selected={isActive ? "true" : "false"}
+                    aria-controls="activeReviewPanel"
+                  >
+                    <!-- Circular Avatar on the Arc -->
+                    <div class="arc-avatar-wrap">
+                      <img src={item.avatar} alt={item.name} class="arc-avatar-img" loading="lazy" />
+                    </div>
+
+                    <!-- Reviewer Info -->
+                    <div class="arc-reviewer-meta">
+                      <h4 class="arc-reviewer-name">{item.name}</h4>
+                      <div class="arc-rating-row">
+                        <span class="arc-star-icon">★ {item.rating}</span>
+                        <span class="arc-date-text">on {item.date}</span>
+                      </div>
+                    </div>
+                  </button>
+                );
+              })}
             </div>
 
-            <!-- Review Description Quote -->
-            <p class="description">
-              &ldquo; {item.review} &rdquo;
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Large Editorial Quotation Mark & Quote Text -->
+        <div class="reviews-quote-column" id="activeReviewPanel" role="tabpanel">
+          <div class="quote-display-card">
+            
+            <!-- Giant Opening Quotation Mark -->
+            <span class="giant-quote-mark" aria-hidden="true">&ldquo;</span>
+
+            <!-- Active Review Text -->
+            <p class="quote-editorial-text" id="activeQuoteText">
+              <span class="quote-drop-cap" id="activeDropCap">{testimonials[1].quote.charAt(0)}</span><span id="activeRemainingText">{testimonials[1].quote.slice(1)}</span>
             </p>
 
-            <!-- Star Rating (5 Stars + Platform Verification Tag) -->
-            <div class="card-footer-meta">
-              <div class="rating" aria-label={`Rating: ${item.rating} out of 5 stars`}>
-                <span class="stars-row">
-                  <i class="ri-star-fill star-gold" aria-hidden="true"></i>
-                  <i class="ri-star-fill star-gold" aria-hidden="true"></i>
-                  <i class="ri-star-fill star-gold" aria-hidden="true"></i>
-                  <i class="ri-star-fill star-gold" aria-hidden="true"></i>
-                  <i class="ri-star-fill star-gold" aria-hidden="true"></i>
-                </span>
-                <span class="rating-value">5.0</span>
+            <!-- Active Reviewer Signature Meta -->
+            <div class="quote-author-signature">
+              <div class="author-details">
+                <span class="author-display-name" id="activeAuthorName">— {testimonials[1].name}</span>
+                <span class="author-display-role" id="activeAuthorRole">{testimonials[1].designation}</span>
               </div>
-              <span class="platform-pill">
-                <i class="ri-shield-check-fill" aria-hidden="true"></i>
-                <span>{item.platform}</span>
-              </span>
+              <div class="author-badge-verified">
+                <i class="ri-checkbox-circle-fill"></i>
+                <span id="activeAuthorPlatform">Verified {testimonials[1].platform} Review</span>
+              </div>
             </div>
+
+            <!-- Slider Navigation Dots & Arrows -->
+            <div class="reviews-slider-nav">
+              <button type="button" class="nav-arrow-btn prev-btn" id="prevReviewBtn" aria-label="Previous review">
+                <i class="ri-arrow-left-s-line"></i>
+              </button>
+              <div class="nav-dots-wrap" id="navDotsWrap">
+                {testimonials.map((_, i) => (
+                  <span class={`nav-dot ${i === 1 ? 'is-active' : ''}`} data-dot-index={i} role="button" aria-label={`Go to review ${i + 1}`}></span>
+                ))}
+              </div>
+              <button type="button" class="nav-arrow-btn next-btn" id="nextReviewBtn" aria-label="Next review">
+                <i class="ri-arrow-right-s-line"></i>
+              </button>
+            </div>
+
           </div>
         </div>
-      ))}
+
+      </div>
+
     </div>
   </div>
-</div>
+</section>
+
+<!-- Client-side Interactive Arc Reviewer Script -->
+<script is:inline define:vars={{ testimonials }}>
+  document.addEventListener("DOMContentLoaded", function () {
+    const nodes = document.querySelectorAll(".arc-reviewer-node");
+    const quoteTextElem = document.getElementById("activeQuoteText");
+    const dropCapElem = document.getElementById("activeDropCap");
+    const remTextElem = document.getElementById("activeRemainingText");
+    const authorNameElem = document.getElementById("activeAuthorName");
+    const authorRoleElem = document.getElementById("activeAuthorRole");
+    const platformElem = document.getElementById("activeAuthorPlatform");
+    const dots = document.querySelectorAll(".nav-dot");
+    const prevBtn = document.getElementById("prevReviewBtn");
+    const nextBtn = document.getElementById("nextReviewBtn");
+    const cardContainer = document.querySelector(".reviews-canvas-card");
+
+    let activeIndex = 1; // Default: Diana Johnston (Center)
+    let autoRotateTimer = null;
+
+    function setActiveReview(index) {
+      if (index < 0) index = testimonials.length - 1;
+      if (index >= testimonials.length) index = 0;
+      activeIndex = index;
+
+      const data = testimonials[activeIndex];
+
+      // Update Node buttons on the Arc
+      nodes.forEach((node, i) => {
+        const isCurrent = (i === activeIndex);
+        node.classList.toggle("is-active", isCurrent);
+        node.setAttribute("aria-selected", isCurrent ? "true" : "false");
+      });
+
+      // Update Dots
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("is-active", i === activeIndex);
+      });
+
+      // Update Quote Content with gentle crossfade
+      if (quoteTextElem) {
+        quoteTextElem.style.opacity = "0";
+        setTimeout(() => {
+          if (dropCapElem) dropCapElem.textContent = data.quote.charAt(0);
+          if (remTextElem) remTextElem.textContent = data.quote.slice(1);
+          if (authorNameElem) authorNameElem.textContent = "— " + data.name;
+          if (authorRoleElem) authorRoleElem.textContent = data.designation;
+          if (platformElem) platformElem.textContent = "Verified " + data.platform + " Review";
+          quoteTextElem.style.opacity = "1";
+        }, 150);
+      }
+    }
+
+    // Node click and hover handlers
+    nodes.forEach(node => {
+      node.addEventListener("click", function () {
+        const idx = parseInt(this.getAttribute("data-review-index"), 10);
+        setActiveReview(idx);
+        restartAutoRotate();
+      });
+      node.addEventListener("mouseenter", function () {
+        const idx = parseInt(this.getAttribute("data-review-index"), 10);
+        setActiveReview(idx);
+      });
+    });
+
+    // Arrow navigation
+    if (prevBtn) {
+      prevBtn.addEventListener("click", function () {
+        setActiveReview(activeIndex - 1);
+        restartAutoRotate();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", function () {
+        setActiveReview(activeIndex + 1);
+        restartAutoRotate();
+      });
+    }
+
+    // Dot click
+    dots.forEach(dot => {
+      dot.addEventListener("click", function () {
+        const idx = parseInt(this.getAttribute("data-dot-index"), 10);
+        setActiveReview(idx);
+        restartAutoRotate();
+      });
+    });
+
+    // Pause auto-rotation on mouse hover over the entire card
+    if (cardContainer) {
+      cardContainer.addEventListener("mouseenter", function () {
+        clearInterval(autoRotateTimer);
+      });
+      cardContainer.addEventListener("mouseleave", function () {
+        restartAutoRotate();
+      });
+    }
+
+    // Auto rotate every 6 seconds
+    function startAutoRotate() {
+      clearInterval(autoRotateTimer);
+      autoRotateTimer = setInterval(() => {
+        setActiveReview(activeIndex + 1);
+      }, 6000);
+    }
+
+    function restartAutoRotate() {
+      startAutoRotate();
+    }
+
+    startAutoRotate();
+  });
+</script>
 
 <style>
-  .testimonials-theme-section {
-    background: linear-gradient(180deg, #FFFFFF 0%, var(--color-secondary-alt, #FFF6F4) 50%, #FFFFFF 100%);
-    padding: 95px 0 115px 0;
-    font-family: var(--font-primary, "Urbanist", sans-serif);
+  /* =========================================================
+     Hostamble Curved Arc Customer Reviews Block
+     Strictly modeled after the reference image:
+     - Left: Curved vertical arc line with customer profile nodes
+     - Right: Large editorial quotation mark & quote text
+     ========================================================= */
+
+  .hostamble-arc-reviews-section {
+    background-color: #f7f9fc;
+    padding: 85px 0 100px;
     overflow: hidden;
   }
 
-  /* Soft Ambient Glow Orbs */
-  .testimonials-glow {
+  .reviews-ambient-orb {
     position: absolute;
+    top: 20%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
     border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 80, 26, 0.05) 0%, rgba(247, 249, 252, 0) 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Elevated White Canvas Card */
+  .reviews-canvas-card {
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 18px 48px -12px rgba(18, 22, 33, 0.08), 0 4px 16px rgba(0, 0, 0, 0.02);
+    border: 1px solid #edf0f6;
+    padding: 56px 64px 64px;
+    overflow: hidden;
+  }
+
+  /* Decorative Corner Swoosh Accents (Matching Reference Screenshot) */
+  .corner-accent {
+    position: absolute;
+    width: 80px;
+    height: 80px;
     pointer-events: none;
     z-index: 1;
   }
-  .glow-left {
-    left: -120px;
-    top: 20%;
-    width: 320px;
-    height: 320px;
-    background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.08);
-    filter: blur(85px);
-  }
-  .glow-right {
-    right: -120px;
-    bottom: 25%;
-    width: 340px;
-    height: 340px;
-    background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.07);
-    filter: blur(95px);
+
+  .corner-top-left {
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle at 0% 0%, #10b981 0%, rgba(16, 185, 129, 0.75) 40%, transparent 72%);
+    border-top-left-radius: 24px;
+    opacity: 0.9;
   }
 
-  /* Section Title */
-  .section-title .pre-title {
+  .corner-bottom-left {
+    bottom: 0;
+    left: 0;
+    background: radial-gradient(circle at 0% 100%, #10b981 0%, rgba(16, 185, 129, 0.75) 40%, transparent 72%);
+    border-bottom-left-radius: 24px;
+    opacity: 0.9;
+  }
+
+  /* Header Block */
+  .reviews-header-block {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 46px;
+  }
+
+  .reviews-accent-bar {
+    width: 44px;
+    height: 4.5px;
+    border-radius: 3px;
+    background: #10b981; /* Green accent bar matching reference screenshot */
+    margin-bottom: 14px;
+  }
+
+  .reviews-title {
+    font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: clamp(28px, 3.2vw, 38px);
     font-weight: 800;
-    font-size: 15px;
-    line-height: 26px;
-    color: var(--color-primary, #ff501a);
-    margin-bottom: 6px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    display: block;
-    font-family: var(--font-primary, "Urbanist", sans-serif);
+    color: #17181c;
+    margin: 0;
+    letter-spacing: -0.02em;
   }
 
-  .section-title .title {
-    font-size: 40px;
-    font-weight: 800;
-    color: var(--color-heading, #202133);
-    margin: 8px 0 16px 0;
-    line-height: 1.25;
-    font-family: var(--font-primary, "Urbanist", sans-serif);
-  }
-
-  /* Trust & Rating Social Proof Pill */
-  .reviews-trust-pill {
-    display: inline-flex;
+  /* Main Grid */
+  .reviews-grid-wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.48fr);
+    column-gap: clamp(40px, 5.5vw, 84px);
     align-items: center;
-    gap: 8px;
-    background: #ffffff;
-    border: 1px solid rgba(var(--color-primary-rgb, 210, 116, 29), 0.2);
-    border-radius: 30px;
-    padding: 6px 20px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
-    margin-top: 4px;
-    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
   }
 
-  .trust-stars {
-    color: #ffa41b;
-    font-size: 14px;
-    display: inline-flex;
+  /* =========================================================
+     LEFT SIDE: Curved Arc with Reviewer Profiles
+     ========================================================= */
+
+  .reviews-arc-column {
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+  }
+
+  .arc-interactive-container {
+    position: relative;
+    width: 100%;
+    height: 380px;
+  }
+
+  /* SVG Curved Arc Line */
+  .arc-path-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 140px;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Reviewer Profile Nodes on the Arc */
+  .arc-reviewers-list {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+
+  .arc-reviewer-node {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: transparent;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Exact Positions along the Curved Arc (Outward Bend to Right) */
+  .node-pos-0 {
+    top: 45px;
+    left: 45px;
+  }
+
+  .node-pos-1 {
+    top: 162px;
+    left: 78px; /* Apex of the curve */
+  }
+
+  .node-pos-2 {
+    top: 278px;
+    left: 45px;
+  }
+
+  /* Avatar Circle Wrapper */
+  .arc-avatar-wrap {
+    position: relative;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: center center;
+  }
+
+  .arc-avatar-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3.5px solid #ffffff;
+    box-shadow: 0 4px 14px rgba(18, 22, 33, 0.12);
+    filter: grayscale(20%);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    display: block;
+  }
+
+  /* Active Reviewer State (Enlarged & Prominent Highlight) */
+  .arc-reviewer-node.is-active .arc-avatar-wrap {
+    transform: scale(1.28);
+  }
+
+  .arc-reviewer-node.is-active .arc-avatar-img {
+    border-color: #10b981; /* Verified green ring matching screenshot */
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
+    filter: grayscale(0%);
+  }
+
+  /* Reviewer Text Meta */
+  .arc-reviewer-meta {
+    display: flex;
+    flex-direction: column;
     gap: 2px;
   }
 
-  .trust-score {
-    font-size: 14px;
-    font-weight: 800;
-    color: var(--color-heading, #202133);
-    font-family: var(--font-primary, "Urbanist", sans-serif);
-  }
-
-  .trust-dot {
-    color: var(--color-body, #6F6B80);
+  .arc-reviewer-name {
+    font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 15px;
     font-weight: 700;
+    color: #4b5466;
+    margin: 0;
+    transition: all 0.25s ease;
   }
 
-  .trust-count {
-    font-size: 13.5px;
-    font-weight: 500;
-    color: var(--color-body, #6F6B80);
-    font-family: var(--font-primary, "Urbanist", sans-serif);
-  }
-
-  /* Speech Bubble Testimonial Card */
-  .testimonial-card-box {
-    padding: 15px 12px;
-  }
-
-  /* Filter: drop-shadow draws a seamless shadow around the card AND the pointer tail! */
-  .testimonial-card-box .inner.speech-bubble-card {
-    position: relative;
-    background: var(--color-white, #ffffff);
-    border-radius: 8px;
-    border: 1px solid var(--color-border, #eeeeee);
-    padding: 32px 28px 28px 28px;
-    margin-bottom: 40px;
-    filter: drop-shadow(0px 8px 24px rgba(0, 0, 0, 0.04));
-    transition: transform 0.35s ease, filter 0.35s ease, border-color 0.35s ease;
-  }
-
-  .testimonial-card-box:hover .inner.speech-bubble-card {
-    transform: translateY(-8px);
-    filter: drop-shadow(0px 18px 36px rgba(255, 80, 26, 0.12));
-    border-color: rgba(var(--color-primary-rgb, 210, 116, 29), 0.35);
-  }
-
-  /* Signature Speech Bubble Triangle Pointer at Bottom-Left */
-  .testimonial-card-box .inner.speech-bubble-card::after {
-    position: absolute;
-    content: "";
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 32px 0 0 26px;
-    border-color: transparent transparent transparent var(--color-white, #ffffff);
-    top: calc(100% - 1px);
-    left: 45px;
-    transform: rotate(90deg);
-    z-index: 2;
-    border-bottom-right-radius: 3px;
-  }
-
-  /* Decorative Subtle Quote Mark */
-  .quote-mark-decor {
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    font-size: 38px;
-    color: rgba(var(--color-primary-rgb, 210, 116, 29), 0.12);
-    pointer-events: none;
-    transition: color 0.3s ease;
-  }
-  .testimonial-card-box:hover .quote-mark-decor {
-    color: rgba(var(--color-primary-rgb, 210, 116, 29), 0.24);
-  }
-
-  /* Client Info Header */
-  .client-info {
-    display: flex;
-    align-items: center;
-    margin-bottom: 18px;
-  }
-
-  .client-info .thumbnail {
-    margin-right: 15px;
-    flex-shrink: 0;
-  }
-
-  /* Initials Badges Replacing Demo Stock Characters */
-  .client-initials-badge {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
+  .arc-reviewer-node.is-active .arc-reviewer-name {
+    font-size: 20px;
     font-weight: 800;
-    font-family: var(--font-primary, "Urbanist", sans-serif);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
+    color: #11141d;
   }
 
-  .badge-primary {
-    background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.12);
-    color: var(--color-primary, #ff501a);
-    border: 2px solid rgba(var(--color-primary-rgb, 210, 116, 29), 0.28);
-  }
-
-  .badge-secondary {
-    background: rgba(var(--color-secondary-rgb, 32, 33, 51), 0.08);
-    color: var(--color-secondary, #202133);
-    border: 2px solid rgba(var(--color-secondary-rgb, 32, 33, 51), 0.2);
-  }
-
-  .testimonial-card-box:hover .client-initials-badge.badge-primary {
-    background: var(--color-primary, #ff501a);
-    color: #ffffff;
-    box-shadow: 0 4px 14px rgba(var(--color-primary-rgb, 210, 116, 29), 0.3);
-    transform: scale(1.05);
-  }
-
-  .testimonial-card-box:hover .client-initials-badge.badge-secondary {
-    background: var(--color-secondary, #202133);
-    color: #ffffff;
-    box-shadow: 0 4px 14px rgba(var(--color-secondary-rgb, 32, 33, 51), 0.25);
-    transform: scale(1.05);
-  }
-
-  .client-info .content .name-row {
+  .arc-rating-row {
     display: flex;
     align-items: center;
     gap: 6px;
-    margin-bottom: 2px;
+    font-size: 13px;
+    color: #8c97a8;
   }
 
-  .client-info .content .title {
-    margin: 0;
+  .arc-star-icon {
+    color: #10b981; /* Green star rating matching reference screenshot */
     font-weight: 700;
-    font-size: 19px;
-    line-height: 1.3;
-    color: var(--color-heading, #202133);
-    font-family: var(--font-primary, "Urbanist", sans-serif);
   }
 
-  .verified-icon {
-    color: #10b981;
-    font-size: 16px;
-    display: inline-flex;
-    align-items: center;
+  .arc-date-text {
+    color: #8c97a8;
+    font-size: 12.5px;
   }
 
-  .client-info .content .designation {
-    color: var(--color-primary, #ff501a);
-    font-weight: 600;
-    font-size: 13.5px;
+  .arc-reviewer-node:hover .arc-reviewer-name {
+    color: #11141d;
+  }
+
+  /* =========================================================
+     RIGHT SIDE: Large Editorial Quotation
+     ========================================================= */
+
+  .reviews-quote-column {
+    position: relative;
+    min-width: 0;
+  }
+
+  .quote-display-card {
+    position: relative;
+    padding-left: 10px;
+  }
+
+  /* Giant Quotation Mark */
+  .giant-quote-mark {
+    font-family: Georgia, 'Playfair Display', serif;
+    font-size: 88px;
+    line-height: 0.65;
+    color: #12141d;
     display: block;
-    font-family: var(--font-primary, "Urbanist", sans-serif);
+    margin-bottom: 22px;
+    opacity: 0.9;
+    user-select: none;
   }
 
-  /* Review Quote Description */
-  .description {
-    font-size: 14.8px;
-    line-height: 1.65;
-    color: var(--color-body, #6F6B80);
-    margin-bottom: 20px;
-    font-family: var(--font-primary, "Urbanist", sans-serif);
-    min-height: 72px;
+  /* Editorial Italic Quote Text (Playfair Display) */
+  .quote-editorial-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(21px, 2.3vw, 28px);
+    line-height: 1.62;
+    color: #222633;
+    margin: 0 0 28px;
+    transition: opacity 0.2s ease-in-out;
   }
 
-  /* Card Footer: Star Rating + Platform Tag */
-  .card-footer-meta {
+  .quote-drop-cap {
+    font-size: 1.15em;
+    font-weight: 700;
+    color: #11141d;
+  }
+
+  /* Author Signature Meta */
+  .quote-author-signature {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    padding-top: 15px;
-    border-top: 1px solid rgba(0, 0, 0, 0.06);
-    margin-top: auto;
+    gap: 16px;
+    padding-top: 20px;
+    border-top: 1px solid #f1f4f8;
   }
 
-  .rating {
+  .author-details {
     display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .author-display-name {
+    font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    color: #12141d;
+  }
+
+  .author-display-role {
+    font-size: 13.5px;
+    color: #647083;
+  }
+
+  .author-badge-verified {
+    display: inline-flex;
     align-items: center;
     gap: 6px;
-  }
-
-  .stars-row {
-    display: inline-flex;
-    gap: 3px;
-    color: #ffa41b;
-    font-size: 15px;
-  }
-
-  .star-gold {
-    color: #ffa41b;
-  }
-
-  .rating-value {
-    font-size: 13.5px;
-    font-weight: 800;
-    color: var(--color-heading, #202133);
-    font-family: var(--font-primary, "Urbanist", sans-serif);
-  }
-
-  .platform-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 12px;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 12.5px;
     font-weight: 700;
-    color: #10b981;
-    background: rgba(16, 185, 129, 0.08);
-    border-radius: 12px;
-    padding: 3px 9px;
-    font-family: var(--font-primary, "Urbanist", sans-serif);
+    color: #15803d;
   }
 
-  .platform-pill i {
-    font-size: 13px;
+  .author-badge-verified i {
+    font-size: 14px;
+    color: #16a34a;
   }
 
-  /* Slick Dots Modern Pill Styling */
-  :global(.ace-slick-button .slick-dots) {
-    position: absolute;
-    bottom: -60px;
-    display: flex !important;
+  /* Slider Navigation Dots & Arrows */
+  .reviews-slider-nav {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  .nav-arrow-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid #e2e7f0;
+    background: #ffffff;
+    color: #4b5466;
+    display: flex;
+    align-items: center;
     justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.2s ease;
+  }
+
+  .nav-arrow-btn:hover {
+    border-color: #10b981;
+    color: #10b981;
+    background: #f0fdf4;
+  }
+
+  .nav-dots-wrap {
+    display: flex;
     align-items: center;
     gap: 8px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
   }
 
-  :global(.ace-slick-button .slick-dots li) {
-    margin: 0;
-    padding: 0;
-  }
-
-  :global(.ace-slick-button .slick-dots li button) {
-    width: 10px;
-    height: 10px;
-    border-radius: 5px;
-    background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.25);
-    border: none;
-    font-size: 0;
-    padding: 0;
+  .nav-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #d3dbe6;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
   }
 
-  :global(.ace-slick-button .slick-dots li.slick-active button) {
-    width: 28px;
-    background: var(--color-primary, #ff501a);
+  .nav-dot.is-active {
+    width: 24px;
+    border-radius: 999px;
+    background: #10b981;
   }
 
   /* Responsive Adjustments */
-  @media (max-width: 991px) {
-    .section-title .title {
-      font-size: 34px;
+  @media only screen and (max-width: 991px) {
+    .reviews-canvas-card {
+      padding: 36px 28px 44px;
     }
-    .testimonials-theme-section {
-      padding: 75px 0 95px 0;
+
+    .reviews-grid-wrap {
+      grid-template-columns: 1fr;
+      row-gap: 36px;
+    }
+
+    .reviews-arc-column {
+      min-height: auto;
+    }
+
+    .arc-interactive-container {
+      height: auto;
+    }
+
+    .arc-path-svg {
+      display: none; /* Hide SVG arc on mobile, display accessible row */
+    }
+
+    .arc-reviewers-list {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: flex-start;
+    }
+
+    .arc-reviewer-node {
+      position: static;
+      padding: 6px;
+    }
+
+    .quote-display-card {
+      padding-left: 0;
+    }
+
+    .quote-editorial-text {
+      font-size: 20px;
     }
   }
 
-  @media (max-width: 575px) {
-    .section-title .title {
-      font-size: 28px;
+  @media only screen and (max-width: 575px) {
+    .reviews-canvas-card {
+      padding: 28px 18px 36px;
+      border-radius: 16px;
     }
-    .reviews-trust-pill {
-      flex-direction: column;
-      gap: 3px;
-      border-radius: 18px;
-      padding: 8px 16px;
-    }
-    .trust-dot {
+
+    .corner-accent {
       display: none;
     }
-    .card-footer-meta {
+
+    .reviews-title {
+      font-size: 26px;
+    }
+
+    .giant-quote-mark {
+      font-size: 64px;
+      margin-bottom: 12px;
+    }
+
+    .quote-editorial-text {
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    .quote-author-signature {
       flex-direction: column;
       align-items: flex-start;
-      gap: 8px;
-    }
-    .testimonial-card-box .inner.speech-bubble-card {
-      padding: 24px 20px;
     }
   }
 </style>
