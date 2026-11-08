@@ -118,6 +118,10 @@ body {
   overflow-x: clip;
 }
 
+body {
+  zoom: 1.05;
+}
+
 .main-wrapper {
   overflow-x: clip;
   width: 100%;
