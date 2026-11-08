@@ -96,9 +96,7 @@ const features: FeatureNode[] = [
   }
 ];
 
-// Split into two rows of 4 for clean desktop track alignment
-const row1 = features.slice(0, 4);
-const row2 = features.slice(4, 8);
+// Features list (all 8 features in a clean, unified grid)
 ---
 
 <section id="features" class="features-theme-section" aria-label="Why Choose Hostamble - Our Best Features">
@@ -116,72 +114,35 @@ const row2 = features.slice(4, 8);
       </p>
     </div>
 
-    <!-- Features Flow Track: Row 1 (Items 01 - 04) -->
-    <div class="features-row-wrapper position-relative mt-2">
-      <div class="track-connector-line d-none d-lg-block" aria-hidden="true"></div>
-      <div class="row g-4 g-lg-5 justify-content-center">
-        {row1.map((item, idx) => (
-          <div 
-            class="col-xl-3 col-lg-3 col-md-6 col-12"
-            data-sal="slide-up"
-            data-sal-delay={idx * 100 + 100}
-            data-sal-duration="750"
-          >
-            <div class="feature-item fitem" style={`--item-idx: ${idx};`}>
-              <!-- Creative Organic Shape Badge (Non-Square, Morphing on Hover) -->
-              <div class="feature-badge-wrap">
-                <div class={`organic-shape-badge ${item.morphClass} accent-${item.accent}`}>
-                  <i class={item.icon} aria-hidden="true"></i>
-                </div>
-                <span class="badge-step-pill">#{item.step}</span>
+    <!-- Features Flow (Clean & Open - No Connecting Line, Zero Blockness) -->
+    <div class="row g-4 g-lg-5 justify-content-center mt-2">
+      {features.map((item, idx) => (
+        <div 
+          class="col-xl-3 col-lg-3 col-md-6 col-12"
+          data-sal="slide-up"
+          data-sal-delay={(idx % 4) * 100 + 100}
+          data-sal-duration="750"
+        >
+          <div class="feature-item fitem" style={`--item-idx: ${idx};`}>
+            <!-- Creative Organic Shape Badge (Non-Square, Morphing on Hover) -->
+            <div class="feature-badge-wrap">
+              <div class={`organic-shape-badge ${item.morphClass} accent-${item.accent}`}>
+                <i class={item.icon} aria-hidden="true"></i>
               </div>
+              <span class="badge-step-pill">#{item.step}</span>
+            </div>
 
-              <!-- Open Clean Content (No Box Walls) -->
-              <h5 class="feature-title">{item.title}</h5>
-              <p class="feature-desc">{item.description}</p>
-              
-              <div class="feature-tag-pill">
-                <i class="ri-checkbox-circle-fill" aria-hidden="true"></i>
-                <span>{item.tag}</span>
-              </div>
+            <!-- Open Clean Content (No Box Walls) -->
+            <h5 class="feature-title">{item.title}</h5>
+            <p class="feature-desc">{item.description}</p>
+            
+            <div class="feature-tag-pill">
+              <i class="ri-checkbox-circle-fill" aria-hidden="true"></i>
+              <span>{item.tag}</span>
             </div>
           </div>
-        ))}
-      </div>
-    </div>
-
-    <!-- Features Flow Track: Row 2 (Items 05 - 08) -->
-    <div class="features-row-wrapper position-relative mt-4 mt-lg-5">
-      <div class="track-connector-line d-none d-lg-block" aria-hidden="true"></div>
-      <div class="row g-4 g-lg-5 justify-content-center">
-        {row2.map((item, idx) => (
-          <div 
-            class="col-xl-3 col-lg-3 col-md-6 col-12"
-            data-sal="slide-up"
-            data-sal-delay={idx * 100 + 200}
-            data-sal-duration="750"
-          >
-            <div class="feature-item fitem" style={`--item-idx: ${idx + 4};`}>
-              <!-- Creative Organic Shape Badge (Non-Square, Morphing on Hover) -->
-              <div class="feature-badge-wrap">
-                <div class={`organic-shape-badge ${item.morphClass} accent-${item.accent}`}>
-                  <i class={item.icon} aria-hidden="true"></i>
-                </div>
-                <span class="badge-step-pill">#{item.step}</span>
-              </div>
-
-              <!-- Open Clean Content (No Box Walls) -->
-              <h5 class="feature-title">{item.title}</h5>
-              <p class="feature-desc">{item.description}</p>
-              
-              <div class="feature-tag-pill">
-                <i class="ri-checkbox-circle-fill" aria-hidden="true"></i>
-                <span>{item.tag}</span>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   </div>
 </section>
@@ -251,26 +212,6 @@ const row2 = features.slice(4, 8);
     font-family: var(--font-primary, "Urbanist", sans-serif);
   }
 
-  /* Connecting Track Line on Desktop (Zero Blockness) */
-  .features-row-wrapper {
-    position: relative;
-  }
-
-  .track-connector-line {
-    position: absolute;
-    top: 40px;
-    left: 8%;
-    right: 8%;
-    height: 2px;
-    background: linear-gradient(90deg, 
-      transparent 0%, 
-      rgba(var(--color-primary-rgb, 210, 116, 29), 0.22) 15%, 
-      rgba(var(--color-primary-rgb, 210, 116, 29), 0.22) 85%, 
-      transparent 100%
-    );
-    z-index: 1;
-    pointer-events: none;
-  }
 
   /* Open Feature Item (NO Card Box, NO Heavy Border) */
   .feature-item {
