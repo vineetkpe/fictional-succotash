@@ -1,5 +1,6 @@
 ---
 // Hostamble Native Theme Trust & Guarantees Strip
+// Fully matched with Hostamble website theme, typography & high-contrast accents
 ---
 
 <div class="trust-theme-section" aria-label="Hostamble Guarantees">
@@ -8,7 +9,7 @@
       
       <!-- 1: 99.9% Uptime -->
       <a href="#plans" class="trust-feature-col">
-        <div class="trust-icon-box">
+        <div class="trust-icon-box icon-uptime">
           <i class="ri-pulse-line" aria-hidden="true"></i>
         </div>
         <div class="trust-feature-info">
@@ -27,7 +28,7 @@
         class="trust-feature-col"
       >
         <div class="trust-icon-box icon-whatsapp">
-          <i class="ri-whatsapp-line" aria-hidden="true"></i>
+          <i class="ri-whatsapp-fill" aria-hidden="true"></i>
         </div>
         <div class="trust-feature-info">
           <h5 class="feature-title">WhatsApp Support</h5>
@@ -39,8 +40,8 @@
 
       <!-- 3: 7-Day Refund Policy -->
       <a href="/refund-and-cancellation-policy" class="trust-feature-col">
-        <div class="trust-icon-box">
-          <i class="ri-refund-2-line" aria-hidden="true"></i>
+        <div class="trust-icon-box icon-refund">
+          <i class="ri-shield-check-fill" aria-hidden="true"></i>
         </div>
         <div class="trust-feature-info">
           <h5 class="feature-title">7-Day Refund Policy</h5>
@@ -52,8 +53,8 @@
 
       <!-- 4: Trusted by 10,000+ Webmasters -->
       <div class="trust-feature-col">
-        <div class="trust-icon-box">
-          <i class="ri-user-star-line" aria-hidden="true"></i>
+        <div class="trust-icon-box icon-trust">
+          <i class="ri-star-smile-fill" aria-hidden="true"></i>
         </div>
         <div class="trust-feature-info">
           <h5 class="feature-title">10,000+ Webmasters</h5>
@@ -69,64 +70,106 @@
   .trust-theme-section {
     position: relative;
     z-index: 5;
-    margin-top: -10px;
-    margin-bottom: 25px;
+    margin-top: -15px;
+    margin-bottom: 35px;
+    font-family: "Urbanist", var(--font-primary), -apple-system, sans-serif;
   }
 
   .trust-theme-bar {
-    background: var(--color-white, #ffffff);
-    border: 1px solid var(--color-border, #eeeeee);
-    border-radius: var(--radius-small, 5px);
-    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.03);
-    padding: 22px 28px;
+    background: #ffffff;
+    border: 1px solid #ebeef2;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+    padding: 22px 32px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
-    transition: 0.35s ease;
+    gap: 20px;
+    transition: all 0.3s ease;
   }
 
   .trust-theme-bar:hover {
-    box-shadow: 0px 12px 35px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 14px 38px rgba(0, 0, 0, 0.07);
+    border-color: #ffdcd0;
   }
 
   .trust-feature-col {
     display: inline-flex;
     align-items: center;
-    gap: 14px;
+    gap: 15px;
     flex: 1;
     text-decoration: none;
     color: inherit;
-    transition: 0.3s ease;
+    transition: transform 0.25s ease;
   }
 
+  .trust-feature-col:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Distinct theme icon badges matching site brand tokens */
   .trust-icon-box {
     width: 48px;
     height: 48px;
-    background: var(--color-secondary-alt, #FFF6F4);
-    border: 1px solid rgba(var(--color-primary-rgb, 210, 116, 29), 0.15);
-    border-radius: var(--radius-small, 5px);
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-primary, #ff501a);
-    font-size: 23px;
+    font-size: 24px;
     flex-shrink: 0;
-    transition: 0.3s ease;
+    transition: all 0.3s ease;
   }
 
-  .trust-feature-col:hover .trust-icon-box {
-    background: var(--color-primary, #ff501a);
+  /* 1. Uptime - Hostamble Orange */
+  .icon-uptime {
+    background: rgba(255, 80, 26, 0.10);
+    border: 1px solid rgba(255, 80, 26, 0.22);
+    color: #ff501a;
+  }
+  .trust-feature-col:hover .icon-uptime {
+    background: #ff501a;
     color: #ffffff;
-    border-color: var(--color-primary, #ff501a);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(var(--color-primary-rgb, 210, 116, 29), 0.25);
+    border-color: #ff501a;
+    box-shadow: 0 6px 16px rgba(255, 80, 26, 0.30);
   }
 
-  .trust-feature-col:hover .trust-icon-box.icon-whatsapp {
+  /* 2. WhatsApp - Brand Green */
+  .icon-whatsapp {
+    background: rgba(37, 211, 102, 0.12);
+    border: 1px solid rgba(37, 211, 102, 0.25);
+    color: #25d366;
+  }
+  .trust-feature-col:hover .icon-whatsapp {
     background: #25d366;
+    color: #ffffff;
     border-color: #25d366;
-    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.28);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.32);
+  }
+
+  /* 3. Refund Guarantee - Trust Blue */
+  .icon-refund {
+    background: rgba(59, 130, 246, 0.10);
+    border: 1px solid rgba(59, 130, 246, 0.22);
+    color: #3b82f6;
+  }
+  .trust-feature-col:hover .icon-refund {
+    background: #3b82f6;
+    color: #ffffff;
+    border-color: #3b82f6;
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.30);
+  }
+
+  /* 4. Webmasters - Amber Gold */
+  .icon-trust {
+    background: rgba(245, 158, 11, 0.10);
+    border: 1px solid rgba(245, 158, 11, 0.22);
+    color: #f59e0b;
+  }
+  .trust-feature-col:hover .icon-trust {
+    background: #f59e0b;
+    color: #ffffff;
+    border-color: #f59e0b;
+    box-shadow: 0 6px 16px rgba(245, 158, 11, 0.30);
   }
 
   .trust-feature-info {
@@ -136,33 +179,33 @@
   }
 
   .feature-title {
-    font-size: 15.5px;
-    font-weight: 700;
-    color: var(--color-heading, #202133);
+    font-size: 16px;
+    font-weight: 800;
+    color: #111827;
     margin: 0 0 2px 0;
     line-height: 1.25;
-    letter-spacing: -0.01em;
-    transition: color 0.25s ease;
+    letter-spacing: -0.015em;
+    transition: color 0.2s ease;
     white-space: nowrap;
   }
 
   .trust-feature-col:hover .feature-title {
-    color: var(--color-primary, #ff501a);
+    color: #ff501a;
   }
 
   .feature-subtitle {
     font-size: 12.5px;
-    font-weight: 400;
-    color: var(--color-body, #6F6B80);
-    line-height: 1.25;
+    font-weight: 500;
+    color: #64748b;
+    line-height: 1.3;
     margin: 0;
     white-space: nowrap;
   }
 
   .trust-col-divider {
     width: 1px;
-    height: 40px;
-    background: var(--color-border, #eeeeee);
+    height: 38px;
+    background: #eef1f6;
     flex-shrink: 0;
   }
 
@@ -183,7 +226,7 @@
     .trust-theme-bar {
       grid-template-columns: 1fr;
       gap: 16px;
-      padding: 18px;
+      padding: 18px 20px;
     }
   }
 </style>
