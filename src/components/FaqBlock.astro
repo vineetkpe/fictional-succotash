@@ -1,12 +1,14 @@
 ---
-// Hostamble Questions, Answered (FAQ) Block
-// Elevated design with Sticky Left Support Concierge Rail, Live Question Search, 
-// Category Filter Pills, and Distinctive Hostamble Question Cards.
+// Hostamble Knowledge Base & FAQ Block
+// Custom Modern Cloud Architecture:
+// - Left: Sticky Topic Navigator & Live Engineering Desk (STAYS STILL WHILE SCROLLING)
+// - Right: Live Search & Modern Elevated Question Cards with Feature Icons & Highlights
 
 interface FaqItem {
   id: string;
   category: 'hosting' | 'domains' | 'billing' | 'support';
   categoryLabel: string;
+  icon: string;
   question: string;
   answer: string;
   highlights?: string[];
@@ -17,32 +19,36 @@ const faqs: FaqItem[] = [
   {
     id: "faq-renewals",
     category: "billing",
-    categoryLabel: "Billing & Plans",
+    categoryLabel: "Pricing & Guarantee",
+    icon: "ri-price-tag-3-line",
     question: "What will I pay when my plan renews?",
-    answer: "Your plan renews at the regular transparent price shown on our pricing table. We never engage in sneaky price hikes or hidden renewal fees. Any introductory promotional coupon applies to your initial billing cycle unless stated otherwise.",
-    highlights: ["100% Price Transparency", "Zero Hidden Fees"],
+    answer: "Your plan renews at the regular transparent price shown on our pricing table. We never engage in sneaky price hikes or hidden renewal penalties. Any introductory promotional coupon applies to your initial billing term unless explicitly stated.",
+    highlights: ["100% Price Transparency", "Zero Hidden Renewal Spikes"],
     defaultOpen: true,
   },
   {
     id: "faq-refund",
     category: "billing",
-    categoryLabel: "Billing & Plans",
+    categoryLabel: "Pricing & Guarantee",
+    icon: "ri-shield-check-line",
     question: "Can I get a refund if I'm not satisfied?",
-    answer: "Yes! All Hostamble shared and WordPress hosting packages come with a 7-Day Risk-Free Money-Back Guarantee. If our LiteSpeed speeds, NVMe performance, or support don't exceed your expectations, request a full refund within 7 days—no hassle.",
+    answer: "Yes! All Hostamble shared and WordPress hosting packages come with a 7-Day Risk-Free Money-Back Guarantee. If our LiteSpeed speeds, pure NVMe storage, or 24/7 assistance don't meet your expectations, request a full refund within 7 days with zero questions asked.",
     highlights: ["7-Day Money-Back Guarantee", "100% Risk-Free"],
   },
   {
     id: "faq-gst",
     category: "billing",
-    categoryLabel: "Billing & Plans",
+    categoryLabel: "Pricing & Guarantee",
+    icon: "ri-file-list-3-line",
     question: "Do you add GST or unexpected fees at checkout?",
     answer: "No checkout surprises! Every rupee and applicable tax is clearly calculated and displayed before you enter payment details. What you see is what you pay.",
-    highlights: ["No Surprise Add-ons", "Clear Invoicing"],
+    highlights: ["No Hidden Surcharges", "Clear GST Invoicing"],
   },
   {
     id: "faq-payments",
     category: "billing",
-    categoryLabel: "Billing & Plans",
+    categoryLabel: "Pricing & Guarantee",
+    icon: "ri-bank-card-line",
     question: "Which payment methods do you accept?",
     answer: "We support all preferred Indian and global payment options. Pay securely using UPI (Google Pay, PhonePe, Paytm, BHIM), Net Banking across all banks, Credit & Debit Cards, or PayPal for international orders. All transactions are protected by 256-bit bank-grade SSL encryption.",
     highlights: ["Instant UPI & Cards", "Bank-Grade Encryption"],
@@ -50,7 +56,8 @@ const faqs: FaqItem[] = [
   {
     id: "faq-migration",
     category: "hosting",
-    categoryLabel: "Hosting & Speeds",
+    categoryLabel: "Performance & Speeds",
+    icon: "ri-rocket-2-line",
     question: "Can you move my existing website for free?",
     answer: "Yes, 100% free with zero downtime! Our in-house technical team handles complete migrations—including your WordPress installation, MySQL databases, cPanel settings, and email accounts—with no website interruption.",
     highlights: ["100% Free Migration", "Zero Downtime Guarantee"],
@@ -59,14 +66,16 @@ const faqs: FaqItem[] = [
     id: "faq-ssl",
     category: "domains",
     categoryLabel: "Domains & Security",
+    icon: "ri-lock-2-line",
     question: "Is an SSL Certificate included with hosting?",
     answer: "Yes! Lifetime automated Let's Encrypt SSL certificates come pre-integrated on all hosting plans. They generate and renew automatically for your main domain, subdomains, and addon domains with zero manual configuration.",
-    highlights: ["Free Lifetime SSL", "Automated Auto-Renewal"],
+    highlights: ["Free Lifetime SSL", "Automated HTTPS Renewal"],
   },
   {
     id: "faq-backups",
     category: "hosting",
-    categoryLabel: "Hosting & Speeds",
+    categoryLabel: "Performance & Speeds",
+    icon: "ri-database-2-line",
     question: "How do backups work on Hostamble?",
     answer: "Automated daily backups powered by JetBackup safeguard your website files, databases, and mailboxes. You can restore a single file, database table, or your complete account with one click directly inside your cPanel dashboard.",
     highlights: ["Automated JetBackup", "1-Click Full Restore"],
@@ -75,6 +84,7 @@ const faqs: FaqItem[] = [
     id: "faq-email",
     category: "domains",
     categoryLabel: "Domains & Security",
+    icon: "ri-mail-line",
     question: "Can I create professional email accounts on my domain?",
     answer: "Yes! Every plan includes business domain emails (e.g. info@yourdomain.com), an intuitive webmail portal, SpamAssassin defense, and full IMAP/POP3/SMTP support to sync with iOS Mail, Android, Outlook, and Gmail.",
     highlights: ["Custom Domain Email", "Smartphone & Outlook Sync"],
@@ -82,7 +92,8 @@ const faqs: FaqItem[] = [
   {
     id: "faq-plan-choice",
     category: "hosting",
-    categoryLabel: "Hosting & Speeds",
+    categoryLabel: "Performance & Speeds",
+    icon: "ri-dashboard-3-line",
     question: "Which hosting plan is right for my project?",
     answer: "For single landing pages, personal blogs, or student portfolios, our Starter plan is ideal. For businesses, WooCommerce shops, or agencies hosting multiple clients, our Super or Turbo NVMe plans with LiteSpeed acceleration provide lightning-fast TTFB and top performance.",
     highlights: ["Starter for Personal Sites", "Turbo for High-Traffic E-commerce"],
@@ -90,7 +101,8 @@ const faqs: FaqItem[] = [
   {
     id: "faq-support",
     category: "support",
-    categoryLabel: "24/7 Support",
+    categoryLabel: "Technical Support",
+    icon: "ri-customer-service-2-line",
     question: "How can I get help if something goes wrong?",
     answer: "Our certified hosting engineers are available 24/7/365 in both Hindi and English. Reach us instantly through Live Chat, WhatsApp (+91 62847 19083), or Support Ticket. Our average response time is under 3 minutes!",
     highlights: ["24/7 Hindi & English", "Average Reply < 3 Mins"],
@@ -98,7 +110,8 @@ const faqs: FaqItem[] = [
   {
     id: "faq-upgrade",
     category: "hosting",
-    categoryLabel: "Hosting & Speeds",
+    categoryLabel: "Performance & Speeds",
+    icon: "ri-line-chart-line",
     question: "Can I easily upgrade my plan as my website grows?",
     answer: "Yes, anytime! You can scale your disk quota, CPU cores, RAM, or seamlessly upgrade to a dedicated Cloud VPS with zero downtime directly through your Hostamble client portal.",
     highlights: ["Instant Scalability", "Zero-Downtime Upgrades"],
@@ -120,182 +133,182 @@ const faqSchema = {
 };
 ---
 
-<section class="hostamble-faq-section position-relative" id="faq" aria-labelledby="faq-main-title">
-  <!-- Subtle ambient decorative accent -->
-  <div class="faq-bg-ambient" aria-hidden="true"></div>
+<section class="hostamble-knowledge-section" id="faq" aria-labelledby="knowledge-main-heading">
+  <!-- Subtle decorative ambient accents -->
+  <div class="kb-glow-circle glow-top-left" aria-hidden="true"></div>
+  <div class="kb-glow-circle glow-bottom-right" aria-hidden="true"></div>
 
   <div class="container position-relative">
-    <div class="faq-grid-layout">
+    <div class="kb-layout-grid">
       
-      <!-- LEFT SIDE: Sticky Support Concierge Rail (STAYS STILL WHILE SCROLLING) -->
-      <aside class="faq-side-rail" aria-label="Support & Section Overview">
-        <div class="faq-sticky-container">
+      <!-- =========================================================
+           LEFT COLUMN: Sticky Navigation & Support Concierge Desk
+           (Pinned & Still on Screen While Right Questions Scroll)
+           ========================================================= -->
+      <aside class="kb-side-rail" aria-label="Knowledgebase Categories & Support">
+        <div class="kb-sticky-holder">
           
-          <!-- Section Heading -->
-          <div class="faq-intro-header">
-            <div class="faq-eyebrow-pill mb-2">
-              <span class="pulse-dot"></span>
-              <span>Hostamble Helpdesk</span>
+          <!-- Header Area -->
+          <div class="kb-intro-block">
+            <div class="kb-tag-pill">
+              <span class="pill-radar-dot"></span>
+              <span>Hostamble Knowledge Base</span>
             </div>
-            <h2 id="faq-main-title" class="faq-main-title">Questions, answered.</h2>
-            <p class="faq-lead-text">Clear, honest answers to the questions webmasters ask before choosing Hostamble.</p>
+            <h2 id="knowledge-main-heading" class="kb-headline">Everything You Need To Know.</h2>
+            <p class="kb-subhead">Clear answers to technical details, guarantees, and hosting policies so you can deploy with confidence.</p>
           </div>
 
-          <!-- Unique Hostamble Support Concierge Card -->
-          <div class="faq-concierge-card" aria-labelledby="faq-concierge-title">
-            <div class="concierge-header">
-              <div class="concierge-avatar-wrap">
-                <div class="concierge-avatar">
-                  <i class="ri-customer-service-2-fill"></i>
-                </div>
-                <span class="concierge-online-badge" title="Support Engineers Online Now">
-                  <span class="badge-ring"></span>
-                  <span class="badge-dot"></span>
-                </span>
-              </div>
-              
-              <div class="concierge-meta">
-                <span class="concierge-badge-tag">Hostamble Concierge</span>
-                <h3 id="faq-concierge-title" class="concierge-heading">Still have a question?</h3>
-                <p class="concierge-desc">Talk directly with a real server engineer.</p>
-              </div>
+          <!-- Interactive Topic Selector -->
+          <nav class="kb-topic-nav" aria-label="Filter FAQ Topics">
+            <span class="topic-nav-label">Browse by topic</span>
+            <div class="topic-buttons-list">
+              <button type="button" class="topic-btn active" data-category="all">
+                <i class="ri-apps-2-line"></i>
+                <span class="topic-name">All Questions</span>
+                <span class="topic-count">11</span>
+              </button>
+              <button type="button" class="topic-btn" data-category="hosting">
+                <i class="ri-rocket-2-line"></i>
+                <span class="topic-name">Performance &amp; Speeds</span>
+                <span class="topic-count">4</span>
+              </button>
+              <button type="button" class="topic-btn" data-category="domains">
+                <i class="ri-lock-2-line"></i>
+                <span class="topic-name">Domains &amp; SSL</span>
+                <span class="topic-count">2</span>
+              </button>
+              <button type="button" class="topic-btn" data-category="billing">
+                <i class="ri-shield-check-line"></i>
+                <span class="topic-name">Pricing &amp; 7-Day Refund</span>
+                <span class="topic-count">4</span>
+              </button>
+              <button type="button" class="topic-btn" data-category="support">
+                <i class="ri-customer-service-2-line"></i>
+                <span class="topic-name">24/7 Technical Support</span>
+                <span class="topic-count">1</span>
+              </button>
+            </div>
+          </nav>
+
+          <!-- Live Engineering Help Desk Widget -->
+          <div class="kb-live-desk-card">
+            <div class="desk-status-bar">
+              <span class="desk-pulse-indicator">
+                <span class="desk-dot-ring"></span>
+                <span class="desk-dot-core"></span>
+              </span>
+              <span class="desk-status-text">Server Engineers Online</span>
             </div>
 
-            <!-- Live Metrics Micro-Bar -->
-            <div class="concierge-metrics-strip">
-              <div class="metric-item">
-                <i class="ri-flashlight-fill"></i>
-                <span>Avg Reply: <strong>&lt; 3 Mins</strong></span>
-              </div>
-              <div class="metric-item">
-                <i class="ri-translate-2"></i>
-                <span><strong>Hindi &amp; English</strong></span>
-              </div>
-            </div>
+            <h4 class="desk-card-title">Need personalized assistance?</h4>
+            <p class="desk-card-desc">Speak directly with our technical team in Hindi or English.</p>
 
-            <!-- Action Channels -->
-            <div class="concierge-actions">
+            <div class="desk-actions-stack">
               <button 
                 type="button" 
-                class="concierge-btn-chat" 
+                class="desk-primary-btn" 
                 onclick="window.Tawk_API && window.Tawk_API.toggle ? window.Tawk_API.toggle() : window.location.href='/contacts'"
-                title="Start Instant Live Chat"
               >
-                <i class="ri-chat-smile-2-fill" aria-hidden="true"></i>
-                <span>Chat with an Expert</span>
+                <i class="ri-chat-voice-line"></i>
+                <span>Start Live Chat</span>
               </button>
 
-              <div class="concierge-sub-actions">
+              <div class="desk-secondary-row">
                 <a 
                   href="https://wa.me/916284719083?text=Hi%20Hostamble,%20I%20have%20a%20question%20about%20hosting" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  class="concierge-link-btn wa-link"
-                  title="WhatsApp Support"
+                  class="desk-sub-btn wa-sub-btn"
                 >
                   <i class="ri-whatsapp-fill"></i>
                   <span>WhatsApp</span>
                 </a>
 
-                <a 
-                  href="/contacts" 
-                  class="concierge-link-btn ticket-link"
-                  title="Submit a Ticket"
-                >
-                  <i class="ri-ticket-2-line"></i>
-                  <span>Open Ticket</span>
+                <a href="/contacts" class="desk-sub-btn ticket-sub-btn">
+                  <i class="ri-mail-send-line"></i>
+                  <span>Contact Us</span>
                 </a>
               </div>
             </div>
 
-            <div class="concierge-footer-guarantee">
-              <i class="ri-shield-check-fill"></i>
-              <span>100% In-house assistance · No chatbots</span>
+            <div class="desk-guarantee-note">
+              <i class="ri-time-line"></i>
+              <span>Average response time: <strong>&lt; 3 mins</strong></span>
             </div>
           </div>
 
         </div>
       </aside>
 
-      <!-- RIGHT SIDE: Scrollable Interactive Questions Rail -->
-      <div class="faq-questions-rail">
+      <!-- =========================================================
+           RIGHT COLUMN: Scrollable Questions Rail & Live Search
+           ========================================================= -->
+      <main class="kb-questions-rail" aria-label="Frequently Asked Questions List">
         
-        <!-- Interactive Controls Bar: Live Search & Category Pills -->
-        <div class="faq-controls-bar">
-          
-          <!-- Live Instant Search Input -->
-          <div class="faq-search-wrapper">
-            <i class="ri-search-line faq-search-icon" aria-hidden="true"></i>
-            <input 
-              type="text" 
-              id="faqSearchInput" 
-              class="faq-search-input" 
-              placeholder="Search questions (e.g. refund, migration, SSL, cPanel)..."
-              autocomplete="off"
-            />
-            <button type="button" id="faqClearSearch" class="faq-search-clear d-none" aria-label="Clear search">
-              <i class="ri-close-line"></i>
-            </button>
-          </div>
-
-          <!-- Category Filter Pills -->
-          <div class="faq-category-pills" role="tablist" aria-label="FAQ Categories">
-            <button type="button" class="category-pill active" data-category="all" role="tab" aria-selected="true">
-              <span>All Questions</span>
-              <span class="pill-count">11</span>
-            </button>
-            <button type="button" class="category-pill" data-category="hosting" role="tab" aria-selected="false">
-              <span>Hosting &amp; Speeds</span>
-            </button>
-            <button type="button" class="category-pill" data-category="domains" role="tab" aria-selected="false">
-              <span>Domains &amp; SSL</span>
-            </button>
-            <button type="button" class="category-pill" data-category="billing" role="tab" aria-selected="false">
-              <span>Billing &amp; Refunds</span>
-            </button>
-            <button type="button" class="category-pill" data-category="support" role="tab" aria-selected="false">
-              <span>24/7 Support</span>
-            </button>
-          </div>
-
+        <!-- Search Input Bar -->
+        <div class="kb-search-bar">
+          <i class="ri-search-2-line kb-search-icon" aria-hidden="true"></i>
+          <input 
+            type="text" 
+            id="kbSearchInput" 
+            class="kb-search-field" 
+            placeholder="Type keywords to filter (e.g. refund, migration, SSL, cPanel, UPI)..."
+            autocomplete="off"
+          />
+          <button type="button" id="kbClearSearch" class="kb-clear-btn d-none" aria-label="Clear Search">
+            <i class="ri-close-line"></i>
+          </button>
         </div>
 
-        <!-- Questions Accordion Cards List -->
-        <div class="faq-cards-container" id="faqCardsList">
+        <!-- Questions Cards Container -->
+        <div class="kb-cards-stack" id="kbCardsStack">
           {faqs.map((faq, index) => {
             const num = (index + 1).toString().padStart(2, '0');
             return (
-              <div 
-                class={`faq-card-item ${faq.defaultOpen ? 'is-active' : ''}`}
-                data-faq-id={faq.id}
+              <article 
+                class={`kb-question-card ${faq.defaultOpen ? 'card-open' : ''}`}
                 data-category={faq.category}
+                data-faq-id={faq.id}
               >
                 <button 
                   type="button" 
-                  class="faq-card-trigger" 
+                  class="kb-card-header-btn" 
                   aria-expanded={faq.defaultOpen ? "true" : "false"}
-                  aria-controls={`faq-answer-${faq.id}`}
+                  aria-controls={`kb-body-${faq.id}`}
                 >
-                  <div class="faq-trigger-left">
-                    <span class="faq-num-pill">{num}</span>
-                    <span class="faq-question-text">{faq.question}</span>
+                  <!-- Left: Icon Pod -->
+                  <div class="kb-card-icon-pod" aria-hidden="true">
+                    <i class={faq.icon}></i>
                   </div>
-                  <div class="faq-trigger-icon-wrap" aria-hidden="true">
-                    <i class="ri-arrow-down-s-line faq-chevron-icon"></i>
+
+                  <!-- Center: Category Tag & Question -->
+                  <div class="kb-card-text-block">
+                    <span class="kb-card-category">{faq.categoryLabel}</span>
+                    <h3 class="kb-card-question-title">{faq.question}</h3>
+                  </div>
+
+                  <!-- Right: Number Badge & Chevron Toggle -->
+                  <div class="kb-card-action-block">
+                    <span class="kb-card-num-badge">#{num}</span>
+                    <div class="kb-card-toggle-pod" aria-hidden="true">
+                      <i class="ri-arrow-down-s-line kb-toggle-chevron"></i>
+                    </div>
                   </div>
                 </button>
 
+                <!-- Expandable Answer Panel -->
                 <div 
-                  id={`faq-answer-${faq.id}`} 
-                  class="faq-card-collapse"
+                  id={`kb-body-${faq.id}`} 
+                  class="kb-card-expandable"
                   style={faq.defaultOpen ? "display: block;" : "display: none;"}
                 >
-                  <div class="faq-card-body">
-                    <p class="faq-answer-paragraph">{faq.answer}</p>
+                  <div class="kb-card-content">
+                    <p class="kb-answer-text">{faq.answer}</p>
+                    
                     {faq.highlights && (
-                      <div class="faq-highlights-row">
+                      <div class="kb-highlights-wrap">
                         {faq.highlights.map(tag => (
-                          <span class="faq-tag-pill">
+                          <span class="kb-micro-pill">
                             <i class="ri-checkbox-circle-fill"></i>
                             <span>{tag}</span>
                           </span>
@@ -304,62 +317,62 @@ const faqSchema = {
                     )}
                   </div>
                 </div>
-              </div>
+              </article>
             );
           })}
 
-          <!-- No results empty state (shown when search has 0 matches) -->
-          <div id="faqNoResults" class="faq-no-results d-none">
-            <div class="no-results-icon"><i class="ri-question-mark"></i></div>
-            <h4>No matching questions found</h4>
-            <p>Can't find what you're looking for? Talk to our server team directly on WhatsApp or Live Chat.</p>
-            <button type="button" class="btn-reset-search" id="btnResetSearch">Show All Questions</button>
+          <!-- Zero Results State -->
+          <div id="kbNoResults" class="kb-empty-state d-none">
+            <div class="empty-icon-wrap"><i class="ri-search-eye-line"></i></div>
+            <h4 class="empty-heading">No matching questions found</h4>
+            <p class="empty-desc">Have a specific question not listed here? Our server engineers are online right now to help you.</p>
+            <button type="button" class="empty-reset-btn" id="kbResetBtn">View All Questions</button>
           </div>
         </div>
 
-      </div>
+      </main>
 
     </div>
   </div>
 
-  <!-- Schema.org JSON-LD Structured Data for Google Rich Results -->
+  <!-- FAQPage Schema for Search Engines -->
   <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 </section>
 
-<!-- Client-side Interactive Search & Category Filter Script -->
+<!-- Interactive Script for Live Search, Topic Filtering & Card Toggles -->
 <script is:inline>
   document.addEventListener("DOMContentLoaded", function () {
-    const searchInput = document.getElementById("faqSearchInput");
-    const clearBtn = document.getElementById("faqClearSearch");
-    const categoryBtns = document.querySelectorAll(".category-pill");
-    const cards = document.querySelectorAll(".faq-card-item");
-    const noResults = document.getElementById("faqNoResults");
-    const resetSearchBtn = document.getElementById("btnResetSearch");
+    const searchInput = document.getElementById("kbSearchInput");
+    const clearBtn = document.getElementById("kbClearSearch");
+    const topicBtns = document.querySelectorAll(".topic-btn");
+    const cards = document.querySelectorAll(".kb-question-card");
+    const noResults = document.getElementById("kbNoResults");
+    const resetBtn = document.getElementById("kbResetBtn");
 
-    let currentCategory = "all";
-    let searchQuery = "";
+    let currentCat = "all";
+    let currentQuery = "";
 
-    function filterFaqs() {
-      let visibleCount = 0;
-      const query = searchQuery.trim().toLowerCase();
+    function applyFilter() {
+      let count = 0;
+      const query = currentQuery.trim().toLowerCase();
 
       cards.forEach(card => {
-        const category = card.getAttribute("data-category");
-        const text = card.textContent.toLowerCase();
+        const cat = card.getAttribute("data-category");
+        const cardText = card.textContent.toLowerCase();
 
-        const matchesCat = currentCategory === "all" || category === currentCategory;
-        const matchesQuery = query === "" || text.includes(query);
+        const catMatches = (currentCat === "all") || (cat === currentCat);
+        const queryMatches = (query === "") || cardText.includes(query);
 
-        if (matchesCat && matchesQuery) {
+        if (catMatches && queryMatches) {
           card.style.display = "block";
-          visibleCount++;
+          count++;
         } else {
           card.style.display = "none";
         }
       });
 
       if (noResults) {
-        if (visibleCount === 0) {
+        if (count === 0) {
           noResults.classList.remove("d-none");
         } else {
           noResults.classList.add("d-none");
@@ -375,80 +388,77 @@ const faqSchema = {
       }
     }
 
-    // Category button click
-    categoryBtns.forEach(btn => {
+    // Topic filter click
+    topicBtns.forEach(btn => {
       btn.addEventListener("click", function () {
-        categoryBtns.forEach(b => {
-          b.classList.remove("active");
-          b.setAttribute("aria-selected", "false");
-        });
+        topicBtns.forEach(b => b.classList.remove("active"));
         this.classList.add("active");
-        this.setAttribute("aria-selected", "true");
-        currentCategory = this.getAttribute("data-category") || "all";
-        filterFaqs();
+        currentCat = this.getAttribute("data-category") || "all";
+        applyFilter();
       });
     });
 
-    // Live search input
+    // Search input
     if (searchInput) {
       searchInput.addEventListener("input", function () {
-        searchQuery = this.value;
-        filterFaqs();
+        currentQuery = this.value;
+        applyFilter();
       });
     }
 
-    // Clear search button
+    // Clear search
     if (clearBtn) {
       clearBtn.addEventListener("click", function () {
         if (searchInput) {
           searchInput.value = "";
-          searchQuery = "";
+          currentQuery = "";
           searchInput.focus();
-          filterFaqs();
+          applyFilter();
         }
       });
     }
 
-    if (resetSearchBtn) {
-      resetSearchBtn.addEventListener("click", function () {
+    // Reset button
+    if (resetBtn) {
+      resetBtn.addEventListener("click", function () {
         if (searchInput) searchInput.value = "";
-        searchQuery = "";
-        currentCategory = "all";
-        categoryBtns.forEach(b => {
+        currentQuery = "";
+        currentCat = "all";
+        topicBtns.forEach(b => {
           b.classList.toggle("active", b.getAttribute("data-category") === "all");
         });
-        filterFaqs();
+        applyFilter();
       });
     }
 
-    // Accordion Toggle
+    // Card Accordion Click
     cards.forEach(card => {
-      const trigger = card.querySelector(".faq-card-trigger");
-      const collapse = card.querySelector(".faq-card-collapse");
+      const headerBtn = card.querySelector(".kb-card-header-btn");
+      const expandPanel = card.querySelector(".kb-card-expandable");
 
-      if (trigger && collapse) {
-        trigger.addEventListener("click", function () {
-          const isOpen = card.classList.contains("is-active");
+      if (headerBtn && expandPanel) {
+        headerBtn.addEventListener("click", function () {
+          const isOpen = card.classList.contains("card-open");
 
-          // Optional: close other cards for accordion behavior
+          // Optional: close other open cards for clean reading
           cards.forEach(other => {
-            if (other !== card && other.classList.contains("is-active")) {
-              other.classList.remove("is-active");
-              const otherTrigger = other.querySelector(".faq-card-trigger");
-              const otherCollapse = other.querySelector(".faq-card-collapse");
-              if (otherTrigger) otherTrigger.setAttribute("aria-expanded", "false");
-              if (otherCollapse) otherCollapse.style.display = "none";
+            if (other !== card && other.classList.contains("card-open")) {
+              other.classList.remove("card-open");
+              const otherBtn = other.querySelector(".kb-card-header-btn");
+              const otherPanel = other.querySelector(".kb-card-expandable");
+              if (otherBtn) otherBtn.setAttribute("aria-expanded", "false");
+              if (otherPanel) otherPanel.style.display = "none";
             }
           });
 
           if (isOpen) {
-            card.classList.remove("is-active");
-            trigger.setAttribute("aria-expanded", "false");
-            collapse.style.display = "none";
+            card.classList.remove("card-open");
+            headerBtn.setAttribute("aria-expanded", "false");
+            expandPanel.style.display = "none";
           } else {
-            card.classList.add("is-active");
-            trigger.setAttribute("aria-expanded", "true");
-            collapse.style.display = "block";
+            card.classList.add("card-open");
+            headerBtn.setAttribute("aria-expanded", "true");
+            expandPanel.style.display = "block";
           }
         });
       }
@@ -458,73 +468,94 @@ const faqSchema = {
 
 <style>
   /* =========================================================
-     Hostamble Premium Questions Section
-     - Left side stays STILL (sticky position: sticky)
-     - Right side scrolls smoothly
-     - Unique Hostamble Concierge Card, Instant Search, & Cards
+     Hostamble Modern Cloud Knowledge Section
+     - Left Side: Stationary / Sticky Rail (100% Still on Scroll)
+     - Right Side: Interactive Search & Modern Elevated Question Pods
+     - Tech Icon Pods, Topic Selector, & In-House Support Hub
      ========================================================= */
 
-  .hostamble-faq-section {
-    background-color: #fafbfc;
-    padding: 95px 0 !important;
+  .hostamble-knowledge-section {
+    position: relative;
+    background-color: #f8fafc;
+    padding: 100px 0 !important;
     overflow: visible !important;
   }
 
-  .faq-bg-ambient {
+  .kb-glow-circle {
     position: absolute;
-    top: 5%;
-    left: -8%;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(255, 80, 26, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
     pointer-events: none;
     z-index: 0;
   }
 
-  /* Two-Column Layout */
-  .faq-grid-layout {
+  .glow-top-left {
+    top: 0;
+    left: -15%;
+    background: radial-gradient(circle, rgba(255, 80, 26, 0.05) 0%, rgba(248, 250, 252, 0) 70%);
+  }
+
+  .glow-bottom-right {
+    bottom: 0;
+    right: -15%;
+    background: radial-gradient(circle, rgba(255, 80, 26, 0.04) 0%, rgba(248, 250, 252, 0) 70%);
+  }
+
+  /* Two Column Responsive Grid */
+  .kb-layout-grid {
     display: grid;
-    grid-template-columns: minmax(0, 0.84fr) minmax(0, 1.45fr);
-    column-gap: clamp(36px, 5vw, 64px);
-    align-items: stretch; /* Stretches left rail to match full scroll height */
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.45fr);
+    column-gap: clamp(36px, 5vw, 68px);
+    align-items: stretch; /* Stretches left column so sticky has full scroll travel */
     position: relative;
   }
 
-  /* Left Side Rail: Remains STICKY and STILL while scrolling */
-  .faq-side-rail {
+  /* =========================================================
+     LEFT SIDE: Sticky Holder (STAYS STILL)
+     ========================================================= */
+
+  .kb-side-rail {
     position: relative;
     height: 100%;
     min-width: 0;
   }
 
-  .faq-sticky-container {
+  .kb-sticky-holder {
     position: -webkit-sticky;
     position: sticky;
-    top: 100px; /* Stays fixed 100px below top navigation */
+    top: 95px; /* Pinned in view below the header */
     display: flex;
     flex-direction: column;
-    gap: 26px;
+    gap: 24px;
     z-index: 5;
   }
 
-  /* Eyebrow Pill */
-  .faq-eyebrow-pill {
+  /* Intro Block */
+  .kb-intro-block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .kb-tag-pill {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(255, 80, 26, 0.08);
-    border: 1px solid rgba(255, 80, 26, 0.2);
-    padding: 5px 12px;
+    background: #ffffff;
+    border: 1px solid rgba(255, 80, 26, 0.22);
+    padding: 6px 14px;
     border-radius: 999px;
-    font-size: 12.5px;
+    font-size: 12px;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.8px;
     color: var(--color-primary, #ff501a);
+    box-shadow: 0 4px 12px rgba(255, 80, 26, 0.06);
     width: fit-content;
   }
 
-  .pulse-dot {
+  .pill-radar-dot {
     width: 8px;
     height: 8px;
     border-radius: 50%;
@@ -532,314 +563,322 @@ const faqSchema = {
     box-shadow: 0 0 8px rgba(255, 80, 26, 0.8);
   }
 
-  /* Main Section Title */
-  .faq-main-title {
+  .kb-headline {
     font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: clamp(32px, 3.8vw, 44px);
+    font-size: clamp(30px, 3.6vw, 42px);
     font-weight: 900;
-    line-height: 1.15;
-    color: #17181c;
-    margin-bottom: 12px;
+    line-height: 1.16;
+    color: #11141d;
+    margin: 0;
     letter-spacing: -0.025em;
   }
 
-  .faq-lead-text {
-    font-size: 16px;
+  .kb-subhead {
+    font-size: 15.5px;
     line-height: 1.6;
-    color: #636c7e;
+    color: #616c7f;
     margin: 0;
   }
 
-  /* Concierge Support Card */
-  .faq-concierge-card {
-    background: linear-gradient(150deg, #ffffff 0%, #fff7f3 100%);
-    border: 1px solid rgba(255, 80, 26, 0.18);
-    border-radius: 18px;
-    padding: 24px;
-    box-shadow: 0 16px 36px -16px rgba(255, 80, 26, 0.14), 0 4px 14px rgba(0, 0, 0, 0.03);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .faq-concierge-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 20px 44px -16px rgba(255, 80, 26, 0.22);
-  }
-
-  .concierge-header {
+  /* Topic Navigator on Left Rail */
+  .kb-topic-nav {
     display: flex;
-    align-items: flex-start;
-    gap: 14px;
+    flex-direction: column;
+    gap: 8px;
+    background: #ffffff;
+    border: 1px solid #e7ebf2;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
   }
 
-  .concierge-avatar-wrap {
-    position: relative;
-    flex-shrink: 0;
+  .topic-nav-label {
+    font-size: 11.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #8c97a8;
+    padding-left: 8px;
+    margin-bottom: 4px;
   }
 
-  .concierge-avatar {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #ff501a 0%, #ff7036 100%);
-    color: #ffffff;
+  .topic-buttons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .topic-btn {
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    box-shadow: 0 8px 16px -4px rgba(255, 80, 26, 0.4);
-    border: 2px solid #ffffff;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background: none;
+    color: #434c5e;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
   }
 
-  .concierge-online-badge {
+  .topic-btn i {
+    font-size: 16px;
+    color: #8892a2;
+    transition: color 0.2s ease;
+  }
+
+  .topic-name {
+    flex-grow: 1;
+  }
+
+  .topic-count {
+    background: #f1f4f9;
+    color: #6a7689;
+    padding: 2px 7px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .topic-btn:hover {
+    background: #fdf6f3;
+    color: var(--color-primary, #ff501a);
+  }
+
+  .topic-btn:hover i {
+    color: var(--color-primary, #ff501a);
+  }
+
+  .topic-btn.active {
+    background: #fff4f0;
+    border-color: rgba(255, 80, 26, 0.25);
+    color: var(--color-primary, #ff501a);
+    font-weight: 700;
+  }
+
+  .topic-btn.active i {
+    color: var(--color-primary, #ff501a);
+  }
+
+  .topic-btn.active .topic-count {
+    background: var(--color-primary, #ff501a);
+    color: #ffffff;
+  }
+
+  /* Live Help Desk Widget */
+  .kb-live-desk-card {
+    background: #ffffff;
+    border: 1px solid rgba(255, 80, 26, 0.18);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 12px 32px -12px rgba(255, 80, 26, 0.12), 0 4px 12px rgba(0, 0, 0, 0.02);
+  }
+
+  .desk-status-bar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+  }
+
+  .desk-pulse-indicator {
+    position: relative;
+    width: 8px;
+    height: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .desk-dot-core {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #16a34a;
+  }
+
+  .desk-dot-ring {
     position: absolute;
-    right: -2px;
-    bottom: 0px;
     width: 14px;
     height: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .badge-dot {
-    width: 10px;
-    height: 10px;
     border-radius: 50%;
-    background-color: #22c55e;
-    border: 2px solid #ffffff;
-    box-shadow: 0 0 6px rgba(34, 197, 94, 0.6);
-  }
-
-  .badge-ring {
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background-color: rgba(34, 197, 94, 0.35);
+    background: rgba(22, 163, 74, 0.35);
     animation: livePulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 
-  @keyframes livePulse {
-    0% { transform: scale(0.6); opacity: 0.9; }
-    100% { transform: scale(1.6); opacity: 0; }
+  .desk-status-text {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #15803d;
   }
 
-  .concierge-meta {
-    min-width: 0;
-  }
-
-  .concierge-badge-tag {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
-    color: var(--color-primary, #ff501a);
-    margin-bottom: 2px;
-  }
-
-  .concierge-heading {
-    margin: 0 0 3px;
+  .desk-card-title {
+    margin: 0 0 4px;
     font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 800;
-    line-height: 1.25;
-    color: #17181c;
+    color: #11141d;
   }
 
-  .concierge-desc {
-    margin: 0;
-    font-size: 13.5px;
-    color: #656d7e;
-    line-height: 1.4;
+  .desk-card-desc {
+    margin: 0 0 16px;
+    font-size: 13px;
+    color: #647083;
+    line-height: 1.45;
   }
 
-  /* Metrics Strip */
-  .concierge-metrics-strip {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #ffffff;
-    border: 1px solid rgba(255, 80, 26, 0.12);
-    border-radius: 10px;
-    padding: 8px 12px;
-    margin: 16px 0 14px;
-    gap: 8px;
-  }
-
-  .metric-item {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 12px;
-    color: #4b5260;
-  }
-
-  .metric-item i {
-    color: var(--color-primary, #ff501a);
-    font-size: 14px;
-  }
-
-  .metric-item strong {
-    color: #17181c;
-  }
-
-  /* Actions */
-  .concierge-actions {
+  .desk-actions-stack {
     display: flex;
     flex-direction: column;
-    gap: 9px;
+    gap: 8px;
   }
 
-  .concierge-btn-chat {
+  .desk-primary-btn {
     width: 100%;
     display: inline-flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     gap: 8px;
-    min-height: 46px;
+    min-height: 44px;
     border-radius: 10px;
-    font-size: 15px;
-    font-weight: 700;
-    background: linear-gradient(135deg, #ff501a 0%, #ff6b30 100%);
+    background: linear-gradient(135deg, #ff501a 0%, #ff6b32 100%);
     color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
     border: none;
     cursor: pointer;
-    box-shadow: 0 8px 20px -6px rgba(255, 80, 26, 0.45);
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 6px 16px -4px rgba(255, 80, 26, 0.45);
+    transition: all 0.25s ease;
   }
 
-  .concierge-btn-chat:hover {
+  .desk-primary-btn:hover {
     background: linear-gradient(135deg, #e64512 0%, #ff501a 100%);
     transform: translateY(-2px);
-    box-shadow: 0 12px 24px -6px rgba(255, 80, 26, 0.55);
+    box-shadow: 0 10px 22px -4px rgba(255, 80, 26, 0.55);
   }
 
-  .concierge-sub-actions {
+  .desk-secondary-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 8px;
   }
 
-  .concierge-link-btn {
+  .desk-sub-btn {
     display: inline-flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     gap: 6px;
-    min-height: 42px;
-    padding: 0 10px;
-    border-radius: 9px;
-    font-size: 13.5px;
+    min-height: 38px;
+    border-radius: 8px;
+    background: #ffffff;
+    border: 1px solid #e2e7f0;
+    font-size: 13px;
     font-weight: 600;
-    background-color: #ffffff;
-    border: 1px solid #e5e8ee;
     color: #17181c;
     text-decoration: none;
     transition: all 0.2s ease;
   }
 
-  .concierge-link-btn.wa-link i {
+  .desk-sub-btn.wa-sub-btn i {
     color: #25d366;
     font-size: 16px;
   }
 
-  .concierge-link-btn.ticket-link i {
+  .desk-sub-btn.ticket-sub-btn i {
     color: var(--color-primary, #ff501a);
     font-size: 16px;
   }
 
-  .concierge-link-btn:hover {
+  .desk-sub-btn:hover {
     transform: translateY(-1px);
   }
 
-  .concierge-link-btn.wa-link:hover {
+  .desk-sub-btn.wa-sub-btn:hover {
     border-color: #25d366;
-    background-color: #f6fdf8;
+    background: #f6fdf8;
     color: #128c7e;
   }
 
-  .concierge-link-btn.ticket-link:hover {
+  .desk-sub-btn.ticket-sub-btn:hover {
     border-color: var(--color-primary, #ff501a);
-    background-color: #fff9f6;
+    background: #fff9f6;
     color: var(--color-primary, #ff501a);
   }
 
-  .concierge-footer-guarantee {
+  .desk-guarantee-note {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: 5px;
     margin-top: 12px;
     font-size: 12px;
-    font-weight: 600;
-    color: #727a89;
+    color: #717d91;
   }
 
-  .concierge-footer-guarantee i {
-    color: #22c55e;
-    font-size: 14px;
+  .desk-guarantee-note i {
+    color: var(--color-primary, #ff501a);
   }
 
   /* =========================================================
-     RIGHT SIDE: Scrollable Questions Rail & Controls
+     RIGHT COLUMN: Search & Modern Question Pod Cards
      ========================================================= */
 
-  .faq-questions-rail {
+  .kb-questions-rail {
     min-width: 0;
   }
 
-  /* Controls Bar */
-  .faq-controls-bar {
-    margin-bottom: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  /* Live Search Box */
-  .faq-search-wrapper {
+  /* Search Bar */
+  .kb-search-bar {
     position: relative;
     display: flex;
     align-items: center;
+    margin-bottom: 24px;
   }
 
-  .faq-search-icon {
+  .kb-search-icon {
     position: absolute;
     left: 18px;
-    font-size: 18px;
-    color: #8a92a1;
+    font-size: 19px;
+    color: #929cb0;
     pointer-events: none;
   }
 
-  .faq-search-input {
+  .kb-search-field {
     width: 100%;
     height: 52px;
-    padding: 0 44px 0 48px;
+    padding: 0 44px 0 50px;
     font-size: 15px;
-    color: #17181c;
-    background-color: #ffffff;
-    border: 1px solid #e3e6ed;
+    color: #11141d;
+    background: #ffffff;
+    border: 1px solid #e1e6f0;
     border-radius: 12px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
     transition: all 0.25s ease;
   }
 
-  .faq-search-input:focus {
+  .kb-search-field:focus {
     outline: none;
     border-color: var(--color-primary, #ff501a);
     box-shadow: 0 0 0 4px rgba(255, 80, 26, 0.12);
   }
 
-  .faq-search-input::placeholder {
-    color: #8c94a3;
+  .kb-search-field::placeholder {
+    color: #929cb0;
   }
 
-  .faq-search-clear {
+  .kb-clear-btn {
     position: absolute;
     right: 14px;
     background: none;
     border: none;
-    color: #8a92a1;
+    color: #8c97a8;
     font-size: 18px;
     cursor: pointer;
     padding: 4px;
@@ -848,96 +887,46 @@ const faqSchema = {
     justify-content: center;
   }
 
-  .faq-search-clear:hover {
-    color: #17181c;
+  .kb-clear-btn:hover {
+    color: #11141d;
   }
 
-  /* Category Filter Pills */
-  .faq-category-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .category-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 16px;
-    border-radius: 999px;
-    font-size: 13.5px;
-    font-weight: 600;
-    color: #555e6d;
-    background-color: #ffffff;
-    border: 1px solid #e5e8ee;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .category-pill .pill-count {
-    background: rgba(0, 0, 0, 0.06);
-    padding: 2px 7px;
-    border-radius: 999px;
-    font-size: 11.5px;
-    font-weight: 700;
-  }
-
-  .category-pill:hover {
-    border-color: var(--color-primary, #ff501a);
-    color: var(--color-primary, #ff501a);
-  }
-
-  .category-pill.active {
-    background-color: var(--color-primary, #ff501a);
-    border-color: var(--color-primary, #ff501a);
-    color: #ffffff;
-    box-shadow: 0 4px 12px rgba(255, 80, 26, 0.3);
-  }
-
-  .category-pill.active .pill-count {
-    background: rgba(255, 255, 255, 0.25);
-    color: #ffffff;
-  }
-
-  /* =========================================================
-     Hostamble FAQ Accordion Card Items
-     Distinctive, rounded card aesthetic with active border accent.
-     ========================================================= */
-
-  .faq-cards-container {
+  /* Cards Stack */
+  .kb-cards-stack {
     display: flex;
     flex-direction: column;
     gap: 12px;
   }
 
-  .faq-card-item {
-    background-color: #ffffff;
-    border: 1px solid #eaedf3;
+  /* Question Card */
+  .kb-question-card {
+    background: #ffffff;
+    border: 1px solid #e8ecf4;
     border-radius: 14px;
     overflow: hidden;
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .faq-card-item:hover {
+  .kb-question-card:hover {
     border-color: rgba(255, 80, 26, 0.35);
-    box-shadow: 0 8px 24px -10px rgba(255, 80, 26, 0.12);
+    box-shadow: 0 8px 24px -10px rgba(255, 80, 26, 0.14);
+    transform: translateY(-1px);
   }
 
   /* Active Open State */
-  .faq-card-item.is-active {
-    border-color: rgba(255, 80, 26, 0.4);
+  .kb-question-card.card-open {
+    border-color: rgba(255, 80, 26, 0.38);
     border-left: 4px solid var(--color-primary, #ff501a);
-    box-shadow: 0 10px 28px -12px rgba(255, 80, 26, 0.16);
+    box-shadow: 0 12px 30px -12px rgba(255, 80, 26, 0.16);
     background: linear-gradient(180deg, #ffffff 0%, #fffdfc 100%);
   }
 
-  /* Card Trigger Button */
-  .faq-card-trigger {
+  /* Card Header Button */
+  .kb-card-header-btn {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 20px 22px;
+    padding: 18px 22px;
     background: none;
     border: none;
     text-align: left;
@@ -946,133 +935,169 @@ const faqSchema = {
     font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
   }
 
-  .faq-trigger-left {
+  /* Icon Pod */
+  .kb-card-icon-pod {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #f7f9fc;
+    color: #647084;
     display: flex;
     align-items: center;
-    gap: 14px;
+    justify-content: center;
+    font-size: 20px;
+    transition: all 0.25s ease;
+  }
+
+  .kb-question-card:hover .kb-card-icon-pod {
+    background: #fff4f0;
+    color: var(--color-primary, #ff501a);
+  }
+
+  .kb-question-card.card-open .kb-card-icon-pod {
+    background: var(--color-primary, #ff501a);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(255, 80, 26, 0.3);
+  }
+
+  /* Text Block */
+  .kb-card-text-block {
+    flex-grow: 1;
     min-width: 0;
   }
 
-  .faq-num-pill {
-    flex-shrink: 0;
-    width: 28px;
-    height: 28px;
-    border-radius: 8px;
-    background: #f4f6fa;
-    color: #7b8393;
-    font-size: 12px;
+  .kb-card-category {
+    display: block;
+    font-size: 11.5px;
     font-weight: 800;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.25s ease;
-  }
-
-  .faq-card-item.is-active .faq-num-pill {
-    background: var(--color-primary, #ff501a);
-    color: #ffffff;
-  }
-
-  .faq-question-text {
-    font-size: 17.5px;
-    font-weight: 700;
-    line-height: 1.4;
-    color: #17181c;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: #8a96a9;
+    margin-bottom: 3px;
     transition: color 0.2s ease;
   }
 
-  .faq-card-item.is-active .faq-question-text {
+  .kb-question-card.card-open .kb-card-category {
     color: var(--color-primary, #ff501a);
   }
 
-  .faq-card-trigger:hover .faq-question-text {
+  .kb-card-question-title {
+    margin: 0;
+    font-size: 17.5px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #12151e;
+    transition: color 0.2s ease;
+  }
+
+  .kb-card-header-btn:hover .kb-card-question-title {
     color: var(--color-primary, #ff501a);
   }
 
-  /* Chevron Icon */
-  .faq-trigger-icon-wrap {
+  .kb-question-card.card-open .kb-card-question-title {
+    color: var(--color-primary, #ff501a);
+  }
+
+  /* Action Block on Right */
+  .kb-card-action-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     flex-shrink: 0;
+  }
+
+  .kb-card-num-badge {
+    font-size: 12.5px;
+    font-weight: 800;
+    color: #9ea8b8;
+    background: #f4f6fa;
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+
+  .kb-card-toggle-pod {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background-color: #f4f6fa;
+    background: #f4f6fa;
+    color: #647084;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #636b7b;
     transition: all 0.25s ease;
   }
 
-  .faq-chevron-icon {
+  .kb-toggle-chevron {
     font-size: 19px;
     transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .faq-card-item.is-active .faq-trigger-icon-wrap {
-    background-color: rgba(255, 80, 26, 0.1);
+  .kb-question-card.card-open .kb-card-toggle-pod {
+    background: #fff4f0;
     color: var(--color-primary, #ff501a);
   }
 
-  .faq-card-item.is-active .faq-chevron-icon {
+  .kb-question-card.card-open .kb-toggle-chevron {
     transform: rotate(180deg);
   }
 
-  /* Card Collapse & Body */
-  .faq-card-collapse {
-    border-top: 1px solid #f1f3f7;
+  /* Expandable Content */
+  .kb-card-expandable {
+    border-top: 1px solid #f1f4f8;
   }
 
-  .faq-card-body {
-    padding: 18px 22px 22px 64px;
+  .kb-card-content {
+    padding: 18px 22px 22px 82px;
   }
 
-  .faq-answer-paragraph {
+  .kb-answer-text {
     margin: 0;
     font-size: 15.5px;
     line-height: 1.8;
-    color: #555e6d;
+    color: #4f5869;
   }
 
-  /* Highlights Tags */
-  .faq-highlights-row {
+  /* Highlights Wrap */
+  .kb-highlights-wrap {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     margin-top: 14px;
   }
 
-  .faq-tag-pill {
+  .kb-micro-pill {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(255, 80, 26, 0.08);
-    border: 1px solid rgba(255, 80, 26, 0.16);
-    padding: 4px 10px;
+    background: #fdf5f2;
+    border: 1px solid rgba(255, 80, 26, 0.18);
+    padding: 4px 11px;
     border-radius: 999px;
     font-size: 12.5px;
     font-weight: 700;
     color: var(--color-primary, #ff501a);
   }
 
-  .faq-tag-pill i {
+  .kb-micro-pill i {
     font-size: 13px;
   }
 
-  /* No Results State */
-  .faq-no-results {
+  /* Empty State */
+  .kb-empty-state {
     text-align: center;
     padding: 48px 24px;
     background: #ffffff;
-    border: 1px dashed #dbe0ea;
-    border-radius: 14px;
+    border: 1px dashed #d5dbe5;
+    border-radius: 16px;
   }
 
-  .no-results-icon {
+  .empty-icon-wrap {
     width: 56px;
     height: 56px;
     border-radius: 50%;
     background: #f4f6fa;
-    color: #8c94a3;
+    color: #8b96a8;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1080,76 +1105,76 @@ const faqSchema = {
     margin-bottom: 14px;
   }
 
-  .faq-no-results h4 {
+  .empty-heading {
     font-family: 'Urbanist', sans-serif;
     font-size: 19px;
     font-weight: 800;
-    color: #17181c;
+    color: #11141d;
     margin-bottom: 6px;
   }
 
-  .faq-no-results p {
+  .empty-desc {
     font-size: 14.5px;
-    color: #636b7b;
+    color: #647083;
     max-width: 440px;
-    margin: 0 auto 16px;
+    margin: 0 auto 18px;
   }
 
-  .btn-reset-search {
-    background-color: var(--color-primary, #ff501a);
+  .empty-reset-btn {
+    background: var(--color-primary, #ff501a);
     color: #ffffff;
     border: none;
     border-radius: 999px;
-    padding: 8px 20px;
+    padding: 9px 22px;
     font-size: 13.5px;
     font-weight: 700;
     cursor: pointer;
     transition: all 0.2s ease;
   }
 
-  .btn-reset-search:hover {
-    background-color: #e64512;
+  .empty-reset-btn:hover {
+    background: #e64512;
   }
 
   /* Responsive Adjustments */
   @media only screen and (max-width: 991px) {
-    .faq-grid-layout {
+    .kb-layout-grid {
       grid-template-columns: 1fr;
       row-gap: 40px;
     }
 
-    .faq-side-rail {
+    .kb-side-rail {
       height: auto;
     }
 
-    .faq-sticky-container {
+    .kb-sticky-holder {
       position: static;
       gap: 20px;
     }
 
-    .faq-card-body {
+    .kb-card-content {
       padding: 16px 20px 20px 20px;
     }
 
-    .faq-card-trigger {
-      padding: 18px 20px;
+    .kb-card-header-btn {
+      padding: 16px 18px;
     }
   }
 
   @media only screen and (max-width: 575px) {
-    .faq-main-title {
+    .kb-headline {
       font-size: 28px;
     }
 
-    .faq-question-text {
+    .kb-card-question-title {
       font-size: 16px;
     }
 
-    .faq-answer-paragraph {
-      font-size: 14.5px;
+    .kb-card-num-badge {
+      display: none;
     }
 
-    .concierge-sub-actions {
+    .desk-secondary-row {
       grid-template-columns: 1fr;
     }
   }
