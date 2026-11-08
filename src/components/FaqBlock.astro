@@ -1,17 +1,18 @@
 ---
-// Hostamble Knowledge Base & FAQ Block
-// Custom Modern Cloud Architecture:
-// - Left: Sticky Topic Navigator & Live Engineering Desk (STAYS STILL WHILE SCROLLING)
-// - Right: Live Search & Modern Elevated Question Cards with Feature Icons & Highlights
+// Hostamble Frequently Asked Questions Block
+// - Clean, modern, human-first FAQ design unified with Hostamble's design system
+// - Centered header matching TestimonialsBlock & BlogBlock
+// - Horizontal topic filter pills + instant keyword search
+// - Clean elevated accordion cards without artificial AI clutter or badges
+// - Direct WhatsApp & In-House Support concierge card at the bottom
+// - Schema.org FAQPage structured data for Google SEO rich snippets
 
 interface FaqItem {
   id: string;
-  category: 'hosting' | 'domains' | 'billing' | 'support';
+  category: 'hosting' | 'billing' | 'domains' | 'support';
   categoryLabel: string;
-  icon: string;
   question: string;
   answer: string;
-  highlights?: string[];
   defaultOpen?: boolean;
 }
 
@@ -19,106 +20,77 @@ const faqs: FaqItem[] = [
   {
     id: "faq-renewals",
     category: "billing",
-    categoryLabel: "Pricing & Guarantee",
-    icon: "ri-price-tag-3-line",
-    question: "What will I pay when my plan renews?",
-    answer: "Your plan renews at the regular transparent price shown on our pricing table. We never engage in sneaky price hikes or hidden renewal penalties. Any introductory promotional coupon applies to your initial billing term unless explicitly stated.",
-    highlights: ["100% Price Transparency", "Zero Hidden Renewal Spikes"],
+    categoryLabel: "Pricing & Renewals",
+    question: "Are there hidden price hikes when my hosting renews?",
+    answer: "None at all. Many hosting providers attract users with cheap introductory prices and then triple their renewal bills. At Hostamble, your plan renews at the regular transparent rate shown right on our pricing table. What you see is what you pay — no surprises, sneaky surcharges, or hidden fees.",
     defaultOpen: true,
   },
   {
     id: "faq-refund",
     category: "billing",
-    categoryLabel: "Pricing & Guarantee",
-    icon: "ri-shield-check-line",
-    question: "Can I get a refund if I'm not satisfied?",
-    answer: "Yes! All Hostamble shared and WordPress hosting packages come with a 7-Day Risk-Free Money-Back Guarantee. If our LiteSpeed speeds, pure NVMe storage, or 24/7 assistance don't meet your expectations, request a full refund within 7 days with zero questions asked.",
-    highlights: ["7-Day Money-Back Guarantee", "100% Risk-Free"],
+    categoryLabel: "Pricing & Renewals",
+    question: "How does the 7-day money-back guarantee work?",
+    answer: "All Hostamble shared and WordPress hosting packages come with a genuine, hassle-free 7-day money-back guarantee. If you're not completely satisfied with our server speeds, uptime, or support experience, message us within 7 days and we will issue a full refund — no interrogations or complicated procedures.",
   },
   {
-    id: "faq-gst",
-    category: "billing",
-    categoryLabel: "Pricing & Guarantee",
-    icon: "ri-file-list-3-line",
-    question: "Do you add GST or unexpected fees at checkout?",
-    answer: "No checkout surprises! Every rupee and applicable tax is clearly calculated and displayed before you enter payment details. What you see is what you pay.",
-    highlights: ["No Hidden Surcharges", "Clear GST Invoicing"],
+    id: "faq-migration",
+    category: "support",
+    categoryLabel: "Migration & Setup",
+    question: "Can you migrate my existing website from another host for free?",
+    answer: "Yes, 100% free with zero downtime. Once you sign up, simply share your current cPanel or WordPress details with our team on WhatsApp or via a support ticket. Our server engineers will transfer your files, databases, and emails seamlessly without taking your website offline.",
+  },
+  {
+    id: "faq-whatsapp-support",
+    category: "support",
+    categoryLabel: "Migration & Setup",
+    question: "How fast can I get help if my website goes down or I face an issue?",
+    answer: "Our technical support team is available 24/7/365 with direct WhatsApp support (+91 62847 19083), live chat, and support tickets in both Hindi and English. Non-tech beginners and experienced developers alike get direct human assistance, with most queries answered in under 3 minutes.",
   },
   {
     id: "faq-payments",
     category: "billing",
-    categoryLabel: "Pricing & Guarantee",
-    icon: "ri-bank-card-line",
-    question: "Which payment methods do you accept?",
-    answer: "We support all preferred Indian and global payment options. Pay securely using UPI (Google Pay, PhonePe, Paytm, BHIM), Net Banking across all banks, Credit & Debit Cards, or PayPal for international orders. All transactions are protected by 256-bit bank-grade SSL encryption.",
-    highlights: ["Instant UPI & Cards", "Bank-Grade Encryption"],
+    categoryLabel: "Pricing & Renewals",
+    question: "Which payment methods do you accept for Indian and international clients?",
+    answer: "For Indian customers, we accept all UPI apps (Google Pay, PhonePe, Paytm, BHIM), Net Banking across all banks, and Credit/Debit Cards via Cashfree, PayU, and CCAvenue. For international clients, we accept PayPal and Crypto payments (via Binance). All transactions are 256-bit SSL secured.",
   },
   {
-    id: "faq-migration",
+    id: "faq-plan-choice",
     category: "hosting",
-    categoryLabel: "Performance & Speeds",
-    icon: "ri-rocket-2-line",
-    question: "Can you move my existing website for free?",
-    answer: "Yes, 100% free with zero downtime! Our in-house technical team handles complete migrations—including your WordPress installation, MySQL databases, cPanel settings, and email accounts—with no website interruption.",
-    highlights: ["100% Free Migration", "Zero Downtime Guarantee"],
+    categoryLabel: "Hosting & WordPress",
+    question: "Should I choose Shared Hosting or WordPress Hosting?",
+    answer: "For personal blogs, portfolio sites, or small business landing pages, our Shared Hosting plans provide exceptional value and reliable NVMe speed. If you are running an active WordPress or WooCommerce store, our WordPress Hosting plans come pre-configured with LiteSpeed Cache and high I/O limits for ultra-fast checkout and page loads.",
   },
   {
-    id: "faq-ssl",
+    id: "faq-ssl-cpanel",
     category: "domains",
     categoryLabel: "Domains & Security",
-    icon: "ri-lock-2-line",
-    question: "Is an SSL Certificate included with hosting?",
-    answer: "Yes! Lifetime automated Let's Encrypt SSL certificates come pre-integrated on all hosting plans. They generate and renew automatically for your main domain, subdomains, and addon domains with zero manual configuration.",
-    highlights: ["Free Lifetime SSL", "Automated HTTPS Renewal"],
-  },
-  {
-    id: "faq-backups",
-    category: "hosting",
-    categoryLabel: "Performance & Speeds",
-    icon: "ri-database-2-line",
-    question: "How do backups work on Hostamble?",
-    answer: "Automated daily backups powered by JetBackup safeguard your website files, databases, and mailboxes. You can restore a single file, database table, or your complete account with one click directly inside your cPanel dashboard.",
-    highlights: ["Automated JetBackup", "1-Click Full Restore"],
+    question: "Do I get a free SSL certificate and full cPanel access?",
+    answer: "Yes. Every hosting plan includes free automated Let's Encrypt SSL certificates that activate and renew automatically for your main domain, subdomains, and addon domains. You also get industry-standard cPanel to easily manage files, MySQL databases, phpMyAdmin, and DNS records.",
   },
   {
     id: "faq-email",
     category: "domains",
     categoryLabel: "Domains & Security",
-    icon: "ri-mail-line",
-    question: "Can I create professional email accounts on my domain?",
-    answer: "Yes! Every plan includes business domain emails (e.g. info@yourdomain.com), an intuitive webmail portal, SpamAssassin defense, and full IMAP/POP3/SMTP support to sync with iOS Mail, Android, Outlook, and Gmail.",
-    highlights: ["Custom Domain Email", "Smartphone & Outlook Sync"],
+    question: "Can I create professional email accounts like info@yourdomain.com?",
+    answer: "Yes, custom business domain emails are included with your plan. Hostamble includes secure Webmail, SpamAssassin spam filtering, and full IMAP/POP3/SMTP support to sync with Outlook, Gmail, Apple Mail, and Android.",
   },
   {
-    id: "faq-plan-choice",
+    id: "faq-backups",
     category: "hosting",
-    categoryLabel: "Performance & Speeds",
-    icon: "ri-dashboard-3-line",
-    question: "Which hosting plan is right for my project?",
-    answer: "For single landing pages, personal blogs, or student portfolios, our Starter plan is ideal. For businesses, WooCommerce shops, or agencies hosting multiple clients, our Super or Turbo NVMe plans with LiteSpeed acceleration provide lightning-fast TTFB and top performance.",
-    highlights: ["Starter for Personal Sites", "Turbo for High-Traffic E-commerce"],
-  },
-  {
-    id: "faq-support",
-    category: "support",
-    categoryLabel: "Technical Support",
-    icon: "ri-customer-service-2-line",
-    question: "How can I get help if something goes wrong?",
-    answer: "Our certified hosting engineers are available 24/7/365 in both Hindi and English. Reach us instantly through Live Chat, WhatsApp (+91 62847 19083), or Support Ticket. Our average response time is under 3 minutes!",
-    highlights: ["24/7 Hindi & English", "Average Reply < 3 Mins"],
+    categoryLabel: "Hosting & WordPress",
+    question: "How do automatic daily backups work? Can I restore files myself?",
+    answer: "We run automated daily backups powered by JetBackup. Your files, databases, and mailboxes are stored securely. If you ever need to restore a single file, a database table, or your complete website, you can do it with 1 click directly inside your cPanel dashboard.",
   },
   {
     id: "faq-upgrade",
     category: "hosting",
-    categoryLabel: "Performance & Speeds",
-    icon: "ri-line-chart-line",
-    question: "Can I easily upgrade my plan as my website grows?",
-    answer: "Yes, anytime! You can scale your disk quota, CPU cores, RAM, or seamlessly upgrade to a dedicated Cloud VPS with zero downtime directly through your Hostamble client portal.",
-    highlights: ["Instant Scalability", "Zero-Downtime Upgrades"],
+    categoryLabel: "Hosting & WordPress",
+    question: "Can I easily upgrade my plan as my website traffic grows?",
+    answer: "Yes, scaling is instant with zero downtime. You can upgrade your storage quota, CPU cores, RAM, or switch from shared hosting to a high-performance Cloud VPS anytime directly through your Hostamble client portal without reinstalling anything.",
   },
 ];
 
-// Schema.org FAQPage structured data
+// Schema.org FAQPage structured data for Google SEO
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -133,218 +105,185 @@ const faqSchema = {
 };
 ---
 
-<section class="hostamble-knowledge-section" id="faq" aria-labelledby="knowledge-main-heading">
-  <!-- Subtle decorative ambient accents -->
-  <div class="kb-glow-circle glow-top-left" aria-hidden="true"></div>
-  <div class="kb-glow-circle glow-bottom-right" aria-hidden="true"></div>
+<section class="hostamble-faq-section" id="faq" aria-labelledby="faq-main-heading">
+  <!-- Subtle ambient decorative glow -->
+  <div class="faq-ambient-glow" aria-hidden="true"></div>
 
   <div class="container position-relative">
-    <div class="kb-layout-grid">
+    
+    <!-- Standard Hostamble Centered Section Header -->
+    <div class="row justify-content-center mb-4">
+      <div class="col-lg-8 col-12 text-center">
+        <div class="section-title text-center" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+          <span class="pre-title">COMMON QUESTIONS</span>
+          <h2 id="faq-main-heading" class="title">Got Questions? We’ve Got Answers.</h2>
+          <p class="description mt-2">
+            Clear, honest facts about renewals, free migrations, LiteSpeed speeds, and our direct WhatsApp support.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Filter Toolbar: Category Pills + Search -->
+    <div class="faq-toolbar-wrap" data-sal="slide-up" data-sal-delay="200" data-sal-duration="800">
       
-      <!-- =========================================================
-           LEFT COLUMN: Sticky Navigation & Support Concierge Desk
-           (Pinned & Still on Screen While Right Questions Scroll)
-           ========================================================= -->
-      <aside class="kb-side-rail" aria-label="Knowledgebase Categories & Support">
-        <div class="kb-sticky-holder">
-          
-          <!-- Header Area -->
-          <div class="kb-intro-block">
-            <div class="kb-tag-pill">
-              <span class="pill-radar-dot"></span>
-              <span>Hostamble Knowledge Base</span>
-            </div>
-            <h2 id="knowledge-main-heading" class="kb-headline">Everything You Need To Know.</h2>
-            <p class="kb-subhead">Clear answers to technical details, guarantees, and hosting policies so you can deploy with confidence.</p>
-          </div>
+      <!-- Category Filter Pills -->
+      <nav class="faq-categories-nav" aria-label="Filter FAQ Topics">
+        <button type="button" class="faq-cat-pill active" data-category="all">
+          <span>All Questions</span>
+          <span class="pill-badge">10</span>
+        </button>
+        <button type="button" class="faq-cat-pill" data-category="hosting">
+          <span>Hosting &amp; WordPress</span>
+        </button>
+        <button type="button" class="faq-cat-pill" data-category="billing">
+          <span>Pricing &amp; 7-Day Refund</span>
+        </button>
+        <button type="button" class="faq-cat-pill" data-category="support">
+          <span>Migration &amp; Support</span>
+        </button>
+        <button type="button" class="faq-cat-pill" data-category="domains">
+          <span>Domains &amp; SSL</span>
+        </button>
+      </nav>
 
-          <!-- Interactive Topic Selector -->
-          <nav class="kb-topic-nav" aria-label="Filter FAQ Topics">
-            <span class="topic-nav-label">Browse by topic</span>
-            <div class="topic-buttons-list">
-              <button type="button" class="topic-btn active" data-category="all">
-                <i class="ri-apps-2-line"></i>
-                <span class="topic-name">All Questions</span>
-                <span class="topic-count">11</span>
-              </button>
-              <button type="button" class="topic-btn" data-category="hosting">
-                <i class="ri-rocket-2-line"></i>
-                <span class="topic-name">Performance &amp; Speeds</span>
-                <span class="topic-count">4</span>
-              </button>
-              <button type="button" class="topic-btn" data-category="domains">
-                <i class="ri-lock-2-line"></i>
-                <span class="topic-name">Domains &amp; SSL</span>
-                <span class="topic-count">2</span>
-              </button>
-              <button type="button" class="topic-btn" data-category="billing">
-                <i class="ri-shield-check-line"></i>
-                <span class="topic-name">Pricing &amp; 7-Day Refund</span>
-                <span class="topic-count">4</span>
-              </button>
-              <button type="button" class="topic-btn" data-category="support">
-                <i class="ri-customer-service-2-line"></i>
-                <span class="topic-name">24/7 Technical Support</span>
-                <span class="topic-count">1</span>
-              </button>
-            </div>
-          </nav>
-
-          <!-- Ask Your Question Direct CTA Button -->
-          <div class="kb-ask-action-wrap">
-            <a 
-              href="https://hostamble.com/dash/submitticket.php?step=2&deptid=1" 
-              class="kb-ask-question-btn"
-              target="_blank" 
-              rel="noopener noreferrer"
-              title="Open a ticket and ask your question"
-            >
-              <i class="ri-question-answer-line" aria-hidden="true"></i>
-              <span>Ask Your Question</span>
-              <i class="ri-arrow-right-line" aria-hidden="true"></i>
-            </a>
-            <span class="kb-ask-helper-text">
-              <i class="ri-shield-check-line" aria-hidden="true"></i>
-              <span>Direct Support Ticket · In-House Engineers</span>
-            </span>
-          </div>
-
-        </div>
-      </aside>
-
-      <!-- =========================================================
-           RIGHT COLUMN: Scrollable Questions Rail & Live Search
-           ========================================================= -->
-      <main class="kb-questions-rail" aria-label="Frequently Asked Questions List">
-        
-        <!-- Search Input Bar -->
-        <div class="kb-search-bar">
-          <i class="ri-search-2-line kb-search-icon" aria-hidden="true"></i>
-          <input 
-            type="text" 
-            id="kbSearchInput" 
-            class="kb-search-field" 
-            placeholder="Type keywords to filter (e.g. refund, migration, SSL, cPanel, UPI)..."
-            autocomplete="off"
-          />
-          <button type="button" id="kbClearSearch" class="kb-clear-btn d-none" aria-label="Clear Search">
-            <i class="ri-close-line"></i>
-          </button>
-        </div>
-
-        <!-- Questions Cards Container -->
-        <div class="kb-cards-stack" id="kbCardsStack">
-          {faqs.map((faq, index) => {
-            const num = (index + 1).toString().padStart(2, '0');
-            return (
-              <article 
-                class={`kb-question-card ${faq.defaultOpen ? 'card-open' : ''}`}
-                data-category={faq.category}
-                data-faq-id={faq.id}
-              >
-                <button 
-                  type="button" 
-                  class="kb-card-header-btn" 
-                  aria-expanded={faq.defaultOpen ? "true" : "false"}
-                  aria-controls={`kb-body-${faq.id}`}
-                >
-                  <!-- Left: Icon Pod -->
-                  <div class="kb-card-icon-pod" aria-hidden="true">
-                    <i class={faq.icon}></i>
-                  </div>
-
-                  <!-- Center: Category Tag & Question -->
-                  <div class="kb-card-text-block">
-                    <span class="kb-card-category">{faq.categoryLabel}</span>
-                    <h3 class="kb-card-question-title">{faq.question}</h3>
-                  </div>
-
-                  <!-- Right: Number Badge & Chevron Toggle -->
-                  <div class="kb-card-action-block">
-                    <span class="kb-card-num-badge">#{num}</span>
-                    <div class="kb-card-toggle-pod" aria-hidden="true">
-                      <i class="ri-arrow-down-s-line kb-toggle-chevron"></i>
-                    </div>
-                  </div>
-                </button>
-
-                <!-- Expandable Answer Panel -->
-                <div 
-                  id={`kb-body-${faq.id}`} 
-                  class="kb-card-expandable"
-                  style={faq.defaultOpen ? "display: block;" : "display: none;"}
-                >
-                  <div class="kb-card-content">
-                    <p class="kb-answer-text">{faq.answer}</p>
-                    
-                    {faq.highlights && (
-                      <div class="kb-highlights-wrap">
-                        {faq.highlights.map(tag => (
-                          <span class="kb-micro-pill">
-                            <i class="ri-checkbox-circle-fill"></i>
-                            <span>{tag}</span>
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </article>
-            );
-          })}
-
-          <!-- Zero Results State -->
-          <div id="kbNoResults" class="kb-empty-state d-none">
-            <div class="empty-icon-wrap"><i class="ri-search-eye-line"></i></div>
-            <h4 class="empty-heading">No matching questions found</h4>
-            <p class="empty-desc">Have a specific question not listed here? Our server engineers are online right now to help you.</p>
-            <button type="button" class="empty-reset-btn" id="kbResetBtn">View All Questions</button>
-          </div>
-        </div>
-
-      </main>
+      <!-- Instant Search Input -->
+      <div class="faq-search-box">
+        <i class="ri-search-2-line faq-search-icon" aria-hidden="true"></i>
+        <input 
+          type="text" 
+          id="faqSearchInput" 
+          class="faq-search-input" 
+          placeholder="Search common questions (e.g., migration, refund, UPI, cPanel)..."
+          autocomplete="off"
+        />
+        <button type="button" id="faqClearSearch" class="faq-clear-btn d-none" aria-label="Clear Search">
+          <i class="ri-close-line"></i>
+        </button>
+      </div>
 
     </div>
+
+    <!-- Centered Accordion Stack (Max-Width 920px for optimal reading) -->
+    <div class="faq-accordion-container" id="faqCardsStack" data-sal="slide-up" data-sal-delay="250" data-sal-duration="800">
+      {faqs.map((faq) => (
+        <article 
+          class={`faq-item-card ${faq.defaultOpen ? 'is-open' : ''}`}
+          data-category={faq.category}
+          data-faq-id={faq.id}
+        >
+          <button 
+            type="button" 
+            class="faq-header-trigger" 
+            aria-expanded={faq.defaultOpen ? "true" : "false"}
+            aria-controls={`faq-answer-${faq.id}`}
+          >
+            <div class="faq-question-meta">
+              <span class="faq-cat-label">{faq.categoryLabel}</span>
+              <h3 class="faq-question-text">{faq.question}</h3>
+            </div>
+            <div class="faq-toggle-icon" aria-hidden="true">
+              <i class="ri-add-line icon-plus"></i>
+              <i class="ri-subtract-line icon-minus"></i>
+            </div>
+          </button>
+
+          <div 
+            id={`faq-answer-${faq.id}`} 
+            class="faq-answer-collapse"
+            style={faq.defaultOpen ? "display: block;" : "display: none;"}
+          >
+            <div class="faq-answer-body">
+              <p class="faq-answer-text">{faq.answer}</p>
+            </div>
+          </div>
+        </article>
+      ))}
+
+      <!-- Zero Results Fallback -->
+      <div id="faqNoResults" class="faq-empty-state d-none">
+        <div class="faq-empty-icon"><i class="ri-search-eye-line"></i></div>
+        <h4 class="faq-empty-title">No matching questions found</h4>
+        <p class="faq-empty-text">Have a specific question not listed here? Our support team is online right now to help you.</p>
+        <button type="button" class="faq-empty-reset" id="faqResetBtn">View All Questions</button>
+      </div>
+    </div>
+
+    <!-- Bottom Human Support Reassurance Card -->
+    <div class="faq-bottom-concierge" data-sal="slide-up" data-sal-delay="300" data-sal-duration="800">
+      <div class="concierge-content">
+        <div class="concierge-icon-wrap" aria-hidden="true">
+          <i class="ri-customer-service-2-fill"></i>
+        </div>
+        <div class="concierge-text">
+          <h4 class="concierge-title">Still have questions or need custom setup?</h4>
+          <p class="concierge-desc">
+            Talk directly with our in-house hosting team. We speak your language and usually reply in under 3 minutes.
+          </p>
+        </div>
+      </div>
+      <div class="concierge-actions">
+        <a 
+          href="https://wa.me/916284719083?text=Hi%20Hostamble,%20I%20have%20a%20question%20about%20your%20hosting%20plans" 
+          class="concierge-btn btn-whatsapp"
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          <i class="ri-whatsapp-fill"></i>
+          <span>WhatsApp Chat</span>
+        </a>
+        <a 
+          href="https://hostamble.com/dash/submitticket.php?step=2&deptid=1" 
+          class="concierge-btn btn-ticket"
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          <i class="ri-ticket-2-line"></i>
+          <span>Submit a Ticket</span>
+        </a>
+      </div>
+    </div>
+
   </div>
 
-  <!-- FAQPage Schema for Search Engines -->
+  <!-- Schema.org FAQPage Structured Data -->
   <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 </section>
 
-<!-- Interactive Script for Live Search, Topic Filtering & Card Toggles -->
+<!-- Client-side Interactive Filter & Accordion Script -->
 <script is:inline>
   document.addEventListener("DOMContentLoaded", function () {
-    const searchInput = document.getElementById("kbSearchInput");
-    const clearBtn = document.getElementById("kbClearSearch");
-    const topicBtns = document.querySelectorAll(".topic-btn");
-    const cards = document.querySelectorAll(".kb-question-card");
-    const noResults = document.getElementById("kbNoResults");
-    const resetBtn = document.getElementById("kbResetBtn");
+    const searchInput = document.getElementById("faqSearchInput");
+    const clearBtn = document.getElementById("faqClearSearch");
+    const catPills = document.querySelectorAll(".faq-cat-pill");
+    const cards = document.querySelectorAll(".faq-item-card");
+    const noResults = document.getElementById("faqNoResults");
+    const resetBtn = document.getElementById("faqResetBtn");
 
-    let currentCat = "all";
-    let currentQuery = "";
+    let activeCat = "all";
+    let activeQuery = "";
 
-    function applyFilter() {
-      let count = 0;
-      const query = currentQuery.trim().toLowerCase();
+    function filterFaqs() {
+      let visibleCount = 0;
+      const query = activeQuery.trim().toLowerCase();
 
       cards.forEach(card => {
         const cat = card.getAttribute("data-category");
-        const cardText = card.textContent.toLowerCase();
+        const text = card.textContent.toLowerCase();
 
-        const catMatches = (currentCat === "all") || (cat === currentCat);
-        const queryMatches = (query === "") || cardText.includes(query);
+        const catMatches = (activeCat === "all") || (cat === activeCat);
+        const queryMatches = (query === "") || text.includes(query);
 
         if (catMatches && queryMatches) {
           card.style.display = "block";
-          count++;
+          visibleCount++;
         } else {
           card.style.display = "none";
         }
       });
 
       if (noResults) {
-        if (count === 0) {
+        if (visibleCount === 0) {
           noResults.classList.remove("d-none");
         } else {
           noResults.classList.add("d-none");
@@ -360,77 +299,77 @@ const faqSchema = {
       }
     }
 
-    // Topic filter click
-    topicBtns.forEach(btn => {
-      btn.addEventListener("click", function () {
-        topicBtns.forEach(b => b.classList.remove("active"));
+    // Category Pill Click
+    catPills.forEach(pill => {
+      pill.addEventListener("click", function () {
+        catPills.forEach(p => p.classList.remove("active"));
         this.classList.add("active");
-        currentCat = this.getAttribute("data-category") || "all";
-        applyFilter();
+        activeCat = this.getAttribute("data-category") || "all";
+        filterFaqs();
       });
     });
 
-    // Search input
+    // Search Input Typing
     if (searchInput) {
       searchInput.addEventListener("input", function () {
-        currentQuery = this.value;
-        applyFilter();
+        activeQuery = this.value;
+        filterFaqs();
       });
     }
 
-    // Clear search
+    // Clear Search Button
     if (clearBtn) {
       clearBtn.addEventListener("click", function () {
         if (searchInput) {
           searchInput.value = "";
-          currentQuery = "";
+          activeQuery = "";
           searchInput.focus();
-          applyFilter();
+          filterFaqs();
         }
       });
     }
 
-    // Reset button
+    // Reset Filter Button
     if (resetBtn) {
       resetBtn.addEventListener("click", function () {
         if (searchInput) searchInput.value = "";
-        currentQuery = "";
-        currentCat = "all";
-        topicBtns.forEach(b => {
-          b.classList.toggle("active", b.getAttribute("data-category") === "all");
+        activeQuery = "";
+        activeCat = "all";
+        catPills.forEach(p => {
+          p.classList.toggle("active", p.getAttribute("data-category") === "all");
         });
-        applyFilter();
+        filterFaqs();
       });
     }
 
-    // Card Accordion Click
+    // Accordion Toggle Behavior
     cards.forEach(card => {
-      const headerBtn = card.querySelector(".kb-card-header-btn");
-      const expandPanel = card.querySelector(".kb-card-expandable");
+      const trigger = card.querySelector(".faq-header-trigger");
+      const answer = card.querySelector(".faq-answer-collapse");
 
-      if (headerBtn && expandPanel) {
-        headerBtn.addEventListener("click", function () {
-          const isOpen = card.classList.contains("card-open");
+      if (trigger && answer) {
+        trigger.addEventListener("click", function () {
+          const isOpen = card.classList.contains("is-open");
 
-          // Optional: close other open cards for clean reading
+          // Close other cards for clean, focused reading
           cards.forEach(other => {
-            if (other !== card && other.classList.contains("card-open")) {
-              other.classList.remove("card-open");
-              const otherBtn = other.querySelector(".kb-card-header-btn");
-              const otherPanel = other.querySelector(".kb-card-expandable");
-              if (otherBtn) otherBtn.setAttribute("aria-expanded", "false");
-              if (otherPanel) otherPanel.style.display = "none";
+            if (other !== card && other.classList.contains("is-open")) {
+              other.classList.remove("is-open");
+              const otherTrigger = other.querySelector(".faq-header-trigger");
+              const otherAnswer = other.querySelector(".faq-answer-collapse");
+              if (otherTrigger) otherTrigger.setAttribute("aria-expanded", "false");
+              if (otherAnswer) otherAnswer.style.display = "none";
             }
           });
 
           if (isOpen) {
-            card.classList.remove("card-open");
-            headerBtn.setAttribute("aria-expanded", "false");
-            expandPanel.style.display = "none";
+            card.classList.remove("is-open");
+            trigger.setAttribute("aria-expanded", "false");
+            answer.style.display = "none";
           } else {
-            card.classList.add("card-open");
-            headerBtn.setAttribute("aria-expanded", "true");
-            expandPanel.style.display = "block";
+            card.classList.add("is-open");
+            trigger.setAttribute("aria-expanded", "true");
+            answer.style.display = "block";
           }
         });
       }
@@ -440,318 +379,171 @@ const faqSchema = {
 
 <style>
   /* =========================================================
-     Hostamble Modern Cloud Knowledge Section
-     - Left Side: Stationary / Sticky Rail (100% Still on Scroll)
-     - Right Side: Interactive Search & Modern Elevated Question Pods
-     - Tech Icon Pods, Topic Selector, & In-House Support Hub
+     Hostamble Modern FAQ Block
+     - Clean, focused, human-first design
+     - Centered layout matching Testimonials & Blog
+     - Micro-animations and zero generic AI clutter
      ========================================================= */
 
-  .hostamble-knowledge-section {
+  .hostamble-faq-section {
     position: relative;
-    background-color: #f8fafc;
-    padding: 100px 0 !important;
-    overflow: visible !important;
+    background-color: #fafbfc;
+    padding: 100px 0 110px 0;
+    overflow: hidden;
   }
 
-  .kb-glow-circle {
+  .faq-ambient-glow {
     position: absolute;
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 80, 26, 0.04) 0%, rgba(250, 251, 252, 0) 70%);
     pointer-events: none;
     z-index: 0;
   }
 
-  .glow-top-left {
-    top: 0;
-    left: -15%;
-    background: radial-gradient(circle, rgba(255, 80, 26, 0.05) 0%, rgba(248, 250, 252, 0) 70%);
+  /* Section Title Styling */
+  .section-title .pre-title {
+    display: inline-block;
+    color: var(--color-primary, #ff501a);
+    font-size: 13.5px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
   }
 
-  .glow-bottom-right {
-    bottom: 0;
-    right: -15%;
-    background: radial-gradient(circle, rgba(255, 80, 26, 0.04) 0%, rgba(248, 250, 252, 0) 70%);
+  .section-title .title {
+    font-family: var(--font-primary, 'Urbanist', sans-serif);
+    font-size: clamp(32px, 3.8vw, 44px);
+    font-weight: 800;
+    color: var(--color-heading, #17181c);
+    line-height: 1.2;
+    margin: 0;
+    letter-spacing: -0.02em;
   }
 
-  /* Two Column Responsive Grid */
-  .kb-layout-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.45fr);
-    column-gap: clamp(36px, 5vw, 68px);
-    align-items: stretch; /* Stretches left column so sticky has full scroll travel */
-    position: relative;
+  .section-title .description {
+    font-size: 16.5px;
+    line-height: 1.6;
+    color: #5c6678;
+    max-width: 660px;
+    margin: 12px auto 0;
   }
 
-  /* =========================================================
-     LEFT SIDE: Sticky Holder (STAYS STILL)
-     ========================================================= */
-
-  .kb-side-rail {
-    position: relative;
-    height: 100%;
-    min-width: 0;
-  }
-
-  .kb-sticky-holder {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 95px; /* Pinned in view below the header */
+  /* Toolbar: Category Pills + Search Box */
+  .faq-toolbar-wrap {
+    max-width: 920px;
+    margin: 36px auto 32px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    z-index: 5;
+    gap: 16px;
+    align-items: center;
   }
 
-  /* Intro Block */
-  .kb-intro-block {
+  .faq-categories-nav {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
   }
 
-  .kb-tag-pill {
+  .faq-cat-pill {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #ffffff;
-    border: 1px solid rgba(255, 80, 26, 0.22);
-    padding: 6px 14px;
+    padding: 8px 18px;
     border-radius: 999px;
-    font-size: 12px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    color: var(--color-primary, #ff501a);
-    box-shadow: 0 4px 12px rgba(255, 80, 26, 0.06);
-    width: fit-content;
-  }
-
-  .pill-radar-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: var(--color-primary, #ff501a);
-    box-shadow: 0 0 8px rgba(255, 80, 26, 0.8);
-  }
-
-  .kb-headline {
-    font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: clamp(30px, 3.6vw, 42px);
-    font-weight: 900;
-    line-height: 1.16;
-    color: #11141d;
-    margin: 0;
-    letter-spacing: -0.025em;
-  }
-
-  .kb-subhead {
-    font-size: 15.5px;
-    line-height: 1.6;
-    color: #616c7f;
-    margin: 0;
-  }
-
-  /* Topic Navigator on Left Rail */
-  .kb-topic-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
     background: #ffffff;
-    border: 1px solid #e7ebf2;
-    border-radius: 16px;
-    padding: 16px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
-  }
-
-  .topic-nav-label {
-    font-size: 11.5px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    color: #8c97a8;
-    padding-left: 8px;
-    margin-bottom: 4px;
-  }
-
-  .topic-buttons-list {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .topic-btn {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 14px;
-    border-radius: 10px;
-    border: 1px solid transparent;
-    background: none;
-    color: #434c5e;
+    border: 1px solid #e5e9f0;
+    color: #4b5565;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    text-align: left;
-    transition: all 0.2s ease;
+    transition: all 0.22s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
   }
 
-  .topic-btn i {
-    font-size: 16px;
-    color: #8892a2;
-    transition: color 0.2s ease;
+  .faq-cat-pill:hover {
+    border-color: rgba(255, 80, 26, 0.4);
+    color: var(--color-primary, #ff501a);
+    transform: translateY(-1px);
   }
 
-  .topic-name {
-    flex-grow: 1;
+  .faq-cat-pill.active {
+    background: #fff5f0;
+    border-color: var(--color-primary, #ff501a);
+    color: var(--color-primary, #ff501a);
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(255, 80, 26, 0.12);
   }
 
-  .topic-count {
+  .pill-badge {
     background: #f1f4f9;
-    color: #6a7689;
-    padding: 2px 7px;
-    border-radius: 999px;
+    color: #64748b;
     font-size: 11px;
     font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 999px;
   }
 
-  .topic-btn:hover {
-    background: #fdf6f3;
-    color: var(--color-primary, #ff501a);
-  }
-
-  .topic-btn:hover i {
-    color: var(--color-primary, #ff501a);
-  }
-
-  .topic-btn.active {
-    background: #fff4f0;
-    border-color: rgba(255, 80, 26, 0.25);
-    color: var(--color-primary, #ff501a);
-    font-weight: 700;
-  }
-
-  .topic-btn.active i {
-    color: var(--color-primary, #ff501a);
-  }
-
-  .topic-btn.active .topic-count {
+  .faq-cat-pill.active .pill-badge {
     background: var(--color-primary, #ff501a);
     color: #ffffff;
   }
 
-  /* Ask Your Question Action Button */
-  .kb-ask-action-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 4px;
-  }
-
-  .kb-ask-question-btn {
-    width: 100%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    min-height: 52px;
-    padding: 0 24px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #ff501a 0%, #ff6e36 100%);
-    color: #ffffff;
-    font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 15.5px;
-    font-weight: 800;
-    letter-spacing: 0.2px;
-    text-decoration: none;
-    box-shadow: 0 8px 24px -6px rgba(255, 80, 26, 0.45);
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .kb-ask-question-btn i {
-    font-size: 18px;
-    transition: transform 0.25s ease;
-  }
-
-  .kb-ask-question-btn:hover {
-    background: linear-gradient(135deg, #e64512 0%, #ff501a 100%);
-    color: #ffffff;
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px -6px rgba(255, 80, 26, 0.55);
-  }
-
-  .kb-ask-question-btn:hover .ri-arrow-right-line {
-    transform: translateX(4px);
-  }
-
-  .kb-ask-helper-text {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    font-size: 12.5px;
-    font-weight: 600;
-    color: #7b8699;
-  }
-
-  .kb-ask-helper-text i {
-    color: #22c55e;
-    font-size: 14px;
-  }
-
-  /* =========================================================
-     RIGHT COLUMN: Search & Modern Question Pod Cards
-     ========================================================= */
-
-  .kb-questions-rail {
-    min-width: 0;
-  }
-
-  /* Search Bar */
-  .kb-search-bar {
+  /* Search Box */
+  .faq-search-box {
     position: relative;
-    display: flex;
-    align-items: center;
-    margin-bottom: 24px;
+    width: 100%;
+    max-width: 640px;
+    margin: 4px auto 0;
   }
 
-  .kb-search-icon {
+  .faq-search-icon {
     position: absolute;
     left: 18px;
-    font-size: 19px;
-    color: #929cb0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #94a3b8;
     pointer-events: none;
   }
 
-  .kb-search-field {
+  .faq-search-input {
     width: 100%;
-    height: 52px;
-    padding: 0 44px 0 50px;
-    font-size: 15px;
-    color: #11141d;
+    height: 48px;
+    padding: 0 42px 0 48px;
+    border-radius: 999px;
+    border: 1px solid #e2e8f0;
     background: #ffffff;
-    border: 1px solid #e1e6f0;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-    transition: all 0.25s ease;
+    font-size: 14.5px;
+    color: #1e293b;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    transition: all 0.2s ease;
   }
 
-  .kb-search-field:focus {
+  .faq-search-input:focus {
     outline: none;
     border-color: var(--color-primary, #ff501a);
-    box-shadow: 0 0 0 4px rgba(255, 80, 26, 0.12);
+    box-shadow: 0 0 0 3px rgba(255, 80, 26, 0.12);
   }
 
-  .kb-search-field::placeholder {
-    color: #929cb0;
+  .faq-search-input::placeholder {
+    color: #94a3b8;
   }
 
-  .kb-clear-btn {
+  .faq-clear-btn {
     position: absolute;
     right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
     background: none;
     border: none;
-    color: #8c97a8;
+    color: #94a3b8;
     font-size: 18px;
     cursor: pointer;
     padding: 4px;
@@ -760,290 +552,345 @@ const faqSchema = {
     justify-content: center;
   }
 
-  .kb-clear-btn:hover {
-    color: #11141d;
+  .faq-clear-btn:hover {
+    color: #1e293b;
   }
 
-  /* Cards Stack */
-  .kb-cards-stack {
+  /* Centered Accordion Stack */
+  .faq-accordion-container {
+    max-width: 920px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 12px;
   }
 
-  /* Question Card */
-  .kb-question-card {
+  /* Accordion Item Card */
+  .faq-item-card {
     background: #ffffff;
-    border: 1px solid #e8ecf4;
+    border: 1px solid #e8edf5;
     border-radius: 14px;
     overflow: hidden;
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
   }
 
-  .kb-question-card:hover {
+  .faq-item-card:hover {
     border-color: rgba(255, 80, 26, 0.35);
-    box-shadow: 0 8px 24px -10px rgba(255, 80, 26, 0.14);
+    box-shadow: 0 6px 20px -8px rgba(255, 80, 26, 0.12);
     transform: translateY(-1px);
   }
 
-  /* Active Open State */
-  .kb-question-card.card-open {
+  .faq-item-card.is-open {
     border-color: rgba(255, 80, 26, 0.38);
-    border-left: 4px solid var(--color-primary, #ff501a);
-    box-shadow: 0 12px 30px -12px rgba(255, 80, 26, 0.16);
-    background: linear-gradient(180deg, #ffffff 0%, #fffdfc 100%);
+    box-shadow: 0 10px 28px -10px rgba(255, 80, 26, 0.14);
+    background: #ffffff;
   }
 
-  /* Card Header Button */
-  .kb-card-header-btn {
+  /* Header Trigger */
+  .faq-header-trigger {
     width: 100%;
     display: flex;
     align-items: center;
-    padding: 18px 22px;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 20px 24px;
     background: none;
     border: none;
     text-align: left;
     cursor: pointer;
-    gap: 16px;
-    font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: var(--font-primary, 'Urbanist', sans-serif);
   }
 
-  /* Icon Pod */
-  .kb-card-icon-pod {
-    flex-shrink: 0;
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    background: #f7f9fc;
-    color: #647084;
+  .faq-question-meta {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    transition: all 0.25s ease;
-  }
-
-  .kb-question-card:hover .kb-card-icon-pod {
-    background: #fff4f0;
-    color: var(--color-primary, #ff501a);
-  }
-
-  .kb-question-card.card-open .kb-card-icon-pod {
-    background: var(--color-primary, #ff501a);
-    color: #ffffff;
-    box-shadow: 0 4px 12px rgba(255, 80, 26, 0.3);
-  }
-
-  /* Text Block */
-  .kb-card-text-block {
+    flex-direction: column;
+    gap: 4px;
     flex-grow: 1;
     min-width: 0;
   }
 
-  .kb-card-category {
-    display: block;
+  .faq-cat-label {
+    display: inline-block;
     font-size: 11.5px;
-    font-weight: 800;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.6px;
-    color: #8a96a9;
-    margin-bottom: 3px;
+    color: #8c97a8;
     transition: color 0.2s ease;
   }
 
-  .kb-question-card.card-open .kb-card-category {
+  .faq-item-card.is-open .faq-cat-label {
     color: var(--color-primary, #ff501a);
   }
 
-  .kb-card-question-title {
+  .faq-question-text {
     margin: 0;
     font-size: 17.5px;
     font-weight: 700;
     line-height: 1.35;
-    color: #12151e;
+    color: #17181c;
     transition: color 0.2s ease;
   }
 
-  .kb-card-header-btn:hover .kb-card-question-title {
+  .faq-header-trigger:hover .faq-question-text {
     color: var(--color-primary, #ff501a);
   }
 
-  .kb-question-card.card-open .kb-card-question-title {
+  .faq-item-card.is-open .faq-question-text {
     color: var(--color-primary, #ff501a);
   }
 
-  /* Action Block on Right */
-  .kb-card-action-block {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-shrink: 0;
-  }
-
-  .kb-card-num-badge {
-    font-size: 12.5px;
-    font-weight: 800;
-    color: #9ea8b8;
-    background: #f4f6fa;
-    padding: 3px 8px;
-    border-radius: 6px;
-  }
-
-  .kb-card-toggle-pod {
+  /* Plus / Minus Toggle Pod */
+  .faq-toggle-icon {
     width: 32px;
     height: 32px;
     border-radius: 50%;
     background: #f4f6fa;
-    color: #647084;
+    color: #64748b;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.25s ease;
+    flex-shrink: 0;
+    transition: all 0.22s ease;
+    font-size: 18px;
   }
 
-  .kb-toggle-chevron {
-    font-size: 19px;
-    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  .faq-toggle-icon .icon-minus {
+    display: none;
   }
 
-  .kb-question-card.card-open .kb-card-toggle-pod {
-    background: #fff4f0;
+  .faq-header-trigger:hover .faq-toggle-icon {
+    background: #fff0eb;
     color: var(--color-primary, #ff501a);
   }
 
-  .kb-question-card.card-open .kb-toggle-chevron {
-    transform: rotate(180deg);
+  .faq-item-card.is-open .faq-toggle-icon {
+    background: var(--color-primary, #ff501a);
+    color: #ffffff;
   }
 
-  /* Expandable Content */
-  .kb-card-expandable {
+  .faq-item-card.is-open .faq-toggle-icon .icon-plus {
+    display: none;
+  }
+
+  .faq-item-card.is-open .faq-toggle-icon .icon-minus {
+    display: block;
+  }
+
+  /* Answer Collapse */
+  .faq-answer-collapse {
     border-top: 1px solid #f1f4f8;
   }
 
-  .kb-card-content {
-    padding: 18px 22px 22px 82px;
+  .faq-answer-body {
+    padding: 18px 24px 24px;
   }
 
-  .kb-answer-text {
+  .faq-answer-text {
     margin: 0;
     font-size: 15.5px;
-    line-height: 1.8;
-    color: #4f5869;
-  }
-
-  /* Highlights Wrap */
-  .kb-highlights-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 14px;
-  }
-
-  .kb-micro-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: #fdf5f2;
-    border: 1px solid rgba(255, 80, 26, 0.18);
-    padding: 4px 11px;
-    border-radius: 999px;
-    font-size: 12.5px;
-    font-weight: 700;
-    color: var(--color-primary, #ff501a);
-  }
-
-  .kb-micro-pill i {
-    font-size: 13px;
+    line-height: 1.75;
+    color: #475467;
   }
 
   /* Empty State */
-  .kb-empty-state {
+  .faq-empty-state {
     text-align: center;
-    padding: 48px 24px;
+    padding: 48px 20px;
     background: #ffffff;
-    border: 1px dashed #d5dbe5;
-    border-radius: 16px;
+    border: 1px dashed #cbd5e1;
+    border-radius: 14px;
   }
 
-  .empty-icon-wrap {
-    width: 56px;
-    height: 56px;
+  .faq-empty-icon {
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
-    background: #f4f6fa;
-    color: #8b96a8;
+    background: #f1f5f9;
+    color: #94a3b8;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 26px;
-    margin-bottom: 14px;
+    font-size: 24px;
+    margin-bottom: 12px;
   }
 
-  .empty-heading {
-    font-family: 'Urbanist', sans-serif;
-    font-size: 19px;
-    font-weight: 800;
-    color: #11141d;
+  .faq-empty-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e293b;
     margin-bottom: 6px;
   }
 
-  .empty-desc {
+  .faq-empty-text {
     font-size: 14.5px;
-    color: #647083;
-    max-width: 440px;
-    margin: 0 auto 18px;
+    color: #64748b;
+    margin: 0 auto 16px;
+    max-width: 420px;
   }
 
-  .empty-reset-btn {
+  .faq-empty-reset {
     background: var(--color-primary, #ff501a);
     color: #ffffff;
     border: none;
     border-radius: 999px;
-    padding: 9px 22px;
+    padding: 8px 20px;
     font-size: 13.5px;
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: background 0.2s ease;
   }
 
-  .empty-reset-btn:hover {
+  .faq-empty-reset:hover {
     background: #e64512;
   }
 
+  /* Bottom Concierge Card */
+  .faq-bottom-concierge {
+    max-width: 920px;
+    margin: 40px auto 0;
+    padding: 24px 28px;
+    background: #ffffff;
+    border: 1px solid #e5e9f0;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+  }
+
+  .concierge-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-grow: 1;
+    min-width: 0;
+  }
+
+  .concierge-icon-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: #fff0eb;
+    color: var(--color-primary, #ff501a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .concierge-title {
+    font-size: 16.5px;
+    font-weight: 700;
+    color: #17181c;
+    margin: 0 0 4px 0;
+  }
+
+  .concierge-desc {
+    font-size: 14px;
+    color: #5c6678;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .concierge-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .concierge-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 44px;
+    padding: 0 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.22s ease;
+    white-space: nowrap;
+  }
+
+  .concierge-btn i {
+    font-size: 16px;
+  }
+
+  .btn-whatsapp {
+    background: #25d366;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+  }
+
+  .btn-whatsapp:hover {
+    background: #20ba5a;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
+  }
+
+  .btn-ticket {
+    background: #f1f5f9;
+    color: #334155;
+    border: 1px solid #e2e8f0;
+  }
+
+  .btn-ticket:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+    transform: translateY(-1px);
+  }
+
   /* Responsive Adjustments */
-  @media only screen and (max-width: 991px) {
-    .kb-layout-grid {
-      grid-template-columns: 1fr;
-      row-gap: 40px;
+  @media only screen and (max-width: 860px) {
+    .faq-bottom-concierge {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
     }
 
-    .kb-side-rail {
-      height: auto;
+    .concierge-actions {
+      width: 100%;
+      flex-direction: column;
     }
 
-    .kb-sticky-holder {
-      position: static;
-      gap: 20px;
-    }
-
-    .kb-card-content {
-      padding: 16px 20px 20px 20px;
-    }
-
-    .kb-card-header-btn {
-      padding: 16px 18px;
+    .concierge-btn {
+      width: 100%;
+      justify-content: center;
     }
   }
 
   @media only screen and (max-width: 575px) {
-    .kb-headline {
-      font-size: 28px;
+    .hostamble-faq-section {
+      padding: 60px 0 70px 0;
     }
 
-    .kb-card-question-title {
+    .faq-header-trigger {
+      padding: 16px 18px;
+    }
+
+    .faq-question-text {
       font-size: 16px;
     }
 
-    .kb-card-num-badge {
+    .faq-answer-body {
+      padding: 14px 18px 20px;
+    }
+
+    .faq-categories-nav {
+      justify-content: flex-start;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      padding-bottom: 6px;
+      scrollbar-width: none;
+    }
+
+    .faq-categories-nav::-webkit-scrollbar {
       display: none;
     }
   }
