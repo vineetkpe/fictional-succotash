@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import InteractiveHeroIllustration from "../components/InteractiveHeroIllustration.astro";
 import TrustGuaranteesStrip from "../components/TrustGuaranteesStrip.astro";
 import ServicesBlock from "../components/ServicesBlock.astro";
+import FeaturesBlock from "../components/FeaturesBlock.astro";
 import { sharedHosting, domainPricing } from "../data/pricing";
 
 const plans = sharedHosting.plans;
@@ -1393,155 +1394,8 @@ const plans = sharedHosting.plans;
     </div>
 
     <!------------------------------------------------------------------------------------------------------------------------->
-    <section
-        id="features"
-        style="position:relative;
-background:linear-gradient(180deg,var(--color-secondary-alt) 0%,var(--color-shade) 100%);
-padding:90px 20px;
-font-family:var(--font-primary);
-color:var(--color-heading);
-overflow:hidden"
-    >
-        <!-- soft theme glow -->
-        <div
-            style="position:absolute;left:-120px;top:-80px;width:260px;height:260px;background:rgba(var(--color-primary-rgb),.10);border-radius:50%;filter:blur(70px);z-index:0"
-        >
-        </div>
-        <div
-            style="position:absolute;right:-140px;bottom:-100px;width:300px;height:300px;background:rgba(var(--color-primary-rgb),.08);border-radius:50%;filter:blur(80px);z-index:0"
-        >
-        </div>
-
-        <div
-            style="max-width:1200px;margin:auto;text-align:center;position:relative;z-index:2"
-        >
-            <span
-                style="color:var(--color-primary);font-weight:700;letter-spacing:1px"
-            >
-                <b>WHY CHOOSE HOSTAMBLE</b>
-            </span>
-
-            <h2
-                style="font-size:40px;margin:18px 0 10px 0;font-weight:800;color:var(--color-heading)"
-            >
-                Our Best Features
-            </h2>
-
-            <p
-                style="color:var(--color-body);max-width:720px;margin:0 auto 70px auto;line-height:1.7"
-            >
-                Powerful hosting features designed to make your website fast,
-                secure and reliable.
-            </p>
-
-            <!-- line -->
-            <div style="position:relative;margin-top:20px">
-                <div
-                    style="height:2px;background:var(--color-border);width:100%;position:absolute;top:26px"
-                >
-                </div>
-
-                <div
-                    style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:40px"
-                >
-                    <!-- item generator (8 items) -->
-                    <!-- 1 -->
-                    <div
-                        class="fitem"
-                        style="width:140px;position:relative;z-index:2"
-                    >
-                        <div
-                            class="num"
-                            style="background:var(--color-primary);color:#fff;width:52px;height:52px;line-height:52px;border-radius:14px;margin:auto;font-weight:700;font-size:18px;box-shadow:0 8px 22px rgba(var(--color-primary-rgb),.25)"
-                        >
-                            1
-                        </div>
-                        <p style="margin-top:18px;font-weight:600">
-                            Control Panel
-                        </p>
-                    </div>
-
-                    <!-- 2 -->
-                    <div
-                        class="fitem"
-                        style="width:140px;position:relative;z-index:2"
-                    >
-                        <div
-                            class="num"
-                            style="background:var(--color-primary);color:#fff;width:52px;height:52px;line-height:52px;border-radius:14px;margin:auto;font-weight:700;font-size:18px;box-shadow:0 8px 22px rgba(var(--color-primary-rgb),.25)"
-                        >
-                            2
-                        </div>
-                        <p style="margin-top:18px;font-weight:600">
-                            Free SSL Certificate
-                        </p>
-                    </div>
-
-                    <!-- 3 -->
-                    <div
-                        class="fitem"
-                        style="width:140px;position:relative;z-index:2"
-                    >
-                        <div
-                            class="num"
-                            style="background:var(--color-primary);color:#fff;width:52px;height:52px;line-height:52px;border-radius:14px;margin:auto;font-weight:700;font-size:18px;box-shadow:0 8px 22px rgba(var(--color-primary-rgb),.25)"
-                        >
-                            3
-                        </div>
-                        <p style="margin-top:18px;font-weight:600">
-                            Business Email
-                        </p>
-                    </div>
-
-                    <!-- 4 -->
-                    <div
-                        class="fitem"
-                        style="width:140px;position:relative;z-index:2"
-                    >
-                        <div
-                            class="num"
-                            style="background:var(--color-primary);color:#fff;width:52px;height:52px;line-height:52px;border-radius:14px;margin:auto;font-weight:700;font-size:18px;box-shadow:0 8px 22px rgba(var(--color-primary-rgb),.25)"
-                        >
-                            4
-                        </div>
-                        <p style="margin-top:18px;font-weight:600">
-                            LiteSpeed Server
-                        </p>
-                    </div>
-
-                    <!-- 5 -->
-                    <div
-                        class="fitem"
-                        style="width:140px;position:relative;z-index:2"
-                    >
-                        <div
-                            class="num"
-                            style="background:var(--color-primary);color:#fff;width:52px;height:52px;line-height:52px;border-radius:14px;margin:auto;font-weight:700;font-size:18px;box-shadow:0 8px 22px rgba(var(--color-primary-rgb),.25)"
-                        >
-                            5
-                        </div>
-                        <p style="margin-top:18px;font-weight:600">
-                            Last 3 Days Backups
-                        </p>
-                    </div>
-
-                    <!-- 6 -->
-                    <div
-                        class="fitem"
-                        style="width:140px;position:relative;z-index:2"
-                    >
-                        <div
-                            class="num"
-                            style="background:var(--color-primary);color:#fff;width:52px;height:52px;line-height:52px;border-radius:14px;margin:auto;font-weight:700;font-size:18px;box-shadow:0 8px 22px rgba(var(--color-primary-rgb),.25)"
-                        >
-                            6
-                        </div>
-                        <p style="margin-top:18px;font-weight:600">NVMe SSD</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Why Choose Hostamble - Our Best Features Block -->
+    <FeaturesBlock />
 
     <script>
         import { initFeatureAnimations } from "../scripts/features";

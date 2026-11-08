@@ -1,0 +1,391 @@
+---
+// Hostamble Native Theme "Why Choose Hostamble / Our Best Features" Block
+// 100% aligned with Hostamble's design tokens, signature arch shapes, and Urbanist typography
+
+interface FeatureItem {
+  id: string;
+  step: string;
+  title: string;
+  description: string;
+  tag: string;
+  icon: string;
+  shapeClass: "shape-bg-1" | "shape-bg-2";
+}
+
+const features: FeatureItem[] = [
+  {
+    id: "cpanel",
+    step: "01",
+    title: "Control Panel",
+    description: "Intuitive cPanel & DirectAdmin control interface for effortless website, email, and database management.",
+    tag: "cPanel & DirectAdmin",
+    icon: "ri-dashboard-3-line",
+    shapeClass: "shape-bg-1"
+  },
+  {
+    id: "ssl",
+    step: "02",
+    title: "Free SSL Certificate",
+    description: "Automated Let's Encrypt SSL security with lifetime automatic renewal for all domains and subdomains.",
+    tag: "Lifetime Free HTTPS",
+    icon: "ri-shield-keyhole-line",
+    shapeClass: "shape-bg-2"
+  },
+  {
+    id: "email",
+    step: "03",
+    title: "Business Email",
+    description: "Professional @yourdomain mailboxes equipped with advanced spam filtering, auto-responders & Webmail.",
+    tag: "Spam-Protected Mail",
+    icon: "ri-mail-send-line",
+    shapeClass: "shape-bg-1"
+  },
+  {
+    id: "litespeed",
+    step: "04",
+    title: "LiteSpeed Server",
+    description: "Next-generation HTTP/3 web server powered by LSCache delivering up to 10x faster page load times.",
+    tag: "10x Faster Speeds",
+    icon: "ri-flashlight-line",
+    shapeClass: "shape-bg-2"
+  },
+  {
+    id: "backups",
+    step: "05",
+    title: "Last 3 Days Backups",
+    description: "Continuous automated daily snapshots with instant 1-click restoration for complete peace of mind.",
+    tag: "Instant 1-Click Restore",
+    icon: "ri-history-line",
+    shapeClass: "shape-bg-1"
+  },
+  {
+    id: "ssd",
+    step: "06",
+    title: "Pure NVMe SSD",
+    description: "Enterprise-grade NVMe solid-state drives in RAID-10 configuration for lightning read/write I/O performance.",
+    tag: "RAID-10 NVMe Storage",
+    icon: "ri-hard-drive-2-line",
+    shapeClass: "shape-bg-2"
+  },
+  {
+    id: "uptime",
+    step: "07",
+    title: "99.9% Uptime SLA",
+    description: "High-availability Tier-4 datacenter network monitored 24/7/365 to keep your website always online.",
+    tag: "Tier-4 Infrastructure",
+    icon: "ri-server-line",
+    shapeClass: "shape-bg-1"
+  },
+  {
+    id: "installer",
+    step: "08",
+    title: "1-Click App Installer",
+    description: "Deploy WordPress, WooCommerce, Joomla, and over 400+ popular web applications in just one single click.",
+    tag: "400+ One-Click Apps",
+    icon: "ri-apps-2-line",
+    shapeClass: "shape-bg-2"
+  }
+];
+---
+
+<section id="features" class="features-section" aria-label="Why Choose Hostamble - Our Best Features">
+  <!-- Subtle theme ambient blur glows -->
+  <div class="features-glow features-glow-left" aria-hidden="true"></div>
+  <div class="features-glow features-glow-right" aria-hidden="true"></div>
+
+  <div class="container position-relative" style="z-index: 2;">
+    <!-- Section Title (Hostamble Native Theme Hierarchy) -->
+    <div class="section-title text-center" data-sal="slide-up" data-sal-duration="800">
+      <span class="pre-title">WHY CHOOSE HOSTAMBLE</span>
+      <h2 class="title">Our Best Features</h2>
+      <p class="description">
+        Powerful hosting features designed to make your website fast, secure and reliable.
+      </p>
+    </div>
+
+    <!-- Features 8-Card Grid -->
+    <div class="row g-4 mt-2">
+      {features.map((feature, idx) => (
+        <div 
+          class="col-xl-3 col-lg-4 col-md-6 col-12"
+          data-sal="slide-up"
+          data-sal-delay={(idx % 4) * 100 + 100}
+          data-sal-duration="800"
+        >
+          <div 
+            class={`feature-card fitem ${feature.shapeClass}`}
+            style={`--item-idx: ${idx};`}
+          >
+            <div class="feature-card-inner">
+              <!-- Top Header: Signature Arch Icon Box + Step Pill -->
+              <div class="feature-top-row">
+                <div class="feature-icon-box">
+                  <i class={feature.icon} aria-hidden="true"></i>
+                </div>
+                <span class="feature-step-pill">#{feature.step}</span>
+              </div>
+
+              <!-- Main Content: Title & Description -->
+              <div class="feature-content">
+                <h5 class="feature-card-title">{feature.title}</h5>
+                <p class="feature-card-desc">{feature.description}</p>
+              </div>
+
+              <!-- Bottom Inclusions Tag -->
+              <div class="feature-tag-row">
+                <span class="feature-check-tag">
+                  <i class="ri-checkbox-circle-fill" aria-hidden="true"></i>
+                  <span>{feature.tag}</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .features-section {
+    position: relative;
+    background: linear-gradient(180deg, var(--color-secondary-alt, #FFF6F4) 0%, #FFFFFF 100%);
+    padding: 95px 0 90px 0;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+    color: var(--color-heading, #202133);
+    overflow: hidden;
+  }
+
+  /* Soft Theme Glow Orbs */
+  .features-glow {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .features-glow-left {
+    left: -120px;
+    top: -80px;
+    width: 280px;
+    height: 280px;
+    background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.08);
+    filter: blur(80px);
+  }
+  .features-glow-right {
+    right: -140px;
+    bottom: -100px;
+    width: 320px;
+    height: 320px;
+    background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.07);
+    filter: blur(90px);
+  }
+
+  /* Native Section Title Typography & Spacing */
+  .section-title .pre-title {
+    font-weight: 800;
+    font-size: 15px;
+    line-height: 26px;
+    color: var(--color-primary, #ff501a);
+    margin-bottom: 6px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    display: block;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+  }
+
+  .section-title .title {
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--color-heading, #202133);
+    margin: 8px 0 14px 0;
+    line-height: 1.25;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+  }
+
+  .section-title .description {
+    font-size: 16.5px;
+    color: var(--color-body, #6F6B80);
+    max-width: 680px;
+    margin: 0 auto 35px auto;
+    line-height: 1.65;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+  }
+
+  /* Individual Feature Card (Matching Hostamble service-card & bars-inner system) */
+  .feature-card {
+    background: var(--color-white, #ffffff);
+    border: 1px solid var(--color-border, #eeeeee);
+    border-radius: var(--radius-small, 5px);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.03);
+    height: 100%;
+    position: relative;
+    transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1),
+                box-shadow 0.35s cubic-bezier(0.165, 0.84, 0.44, 1),
+                border-color 0.35s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 16px 36px rgba(0, 0, 0, 0.08);
+    border-color: rgba(var(--color-primary-rgb, 210, 116, 29), 0.35);
+  }
+
+  .feature-card-inner {
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  /* Top Row: Icon + Step Pill */
+  .feature-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  /* Hostamble Signature Arch-Shaped Icon Box (border-radius: 26px 26px 3px 3px) */
+  .feature-icon-box {
+    width: 54px;
+    height: 54px;
+    border-radius: 26px 26px 3px 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+    transition: all 0.35s ease;
+  }
+
+  /* Alternating Theme Accents: shape-bg-1 (Orange) */
+  .shape-bg-1 .feature-icon-box {
+    background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.1);
+    color: var(--color-primary, #ff501a);
+  }
+  .feature-card.shape-bg-1:hover .feature-icon-box {
+    background: var(--color-primary, #ff501a);
+    color: var(--color-white, #ffffff);
+    box-shadow: 0 6px 18px rgba(var(--color-primary-rgb, 210, 116, 29), 0.28);
+  }
+
+  /* Alternating Theme Accents: shape-bg-2 (Dark Slate) */
+  .shape-bg-2 .feature-icon-box {
+    background: rgba(var(--color-secondary-rgb, 32, 33, 51), 0.08);
+    color: var(--color-secondary, #202133);
+  }
+  .feature-card.shape-bg-2:hover .feature-icon-box {
+    background: var(--color-secondary, #202133);
+    color: var(--color-white, #ffffff);
+    box-shadow: 0 6px 18px rgba(var(--color-secondary-rgb, 32, 33, 51), 0.28);
+  }
+
+  /* Step Badge Pill */
+  .feature-step-pill {
+    font-size: 13px;
+    font-weight: 800;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+    color: var(--color-primary, #ff501a);
+    background: var(--color-secondary-alt, #FFF6F4);
+    padding: 3px 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(var(--color-primary-rgb, 210, 116, 29), 0.16);
+    letter-spacing: 0.03em;
+    transition: all 0.25s ease;
+  }
+
+  .feature-card:hover .feature-step-pill {
+    background: var(--color-primary, #ff501a);
+    color: var(--color-white, #ffffff);
+    border-color: var(--color-primary, #ff501a);
+  }
+
+  /* Card Content Typography */
+  .feature-content {
+    flex-grow: 1;
+  }
+
+  .feature-card-title {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--color-heading, #202133);
+    margin: 0 0 10px 0;
+    line-height: 1.35;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+    transition: color 0.25s ease;
+  }
+
+  .feature-card:hover .feature-card-title {
+    color: var(--color-primary, #ff501a);
+  }
+
+  .feature-card-desc {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-body, #6F6B80);
+    line-height: 1.6;
+    margin: 0 0 18px 0;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+  }
+
+  /* Bottom Inclusion Tag */
+  .feature-tag-row {
+    padding-top: 14px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    margin-top: auto;
+  }
+
+  .feature-check-tag {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-primary, #ff501a);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+    line-height: 1.2;
+  }
+
+  .feature-check-tag i {
+    font-size: 15px;
+    color: var(--color-primary, #ff501a);
+  }
+
+  /* Staggered entrance animation for .fitem via features.ts */
+  .fitem {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s cubic-bezier(0.165, 0.84, 0.44, 1),
+                transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1),
+                box-shadow 0.35s ease,
+                border-color 0.35s ease;
+  }
+
+  .fitem.fitem-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 991px) {
+    .section-title .title {
+      font-size: 34px;
+    }
+    .features-section {
+      padding: 75px 0 70px 0;
+    }
+  }
+
+  @media (max-width: 575px) {
+    .section-title .title {
+      font-size: 28px;
+    }
+    .features-section {
+      padding: 60px 0 55px 0;
+    }
+    .feature-card-inner {
+      padding: 24px 20px;
+    }
+  }
+</style>
