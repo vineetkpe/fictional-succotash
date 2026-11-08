@@ -1,22 +1,19 @@
 ---
-// Hostamble Creative Organic Moving Shapes "Why Choose Hostamble / Our Best Features" Block
-// Features fluid, non-square morphing pods with gentle floating physics, background liquid blobs, and theme-faithful Urbanist typography
+// Hostamble Native Theme "Why Choose Hostamble / Our Best Features" Flow
+// Zero heavy "blockness" - Open, airy, theme-matched layout with creative organic moving shape badges
 
-interface FeaturePod {
+interface FeatureNode {
   id: string;
   step: string;
   title: string;
   description: string;
   tag: string;
   icon: string;
-  depth: number;
-  floatDelay: string;
-  floatDuration: string;
   morphClass: string;
   accent: "primary" | "secondary";
 }
 
-const featurePods: FeaturePod[] = [
+const features: FeatureNode[] = [
   {
     id: "cpanel",
     step: "01",
@@ -24,348 +21,220 @@ const featurePods: FeaturePod[] = [
     description: "Intuitive cPanel & DirectAdmin interface for effortless website, email, and database management.",
     tag: "cPanel & DirectAdmin",
     icon: "ri-dashboard-3-line",
-    depth: 18,
-    floatDelay: "0s",
-    floatDuration: "5.2s",
-    morphClass: "morph-shape-1",
+    morphClass: "organic-shape-1",
     accent: "primary"
   },
   {
     id: "ssl",
     step: "02",
     title: "Free SSL Certificate",
-    description: "Automated Let's Encrypt SSL security with lifetime automatic renewal for all domains and subdomains.",
+    description: "Automated Let's Encrypt SSL security with lifetime auto-renewal on all domains and subdomains.",
     tag: "Lifetime Free HTTPS",
     icon: "ri-shield-keyhole-line",
-    depth: 26,
-    floatDelay: "0.8s",
-    floatDuration: "6.1s",
-    morphClass: "morph-shape-2",
+    morphClass: "organic-shape-2",
     accent: "secondary"
   },
   {
     id: "email",
     step: "03",
     title: "Business Email",
-    description: "Professional @yourdomain mailboxes equipped with advanced spam filtering, auto-responders & Webmail.",
+    description: "Professional @yourdomain mailboxes equipped with advanced spam protection and Webmail access.",
     tag: "Spam-Protected Mail",
     icon: "ri-mail-send-line",
-    depth: 22,
-    floatDelay: "1.4s",
-    floatDuration: "5.6s",
-    morphClass: "morph-shape-3",
+    morphClass: "organic-shape-3",
     accent: "primary"
   },
   {
     id: "litespeed",
     step: "04",
     title: "LiteSpeed Server",
-    description: "Next-generation HTTP/3 web server powered by LSCache delivering up to 10x faster page load times.",
+    description: "Next-gen HTTP/3 web server with built-in LSCache delivering up to 10x faster page loading speeds.",
     tag: "10x Faster Speeds",
     icon: "ri-flashlight-line",
-    depth: 30,
-    floatDelay: "0.4s",
-    floatDuration: "6.5s",
-    morphClass: "morph-shape-4",
+    morphClass: "organic-shape-4",
     accent: "secondary"
   },
   {
     id: "backups",
     step: "05",
     title: "Last 3 Days Backups",
-    description: "Continuous automated daily snapshots with instant 1-click restoration for complete peace of mind.",
+    description: "Continuous automated daily snapshots with instant 1-click restore points for complete peace of mind.",
     tag: "Instant 1-Click Restore",
     icon: "ri-history-line",
-    depth: 24,
-    floatDelay: "1.8s",
-    floatDuration: "5.8s",
-    morphClass: "morph-shape-5",
+    morphClass: "organic-shape-5",
     accent: "primary"
   },
   {
     id: "ssd",
     step: "06",
     title: "Pure NVMe SSD",
-    description: "Enterprise-grade NVMe solid-state drives in RAID-10 configuration for lightning read/write I/O performance.",
+    description: "Enterprise RAID-10 NVMe solid-state storage offering blazing read and write input/output speeds.",
     tag: "RAID-10 NVMe Storage",
     icon: "ri-hard-drive-2-line",
-    depth: 28,
-    floatDelay: "1.0s",
-    floatDuration: "6.3s",
-    morphClass: "morph-shape-6",
+    morphClass: "organic-shape-6",
     accent: "secondary"
   },
   {
     id: "uptime",
     step: "07",
     title: "99.9% Uptime SLA",
-    description: "High-availability Tier-4 datacenter network monitored 24/7/365 to keep your website always online.",
+    description: "High-availability Tier-4 datacenter network monitored 24/7/365 to keep your site reliably online.",
     tag: "Tier-4 Infrastructure",
     icon: "ri-server-line",
-    depth: 20,
-    floatDelay: "0.6s",
-    floatDuration: "5.4s",
-    morphClass: "morph-shape-7",
+    morphClass: "organic-shape-7",
     accent: "primary"
   },
   {
     id: "installer",
     step: "08",
     title: "1-Click App Installer",
-    description: "Deploy WordPress, WooCommerce, Joomla, and over 400+ popular web applications in just one single click.",
+    description: "Deploy WordPress, WooCommerce, Joomla, and over 400+ web applications in just one single click.",
     tag: "400+ One-Click Apps",
     icon: "ri-apps-2-line",
-    depth: 25,
-    floatDelay: "1.2s",
-    floatDuration: "6.0s",
-    morphClass: "morph-shape-8",
+    morphClass: "organic-shape-8",
     accent: "secondary"
   }
 ];
+
+// Split into two rows of 4 for clean desktop track alignment
+const row1 = features.slice(0, 4);
+const row2 = features.slice(4, 8);
 ---
 
-<section id="features" class="features-creative-section" aria-label="Why Choose Hostamble - Our Best Features">
-  <!-- Dynamic Moving Background Liquid Blobs -->
-  <div class="blob-stage" aria-hidden="true">
-    <div class="liquid-blob blob-orange"></div>
-    <div class="liquid-blob blob-warm"></div>
-    <div class="liquid-blob blob-slate"></div>
-    <!-- Moving Floating Geometric Particles -->
-    <div class="floating-particle particle-ring-1"></div>
-    <div class="floating-particle particle-ring-2"></div>
-    <div class="floating-particle particle-capsule-1"></div>
-    <div class="floating-particle particle-capsule-2"></div>
-    <div class="floating-particle particle-dot-1"></div>
-    <div class="floating-particle particle-dot-2"></div>
-  </div>
+<section id="features" class="features-theme-section" aria-label="Why Choose Hostamble - Our Best Features">
+  <!-- Soft Ambient Theme Glow Orbs -->
+  <div class="features-ambient-glow glow-left" aria-hidden="true"></div>
+  <div class="features-ambient-glow glow-right" aria-hidden="true"></div>
 
-  <div class="container position-relative" style="z-index: 3;">
-    <!-- Section Title (Authentic Theme Typography) -->
+  <div class="container position-relative" style="z-index: 2;">
+    <!-- Section Title (Authentic Hostamble Theme Hierarchy) -->
     <div class="section-title text-center" data-sal="slide-up" data-sal-duration="800">
-      <div class="creative-badge-pill">
-        <span class="pulse-dot"></span>
-        <span class="pre-title">WHY CHOOSE HOSTAMBLE</span>
-      </div>
+      <span class="pre-title">WHY CHOOSE HOSTAMBLE</span>
       <h2 class="title">Our Best Features</h2>
       <p class="description">
         Powerful hosting features designed to make your website fast, secure and reliable.
       </p>
     </div>
 
-    <!-- Dynamic Staggered Constellation of Moving Organic Pods -->
-    <div class="features-pods-grid" id="featuresPodsStage">
-      {featurePods.map((pod, idx) => (
-        <div 
-          class={`pod-wrapper ${idx % 2 === 1 ? 'pod-offset-down' : 'pod-offset-up'}`}
-          style={`--pod-depth: ${pod.depth}px;`}
-          data-sal="slide-up"
-          data-sal-delay={(idx % 4) * 80 + 100}
-          data-sal-duration="750"
-        >
+    <!-- Features Flow Track: Row 1 (Items 01 - 04) -->
+    <div class="features-row-wrapper position-relative mt-2">
+      <div class="track-connector-line d-none d-lg-block" aria-hidden="true"></div>
+      <div class="row g-4 g-lg-5 justify-content-center">
+        {row1.map((item, idx) => (
           <div 
-            class={`feature-organic-pod fitem ${pod.morphClass} accent-${pod.accent}`}
-            style={`--item-idx: ${idx};`}
+            class="col-xl-3 col-lg-3 col-md-6 col-12"
+            data-sal="slide-up"
+            data-sal-delay={idx * 100 + 100}
+            data-sal-duration="750"
           >
-            <!-- Ambient Pod Liquid Halo -->
-            <div class="pod-liquid-halo" aria-hidden="true"></div>
-
-            <div class="pod-inner-content">
-              <!-- Top Row: Floating Icon Orb + Stepper Badge -->
-              <div class="pod-top-bar">
-                <div class="pod-icon-orb">
-                  <i class={pod.icon} aria-hidden="true"></i>
+            <div class="feature-item fitem" style={`--item-idx: ${idx};`}>
+              <!-- Creative Organic Shape Badge (Non-Square, Morphing on Hover) -->
+              <div class="feature-badge-wrap">
+                <div class={`organic-shape-badge ${item.morphClass} accent-${item.accent}`}>
+                  <i class={item.icon} aria-hidden="true"></i>
                 </div>
-                <div class="pod-stepper-pill">
-                  <span class="stepper-hash">#</span>
-                  <span class="stepper-num">{pod.step}</span>
-                </div>
+                <span class="badge-step-pill">#{item.step}</span>
               </div>
 
-              <!-- Main Content: Title & Benefit -->
-              <div class="pod-text-block">
-                <h5 class="pod-title">{pod.title}</h5>
-                <p class="pod-desc">{pod.description}</p>
-              </div>
-
-              <!-- Bottom Inclusions Tag -->
-              <div class="pod-bottom-tag">
+              <!-- Open Clean Content (No Box Walls) -->
+              <h5 class="feature-title">{item.title}</h5>
+              <p class="feature-desc">{item.description}</p>
+              
+              <div class="feature-tag-pill">
                 <i class="ri-checkbox-circle-fill" aria-hidden="true"></i>
-                <span>{pod.tag}</span>
+                <span>{item.tag}</span>
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+    </div>
+
+    <!-- Features Flow Track: Row 2 (Items 05 - 08) -->
+    <div class="features-row-wrapper position-relative mt-4 mt-lg-5">
+      <div class="track-connector-line d-none d-lg-block" aria-hidden="true"></div>
+      <div class="row g-4 g-lg-5 justify-content-center">
+        {row2.map((item, idx) => (
+          <div 
+            class="col-xl-3 col-lg-3 col-md-6 col-12"
+            data-sal="slide-up"
+            data-sal-delay={idx * 100 + 200}
+            data-sal-duration="750"
+          >
+            <div class="feature-item fitem" style={`--item-idx: ${idx + 4};`}>
+              <!-- Creative Organic Shape Badge (Non-Square, Morphing on Hover) -->
+              <div class="feature-badge-wrap">
+                <div class={`organic-shape-badge ${item.morphClass} accent-${item.accent}`}>
+                  <i class={item.icon} aria-hidden="true"></i>
+                </div>
+                <span class="badge-step-pill">#{item.step}</span>
+              </div>
+
+              <!-- Open Clean Content (No Box Walls) -->
+              <h5 class="feature-title">{item.title}</h5>
+              <p class="feature-desc">{item.description}</p>
+              
+              <div class="feature-tag-pill">
+                <i class="ri-checkbox-circle-fill" aria-hidden="true"></i>
+                <span>{item.tag}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 </section>
 
 <style>
-  .features-creative-section {
+  .features-theme-section {
     position: relative;
-    background: linear-gradient(180deg, var(--color-secondary-alt, #FFF6F4) 0%, #FFFFFF 50%, var(--color-secondary-alt, #FFF6F4) 100%);
-    padding: 100px 0 110px 0;
+    background: linear-gradient(180deg, var(--color-secondary-alt, #FFF6F4) 0%, #FFFFFF 100%);
+    padding: 95px 0 90px 0;
     font-family: var(--font-primary, "Urbanist", sans-serif);
     color: var(--color-heading, #202133);
     overflow: hidden;
   }
 
-  /* Dynamic Moving Background Liquid Blobs */
-  .blob-stage {
+  /* Soft Ambient Theme Glow Orbs */
+  .features-ambient-glow {
     position: absolute;
-    inset: 0;
-    overflow: hidden;
+    border-radius: 50%;
     pointer-events: none;
     z-index: 1;
   }
-
-  .liquid-blob {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(75px);
-    opacity: 0.75;
-    mix-blend-mode: multiply;
-  }
-
-  /* Blob 1: Vibrant Primary Orange Liquid Morph */
-  .blob-orange {
-    width: 480px;
-    height: 480px;
-    background: radial-gradient(circle, rgba(var(--color-primary-rgb, 210, 116, 29), 0.22) 0%, rgba(255, 80, 26, 0.03) 70%, transparent 100%);
-    top: -60px;
+  .glow-left {
     left: -120px;
-    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
-    animation: morphBlob1 13s ease-in-out infinite alternate, floatBlob1 18s ease-in-out infinite;
+    top: -80px;
+    width: 300px;
+    height: 300px;
+    background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.08);
+    filter: blur(85px);
   }
-
-  /* Blob 2: Warm Amber/Golden Accent Liquid Morph */
-  .blob-warm {
-    width: 520px;
-    height: 520px;
-    background: radial-gradient(circle, rgba(255, 164, 27, 0.18) 0%, rgba(255, 80, 26, 0.02) 70%, transparent 100%);
-    bottom: -100px;
+  .glow-right {
     right: -140px;
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    animation: morphBlob2 15s ease-in-out infinite alternate, floatBlob2 22s ease-in-out infinite;
+    bottom: -100px;
+    width: 320px;
+    height: 320px;
+    background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.07);
+    filter: blur(95px);
   }
 
-  /* Blob 3: Center Soft Secondary Indigo/Slate Drift */
-  .blob-slate {
-    width: 380px;
-    height: 380px;
-    background: radial-gradient(circle, rgba(var(--color-secondary-rgb, 32, 33, 51), 0.06) 0%, transparent 70%);
-    top: 40%;
-    left: 45%;
-    border-radius: 50% 50% 40% 60% / 40% 60% 40% 60%;
-    animation: morphBlob3 17s ease-in-out infinite alternate, floatBlob3 25s ease-in-out infinite;
-  }
-
-  /* Moving Floating Geometric Particles */
-  .floating-particle {
-    position: absolute;
-    pointer-events: none;
-    opacity: 0.45;
-  }
-
-  .particle-ring-1 {
-    width: 70px;
-    height: 70px;
-    border: 3px dashed rgba(var(--color-primary-rgb, 210, 116, 29), 0.25);
-    border-radius: 50%;
-    top: 12%;
-    right: 8%;
-    animation: rotateParticle 24s linear infinite, floatParticle 7s ease-in-out infinite alternate;
-  }
-
-  .particle-ring-2 {
-    width: 44px;
-    height: 44px;
-    border: 2.5px solid rgba(var(--color-secondary-rgb, 32, 33, 51), 0.15);
-    border-radius: 50%;
-    bottom: 14%;
-    left: 6%;
-    animation: rotateParticleRev 20s linear infinite, floatParticle 8s ease-in-out infinite alternate;
-  }
-
-  .particle-capsule-1 {
-    width: 45px;
-    height: 18px;
-    background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.12);
-    border-radius: 20px;
-    top: 28%;
-    left: 4%;
-    transform: rotate(32deg);
-    animation: floatParticle 6s ease-in-out infinite alternate;
-  }
-
-  .particle-capsule-2 {
-    width: 38px;
-    height: 15px;
-    background: rgba(var(--color-secondary-rgb, 32, 33, 51), 0.1);
-    border-radius: 20px;
-    bottom: 30%;
-    right: 5%;
-    transform: rotate(-25deg);
-    animation: floatParticle 9s ease-in-out infinite alternate;
-  }
-
-  .particle-dot-1 {
-    width: 10px;
-    height: 10px;
-    background: var(--color-primary, #ff501a);
-    border-radius: 50%;
-    top: 48%;
-    right: 12%;
-    opacity: 0.35;
-    animation: floatParticle 5s ease-in-out infinite alternate;
-  }
-
-  .particle-dot-2 {
-    width: 14px;
-    height: 14px;
-    background: #ffa41b;
-    border-radius: 50%;
-    bottom: 10%;
-    left: 15%;
-    opacity: 0.3;
-    animation: floatParticle 7.5s ease-in-out infinite alternate;
-  }
-
-  /* Section Title & Creative Pill */
-  .creative-badge-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: #ffffff;
-    border: 1px solid rgba(var(--color-primary-rgb, 210, 116, 29), 0.22);
-    padding: 6px 18px;
-    border-radius: 30px;
-    box-shadow: 0 4px 14px rgba(255, 80, 26, 0.06);
-    margin-bottom: 12px;
-  }
-
-  .pulse-dot {
-    width: 8px;
-    height: 8px;
-    background: var(--color-primary, #ff501a);
-    border-radius: 50%;
-    box-shadow: 0 0 0 rgba(var(--color-primary-rgb), 0.5);
-    animation: pulseDot 2s infinite;
-  }
-
+  /* Section Title Hierarchy */
   .section-title .pre-title {
     font-weight: 800;
-    font-size: 14px;
-    line-height: 22px;
+    font-size: 15px;
+    line-height: 26px;
     color: var(--color-primary, #ff501a);
+    margin-bottom: 6px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    margin: 0;
+    display: block;
     font-family: var(--font-primary, "Urbanist", sans-serif);
   }
 
   .section-title .title {
-    font-size: 42px;
+    font-size: 40px;
     font-weight: 800;
     color: var(--color-heading, #202133);
     margin: 8px 0 14px 0;
@@ -377,269 +246,235 @@ const featurePods: FeaturePod[] = [
     font-size: 16.5px;
     color: var(--color-body, #6F6B80);
     max-width: 680px;
-    margin: 0 auto 50px auto;
+    margin: 0 auto 40px auto;
     line-height: 1.65;
     font-family: var(--font-primary, "Urbanist", sans-serif);
   }
 
-  /* Creative Organic Pods Grid (4 columns on desktop with wave staggered offset) */
-  .features-pods-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 28px;
-    position: relative;
-    z-index: 2;
-    padding-bottom: 30px;
-  }
-
-  /* Wave Staggering: Breaks standard grid squares into an organic wave! */
-  .pod-offset-down {
-    margin-top: 26px;
-  }
-  .pod-offset-up {
-    margin-top: 0;
-  }
-
-  .pod-wrapper {
+  /* Connecting Track Line on Desktop (Zero Blockness) */
+  .features-row-wrapper {
     position: relative;
   }
 
-  /* The Organic Pod (Non-Square, Morphing on Hover) */
-  .feature-organic-pod {
-    background: rgba(255, 255, 255, 0.94);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1.5px solid rgba(var(--color-primary-rgb, 210, 116, 29), 0.14);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.035), 0 1px 3px rgba(255, 80, 26, 0.05);
-    height: 100%;
-    min-height: 275px;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-                box-shadow 0.4s ease,
-                border-color 0.4s ease,
-                border-radius 0.6s ease;
-  }
-
-  /* 8 Distinct Asymmetric Organic Non-Square Shapes */
-  .morph-shape-1 {
-    border-radius: 38px 24px 34px 22px / 24px 34px 22px 38px;
-  }
-  .morph-shape-2 {
-    border-radius: 24px 38px 22px 34px / 36px 22px 36px 22px;
-  }
-  .morph-shape-3 {
-    border-radius: 34px 22px 38px 26px / 26px 36px 24px 36px;
-  }
-  .morph-shape-4 {
-    border-radius: 22px 36px 26px 38px / 38px 24px 36px 24px;
-  }
-  .morph-shape-5 {
-    border-radius: 36px 24px 34px 24px / 24px 36px 24px 36px;
-  }
-  .morph-shape-6 {
-    border-radius: 24px 36px 24px 36px / 36px 24px 36px 24px;
-  }
-  .morph-shape-7 {
-    border-radius: 38px 22px 36px 26px / 24px 36px 22px 38px;
-  }
-  .morph-shape-8 {
-    border-radius: 24px 36px 24px 38px / 36px 24px 38px 22px;
-  }
-
-  /* Smooth shape morphing strictly when THAT specific pod is hovered */
-  .feature-organic-pod.morph-shape-1:hover {
-    border-radius: 26px 36px 22px 38px / 36px 24px 36px 24px;
-  }
-  .feature-organic-pod.morph-shape-2:hover {
-    border-radius: 36px 24px 34px 22px / 22px 36px 22px 36px;
-  }
-  .feature-organic-pod.morph-shape-3:hover {
-    border-radius: 24px 36px 24px 38px / 38px 24px 36px 24px;
-  }
-  .feature-organic-pod.morph-shape-4:hover {
-    border-radius: 36px 24px 38px 24px / 24px 38px 24px 36px;
-  }
-  .feature-organic-pod.morph-shape-5:hover {
-    border-radius: 24px 38px 22px 36px / 36px 22px 38px 24px;
-  }
-  .feature-organic-pod.morph-shape-6:hover {
-    border-radius: 38px 22px 36px 24px / 22px 38px 24px 36px;
-  }
-  .feature-organic-pod.morph-shape-7:hover {
-    border-radius: 24px 36px 24px 38px / 36px 22px 38px 24px;
-  }
-  .feature-organic-pod.morph-shape-8:hover {
-    border-radius: 36px 24px 36px 22px / 24px 36px 22px 38px;
-  }
-
-  /* Pod Liquid Glow Aura on Hover */
-  .pod-liquid-halo {
+  .track-connector-line {
     position: absolute;
-    width: 150px;
-    height: 150px;
-    top: -50px;
-    right: -50px;
-    background: radial-gradient(circle, rgba(var(--color-primary-rgb, 210, 116, 29), 0.16) 0%, transparent 70%);
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity 0.4s ease, transform 0.4s ease;
+    top: 40px;
+    left: 8%;
+    right: 8%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      rgba(var(--color-primary-rgb, 210, 116, 29), 0.22) 15%, 
+      rgba(var(--color-primary-rgb, 210, 116, 29), 0.22) 85%, 
+      transparent 100%
+    );
+    z-index: 1;
     pointer-events: none;
   }
 
-  /* Interactive Pod Hover State */
-  .feature-organic-pod:hover {
-    transform: translateY(-12px) scale(1.025);
-    box-shadow: 0 20px 42px rgba(255, 80, 26, 0.14), 0 4px 12px rgba(0, 0, 0, 0.04);
-    border-color: rgba(var(--color-primary-rgb, 210, 116, 29), 0.45);
-    background: #ffffff;
-    z-index: 5;
-  }
-
-  .feature-organic-pod:hover .pod-liquid-halo {
-    opacity: 1;
-    transform: scale(1.4);
-  }
-
-  .pod-inner-content {
-    padding: 28px 22px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
+  /* Open Feature Item (NO Card Box, NO Heavy Border) */
+  .feature-item {
+    text-align: center;
+    padding: 10px 14px;
     position: relative;
     z-index: 2;
+    cursor: pointer;
   }
 
-  /* Top Row */
-  .pod-top-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 18px;
+  /* Badge Wrap with Floating Step Pill */
+  .feature-badge-wrap {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px auto;
   }
 
-  /* Floating Icon Orb (Organic Curved Liquid Bubble) */
-  .pod-icon-orb {
-    width: 52px;
-    height: 52px;
-    border-radius: 20px 12px 18px 14px / 14px 18px 12px 20px;
+  /* Creative Organic Shape Badge (Non-Square, Morphing on Hover) */
+  .organic-shape-badge {
+    width: 80px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
-    flex-shrink: 0;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-size: 30px;
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                background 0.35s ease,
+                color 0.35s ease,
+                box-shadow 0.35s ease,
+                border-radius 0.5s ease;
   }
 
-  /* Primary Accent Orb */
-  .accent-primary .pod-icon-orb {
-    background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.1);
+  /* 8 Distinct Asymmetric Non-Square Organic Shapes */
+  .organic-shape-1 {
+    border-radius: 40px 22px 36px 20px / 22px 36px 20px 40px;
+  }
+  .organic-shape-2 {
+    border-radius: 22px 40px 20px 36px / 38px 20px 38px 20px;
+  }
+  .organic-shape-3 {
+    border-radius: 36px 20px 40px 24px / 24px 38px 22px 38px;
+  }
+  .organic-shape-4 {
+    border-radius: 20px 38px 24px 40px / 40px 22px 38px 22px;
+  }
+  .organic-shape-5 {
+    border-radius: 38px 22px 36px 22px / 22px 38px 22px 38px;
+  }
+  .organic-shape-6 {
+    border-radius: 22px 38px 22px 38px / 38px 22px 38px 22px;
+  }
+  .organic-shape-7 {
+    border-radius: 40px 20px 38px 24px / 22px 38px 20px 40px;
+  }
+  .organic-shape-8 {
+    border-radius: 22px 38px 22px 40px / 38px 22px 40px 20px;
+  }
+
+  /* Primary Accent Badge */
+  .accent-primary {
+    background: #ffffff;
+    border: 2px solid rgba(var(--color-primary-rgb, 210, 116, 29), 0.28);
     color: var(--color-primary, #ff501a);
-    border: 1px solid rgba(var(--color-primary-rgb, 210, 116, 29), 0.18);
-  }
-  .feature-organic-pod.accent-primary:hover .pod-icon-orb {
-    background: var(--color-primary, #ff501a);
-    color: #ffffff;
-    border-color: var(--color-primary, #ff501a);
-    box-shadow: 0 8px 20px rgba(var(--color-primary-rgb, 210, 116, 29), 0.32);
-    transform: rotate(-6deg) scale(1.08);
+    box-shadow: 0 4px 16px rgba(var(--color-primary-rgb, 210, 116, 29), 0.08);
   }
 
-  /* Secondary Accent Orb */
-  .accent-secondary .pod-icon-orb {
-    background: rgba(var(--color-secondary-rgb, 32, 33, 51), 0.08);
+  /* Secondary Accent Badge */
+  .accent-secondary {
+    background: #ffffff;
+    border: 2px solid rgba(var(--color-secondary-rgb, 32, 33, 51), 0.22);
     color: var(--color-secondary, #202133);
-    border: 1px solid rgba(var(--color-secondary-rgb, 32, 33, 51), 0.15);
-  }
-  .feature-organic-pod.accent-secondary:hover .pod-icon-orb {
-    background: var(--color-secondary, #202133);
-    color: #ffffff;
-    border-color: var(--color-secondary, #202133);
-    box-shadow: 0 8px 20px rgba(var(--color-secondary-rgb, 32, 33, 51), 0.28);
-    transform: rotate(6deg) scale(1.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
   }
 
-  /* Stepper Pill */
-  .pod-stepper-pill {
-    display: inline-flex;
-    align-items: baseline;
-    font-family: var(--font-primary, "Urbanist", sans-serif);
+  /* Floating Step Badge Pill */
+  .badge-step-pill {
+    position: absolute;
+    top: -4px;
+    right: -6px;
+    font-size: 11.5px;
     font-weight: 800;
-    font-size: 14px;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
     color: var(--color-primary, #ff501a);
     background: var(--color-secondary-alt, #FFF6F4);
-    padding: 4px 11px;
-    border-radius: 14px;
-    border: 1px solid rgba(var(--color-primary-rgb, 210, 116, 29), 0.16);
+    border: 1px solid rgba(var(--color-primary-rgb, 210, 116, 29), 0.25);
+    border-radius: 10px;
+    padding: 1px 7px;
+    line-height: 1.4;
     transition: all 0.3s ease;
+    z-index: 3;
   }
 
-  .stepper-hash {
-    font-size: 11px;
-    opacity: 0.75;
-    margin-right: 2px;
-  }
-
-  .feature-organic-pod:hover .pod-stepper-pill {
-    background: var(--color-primary, #ff501a);
-    color: #ffffff;
-    border-color: var(--color-primary, #ff501a);
-    box-shadow: 0 4px 12px rgba(var(--color-primary-rgb, 210, 116, 29), 0.24);
-  }
-
-  /* Typography */
-  .pod-text-block {
-    flex-grow: 1;
-  }
-
-  .pod-title {
-    font-size: 18.5px;
+  /* Content Typography (Open & Clean) */
+  .feature-title {
+    font-size: 18px;
     font-weight: 700;
     color: var(--color-heading, #202133);
-    margin: 0 0 9px 0;
+    margin: 0 0 8px 0;
     line-height: 1.35;
     font-family: var(--font-primary, "Urbanist", sans-serif);
     transition: color 0.25s ease;
   }
 
-  .feature-organic-pod:hover .pod-title {
-    color: var(--color-primary, #ff501a);
-  }
-
-  .pod-desc {
+  .feature-desc {
     font-size: 13.8px;
     font-weight: 400;
     color: var(--color-body, #6F6B80);
-    line-height: 1.6;
-    margin: 0 0 16px 0;
+    line-height: 1.55;
+    margin: 0 auto 12px auto;
+    max-width: 230px;
     font-family: var(--font-primary, "Urbanist", sans-serif);
   }
 
-  /* Bottom Inclusions Tag */
-  .pod-bottom-tag {
+  .feature-tag-pill {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
     font-size: 12.5px;
     font-weight: 700;
     color: var(--color-primary, #ff501a);
-    padding-top: 13px;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    margin-top: auto;
+    background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.08);
+    padding: 3px 10px;
+    border-radius: 12px;
     font-family: var(--font-primary, "Urbanist", sans-serif);
+    transition: all 0.25s ease;
   }
 
-  .pod-bottom-tag i {
-    font-size: 14.5px;
+  .feature-tag-pill i {
+    font-size: 13.5px;
+  }
+
+  /* ========================================================
+     HOVER REACTION: STRICTLY THE SELECTED HOVERED ITEM MOVES
+     ======================================================== */
+
+  .feature-item:hover .organic-shape-badge {
+    transform: translateY(-10px) scale(1.12);
+    box-shadow: 0 14px 30px rgba(var(--color-primary-rgb, 210, 116, 29), 0.32);
+  }
+
+  .feature-item:hover .accent-primary {
+    background: var(--color-primary, #ff501a);
+    color: #ffffff;
+    border-color: var(--color-primary, #ff501a);
+  }
+
+  .feature-item:hover .accent-secondary {
+    background: var(--color-secondary, #202133);
+    color: #ffffff;
+    border-color: var(--color-secondary, #202133);
+    box-shadow: 0 14px 30px rgba(var(--color-secondary-rgb, 32, 33, 51), 0.28);
+  }
+
+  /* Smooth shape morphing strictly on hovered badge */
+  .feature-item:hover .organic-shape-1 {
+    border-radius: 24px 38px 22px 38px / 38px 24px 38px 24px;
+  }
+  .feature-item:hover .organic-shape-2 {
+    border-radius: 38px 22px 36px 22px / 22px 38px 22px 38px;
+  }
+  .feature-item:hover .organic-shape-3 {
+    border-radius: 22px 38px 22px 40px / 40px 22px 38px 22px;
+  }
+  .feature-item:hover .organic-shape-4 {
+    border-radius: 38px 22px 40px 22px / 22px 40px 22px 38px;
+  }
+  .feature-item:hover .organic-shape-5 {
+    border-radius: 22px 40px 22px 38px / 38px 22px 40px 22px;
+  }
+  .feature-item:hover .organic-shape-6 {
+    border-radius: 40px 22px 38px 22px / 22px 38px 22px 40px;
+  }
+  .feature-item:hover .organic-shape-7 {
+    border-radius: 22px 38px 22px 40px / 38px 22px 40px 22px;
+  }
+  .feature-item:hover .organic-shape-8 {
+    border-radius: 38px 22px 38px 22px / 22px 40px 22px 38px;
+  }
+
+  .feature-item:hover .badge-step-pill {
+    background: var(--color-primary, #ff501a);
+    color: #ffffff;
+    border-color: var(--color-primary, #ff501a);
+    transform: translateY(-10px);
+  }
+
+  .feature-item:hover .feature-title {
     color: var(--color-primary, #ff501a);
   }
 
-  /* Staggered entrance animation for .fitem via features.ts */
+  .feature-item:hover .feature-tag-pill {
+    background: var(--color-primary, #ff501a);
+    color: #ffffff;
+  }
+  .feature-item:hover .feature-tag-pill i {
+    color: #ffffff;
+  }
+
+  /* Entrance Animation for .fitem via features.ts */
   .fitem {
     opacity: 0;
-    transform: translateY(28px);
+    transform: translateY(24px);
     transition: opacity 0.6s cubic-bezier(0.165, 0.84, 0.44, 1),
                 transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
@@ -649,151 +484,25 @@ const featurePods: FeaturePod[] = [
     transform: translateY(0);
   }
 
-  /* ========================================================
-     KEYFRAME ANIMATIONS: BACKGROUND BLOBS & PARTICLES
-     ======================================================== */
-
-  /* Background Liquid Blob Keyframes */
-  @keyframes morphBlob1 {
-    0% { border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; }
-    50% { border-radius: 55% 45% 35% 65% / 50% 60% 40% 50%; }
-    100% { border-radius: 40% 60% 60% 40% / 60% 40% 60% 40%; }
-  }
-  @keyframes floatBlob1 {
-    0% { transform: translate(0, 0) rotate(0deg); }
-    50% { transform: translate(45px, 35px) rotate(15deg); }
-    100% { transform: translate(0, 0) rotate(0deg); }
-  }
-
-  @keyframes morphBlob2 {
-    0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-    50% { border-radius: 45% 55% 65% 35% / 40% 60% 40% 60%; }
-    100% { border-radius: 50% 50% 40% 60% / 55% 45% 55% 45%; }
-  }
-  @keyframes floatBlob2 {
-    0% { transform: translate(0, 0) rotate(0deg); }
-    50% { transform: translate(-50px, -40px) rotate(-18deg); }
-    100% { transform: translate(0, 0) rotate(0deg); }
-  }
-
-  @keyframes morphBlob3 {
-    0% { border-radius: 50% 50% 40% 60% / 40% 60% 40% 60%; }
-    100% { border-radius: 60% 40% 55% 45% / 50% 45% 55% 50%; }
-  }
-  @keyframes floatBlob3 {
-    0% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(25px, -25px) scale(1.1); }
-    100% { transform: translate(0, 0) scale(1); }
-  }
-
-  /* Particle Motions */
-  @keyframes rotateParticle {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-  @keyframes rotateParticleRev {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(-360deg); }
-  }
-  @keyframes floatParticle {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-16px); }
-  }
-
-  @keyframes pulseDot {
-    0% { box-shadow: 0 0 0 0 rgba(var(--color-primary-rgb, 210, 116, 29), 0.6); }
-    70% { box-shadow: 0 0 0 7px rgba(var(--color-primary-rgb, 210, 116, 29), 0); }
-    100% { box-shadow: 0 0 0 0 rgba(var(--color-primary-rgb, 210, 116, 29), 0); }
-  }
-
   /* Responsive Adjustments */
-  @media (max-width: 1199px) {
-    .features-pods-grid {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-  }
-
   @media (max-width: 991px) {
-    .features-pods-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
-    .pod-offset-down {
-      transform: translateY(0);
-    }
     .section-title .title {
       font-size: 34px;
     }
-    .features-creative-section {
-      padding: 80px 0 80px 0;
+    .features-theme-section {
+      padding: 75px 0 70px 0;
+    }
+    .feature-desc {
+      max-width: 280px;
     }
   }
 
   @media (max-width: 575px) {
-    .features-pods-grid {
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
     .section-title .title {
       font-size: 28px;
     }
-    .features-creative-section {
-      padding: 65px 0 65px 0;
-    }
-    .pod-inner-content {
-      padding: 24px 20px;
-    }
-    .feature-organic-pod {
-      min-height: auto;
-    }
-  }
-
-  /* Accessibility: Respect Users Preferring Reduced Motion */
-  @media (prefers-reduced-motion: reduce) {
-    .liquid-blob,
-    .feature-organic-pod,
-    .floating-particle,
-    .pulse-dot {
-      animation: none !important;
+    .features-theme-section {
+      padding: 60px 0 55px 0;
     }
   }
 </style>
-
-<script>
-  // ONLY the selected/hovered block moves - all other blocks remain still
-  const pods = document.querySelectorAll<HTMLElement>('.feature-organic-pod');
-
-  pods.forEach((pod) => {
-    let isHovering = false;
-
-    pod.addEventListener('mouseenter', () => {
-      isHovering = true;
-      pod.style.transition = 'transform 0.12s ease-out, box-shadow 0.3s ease, border-color 0.3s ease, border-radius 0.4s ease';
-    });
-
-    pod.addEventListener('mousemove', (e) => {
-      if (!isHovering) return;
-      const rect = pod.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-
-      // Magnetic 3D tilt & smooth translation applied STRICTLY to this single hovered pod
-      const rotateX = ((y - centerY) / centerY) * -8;
-      const rotateY = ((x - centerX) / centerX) * 8;
-      const moveX = ((x - centerX) / centerX) * 7;
-      const moveY = ((y - centerY) / centerY) * 7 - 12; // lift up by 12px
-
-      pod.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translate3d(${moveX}px, ${moveY}px, 0) scale(1.035)`;
-    });
-
-    pod.addEventListener('mouseleave', () => {
-      isHovering = false;
-      pod.style.transition = 'transform 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.35s ease, border-color 0.35s ease, border-radius 0.6s ease';
-      pod.style.transform = '';
-    });
-  });
-</script>
