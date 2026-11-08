@@ -1,26 +1,34 @@
 ---
-// Hostamble Native Theme "Why Choose Hostamble / Our Best Features" Block
-// 100% aligned with Hostamble's design tokens, signature arch shapes, and Urbanist typography
+// Hostamble Creative Organic Moving Shapes "Why Choose Hostamble / Our Best Features" Block
+// Features fluid, non-square morphing pods with gentle floating physics, background liquid blobs, and theme-faithful Urbanist typography
 
-interface FeatureItem {
+interface FeaturePod {
   id: string;
   step: string;
   title: string;
   description: string;
   tag: string;
   icon: string;
-  shapeClass: "shape-bg-1" | "shape-bg-2";
+  depth: number;
+  floatDelay: string;
+  floatDuration: string;
+  morphClass: string;
+  accent: "primary" | "secondary";
 }
 
-const features: FeatureItem[] = [
+const featurePods: FeaturePod[] = [
   {
     id: "cpanel",
     step: "01",
     title: "Control Panel",
-    description: "Intuitive cPanel & DirectAdmin control interface for effortless website, email, and database management.",
+    description: "Intuitive cPanel & DirectAdmin interface for effortless website, email, and database management.",
     tag: "cPanel & DirectAdmin",
     icon: "ri-dashboard-3-line",
-    shapeClass: "shape-bg-1"
+    depth: 18,
+    floatDelay: "0s",
+    floatDuration: "5.2s",
+    morphClass: "morph-shape-1",
+    accent: "primary"
   },
   {
     id: "ssl",
@@ -29,7 +37,11 @@ const features: FeatureItem[] = [
     description: "Automated Let's Encrypt SSL security with lifetime automatic renewal for all domains and subdomains.",
     tag: "Lifetime Free HTTPS",
     icon: "ri-shield-keyhole-line",
-    shapeClass: "shape-bg-2"
+    depth: 26,
+    floatDelay: "0.8s",
+    floatDuration: "6.1s",
+    morphClass: "morph-shape-2",
+    accent: "secondary"
   },
   {
     id: "email",
@@ -38,7 +50,11 @@ const features: FeatureItem[] = [
     description: "Professional @yourdomain mailboxes equipped with advanced spam filtering, auto-responders & Webmail.",
     tag: "Spam-Protected Mail",
     icon: "ri-mail-send-line",
-    shapeClass: "shape-bg-1"
+    depth: 22,
+    floatDelay: "1.4s",
+    floatDuration: "5.6s",
+    morphClass: "morph-shape-3",
+    accent: "primary"
   },
   {
     id: "litespeed",
@@ -47,7 +63,11 @@ const features: FeatureItem[] = [
     description: "Next-generation HTTP/3 web server powered by LSCache delivering up to 10x faster page load times.",
     tag: "10x Faster Speeds",
     icon: "ri-flashlight-line",
-    shapeClass: "shape-bg-2"
+    depth: 30,
+    floatDelay: "0.4s",
+    floatDuration: "6.5s",
+    morphClass: "morph-shape-4",
+    accent: "secondary"
   },
   {
     id: "backups",
@@ -56,7 +76,11 @@ const features: FeatureItem[] = [
     description: "Continuous automated daily snapshots with instant 1-click restoration for complete peace of mind.",
     tag: "Instant 1-Click Restore",
     icon: "ri-history-line",
-    shapeClass: "shape-bg-1"
+    depth: 24,
+    floatDelay: "1.8s",
+    floatDuration: "5.8s",
+    morphClass: "morph-shape-5",
+    accent: "primary"
   },
   {
     id: "ssd",
@@ -65,7 +89,11 @@ const features: FeatureItem[] = [
     description: "Enterprise-grade NVMe solid-state drives in RAID-10 configuration for lightning read/write I/O performance.",
     tag: "RAID-10 NVMe Storage",
     icon: "ri-hard-drive-2-line",
-    shapeClass: "shape-bg-2"
+    depth: 28,
+    floatDelay: "1.0s",
+    floatDuration: "6.3s",
+    morphClass: "morph-shape-6",
+    accent: "secondary"
   },
   {
     id: "uptime",
@@ -74,7 +102,11 @@ const features: FeatureItem[] = [
     description: "High-availability Tier-4 datacenter network monitored 24/7/365 to keep your website always online.",
     tag: "Tier-4 Infrastructure",
     icon: "ri-server-line",
-    shapeClass: "shape-bg-1"
+    depth: 20,
+    floatDelay: "0.6s",
+    floatDuration: "5.4s",
+    morphClass: "morph-shape-7",
+    accent: "primary"
   },
   {
     id: "installer",
@@ -83,60 +115,86 @@ const features: FeatureItem[] = [
     description: "Deploy WordPress, WooCommerce, Joomla, and over 400+ popular web applications in just one single click.",
     tag: "400+ One-Click Apps",
     icon: "ri-apps-2-line",
-    shapeClass: "shape-bg-2"
+    depth: 25,
+    floatDelay: "1.2s",
+    floatDuration: "6.0s",
+    morphClass: "morph-shape-8",
+    accent: "secondary"
   }
 ];
 ---
 
-<section id="features" class="features-section" aria-label="Why Choose Hostamble - Our Best Features">
-  <!-- Subtle theme ambient blur glows -->
-  <div class="features-glow features-glow-left" aria-hidden="true"></div>
-  <div class="features-glow features-glow-right" aria-hidden="true"></div>
+<section id="features" class="features-creative-section" aria-label="Why Choose Hostamble - Our Best Features">
+  <!-- Dynamic Moving Background Liquid Blobs -->
+  <div class="blob-stage" aria-hidden="true">
+    <div class="liquid-blob blob-orange"></div>
+    <div class="liquid-blob blob-warm"></div>
+    <div class="liquid-blob blob-slate"></div>
+    <!-- Moving Floating Geometric Particles -->
+    <div class="floating-particle particle-ring-1"></div>
+    <div class="floating-particle particle-ring-2"></div>
+    <div class="floating-particle particle-capsule-1"></div>
+    <div class="floating-particle particle-capsule-2"></div>
+    <div class="floating-particle particle-dot-1"></div>
+    <div class="floating-particle particle-dot-2"></div>
+  </div>
 
-  <div class="container position-relative" style="z-index: 2;">
-    <!-- Section Title (Hostamble Native Theme Hierarchy) -->
+  <div class="container position-relative" style="z-index: 3;">
+    <!-- Section Title (Authentic Theme Typography) -->
     <div class="section-title text-center" data-sal="slide-up" data-sal-duration="800">
-      <span class="pre-title">WHY CHOOSE HOSTAMBLE</span>
+      <div class="creative-badge-pill">
+        <span class="pulse-dot"></span>
+        <span class="pre-title">WHY CHOOSE HOSTAMBLE</span>
+      </div>
       <h2 class="title">Our Best Features</h2>
       <p class="description">
         Powerful hosting features designed to make your website fast, secure and reliable.
       </p>
     </div>
 
-    <!-- Features 8-Card Grid -->
-    <div class="row g-4 mt-2">
-      {features.map((feature, idx) => (
+    <!-- Dynamic Staggered Constellation of Moving Organic Pods -->
+    <div class="features-pods-grid" id="featuresPodsStage">
+      {featurePods.map((pod, idx) => (
         <div 
-          class="col-xl-3 col-lg-4 col-md-6 col-12"
+          class={`pod-wrapper ${idx % 2 === 1 ? 'pod-offset-down' : 'pod-offset-up'}`}
+          style={`--pod-depth: ${pod.depth}px;`}
           data-sal="slide-up"
-          data-sal-delay={(idx % 4) * 100 + 100}
-          data-sal-duration="800"
+          data-sal-delay={(idx % 4) * 80 + 100}
+          data-sal-duration="750"
         >
           <div 
-            class={`feature-card fitem ${feature.shapeClass}`}
-            style={`--item-idx: ${idx};`}
+            class={`feature-organic-pod fitem ${pod.morphClass} accent-${pod.accent}`}
+            style={`
+              --float-delay: ${pod.floatDelay};
+              --float-dur: ${pod.floatDuration};
+              --item-idx: ${idx};
+            `}
           >
-            <div class="feature-card-inner">
-              <!-- Top Header: Signature Arch Icon Box + Step Pill -->
-              <div class="feature-top-row">
-                <div class="feature-icon-box">
-                  <i class={feature.icon} aria-hidden="true"></i>
+            <!-- Ambient Pod Liquid Halo -->
+            <div class="pod-liquid-halo" aria-hidden="true"></div>
+
+            <div class="pod-inner-content">
+              <!-- Top Row: Floating Icon Orb + Stepper Badge -->
+              <div class="pod-top-bar">
+                <div class="pod-icon-orb">
+                  <i class={pod.icon} aria-hidden="true"></i>
                 </div>
-                <span class="feature-step-pill">#{feature.step}</span>
+                <div class="pod-stepper-pill">
+                  <span class="stepper-hash">#</span>
+                  <span class="stepper-num">{pod.step}</span>
+                </div>
               </div>
 
-              <!-- Main Content: Title & Description -->
-              <div class="feature-content">
-                <h5 class="feature-card-title">{feature.title}</h5>
-                <p class="feature-card-desc">{feature.description}</p>
+              <!-- Main Content: Title & Benefit -->
+              <div class="pod-text-block">
+                <h5 class="pod-title">{pod.title}</h5>
+                <p class="pod-desc">{pod.description}</p>
               </div>
 
               <!-- Bottom Inclusions Tag -->
-              <div class="feature-tag-row">
-                <span class="feature-check-tag">
-                  <i class="ri-checkbox-circle-fill" aria-hidden="true"></i>
-                  <span>{feature.tag}</span>
-                </span>
+              <div class="pod-bottom-tag">
+                <i class="ri-checkbox-circle-fill" aria-hidden="true"></i>
+                <span>{pod.tag}</span>
               </div>
             </div>
           </div>
@@ -147,54 +205,171 @@ const features: FeatureItem[] = [
 </section>
 
 <style>
-  .features-section {
+  .features-creative-section {
     position: relative;
-    background: linear-gradient(180deg, var(--color-secondary-alt, #FFF6F4) 0%, #FFFFFF 100%);
-    padding: 95px 0 90px 0;
+    background: linear-gradient(180deg, var(--color-secondary-alt, #FFF6F4) 0%, #FFFFFF 50%, var(--color-secondary-alt, #FFF6F4) 100%);
+    padding: 100px 0 110px 0;
     font-family: var(--font-primary, "Urbanist", sans-serif);
     color: var(--color-heading, #202133);
     overflow: hidden;
   }
 
-  /* Soft Theme Glow Orbs */
-  .features-glow {
+  /* Dynamic Moving Background Liquid Blobs */
+  .blob-stage {
     position: absolute;
-    border-radius: 50%;
+    inset: 0;
+    overflow: hidden;
     pointer-events: none;
     z-index: 1;
   }
-  .features-glow-left {
-    left: -120px;
-    top: -80px;
-    width: 280px;
-    height: 280px;
-    background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.08);
-    filter: blur(80px);
-  }
-  .features-glow-right {
-    right: -140px;
-    bottom: -100px;
-    width: 320px;
-    height: 320px;
-    background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.07);
-    filter: blur(90px);
+
+  .liquid-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(75px);
+    opacity: 0.75;
+    mix-blend-mode: multiply;
   }
 
-  /* Native Section Title Typography & Spacing */
+  /* Blob 1: Vibrant Primary Orange Liquid Morph */
+  .blob-orange {
+    width: 480px;
+    height: 480px;
+    background: radial-gradient(circle, rgba(var(--color-primary-rgb, 210, 116, 29), 0.22) 0%, rgba(255, 80, 26, 0.03) 70%, transparent 100%);
+    top: -60px;
+    left: -120px;
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    animation: morphBlob1 13s ease-in-out infinite alternate, floatBlob1 18s ease-in-out infinite;
+  }
+
+  /* Blob 2: Warm Amber/Golden Accent Liquid Morph */
+  .blob-warm {
+    width: 520px;
+    height: 520px;
+    background: radial-gradient(circle, rgba(255, 164, 27, 0.18) 0%, rgba(255, 80, 26, 0.02) 70%, transparent 100%);
+    bottom: -100px;
+    right: -140px;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    animation: morphBlob2 15s ease-in-out infinite alternate, floatBlob2 22s ease-in-out infinite;
+  }
+
+  /* Blob 3: Center Soft Secondary Indigo/Slate Drift */
+  .blob-slate {
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(var(--color-secondary-rgb, 32, 33, 51), 0.06) 0%, transparent 70%);
+    top: 40%;
+    left: 45%;
+    border-radius: 50% 50% 40% 60% / 40% 60% 40% 60%;
+    animation: morphBlob3 17s ease-in-out infinite alternate, floatBlob3 25s ease-in-out infinite;
+  }
+
+  /* Moving Floating Geometric Particles */
+  .floating-particle {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.45;
+  }
+
+  .particle-ring-1 {
+    width: 70px;
+    height: 70px;
+    border: 3px dashed rgba(var(--color-primary-rgb, 210, 116, 29), 0.25);
+    border-radius: 50%;
+    top: 12%;
+    right: 8%;
+    animation: rotateParticle 24s linear infinite, floatParticle 7s ease-in-out infinite alternate;
+  }
+
+  .particle-ring-2 {
+    width: 44px;
+    height: 44px;
+    border: 2.5px solid rgba(var(--color-secondary-rgb, 32, 33, 51), 0.15);
+    border-radius: 50%;
+    bottom: 14%;
+    left: 6%;
+    animation: rotateParticleRev 20s linear infinite, floatParticle 8s ease-in-out infinite alternate;
+  }
+
+  .particle-capsule-1 {
+    width: 45px;
+    height: 18px;
+    background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.12);
+    border-radius: 20px;
+    top: 28%;
+    left: 4%;
+    transform: rotate(32deg);
+    animation: floatParticle 6s ease-in-out infinite alternate;
+  }
+
+  .particle-capsule-2 {
+    width: 38px;
+    height: 15px;
+    background: rgba(var(--color-secondary-rgb, 32, 33, 51), 0.1);
+    border-radius: 20px;
+    bottom: 30%;
+    right: 5%;
+    transform: rotate(-25deg);
+    animation: floatParticle 9s ease-in-out infinite alternate;
+  }
+
+  .particle-dot-1 {
+    width: 10px;
+    height: 10px;
+    background: var(--color-primary, #ff501a);
+    border-radius: 50%;
+    top: 48%;
+    right: 12%;
+    opacity: 0.35;
+    animation: floatParticle 5s ease-in-out infinite alternate;
+  }
+
+  .particle-dot-2 {
+    width: 14px;
+    height: 14px;
+    background: #ffa41b;
+    border-radius: 50%;
+    bottom: 10%;
+    left: 15%;
+    opacity: 0.3;
+    animation: floatParticle 7.5s ease-in-out infinite alternate;
+  }
+
+  /* Section Title & Creative Pill */
+  .creative-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    border: 1px solid rgba(var(--color-primary-rgb, 210, 116, 29), 0.22);
+    padding: 6px 18px;
+    border-radius: 30px;
+    box-shadow: 0 4px 14px rgba(255, 80, 26, 0.06);
+    margin-bottom: 12px;
+  }
+
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--color-primary, #ff501a);
+    border-radius: 50%;
+    box-shadow: 0 0 0 rgba(var(--color-primary-rgb), 0.5);
+    animation: pulseDot 2s infinite;
+  }
+
   .section-title .pre-title {
     font-weight: 800;
-    font-size: 15px;
-    line-height: 26px;
+    font-size: 14px;
+    line-height: 22px;
     color: var(--color-primary, #ff501a);
-    margin-bottom: 6px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    display: block;
+    margin: 0;
     font-family: var(--font-primary, "Urbanist", sans-serif);
   }
 
   .section-title .title {
-    font-size: 40px;
+    font-size: 42px;
     font-weight: 800;
     color: var(--color-heading, #202133);
     margin: 8px 0 14px 0;
@@ -206,149 +381,254 @@ const features: FeatureItem[] = [
     font-size: 16.5px;
     color: var(--color-body, #6F6B80);
     max-width: 680px;
-    margin: 0 auto 35px auto;
+    margin: 0 auto 50px auto;
     line-height: 1.65;
     font-family: var(--font-primary, "Urbanist", sans-serif);
   }
 
-  /* Individual Feature Card (Matching Hostamble service-card & bars-inner system) */
-  .feature-card {
-    background: var(--color-white, #ffffff);
-    border: 1px solid var(--color-border, #eeeeee);
-    border-radius: var(--radius-small, 5px);
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.03);
-    height: 100%;
+  /* Creative Organic Pods Grid (4 columns on desktop with wave staggered offset) */
+  .features-pods-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
     position: relative;
-    transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1),
-                box-shadow 0.35s cubic-bezier(0.165, 0.84, 0.44, 1),
-                border-color 0.35s ease;
+    z-index: 2;
+    padding-bottom: 30px;
   }
 
-  .feature-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0px 16px 36px rgba(0, 0, 0, 0.08);
-    border-color: rgba(var(--color-primary-rgb, 210, 116, 29), 0.35);
+  /* Wave Staggering: Breaks standard grid squares into an organic wave! */
+  .pod-offset-down {
+    transform: translateY(26px);
+  }
+  .pod-offset-up {
+    transform: translateY(0);
   }
 
-  .feature-card-inner {
-    padding: 28px 24px;
+  .pod-wrapper {
+    transition: transform 0.4s ease;
+  }
+
+  /* The Organic Moving Pod (Non-Square, Morphing, Floating Liquid Pod) */
+  .feature-organic-pod {
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1.5px solid rgba(var(--color-primary-rgb, 210, 116, 29), 0.14);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.035), 0 1px 3px rgba(255, 80, 26, 0.05);
+    height: 100%;
+    min-height: 275px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    animation: floatPod var(--float-dur) ease-in-out infinite alternate;
+    animation-delay: var(--float-delay);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                box-shadow 0.4s ease,
+                border-color 0.4s ease,
+                border-radius 0.6s ease;
+  }
+
+  /* 8 Distinct Asymmetric Organic Morphing Shapes */
+  .morph-shape-1 {
+    border-radius: 38px 24px 34px 22px / 24px 34px 22px 38px;
+    animation: morph1 9s ease-in-out infinite alternate, floatPod var(--float-dur) ease-in-out infinite alternate;
+    animation-delay: 0s, var(--float-delay);
+  }
+  .morph-shape-2 {
+    border-radius: 24px 38px 22px 34px / 36px 22px 36px 22px;
+    animation: morph2 10s ease-in-out infinite alternate, floatPod var(--float-dur) ease-in-out infinite alternate;
+    animation-delay: 0.5s, var(--float-delay);
+  }
+  .morph-shape-3 {
+    border-radius: 34px 22px 38px 26px / 26px 36px 24px 36px;
+    animation: morph3 8.5s ease-in-out infinite alternate, floatPod var(--float-dur) ease-in-out infinite alternate;
+    animation-delay: 1.2s, var(--float-delay);
+  }
+  .morph-shape-4 {
+    border-radius: 22px 36px 26px 38px / 38px 24px 36px 24px;
+    animation: morph4 11s ease-in-out infinite alternate, floatPod var(--float-dur) ease-in-out infinite alternate;
+    animation-delay: 0.8s, var(--float-delay);
+  }
+  .morph-shape-5 {
+    border-radius: 36px 24px 34px 24px / 24px 36px 24px 36px;
+    animation: morph5 9.5s ease-in-out infinite alternate, floatPod var(--float-dur) ease-in-out infinite alternate;
+    animation-delay: 1.5s, var(--float-delay);
+  }
+  .morph-shape-6 {
+    border-radius: 24px 36px 24px 36px / 36px 24px 36px 24px;
+    animation: morph6 10.5s ease-in-out infinite alternate, floatPod var(--float-dur) ease-in-out infinite alternate;
+    animation-delay: 0.3s, var(--float-delay);
+  }
+  .morph-shape-7 {
+    border-radius: 38px 22px 36px 26px / 24px 36px 22px 38px;
+    animation: morph7 9s ease-in-out infinite alternate, floatPod var(--float-dur) ease-in-out infinite alternate;
+    animation-delay: 1.0s, var(--float-delay);
+  }
+  .morph-shape-8 {
+    border-radius: 24px 36px 24px 38px / 36px 24px 38px 22px;
+    animation: morph8 11.5s ease-in-out infinite alternate, floatPod var(--float-dur) ease-in-out infinite alternate;
+    animation-delay: 0.7s, var(--float-delay);
+  }
+
+  /* Pod Liquid Glow Aura on Hover */
+  .pod-liquid-halo {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: -50px;
+    right: -50px;
+    background: radial-gradient(circle, rgba(var(--color-primary-rgb, 210, 116, 29), 0.16) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none;
+  }
+
+  /* Interactive Pod Hover State */
+  .feature-organic-pod:hover {
+    transform: translateY(-12px) scale(1.025);
+    box-shadow: 0 20px 42px rgba(255, 80, 26, 0.14), 0 4px 12px rgba(0, 0, 0, 0.04);
+    border-color: rgba(var(--color-primary-rgb, 210, 116, 29), 0.45);
+    background: #ffffff;
+    z-index: 5;
+  }
+
+  .feature-organic-pod:hover .pod-liquid-halo {
+    opacity: 1;
+    transform: scale(1.4);
+  }
+
+  .pod-inner-content {
+    padding: 28px 22px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    position: relative;
+    z-index: 2;
   }
 
-  /* Top Row: Icon + Step Pill */
-  .feature-top-row {
+  /* Top Row */
+  .pod-top-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
 
-  /* Hostamble Signature Arch-Shaped Icon Box (border-radius: 26px 26px 3px 3px) */
-  .feature-icon-box {
-    width: 54px;
-    height: 54px;
-    border-radius: 26px 26px 3px 3px;
+  /* Floating Icon Orb (Organic Curved Liquid Bubble) */
+  .pod-icon-orb {
+    width: 52px;
+    height: 52px;
+    border-radius: 20px 12px 18px 14px / 14px 18px 12px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 24px;
     flex-shrink: 0;
-    transition: all 0.35s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 
-  /* Alternating Theme Accents: shape-bg-1 (Orange) */
-  .shape-bg-1 .feature-icon-box {
+  /* Primary Accent Orb */
+  .accent-primary .pod-icon-orb {
     background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.1);
     color: var(--color-primary, #ff501a);
+    border: 1px solid rgba(var(--color-primary-rgb, 210, 116, 29), 0.18);
   }
-  .feature-card.shape-bg-1:hover .feature-icon-box {
+  .feature-organic-pod.accent-primary:hover .pod-icon-orb {
     background: var(--color-primary, #ff501a);
-    color: var(--color-white, #ffffff);
-    box-shadow: 0 6px 18px rgba(var(--color-primary-rgb, 210, 116, 29), 0.28);
+    color: #ffffff;
+    border-color: var(--color-primary, #ff501a);
+    box-shadow: 0 8px 20px rgba(var(--color-primary-rgb, 210, 116, 29), 0.32);
+    transform: rotate(-6deg) scale(1.08);
   }
 
-  /* Alternating Theme Accents: shape-bg-2 (Dark Slate) */
-  .shape-bg-2 .feature-icon-box {
+  /* Secondary Accent Orb */
+  .accent-secondary .pod-icon-orb {
     background: rgba(var(--color-secondary-rgb, 32, 33, 51), 0.08);
     color: var(--color-secondary, #202133);
+    border: 1px solid rgba(var(--color-secondary-rgb, 32, 33, 51), 0.15);
   }
-  .feature-card.shape-bg-2:hover .feature-icon-box {
+  .feature-organic-pod.accent-secondary:hover .pod-icon-orb {
     background: var(--color-secondary, #202133);
-    color: var(--color-white, #ffffff);
-    box-shadow: 0 6px 18px rgba(var(--color-secondary-rgb, 32, 33, 51), 0.28);
+    color: #ffffff;
+    border-color: var(--color-secondary, #202133);
+    box-shadow: 0 8px 20px rgba(var(--color-secondary-rgb, 32, 33, 51), 0.28);
+    transform: rotate(6deg) scale(1.08);
   }
 
-  /* Step Badge Pill */
-  .feature-step-pill {
-    font-size: 13px;
-    font-weight: 800;
+  /* Stepper Pill */
+  .pod-stepper-pill {
+    display: inline-flex;
+    align-items: baseline;
     font-family: var(--font-primary, "Urbanist", sans-serif);
+    font-weight: 800;
+    font-size: 14px;
     color: var(--color-primary, #ff501a);
     background: var(--color-secondary-alt, #FFF6F4);
-    padding: 3px 10px;
-    border-radius: 12px;
+    padding: 4px 11px;
+    border-radius: 14px;
     border: 1px solid rgba(var(--color-primary-rgb, 210, 116, 29), 0.16);
-    letter-spacing: 0.03em;
-    transition: all 0.25s ease;
+    transition: all 0.3s ease;
   }
 
-  .feature-card:hover .feature-step-pill {
+  .stepper-hash {
+    font-size: 11px;
+    opacity: 0.75;
+    margin-right: 2px;
+  }
+
+  .feature-organic-pod:hover .pod-stepper-pill {
     background: var(--color-primary, #ff501a);
-    color: var(--color-white, #ffffff);
+    color: #ffffff;
     border-color: var(--color-primary, #ff501a);
+    box-shadow: 0 4px 12px rgba(var(--color-primary-rgb, 210, 116, 29), 0.24);
   }
 
-  /* Card Content Typography */
-  .feature-content {
+  /* Typography */
+  .pod-text-block {
     flex-grow: 1;
   }
 
-  .feature-card-title {
-    font-size: 19px;
+  .pod-title {
+    font-size: 18.5px;
     font-weight: 700;
     color: var(--color-heading, #202133);
-    margin: 0 0 10px 0;
+    margin: 0 0 9px 0;
     line-height: 1.35;
     font-family: var(--font-primary, "Urbanist", sans-serif);
     transition: color 0.25s ease;
   }
 
-  .feature-card:hover .feature-card-title {
+  .feature-organic-pod:hover .pod-title {
     color: var(--color-primary, #ff501a);
   }
 
-  .feature-card-desc {
-    font-size: 14px;
+  .pod-desc {
+    font-size: 13.8px;
     font-weight: 400;
     color: var(--color-body, #6F6B80);
     line-height: 1.6;
-    margin: 0 0 18px 0;
+    margin: 0 0 16px 0;
     font-family: var(--font-primary, "Urbanist", sans-serif);
   }
 
-  /* Bottom Inclusion Tag */
-  .feature-tag-row {
-    padding-top: 14px;
-    border-top: 1px solid rgba(0, 0, 0, 0.06);
-    margin-top: auto;
-  }
-
-  .feature-check-tag {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--color-primary, #ff501a);
+  /* Bottom Inclusions Tag */
+  .pod-bottom-tag {
     display: inline-flex;
     align-items: center;
     gap: 6px;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--color-primary, #ff501a);
+    padding-top: 13px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    margin-top: auto;
     font-family: var(--font-primary, "Urbanist", sans-serif);
-    line-height: 1.2;
   }
 
-  .feature-check-tag i {
-    font-size: 15px;
+  .pod-bottom-tag i {
+    font-size: 14.5px;
     color: var(--color-primary, #ff501a);
   }
 
@@ -357,9 +637,7 @@ const features: FeatureItem[] = [
     opacity: 0;
     transform: translateY(28px);
     transition: opacity 0.6s cubic-bezier(0.165, 0.84, 0.44, 1),
-                transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1),
-                box-shadow 0.35s ease,
-                border-color 0.35s ease;
+                transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 
   .fitem.fitem-visible {
@@ -367,25 +645,200 @@ const features: FeatureItem[] = [
     transform: translateY(0);
   }
 
+  /* ========================================================
+     KEYFRAME ANIMATIONS: MORPHING, FLOATING & PARTICLES
+     ======================================================== */
+
+  /* Gentle Floating Physics */
+  @keyframes floatPod {
+    0% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    100% {
+      transform: translateY(-9px) rotate(0.8deg);
+    }
+  }
+
+  /* 8 Morphing Shape Variations */
+  @keyframes morph1 {
+    0% { border-radius: 38px 24px 34px 22px / 24px 34px 22px 38px; }
+    100% { border-radius: 26px 36px 22px 38px / 36px 24px 36px 24px; }
+  }
+  @keyframes morph2 {
+    0% { border-radius: 24px 38px 22px 34px / 36px 22px 36px 22px; }
+    100% { border-radius: 36px 24px 34px 22px / 22px 36px 22px 36px; }
+  }
+  @keyframes morph3 {
+    0% { border-radius: 34px 22px 38px 26px / 26px 36px 24px 36px; }
+    100% { border-radius: 24px 36px 24px 38px / 38px 24px 36px 24px; }
+  }
+  @keyframes morph4 {
+    0% { border-radius: 22px 36px 26px 38px / 38px 24px 36px 24px; }
+    100% { border-radius: 36px 24px 38px 24px / 24px 38px 24px 36px; }
+  }
+  @keyframes morph5 {
+    0% { border-radius: 36px 24px 34px 24px / 24px 36px 24px 36px; }
+    100% { border-radius: 24px 38px 22px 36px / 36px 22px 38px 24px; }
+  }
+  @keyframes morph6 {
+    0% { border-radius: 24px 36px 24px 36px / 36px 24px 36px 24px; }
+    100% { border-radius: 38px 22px 36px 24px / 22px 38px 24px 36px; }
+  }
+  @keyframes morph7 {
+    0% { border-radius: 38px 22px 36px 26px / 24px 36px 22px 38px; }
+    100% { border-radius: 24px 36px 24px 38px / 36px 22px 38px 24px; }
+  }
+  @keyframes morph8 {
+    0% { border-radius: 24px 36px 24px 38px / 36px 24px 38px 22px; }
+    100% { border-radius: 36px 24px 36px 22px / 24px 36px 22px 38px; }
+  }
+
+  /* Background Liquid Blob Keyframes */
+  @keyframes morphBlob1 {
+    0% { border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; }
+    50% { border-radius: 55% 45% 35% 65% / 50% 60% 40% 50%; }
+    100% { border-radius: 40% 60% 60% 40% / 60% 40% 60% 40%; }
+  }
+  @keyframes floatBlob1 {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(45px, 35px) rotate(15deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+  }
+
+  @keyframes morphBlob2 {
+    0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    50% { border-radius: 45% 55% 65% 35% / 40% 60% 40% 60%; }
+    100% { border-radius: 50% 50% 40% 60% / 55% 45% 55% 45%; }
+  }
+  @keyframes floatBlob2 {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-50px, -40px) rotate(-18deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+  }
+
+  @keyframes morphBlob3 {
+    0% { border-radius: 50% 50% 40% 60% / 40% 60% 40% 60%; }
+    100% { border-radius: 60% 40% 55% 45% / 50% 45% 55% 50%; }
+  }
+  @keyframes floatBlob3 {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(25px, -25px) scale(1.1); }
+    100% { transform: translate(0, 0) scale(1); }
+  }
+
+  /* Particle Motions */
+  @keyframes rotateParticle {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @keyframes rotateParticleRev {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+  }
+  @keyframes floatParticle {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-16px); }
+  }
+
+  @keyframes pulseDot {
+    0% { box-shadow: 0 0 0 0 rgba(var(--color-primary-rgb, 210, 116, 29), 0.6); }
+    70% { box-shadow: 0 0 0 7px rgba(var(--color-primary-rgb, 210, 116, 29), 0); }
+    100% { box-shadow: 0 0 0 0 rgba(var(--color-primary-rgb, 210, 116, 29), 0); }
+  }
+
   /* Responsive Adjustments */
+  @media (max-width: 1199px) {
+    .features-pods-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+  }
+
   @media (max-width: 991px) {
+    .features-pods-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+    .pod-offset-down {
+      transform: translateY(0);
+    }
     .section-title .title {
       font-size: 34px;
     }
-    .features-section {
-      padding: 75px 0 70px 0;
+    .features-creative-section {
+      padding: 80px 0 80px 0;
     }
   }
 
   @media (max-width: 575px) {
+    .features-pods-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
     .section-title .title {
       font-size: 28px;
     }
-    .features-section {
-      padding: 60px 0 55px 0;
+    .features-creative-section {
+      padding: 65px 0 65px 0;
     }
-    .feature-card-inner {
+    .pod-inner-content {
       padding: 24px 20px;
+    }
+    .feature-organic-pod {
+      min-height: auto;
+    }
+  }
+
+  /* Accessibility: Respect Users Preferring Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    .liquid-blob,
+    .feature-organic-pod,
+    .floating-particle,
+    .pulse-dot {
+      animation: none !important;
     }
   }
 </style>
+
+<script>
+  // Interactive Smooth Magnetic Parallax Drift for Organic Pods
+  const stage = document.getElementById('featuresPodsStage');
+  if (stage && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const wrappers = stage.querySelectorAll<HTMLElement>('.pod-wrapper');
+    let bounds = stage.getBoundingClientRect();
+    let isMouseInside = false;
+
+    const updateBounds = () => {
+      bounds = stage.getBoundingClientRect();
+    };
+
+    window.addEventListener('resize', updateBounds, { passive: true });
+    window.addEventListener('scroll', updateBounds, { passive: true });
+
+    stage.addEventListener('mouseenter', () => {
+      isMouseInside = true;
+    });
+
+    stage.addEventListener('mouseleave', () => {
+      isMouseInside = false;
+      wrappers.forEach((w) => {
+        w.style.transform = '';
+      });
+    });
+
+    stage.addEventListener('mousemove', (e) => {
+      if (!isMouseInside) return;
+      const mouseX = (e.clientX - bounds.left) / bounds.width - 0.5;
+      const mouseY = (e.clientY - bounds.top) / bounds.height - 0.5;
+
+      wrappers.forEach((w) => {
+        const depth = parseFloat(w.style.getPropertyValue('--pod-depth') || '20');
+        const moveX = mouseX * depth;
+        const moveY = mouseY * depth;
+        const isOffsetDown = w.classList.contains('pod-offset-down');
+        const baseY = isOffsetDown && window.innerWidth >= 992 ? 26 : 0;
+        w.style.transform = `translate3d(${moveX}px, ${baseY + moveY}px, 0)`;
+      });
+    });
+  }
+</script>
