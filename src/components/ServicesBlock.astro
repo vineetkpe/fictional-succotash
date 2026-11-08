@@ -1,9 +1,9 @@
 ---
-// Hostamble Native Theme Services Showcase
-// Exact replica of Hostamble's native `aceorbit-service` and `service-card-3` block architecture
+// Hostamble Premium Native Services Showcase
+// Engineered to perfectly align with Hostamble's typography, color tokens, and layout patterns
 ---
 
-<div class="aceorbit-service ace-service-area ace-section-gap bg-color-white position-relative border-bottom-1" id="services">
+<div class="aceorbit-service ace-service-area ace-section-gap position-relative border-bottom-1 hostamble-services-ecosystem" id="services">
   <div class="container aceorbit-animated-shape">
     
     <!-- Section Title -->
@@ -17,156 +17,372 @@
         >
           <span class="pre-title">Our Services</span>
           <h3 class="title">Explore Our Web &amp; Hosting Solutions</h3>
-          <p class="description" style="max-width: 680px; margin: 12px auto 0; color: var(--color-body); font-size: 16px; line-height: 1.6;">
-            Reliable cloud infrastructure, managed WordPress environments, and high-security web solutions built for scale.
+          <p class="section-subtitle">
+            Reliable cloud hosting, tuned WordPress environments, domain management, and ironclad web security designed for maximum uptime and speed.
           </p>
         </div>
       </div>
     </div>
 
-    <!-- 6 Core Services Grid (3x2 Native Replica) -->
-    <div class="row aceorbit-about-one-service g-5 mt--20 justify-content-center">
+    <!-- 6 Core Services Grid (3x2 Balanced Cards) -->
+    <div class="row g-4 mt--20 justify-content-center">
 
-      <!-- 1. Shared Hosting -->
+      <!-- 1. Shared Hosting (Featured) -->
       <div class="col-lg-4 col-md-6 col-12" data-sal="slide-up" data-sal-delay="100" data-sal-duration="800">
-        <div class="service-card service-card-3 text-left shape-bg-1 bg-grey">
-          <div class="inner">
-            <div class="icon">
-              <span><i class="ri-server-line" aria-hidden="true"></i></span>
+        <div class="service-box-card card-featured">
+          <div class="card-top-accent"></div>
+          <div class="card-inner-wrap">
+            
+            <div class="card-header-row">
+              <div class="service-icon-wrap icon-primary">
+                <i class="ri-server-line" aria-hidden="true"></i>
+              </div>
+              <span class="service-pill badge-primary">Most Popular</span>
             </div>
-            <div class="content">
-              <h6 class="title">Shared Hosting</h6>
-              <p class="description">
-                Cost-effective, high-speed cPanel hosting powered by LiteSpeed Enterprise and pure NVMe SSDs with 99.9% uptime guarantee.
-              </p>
-              <div class="service-bottom-meta">
-                <span class="service-price" data-inr="From ₹39/mo" data-usd="From $0.47/mo">From ₹39/mo</span>
-                <a href="/shared-hosting" class="service-link">
-                  <span>Explore Plans</span>
-                  <i class="ri-arrow-right-line" aria-hidden="true"></i>
-                </a>
+
+            <div class="card-title-pricing">
+              <h4 class="service-title">Shared Hosting</h4>
+              <div class="service-price-tag">
+                <span class="price-from-text">Starts at</span>
+                <span class="price-value" data-inr="₹39/mo" data-usd="$0.47/mo">₹39/mo</span>
               </div>
             </div>
+
+            <p class="service-desc">
+              Cost-effective, lightning-fast cPanel hosting powered by LiteSpeed Enterprise and pure NVMe SSDs for blogs and personal websites.
+            </p>
+
+            <ul class="service-feature-checklist">
+              <li>
+                <i class="ri-checkbox-circle-fill text-primary-theme" aria-hidden="true"></i>
+                <span>LiteSpeed Turbo + LSCache</span>
+              </li>
+              <li>
+                <i class="ri-checkbox-circle-fill text-primary-theme" aria-hidden="true"></i>
+                <span>Pure Gen4 NVMe SSD Storage</span>
+              </li>
+              <li>
+                <i class="ri-checkbox-circle-fill text-primary-theme" aria-hidden="true"></i>
+                <span>Free cPanel &amp; Unlimited SSLs</span>
+              </li>
+              <li>
+                <i class="ri-checkbox-circle-fill text-primary-theme" aria-hidden="true"></i>
+                <span>Automated Daily JetBackups</span>
+              </li>
+            </ul>
+
+            <div class="service-card-divider"></div>
+
+            <div class="card-footer-row">
+              <span class="service-sla-tag">
+                <i class="ri-flashlight-line" aria-hidden="true"></i> Instant Setup
+              </span>
+              <a href="/shared-hosting" class="service-cta-btn btn-featured">
+                <span>Explore Plans</span>
+                <i class="ri-arrow-right-line" aria-hidden="true"></i>
+              </a>
+            </div>
+
           </div>
         </div>
       </div>
 
       <!-- 2. WordPress Hosting -->
       <div class="col-lg-4 col-md-6 col-12" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
-        <div class="service-card service-card-3 text-left shape-bg-2 bg-grey">
-          <div class="inner">
-            <div class="icon">
-              <span><i class="ri-wordpress-fill" aria-hidden="true"></i></span>
+        <div class="service-box-card">
+          <div class="card-top-accent"></div>
+          <div class="card-inner-wrap">
+            
+            <div class="card-header-row">
+              <div class="service-icon-wrap icon-purple">
+                <i class="ri-wordpress-fill" aria-hidden="true"></i>
+              </div>
+              <span class="service-pill badge-purple">Turbo Optimized</span>
             </div>
-            <div class="content">
-              <h6 class="title">WordPress Hosting</h6>
-              <p class="description">
-                Specially tuned for WordPress with built-in LSCache caching layers, 1-click staging sandbox, and automated safe core updates.
-              </p>
-              <div class="service-bottom-meta">
-                <span class="service-price" data-inr="From ₹79/mo" data-usd="From $0.95/mo">From ₹79/mo</span>
-                <a href="/wordpress-hosting" class="service-link">
-                  <span>Explore Plans</span>
-                  <i class="ri-arrow-right-line" aria-hidden="true"></i>
-                </a>
+
+            <div class="card-title-pricing">
+              <h4 class="service-title">WordPress Hosting</h4>
+              <div class="service-price-tag">
+                <span class="price-from-text">Starts at</span>
+                <span class="price-value" data-inr="₹79/mo" data-usd="$0.95/mo">₹79/mo</span>
               </div>
             </div>
+
+            <p class="service-desc">
+              Engineered specifically for WordPress with server-level caching layers, 1-click staging sandbox, and automated security patches.
+            </p>
+
+            <ul class="service-feature-checklist">
+              <li>
+                <i class="ri-checkbox-circle-fill text-purple" aria-hidden="true"></i>
+                <span>300% Faster PHP 8.x Performance</span>
+              </li>
+              <li>
+                <i class="ri-checkbox-circle-fill text-purple" aria-hidden="true"></i>
+                <span>1-Click Staging &amp; Cloning Sandbox</span>
+              </li>
+              <li>
+                <i class="ri-checkbox-circle-fill text-purple" aria-hidden="true"></i>
+                <span>Smart WP-CLI &amp; Plugin Shield</span>
+              </li>
+              <li>
+                <i class="ri-checkbox-circle-fill text-purple" aria-hidden="true"></i>
+                <span>Free Hassle-Free Migration</span>
+              </li>
+            </ul>
+
+            <div class="service-card-divider"></div>
+
+            <div class="card-footer-row">
+              <span class="service-sla-tag">
+                <i class="ri-speed-up-line" aria-hidden="true"></i> Sub-Sec TTFB
+              </span>
+              <a href="/wordpress-hosting" class="service-cta-btn">
+                <span>Explore Plans</span>
+                <i class="ri-arrow-right-line" aria-hidden="true"></i>
+              </a>
+            </div>
+
           </div>
         </div>
       </div>
 
       <!-- 3. Domain Names -->
       <div class="col-lg-4 col-md-6 col-12" data-sal="slide-up" data-sal-delay="200" data-sal-duration="800">
-        <div class="service-card service-card-3 text-left shape-bg-1 bg-grey">
-          <div class="inner">
-            <div class="icon">
-              <span><i class="ri-global-line" aria-hidden="true"></i></span>
+        <div class="service-box-card">
+          <div class="card-top-accent"></div>
+          <div class="card-inner-wrap">
+            
+            <div class="card-header-row">
+              <div class="service-icon-wrap icon-amber">
+                <i class="ri-global-line" aria-hidden="true"></i>
+              </div>
+              <span class="service-pill badge-amber">500+ Extensions</span>
             </div>
-            <div class="content">
-              <h6 class="title">Domain Search &amp; Reg</h6>
-              <p class="description">
-                Claim your brand identity with 500+ extensions (.com, .in, .org), free lifetime DNS management, and domain theft protection.
-              </p>
-              <div class="service-bottom-meta">
-                <span class="service-price" data-inr="From ₹199/yr" data-usd="From $2.39/yr">From ₹199/yr</span>
-                <a href="/domain-search" class="service-link">
-                  <span>Find Domain</span>
-                  <i class="ri-arrow-right-line" aria-hidden="true"></i>
-                </a>
+
+            <div class="card-title-pricing">
+              <h4 class="service-title">Domain Names</h4>
+              <div class="service-price-tag">
+                <span class="price-from-text">Starts at</span>
+                <span class="price-value" data-inr="₹199/yr" data-usd="$2.39/yr">₹199/yr</span>
               </div>
             </div>
+
+            <p class="service-desc">
+              Claim your digital identity with 500+ extensions (.com, .in, .org), complete DNS record control, and integrated domain privacy.
+            </p>
+
+            <ul class="service-feature-checklist">
+              <li>
+                <i class="ri-checkbox-circle-fill text-amber" aria-hidden="true"></i>
+                <span>Instant DNS Management &amp; Records</span>
+              </li>
+              <li>
+                <i class="ri-checkbox-circle-fill text-amber" aria-hidden="true"></i>
+                <span>WHOIS Privacy &amp; Domain Theft Lock</span>
+              </li>
+              <li>
+                <i class="ri-checkbox-circle-fill text-amber" aria-hidden="true"></i>
+                <span>Real-Time Anycast Propagation</span>
+              </li>
+              <li>
+                <i class="ri-checkbox-circle-fill text-amber" aria-hidden="true"></i>
+                <span>Free Email &amp; URL Forwarding</span>
+              </li>
+            </ul>
+
+            <div class="service-card-divider"></div>
+
+            <div class="card-footer-row">
+              <span class="service-sla-tag">
+                <i class="ri-search-eye-line" aria-hidden="true"></i> Live Search
+              </span>
+              <a href="/domain-search" class="service-cta-btn">
+                <span>Find Domain</span>
+                <i class="ri-arrow-right-line" aria-hidden="true"></i>
+              </a>
+            </div>
+
           </div>
         </div>
       </div>
 
       <!-- 4. VPS Cloud Hosting -->
       <div class="col-lg-4 col-md-6 col-12" data-sal="slide-up" data-sal-delay="250" data-sal-duration="800">
-        <div class="service-card service-card-3 text-left shape-bg-2 bg-grey">
-          <div class="inner">
-            <div class="icon">
-              <span><i class="ri-hard-drive-2-line" aria-hidden="true"></i></span>
+        <div class="service-box-card">
+          <div class="card-top-accent"></div>
+          <div class="card-inner-wrap">
+            
+            <div class="card-header-row">
+              <div class="service-icon-wrap icon-blue">
+                <i class="ri-hard-drive-2-line" aria-hidden="true"></i>
+              </div>
+              <span class="service-pill badge-blue">Dedicated Compute</span>
             </div>
-            <div class="content">
-              <h6 class="title">VPS Cloud Hosting</h6>
-              <p class="description">
-                Guaranteed KVM hardware resources with instant reboot controls, isolated hypervisor, full root SSH access, and 1 Gbps uplink.
-              </p>
-              <div class="service-bottom-meta">
-                <span class="service-price" data-inr="From ₹499/mo" data-usd="From $5.99/mo">From ₹499/mo</span>
-                <a href="/vps-hosting" class="service-link">
-                  <span>Configure VPS</span>
-                  <i class="ri-arrow-right-line" aria-hidden="true"></i>
-                </a>
+
+            <div class="card-title-pricing">
+              <h4 class="service-title">Cloud VPS Hosting</h4>
+              <div class="service-price-tag">
+                <span class="price-from-text">Starts at</span>
+                <span class="price-value" data-inr="₹499/mo" data-usd="$5.99/mo">₹499/mo</span>
               </div>
             </div>
+
+            <p class="service-desc">
+              Dedicated KVM virtualization with isolated CPU &amp; RAM resources, unmetered network uplink, and instant server reboot controls.
+            </p>
+
+            <ul class="service-feature-checklist">
+              <li>
+                <i class="ri-checkbox-circle-fill text-blue" aria-hidden="true"></i>
+                <span>100% Dedicated KVM Hypervisor</span>
+              </li>
+              <li>
+                <i class="ri-checkbox-circle-fill text-blue" aria-hidden="true"></i>
+                <span>Full Root SSH &amp; Multi-OS Installs</span>
+              </li>
+              <li>
+                <i class="ri-checkbox-circle-fill text-blue" aria-hidden="true"></i>
+                <span>1 Gbps High-Speed Uplink Port</span>
+              </li>
+              <li>
+                <i class="ri-checkbox-circle-fill text-blue" aria-hidden="true"></i>
+                <span>Dedicated Static IPv4 &amp; DDoS Shield</span>
+              </li>
+            </ul>
+
+            <div class="service-card-divider"></div>
+
+            <div class="card-footer-row">
+              <span class="service-sla-tag">
+                <i class="ri-shield-keyhole-line" aria-hidden="true"></i> Full Root KVM
+              </span>
+              <a href="/vps-hosting" class="service-cta-btn">
+                <span>Configure VPS</span>
+                <i class="ri-arrow-right-line" aria-hidden="true"></i>
+              </a>
+            </div>
+
           </div>
         </div>
       </div>
 
       <!-- 5. Business Email -->
       <div class="col-lg-4 col-md-6 col-12" data-sal="slide-up" data-sal-delay="300" data-sal-duration="800">
-        <div class="service-card service-card-3 text-left shape-bg-1 bg-grey">
-          <div class="inner">
-            <div class="icon">
-              <span><i class="ri-mail-star-line" aria-hidden="true"></i></span>
+        <div class="service-box-card">
+          <div class="card-top-accent"></div>
+          <div class="card-inner-wrap">
+            
+            <div class="card-header-row">
+              <div class="service-icon-wrap icon-cyan">
+                <i class="ri-mail-star-line" aria-hidden="true"></i>
+              </div>
+              <span class="service-pill badge-cyan">Corporate Grade</span>
             </div>
-            <div class="content">
-              <h6 class="title">Business Email</h6>
-              <p class="description">
-                Professional branded corporate email with responsive webmail, intelligent anti-spam filters, and DKIM identity authentication.
-              </p>
-              <div class="service-bottom-meta">
-                <span class="service-price" data-inr="From ₹29/mo" data-usd="From $0.35/mo">From ₹29/mo</span>
-                <a href="/business-email" class="service-link">
-                  <span>Get Email</span>
-                  <i class="ri-arrow-right-line" aria-hidden="true"></i>
-                </a>
+
+            <div class="card-title-pricing">
+              <h4 class="service-title">Business Email</h4>
+              <div class="service-price-tag">
+                <span class="price-from-text">Starts at</span>
+                <span class="price-value" data-inr="₹29/mo" data-usd="$0.35/mo">₹29/mo</span>
               </div>
             </div>
+
+            <p class="service-desc">
+              Build instant trust with branded email addresses (you@yourdomain.com), responsive webmail access, and intelligent anti-spam filters.
+            </p>
+
+            <ul class="service-feature-checklist">
+              <li>
+                <i class="ri-checkbox-circle-fill text-cyan" aria-hidden="true"></i>
+                <span>Custom Branded Domain Mailboxes</span>
+              </li>
+              <li>
+                <i class="ri-checkbox-circle-fill text-cyan" aria-hidden="true"></i>
+                <span>SpamExperts™ Inbound &amp; Outbound Filter</span>
+              </li>
+              <li>
+                <i class="ri-checkbox-circle-fill text-cyan" aria-hidden="true"></i>
+                <span>DKIM, SPF &amp; DMARC Deliverability</span>
+              </li>
+              <li>
+                <i class="ri-checkbox-circle-fill text-cyan" aria-hidden="true"></i>
+                <span>Sync with Outlook, Apple Mail &amp; Mobile</span>
+              </li>
+            </ul>
+
+            <div class="service-card-divider"></div>
+
+            <div class="card-footer-row">
+              <span class="service-sla-tag">
+                <i class="ri-mail-check-line" aria-hidden="true"></i> 99.9% Clean Inbox
+              </span>
+              <a href="/business-email" class="service-cta-btn">
+                <span>Get Email</span>
+                <i class="ri-arrow-right-line" aria-hidden="true"></i>
+              </a>
+            </div>
+
           </div>
         </div>
       </div>
 
       <!-- 6. SSL Certificates -->
       <div class="col-lg-4 col-md-6 col-12" data-sal="slide-up" data-sal-delay="350" data-sal-duration="800">
-        <div class="service-card service-card-3 text-left shape-bg-2 bg-grey">
-          <div class="inner">
-            <div class="icon">
-              <span><i class="ri-shield-check-line" aria-hidden="true"></i></span>
+        <div class="service-box-card">
+          <div class="card-top-accent"></div>
+          <div class="card-inner-wrap">
+            
+            <div class="card-header-row">
+              <div class="service-icon-wrap icon-green">
+                <i class="ri-shield-check-line" aria-hidden="true"></i>
+              </div>
+              <span class="service-pill badge-green">256-Bit TLS</span>
             </div>
-            <div class="content">
-              <h6 class="title">SSL Certificates</h6>
-              <p class="description">
-                Industry-grade 256-bit TLS encryption with trusted browser green padlock, instant Let's Encrypt auto-renewal, and SEO boost.
-              </p>
-              <div class="service-bottom-meta">
-                <span class="service-price" data-inr="From ₹499/yr" data-usd="From $5.99/yr">From ₹499/yr</span>
-                <a href="/ssl-certificates" class="service-link">
-                  <span>View Security</span>
-                  <i class="ri-arrow-right-line" aria-hidden="true"></i>
-                </a>
+
+            <div class="card-title-pricing">
+              <h4 class="service-title">SSL Certificates</h4>
+              <div class="service-price-tag">
+                <span class="price-from-text">From</span>
+                <span class="price-value text-success-theme" data-inr="Included Free" data-usd="Included Free">Included Free</span>
               </div>
             </div>
+
+            <p class="service-desc">
+              Protect visitor transactions and passwords with robust 256-bit encryption, browser padlock trust indicators, and higher Google rankings.
+            </p>
+
+            <ul class="service-feature-checklist">
+              <li>
+                <i class="ri-checkbox-circle-fill text-green" aria-hidden="true"></i>
+                <span>Industry-Grade 256-Bit TLS Encryption</span>
+              </li>
+              <li>
+                <i class="ri-checkbox-circle-fill text-green" aria-hidden="true"></i>
+                <span>Trusted Browser Green Padlock Status</span>
+              </li>
+              <li>
+                <i class="ri-checkbox-circle-fill text-green" aria-hidden="true"></i>
+                <span>Automated Let's Encrypt Auto-Renewal</span>
+              </li>
+              <li>
+                <i class="ri-checkbox-circle-fill text-green" aria-hidden="true"></i>
+                <span>Boosts Google SEO &amp; Customer Trust</span>
+              </li>
+            </ul>
+
+            <div class="service-card-divider"></div>
+
+            <div class="card-footer-row">
+              <span class="service-sla-tag">
+                <i class="ri-lock-2-line" aria-hidden="true"></i> High-Trust HTTPS
+              </span>
+              <a href="/ssl-certificates" class="service-cta-btn">
+                <span>Explore SSL</span>
+                <i class="ri-arrow-right-line" aria-hidden="true"></i>
+              </a>
+            </div>
+
           </div>
         </div>
       </div>
@@ -193,43 +409,378 @@
 </div>
 
 <style>
-  .service-bottom-meta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 15px;
-    margin-top: 15px;
-    border-top: 1px solid rgba(0, 0, 0, 0.06);
+  .hostamble-services-ecosystem {
+    background: #FAFBFC;
+    border-top: 1px solid #ECEEF2;
+    border-bottom: 1px solid #ECEEF2;
   }
 
-  .service-price {
-    font-size: 14px;
-    font-weight: 800;
-    color: var(--color-primary, #ff501a);
+  .section-subtitle {
+    max-width: 680px;
+    margin: 12px auto 0;
+    color: var(--color-body, #606060);
+    font-size: 16px;
+    line-height: 1.6;
     font-family: var(--font-primary, "Urbanist", sans-serif);
   }
 
-  .service-link {
-    font-size: 13.5px;
+  /* Service Card Box */
+  .service-box-card {
+    background: #ffffff;
+    border: 1px solid #E6E9EE;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+    box-shadow: 0 4px 16px rgba(32, 33, 51, 0.03);
+  }
+
+  .service-box-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 16px 36px rgba(32, 33, 51, 0.08);
+    border-color: rgba(255, 80, 26, 0.35);
+  }
+
+  /* Top Accent Line */
+  .card-top-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: transparent;
+    transition: background 0.3s ease;
+  }
+
+  .service-box-card:hover .card-top-accent,
+  .service-box-card.card-featured .card-top-accent {
+    background: linear-gradient(90deg, #ff501a 0%, #ff8c42 100%);
+  }
+
+  /* Featured Card Highlight */
+  .service-box-card.card-featured {
+    border-color: rgba(255, 80, 26, 0.28);
+    box-shadow: 0 6px 20px rgba(255, 80, 26, 0.06);
+  }
+
+  /* Inner Content */
+  .card-inner-wrap {
+    padding: 30px 28px 24px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  /* Header Row: Icon + Badge */
+  .card-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  /* Signature Hostamble Shaped Icon Container */
+  .service-icon-wrap {
+    width: 54px;
+    height: 54px;
+    border-radius: 27px 27px 6px 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    transition: all 0.35s ease;
+  }
+
+  .service-box-card:hover .service-icon-wrap {
+    transform: scale(1.06);
+  }
+
+  .icon-primary {
+    background: rgba(255, 80, 26, 0.1);
+    color: #ff501a;
+  }
+  .service-box-card:hover .icon-primary {
+    background: #ff501a;
+    color: #ffffff;
+  }
+
+  .icon-purple {
+    background: rgba(124, 58, 237, 0.1);
+    color: #7c3aed;
+  }
+  .service-box-card:hover .icon-purple {
+    background: #7c3aed;
+    color: #ffffff;
+  }
+
+  .icon-amber {
+    background: rgba(217, 119, 6, 0.1);
+    color: #d97706;
+  }
+  .service-box-card:hover .icon-amber {
+    background: #d97706;
+    color: #ffffff;
+  }
+
+  .icon-blue {
+    background: rgba(37, 99, 235, 0.1);
+    color: #2563eb;
+  }
+  .service-box-card:hover .icon-blue {
+    background: #2563eb;
+    color: #ffffff;
+  }
+
+  .icon-cyan {
+    background: rgba(14, 165, 233, 0.1);
+    color: #0284c7;
+  }
+  .service-box-card:hover .icon-cyan {
+    background: #0284c7;
+    color: #ffffff;
+  }
+
+  .icon-green {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+  }
+  .service-box-card:hover .icon-green {
+    background: #059669;
+    color: #ffffff;
+  }
+
+  /* Eyebrow Pill Badges */
+  .service-pill {
+    font-size: 11px;
     font-weight: 700;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+  }
+
+  .badge-primary {
+    background: rgba(255, 80, 26, 0.1);
+    color: #ff501a;
+  }
+  .badge-purple {
+    background: rgba(124, 58, 237, 0.1);
+    color: #7c3aed;
+  }
+  .badge-amber {
+    background: rgba(217, 119, 6, 0.1);
+    color: #d97706;
+  }
+  .badge-blue {
+    background: rgba(37, 99, 235, 0.1);
+    color: #2563eb;
+  }
+  .badge-cyan {
+    background: rgba(14, 165, 233, 0.1);
+    color: #0284c7;
+  }
+  .badge-green {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+  }
+
+  /* Title & Pricing */
+  .card-title-pricing {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .service-title {
+    font-size: 20px;
+    font-weight: 800;
     color: var(--color-heading, #202133);
-    text-decoration: none;
+    margin: 0;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+    line-height: 1.3;
+  }
+
+  .service-price-tag {
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .price-from-text {
+    display: block;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    color: #8892a0;
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+
+  .price-value {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--color-primary, #ff501a);
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+    line-height: 1;
+  }
+
+  .text-success-theme {
+    color: #059669 !important;
+  }
+
+  /* Description */
+  .service-desc {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--color-body, #606060);
+    margin: 6px 0 16px 0;
+    min-height: 44px;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+  }
+
+  /* Feature Checklist */
+  .service-feature-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    flex-grow: 1;
+  }
+
+  .service-feature-checklist li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #2c3442;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+  }
+
+  .service-feature-checklist li i {
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+
+  .text-primary-theme {
+    color: #ff501a;
+  }
+  .text-purple {
+    color: #7c3aed;
+  }
+  .text-amber {
+    color: #d97706;
+  }
+  .text-blue {
+    color: #2563eb;
+  }
+  .text-cyan {
+    color: #0284c7;
+  }
+  .text-green {
+    color: #059669;
+  }
+
+  /* Divider */
+  .service-card-divider {
+    height: 1px;
+    background: #E8EBF0;
+    margin: 0 0 16px 0;
+  }
+
+  /* Footer */
+  .card-footer-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .service-sla-tag {
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748b;
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    transition: color 0.25s ease;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
   }
 
-  .service-link:hover {
+  .service-sla-tag i {
+    font-size: 14px;
     color: var(--color-primary, #ff501a);
   }
 
-  .service-link i {
+  /* CTA Button */
+  .service-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 7px 15px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+    transition: all 0.25s ease;
+    color: var(--color-primary, #ff501a);
+    background: rgba(255, 80, 26, 0.08);
+    border: 1px solid rgba(255, 80, 26, 0.2);
+  }
+
+  .service-cta-btn i {
     font-size: 14px;
     transition: transform 0.25s ease;
   }
 
-  .service-link:hover i {
-    transform: translateX(4px);
+  .service-cta-btn:hover {
+    color: #ffffff;
+    background: var(--color-primary, #ff501a);
+    border-color: var(--color-primary, #ff501a);
+    box-shadow: 0 4px 12px rgba(255, 80, 26, 0.25);
+  }
+
+  .service-cta-btn:hover i {
+    transform: translateX(3px);
+  }
+
+  /* Featured Button */
+  .service-cta-btn.btn-featured {
+    color: #ffffff;
+    background: var(--color-primary, #ff501a);
+    border-color: var(--color-primary, #ff501a);
+  }
+
+  .service-cta-btn.btn-featured:hover {
+    background: #e04414;
+    border-color: #e04414;
+    box-shadow: 0 5px 16px rgba(255, 80, 26, 0.3);
+  }
+
+  @media (max-width: 991px) {
+    .service-desc {
+      min-height: auto;
+    }
+  }
+
+  @media (max-width: 575px) {
+    .card-inner-wrap {
+      padding: 24px 20px 20px;
+    }
+    .card-title-pricing {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+    .service-price-tag {
+      text-align: left;
+    }
   }
 </style>
