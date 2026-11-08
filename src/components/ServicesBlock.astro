@@ -1,6 +1,6 @@
 ---
 // Hostamble Native Services Showcase
-// Paracitamol-style Sticky Stacking Movement seamlessly applied to Hostamble's native theme
+// Pinned Sticky Left Column (stays still) with Moving/Stacking Right Column
 import {
   sharedHosting,
   wordpressHosting,
@@ -77,52 +77,48 @@ const services = [
 <div class="aceorbit-service ace-service-area ace-section-gap bg-color-white position-relative border-bottom-1" id="services">
   <div class="container aceorbit-animated-shape">
     
-    <div class="row align-items-start g-5">
+    <div class="services-two-col-layout">
       
-      <!-- LEFT COLUMN: Sticky Section Header & Reassurance Box (Native Theme) -->
-      <div class="col-lg-5 col-12">
-        <div class="sticky-left-panel">
-          
-          <div class="section-title text-start" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
-            <span class="pre-title">Our Services</span>
-            <h3 class="title">Explore Our Web &amp; Hosting Solutions</h3>
-            <p class="description mt-3">
-              Reliable cloud infrastructure, managed WordPress environments, and high-security web solutions built for scale.
-            </p>
-          </div>
+      <!-- LEFT COLUMN: Locked Still while scrolling -->
+      <div class="sticky-left-col">
+        <div class="section-title text-start" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+          <span class="pre-title">Our Services</span>
+          <h3 class="title">Explore Our Web &amp; Hosting Solutions</h3>
+          <p class="description mt-3">
+            Reliable cloud infrastructure, managed WordPress environments, and high-security web solutions built for scale.
+          </p>
+        </div>
 
-          <!-- Native Theme Reassurance Box -->
-          <div class="theme-reassurance-box mt-4 p-4 rounded bg-grey">
-            <div class="d-flex align-items-center gap-3 mb-3">
-              <div class="reassurance-icon shape-1">
-                <i class="ri-shield-check-line" aria-hidden="true"></i>
-              </div>
-              <div>
-                <h6 class="mb-0 reassurance-title">99.9% Zero Downtime</h6>
-                <span class="reassurance-sub">Tier-4 Certified Datacenter Fleet</span>
-              </div>
+        <!-- Native Theme Reassurance Box -->
+        <div class="theme-reassurance-box mt-4 p-4 rounded bg-grey">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="reassurance-icon shape-1">
+              <i class="ri-shield-check-line" aria-hidden="true"></i>
             </div>
-
-            <div class="d-flex align-items-center gap-3">
-              <div class="reassurance-icon shape-2">
-                <i class="ri-customer-service-2-line" aria-hidden="true"></i>
-              </div>
-              <div>
-                <h6 class="mb-0 reassurance-title">24/7 Live Support</h6>
-                <span class="reassurance-sub">Instant WhatsApp &amp; Ticket Assistance</span>
-              </div>
+            <div>
+              <h6 class="mb-0 reassurance-title">99.9% Zero Downtime</h6>
+              <span class="reassurance-sub">Tier-4 Certified Datacenter Fleet</span>
             </div>
           </div>
 
-          <div class="mt-4">
-            <a class="ace-btn" href="#plans">Explore All Plans</a>
+          <div class="d-flex align-items-center gap-3">
+            <div class="reassurance-icon shape-2">
+              <i class="ri-customer-service-2-line" aria-hidden="true"></i>
+            </div>
+            <div>
+              <h6 class="mb-0 reassurance-title">24/7 Live Support</h6>
+              <span class="reassurance-sub">Instant WhatsApp &amp; Ticket Assistance</span>
+            </div>
           </div>
+        </div>
 
+        <div class="mt-4">
+          <a class="ace-btn" href="#plans">Explore All Plans</a>
         </div>
       </div>
 
-      <!-- RIGHT COLUMN: Paracitamol-style Stacking Native Cards with Timeline -->
-      <div class="col-lg-7 col-12">
+      <!-- RIGHT COLUMN: Moves and Stacks smoothly on scroll -->
+      <div class="moving-right-col">
         <div class="services-stack-list">
           {services.map((item, idx) => (
             <div 
@@ -187,16 +183,37 @@ const services = [
 
 <style>
   /* --------------------------------------------------------------------------
-     STICKY LEFT PANEL (Desktop)
+     TWO COLUMN GRID LAYOUT (Desktop Grid ensures Left Column is 100% STILL)
      -------------------------------------------------------------------------- */
+  .services-two-col-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    position: relative;
+  }
+
   @media (min-width: 992px) {
-    .sticky-left-panel {
+    .services-two-col-layout {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    /* Left column is pinned STILL */
+    .sticky-left-col {
       position: sticky;
-      top: 110px;
-      z-index: 10;
+      top: 105px;
+      z-index: 5;
+    }
+
+    /* Right column moves freely */
+    .moving-right-col {
+      position: relative;
     }
   }
 
+  /* Reassurance Box */
   .theme-reassurance-box {
     border: 1px solid var(--color-border, #eeeeee);
   }
@@ -236,7 +253,7 @@ const services = [
   }
 
   /* --------------------------------------------------------------------------
-     STACKING CARDS & TIMELINE (paracitamol-style movement on native cards)
+     STACKING CARDS & TIMELINE ON RIGHT COLUMN
      -------------------------------------------------------------------------- */
   .services-stack-list {
     display: flex;
@@ -276,10 +293,10 @@ const services = [
       transition: height 0.15s ease-out;
     }
 
-    /* Sticky Stacking Position */
+    /* Sticky Stacking Position for Moving Cards */
     .stack-card {
       position: sticky;
-      top: calc(110px + var(--card-index, 0) * 18px);
+      top: calc(105px + var(--card-index, 0) * 18px);
       transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, background 0.35s ease, filter 0.35s ease;
       transform-origin: top center;
     }
@@ -415,13 +432,12 @@ const services = [
         }
       });
 
-      // Apply Paracitamol-style stacking parallax scaling
+      // Apply stacking depth scaling to moving cards
       cards.forEach((card, i) => {
         const isActive = (i === activeIndex);
         card.classList.toggle('is-active', isActive);
 
         if (i < activeIndex) {
-          // Cards stacked underneath scale down and dim slightly
           const depth = activeIndex - i;
           const scale = Math.max(0.93, 1 - depth * 0.025);
           const brightness = Math.max(0.92, 1 - depth * 0.03);
