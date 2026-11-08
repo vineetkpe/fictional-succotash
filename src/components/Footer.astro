@@ -1,5 +1,9 @@
 ---
-// Hostamble Main Footer with Distinct Categories, Payment Gateways Strip & Giant Typography
+// Hostamble Main Footer
+// - Clean separate categories: Hosting, Domain, Services, and Company
+// - Original Web Payment Gateways Strip (Cashfree, PayU, CCAvenue, PhonePe, PayPal)
+// - International payment notes & GST policy
+// - Back to top & Legal footer links
 ---
 
 <footer class="aceorbit-footer-one ace-footer footer-style-default">
@@ -7,7 +11,7 @@
         <div class="container aceorbit-animated-shape">
             <div class="row g-4 g-lg-5">
                 
-                <!-- COLUMN 1: Brand & Direct Contact -->
+                <!-- BRAND & DIRECT CONTACT -->
                 <div class="col-xl-3 col-lg-3 col-md-12 col-12">
                     <div class="ace-footer-widget brand-widget">
                         <div class="logo mb-3">
@@ -16,7 +20,7 @@
                             </a>
                         </div>
                         <p class="description">
-                            Hostamble offers superior, high-speed, and reliable cloud hosting powered by NVMe SSDs and 24/7 technical support worldwide.
+                            Hostamble offers high-speed, reliable cloud infrastructure and managed WordPress hosting powered by LiteSpeed Enterprise, pure NVMe SSDs, and 24/7 technical assistance.
                         </p>
                         
                         <!-- Direct Contact List -->
@@ -36,14 +40,14 @@
                                 </li>
                                 <li>
                                     <i class="ri-whatsapp-line text-success"></i>
-                                    <a href="https://wa.me/916284719083?text=Hi%20Hostamble%20Support%2C%20I%20need%20assistance" target="_blank" rel="noopener noreferrer">WhatsApp 24/7 Live Desk</a>
+                                    <a href="https://wa.me/916284719083?text=Hi%20Hostamble%20Support%2C%20I%20need%20assistance" target="_blank" rel="noopener noreferrer">WhatsApp 24/7 Live Support</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- COLUMN 2: Hosting (Separate Category) -->
+                <!-- CATEGORY 1: HOSTING -->
                 <div class="col-xl-2 col-lg-2 col-md-3 col-6">
                     <div class="ace-footer-widget">
                         <h5 class="widget-title">Hosting</h5>
@@ -53,13 +57,13 @@
                                 <li><a href="/wordpress-hosting">WordPress Hosting</a></li>
                                 <li><a href="/vps-hosting">VPS Servers</a></li>
                                 <li><a href="/n8n-hosting">N8N Automation</a></li>
-                                <li><a href="/shared-hosting#features">NVMe LiteSpeed</a></li>
+                                <li><a href="/shared-hosting#features">LiteSpeed NVMe</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- COLUMN 3: Domain (Separate Category) -->
+                <!-- CATEGORY 2: DOMAIN -->
                 <div class="col-xl-2 col-lg-2 col-md-3 col-6">
                     <div class="ace-footer-widget">
                         <h5 class="widget-title">Domain</h5>
@@ -74,7 +78,7 @@
                     </div>
                 </div>
 
-                <!-- COLUMN 4: Services (Separate Category) -->
+                <!-- CATEGORY 3: SERVICES -->
                 <div class="col-xl-2 col-lg-2 col-md-3 col-6">
                     <div class="ace-footer-widget">
                         <h5 class="widget-title">Services</h5>
@@ -90,7 +94,7 @@
                     </div>
                 </div>
 
-                <!-- COLUMN 5: Company (Separate Category) -->
+                <!-- CATEGORY 4: COMPANY -->
                 <div class="col-xl-3 col-lg-3 col-md-3 col-6">
                     <div class="ace-footer-widget">
                         <h5 class="widget-title">Company</h5>
@@ -100,7 +104,7 @@
                                 <li><a href="/contacts">Contact Us</a></li>
                                 <li><a href="/login">Client Login</a></li>
                                 <li><a href="/register">Create Account</a></li>
-                                <li><a href="https://hostamble.com/dash/submitticket.php?step=2&deptid=1" target="_blank" rel="noopener noreferrer">Submit Ticket</a></li>
+                                <li><a href="https://hostamble.com/dash/submitticket.php?step=2&deptid=1" target="_blank" rel="noopener noreferrer">Submit Support Ticket</a></li>
                                 <li><a href="/legal-agreement">Terms of Service</a></li>
                                 <li><a href="/privacy-policy">Privacy Policy</a></li>
                                 <li><a href="/refund-and-cancellation-policy">Refund Policy</a></li>
@@ -120,71 +124,61 @@
     </div>
 
     <!-- =========================================================
-         Payment Gateways & Payment Acceptance Strip
-         Features PhonePe, Cashfree, PayU, CCAvenue, PayPal + Binance/WhatsApp note
+         Original Web Payment Gateways Strip
+         Faithfully matching reference: We accept + Cashfree, PayU, CCAvenue, PhonePe, PayPal
          ========================================================= -->
-    <div class="footer-payment-strip">
+    <div class="shf-bottom-payments-strip">
         <div class="container">
-            <div class="row align-items-center g-3">
+            <div class="shf-payments-row">
                 
-                <div class="col-lg-8 col-12">
-                    <div class="payment-accept-wrapper">
-                        <span class="payment-accept-label">We accept</span>
-                        
-                        <div class="payment-badges-row">
-                            <!-- PhonePe Badge -->
-                            <div class="payment-badge-card" title="Pay with PhonePe UPI">
-                                <img src="/assets/images/payments/phonepe.svg" alt="PhonePe" loading="lazy" />
-                            </div>
+                <!-- "We accept" label and official payment gateway cards -->
+                <div class="shf-payments-left">
+                    <span class="shf-payments-label">We accept</span>
+                    
+                    <ul class="shf-payments-list" aria-label="Accepted Payment methods">
+                        <!-- Cashfree (Original SVG) -->
+                        <li class="shf-payment-card" title="Cashfree Payments">
+                            <img src="/assets/images/payments/pay-cashfree.svg" alt="Cashfree" width="88" height="24" loading="lazy" decoding="async" />
+                        </li>
 
-                            <!-- Cashfree Badge -->
-                            <div class="payment-badge-card" title="Pay with Cashfree Payments">
-                                <img src="/assets/images/payments/cashfree.svg" alt="Cashfree" loading="lazy" />
-                            </div>
+                        <!-- PayU (Original SVG) -->
+                        <li class="shf-payment-card" title="PayU">
+                            <img src="/assets/images/payments/pay-payu.svg" alt="PayU" width="88" height="24" loading="lazy" decoding="async" />
+                        </li>
 
-                            <!-- PayU Badge -->
-                            <div class="payment-badge-card" title="Pay with PayU">
-                                <img src="/assets/images/payments/payu.svg" alt="PayU" loading="lazy" />
-                            </div>
+                        <!-- CCAvenue (Original Asset) -->
+                        <li class="shf-payment-card" title="CCAvenue">
+                            <img src="/assets/images/payments/pay-ccavenue.png" alt="CCAvenue" width="88" height="24" loading="lazy" decoding="async" />
+                        </li>
 
-                            <!-- CCAvenue Badge -->
-                            <div class="payment-badge-card" title="Pay with CCAvenue">
-                                <img src="/assets/images/payments/ccavenue.svg" alt="CCAvenue" loading="lazy" />
-                            </div>
+                        <!-- PhonePe (Official SVG) -->
+                        <li class="shf-payment-card" title="PhonePe UPI">
+                            <img src="/assets/images/payments/phonepe.svg" alt="PhonePe" width="88" height="24" loading="lazy" decoding="async" />
+                        </li>
 
-                            <!-- PayPal Badge -->
-                            <div class="payment-badge-card" title="Pay with PayPal (International)">
-                                <img src="/assets/images/payments/paypal.svg" alt="PayPal" loading="lazy" />
-                            </div>
-                        </div>
-                    </div>
+                        <!-- PayPal (Original SVG) -->
+                        <li class="shf-payment-card" title="PayPal (International)">
+                            <img src="/assets/images/payments/pay-paypal.svg" alt="PayPal" width="88" height="24" loading="lazy" decoding="async" />
+                        </li>
+                    </ul>
 
                     <!-- Payment Instruction Note -->
-                    <p class="payment-subtext">
+                    <p class="shf-payments-note">
                         International payments: <strong>PayPal</strong>. To pay with Binance, <a href="/contacts">contact us</a> or <a href="https://wa.me/916284719083?text=Hi%2C%20I%20want%20to%20pay%20via%20Binance%20for%20Hostamble" target="_blank" rel="noopener noreferrer">message us on WhatsApp</a> first.
                     </p>
                 </div>
 
-                <div class="col-lg-4 col-12 text-lg-end text-start">
-                    <div class="payment-right-meta">
-                        <span class="gst-notice-pill">
-                            <i class="ri-information-line"></i>
-                            <span>Prices exclude GST</span>
-                        </span>
-                        <span class="ssl-guarantee-pill">
-                            <i class="ri-shield-check-line text-success"></i>
-                            <span>256-Bit Encrypted Checkout</span>
-                        </span>
-                    </div>
+                <!-- Right Side Badges (GST Notice & Security) -->
+                <div class="shf-payments-right">
+                    <span class="shf-tax-notice">Prices exclude GST</span>
+                    <span class="shf-secure-badge">
+                        <i class="ri-shield-check-fill text-success"></i>
+                        <span>256-Bit SSL Encrypted Checkout</span>
+                    </span>
                 </div>
 
             </div>
         </div>
-    </div>
-
-    <!-- Giant Edge-to-Edge Typography Display (HOSTAMBLE) -->
-    <div class="footer-giant-brand-wrap" aria-hidden="true">
-        <span class="footer-giant-brand-text">HOSTAMBLE</span>
     </div>
 
     <!-- Sleek Bottom Legal & Copyright Bar -->
@@ -284,143 +278,118 @@
   }
 
   /* =========================================================
-     Payment Gateways Strip
+     Payment Gateways Strip (Faithful recreation from sharpido)
      ========================================================= */
-  .footer-payment-strip {
-    padding: 28px 0 24px;
+  .shf-bottom-payments-strip {
+    padding: 30px 0 26px;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(14, 17, 24, 0.5);
+    background: rgba(18, 21, 28, 0.7);
   }
 
-  .payment-accept-wrapper {
+  .shf-payments-row {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 12px;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px 32px;
   }
 
-  .payment-accept-label {
-    font-family: var(--font-primary, 'Urbanist', sans-serif);
-    font-size: 16px;
-    font-weight: 800;
+  .shf-payments-left {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1 1 540px;
+    min-width: 0;
+  }
+
+  .shf-payments-label {
     color: #ffffff;
-    margin-right: 6px;
+    font-family: var(--font-primary, 'Urbanist', sans-serif);
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 1.4;
   }
 
-  .payment-badges-row {
+  .shf-payments-list {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 
-  .payment-badge-card {
-    background: #ffffff;
-    border-radius: 8px;
-    padding: 5px 14px;
-    height: 38px;
+  .shf-payment-card {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    width: 112px;
+    height: 42px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08), 0 8px 18px -10px rgba(0, 0, 0, 0.6);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
-  .payment-badge-card:hover {
+  .shf-payment-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(255, 80, 26, 0.25);
+    box-shadow: 0 4px 14px rgba(255, 80, 26, 0.25);
   }
 
-  .payment-badge-card img {
-    height: 22px;
-    width: auto;
-    max-width: 100px;
-    object-fit: contain;
+  .shf-payment-card img {
     display: block;
+    width: 88px;
+    height: 24px;
+    max-width: 100%;
+    object-fit: contain;
   }
 
-  .payment-subtext {
-    color: #8c96a7;
-    font-size: 13.5px;
-    margin: 0;
-    line-height: 1.5;
+  .shf-payments-note {
+    color: #a9a9b3;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 2px 0 0;
   }
 
-  .payment-subtext strong {
+  .shf-payments-note strong {
     color: #ffffff;
   }
 
-  .payment-subtext a {
-    color: #ffffff;
+  .shf-payments-note a {
+    color: #e4e4e8;
     text-decoration: underline;
     text-underline-offset: 3px;
     transition: color 0.2s ease;
   }
 
-  .payment-subtext a:hover {
+  .shf-payments-note a:hover {
     color: var(--color-primary, #ff501a);
   }
 
-  .payment-right-meta {
+  .shf-payments-right {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-end;
     gap: 8px;
+    font-size: 13px;
+    color: #a9a9b3;
+    padding-top: 4px;
   }
 
-  @media only screen and (min-width: 992px) {
-    .payment-right-meta {
-      align-items: flex-end;
-    }
-  }
-
-  .gst-notice-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+  .shf-tax-notice {
     color: #cbd5e1;
-    font-size: 13.5px;
     font-weight: 600;
     font-family: var(--font-primary, 'Urbanist', sans-serif);
   }
 
-  .ssl-guarantee-pill {
+  .shf-secure-badge {
     display: inline-flex;
     align-items: center;
     gap: 6px;
     color: #8c96a7;
     font-size: 12.5px;
-  }
-
-  /* Giant Brand Typography Display */
-  .footer-giant-brand-wrap {
-    width: 100%;
-    overflow: hidden;
-    padding: 36px 0 6px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    user-select: none;
-    pointer-events: none;
-    background: transparent;
-  }
-
-  .footer-giant-brand-text {
-    font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: clamp(60px, 15.6vw, 240px);
-    font-weight: 900;
-    line-height: 0.82;
-    letter-spacing: -0.04em;
-    text-transform: uppercase;
-    color: var(--color-primary, #ff501a);
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    white-space: nowrap;
-    opacity: 0.98;
   }
 
   /* Bottom Copyright & Links Strip */
@@ -511,11 +480,13 @@
   }
 
   @media only screen and (max-width: 991px) {
-    .footer-payment-strip {
-      padding: 24px 0 20px;
+    .shf-payments-row {
+      flex-direction: column;
+      gap: 18px;
     }
-    .payment-right-meta {
-      margin-top: 8px;
+    .shf-payments-right {
+      align-items: flex-start;
+      padding-top: 0;
     }
     .footer-bottom-links {
       justify-content: center;
@@ -527,13 +498,13 @@
   }
 
   @media only screen and (max-width: 575px) {
-    .footer-giant-brand-wrap {
-      padding: 20px 0 0px;
+    .shf-payments-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
     }
-    .payment-accept-wrapper {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
+    .shf-payment-card {
+      width: 100%;
     }
     .footer-bottom-links {
       flex-wrap: wrap;
