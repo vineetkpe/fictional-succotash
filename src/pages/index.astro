@@ -4,6 +4,7 @@ import InteractiveHeroIllustration from "../components/InteractiveHeroIllustrati
 import TrustGuaranteesStrip from "../components/TrustGuaranteesStrip.astro";
 import ServicesBlock from "../components/ServicesBlock.astro";
 import FeaturesBlock from "../components/FeaturesBlock.astro";
+import TestimonialsBlock from "../components/TestimonialsBlock.astro";
 import { sharedHosting, domainPricing } from "../data/pricing";
 
 const plans = sharedHosting.plans;
@@ -1473,141 +1474,8 @@ const plans = sharedHosting.plans;
             </div>
         </div>
     </div>
-    <!--testimonials-->
-
-    <div
-        class="ace-testimonial-area aceorbit-testimonial bg-color-white testimonial-card-box-bg ace-section-gap position-relative bg-image"
-    >
-        <div class="container aceorbit-animated-shape">
-            <div class="row g-5">
-                <div class="col-lg-12">
-                    <div
-                        class="section-title text-center"
-                        data-sal="slide-up"
-                        data-sal-delay="150"
-                        data-sal-duration="800"
-                    >
-                        <span class="pre-title">TESTIMONIALS</span>
-
-                        <h3 class="title">Our Customers Reviews</h3>
-                    </div>
-                </div>
-            </div>
-
-            <div
-                class="ace-testimonial-activation testimonial-item-3 mt--40 ace-slick-button"
-            >
-                <div class="testimonial-card-box">
-                    <div class="inner">
-                        <div class="client-info">
-                            <div class="thumbnail">
-                                <img
-                                    alt="Client Images"
-                                    src="/assets/images/client1.png"
-                                />
-                            </div>
-
-                            <div class="content">
-                                <h6 class="title">Berick</h6>
-                                <span class="designation">Web Designer.</span>
-                            </div>
-                        </div>
-
-                        <p class="description">
-                            &ldquo; Top-notch web hosting with seamless domain
-                            registration and professional web design services.
-                            Reliable uptime and excellent support make it
-                            perfect for businesses. &rdquo;
-                        </p>
-
-                        <div class="rating"></div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card-box">
-                    <div class="inner">
-                        <div class="client-info">
-                            <div class="thumbnail">
-                                <img
-                                    alt="Client Images"
-                                    src="/assets/images/client2.png"
-                                />
-                            </div>
-
-                            <div class="content">
-                                <h6 class="title">Razima</h6>
-                                <span class="designation">Blogger</span>
-                            </div>
-                        </div>
-
-                        <p class="description">
-                            &ldquo; Exceptional web hosting with fast domain
-                            setup and custom web design services. Reliable
-                            uptime and stellar support make it a great choice
-                            for businesses.&quot; &rdquo;
-                        </p>
-
-                        <div class="rating"></div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card-box">
-                    <div class="inner">
-                        <div class="client-info">
-                            <div class="thumbnail">
-                                <img
-                                    alt="Client Images"
-                                    src="/assets/images/client3.png"
-                                />
-                            </div>
-
-                            <div class="content">
-                                <h6 class="title">Samantha</h6>
-                                <span class="designation">Model</span>
-                            </div>
-                        </div>
-
-                        <p class="description">
-                            &ldquo; I chose you because you create added value
-                            over the price offered by other hosting companies.
-                            it&#39;s been a great experience for me. I&#39;m
-                            leaving happy. Thank you. &rdquo;
-                        </p>
-
-                        <div class="rating"></div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card-box">
-                    <div class="inner">
-                        <div class="client-info">
-                            <div class="thumbnail">
-                                <img
-                                    alt="Client Images"
-                                    src="/assets/images/client4.png"
-                                />
-                            </div>
-
-                            <div class="content">
-                                <h6 class="title">Aman</h6>
-                                <span class="designation">Affilate Blogger</span
-                                >
-                            </div>
-                        </div>
-
-                        <p class="description">
-                            &ldquo; Reliable web hosting with easy domain
-                            registration and creative web design solutions.
-                            Consistent uptime and excellent support ensure a
-                            smooth experience for businesses.&rdquo;
-                        </p>
-
-                        <div class="rating"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- Testimonials / Customers Reviews Block -->
+    <TestimonialsBlock />
 
     <div
         class="ace-help-area bg-image domain-style-3 ace-section-gap bg-color-primary"

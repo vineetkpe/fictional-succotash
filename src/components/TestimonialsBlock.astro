@@ -1,0 +1,487 @@
+---
+// Hostamble Native Theme "Our Customers Reviews" Testimonials Block
+// Retains exact speech-bubble card design with elevated star ratings, trust pill, and Urbanist typography
+
+interface TestimonialItem {
+  id: string;
+  name: string;
+  designation: string;
+  avatar: string;
+  rating: number;
+  review: string;
+  planTag: string;
+}
+
+const testimonials: TestimonialItem[] = [
+  {
+    id: "berick",
+    name: "Berick",
+    designation: "Web Designer & Agency Owner",
+    avatar: "/assets/images/client1.png",
+    rating: 5,
+    review: "Top-notch web hosting with seamless domain registration and professional web design services. Reliable uptime and excellent support make it perfect for businesses.",
+    planTag: "LiteSpeed Turbo Plan"
+  },
+  {
+    id: "razima",
+    name: "Razima",
+    designation: "Tech Blogger & Creator",
+    avatar: "/assets/images/client2.png",
+    rating: 5,
+    review: "Exceptional web hosting with fast domain setup and custom web design services. Reliable uptime and stellar support make it a great choice for businesses.",
+    planTag: "WordPress Cloud"
+  },
+  {
+    id: "samantha",
+    name: "Samantha",
+    designation: "E-Commerce Store Founder",
+    avatar: "/assets/images/client3.png",
+    rating: 5,
+    review: "I chose you because you create added value over the price offered by other hosting companies. It's been a great experience for me. I'm leaving happy. Thank you.",
+    planTag: "Business NVMe Hosting"
+  },
+  {
+    id: "aman",
+    name: "Aman",
+    designation: "Affiliate Marketer & Dev",
+    avatar: "/assets/images/client4.png",
+    rating: 5,
+    review: "Reliable web hosting with easy domain registration and creative web design solutions. Consistent uptime and excellent support ensure a smooth experience for businesses.",
+    planTag: "Shared Cloud Hosting"
+  },
+  {
+    id: "vikram",
+    name: "Vikram Patel",
+    designation: "Full-Stack Developer",
+    avatar: "/assets/images/client1.png",
+    rating: 5,
+    review: "Migrated 8 client sites to Hostamble. Page load speeds improved by over 60% with LiteSpeed and Redis cache. WhatsApp support resolves queries in under 5 minutes!",
+    planTag: "Enterprise Cloud"
+  },
+  {
+    id: "pooja",
+    name: "Pooja Sharma",
+    designation: "Digital Marketing Lead",
+    avatar: "/assets/images/client2.png",
+    rating: 5,
+    review: "The automated free SSL renewal, daily restore backups, and 99.9% uptime have been rock solid for our online store. Best value hosting in India hands down.",
+    planTag: "E-Commerce Shared"
+  }
+];
+---
+
+<div class="ace-testimonial-area aceorbit-testimonial testimonials-theme-section position-relative">
+  <!-- Subtle theme ambient glow orbs -->
+  <div class="testimonials-glow glow-left" aria-hidden="true"></div>
+  <div class="testimonials-glow glow-right" aria-hidden="true"></div>
+
+  <div class="container aceorbit-animated-shape position-relative" style="z-index: 2;">
+    <!-- Section Title (Hostamble Native Theme Hierarchy) -->
+    <div class="row g-5">
+      <div class="col-lg-12">
+        <div class="section-title text-center" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+          <span class="pre-title">TESTIMONIALS</span>
+          <h3 class="title">Our Customers Reviews</h3>
+          
+          <!-- Trust & Rating Social Proof Pill -->
+          <div class="reviews-trust-pill" data-sal="slide-up" data-sal-delay="250" data-sal-duration="800">
+            <span class="trust-stars" aria-hidden="true">
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+            </span>
+            <span class="trust-score">4.9 / 5.0 Rating</span>
+            <span class="trust-dot" aria-hidden="true">·</span>
+            <span class="trust-count">Over 1,500+ Verified Customer Reviews</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slick Slider Carousel (Retaining Native Classes for Main.js Slick Activation) -->
+    <div class="ace-testimonial-activation testimonial-item-3 mt--40 ace-slick-button">
+      {testimonials.map((item) => (
+        <div class="testimonial-card-box">
+          <div class="inner speech-bubble-card">
+            <!-- Decorative Subtle Quote Mark -->
+            <i class="ri-double-quotes-r quote-mark-decor" aria-hidden="true"></i>
+
+            <!-- Client Info Header -->
+            <div class="client-info">
+              <div class="thumbnail">
+                <img
+                  alt={`${item.name} Portrait`}
+                  src={item.avatar}
+                  class="client-avatar-img"
+                  loading="lazy"
+                />
+              </div>
+
+              <div class="content">
+                <div class="name-row">
+                  <h6 class="title">{item.name}</h6>
+                  <span class="verified-icon" title="Verified Customer">
+                    <i class="ri-checkbox-circle-fill" aria-hidden="true"></i>
+                  </span>
+                </div>
+                <span class="designation">{item.designation}</span>
+              </div>
+            </div>
+
+            <!-- Review Description Quote -->
+            <p class="description">
+              &ldquo; {item.review} &rdquo;
+            </p>
+
+            <!-- Star Rating (5 Stars + Verification Badge) -->
+            <div class="card-footer-meta">
+              <div class="rating" aria-label={`Rating: ${item.rating} out of 5 stars`}>
+                <span class="stars-row">
+                  <i class="ri-star-fill star-gold" aria-hidden="true"></i>
+                  <i class="ri-star-fill star-gold" aria-hidden="true"></i>
+                  <i class="ri-star-fill star-gold" aria-hidden="true"></i>
+                  <i class="ri-star-fill star-gold" aria-hidden="true"></i>
+                  <i class="ri-star-fill star-gold" aria-hidden="true"></i>
+                </span>
+                <span class="rating-value">5.0</span>
+              </div>
+              <span class="plan-pill">{item.planTag}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .testimonials-theme-section {
+    background: linear-gradient(180deg, #FFFFFF 0%, var(--color-secondary-alt, #FFF6F4) 50%, #FFFFFF 100%);
+    padding: 95px 0 115px 0;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+    overflow: hidden;
+  }
+
+  /* Soft Ambient Glow Orbs */
+  .testimonials-glow {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .glow-left {
+    left: -120px;
+    top: 20%;
+    width: 320px;
+    height: 320px;
+    background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.08);
+    filter: blur(85px);
+  }
+  .glow-right {
+    right: -120px;
+    bottom: 25%;
+    width: 340px;
+    height: 340px;
+    background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.07);
+    filter: blur(95px);
+  }
+
+  /* Section Title */
+  .section-title .pre-title {
+    font-weight: 800;
+    font-size: 15px;
+    line-height: 26px;
+    color: var(--color-primary, #ff501a);
+    margin-bottom: 6px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    display: block;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+  }
+
+  .section-title .title {
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--color-heading, #202133);
+    margin: 8px 0 16px 0;
+    line-height: 1.25;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+  }
+
+  /* Trust & Rating Social Proof Pill */
+  .reviews-trust-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    border: 1px solid rgba(var(--color-primary-rgb, 210, 116, 29), 0.2);
+    border-radius: 30px;
+    padding: 6px 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    margin-top: 4px;
+    margin-bottom: 10px;
+  }
+
+  .trust-stars {
+    color: #ffa41b;
+    font-size: 14px;
+    display: inline-flex;
+    gap: 2px;
+  }
+
+  .trust-score {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--color-heading, #202133);
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+  }
+
+  .trust-dot {
+    color: var(--color-body, #6F6B80);
+    font-weight: 700;
+  }
+
+  .trust-count {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--color-body, #6F6B80);
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+  }
+
+  /* Speech Bubble Testimonial Card */
+  .testimonial-card-box {
+    padding: 15px 12px;
+  }
+
+  /* Filter: drop-shadow draws a seamless shadow around the card AND the pointer tail! */
+  .testimonial-card-box .inner.speech-bubble-card {
+    position: relative;
+    background: var(--color-white, #ffffff);
+    border-radius: 8px;
+    border: 1px solid var(--color-border, #eeeeee);
+    padding: 32px 28px 28px 28px;
+    margin-bottom: 40px;
+    filter: drop-shadow(0px 8px 24px rgba(0, 0, 0, 0.04));
+    transition: transform 0.35s ease, filter 0.35s ease, border-color 0.35s ease;
+  }
+
+  .testimonial-card-box:hover .inner.speech-bubble-card {
+    transform: translateY(-8px);
+    filter: drop-shadow(0px 18px 36px rgba(255, 80, 26, 0.12));
+    border-color: rgba(var(--color-primary-rgb, 210, 116, 29), 0.35);
+  }
+
+  /* Signature Speech Bubble Triangle Pointer at Bottom-Left */
+  .testimonial-card-box .inner.speech-bubble-card::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 32px 0 0 26px;
+    border-color: transparent transparent transparent var(--color-white, #ffffff);
+    top: calc(100% - 1px);
+    left: 45px;
+    transform: rotate(90deg);
+    z-index: 2;
+    border-bottom-right-radius: 3px;
+  }
+
+  /* Decorative Subtle Quote Mark */
+  .quote-mark-decor {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-size: 38px;
+    color: rgba(var(--color-primary-rgb, 210, 116, 29), 0.12);
+    pointer-events: none;
+    transition: color 0.3s ease;
+  }
+  .testimonial-card-box:hover .quote-mark-decor {
+    color: rgba(var(--color-primary-rgb, 210, 116, 29), 0.24);
+  }
+
+  /* Client Info Header */
+  .client-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+
+  .client-info .thumbnail {
+    margin-right: 15px;
+    flex-shrink: 0;
+  }
+
+  .client-avatar-img {
+    width: 54px;
+    height: 54px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid rgba(var(--color-primary-rgb, 210, 116, 29), 0.22);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+
+  .testimonial-card-box:hover .client-avatar-img {
+    transform: scale(1.05);
+    border-color: var(--color-primary, #ff501a);
+  }
+
+  .client-info .content .name-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 2px;
+  }
+
+  .client-info .content .title {
+    margin: 0;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 1.3;
+    color: var(--color-heading, #202133);
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+  }
+
+  .verified-icon {
+    color: #10b981;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .client-info .content .designation {
+    color: var(--color-primary, #ff501a);
+    font-weight: 600;
+    font-size: 13.5px;
+    display: block;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+  }
+
+  /* Review Quote Description */
+  .description {
+    font-size: 14.8px;
+    line-height: 1.65;
+    color: var(--color-body, #6F6B80);
+    margin-bottom: 20px;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+    min-height: 72px;
+  }
+
+  /* Card Footer: Star Rating + Hosted Plan Badge */
+  .card-footer-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    margin-top: auto;
+  }
+
+  .rating {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .stars-row {
+    display: inline-flex;
+    gap: 3px;
+    color: #ffa41b;
+    font-size: 15px;
+  }
+
+  .star-gold {
+    color: #ffa41b;
+  }
+
+  .rating-value {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: var(--color-heading, #202133);
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+  }
+
+  .plan-pill {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--color-primary, #ff501a);
+    background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.08);
+    border-radius: 12px;
+    padding: 3px 9px;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+  }
+
+  /* Slick Dots Modern Pill Styling */
+  :global(.ace-slick-button .slick-dots) {
+    position: absolute;
+    bottom: -60px;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  :global(.ace-slick-button .slick-dots li) {
+    margin: 0;
+    padding: 0;
+  }
+
+  :global(.ace-slick-button .slick-dots li button) {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.25);
+    border: none;
+    font-size: 0;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  :global(.ace-slick-button .slick-dots li.slick-active button) {
+    width: 28px;
+    background: var(--color-primary, #ff501a);
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 991px) {
+    .section-title .title {
+      font-size: 34px;
+    }
+    .testimonials-theme-section {
+      padding: 75px 0 95px 0;
+    }
+  }
+
+  @media (max-width: 575px) {
+    .section-title .title {
+      font-size: 28px;
+    }
+    .reviews-trust-pill {
+      flex-direction: column;
+      gap: 3px;
+      border-radius: 18px;
+      padding: 8px 16px;
+    }
+    .trust-dot {
+      display: none;
+    }
+    .card-footer-meta {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .testimonial-card-box .inner.speech-bubble-card {
+      padding: 24px 20px;
+    }
+  }
+</style>
+
