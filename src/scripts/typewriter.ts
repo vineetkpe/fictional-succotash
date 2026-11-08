@@ -8,7 +8,7 @@ export function initTypewriter(
     "Free Domain",
     "Turbo Power",
     "Free SSL",
-    "Expert Support",
+    "WhatsApp Support",
     "1-Click Install"
   ]
 ): void {
