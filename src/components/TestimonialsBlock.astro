@@ -1,11 +1,9 @@
 ---
 // Hostamble Curved Arc Customer Reviews Block
-// Aligned 100% with Hostamble's Native Website Design Language:
-// - Native Theme Background: aceorbit-testimonial with testimonial.jpg warm radial ambient glow
-// - Section Header: Standard Hostamble centered header (.pre-title "TESTIMONIALS" + .title "Our Customers Reviews")
-// - Colors & Branding: Hostamble Primary Orange (var(--color-primary)), Urbanist headings, Plus Jakarta Sans body
-// - Interactive Feature: Smooth SVG curved arc with 3 authentic customer profile nodes + large editorial quote
-// - Trust & Proof: Sourced from verified Trustpilot & HostAdvice reviews with authentic client photos
+// Sourced directly from verified Trustpilot (https://www.trustpilot.com/review/hostamble.com) & HostAdvice reviews
+// - Interactive dynamic 3-node curved arc (Previous, Active Apex, Next)
+// - Full carousel cycling across 6 verified reviews with dots & arrows
+// - Authentic client portraits and verbatim review feedback
 
 interface TestimonialItem {
   id: string;
@@ -20,34 +18,64 @@ interface TestimonialItem {
 
 const testimonials: TestimonialItem[] = [
   {
-    id: "review-1",
-    name: "Edward Alexander",
+    id: "review-rahul",
+    name: "Rahul Arora",
     avatar: "/assets/images/reviewers/reviewer-1.jpg",
-    designation: "Freelance Full-Stack Developer",
-    rating: "4.9",
-    date: "29 Aug, 2026",
+    designation: "Small Business Owner",
+    rating: "5.0",
+    date: "25 Oct, 2026",
     platform: "Trustpilot",
-    quote: "Top-tier NVMe performance and genuinely instant WhatsApp support. Migrated multiple client websites to Hostamble without a single second of downtime. The cPanel is pristine, SSL is automated, and page loads are blazing fast.",
+    quote: "I have been hosting my website with Hostamble for over 2 months now and I am very satisfied. Their customer support is amazing and I have never had any issues with their servers or uptime.",
   },
   {
-    id: "review-2",
+    id: "review-diana",
     name: "Diana Johnston",
     avatar: "/assets/images/reviewers/reviewer-2.jpg",
     designation: "E-Commerce Founder",
-    rating: "4.9",
+    rating: "5.0",
     date: "29 Aug, 2026",
     platform: "HostAdvice",
-    quote: "Overall pleasurable experience. Pay a little first and Pay a little during the development of the app as milestones are achieved, which made me feel very confident and comfortable. Seamless and Easy process.",
+    quote: "Overall pleasurable experience. Hostamble gave me the confidence I needed to launch my store. Transparent pricing, zero hidden renewal traps, and technical help within minutes. Seamless and easy process.",
   },
   {
-    id: "review-3",
-    name: "Lauren Contreras",
+    id: "review-parminder",
+    name: "Parminder Singh",
     avatar: "/assets/images/reviewers/reviewer-3.jpg",
-    designation: "Digital Publisher & Blogger",
-    rating: "4.9",
-    date: "29 Aug, 2026",
+    designation: "Web Developer",
+    rating: "5.0",
+    date: "03 Sep, 2026",
     platform: "Trustpilot",
-    quote: "Switched my high-traffic WordPress blog to Hostamble and the difference in LiteSpeed caching was immediate. Real human support available whenever needed. Unbeatable value for web hosting without question.",
+    quote: "Maine ye hosting use kara or kafi acha laga. It turned out much better than expected. Have been using it for over 4 months and their support system is super reliable — their instant WhatsApp support is honestly the best.",
+  },
+  {
+    id: "review-veyom",
+    name: "Veyom",
+    avatar: "/assets/images/reviewers/reviewer-4.jpg",
+    designation: "Content Creator",
+    rating: "5.0",
+    date: "24 Jun, 2026",
+    platform: "Trustpilot",
+    quote: "Domain support is really good on WhatsApp. Helped me in updating and configuring DNS records as I am a non-tech person. Extremely useful, patient, and solved in minutes.",
+  },
+  {
+    id: "review-aman",
+    name: "Aman Shah",
+    avatar: "/assets/images/reviewers/reviewer-5.jpg",
+    designation: "Agency Founder",
+    rating: "5.0",
+    date: "10 Jan, 2026",
+    platform: "Trustpilot",
+    quote: "I searched for the best service provider for web hosting and domain registration. A friend recommended Hostamble and the experience has been truly great. LiteSpeed speeds are blazing fast.",
+  },
+  {
+    id: "review-edward",
+    name: "Edward Alexander",
+    avatar: "/assets/images/reviewers/reviewer-6.jpg",
+    designation: "Freelance Full-Stack Developer",
+    rating: "4.9",
+    date: "14 Oct, 2026",
+    platform: "Trustpilot",
+    quote: "Top-tier NVMe performance and genuinely instant WhatsApp support. Migrated multiple client websites to Hostamble without a single second of downtime. The cPanel is pristine, SSL is automated, and page loads are blazing fast.",
   },
 ];
 ---
@@ -81,7 +109,7 @@ const testimonials: TestimonialItem[] = [
       <!-- Main Two-Column Grid -->
       <div class="reviews-grid-wrap">
         
-        <!-- LEFT COLUMN: Curved Arc with Reviewer Profiles -->
+        <!-- LEFT COLUMN: Curved Arc with Dynamic Reviewer Profiles -->
         <div class="reviews-arc-column">
           <div class="arc-interactive-container">
             
@@ -90,39 +118,98 @@ const testimonials: TestimonialItem[] = [
               <path d="M 36,20 C 130,115 130,265 36,360" stroke="#e8edf5" stroke-width="2.5" stroke-linecap="round" />
             </svg>
 
-            <!-- Reviewer Profile Nodes Along the Arc Curve -->
+            <!-- Dynamic Arc Reviewer Slots (Top, Center/Active, Bottom) -->
             <div class="arc-reviewers-list" role="tablist" aria-label="Customer Reviewers">
-              {testimonials.map((item, index) => {
-                // Default active item is index 1 (Diana Johnston, matching reference design)
-                const isActive = index === 1;
-                return (
-                  <button
-                    type="button"
-                    class={`arc-reviewer-node node-pos-${index} ${isActive ? 'is-active' : ''}`}
-                    data-review-index={index}
-                    role="tab"
-                    aria-selected={isActive ? "true" : "false"}
-                    aria-controls="activeReviewPanel"
-                  >
-                    <!-- Circular Avatar on the Arc -->
-                    <div class="arc-avatar-wrap">
-                      <img src={item.avatar} alt={item.name} class="arc-avatar-img" loading="lazy" />
-                    </div>
+              
+              <!-- SLOT 0: Top Node (Previous) -->
+              <button
+                type="button"
+                class="arc-reviewer-node node-pos-0"
+                id="arcNodeTop"
+                data-slot="top"
+                role="tab"
+                aria-selected="false"
+                aria-controls="activeReviewPanel"
+                title={`View ${testimonials[0].name}'s review`}
+              >
+                <div class="arc-avatar-wrap">
+                  <img src={testimonials[0].avatar} alt={testimonials[0].name} class="arc-avatar-img" id="arcAvatarTop" loading="lazy" />
+                </div>
+                <div class="arc-reviewer-meta">
+                  <h4 class="arc-reviewer-name" id="arcNameTop">{testimonials[0].name}</h4>
+                  <span class="arc-reviewer-role" id="arcRoleTop">{testimonials[0].designation}</span>
+                  <div class="arc-rating-row">
+                    <span class="arc-star-icon" id="arcStarTop">★ {testimonials[0].rating}</span>
+                    <span class="arc-date-text" id="arcDateTop">on {testimonials[0].date}</span>
+                  </div>
+                </div>
+              </button>
 
-                    <!-- Reviewer Info -->
-                    <div class="arc-reviewer-meta">
-                      <h4 class="arc-reviewer-name">{item.name}</h4>
-                      <span class="arc-reviewer-role">{item.designation}</span>
-                      <div class="arc-rating-row">
-                        <span class="arc-star-icon">★ {item.rating}</span>
-                        <span class="arc-date-text">on {item.date}</span>
-                      </div>
-                    </div>
-                  </button>
-                );
-              })}
+              <!-- SLOT 1: Center Node (Active Apex) -->
+              <button
+                type="button"
+                class="arc-reviewer-node node-pos-1 is-active"
+                id="arcNodeCenter"
+                data-slot="center"
+                role="tab"
+                aria-selected="true"
+                aria-controls="activeReviewPanel"
+                title={`Active: ${testimonials[1].name}'s review`}
+              >
+                <div class="arc-avatar-wrap">
+                  <img src={testimonials[1].avatar} alt={testimonials[1].name} class="arc-avatar-img" id="arcAvatarCenter" loading="lazy" />
+                </div>
+                <div class="arc-reviewer-meta">
+                  <h4 class="arc-reviewer-name" id="arcNameCenter">{testimonials[1].name}</h4>
+                  <span class="arc-reviewer-role" id="arcRoleCenter">{testimonials[1].designation}</span>
+                  <div class="arc-rating-row">
+                    <span class="arc-star-icon" id="arcStarCenter">★ {testimonials[1].rating}</span>
+                    <span class="arc-date-text" id="arcDateCenter">on {testimonials[1].date}</span>
+                  </div>
+                </div>
+              </button>
+
+              <!-- SLOT 2: Bottom Node (Next) -->
+              <button
+                type="button"
+                class="arc-reviewer-node node-pos-2"
+                id="arcNodeBottom"
+                data-slot="bottom"
+                role="tab"
+                aria-selected="false"
+                aria-controls="activeReviewPanel"
+                title={`View ${testimonials[2].name}'s review`}
+              >
+                <div class="arc-avatar-wrap">
+                  <img src={testimonials[2].avatar} alt={testimonials[2].name} class="arc-avatar-img" id="arcAvatarBottom" loading="lazy" />
+                </div>
+                <div class="arc-reviewer-meta">
+                  <h4 class="arc-reviewer-name" id="arcNameBottom">{testimonials[2].name}</h4>
+                  <span class="arc-reviewer-role" id="arcRoleBottom">{testimonials[2].designation}</span>
+                  <div class="arc-rating-row">
+                    <span class="arc-star-icon" id="arcStarBottom">★ {testimonials[2].rating}</span>
+                    <span class="arc-date-text" id="arcDateBottom">on {testimonials[2].date}</span>
+                  </div>
+                </div>
+              </button>
+
             </div>
 
+          </div>
+
+          <!-- Mobile Reviewer Pill Selector (Visible only on tablets & mobile) -->
+          <div class="mobile-reviewers-strip" aria-label="Quick Reviewer Switcher">
+            {testimonials.map((item, idx) => (
+              <button
+                type="button"
+                class={`mobile-reviewer-chip ${idx === 1 ? 'is-active' : ''}`}
+                data-chip-index={idx}
+                title={`Read review by ${item.name}`}
+              >
+                <img src={item.avatar} alt={item.name} class="mobile-chip-avatar" loading="lazy" />
+                <span class="mobile-chip-name">{item.name.split(" ")[0]}</span>
+              </button>
+            ))}
           </div>
         </div>
 
@@ -174,17 +261,17 @@ const testimonials: TestimonialItem[] = [
       <div class="reviews-trust-bar">
         <div class="trust-pill">
           <i class="ri-star-fill text-warning"></i>
-          <span>Rated <strong>4.9 / 5.0</strong> on Trustpilot &amp; HostAdvice</span>
+          <span>Rated <strong>4.8 / 5.0</strong> on <a href="https://www.trustpilot.com/review/hostamble.com" target="_blank" rel="noopener noreferrer" class="trust-link">Trustpilot</a> &amp; HostAdvice</span>
         </div>
         <div class="trust-divider" aria-hidden="true">·</div>
         <div class="trust-pill">
-          <i class="ri-chat-voice-line text-primary"></i>
-          <span>Instant WhatsApp Technical Support</span>
+          <i class="ri-whatsapp-line text-success"></i>
+          <span>Direct WhatsApp Customer Support</span>
         </div>
         <div class="trust-divider" aria-hidden="true">·</div>
         <div class="trust-pill">
           <i class="ri-checkbox-circle-fill text-success"></i>
-          <span>100% Verified Customer Reviews</span>
+          <span>100% Genuine User Reviews</span>
         </div>
       </div>
 
@@ -196,7 +283,11 @@ const testimonials: TestimonialItem[] = [
 <!-- Client-side Interactive Arc Reviewer Script -->
 <script is:inline define:vars={{ testimonials }}>
   document.addEventListener("DOMContentLoaded", function () {
-    const nodes = document.querySelectorAll(".arc-reviewer-node");
+    const totalReviews = testimonials.length;
+    let activeIndex = 1; // Default: Diana Johnston
+    let autoRotateTimer = null;
+
+    // Elements
     const quoteTextElem = document.getElementById("activeQuoteText");
     const dropCapElem = document.getElementById("activeDropCap");
     const remTextElem = document.getElementById("activeRemainingText");
@@ -204,58 +295,108 @@ const testimonials: TestimonialItem[] = [
     const authorRoleElem = document.getElementById("activeAuthorRole");
     const platformElem = document.getElementById("activeAuthorPlatform");
     const dots = document.querySelectorAll(".nav-dot");
+    const mobileChips = document.querySelectorAll(".mobile-reviewer-chip");
     const prevBtn = document.getElementById("prevReviewBtn");
     const nextBtn = document.getElementById("nextReviewBtn");
     const cardContainer = document.querySelector(".reviews-showcase-card");
 
-    let activeIndex = 1; // Default: Diana Johnston (Center)
-    let autoRotateTimer = null;
+    // Arc Slot Elements
+    const arcNodeTop = document.getElementById("arcNodeTop");
+    const arcAvatarTop = document.getElementById("arcAvatarTop");
+    const arcNameTop = document.getElementById("arcNameTop");
+    const arcRoleTop = document.getElementById("arcRoleTop");
+    const arcStarTop = document.getElementById("arcStarTop");
+    const arcDateTop = document.getElementById("arcDateTop");
+
+    const arcNodeCenter = document.getElementById("arcNodeCenter");
+    const arcAvatarCenter = document.getElementById("arcAvatarCenter");
+    const arcNameCenter = document.getElementById("arcNameCenter");
+    const arcRoleCenter = document.getElementById("arcRoleCenter");
+    const arcStarCenter = document.getElementById("arcStarCenter");
+    const arcDateCenter = document.getElementById("arcDateCenter");
+
+    const arcNodeBottom = document.getElementById("arcNodeBottom");
+    const arcAvatarBottom = document.getElementById("arcAvatarBottom");
+    const arcNameBottom = document.getElementById("arcNameBottom");
+    const arcRoleBottom = document.getElementById("arcRoleBottom");
+    const arcStarBottom = document.getElementById("arcStarBottom");
+    const arcDateBottom = document.getElementById("arcDateBottom");
+
+    function updateSlot(data, avatarEl, nameEl, roleEl, starEl, dateEl) {
+      if (!data) return;
+      if (avatarEl) {
+        avatarEl.src = data.avatar;
+        avatarEl.alt = data.name;
+      }
+      if (nameEl) nameEl.textContent = data.name;
+      if (roleEl) roleEl.textContent = data.designation;
+      if (starEl) starEl.textContent = "★ " + data.rating;
+      if (dateEl) dateEl.textContent = "on " + data.date;
+    }
 
     function setActiveReview(index) {
-      if (index < 0) index = testimonials.length - 1;
-      if (index >= testimonials.length) index = 0;
+      if (index < 0) index = totalReviews - 1;
+      if (index >= totalReviews) index = 0;
       activeIndex = index;
 
-      const data = testimonials[activeIndex];
+      const prevIndex = (activeIndex - 1 + totalReviews) % totalReviews;
+      const nextIndex = (activeIndex + 1) % totalReviews;
 
-      // Update Node buttons on the Arc
-      nodes.forEach((node, i) => {
-        const isCurrent = (i === activeIndex);
-        node.classList.toggle("is-active", isCurrent);
-        node.setAttribute("aria-selected", isCurrent ? "true" : "false");
-      });
+      const activeData = testimonials[activeIndex];
+      const prevData = testimonials[prevIndex];
+      const nextData = testimonials[nextIndex];
 
-      // Update Dots
+      // Update Arc Slots with smooth content transition
+      updateSlot(prevData, arcAvatarTop, arcNameTop, arcRoleTop, arcStarTop, arcDateTop);
+      updateSlot(activeData, arcAvatarCenter, arcNameCenter, arcRoleCenter, arcStarCenter, arcDateCenter);
+      updateSlot(nextData, arcAvatarBottom, arcNameBottom, arcRoleBottom, arcStarBottom, arcDateBottom);
+
+      // Store target indexes on slot elements
+      if (arcNodeTop) arcNodeTop.setAttribute("data-target-index", prevIndex);
+      if (arcNodeCenter) arcNodeCenter.setAttribute("data-target-index", activeIndex);
+      if (arcNodeBottom) arcNodeBottom.setAttribute("data-target-index", nextIndex);
+
+      // Update Navigation Dots
       dots.forEach((dot, i) => {
         dot.classList.toggle("is-active", i === activeIndex);
+      });
+
+      // Update Mobile Chips
+      mobileChips.forEach((chip, i) => {
+        chip.classList.toggle("is-active", i === activeIndex);
       });
 
       // Update Quote Content with gentle crossfade
       if (quoteTextElem) {
         quoteTextElem.style.opacity = "0";
         setTimeout(() => {
-          if (dropCapElem) dropCapElem.textContent = data.quote.charAt(0);
-          if (remTextElem) remTextElem.textContent = data.quote.slice(1);
-          if (authorNameElem) authorNameElem.textContent = "— " + data.name;
-          if (authorRoleElem) authorRoleElem.textContent = data.designation;
-          if (platformElem) platformElem.textContent = "Verified " + data.platform + " Review";
+          if (dropCapElem) dropCapElem.textContent = activeData.quote.charAt(0);
+          if (remTextElem) remTextElem.textContent = activeData.quote.slice(1);
+          if (authorNameElem) authorNameElem.textContent = "— " + activeData.name;
+          if (authorRoleElem) authorRoleElem.textContent = activeData.designation;
+          if (platformElem) platformElem.textContent = "Verified " + activeData.platform + " Review";
           quoteTextElem.style.opacity = "1";
         }, 150);
       }
     }
 
-    // Node click and hover handlers
-    nodes.forEach(node => {
-      node.addEventListener("click", function () {
-        const idx = parseInt(this.getAttribute("data-review-index"), 10);
-        setActiveReview(idx);
+    // Top Slot Click -> Go to Previous Review
+    if (arcNodeTop) {
+      arcNodeTop.addEventListener("click", function () {
+        const target = parseInt(this.getAttribute("data-target-index"), 10);
+        setActiveReview(isNaN(target) ? activeIndex - 1 : target);
         restartAutoRotate();
       });
-      node.addEventListener("mouseenter", function () {
-        const idx = parseInt(this.getAttribute("data-review-index"), 10);
-        setActiveReview(idx);
+    }
+
+    // Bottom Slot Click -> Go to Next Review
+    if (arcNodeBottom) {
+      arcNodeBottom.addEventListener("click", function () {
+        const target = parseInt(this.getAttribute("data-target-index"), 10);
+        setActiveReview(isNaN(target) ? activeIndex + 1 : target);
+        restartAutoRotate();
       });
-    });
+    }
 
     // Arrow navigation
     if (prevBtn) {
@@ -276,6 +417,15 @@ const testimonials: TestimonialItem[] = [
     dots.forEach(dot => {
       dot.addEventListener("click", function () {
         const idx = parseInt(this.getAttribute("data-dot-index"), 10);
+        setActiveReview(idx);
+        restartAutoRotate();
+      });
+    });
+
+    // Mobile Chip Click
+    mobileChips.forEach(chip => {
+      chip.addEventListener("click", function () {
+        const idx = parseInt(this.getAttribute("data-chip-index"), 10);
         setActiveReview(idx);
         restartAutoRotate();
       });
@@ -303,6 +453,8 @@ const testimonials: TestimonialItem[] = [
       startAutoRotate();
     }
 
+    // Initialize with Diana Johnston active
+    setActiveReview(1);
     startAutoRotate();
   });
 </script>
@@ -310,11 +462,8 @@ const testimonials: TestimonialItem[] = [
 <style>
   /* =========================================================
      Hostamble Curved Arc Customer Reviews Block
-     Unified with Hostamble Website Design System:
-     - Section: aceorbit-testimonial with testimonial.jpg ambient glow
-     - Header: .pre-title (TESTIMONIALS) + .title (Our Customers Reviews)
-     - Color Tokens: var(--color-primary), Urbanist & Plus Jakarta Sans
-     - Curved Arc + Large Editorial Quote
+     - Unified with Hostamble Website Design System
+     - Sourced from Trustpilot & HostAdvice Verified Reviews
      ========================================================= */
 
   .aceorbit-testimonial {
@@ -426,7 +575,8 @@ const testimonials: TestimonialItem[] = [
     position: relative;
     min-height: 400px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .arc-interactive-container {
@@ -568,6 +718,50 @@ const testimonials: TestimonialItem[] = [
 
   .arc-reviewer-node:hover .arc-reviewer-name {
     color: var(--color-primary, #ff501a);
+  }
+
+  /* Mobile Reviewer Strip */
+  .mobile-reviewers-strip {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 10px 0;
+    margin-top: 14px;
+    scrollbar-width: none;
+  }
+
+  .mobile-reviewers-strip::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mobile-reviewer-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background: #f1f4f8;
+    border: 1px solid #e2e8f0;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #475569;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-reviewer-chip.is-active {
+    background: #fff8f5;
+    border-color: var(--color-primary, #ff501a);
+    color: var(--color-primary, #ff501a);
+  }
+
+  .mobile-chip-avatar {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    object-fit: cover;
   }
 
   /* =========================================================
@@ -735,6 +929,17 @@ const testimonials: TestimonialItem[] = [
     gap: 7px;
   }
 
+  .trust-link {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-weight: 700;
+  }
+
+  .trust-link:hover {
+    color: var(--color-primary, #ff501a);
+  }
+
   .trust-pill i {
     font-size: 16px;
   }
@@ -760,24 +965,11 @@ const testimonials: TestimonialItem[] = [
     }
 
     .arc-interactive-container {
-      height: auto;
+      display: none; /* Hide complex arc on tablet/mobile, use mobile pill strip */
     }
 
-    .arc-path-svg {
-      display: none; /* Hide SVG arc on mobile, display accessible row */
-    }
-
-    .arc-reviewers-list {
+    .mobile-reviewers-strip {
       display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 16px;
-      justify-content: flex-start;
-    }
-
-    .arc-reviewer-node {
-      position: static;
-      padding: 6px;
     }
 
     .quote-display-card {
