@@ -1,9 +1,11 @@
 ---
 // Hostamble Curved Arc Customer Reviews Block
-// Faithful recreation of the reference design:
-// - Left: Smooth curved arc with 3 reviewer profile nodes (active reviewer enlarged with name & star rating)
-// - Right: Large editorial quotation mark and prominent italic quote text
-// - Interactive click/hover switching + auto-rotation with pause on hover
+// Aligned 100% with Hostamble's Native Website Design Language:
+// - Native Theme Background: aceorbit-testimonial with testimonial.jpg warm radial ambient glow
+// - Section Header: Standard Hostamble centered header (.pre-title "TESTIMONIALS" + .title "Our Customers Reviews")
+// - Colors & Branding: Hostamble Primary Orange (var(--color-primary)), Urbanist headings, Plus Jakarta Sans body
+// - Interactive Feature: Smooth SVG curved arc with 3 authentic customer profile nodes + large editorial quote
+// - Trust & Proof: Sourced from verified Trustpilot & HostAdvice reviews with authentic client photos
 
 interface TestimonialItem {
   id: string;
@@ -50,25 +52,33 @@ const testimonials: TestimonialItem[] = [
 ];
 ---
 
-<section class="hostamble-arc-reviews-section ace-section-gap position-relative" id="reviews" aria-labelledby="reviews-heading">
-  <!-- Ambient background glow -->
+<section class="aceorbit-testimonial ace-section-gap position-relative bg-image" id="reviews" aria-labelledby="reviews-heading">
+  <!-- Subtle ambient decorative glow -->
   <div class="reviews-ambient-orb" aria-hidden="true"></div>
 
-  <div class="container position-relative">
-    <!-- Elevated White Card Canvas -->
-    <div class="reviews-canvas-card position-relative">
+  <div class="container aceorbit-animated-shape position-relative">
+    
+    <!-- Standard Hostamble Centered Section Header -->
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-8 col-12">
+        <div class="section-title text-center" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+          <span class="pre-title">TESTIMONIALS</span>
+          <h2 id="reviews-heading" class="title">Our Customers Reviews</h2>
+          <p class="description mt-2">
+            Real feedback from verified website owners, developers, and businesses hosted on Hostamble.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Elevated White Card Showcase (Curved Arc + Editorial Quote) -->
+    <div class="reviews-showcase-card position-relative" data-sal="slide-up" data-sal-delay="200" data-sal-duration="800">
       
-      <!-- Decorative Left Corner Swoosh Accent (Matching Reference Design) -->
+      <!-- Hostamble Warm Orange Decorative Corner Accents -->
       <div class="corner-accent corner-top-left" aria-hidden="true"></div>
       <div class="corner-accent corner-bottom-left" aria-hidden="true"></div>
 
-      <!-- Section Title Header with Top Accent Bar -->
-      <header class="reviews-header-block">
-        <div class="reviews-accent-bar" aria-hidden="true"></div>
-        <h2 id="reviews-heading" class="reviews-title">Customer Reviews</h2>
-      </header>
-
-      <!-- Main Two-Column Layout -->
+      <!-- Main Two-Column Grid -->
       <div class="reviews-grid-wrap">
         
         <!-- LEFT COLUMN: Curved Arc with Reviewer Profiles -->
@@ -77,13 +87,13 @@ const testimonials: TestimonialItem[] = [
             
             <!-- SVG Arc Line -->
             <svg class="arc-path-svg" viewBox="0 0 160 380" fill="none" preserveAspectRatio="none" aria-hidden="true">
-              <path d="M 36,20 C 130,115 130,265 36,360" stroke="#dbe3ec" stroke-width="2" stroke-linecap="round" />
+              <path d="M 36,20 C 130,115 130,265 36,360" stroke="#e8edf5" stroke-width="2.5" stroke-linecap="round" />
             </svg>
 
             <!-- Reviewer Profile Nodes Along the Arc Curve -->
             <div class="arc-reviewers-list" role="tablist" aria-label="Customer Reviewers">
               {testimonials.map((item, index) => {
-                // Default active item is index 1 (Diana Johnston, matching reference image)
+                // Default active item is index 1 (Diana Johnston, matching reference design)
                 const isActive = index === 1;
                 return (
                   <button
@@ -102,6 +112,7 @@ const testimonials: TestimonialItem[] = [
                     <!-- Reviewer Info -->
                     <div class="arc-reviewer-meta">
                       <h4 class="arc-reviewer-name">{item.name}</h4>
+                      <span class="arc-reviewer-role">{item.designation}</span>
                       <div class="arc-rating-row">
                         <span class="arc-star-icon">★ {item.rating}</span>
                         <span class="arc-date-text">on {item.date}</span>
@@ -119,7 +130,7 @@ const testimonials: TestimonialItem[] = [
         <div class="reviews-quote-column" id="activeReviewPanel" role="tabpanel">
           <div class="quote-display-card">
             
-            <!-- Giant Opening Quotation Mark -->
+            <!-- Giant Hostamble Opening Quotation Mark -->
             <span class="giant-quote-mark" aria-hidden="true">&ldquo;</span>
 
             <!-- Active Review Text -->
@@ -134,7 +145,7 @@ const testimonials: TestimonialItem[] = [
                 <span class="author-display-role" id="activeAuthorRole">{testimonials[1].designation}</span>
               </div>
               <div class="author-badge-verified">
-                <i class="ri-checkbox-circle-fill"></i>
+                <i class="ri-shield-check-fill"></i>
                 <span id="activeAuthorPlatform">Verified {testimonials[1].platform} Review</span>
               </div>
             </div>
@@ -159,7 +170,26 @@ const testimonials: TestimonialItem[] = [
 
       </div>
 
+      <!-- Trust Reassurance Bottom Bar (Hostamble Brand Standard) -->
+      <div class="reviews-trust-bar">
+        <div class="trust-pill">
+          <i class="ri-star-fill text-warning"></i>
+          <span>Rated <strong>4.9 / 5.0</strong> on Trustpilot &amp; HostAdvice</span>
+        </div>
+        <div class="trust-divider" aria-hidden="true">·</div>
+        <div class="trust-pill">
+          <i class="ri-chat-voice-line text-primary"></i>
+          <span>Instant WhatsApp Technical Support</span>
+        </div>
+        <div class="trust-divider" aria-hidden="true">·</div>
+        <div class="trust-pill">
+          <i class="ri-checkbox-circle-fill text-success"></i>
+          <span>100% Verified Customer Reviews</span>
+        </div>
+      </div>
+
     </div>
+
   </div>
 </section>
 
@@ -176,7 +206,7 @@ const testimonials: TestimonialItem[] = [
     const dots = document.querySelectorAll(".nav-dot");
     const prevBtn = document.getElementById("prevReviewBtn");
     const nextBtn = document.getElementById("nextReviewBtn");
-    const cardContainer = document.querySelector(".reviews-canvas-card");
+    const cardContainer = document.querySelector(".reviews-showcase-card");
 
     let activeIndex = 1; // Default: Diana Johnston (Center)
     let autoRotateTimer = null;
@@ -280,44 +310,86 @@ const testimonials: TestimonialItem[] = [
 <style>
   /* =========================================================
      Hostamble Curved Arc Customer Reviews Block
-     Strictly modeled after the reference image:
-     - Left: Curved vertical arc line with customer profile nodes
-     - Right: Large editorial quotation mark & quote text
+     Unified with Hostamble Website Design System:
+     - Section: aceorbit-testimonial with testimonial.jpg ambient glow
+     - Header: .pre-title (TESTIMONIALS) + .title (Our Customers Reviews)
+     - Color Tokens: var(--color-primary), Urbanist & Plus Jakarta Sans
+     - Curved Arc + Large Editorial Quote
      ========================================================= */
 
-  .hostamble-arc-reviews-section {
-    background-color: #f7f9fc;
-    padding: 85px 0 100px;
+  .aceorbit-testimonial {
+    background-image: url(/assets/images/testimonial.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    padding: 100px 0 110px;
     overflow: hidden;
   }
 
+  /* Hostamble Warm Radial Ambient Glow */
   .reviews-ambient-orb {
     position: absolute;
-    top: 20%;
-    right: -10%;
-    width: 500px;
-    height: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 80, 26, 0.05) 0%, rgba(247, 249, 252, 0) 70%);
+    background: radial-gradient(circle, rgba(var(--color-primary-rgb, 210, 116, 29), 0.08) 0%, rgba(255, 255, 255, 0) 70%);
     pointer-events: none;
     z-index: 0;
   }
 
-  /* Elevated White Canvas Card */
-  .reviews-canvas-card {
-    background: #ffffff;
-    border-radius: 24px;
-    box-shadow: 0 18px 48px -12px rgba(18, 22, 33, 0.08), 0 4px 16px rgba(0, 0, 0, 0.02);
-    border: 1px solid #edf0f6;
-    padding: 56px 64px 64px;
-    overflow: hidden;
+  /* Standard Hostamble Section Title Typography */
+  .section-title .pre-title {
+    font-weight: 800;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-primary, #ff501a);
+    display: inline-block;
+    margin-bottom: 10px;
+    font-family: var(--font-primary, 'Urbanist', sans-serif);
   }
 
-  /* Decorative Corner Swoosh Accents (Matching Reference Screenshot) */
+  .section-title .title {
+    font-family: var(--font-primary, 'Urbanist', sans-serif);
+    font-weight: 800;
+    font-size: clamp(30px, 3.5vw, 42px);
+    line-height: 1.25;
+    color: var(--color-heading, #1d2026);
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+
+  .section-title .description {
+    font-family: var(--font-secondary, 'Plus Jakarta Sans', sans-serif);
+    font-size: 16px;
+    line-height: 26px;
+    color: #647083;
+    max-width: 620px;
+    margin: 12px auto 0;
+  }
+
+  /* Elevated White Showcase Card */
+  .reviews-showcase-card {
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px -12px rgba(18, 22, 33, 0.08), 0 4px 16px rgba(0, 0, 0, 0.02);
+    border: 1px solid #edf0f6;
+    padding: 56px 64px 40px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  /* Hostamble Warm Orange Decorative Corner Flourish */
   .corner-accent {
     position: absolute;
-    width: 80px;
-    height: 80px;
+    width: 85px;
+    height: 85px;
     pointer-events: none;
     z-index: 1;
   }
@@ -325,48 +397,22 @@ const testimonials: TestimonialItem[] = [
   .corner-top-left {
     top: 0;
     left: 0;
-    background: radial-gradient(circle at 0% 0%, #10b981 0%, rgba(16, 185, 129, 0.75) 40%, transparent 72%);
+    background: radial-gradient(circle at 0% 0%, rgba(var(--color-primary-rgb, 210, 116, 29), 0.18) 0%, rgba(var(--color-primary-rgb, 210, 116, 29), 0.05) 45%, transparent 72%);
     border-top-left-radius: 24px;
-    opacity: 0.9;
   }
 
   .corner-bottom-left {
     bottom: 0;
     left: 0;
-    background: radial-gradient(circle at 0% 100%, #10b981 0%, rgba(16, 185, 129, 0.75) 40%, transparent 72%);
+    background: radial-gradient(circle at 0% 100%, rgba(var(--color-primary-rgb, 210, 116, 29), 0.18) 0%, rgba(var(--color-primary-rgb, 210, 116, 29), 0.05) 45%, transparent 72%);
     border-bottom-left-radius: 24px;
-    opacity: 0.9;
   }
 
-  /* Header Block */
-  .reviews-header-block {
-    position: relative;
-    z-index: 2;
-    margin-bottom: 46px;
-  }
-
-  .reviews-accent-bar {
-    width: 44px;
-    height: 4.5px;
-    border-radius: 3px;
-    background: #10b981; /* Green accent bar matching reference screenshot */
-    margin-bottom: 14px;
-  }
-
-  .reviews-title {
-    font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: clamp(28px, 3.2vw, 38px);
-    font-weight: 800;
-    color: #17181c;
-    margin: 0;
-    letter-spacing: -0.02em;
-  }
-
-  /* Main Grid */
+  /* Two-Column Grid */
   .reviews-grid-wrap {
     display: grid;
-    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.48fr);
-    column-gap: clamp(40px, 5.5vw, 84px);
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.45fr);
+    column-gap: clamp(40px, 5.5vw, 80px);
     align-items: center;
     position: relative;
     z-index: 2;
@@ -415,7 +461,7 @@ const testimonials: TestimonialItem[] = [
     gap: 16px;
     background: transparent;
     border: none;
-    padding: 6px 12px;
+    padding: 6px 14px;
     border-radius: 999px;
     cursor: pointer;
     text-align: left;
@@ -456,19 +502,19 @@ const testimonials: TestimonialItem[] = [
     object-fit: cover;
     border: 3.5px solid #ffffff;
     box-shadow: 0 4px 14px rgba(18, 22, 33, 0.12);
-    filter: grayscale(20%);
+    filter: grayscale(15%);
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     display: block;
   }
 
-  /* Active Reviewer State (Enlarged & Prominent Highlight) */
+  /* Active Reviewer State (Enlarged with Hostamble Primary Orange Ring) */
   .arc-reviewer-node.is-active .arc-avatar-wrap {
-    transform: scale(1.28);
+    transform: scale(1.22);
   }
 
   .arc-reviewer-node.is-active .arc-avatar-img {
-    border-color: #10b981; /* Verified green ring matching screenshot */
-    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
+    border-color: var(--color-primary, #ff501a);
+    box-shadow: 0 8px 24px rgba(var(--color-primary-rgb, 210, 116, 29), 0.32);
     filter: grayscale(0%);
   }
 
@@ -480,40 +526,48 @@ const testimonials: TestimonialItem[] = [
   }
 
   .arc-reviewer-name {
-    font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: var(--font-primary, 'Urbanist', sans-serif);
     font-size: 15px;
     font-weight: 700;
     color: #4b5466;
     margin: 0;
-    transition: all 0.25s ease;
+    transition: color 0.25s ease, font-size 0.25s ease;
   }
 
   .arc-reviewer-node.is-active .arc-reviewer-name {
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 800;
-    color: #11141d;
+    color: var(--color-heading, #17181c);
+  }
+
+  .arc-reviewer-role {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--color-primary, #ff501a);
+    display: block;
+    margin-bottom: 2px;
   }
 
   .arc-rating-row {
     display: flex;
     align-items: center;
     gap: 6px;
-    font-size: 13px;
+    font-size: 12.5px;
     color: #8c97a8;
   }
 
   .arc-star-icon {
-    color: #10b981; /* Green star rating matching reference screenshot */
+    color: #f59e0b; /* Amber Gold rating star */
     font-weight: 700;
   }
 
   .arc-date-text {
     color: #8c97a8;
-    font-size: 12.5px;
+    font-size: 12px;
   }
 
   .arc-reviewer-node:hover .arc-reviewer-name {
-    color: #11141d;
+    color: var(--color-primary, #ff501a);
   }
 
   /* =========================================================
@@ -530,15 +584,15 @@ const testimonials: TestimonialItem[] = [
     padding-left: 10px;
   }
 
-  /* Giant Quotation Mark */
+  /* Giant Opening Quotation Mark in Hostamble Accent */
   .giant-quote-mark {
     font-family: Georgia, 'Playfair Display', serif;
-    font-size: 88px;
+    font-size: 84px;
     line-height: 0.65;
-    color: #12141d;
+    color: var(--color-primary, #ff501a);
     display: block;
-    margin-bottom: 22px;
-    opacity: 0.9;
+    margin-bottom: 20px;
+    opacity: 0.85;
     user-select: none;
   }
 
@@ -546,17 +600,17 @@ const testimonials: TestimonialItem[] = [
   .quote-editorial-text {
     font-family: 'Playfair Display', Georgia, serif;
     font-style: italic;
-    font-size: clamp(21px, 2.3vw, 28px);
+    font-size: clamp(20px, 2.3vw, 27px);
     line-height: 1.62;
-    color: #222633;
-    margin: 0 0 28px;
+    color: #1e2229;
+    margin: 0 0 26px;
     transition: opacity 0.2s ease-in-out;
   }
 
   .quote-drop-cap {
     font-size: 1.15em;
     font-weight: 700;
-    color: #11141d;
+    color: var(--color-primary, #ff501a);
   }
 
   /* Author Signature Meta */
@@ -567,7 +621,7 @@ const testimonials: TestimonialItem[] = [
     justify-content: space-between;
     gap: 16px;
     padding-top: 20px;
-    border-top: 1px solid #f1f4f8;
+    border-top: 1px solid #edf0f5;
   }
 
   .author-details {
@@ -577,33 +631,36 @@ const testimonials: TestimonialItem[] = [
   }
 
   .author-display-name {
-    font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: var(--font-primary, 'Urbanist', sans-serif);
     font-size: 17px;
     font-weight: 800;
-    color: #12141d;
+    color: var(--color-heading, #17181c);
   }
 
   .author-display-role {
     font-size: 13.5px;
-    color: #647083;
+    font-weight: 600;
+    color: var(--color-primary, #ff501a);
   }
 
+  /* Hostamble Platform Verified Badge */
   .author-badge-verified {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: #f0fdf4;
-    border: 1px solid #bbf7d0;
-    padding: 5px 12px;
+    background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.08);
+    border: 1px solid rgba(var(--color-primary-rgb, 210, 116, 29), 0.22);
+    padding: 6px 14px;
     border-radius: 999px;
     font-size: 12.5px;
     font-weight: 700;
-    color: #15803d;
+    color: var(--color-primary, #ff501a);
+    font-family: var(--font-primary, 'Urbanist', sans-serif);
   }
 
   .author-badge-verified i {
-    font-size: 14px;
-    color: #16a34a;
+    font-size: 15px;
+    color: var(--color-primary, #ff501a);
   }
 
   /* Slider Navigation Dots & Arrows */
@@ -630,9 +687,10 @@ const testimonials: TestimonialItem[] = [
   }
 
   .nav-arrow-btn:hover {
-    border-color: #10b981;
-    color: #10b981;
-    background: #f0fdf4;
+    border-color: var(--color-primary, #ff501a);
+    color: var(--color-primary, #ff501a);
+    background: #fff8f5;
+    box-shadow: 0 4px 14px rgba(var(--color-primary-rgb, 210, 116, 29), 0.2);
   }
 
   .nav-dots-wrap {
@@ -653,13 +711,43 @@ const testimonials: TestimonialItem[] = [
   .nav-dot.is-active {
     width: 24px;
     border-radius: 999px;
-    background: #10b981;
+    background: var(--color-primary, #ff501a);
+  }
+
+  /* Trust Reassurance Bottom Bar */
+  .reviews-trust-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 42px;
+    padding-top: 24px;
+    border-top: 1px dashed #e8edf5;
+    color: #647083;
+    font-size: 13.5px;
+    font-family: var(--font-primary, 'Urbanist', sans-serif);
+  }
+
+  .trust-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .trust-pill i {
+    font-size: 16px;
+  }
+
+  .trust-divider {
+    color: #cbd5e1;
+    font-weight: bold;
   }
 
   /* Responsive Adjustments */
   @media only screen and (max-width: 991px) {
-    .reviews-canvas-card {
-      padding: 36px 28px 44px;
+    .reviews-showcase-card {
+      padding: 36px 28px 36px;
     }
 
     .reviews-grid-wrap {
@@ -699,11 +787,20 @@ const testimonials: TestimonialItem[] = [
     .quote-editorial-text {
       font-size: 20px;
     }
+
+    .reviews-trust-bar {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .trust-divider {
+      display: none;
+    }
   }
 
   @media only screen and (max-width: 575px) {
-    .reviews-canvas-card {
-      padding: 28px 18px 36px;
+    .reviews-showcase-card {
+      padding: 28px 18px 28px;
       border-radius: 16px;
     }
 
@@ -711,12 +808,8 @@ const testimonials: TestimonialItem[] = [
       display: none;
     }
 
-    .reviews-title {
-      font-size: 26px;
-    }
-
     .giant-quote-mark {
-      font-size: 64px;
+      font-size: 60px;
       margin-bottom: 12px;
     }
 
