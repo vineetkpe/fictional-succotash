@@ -6,6 +6,7 @@ import ServicesBlock from "../components/ServicesBlock.astro";
 import FeaturesBlock from "../components/FeaturesBlock.astro";
 import TestimonialsBlock from "../components/TestimonialsBlock.astro";
 import HelpCtaBlock from "../components/HelpCtaBlock.astro";
+import FaqBlock from "../components/FaqBlock.astro";
 import { sharedHosting, domainPricing } from "../data/pricing";
 
 const plans = sharedHosting.plans;
@@ -1662,4 +1663,7 @@ const plans = sharedHosting.plans;
             </div>
         </div>
     </div>
+
+    <!-- Questions, Answered (FAQ) Section with Sticky Support Rail -->
+    <FaqBlock />
 </Layout>
