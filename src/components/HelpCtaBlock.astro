@@ -1,0 +1,353 @@
+---
+interface Props {
+  preTitle?: string;
+  title?: string;
+  description?: string;
+  showPerks?: boolean;
+  showWhatsApp?: boolean;
+}
+
+const {
+  preTitle = "24/7 Dedicated Support",
+  title = "Need help? We're always here for you.",
+  description = "Have questions about domain setup, free website migration, or choosing the right hosting plan? Our in-house technical team is ready to assist you 24/7 with zero waiting time.",
+  showPerks = true,
+  showWhatsApp = true,
+} = Astro.props;
+---
+
+<div class="ace-help-area bg-image domain-style-3 ace-section-gap bg-color-primary help-cta-block position-relative overflow-hidden">
+  <!-- Subtle ambient decorative accent -->
+  <div class="help-ambient-glow" aria-hidden="true"></div>
+
+  <div class="container position-relative">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-7 col-md-12">
+        <div class="inner">
+          <div
+            class="section-title text-white text-start mb-0"
+            data-sal="slide-up"
+            data-sal-delay="150"
+            data-sal-duration="800"
+          >
+            <!-- Live Pulse Status Badge -->
+            <div class="help-status-badge d-inline-flex align-items-center mb-3">
+              <span class="live-dot-wrap" aria-hidden="true">
+                <span class="live-dot-ring"></span>
+                <span class="live-dot-core"></span>
+              </span>
+              <span class="badge-text">{preTitle}</span>
+            </div>
+
+            <h3 class="title text-white">
+              {title}
+            </h3>
+
+            <p class="content text-white-90">
+              {description}
+            </p>
+
+            {showPerks && (
+              <div class="help-perks d-flex flex-wrap align-items-center gap-2 pt-2">
+                <div class="help-perk-item">
+                  <i class="ri-checkbox-circle-fill" aria-hidden="true"></i>
+                  <span>Semi-Managed Support</span>
+                </div>
+                <div class="help-perk-item">
+                  <i class="ri-checkbox-circle-fill" aria-hidden="true"></i>
+                  <span>Free Website Migration</span>
+                </div>
+                <div class="help-perk-item">
+                  <i class="ri-checkbox-circle-fill" aria-hidden="true"></i>
+                  <span>Average Reply &lt; 5 Mins</span>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-5 col-md-12">
+        <div
+          class="domain-right-content d-block d-sm-flex align-items-center justify-content-start justify-content-lg-end"
+          data-sal="slide-up"
+          data-sal-delay="250"
+          data-sal-duration="800"
+        >
+          <div class="contact-btn">
+            <a
+              class="ace-btn btn-white help-livechat-btn"
+              href="javascript:void(Tawk_API.toggle())"
+              title="Open Live Chat"
+            >
+              <i class="ri-chat-smile-2-line" aria-hidden="true"></i>
+              <span>Start Live Chat</span>
+            </a>
+          </div>
+
+          <div class="contact-info">
+            <a href="/contacts" title="Go to Contact Page">
+              <i class="ri-customer-service-2-line" aria-hidden="true"></i>
+              <span>Contact Us</span>
+            </a>
+          </div>
+        </div>
+
+        {showWhatsApp && (
+          <div class="support-channels-note text-start text-lg-end mt-3">
+            <a
+              href="https://wa.me/916284719083?text=Hi%20Hostamble,%20I%20have%20a%20question%20about%20hosting"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="whatsapp-pill-link"
+              title="Chat with us on WhatsApp"
+            >
+              <i class="ri-whatsapp-fill" aria-hidden="true"></i>
+              <span>Instant WhatsApp Support: <strong>+91 62847 19083</strong></span>
+            </a>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .help-cta-block {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .help-ambient-glow {
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Live Pulse Status Badge */
+  .help-status-badge {
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 6px 14px;
+    border-radius: 999px;
+    gap: 8px;
+  }
+
+  .badge-text {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #ffffff;
+    line-height: 1;
+  }
+
+  .live-dot-wrap {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .live-dot-core {
+    position: relative;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #22c55e;
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.8);
+  }
+
+  .live-dot-ring {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: rgba(34, 197, 94, 0.45);
+    animation: livePulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes livePulse {
+    0% {
+      transform: scale(0.6);
+      opacity: 0.9;
+    }
+    100% {
+      transform: scale(1.6);
+      opacity: 0;
+    }
+  }
+
+  /* Headings & Descriptions */
+  .help-cta-block .title {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 14px;
+    letter-spacing: -0.02em;
+  }
+
+  .help-cta-block .text-white-90 {
+    color: rgba(255, 255, 255, 0.92) !important;
+    font-size: 16.5px;
+    line-height: 1.65;
+    max-width: 600px;
+    margin-bottom: 0;
+  }
+
+  /* Micro-Perks Checklist */
+  .help-perks {
+    margin-top: 18px;
+  }
+
+  .help-perk-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    padding: 6px 13px;
+    border-radius: 999px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: all 0.25s ease;
+  }
+
+  .help-perk-item:hover {
+    background: rgba(255, 255, 255, 0.22);
+    transform: translateY(-2px);
+  }
+
+  .help-perk-item i {
+    color: #ffffff;
+    font-size: 15px;
+    line-height: 1;
+  }
+
+  /* Live Chat CTA Button */
+  .help-livechat-btn {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 0 28px;
+    height: 56px;
+    line-height: 56px;
+    border-radius: 8px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .help-livechat-btn i {
+    font-size: 19px;
+    transition: transform 0.3s ease;
+  }
+
+  .help-livechat-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .help-livechat-btn:hover i {
+    transform: scale(1.15);
+  }
+
+  /* Underlined Contact Link */
+  .domain-style-3 .contact-info a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .domain-style-3 .contact-info a i {
+    font-size: 19px;
+    margin-right: 2px;
+  }
+
+  /* WhatsApp Support Sub-Channel Link */
+  .support-channels-note {
+    position: relative;
+    z-index: 1;
+  }
+
+  .whatsapp-pill-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13.5px;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+
+  .whatsapp-pill-link strong {
+    color: #ffffff;
+  }
+
+  .whatsapp-pill-link i {
+    font-size: 16px;
+    color: #25d366;
+    background: #ffffff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  }
+
+  .whatsapp-pill-link:hover {
+    color: #ffffff;
+    transform: translateX(2px);
+  }
+
+  .whatsapp-pill-link:hover span {
+    text-decoration: underline;
+  }
+
+  /* Responsive Adjustments */
+  @media only screen and (max-width: 991px) {
+    .help-cta-block .title {
+      font-size: 30px;
+    }
+    .support-channels-note {
+      text-align: left !important;
+      margin-top: 15px;
+    }
+  }
+
+  @media only screen and (max-width: 575px) {
+    .help-cta-block .title {
+      font-size: 26px;
+    }
+    .help-cta-block .text-white-90 {
+      font-size: 15px;
+    }
+    .help-perk-item {
+      font-size: 12.5px;
+      padding: 5px 11px;
+    }
+    .help-livechat-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

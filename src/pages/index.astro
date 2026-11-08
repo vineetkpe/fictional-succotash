@@ -5,6 +5,7 @@ import TrustGuaranteesStrip from "../components/TrustGuaranteesStrip.astro";
 import ServicesBlock from "../components/ServicesBlock.astro";
 import FeaturesBlock from "../components/FeaturesBlock.astro";
 import TestimonialsBlock from "../components/TestimonialsBlock.astro";
+import HelpCtaBlock from "../components/HelpCtaBlock.astro";
 import { sharedHosting, domainPricing } from "../data/pricing";
 
 const plans = sharedHosting.plans;
@@ -1477,53 +1478,8 @@ const plans = sharedHosting.plans;
     <!-- Testimonials / Customers Reviews Block -->
     <TestimonialsBlock />
 
-    <div
-        class="ace-help-area bg-image domain-style-3 ace-section-gap bg-color-primary"
-    >
-        <div class="container">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-6">
-                    <div class="inner">
-                        <div
-                            class="section-title text-white text-start"
-                            data-sal="slide-up"
-                            data-sal-delay="150"
-                            data-sal-duration="800"
-                        >
-                            <span class="pre-title">Let Us Help</span>
-
-                            <h3 class="title">
-                                Need help? We&#39;re always here for you.
-                            </h3>
-
-                            <p class="content">
-                                We are available to help you with your queries,
-                                Our servers include semi-managed support.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6">
-                    <div
-                        class="domain-right-content d-block d-sm-flex align-items-center justify-content-start justify-content-lg-end"
-                    >
-                        <div class="contact-btn">
-                            <a
-                                class="ace-btn btn-white"
-                                href="javascript:void(Tawk_API.toggle())"
-                                >Want Some Guide</a
-                            >
-                        </div>
-
-                        <div class="contact-info">
-                            <a href="/contacts">Conatct Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- Let Us Help / 24/7 Dedicated Support CTA Block -->
+    <HelpCtaBlock />
 
     <div class="aceorbit-blog bg-image ace-blog-area ace-section-gap">
         <div class="container aceorbit-animated-shape">
