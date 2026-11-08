@@ -1,235 +1,891 @@
 ---
-// Hostamble Native Theme Services Showcase
-// Exact replica of Hostamble's native `aceorbit-service` and `service-card-3` block architecture
+// Hostamble Flagship Services Showcase
+// Replicating the signature interactive card-stacking movement from paracitamol.com (Block 03)
+// Strictly tuned to Hostamble's brand theme, Urbanist typography, and orange accent (#ff501a)
+import {
+  sharedHosting,
+  wordpressHosting,
+  vpsHosting,
+  businessEmail,
+  sslCertificates,
+  domainPricing
+} from "../data/pricing";
+
+const services = [
+  {
+    num: "01",
+    tag: "Most Popular",
+    title: "Shared Hosting",
+    desc: "Cost-effective, lightning-fast cPanel hosting powered by LiteSpeed Enterprise and pure NVMe SSDs with 99.9% uptime SLA.",
+    highlights: ["LiteSpeed Turbo + LSCache", "Pure Gen4 NVMe SSD Storage", "Free cPanel & Unlimited SSLs"],
+    price: sharedHosting.heroStartPrice,
+    link: "/shared-hosting",
+    linkText: "Explore Shared Hosting",
+    icon: "ri-server-line"
+  },
+  {
+    num: "02",
+    tag: "Turbo Optimized",
+    title: "WordPress Hosting",
+    desc: "Engineered specifically for high-traffic WordPress websites with server-level caching layers, 1-click staging sandbox, and automated safe core updates.",
+    highlights: ["300% Faster PHP 8.x Performance", "1-Click Safe Staging & Cloning", "Smart WP-CLI & Malware Shield"],
+    price: wordpressHosting.heroStartPrice,
+    link: "/wordpress-hosting",
+    linkText: "Explore WordPress Hosting",
+    icon: "ri-wordpress-fill"
+  },
+  {
+    num: "03",
+    tag: "500+ Extensions",
+    title: "Domain Names & DNS",
+    desc: "Claim your digital identity with competitive renewals, lifetime free DNS management, real-time Anycast propagation, and WHOIS domain privacy.",
+    highlights: ["500+ TLDs (.com, .in, .org)", "Free DNS Records Management", "WHOIS Privacy & Domain Theft Lock"],
+    price: domainPricing.heroStartPrice,
+    link: "/domain-search",
+    linkText: "Search Domain Names",
+    icon: "ri-global-line"
+  },
+  {
+    num: "04",
+    tag: "Full Root KVM",
+    title: "Cloud VPS Hosting",
+    desc: "Guaranteed dedicated KVM virtualization with isolated CPU & RAM, unmetered network bandwidth, dedicated static IPv4, and instant server reboot controls.",
+    highlights: ["100% Dedicated KVM Hypervisor", "Full Root SSH & Multi-OS Installs", "1 Gbps Uplink & Anti-DDoS Shield"],
+    price: vpsHosting.heroStartPrice,
+    link: "/vps-hosting",
+    linkText: "Configure VPS Node",
+    icon: "ri-hard-drive-2-line"
+  },
+  {
+    num: "05",
+    tag: "Custom Domain Mail",
+    title: "Business Email",
+    desc: "Build instant client credibility with branded email addresses (you@yourdomain.com), modern responsive webmail access, and intelligent anti-spam filters.",
+    highlights: ["Custom Branded Domain Mailboxes", "SpamExperts™ Inbound & Outbound Filter", "DKIM, SPF & DMARC Deliverability"],
+    price: businessEmail.heroStartPrice,
+    link: "/business-email",
+    linkText: "Get Business Email",
+    icon: "ri-mail-star-line"
+  },
+  {
+    num: "06",
+    tag: "256-Bit TLS",
+    title: "SSL Certificates",
+    desc: "Safeguard customer transactions and passwords with robust 256-bit encryption, browser padlock trust indicators, and higher Google SEO rankings.",
+    highlights: ["Industry-Grade 256-Bit Encryption", "Trusted Browser Padlock Status", "Boosts Google SEO & HTTPS Trust"],
+    price: sslCertificates.heroStartPrice,
+    link: "/ssl-certificates",
+    linkText: "Explore SSL Security",
+    icon: "ri-shield-check-line"
+  }
+];
 ---
 
-<div class="aceorbit-service ace-service-area ace-section-gap bg-color-white position-relative border-bottom-1" id="services">
-  <div class="container aceorbit-animated-shape">
-    
-    <!-- Section Title -->
-    <div class="row">
-      <div class="col-lg-12">
-        <div 
-          class="section-title text-center"
-          data-sal="slide-up"
-          data-sal-delay="150"
-          data-sal-duration="800"
-        >
-          <span class="pre-title">Our Services</span>
-          <h3 class="title">Explore Our Web &amp; Hosting Solutions</h3>
-          <p class="description" style="max-width: 680px; margin: 12px auto 0; color: var(--color-body); font-size: 16px; line-height: 1.6;">
-            Reliable cloud infrastructure, managed WordPress environments, and high-security web solutions built for scale.
+<section class="hostamble-flagship-section position-relative" id="services">
+  <div class="container flagship-container">
+    <div class="flagship-grid">
+      
+      <!-- LEFT COLUMN: Sticky Header, Visual Showcase & Main CTA -->
+      <div class="flagship-sticky-col">
+        <div class="flagship-sticky-inner">
+          
+          <div class="flagship-eyebrow" data-sal="slide-up" data-sal-delay="100">
+            <span class="eyebrow-idx">03</span>
+            <span class="eyebrow-label">Our Speciality</span>
+          </div>
+
+          <h2 class="flagship-heading" data-sal="slide-up" data-sal-delay="150">
+            Cloud Infrastructure Built for Speed, Reliability &amp; Scale.
+          </h2>
+
+          <p class="flagship-lead" data-sal="slide-up" data-sal-delay="200">
+            We don't just sell hosting — we engineer optimized NVMe cloud environments that keep your websites fast, secure, and always accessible 24/7/365.
           </p>
-        </div>
-      </div>
-    </div>
 
-    <!-- 6 Core Services Grid (3x2 Native Replica) -->
-    <div class="row aceorbit-about-one-service g-5 mt--20 justify-content-center">
-
-      <!-- 1. Shared Hosting -->
-      <div class="col-lg-4 col-md-6 col-12" data-sal="slide-up" data-sal-delay="100" data-sal-duration="800">
-        <div class="service-card service-card-3 text-left shape-bg-1 bg-grey">
-          <div class="inner">
-            <div class="icon">
-              <span><i class="ri-server-line" aria-hidden="true"></i></span>
+          <!-- Interactive Visual Card -->
+          <div class="flagship-visual-card" data-sal="slide-up" data-sal-delay="250">
+            <div class="visual-card-bg-glow"></div>
+            
+            <div class="visual-card-header">
+              <div class="datacenter-indicator">
+                <span class="status-pulse"></span>
+                <span>Tier-4 Cloud Fleet · Operational</span>
+              </div>
+              <span class="speed-pill"><i class="ri-flashlight-fill"></i> Sub-10ms</span>
             </div>
-            <div class="content">
-              <h6 class="title">Shared Hosting</h6>
-              <p class="description">
-                Cost-effective, high-speed cPanel hosting powered by LiteSpeed Enterprise and pure NVMe SSDs with 99.9% uptime guarantee.
-              </p>
-              <div class="service-bottom-meta">
-                <span class="service-price" data-inr="From ₹39/mo" data-usd="From $0.47/mo">From ₹39/mo</span>
-                <a href="/shared-hosting" class="service-link">
-                  <span>Explore Plans</span>
-                  <i class="ri-arrow-right-line" aria-hidden="true"></i>
-                </a>
+
+            <div class="visual-metrics-grid">
+              <div class="metric-box">
+                <span class="metric-val">99.9%</span>
+                <span class="metric-lbl">Uptime SLA</span>
+              </div>
+              <div class="metric-box">
+                <span class="metric-val">5x</span>
+                <span class="metric-lbl">Faster LiteSpeed</span>
+              </div>
+              <div class="metric-box">
+                <span class="metric-val">60s</span>
+                <span class="metric-lbl">Auto Deploy</span>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- 2. WordPress Hosting -->
-      <div class="col-lg-4 col-md-6 col-12" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
-        <div class="service-card service-card-3 text-left shape-bg-2 bg-grey">
-          <div class="inner">
-            <div class="icon">
-              <span><i class="ri-wordpress-fill" aria-hidden="true"></i></span>
-            </div>
-            <div class="content">
-              <h6 class="title">WordPress Hosting</h6>
-              <p class="description">
-                Specially tuned for WordPress with built-in LSCache caching layers, 1-click staging sandbox, and automated safe core updates.
-              </p>
-              <div class="service-bottom-meta">
-                <span class="service-price" data-inr="From ₹79/mo" data-usd="From $0.95/mo">From ₹79/mo</span>
-                <a href="/wordpress-hosting" class="service-link">
-                  <span>Explore Plans</span>
-                  <i class="ri-arrow-right-line" aria-hidden="true"></i>
-                </a>
-              </div>
+            <div class="visual-card-badge">
+              <i class="ri-shield-check-fill" aria-hidden="true"></i>
+              <span>Anti-DDoS Shield Active &bull; NVMe Gen4 Fleet</span>
             </div>
           </div>
+
+          <!-- Section Action Button -->
+          <div class="flagship-cta-wrap" data-sal="slide-up" data-sal-delay="300">
+            <a href="#plans" class="flagship-primary-btn">
+              <span>View All Hosting Plans</span>
+              <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            </a>
+          </div>
+
         </div>
       </div>
 
-      <!-- 3. Domain Names -->
-      <div class="col-lg-4 col-md-6 col-12" data-sal="slide-up" data-sal-delay="200" data-sal-duration="800">
-        <div class="service-card service-card-3 text-left shape-bg-1 bg-grey">
-          <div class="inner">
-            <div class="icon">
-              <span><i class="ri-global-line" aria-hidden="true"></i></span>
-            </div>
-            <div class="content">
-              <h6 class="title">Domain Search &amp; Reg</h6>
-              <p class="description">
-                Claim your brand identity with 500+ extensions (.com, .in, .org), free lifetime DNS management, and domain theft protection.
-              </p>
-              <div class="service-bottom-meta">
-                <span class="service-price" data-inr="From ₹199/yr" data-usd="From $2.39/yr">From ₹199/yr</span>
-                <a href="/domain-search" class="service-link">
-                  <span>Find Domain</span>
-                  <i class="ri-arrow-right-line" aria-hidden="true"></i>
-                </a>
+      <!-- RIGHT COLUMN: Interactive Stacking Services Cards -->
+      <div class="flagship-stack-col">
+        <ol class="services-stack-list">
+          {services.map((item, idx) => (
+            <li class={`stack-card ${idx === 0 ? 'is-active' : ''}`} data-stack data-card-idx={idx} style={`--card-index: ${idx};`}>
+              <!-- Interactive mouse follow glow -->
+              <span class="stack-card-glow" aria-hidden="true"></span>
+              
+              <!-- Top Row: Number Index + Tag + Icon -->
+              <div class="stack-card-head">
+                <div class="head-left">
+                  <span class="stack-card-num">{item.num}</span>
+                  <span class="stack-card-tag">{item.tag}</span>
+                </div>
+                <div class="stack-card-icon">
+                  <i class={item.icon} aria-hidden="true"></i>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- 4. VPS Cloud Hosting -->
-      <div class="col-lg-4 col-md-6 col-12" data-sal="slide-up" data-sal-delay="250" data-sal-duration="800">
-        <div class="service-card service-card-3 text-left shape-bg-2 bg-grey">
-          <div class="inner">
-            <div class="icon">
-              <span><i class="ri-hard-drive-2-line" aria-hidden="true"></i></span>
-            </div>
-            <div class="content">
-              <h6 class="title">VPS Cloud Hosting</h6>
-              <p class="description">
-                Guaranteed KVM hardware resources with instant reboot controls, isolated hypervisor, full root SSH access, and 1 Gbps uplink.
-              </p>
-              <div class="service-bottom-meta">
-                <span class="service-price" data-inr="From ₹499/mo" data-usd="From $5.99/mo">From ₹499/mo</span>
-                <a href="/vps-hosting" class="service-link">
-                  <span>Configure VPS</span>
-                  <i class="ri-arrow-right-line" aria-hidden="true"></i>
-                </a>
+              <!-- Title & Price Row -->
+              <div class="stack-card-title-row">
+                <h3 class="stack-card-title">{item.title}</h3>
+                <div class="stack-card-price">
+                  <span class="price-prefix">From</span>
+                  <span 
+                    class="price-val" 
+                    data-inr={item.price.inr} 
+                    data-usd={item.price.usd}
+                  >
+                    {item.price.inr}
+                  </span>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- 5. Business Email -->
-      <div class="col-lg-4 col-md-6 col-12" data-sal="slide-up" data-sal-delay="300" data-sal-duration="800">
-        <div class="service-card service-card-3 text-left shape-bg-1 bg-grey">
-          <div class="inner">
-            <div class="icon">
-              <span><i class="ri-mail-star-line" aria-hidden="true"></i></span>
-            </div>
-            <div class="content">
-              <h6 class="title">Business Email</h6>
-              <p class="description">
-                Professional branded corporate email with responsive webmail, intelligent anti-spam filters, and DKIM identity authentication.
-              </p>
-              <div class="service-bottom-meta">
-                <span class="service-price" data-inr="From ₹29/mo" data-usd="From $0.35/mo">From ₹29/mo</span>
-                <a href="/business-email" class="service-link">
-                  <span>Get Email</span>
-                  <i class="ri-arrow-right-line" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+              <!-- Body Description -->
+              <p class="stack-card-desc">{item.desc}</p>
 
-      <!-- 6. SSL Certificates -->
-      <div class="col-lg-4 col-md-6 col-12" data-sal="slide-up" data-sal-delay="350" data-sal-duration="800">
-        <div class="service-card service-card-3 text-left shape-bg-2 bg-grey">
-          <div class="inner">
-            <div class="icon">
-              <span><i class="ri-shield-check-line" aria-hidden="true"></i></span>
-            </div>
-            <div class="content">
-              <h6 class="title">SSL Certificates</h6>
-              <p class="description">
-                Industry-grade 256-bit TLS encryption with trusted browser green padlock, instant Let's Encrypt auto-renewal, and SEO boost.
-              </p>
-              <div class="service-bottom-meta">
-                <span class="service-price" data-inr="From ₹499/yr" data-usd="From $5.99/yr">From ₹499/yr</span>
-                <a href="/ssl-certificates" class="service-link">
-                  <span>View Security</span>
+              <!-- Feature Highlights -->
+              <ul class="stack-card-highlights">
+                {item.highlights.map(h => (
+                  <li>
+                    <i class="ri-checkbox-circle-fill" aria-hidden="true"></i>
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <!-- Bottom CTA Link -->
+              <div class="stack-card-foot">
+                <a href={item.link} class="stack-card-cta">
+                  <span>{item.linkText}</span>
                   <i class="ri-arrow-right-line" aria-hidden="true"></i>
                 </a>
               </div>
-            </div>
-          </div>
-        </div>
+
+              <!-- Active Bottom Progress Bar -->
+              <span class="stack-card-bar" aria-hidden="true">
+                <i></i>
+              </span>
+            </li>
+          ))}
+        </ol>
       </div>
 
     </div>
-
-    <!-- Native Theme Decorative Floating Shapes -->
-    <div class="shape-dot-wrapper shape-wrapper d-xl-block d-none">
-      <div class="shape-image shape-image-1">
-        <img alt="Shape Thumb" src="/assets/images/shape29.png" />
-      </div>
-      <div class="shape-image shape-image-2">
-        <img alt="Shape Thumb" src="/assets/images/shape0306.png" />
-      </div>
-      <div class="shape-image shape-image-3">
-        <img alt="Shape Thumb" src="/assets/images/shape0206.png" />
-      </div>
-      <div class="shape-image shape-image-4">
-        <img alt="Shape Thumb" src="/assets/images/shape19.png" />
-      </div>
-    </div>
-
   </div>
-</div>
+</section>
 
 <style>
-  .service-bottom-meta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 15px;
-    margin-top: 15px;
-    border-top: 1px solid rgba(0, 0, 0, 0.06);
+  /* Flagship Container & Layout */
+  .hostamble-flagship-section {
+    padding: 100px 0 120px;
+    background: #FAFBFC;
+    border-top: 1px solid var(--color-border, #EEEEEE);
+    border-bottom: 1px solid var(--color-border, #EEEEEE);
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+    overflow: clip;
   }
 
-  .service-price {
-    font-size: 14px;
-    font-weight: 800;
+  .flagship-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: clamp(2.5rem, 5vw, 5.5rem);
+    align-items: start;
+  }
+
+  /* --------------------------------------------------------------------------
+     LEFT COLUMN: STICKY PANEL
+     -------------------------------------------------------------------------- */
+  .flagship-sticky-col {
+    position: sticky;
+    top: 90px;
+    z-index: 10;
+  }
+
+  .flagship-sticky-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  /* Eyebrow badge matching 03 Our Speciality */
+  .flagship-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
     color: var(--color-primary, #ff501a);
     font-family: var(--font-primary, "Urbanist", sans-serif);
   }
 
-  .service-link {
-    font-size: 13.5px;
-    font-weight: 700;
-    color: var(--color-heading, #202133);
-    text-decoration: none;
+  .eyebrow-idx {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
-    transition: color 0.25s ease;
-  }
-
-  .service-link:hover {
+    justify-content: center;
+    background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.12);
     color: var(--color-primary, #ff501a);
+    font-weight: 800;
+    font-size: 0.85rem;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
   }
 
-  .service-link i {
+  .flagship-heading {
+    font-size: clamp(2rem, 3.2vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.22;
+    color: var(--color-heading, #202133);
+    margin: 0;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+  }
+
+  .flagship-lead {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--color-body, #6F6B80);
+    margin: 0;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+  }
+
+  /* Left Visual Showcase Card */
+  .flagship-visual-card {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid var(--color-border, #E8EBF0);
+    border-radius: var(--radius, 12px);
+    padding: 24px 22px;
+    box-shadow: 0 10px 30px rgba(32, 33, 51, 0.05);
+    overflow: hidden;
+    margin-top: 0.5rem;
+  }
+
+  .visual-card-bg-glow {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(var(--color-primary-rgb, 210, 116, 29), 0.12), transparent 70%);
+    pointer-events: none;
+  }
+
+  .visual-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
+
+  .datacenter-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #2c3442;
+    letter-spacing: 0.02em;
+  }
+
+  .status-pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+    animation: statusPulse 2s infinite ease-in-out;
+  }
+
+  @keyframes statusPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.3); opacity: 0.7; }
+  }
+
+  .speed-pill {
+    font-size: 0.75rem;
+    font-weight: 800;
+    background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.1);
+    color: var(--color-primary, #ff501a);
+    padding: 3px 9px;
+    border-radius: 20px;
+  }
+
+  .visual-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 18px;
+    padding: 14px 10px;
+    background: #F8F9FB;
+    border-radius: 8px;
+  }
+
+  .metric-box {
+    text-align: center;
+  }
+
+  .metric-val {
+    display: block;
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--color-heading, #202133);
+    line-height: 1.2;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+  }
+
+  .metric-lbl {
+    display: block;
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: var(--color-body, #6F6B80);
+    margin-top: 2px;
+  }
+
+  .visual-card-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #374151;
+  }
+
+  .visual-card-badge i {
+    color: var(--color-primary, #ff501a);
+    font-size: 15px;
+  }
+
+  /* Left Column Primary Button */
+  .flagship-primary-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 26px;
+    background: var(--color-primary, #ff501a);
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-radius: 6px;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(var(--color-primary-rgb, 210, 116, 29), 0.28);
+    transition: all 0.3s ease;
+    width: fit-content;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+  }
+
+  .flagship-primary-btn:hover {
+    background: #e04414;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(var(--color-primary-rgb, 210, 116, 29), 0.36);
+  }
+
+  .flagship-primary-btn i {
+    font-size: 16px;
+    transition: transform 0.25s ease;
+  }
+
+  .flagship-primary-btn:hover i {
+    transform: translateX(4px);
+  }
+
+  /* --------------------------------------------------------------------------
+     RIGHT COLUMN: TIMELINE & STACKING CARDS (paracitamol.com signature movement)
+     -------------------------------------------------------------------------- */
+  .services-stack-list {
+    list-style: none;
+    padding: 0 0 0 2.8rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+  }
+
+  /* Continuous timeline background line */
+  .services-stack-list::before {
+    content: "";
+    position: absolute;
+    top: 1.8rem;
+    bottom: 2rem;
+    left: 1rem;
+    width: 2px;
+    background: #E2E6EC;
+    border-radius: 2px;
+  }
+
+  /* Dynamic scroll-filling gradient line */
+  .services-stack-list::after {
+    content: "";
+    position: absolute;
+    top: 1.8rem;
+    left: 1rem;
+    width: 2px;
+    height: var(--scroll-progress, 0%);
+    max-height: calc(100% - 3.8rem);
+    background: linear-gradient(180deg, var(--color-primary, #ff501a) 0%, #ff8c42 100%);
+    border-radius: 2px;
+    transition: height 0.15s ease-out;
+  }
+
+  /* The Stacking Card */
+  .stack-card {
+    position: sticky;
+    top: calc(90px + var(--card-index, 0) * 16px);
+    background: var(--color-white, #ffffff);
+    border: 1px solid var(--color-border, #E4E8EE);
+    border-radius: var(--radius, 12px);
+    padding: clamp(1.5rem, 2.5vw, 2.2rem);
+    box-shadow: 0 4px 18px rgba(32, 33, 51, 0.03);
+    transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+    transform-origin: top center;
+    overflow: hidden;
+  }
+
+  /* Hover micro-lift */
+  .stack-card:hover {
+    border-color: rgba(var(--color-primary-rgb, 210, 116, 29), 0.5);
+  }
+
+  /* Timeline Dot Node for each card */
+  .stack-card::before {
+    content: "";
+    position: absolute;
+    top: 2.1rem;
+    left: calc(-1.8rem - 6px);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2px solid #CBD2DC;
+    transition: all 0.35s ease;
+    z-index: 2;
+  }
+
+  /* Active card styles (triggered as user scrolls through) */
+  .stack-card.is-active::before {
+    background: var(--color-primary, #ff501a);
+    border-color: var(--color-primary, #ff501a);
+    box-shadow: 0 0 0 6px rgba(var(--color-primary-rgb, 210, 116, 29), 0.22);
+    transform: scale(1.15);
+  }
+
+  .stack-card.is-active {
+    border-color: rgba(var(--color-primary-rgb, 210, 116, 29), 0.5);
+    box-shadow: 0 16px 36px rgba(32, 33, 51, 0.08), 0 0 24px rgba(var(--color-primary-rgb, 210, 116, 29), 0.08);
+  }
+
+  /* Interactive spotlight glow tracking mouse position */
+  .stack-card-glow {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(var(--color-primary-rgb, 210, 116, 29), 0.09), transparent 65%);
+    transition: opacity 0.3s ease;
+  }
+
+  .stack-card:hover .stack-card-glow,
+  .stack-card.is-active .stack-card-glow {
+    opacity: 1;
+  }
+
+  /* Card Header: Number + Tag + Icon */
+  .stack-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.9rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .head-left {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .stack-card-num {
+    font-size: 0.84rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--color-primary, #ff501a);
+    background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.1);
+    min-width: 2.4rem;
+    height: 1.75rem;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.35s ease;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+  }
+
+  .stack-card.is-active .stack-card-num {
+    background: var(--color-primary, #ff501a);
+    color: #ffffff;
+    transform: scale(1.06);
+  }
+
+  .stack-card-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #4b5563;
+    background: #EEF2F6;
+    padding: 3px 9px;
+    border-radius: 4px;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+  }
+
+  .stack-card-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.08);
+    color: var(--color-primary, #ff501a);
+    transition: all 0.3s ease;
+  }
+
+  .stack-card:hover .stack-card-icon,
+  .stack-card.is-active .stack-card-icon {
+    background: var(--color-primary, #ff501a);
+    color: #ffffff;
+  }
+
+  /* Title & Price Row */
+  .stack-card-title-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 0.6rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .stack-card-title {
+    font-size: clamp(1.25rem, 2vw, 1.45rem);
+    font-weight: 700;
+    color: var(--color-heading, #202133);
+    margin: 0;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+    line-height: 1.3;
+  }
+
+  .stack-card-price {
+    text-align: right;
+    flex-shrink: 0;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+  }
+
+  .price-prefix {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    color: var(--color-body, #6F6B80);
+    font-weight: 600;
+    display: block;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+
+  .price-val {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--color-primary, #ff501a);
+    line-height: 1;
+  }
+
+  /* Description */
+  .stack-card-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-body, #6F6B80);
+    margin: 0 0 1rem 0;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Highlights */
+  .stack-card-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .stack-card-highlights li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #2c3442;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+  }
+
+  .stack-card-highlights li i {
+    font-size: 15px;
+    color: var(--color-primary, #ff501a);
+    flex-shrink: 0;
+  }
+
+  /* Card Footer CTA */
+  .stack-card-foot {
+    position: relative;
+    z-index: 1;
+    padding-top: 0.85rem;
+    border-top: 1px solid #EEF1F5;
+  }
+
+  .stack-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-primary, #ff501a);
+    text-decoration: none;
+    transition: all 0.25s ease;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+  }
+
+  .stack-card-cta i {
     font-size: 14px;
     transition: transform 0.25s ease;
   }
 
-  .service-link:hover i {
+  .stack-card-cta:hover {
+    color: #e04414;
+  }
+
+  .stack-card-cta:hover i {
     transform: translateX(4px);
   }
+
+  /* Animated Bottom Progress Line */
+  .stack-card-bar {
+    position: absolute;
+    bottom: 0;
+    left: clamp(1.5rem, 2.5vw, 2.2rem);
+    right: clamp(1.5rem, 2.5vw, 2.2rem);
+    height: 3px;
+    overflow: hidden;
+    border-radius: 3px 3px 0 0;
+  }
+
+  .stack-card-bar i {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-primary, #ff501a), #ff8c42);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .stack-card.is-active .stack-card-bar i {
+    transform: scaleX(1);
+  }
+
+  /* --------------------------------------------------------------------------
+     RESPONSIVE BREAKPOINTS
+     -------------------------------------------------------------------------- */
+  @media (max-width: 991px) {
+    .hostamble-flagship-section {
+      padding: 70px 0 80px;
+    }
+
+    .flagship-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .flagship-sticky-col {
+      position: static;
+    }
+
+    .services-stack-list {
+      padding-left: 2.2rem;
+    }
+
+    .services-stack-list::before,
+    .services-stack-list::after {
+      left: 0.7rem;
+    }
+
+    .stack-card::before {
+      left: calc(-1.5rem - 6px);
+    }
+
+    .stack-card {
+      position: relative;
+      top: 0 !important;
+      transform: none !important;
+      filter: none !important;
+    }
+  }
+
+  @media (max-width: 575px) {
+    .stack-card-title-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+
+    .stack-card-price {
+      text-align: left;
+    }
+  }
 </style>
+
+<script>
+  function initParacitamolMovement() {
+    const section = document.querySelector<HTMLElement>('.hostamble-flagship-section');
+    if (!section) return;
+
+    const cards = Array.from(section.querySelectorAll<HTMLElement>('.stack-card'));
+    const list = section.querySelector<HTMLElement>('.services-stack-list');
+    if (!cards.length || !list) return;
+
+    // 1. Mouse Spotlight tracking on each card
+    cards.forEach((card, idx) => {
+      card.style.setProperty('--card-index', idx.toString());
+
+      card.addEventListener('pointermove', (e: PointerEvent) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--my', `${e.clientY - rect.top}px`);
+      });
+    });
+
+    // 2. Scroll-driven timeline progress line & stacking card depth movement
+    let isTicking = false;
+
+    function updateScrollMotion() {
+      if (window.innerWidth < 992) {
+        // Mobile: Reset scaling transforms
+        cards.forEach(card => {
+          card.style.transform = '';
+          card.style.filter = '';
+        });
+        isTicking = false;
+        return;
+      }
+
+      const listRect = list!.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      // Calculate vertical scroll progress through the list
+      const triggerStart = viewportHeight * 0.75;
+      const totalTravel = listRect.height;
+      const currentScroll = triggerStart - listRect.top;
+      const progressPercent = Math.max(0, Math.min(100, (currentScroll / totalTravel) * 100));
+      list!.style.setProperty('--scroll-progress', `${progressPercent}%`);
+
+      // Determine active card based on viewport trigger threshold
+      const activationThreshold = 180;
+      let activeIndex = 0;
+
+      cards.forEach((card, i) => {
+        const rect = card.getBoundingClientRect();
+        if (rect.top <= activationThreshold) {
+          activeIndex = i;
+        }
+      });
+
+      // Apply Stacking Parallax Scale & Active States
+      cards.forEach((card, i) => {
+        const isActive = (i === activeIndex);
+        card.classList.toggle('is-active', isActive);
+
+        if (i < activeIndex) {
+          // Cards stacked underneath scale down and dim slightly (signature paracitamol movement)
+          const depth = activeIndex - i;
+          const scale = Math.max(0.92, 1 - depth * 0.025);
+          const brightness = Math.max(0.9, 1 - depth * 0.035);
+          card.style.transform = `scale(${scale})`;
+          card.style.filter = `brightness(${brightness})`;
+        } else {
+          card.style.transform = 'scale(1)';
+          card.style.filter = 'brightness(1)';
+        }
+      });
+
+      isTicking = false;
+    }
+
+    function onScroll() {
+      if (!isTicking) {
+        window.requestAnimationFrame(updateScrollMotion);
+        isTicking = true;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    updateScrollMotion();
+  }
+
+  // Initialize on page load and on Astro transitions
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initParacitamolMovement);
+  } else {
+    initParacitamolMovement();
+  }
+  document.addEventListener('astro:page-load', initParacitamolMovement);
+</script>
