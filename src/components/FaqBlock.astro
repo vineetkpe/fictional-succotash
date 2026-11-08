@@ -23,7 +23,6 @@ const faqs: FaqItem[] = [
     categoryLabel: "Pricing & Renewals",
     question: "Are there hidden price hikes when my hosting renews?",
     answer: "None at all. Many hosting providers attract users with cheap introductory prices and then triple their renewal bills. At Hostamble, your plan renews at the regular transparent rate shown right on our pricing table. What you see is what you pay — no surprises, sneaky surcharges, or hidden fees.",
-    defaultOpen: true,
   },
   {
     id: "faq-refund",
@@ -59,6 +58,7 @@ const faqs: FaqItem[] = [
     categoryLabel: "Hosting & WordPress",
     question: "Should I choose Shared Hosting or WordPress Hosting?",
     answer: "For personal blogs, portfolio sites, or small business landing pages, our Shared Hosting plans provide exceptional value and reliable NVMe speed. If you are running an active WordPress or WooCommerce store, our WordPress Hosting plans come pre-configured with LiteSpeed Cache and high I/O limits for ultra-fast checkout and page loads.",
+    defaultOpen: true,
   },
   {
     id: "faq-ssl-cpanel",
@@ -129,11 +129,7 @@ const faqSchema = {
       
       <!-- Category Filter Pills -->
       <nav class="faq-categories-nav" aria-label="Filter FAQ Topics">
-        <button type="button" class="faq-cat-pill active" data-category="all">
-          <span>All Questions</span>
-          <span class="pill-badge">10</span>
-        </button>
-        <button type="button" class="faq-cat-pill" data-category="hosting">
+        <button type="button" class="faq-cat-pill active" data-category="hosting">
           <span>Hosting &amp; WordPress</span>
         </button>
         <button type="button" class="faq-cat-pill" data-category="billing">
@@ -166,39 +162,43 @@ const faqSchema = {
 
     <!-- Centered Accordion Stack (Max-Width 920px for optimal reading) -->
     <div class="faq-accordion-container" id="faqCardsStack" data-sal="slide-up" data-sal-delay="250" data-sal-duration="800">
-      {faqs.map((faq) => (
-        <article 
-          class={`faq-item-card ${faq.defaultOpen ? 'is-open' : ''}`}
-          data-category={faq.category}
-          data-faq-id={faq.id}
-        >
-          <button 
-            type="button" 
-            class="faq-header-trigger" 
-            aria-expanded={faq.defaultOpen ? "true" : "false"}
-            aria-controls={`faq-answer-${faq.id}`}
+      {faqs.map((faq) => {
+        const isDefaultVisible = faq.category === 'hosting';
+        return (
+          <article 
+            class={`faq-item-card ${faq.defaultOpen ? 'is-open' : ''}`}
+            data-category={faq.category}
+            data-faq-id={faq.id}
+            style={isDefaultVisible ? "display: block;" : "display: none;"}
           >
-            <div class="faq-question-meta">
-              <span class="faq-cat-label">{faq.categoryLabel}</span>
-              <h3 class="faq-question-text">{faq.question}</h3>
-            </div>
-            <div class="faq-toggle-icon" aria-hidden="true">
-              <i class="ri-add-line icon-plus"></i>
-              <i class="ri-subtract-line icon-minus"></i>
-            </div>
-          </button>
+            <button 
+              type="button" 
+              class="faq-header-trigger" 
+              aria-expanded={faq.defaultOpen ? "true" : "false"}
+              aria-controls={`faq-answer-${faq.id}`}
+            >
+              <div class="faq-question-meta">
+                <span class="faq-cat-label">{faq.categoryLabel}</span>
+                <h3 class="faq-question-text">{faq.question}</h3>
+              </div>
+              <div class="faq-toggle-icon" aria-hidden="true">
+                <i class="ri-add-line icon-plus"></i>
+                <i class="ri-subtract-line icon-minus"></i>
+              </div>
+            </button>
 
-          <div 
-            id={`faq-answer-${faq.id}`} 
-            class="faq-answer-collapse"
-            style={faq.defaultOpen ? "display: block;" : "display: none;"}
-          >
-            <div class="faq-answer-body">
-              <p class="faq-answer-text">{faq.answer}</p>
+            <div 
+              id={`faq-answer-${faq.id}`} 
+              class="faq-answer-collapse"
+              style={faq.defaultOpen ? "display: block;" : "display: none;"}
+            >
+              <div class="faq-answer-body">
+                <p class="faq-answer-text">{faq.answer}</p>
+              </div>
             </div>
-          </div>
-        </article>
-      ))}
+          </article>
+        );
+      })}
 
       <!-- Zero Results Fallback -->
       <div id="faqNoResults" class="faq-empty-state d-none">
@@ -260,7 +260,7 @@ const faqSchema = {
     const noResults = document.getElementById("faqNoResults");
     const resetBtn = document.getElementById("faqResetBtn");
 
-    let activeCat = "all";
+    let activeCat = "hosting";
     let activeQuery = "";
 
     function filterFaqs() {
@@ -271,7 +271,8 @@ const faqSchema = {
         const cat = card.getAttribute("data-category");
         const text = card.textContent.toLowerCase();
 
-        const catMatches = (activeCat === "all") || (cat === activeCat);
+        // When user types a search query, search across all questions; otherwise filter by activeCat
+        const catMatches = (query.length > 0) ? true : (cat === activeCat);
         const queryMatches = (query === "") || text.includes(query);
 
         if (catMatches && queryMatches) {
@@ -304,7 +305,7 @@ const faqSchema = {
       pill.addEventListener("click", function () {
         catPills.forEach(p => p.classList.remove("active"));
         this.classList.add("active");
-        activeCat = this.getAttribute("data-category") || "all";
+        activeCat = this.getAttribute("data-category") || "hosting";
         filterFaqs();
       });
     });
@@ -334,13 +335,16 @@ const faqSchema = {
       resetBtn.addEventListener("click", function () {
         if (searchInput) searchInput.value = "";
         activeQuery = "";
-        activeCat = "all";
+        activeCat = "hosting";
         catPills.forEach(p => {
-          p.classList.toggle("active", p.getAttribute("data-category") === "all");
+          p.classList.toggle("active", p.getAttribute("data-category") === "hosting");
         });
         filterFaqs();
       });
     }
+
+    // Run filter on initial load
+    filterFaqs();
 
     // Accordion Toggle Behavior
     cards.forEach(card => {
