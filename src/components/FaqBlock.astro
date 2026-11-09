@@ -9,7 +9,7 @@
 
 interface FaqItem {
   id: string;
-  category: 'hosting' | 'billing' | 'domains' | 'support';
+  category: 'general' | 'hosting' | 'billing' | 'domains' | 'support';
   categoryLabel: string;
   question: string;
   answer: string;
@@ -17,6 +17,109 @@ interface FaqItem {
 }
 
 const faqs: FaqItem[] = [
+  // ==========================================
+  // CATEGORY: GENERAL (8 High-Intent SEO Questions)
+  // ==========================================
+  {
+    id: "faq-best-web-hosting-india",
+    category: "general",
+    categoryLabel: "General",
+    question: "Which is the best web hosting provider in India for speed, affordability, and reliability?",
+    answer: "Hostamble is widely recognized as one of the best and most affordable web hosting providers in India. Powered by enterprise-grade LiteSpeed Web Servers, pure NVMe SSD storage, and genuine cPanel, Hostamble delivers up to 5x faster website loading speeds than conventional Apache hosting. Plans start at just ₹49/month and include free Let's Encrypt SSL certificates, automated daily backups, 99.9% uptime SLA, and direct human WhatsApp support in Hindi and English.",
+    defaultOpen: true,
+  },
+  {
+    id: "faq-what-is-web-hosting",
+    category: "general",
+    categoryLabel: "General",
+    question: "What is web hosting and how does it work for a website?",
+    answer: "Web hosting is an internet service that stores your website's files, databases, images, and code on secure physical servers connected continuously to high-speed global networks. When a user types your domain name into any web browser, the web hosting server instantly delivers your site's files to the visitor's screen. Hostamble provides fully managed shared, WordPress, and cloud hosting with instant setup and high-speed NVMe infrastructure.",
+  },
+  {
+    id: "faq-how-to-choose-hosting",
+    category: "general",
+    categoryLabel: "General",
+    question: "How do I choose the best web hosting plan for my website?",
+    answer: "Selecting the ideal web hosting plan depends on your website type, monthly traffic, and performance needs: (1) Starter Shared Hosting is perfect for personal blogs, portfolios, and startup landing pages on a budget. (2) WordPress Hosting is optimized for active WordPress sites, content creators, and WooCommerce online stores requiring LiteSpeed server caching. (3) Cloud VPS Hosting is designed for high-traffic eCommerce, digital agencies, and custom software requiring dedicated CPU and RAM resources.",
+  },
+  {
+    id: "faq-shared-vs-cloud-vs-vps",
+    category: "general",
+    categoryLabel: "General",
+    question: "What is the difference between Shared Hosting, Cloud Hosting, and VPS Hosting?",
+    answer: "Shared Hosting hosts multiple websites on a single server, making it the most economical choice for personal and small business sites. Cloud Hosting distributes your website data across interconnected server clusters for higher redundancy and automatic failover. VPS (Virtual Private Server) Hosting provides completely isolated CPU, RAM, and storage with dedicated resources and root access, ideal for high-traffic websites and resource-intensive applications.",
+  },
+  {
+    id: "faq-nvme-ssd-benefits",
+    category: "general",
+    categoryLabel: "General",
+    question: "Why is NVMe SSD storage faster and better than traditional HDD or SATA SSD hosting?",
+    answer: "NVMe (Non-Volatile Memory Express) SSD drives connect directly to server motherboards via high-speed PCIe lanes, achieving read/write data transfer speeds up to 7x faster than SATA SSDs and up to 20x faster than traditional hard drives (HDDs). This eliminates database bottlenecks, accelerates WordPress page rendering, improves Google Core Web Vitals scores, and helps your site rank higher in search engine results.",
+  },
+  {
+    id: "faq-ecommerce-woocommerce",
+    category: "general",
+    categoryLabel: "General",
+    question: "Can I host an eCommerce store or WooCommerce website on Hostamble?",
+    answer: "Yes, Hostamble is engineered specifically for high-conversion eCommerce websites running on WooCommerce, PrestaShop, OpenCart, or Magento. Our hosting environments feature generous PHP memory limits (up to 512MB/1024MB), MariaDB database acceleration, HTTP/3 QUIC protocol, and native LiteSpeed Cache with automated cart-caching exclusions to ensure fast checkouts even during high-traffic sales.",
+  },
+  {
+    id: "faq-free-website-migration",
+    category: "general",
+    categoryLabel: "General",
+    question: "Does Hostamble provide free website migration from other web hosting companies?",
+    answer: "Yes, Hostamble provides 100% free professional website migration with zero downtime. Whether your website is currently hosted on GoDaddy, Hostinger, Bluehost, Namecheap, or any cPanel provider, our migration engineers will transfer your files, databases, emails, and configurations safely. Simply share your details with our team over WhatsApp or a support ticket after signing up.",
+  },
+  {
+    id: "faq-why-choose-hostamble",
+    category: "general",
+    categoryLabel: "General",
+    question: "Why should I choose Hostamble instead of expensive traditional hosting providers?",
+    answer: "Unlike traditional hosts that lure customers with low introductory rates and later impose 300% to 400% renewal price spikes, Hostamble offers transparent rates, pure NVMe SSD storage, genuine cPanel licenses, free automated SSL, daily backups, and direct human WhatsApp support without automated bot runarounds.",
+  },
+
+  // ==========================================
+  // CATEGORY: HOSTING & WORDPRESS (5 Questions)
+  // ==========================================
+  {
+    id: "faq-litespeed-vs-apache",
+    category: "hosting",
+    categoryLabel: "Hosting & WordPress",
+    question: "What makes LiteSpeed WordPress hosting faster than Apache or NGINX hosting?",
+    answer: "LiteSpeed Web Server uses an event-driven, asynchronous architecture that serves thousands of simultaneous visitors while consuming minimal CPU and RAM. When combined with the official LiteSpeed Cache (LSCache) WordPress plugin, it provides server-level page caching, image optimization, CSS/JS minification, and HTTP/3 support, reducing server response times (TTFB) to under 200ms.",
+  },
+  {
+    id: "faq-one-click-installer",
+    category: "hosting",
+    categoryLabel: "Hosting & WordPress",
+    question: "Can I install WordPress, Joomla, or Laravel with 1-click on Hostamble?",
+    answer: "Yes. Every Hostamble account includes the Softaculous 1-click script installer featuring over 400 popular web applications. You can deploy WordPress, WooCommerce, Joomla, Drupal, Laravel, PrestaShop, and Node.js applications in under 60 seconds with automated database and security setup.",
+  },
+  {
+    id: "faq-uptime-guarantee",
+    category: "hosting",
+    categoryLabel: "Hosting & WordPress",
+    question: "How does Hostamble guarantee 99.9% website uptime and reliability?",
+    answer: "Hostamble ensures 99.9% uptime by hosting on Tier-IV certified enterprise data centers equipped with redundant power backups, multi-homed BGP network connections, CloudLinux OS resource isolation (ensuring neighboring accounts never drain your allocated CPU or RAM), and proactive automated server health monitoring.",
+  },
+  {
+    id: "faq-backups",
+    category: "hosting",
+    categoryLabel: "Hosting & WordPress",
+    question: "How do automatic daily backups work, and can I restore files myself?",
+    answer: "Hostamble utilizes JetBackup enterprise backup systems to capture automated snapshots of your website files, MySQL databases, cron jobs, and email mailboxes every day. If you ever need to restore a single file, a database table, or your complete website, you can do it with 1 click directly inside your cPanel dashboard.",
+  },
+  {
+    id: "faq-upgrade",
+    category: "hosting",
+    categoryLabel: "Hosting & WordPress",
+    question: "Can I easily upgrade my plan as my website traffic grows?",
+    answer: "Yes, scaling is instant with zero downtime. You can upgrade your storage quota, CPU cores, RAM, or switch from shared hosting to a high-performance Cloud VPS anytime directly through your Hostamble client portal without reinstalling anything.",
+  },
+
+  // ==========================================
+  // CATEGORY: PRICING & RENEWALS (5 Questions)
+  // ==========================================
   {
     id: "faq-renewals",
     category: "billing",
@@ -32,61 +135,103 @@ const faqs: FaqItem[] = [
     answer: "All Hostamble shared and WordPress hosting packages come with a genuine, hassle-free 7-day money-back guarantee. If you're not completely satisfied with our server speeds, uptime, or support experience, message us within 7 days and we will issue a full refund — no interrogations or complicated procedures.",
   },
   {
-    id: "faq-migration",
-    category: "support",
-    categoryLabel: "Migration & Setup",
-    question: "Can you migrate my existing website from another host for free?",
-    answer: "Yes, 100% free with zero downtime. Once you sign up, simply share your current cPanel or WordPress details with our team on WhatsApp or via a support ticket. Our server engineers will transfer your files, databases, and emails seamlessly without taking your website offline.",
-  },
-  {
-    id: "faq-whatsapp-support",
-    category: "support",
-    categoryLabel: "Migration & Setup",
-    question: "How fast can I get help if my website goes down or I face an issue?",
-    answer: "Our technical support team is available with direct WhatsApp support (+91 62847 19083), live chat, and support tickets in both Hindi and English. Non-tech beginners and experienced developers alike get direct human assistance, with most queries answered in under 3 minutes.",
-  },
-  {
     id: "faq-payments",
     category: "billing",
     categoryLabel: "Pricing & Renewals",
     question: "Which payment methods do you accept for Indian and international clients?",
-    answer: "For Indian customers, we accept all UPI apps (Google Pay, PhonePe, Paytm, BHIM), Net Banking across all banks, and Credit/Debit Cards via Cashfree, PayU, and CCAvenue. For international clients, we accept PayPal and Crypto payments (via Binance). All transactions are 256-bit SSL secured.",
+    answer: "For Indian customers, we accept all UPI apps (Google Pay, PhonePe, Paytm, BHIM), Net Banking across all banks, and Credit/Debit Cards via Cashfree and PayU. For international clients, we accept PayPal and Crypto payments (via Binance). All transactions are 256-bit SSL secured.",
   },
   {
-    id: "faq-plan-choice",
-    category: "hosting",
-    categoryLabel: "Hosting & WordPress",
-    question: "Should I choose Shared Hosting or WordPress Hosting?",
-    answer: "For personal blogs, portfolio sites, or small business landing pages, our Shared Hosting plans provide exceptional value and reliable NVMe speed. If you are running an active WordPress or WooCommerce store, our WordPress Hosting plans come pre-configured with LiteSpeed Cache and high I/O limits for ultra-fast checkout and page loads.",
-    defaultOpen: true,
+    id: "faq-monthly-billing",
+    category: "billing",
+    categoryLabel: "Pricing & Renewals",
+    question: "Can I buy web hosting on a monthly billing cycle or only yearly?",
+    answer: "Hostamble offers flexible billing terms to fit any budget. You can choose monthly, semi-annual, annual, or multi-year billing cycles. While yearly plans offer the highest promotional discounts and free domain benefits, monthly billing is always available without lock-in contracts.",
   },
   {
-    id: "faq-ssl-cpanel",
+    id: "faq-gst-invoice",
+    category: "billing",
+    categoryLabel: "Pricing & Renewals",
+    question: "Do you provide GST compliant tax invoices for businesses in India?",
+    answer: "Yes. During checkout or inside your Hostamble client portal, you can input your registered business name and GSTIN number. GST-compliant tax invoices are generated automatically for every order and renewal, allowing you to claim full input tax credits (ITC).",
+  },
+
+  // ==========================================
+  // CATEGORY: MIGRATION & SUPPORT (5 Questions)
+  // ==========================================
+  {
+    id: "faq-whatsapp-support",
+    category: "support",
+    categoryLabel: "Migration & Support",
+    question: "How fast can I get help if my website goes down or I face an issue?",
+    answer: "Our technical support team is available with direct WhatsApp support (+91 62847 19083), live chat, and support tickets in both Hindi and English. Non-tech beginners and experienced developers alike get direct human assistance, with most queries answered in under 3 minutes.",
+  },
+  {
+    id: "faq-migration-duration",
+    category: "support",
+    categoryLabel: "Migration & Support",
+    question: "How long does a free website migration take to complete?",
+    answer: "Most website migrations take between 30 minutes to 2 hours depending on the size of your website files and databases. Our server engineers perform the migration in the background, test functionality on temporary URLs, and only switch DNS once everything is verified, ensuring zero live downtime.",
+  },
+  {
+    id: "faq-beginner-help",
+    category: "support",
+    categoryLabel: "Migration & Support",
+    question: "Do you help beginners who have never built or managed a website before?",
+    answer: "Yes, absolutely! We love helping first-time website creators and non-technical business owners. Our support team can assist you with domain nameserver pointing, installing WordPress, activating your free SSL certificate, and setting up your business email addresses via direct WhatsApp chat.",
+  },
+  {
+    id: "faq-cpanel-access",
+    category: "support",
+    categoryLabel: "Migration & Support",
+    question: "What server control panel do I get with Hostamble hosting packages?",
+    answer: "All Hostamble shared and WordPress hosting packages include official, full-featured cPanel. With cPanel, you have access to a clean graphical interface to manage your file manager, phpMyAdmin databases, email inboxes, FTP accounts, DNS zones, and 1-click script installers.",
+  },
+  {
+    id: "faq-security-malware",
+    category: "support",
+    categoryLabel: "Migration & Support",
+    question: "How does Hostamble protect my website against malware, hackers, and DDoS attacks?",
+    answer: "We employ multi-layer security protections including CloudLinux CageFS account isolation (which prevents neighboring accounts from infecting your files), Imunify360 real-time automated malware scanning, Web Application Firewalls (WAF), brute-force defense, and automated network DDoS mitigation.",
+  },
+
+  // ==========================================
+  // CATEGORY: DOMAINS & SSL (5 Questions)
+  // ==========================================
+  {
+    id: "faq-ssl-certificates",
     category: "domains",
-    categoryLabel: "Domains & Security",
-    question: "Do I get a free SSL certificate and full cPanel access?",
-    answer: "Yes. Every hosting plan includes free automated Let's Encrypt SSL certificates that activate and renew automatically for your main domain, subdomains, and addon domains. You also get industry-standard cPanel to easily manage files, MySQL databases, phpMyAdmin, and DNS records.",
+    categoryLabel: "Domains & SSL",
+    question: "Do I get a free SSL certificate with my Hostamble hosting plan?",
+    answer: "Yes. Every hosting plan includes free automated Let's Encrypt SSL certificates that activate and renew automatically for your main domain, subdomains, and addon domains. Your website will always display the secure HTTPS padlock, encrypting visitor data and satisfying Google security standards.",
+  },
+  {
+    id: "faq-domain-registration",
+    category: "domains",
+    categoryLabel: "Domains & SSL",
+    question: "Can I register popular domain extensions like .com, .in, .org, and .net at Hostamble?",
+    answer: "Yes, Hostamble is an authorized domain registrar offering popular domain extensions including .com, .in, .co.in, .org, .net, .xyz, and .online at competitive prices. All domain registrations include free Anycast DNS management, email forwarding, and domain theft protection.",
   },
   {
     id: "faq-email",
     category: "domains",
-    categoryLabel: "Domains & Security",
+    categoryLabel: "Domains & SSL",
     question: "Can I create professional email accounts like info@yourdomain.com?",
     answer: "Yes, custom business domain emails are included with your plan. Hostamble includes secure Webmail, SpamAssassin spam filtering, and full IMAP/POP3/SMTP support to sync with Outlook, Gmail, Apple Mail, and Android.",
   },
   {
-    id: "faq-backups",
-    category: "hosting",
-    categoryLabel: "Hosting & WordPress",
-    question: "How do automatic daily backups work? Can I restore files myself?",
-    answer: "We run automated daily backups powered by JetBackup. Your files, databases, and mailboxes are stored securely. If you ever need to restore a single file, a database table, or your complete website, you can do it with 1 click directly inside your cPanel dashboard.",
+    id: "faq-connect-existing-domain",
+    category: "domains",
+    categoryLabel: "Domains & SSL",
+    question: "Can I connect an existing domain registered on GoDaddy, Namecheap, or Google to Hostamble?",
+    answer: "Yes, connecting an existing domain takes only a few minutes. You simply need to update your domain's nameservers at your current registrar to Hostamble nameservers (ns1.hostamble.com / ns2.hostamble.com) or point the A-record. Our WhatsApp support team can assist you with the setup anytime.",
   },
   {
-    id: "faq-upgrade",
-    category: "hosting",
-    categoryLabel: "Hosting & WordPress",
-    question: "Can I easily upgrade my plan as my website traffic grows?",
-    answer: "Yes, scaling is instant with zero downtime. You can upgrade your storage quota, CPU cores, RAM, or switch from shared hosting to a high-performance Cloud VPS anytime directly through your Hostamble client portal without reinstalling anything.",
+    id: "faq-whois-privacy",
+    category: "domains",
+    categoryLabel: "Domains & SSL",
+    question: "Is WHOIS privacy protection included for free with domain registrations?",
+    answer: "Yes, Hostamble provides free WHOIS privacy protection on supported domain extensions. WHOIS privacy hides your personal name, phone number, physical address, and email from public domain lookups, protecting you from telemarketers, spammers, and unsolicited calls.",
   },
 ];
 
@@ -129,11 +274,14 @@ const faqSchema = {
       
       <!-- Category Filter Pills -->
       <nav class="faq-categories-nav" aria-label="Filter FAQ Topics">
-        <button type="button" class="faq-cat-pill active" data-category="hosting">
+        <button type="button" class="faq-cat-pill active" data-category="general">
+          <span>General</span>
+        </button>
+        <button type="button" class="faq-cat-pill" data-category="hosting">
           <span>Hosting &amp; WordPress</span>
         </button>
         <button type="button" class="faq-cat-pill" data-category="billing">
-          <span>Pricing &amp; 7-Day Refund</span>
+          <span>Pricing &amp; Renewals</span>
         </button>
         <button type="button" class="faq-cat-pill" data-category="support">
           <span>Migration &amp; Support</span>
@@ -163,7 +311,7 @@ const faqSchema = {
     <!-- Centered Accordion Stack (Max-Width 920px for optimal reading) -->
     <div class="faq-accordion-container" id="faqCardsStack" data-sal="slide-up" data-sal-delay="250" data-sal-duration="800">
       {faqs.map((faq) => {
-        const isDefaultVisible = faq.category === 'hosting';
+        const isDefaultVisible = faq.category === 'general';
         return (
           <article 
             class={`faq-item-card ${faq.defaultOpen ? 'is-open' : ''}`}
@@ -260,7 +408,7 @@ const faqSchema = {
     const noResults = document.getElementById("faqNoResults");
     const resetBtn = document.getElementById("faqResetBtn");
 
-    let activeCat = "hosting";
+    let activeCat = "general";
     let activeQuery = "";
 
     function filterFaqs() {
@@ -305,7 +453,7 @@ const faqSchema = {
       pill.addEventListener("click", function () {
         catPills.forEach(p => p.classList.remove("active"));
         this.classList.add("active");
-        activeCat = this.getAttribute("data-category") || "hosting";
+        activeCat = this.getAttribute("data-category") || "general";
         filterFaqs();
       });
     });
@@ -335,9 +483,9 @@ const faqSchema = {
       resetBtn.addEventListener("click", function () {
         if (searchInput) searchInput.value = "";
         activeQuery = "";
-        activeCat = "hosting";
+        activeCat = "general";
         catPills.forEach(p => {
-          p.classList.toggle("active", p.getAttribute("data-category") === "hosting");
+          p.classList.toggle("active", p.getAttribute("data-category") === "general");
         });
         filterFaqs();
       });
