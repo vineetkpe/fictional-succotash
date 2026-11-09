@@ -243,10 +243,34 @@ const sharedHostingFaqCategories = [
           <div class="col-lg-6 col-md-6">
           <div class="pricing-billing-duration">
           <ul>
-            <li class="nav-item"><button class="nav-link active" id="monthly-plan-btn" onclick="updatePricing('monthly')" type="button">Monthly</button></li>
-            <li class="nav-item"><button class="nav-link" id="quarterly-plan-btn" onclick="updatePricing('quarterly')" type="button">Quarterly</button></li>
-            <li class="nav-item"><button class="nav-link" id="semiannual-plan-btn" onclick="updatePricing('semiannual')" type="button">Semi-Annual</button></li>
-            <li class="nav-item"><button class="nav-link" id="annual-plan-btn" onclick="updatePricing('annual')" type="button">Annual</button></li>
+            <li class="nav-item">
+              <button
+                class="nav-link active"
+                id="monthly-plan-btn"
+                onclick="document.querySelectorAll('.pricing-billing-duration .nav-link').forEach(btn=>btn.classList.remove('active')); this.classList.add('active'); updatePricing('monthly');"
+                type="button">Monthly</button>
+            </li>
+            <li class="nav-item">
+              <button
+                class="nav-link"
+                id="quarterly-plan-btn"
+                onclick="document.querySelectorAll('.pricing-billing-duration .nav-link').forEach(btn=>btn.classList.remove('active')); this.classList.add('active'); updatePricing('quarterly');"
+                type="button">Quarterly</button>
+            </li>
+            <li class="nav-item">
+              <button
+                class="nav-link"
+                id="semiannual-plan-btn"
+                onclick="document.querySelectorAll('.pricing-billing-duration .nav-link').forEach(btn=>btn.classList.remove('active')); this.classList.add('active'); updatePricing('semiannual');"
+                type="button">Semi-Annual</button>
+            </li>
+            <li class="nav-item">
+              <button
+                class="nav-link"
+                id="annual-plan-btn"
+                onclick="document.querySelectorAll('.pricing-billing-duration .nav-link').forEach(btn=>btn.classList.remove('active')); this.classList.add('active'); updatePricing('annual');"
+                type="button">Annual</button>
+            </li>
           </ul>
           </div>
           </div>
