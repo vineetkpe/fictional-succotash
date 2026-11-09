@@ -6,28 +6,54 @@ import { domainPricing } from '../data/pricing';
 // ===== FAQ Structured Data for Google SEO Rich Snippets =====
 const aiDomainFaqs = [
   {
+    category: "AI Generation",
     question: "How does Hostamble's AI Domain Name Generator work?",
     answer: "Hostamble's AI Domain Name Generator is powered by proprietary Mini AI to analyze your keywords, brand concept, and industry niche. It generates catchy, pronounceable, high-converting domain name variations paired with top commercial domain extensions (.com, .in, .ai, .store) ready for instant registration."
   },
   {
+    category: "Cost & Usage",
     question: "Is this AI Domain Name Generator free to use?",
     answer: "Yes, 100% free with unlimited searches. You can generate as many domain names as you want with zero sign-ups or hidden charges. When you find a domain you like, you can register it directly through Hostamble at wholesale rates."
   },
   {
+    category: "Availability Check",
     question: "How do I check if an AI-suggested domain name is available?",
     answer: "Every suggested domain card has a direct 'Check' button. Clicking it instantly queries the global WHOIS database through Hostamble's secure domain checker, telling you immediately if the domain is available to register."
   },
   {
+    category: "TLD Selection",
     question: "Should I register a .com or a .in domain for my business?",
     answer: "If your target audience is in India, registering a .in or .co.in domain provides a significant local SEO advantage on Google India (google.co.in). If you are building a global brand or international SaaS product, .com or .ai is ideal. We recommend securing both to protect your brand from competitors."
   },
   {
+    category: "Privacy & Security",
     question: "Do I get free WHOIS domain privacy protection with my registration?",
     answer: "Yes. Hostamble provides free lifetime WHOIS Privacy Protection on all supported domain extensions. Your personal name, residential address, phone number, and email are completely hidden from public databases."
   },
   {
+    category: "DNS & Setup",
     question: "Can I connect my domain to Shopify, WordPress, or external hosting?",
     answer: "Yes. Every domain registered at Hostamble includes full Anycast DNS management. You can easily create and update A, CNAME, MX, TXT, and SPF records to point your domain to Shopify, WordPress, Wix, or any VPS anytime."
+  },
+  {
+    category: "Activation Speed",
+    question: "How fast does domain activation and Anycast DNS propagation take?",
+    answer: "Domains registered at Hostamble are activated instantly upon checkout. Powered by Tier-IV Anycast DNS clusters, nameserver and DNS record changes typically propagate globally within 10 to 30 minutes instead of the conventional 24-48 hour wait."
+  },
+  {
+    category: "Domain Transfer",
+    question: "Can I transfer my existing domain to Hostamble without downtime?",
+    answer: "Yes. You can initiate a domain transfer seamlessly using your authorization EPP code. Our technical support team assists you throughout the process to guarantee zero downtime for your active website or business emails."
+  },
+  {
+    category: "Transparent Pricing",
+    question: "Are there any hidden renewal charges or surprise price increases?",
+    answer: "None at all. Hostamble maintains 100% transparent pricing for both initial registration and subsequent renewals. What you see on our pricing table is what you pay—with no mandatory add-ons, sudden markups, or lock-in contracts."
+  },
+  {
+    category: "Business Email",
+    question: "Can I create custom business email addresses with my new domain?",
+    answer: "Yes. You can set up free email forwarders or pair your domain with Hostamble Business Email hosting to create professional mailboxes (e.g. contact@yourbrand.com) with SpamAssassin filtering and webmail access."
   }
 ];
 
@@ -455,51 +481,95 @@ const aiDomainFaqSchema = {
 </div>
 
 <!-- =========================================================
-     BLOCK 7: FAQ Block (Theme Accordion + Schema.org)
+     BLOCK 7: Frequently Asked Questions (Home Page Unified Design)
      ========================================================= -->
-<div class="ace-section-gap bg-color-white position-relative border-top-1" id="ai-domain-faqs">
-    <div class="container position-relative" style="z-index: 2;">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-8 col-12">
-                <div class="section-title text-center" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                    <span class="pre-title">COMMON QUESTIONS</span>
-                    <h3 class="title">AI Domain Generator FAQs</h3>
-                    <p class="description max-w-750 mx-auto mt-2 text-muted">
-                        Clear, honest answers about our AI domain generator, availability, and registration.
-                    </p>
-                </div>
-            </div>
-        </div>
+<section class="hostamble-faq-section" id="ai-domain-faqs" aria-labelledby="faq-main-heading">
+  <!-- Subtle ambient decorative glow -->
+  <div class="faq-ambient-glow" aria-hidden="true"></div>
 
-        <div class="row justify-content-center mt-4">
-            <div class="col-lg-9 col-12">
-                <div class="ai-faq-accordion-stack" id="aiFaqStack">
-                    {aiDomainFaqs.map((faq, idx) => (
-                        <div class={`ai-faq-card ${idx === 0 ? 'is-open' : ''}`}>
-                            <button 
-                                type="button" 
-                                class="ai-faq-trigger" 
-                                aria-expanded={idx === 0 ? 'true' : 'false'}
-                            >
-                                <span class="ai-faq-num">0{idx + 1}</span>
-                                <span class="ai-faq-q">{faq.question}</span>
-                                <span class="ai-faq-chevron"><i class="ri-arrow-down-s-line"></i></span>
-                            </button>
-                            <div 
-                                class="ai-faq-collapse"
-                                style={idx === 0 ? "max-height: 400px; opacity: 1;" : "max-height: 0px; opacity: 0;"}
-                            >
-                                <div class="ai-faq-body">
-                                    <p>{faq.answer}</p>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
+  <div class="container position-relative">
+    <!-- Standard Centered Section Header -->
+    <div class="row justify-content-center mb-4">
+      <div class="col-lg-8 col-12 text-center">
+        <div class="section-title text-center" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+          <span class="pre-title">FAQ</span>
+          <h2 id="faq-main-heading" class="title">Frequently Asked Questions</h2>
+          <p class="description mt-2">
+            Clear, honest answers about our domain name generator, instant WHOIS availability, Anycast DNS, and domain registrations.
+          </p>
         </div>
+      </div>
     </div>
-</div>
+
+    <!-- Centered Accordion Stack (Max-Width 920px) -->
+    <div class="faq-accordion-container" id="faqCardsStack" data-sal="slide-up" data-sal-delay="250" data-sal-duration="800">
+      {aiDomainFaqs.map((faq, idx) => (
+        <article class={`faq-item-card ${idx === 0 ? 'is-open' : ''}`} data-faq-id={`faq-${idx}`}>
+          <button 
+            type="button" 
+            class="faq-header-trigger" 
+            aria-expanded={idx === 0 ? "true" : "false"}
+            aria-controls={`faq-answer-${idx}`}
+          >
+            <div class="faq-question-meta">
+              <span class="faq-cat-label">{faq.category}</span>
+              <h3 class="faq-question-text">{faq.question}</h3>
+            </div>
+            <div class="faq-toggle-icon" aria-hidden="true">
+              <i class="ri-add-line icon-plus"></i>
+              <i class="ri-subtract-line icon-minus"></i>
+            </div>
+          </button>
+
+          <div 
+            id={`faq-answer-${idx}`} 
+            class="faq-answer-collapse"
+            style={idx === 0 ? "display: block;" : "display: none;"}
+          >
+            <div class="faq-answer-body">
+              <p class="faq-answer-text">{faq.answer}</p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Bottom Human Support Reassurance Card -->
+    <div class="faq-bottom-concierge" data-sal="slide-up" data-sal-delay="300" data-sal-duration="800">
+      <div class="concierge-content">
+        <div class="concierge-icon-wrap" aria-hidden="true">
+          <i class="ri-customer-service-2-fill"></i>
+        </div>
+        <div class="concierge-text">
+          <h4 class="concierge-title">Still have questions or need custom setup?</h4>
+          <p class="concierge-desc">
+            Talk directly with our in-house domain team. We speak your language and usually reply in under 3 minutes.
+          </p>
+        </div>
+      </div>
+      <div class="concierge-actions">
+        <a 
+          href="https://wa.me/916284719083?text=Hi%20Hostamble,%20I%20have%20a%20question%20about%20domain%20registration%20and%20hosting" 
+          class="concierge-btn btn-whatsapp"
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          <i class="ri-whatsapp-fill"></i>
+          <span>WhatsApp Chat</span>
+        </a>
+        <a 
+          href="https://hostamble.com/dash/submitticket.php?step=2&deptid=1" 
+          class="concierge-btn btn-ticket"
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          <i class="ri-ticket-2-line"></i>
+          <span>Submit a Ticket</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Schema.org FAQPage Structured Data -->
 <script type="application/ld+json" set:html={JSON.stringify(aiDomainFaqSchema)} />
@@ -824,93 +894,300 @@ const aiDomainFaqSchema = {
     opacity: 0.35;
   }
 
-  /* FAQ Accordion */
-  .ai-faq-accordion-stack {
+  /* =========================================================
+     Unified FAQ Section Styling (Home Page Matching)
+     ========================================================= */
+  .hostamble-faq-section {
+    position: relative;
+    background-color: #fafbfc;
+    padding: 90px 0 100px 0;
+    overflow: hidden;
+  }
+
+  .faq-ambient-glow {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 80, 26, 0.04) 0%, rgba(250, 251, 252, 0) 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Centered Accordion Stack */
+  .faq-accordion-container {
+    max-width: 920px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 12px;
   }
 
-  .ai-faq-card {
+  /* Accordion Item Card - Crisp Curves */
+  .faq-item-card {
     background: #ffffff;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #e8edf5;
     border-radius: 6px;
     overflow: hidden;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
   }
 
-  .ai-faq-card.is-open {
-    border-color: #ff501a;
-    box-shadow: 0 4px 16px rgba(255, 80, 26, 0.06);
+  .faq-item-card:hover {
+    border-color: rgba(255, 80, 26, 0.35);
+    box-shadow: 0 6px 20px -8px rgba(255, 80, 26, 0.12);
+    transform: translateY(-1px);
   }
 
-  .ai-faq-trigger {
+  .faq-item-card.is-open {
+    border-color: rgba(255, 80, 26, 0.38);
+    box-shadow: 0 10px 28px -10px rgba(255, 80, 26, 0.14);
+    background: #ffffff;
+  }
+
+  /* Header Trigger */
+  .faq-header-trigger {
     width: 100%;
-    padding: 18px 22px;
     display: flex;
     align-items: center;
-    gap: 14px;
-    background: transparent;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 20px 24px;
+    background: none;
     border: none;
     text-align: left;
     cursor: pointer;
-    transition: background 0.2s ease;
+    font-family: inherit;
   }
 
-  .ai-faq-trigger:hover {
-    background: #fafafa;
-  }
-
-  .ai-faq-num {
-    font-size: 13px;
-    font-weight: 800;
-    color: #ff501a;
-    background: #fff4f0;
-    padding: 4px 8px;
-    border-radius: 4px;
-    flex-shrink: 0;
-  }
-
-  .ai-faq-q {
+  .faq-question-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
     flex-grow: 1;
-    font-size: 16px;
+    min-width: 0;
+  }
+
+  .faq-cat-label {
+    display: inline-block;
+    font-size: 11.5px;
     font-weight: 700;
-    color: #0f172a;
-    line-height: 1.35;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: #8c97a8;
+    transition: color 0.2s ease;
   }
 
-  .ai-faq-chevron {
-    font-size: 20px;
-    color: #64748b;
-    transition: transform 0.3s ease, color 0.3s ease;
-    flex-shrink: 0;
-  }
-
-  .ai-faq-card.is-open .ai-faq-chevron {
-    transform: rotate(180deg);
+  .faq-item-card.is-open .faq-cat-label {
     color: #ff501a;
   }
 
-  .ai-faq-collapse {
-    overflow: hidden;
-    transition: max-height 0.3s ease, opacity 0.3s ease;
+  .faq-question-text {
+    margin: 0;
+    font-size: 17.5px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #17181c;
+    transition: color 0.2s ease;
   }
 
-  .ai-faq-body {
-    padding: 0 22px 20px 58px;
-    font-size: 14.5px;
-    line-height: 1.6;
-    color: #475569;
+  .faq-header-trigger:hover .faq-question-text {
+    color: #ff501a;
   }
 
-  @media (max-width: 575px) {
-    .ai-faq-body {
-      padding: 0 16px 16px 16px;
+  .faq-item-card.is-open .faq-question-text {
+    color: #ff501a;
+  }
+
+  /* Plus / Minus Toggle Pod */
+  .faq-toggle-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: #f4f6fa;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.22s ease;
+    font-size: 18px;
+  }
+
+  .faq-toggle-icon .icon-minus {
+    display: none;
+  }
+
+  .faq-header-trigger:hover .faq-toggle-icon {
+    background: #fff0eb;
+    color: #ff501a;
+  }
+
+  .faq-item-card.is-open .faq-toggle-icon {
+    background: #ff501a;
+    color: #ffffff;
+  }
+
+  .faq-item-card.is-open .faq-toggle-icon .icon-plus {
+    display: none;
+  }
+
+  .faq-item-card.is-open .faq-toggle-icon .icon-minus {
+    display: block;
+  }
+
+  /* Answer Collapse */
+  .faq-answer-collapse {
+    border-top: 1px solid #f1f4f8;
+  }
+
+  .faq-answer-body {
+    padding: 18px 24px 24px;
+  }
+
+  .faq-answer-text {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: #475467;
+  }
+
+  /* Bottom Concierge Card */
+  .faq-bottom-concierge {
+    max-width: 920px;
+    margin: 40px auto 0;
+    padding: 24px 28px;
+    background: #ffffff;
+    border: 1px solid #e5e9f0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+  }
+
+  .concierge-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-grow: 1;
+    min-width: 0;
+  }
+
+  .concierge-icon-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+    background: #fff0eb;
+    color: #ff501a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .concierge-title {
+    font-size: 16.5px;
+    font-weight: 700;
+    color: #17181c;
+    margin: 0 0 4px 0;
+  }
+
+  .concierge-desc {
+    font-size: 14px;
+    color: #5c6678;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .concierge-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .concierge-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 44px;
+    padding: 0 18px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.22s ease;
+    white-space: nowrap;
+  }
+
+  .concierge-btn i {
+    font-size: 16px;
+  }
+
+  .btn-whatsapp {
+    background: #25d366;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+  }
+
+  .btn-whatsapp:hover {
+    background: #20ba5a;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
+  }
+
+  .btn-ticket {
+    background: #f1f5f9;
+    color: #334155;
+    border: 1px solid #e2e8f0;
+  }
+
+  .btn-ticket:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+    transform: translateY(-1px);
+  }
+
+  @media only screen and (max-width: 860px) {
+    .faq-bottom-concierge {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+    }
+
+    .concierge-actions {
+      width: 100%;
+      flex-direction: column;
+    }
+
+    .concierge-btn {
+      width: 100%;
+      justify-content: center;
     }
   }
 
-  .ai-faq-body p {
-    margin-bottom: 0;
+  @media only screen and (max-width: 575px) {
+    .hostamble-faq-section {
+      padding: 60px 0 70px 0;
+    }
+
+    .faq-header-trigger {
+      padding: 16px 18px;
+    }
+
+    .faq-question-text {
+      font-size: 16px;
+    }
+
+    .faq-answer-body {
+      padding: 14px 18px 20px;
+    }
   }
 </style>
 
@@ -1318,39 +1595,40 @@ const aiDomainFaqSchema = {
     fetchAiDomains("novaflow");
 
     // ==========================================
-    // Accordion Logic for FAQ Block
+    // Accordion Logic for FAQ Block (Home Page Unified)
     // ==========================================
-    const faqStack = document.getElementById("aiFaqStack");
-    if (faqStack) {
-      const cards = faqStack.querySelectorAll(".ai-faq-card");
-      cards.forEach(card => {
-        const trigger = card.querySelector(".ai-faq-trigger");
-        const collapse = card.querySelector(".ai-faq-collapse");
-        if (!trigger || !collapse) return;
+    const faqCards = document.querySelectorAll("#faqCardsStack .faq-item-card");
+    faqCards.forEach(card => {
+      const trigger = card.querySelector(".faq-header-trigger");
+      const answer = card.querySelector(".faq-answer-collapse");
 
+      if (trigger && answer) {
         trigger.addEventListener("click", function () {
           const isOpen = card.classList.contains("is-open");
 
-          cards.forEach(c => {
-            c.classList.remove("is-open");
-            const btn = c.querySelector(".ai-faq-trigger");
-            const col = c.querySelector(".ai-faq-collapse");
-            if (btn) btn.setAttribute("aria-expanded", "false");
-            if (col) {
-              col.style.maxHeight = "0px";
-              col.style.opacity = "0";
+          // Close other cards for clean, focused reading
+          faqCards.forEach(other => {
+            if (other !== card && other.classList.contains("is-open")) {
+              other.classList.remove("is-open");
+              const otherTrigger = other.querySelector(".faq-header-trigger");
+              const otherAnswer = other.querySelector(".faq-answer-collapse");
+              if (otherTrigger) otherTrigger.setAttribute("aria-expanded", "false");
+              if (otherAnswer) otherAnswer.style.display = "none";
             }
           });
 
-          if (!isOpen) {
+          if (isOpen) {
+            card.classList.remove("is-open");
+            trigger.setAttribute("aria-expanded", "false");
+            answer.style.display = "none";
+          } else {
             card.classList.add("is-open");
             trigger.setAttribute("aria-expanded", "true");
-            collapse.style.maxHeight = collapse.scrollHeight + 30 + "px";
-            collapse.style.opacity = "1";
+            answer.style.display = "block";
           }
         });
-      });
-    }
+      }
+    });
 
     initDomainHeroScene();
   })();
