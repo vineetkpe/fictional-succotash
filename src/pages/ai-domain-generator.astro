@@ -1,0 +1,1412 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HelpCtaBlock from '../components/HelpCtaBlock.astro';
+import { domainPricing } from '../data/pricing';
+
+// ===== FAQ Structured Data for Google SEO Rich Snippets =====
+const aiDomainFaqs = [
+  {
+    id: "faq-how-ai-generator-works",
+    question: "How does Hostamble's AI Domain Name Generator suggest names?",
+    answer: "Hostamble's AI domain generator takes your core seed keywords and applies linguistic rules, semantic synonyms, compound word combinations, and modern affixes (like -ly, -ify, -stack, -flow). It pairs these variations with top commercial domain extensions (.com, .in, .ai, .store) to create memorable, brandable names ready for instant registration."
+  },
+  {
+    id: "faq-is-generator-free",
+    question: "Is the AI Domain Name Generator free to use?",
+    answer: "Yes, 100% free with unlimited searches. You can test as many keywords, niches, and naming styles as you want without creating an account or paying any fees. When you find a domain name you love, you can register it directly through Hostamble at wholesale rates."
+  },
+  {
+    id: "faq-how-to-check-availability",
+    question: "How do I check if an AI-generated domain name is available?",
+    answer: "Every suggested domain card has a direct 'Check' button. Clicking it instantly queries the global WHOIS registry database via Hostamble's secure domain checker, telling you immediately if the domain is available to register or transfer."
+  },
+  {
+    id: "faq-brandable-vs-exact-match",
+    question: "Do brandable domain names rank well on Google?",
+    answer: "Yes. Google's modern search algorithms favor memorable, brandable domain names over spammy, hyphenated exact-match domains. A brandable name (e.g. Canva, Spotify, Hostamble) builds trust, earns organic backlinks, drives higher click-through rates (CTR) in search results, and scales as your business grows."
+  },
+  {
+    id: "faq-com-vs-in-domain",
+    question: "Should I register a .com or a .in domain for my business?",
+    answer: "If your target audience is primarily in India, registering a .in or .co.in domain gives you a strong local SEO advantage on Google India (google.co.in). If you are building a global SaaS, international eCommerce brand, or tech startup, .com or .ai is ideal. Whenever possible, we recommend registering both .com and .in to protect your brand identity from competitors."
+  },
+  {
+    id: "faq-instant-registration-time",
+    question: "How quickly does my domain become active after registration?",
+    answer: "Domain registration is instantaneous upon completing checkout. Anycast DNS propagation begins immediately and typically resolves across worldwide ISP networks within 15 to 30 minutes, allowing you to connect web hosting or business email right away."
+  },
+  {
+    id: "faq-external-hosting-connect",
+    question: "Can I connect my AI-generated domain to external platforms like Shopify or WordPress?",
+    answer: "Yes. Every domain registered at Hostamble includes full access to our automated DNS Management portal. You can create and edit A, AAAA, CNAME, MX, TXT, and SPF records anytime to link your domain to Shopify, WordPress, Wix, Blogger, GitHub Pages, or any VPS."
+  },
+  {
+    id: "faq-free-whois-privacy",
+    question: "Does Hostamble provide free WHOIS privacy protection?",
+    answer: "Yes. All eligible domain extensions registered through Hostamble include free lifetime WHOIS Privacy Protection. Your personal name, phone number, physical address, and private email remain completely masked from public ICANN databases with zero renewal surcharges."
+  }
+];
+
+const aiDomainFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": aiDomainFaqs.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer
+    }
+  }))
+};
+---
+
+<Layout 
+  title="Free AI Domain Name Generator | Smart Brand Ideas & Instant Availability"
+  description="Generate catchy, brandable, high-converting domain names in seconds with Hostamble's smart AI domain generator. Instant availability checks, free WHOIS privacy, and low renewal rates."
+  keywords="ai domain generator, domain name generator, smart domain suggestions, business name generator, buy domain name india, check domain availability, brandable domain generator"
+>
+
+<!-- =========================================================
+     BLOCK 1: Hero Block & Interactive AI Domain Generator Console
+     ========================================================= -->
+<div class="ai-hero-area bg-image banner position-relative overflow-hidden" id="generator-tool">
+  <div class="container position-relative" style="z-index: 2;">
+    
+    <!-- Hero Title & Explanatory SEO Copy -->
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-9 col-12">
+        <div class="hero-badge-tag mb-3" data-sal="slide-up" data-sal-delay="100" data-sal-duration="800">
+          <i class="ri-magic-line"></i> SMART AI BRANDING SUITE
+        </div>
+        <h1 class="hero-main-title text-white" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+          AI Domain Name Generator &amp; Brand Suggester
+        </h1>
+        <p class="hero-subtext text-white-90 max-w-750 mx-auto mt-3" data-sal="slide-up" data-sal-delay="200" data-sal-duration="800">
+          Turn your idea, product, or keywords into high-converting, brandable domain names in seconds. Powered by smart semantic expansion, niche-tailored naming patterns, and instant availability checks.
+        </p>
+      </div>
+    </div>
+
+    <!-- Generator Control Console Box -->
+    <div class="row justify-content-center mt-4">
+      <div class="col-lg-10 col-12">
+        <div class="ai-console-card p-4 p-md-5" data-sal="slide-up" data-sal-delay="250" data-sal-duration="800">
+          
+          <form id="aiDomainForm" class="ai-input-form" onsubmit="return false;">
+            <!-- Main Keyword Input Bar -->
+            <div class="row g-3 align-items-center">
+              <div class="col-lg-8 col-md-7 col-12">
+                <div class="console-input-wrap">
+                  <i class="ri-search-2-line input-search-icon"></i>
+                  <input 
+                    type="text" 
+                    id="aiKeywordsInput" 
+                    class="console-main-input" 
+                    placeholder="Enter keywords or brand idea (e.g. cloud, pay, flow, craft, fit)..." 
+                    value="novaflow"
+                    autocomplete="off"
+                    required
+                  />
+                  <button type="button" id="clearKeywordBtn" class="console-clear-btn d-none" aria-label="Clear Input">
+                    <i class="ri-close-line"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-5 col-12">
+                <button type="submit" id="generateBtn" class="ace-btn w-100 justify-content-center btn-generator">
+                  <i class="ri-magic-line me-1"></i> Generate Domains
+                </button>
+              </div>
+            </div>
+
+            <!-- Niche & Style Customizer Controls (Row 2) -->
+            <div class="row g-3 mt-2 pt-2 border-top border-secondary-subtle">
+              <div class="col-lg-4 col-md-6 col-12">
+                <label for="nicheSelect" class="console-filter-label"><i class="ri-building-line me-1"></i> Industry / Niche</label>
+                <select id="nicheSelect" class="console-select">
+                  <option value="all">All Industries (General)</option>
+                  <option value="tech" selected>Tech, AI &amp; SaaS</option>
+                  <option value="ecommerce">E-Commerce &amp; Retail</option>
+                  <option value="finance">Fintech &amp; Finance</option>
+                  <option value="agency">Agency &amp; Consulting</option>
+                  <option value="health">Health &amp; Wellness</option>
+                </select>
+              </div>
+
+              <div class="col-lg-4 col-md-6 col-12">
+                <label for="styleSelect" class="console-filter-label"><i class="ri-sparkling-line me-1"></i> Naming Style</label>
+                <select id="styleSelect" class="console-select">
+                  <option value="brandable" selected>Brandable &amp; Catchy (-ly, -ify, -io)</option>
+                  <option value="short">Short &amp; Punchy (&lt; 8 Chars)</option>
+                  <option value="action">Action Prefixes (get-, try-, go-)</option>
+                  <option value="compound">Compound Power Words</option>
+                </select>
+              </div>
+
+              <div class="col-lg-4 col-md-12 col-12">
+                <label for="extensionSelect" class="console-filter-label"><i class="ri-global-line me-1"></i> Extension Preference</label>
+                <select id="extensionSelect" class="console-select">
+                  <option value="all" selected>All Top TLDs (.com, .in, .ai, .store)</option>
+                  <option value="com">.com Only (Global Standard)</option>
+                  <option value="in">.in &amp; .co.in (India #1)</option>
+                  <option value="tech">.ai &amp; Tech (.ai, .io, .tech)</option>
+                </select>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Generated Results Dashboard -->
+    <div class="row justify-content-center mt-5" id="resultsSection">
+      <div class="col-lg-10 col-12">
+        
+        <!-- Results Bar: Count + Quick Filter Buttons -->
+        <div class="results-header-bar d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+          <div class="d-flex align-items-center gap-2">
+            <span class="results-count-badge" id="resultsCountBadge">24 Suggestions</span>
+            <span class="text-white-70 small d-none d-sm-inline">Click any domain to check live availability</span>
+          </div>
+
+          <!-- Quick Tab Filters -->
+          <div class="results-filter-pills d-flex flex-wrap gap-2">
+            <button type="button" class="result-tab active" data-filter="all">All</button>
+            <button type="button" class="result-tab" data-filter="com">.com</button>
+            <button type="button" class="result-tab" data-filter="in">.in</button>
+            <button type="button" class="result-tab" data-filter="tech">.ai / Tech</button>
+            <button type="button" class="result-tab" data-filter="short">Short (&lt;8)</button>
+          </div>
+        </div>
+
+        <!-- Dynamic Results Grid -->
+        <div class="row g-3" id="domainsOutputGrid">
+          <!-- Populated dynamically via client script -->
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- =========================================================
+     BLOCK 2: Trending & Staged AI Startup Combinations
+     ========================================================= -->
+<div class="ace-section-gap bg-color-white position-relative border-bottom-1">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-8 col-12">
+        <div class="section-title text-center" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+          <span class="pre-title">CURATED INSPIRATION</span>
+          <h3 class="title">Trending Domain Formats Built by AI</h3>
+          <p class="description max-w-750 mx-auto mt-2 text-muted">
+            See how top-performing startups and digital businesses construct modern brand identities across popular commercial niches.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 mt-3 justify-content-center">
+      <!-- Card 1: AI & Automation -->
+      <div class="col-lg-3 col-md-6 col-12" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+        <div class="showcase-niche-card h-100">
+          <div class="niche-icon-wrap icon-blue">
+            <i class="ri-cpu-line"></i>
+          </div>
+          <h5 class="niche-title">AI &amp; Automation</h5>
+          <p class="niche-desc text-muted">High-tech combinations with instant cognitive recall.</p>
+          <ul class="niche-domains-list">
+            <li>
+              <a href="https://hostamble.com/dash/domainchecker.php?search=neuralmesh.ai" target="_blank" rel="noopener noreferrer">
+                <span>neuralmesh<strong>.ai</strong></span>
+                <i class="ri-arrow-right-line"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://hostamble.com/dash/domainchecker.php?search=agentflow.in" target="_blank" rel="noopener noreferrer">
+                <span>agentflow<strong>.in</strong></span>
+                <i class="ri-arrow-right-line"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://hostamble.com/dash/domainchecker.php?search=synthetichq.com" target="_blank" rel="noopener noreferrer">
+                <span>synthetichq<strong>.com</strong></span>
+                <i class="ri-arrow-right-line"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Card 2: Fintech & Finance -->
+      <div class="col-lg-3 col-md-6 col-12" data-sal="slide-up" data-sal-delay="200" data-sal-duration="800">
+        <div class="showcase-niche-card h-100">
+          <div class="niche-icon-wrap icon-orange">
+            <i class="ri-bank-card-line"></i>
+          </div>
+          <h5 class="niche-title">Fintech &amp; Payments</h5>
+          <p class="niche-desc text-muted">Authoritative, trust-centered names for digital transactions.</p>
+          <ul class="niche-domains-list">
+            <li>
+              <a href="https://hostamble.com/dash/domainchecker.php?search=payforge.in" target="_blank" rel="noopener noreferrer">
+                <span>payforge<strong>.in</strong></span>
+                <i class="ri-arrow-right-line"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://hostamble.com/dash/domainchecker.php?search=vaultstack.com" target="_blank" rel="noopener noreferrer">
+                <span>vaultstack<strong>.com</strong></span>
+                <i class="ri-arrow-right-line"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://hostamble.com/dash/domainchecker.php?search=ledgerly.co.in" target="_blank" rel="noopener noreferrer">
+                <span>ledgerly<strong>.co.in</strong></span>
+                <i class="ri-arrow-right-line"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Card 3: E-Commerce & Retail -->
+      <div class="col-lg-3 col-md-6 col-12" data-sal="slide-up" data-sal-delay="250" data-sal-duration="800">
+        <div class="showcase-niche-card h-100">
+          <div class="niche-icon-wrap icon-purple">
+            <i class="ri-shopping-bag-3-line"></i>
+          </div>
+          <h5 class="niche-title">D2C &amp; E-Commerce</h5>
+          <p class="niche-desc text-muted">Direct commerce signals tailored for stores and shops.</p>
+          <ul class="niche-domains-list">
+            <li>
+              <a href="https://hostamble.com/dash/domainchecker.php?search=craftly.store" target="_blank" rel="noopener noreferrer">
+                <span>craftly<strong>.store</strong></span>
+                <i class="ri-arrow-right-line"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://hostamble.com/dash/domainchecker.php?search=auraessentials.in" target="_blank" rel="noopener noreferrer">
+                <span>auraessentials<strong>.in</strong></span>
+                <i class="ri-arrow-right-line"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://hostamble.com/dash/domainchecker.php?search=pureglow.shop" target="_blank" rel="noopener noreferrer">
+                <span>pureglow<strong>.shop</strong></span>
+                <i class="ri-arrow-right-line"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Card 4: Modern Micro-SaaS -->
+      <div class="col-lg-3 col-md-6 col-12" data-sal="slide-up" data-sal-delay="300" data-sal-duration="800">
+        <div class="showcase-niche-card h-100">
+          <div class="niche-icon-wrap icon-green">
+            <i class="ri-rocket-line"></i>
+          </div>
+          <h5 class="niche-title">Micro-SaaS &amp; Tools</h5>
+          <p class="niche-desc text-muted">Action-oriented names built for high software conversion.</p>
+          <ul class="niche-domains-list">
+            <li>
+              <a href="https://hostamble.com/dash/domainchecker.php?search=taskpilot.com" target="_blank" rel="noopener noreferrer">
+                <span>taskpilot<strong>.com</strong></span>
+                <i class="ri-arrow-right-line"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://hostamble.com/dash/domainchecker.php?search=metricpulse.io" target="_blank" rel="noopener noreferrer">
+                <span>metricpulse<strong>.io</strong></span>
+                <i class="ri-arrow-right-line"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://hostamble.com/dash/domainchecker.php?search=getcloudly.com" target="_blank" rel="noopener noreferrer">
+                <span>getcloudly<strong>.com</strong></span>
+                <i class="ri-arrow-right-line"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     BLOCK 3: How the AI Domain Name Generator Works
+     ========================================================= -->
+<div class="ace-section-gap bg-color-light position-relative">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-8 col-12">
+        <div class="section-title text-center" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+          <span class="pre-title">SMART ALGORITHMIC ENGINE</span>
+          <h3 class="title">How Our AI Domain Generator Works</h3>
+          <p class="description max-w-750 mx-auto mt-2 text-muted">
+            Unlike generic randomizers, our domain generator analyzes linguistic phonetic flow, semantic synonym roots, and commercial suitability.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 mt-3 justify-content-center">
+      <div class="col-lg-4 col-md-6 col-12" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+        <div class="how-step-card h-100">
+          <div class="step-header d-flex justify-content-between align-items-center">
+            <span class="step-num">01</span>
+            <span class="step-icon"><i class="ri-brain-line"></i></span>
+          </div>
+          <h5 class="step-title mt-3">Semantic Keyword Expansion</h5>
+          <p class="step-desc text-muted">
+            The engine breaks down your input into core roots, extracting related tech affixes, industry synonyms, and emotional brand anchors.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-12" data-sal-delay="200" data-sal-duration="800">
+        <div class="how-step-card h-100">
+          <div class="step-header d-flex justify-content-between align-items-center">
+            <span class="step-num">02</span>
+            <span class="step-icon"><i class="ri-formula"></i></span>
+          </div>
+          <h5 class="step-title mt-3">Proven Brandable Synthesizers</h5>
+          <p class="step-desc text-muted">
+            Applies proven naming frameworks: modern tech suffixes (-ify, -ly, -io), action verbs (get-, go-), and compound syllable pairs designed to roll off the tongue.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-12" data-sal-delay="250" data-sal-duration="800">
+        <div class="how-step-card h-100">
+          <div class="step-header d-flex justify-content-between align-items-center">
+            <span class="step-num">03</span>
+            <span class="step-icon"><i class="ri-checkbox-circle-line"></i></span>
+          </div>
+          <h5 class="step-title mt-3">Instant WHOIS &amp; Registry Check</h5>
+          <p class="step-desc text-muted">
+            Each generated suggestion connects with Hostamble's real-time WHOIS checker, allowing you to lock in your domain name before someone else does.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     BLOCK 4: SEO & Branding Guide: What Makes a Great Domain
+     ========================================================= -->
+<div class="ace-section-gap bg-color-white position-relative border-top-1">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 col-12" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+        <div class="section-title text-start mb-0">
+          <span class="pre-title">DOMAIN SEO &amp; BRANDING SECRETS</span>
+          <h3 class="title">What Makes a Domain Rank &amp; Convert Better?</h3>
+          <p class="description text-muted mt-3">
+            A great domain name does not just identify your website—it builds instant customer trust, boosts your Google Search click-through rate, and protects your brand equity.
+          </p>
+        </div>
+
+        <div class="pillar-tips-list mt-4">
+          <div class="pillar-tip-item d-flex gap-3 mb-3">
+            <div class="tip-icon"><i class="ri-check-line"></i></div>
+            <div>
+              <h6 class="mb-1 font-weight-bold">Keep It Short, Punchy &amp; Pronounceable</h6>
+              <p class="small text-muted mb-0">Short domains under 12 characters are easier to remember, reduce typing errors on mobile keyboards, and make word-of-mouth recommendations frictionless.</p>
+            </div>
+          </div>
+
+          <div class="pillar-tip-item d-flex gap-3 mb-3">
+            <div class="tip-icon"><i class="ri-check-line"></i></div>
+            <div>
+              <h6 class="mb-1 font-weight-bold">Avoid Hyphens and Confusing Numbers</h6>
+              <p class="small text-muted mb-0">Search engines and users perceive hyphenated domains as low-quality. A clean, single-word or compound brandable domain projects established authority.</p>
+            </div>
+          </div>
+
+          <div class="pillar-tip-item d-flex gap-3 mb-3">
+            <div class="tip-icon"><i class="ri-check-line"></i></div>
+            <div>
+              <h6 class="mb-1 font-weight-bold">Target Local SEO with Strategic ccTLDs</h6>
+              <p class="small text-muted mb-0">If your audience is in India, a <strong>.in</strong> or <strong>.co.in</strong> extension signals geographic relevance directly to Google India, giving you an edge in local search queries.</p>
+            </div>
+          </div>
+
+          <div class="pillar-tip-item d-flex gap-3">
+            <div class="tip-icon"><i class="ri-check-line"></i></div>
+            <div>
+              <h6 class="mb-1 font-weight-bold">Leave Room for Product Expansion</h6>
+              <p class="small text-muted mb-0">Avoid names that are too narrow (like <em>cheapshoesdelhi.com</em>). Choose a flexible brandable name (like <em>stepcraft.in</em>) that can grow into multiple product categories.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-12" data-sal="slide-up" data-sal-delay="250" data-sal-duration="800">
+        <div class="domain-comparison-box p-4 p-md-5">
+          <h5 class="mb-3 font-weight-bold">Quick TLD Comparison for Startups</h5>
+          
+          <div class="tld-mini-row d-flex justify-content-between align-items-center py-2 border-bottom">
+            <div>
+              <strong class="text-primary">.com</strong>
+              <span class="d-block small text-muted">Global audience &amp; international recall</span>
+            </div>
+            <span class="badge bg-primary text-white">Global Standard</span>
+          </div>
+
+          <div class="tld-mini-row d-flex justify-content-between align-items-center py-2 border-bottom">
+            <div>
+              <strong class="text-primary">.in</strong>
+              <span class="d-block small text-muted">India #1 extension, boosts Google.co.in SEO</span>
+            </div>
+            <span class="badge bg-success text-white">India Local</span>
+          </div>
+
+          <div class="tld-mini-row d-flex justify-content-between align-items-center py-2 border-bottom">
+            <div>
+              <strong class="text-primary">.ai</strong>
+              <span class="d-block small text-muted">Artificial intelligence, machine learning, modern SaaS</span>
+            </div>
+            <span class="badge bg-info text-dark">AI Startup</span>
+          </div>
+
+          <div class="tld-mini-row d-flex justify-content-between align-items-center py-2">
+            <div>
+              <strong class="text-primary">.store</strong>
+              <span class="d-block small text-muted">Direct-to-consumer online stores &amp; shops</span>
+            </div>
+            <span class="badge bg-warning text-dark">E-Commerce</span>
+          </div>
+
+          <div class="mt-4 pt-2">
+            <a href="/tld-pricing" class="ace-btn btn-small w-100 justify-content-center text-center">
+              View Complete TLD Pricing Card <i class="ri-arrow-right-line ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     BLOCK 5: Free Essential Features Included with Every Domain
+     ========================================================= -->
+<div class="ace-section-gap bg-color-light position-relative">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-8 col-12">
+        <div class="section-title text-center" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+          <span class="pre-title">EVERYTHING YOU NEED</span>
+          <h3 class="title">Free Management Tools with Every Domain</h3>
+          <p class="description max-w-750 mx-auto mt-2 text-muted">
+            We believe in transparent domain pricing. All standard domain registrations at Hostamble include essential management tools at zero additional charge.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 mt-3 justify-content-center">
+      <div class="col-lg-3 col-md-6 col-12" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+        <div class="feature-box-card h-100">
+          <div class="feat-icon"><i class="ri-shield-user-line"></i></div>
+          <h5 class="feat-title">Free WHOIS Privacy</h5>
+          <p class="feat-desc text-muted">Keep your real name, residential address, and phone number hidden from public databases forever.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-12" data-sal-delay="200" data-sal-duration="800">
+        <div class="feature-box-card h-100">
+          <div class="feat-icon"><i class="ri-flashlight-line"></i></div>
+          <h5 class="feat-title">Anycast DNS Control</h5>
+          <p class="feat-desc text-muted">Easily create and update A, CNAME, MX, TXT, and SPF records with ultra-fast worldwide propagation.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-12" data-sal-delay="250" data-sal-duration="800">
+        <div class="feature-box-card h-100">
+          <div class="feat-icon"><i class="ri-lock-line"></i></div>
+          <h5 class="feat-title">Domain Theft Lock</h5>
+          <p class="feat-desc text-muted">Guard your domain name against accidental transfers or unauthorized DNS tampering with 1-click lock.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-12" data-sal-delay="300" data-sal-duration="800">
+        <div class="feature-box-card h-100">
+          <div class="feat-icon"><i class="ri-mail-send-line"></i></div>
+          <h5 class="feat-title">Free Email Forwarding</h5>
+          <p class="feat-desc text-muted">Set up professional forwarders like hello@yourdomain.com to route automatically to your personal inbox.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     BLOCK 6: Domain Registration FAQ Block (8 SEO Questions)
+     ========================================================= -->
+<div class="ace-section-gap bg-color-white position-relative border-top-1" id="faq-section">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-8 col-12">
+        <div class="section-title text-center" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+          <span class="pre-title">GOT QUESTIONS?</span>
+          <h3 class="title">AI Domain Generator &amp; Registration FAQ</h3>
+          <p class="description max-w-750 mx-auto mt-2 text-muted">
+            Everything you need to know about AI domain naming, trademark considerations, and instant registration on Hostamble.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center mt-4">
+      <div class="col-lg-9 col-12">
+        <div class="faq-accordion-stack" id="aiFaqAccordion">
+          {aiDomainFaqs.map((faq, idx) => (
+            <div class={`faq-card-item ${idx === 0 ? 'is-open' : ''}`}>
+              <button 
+                type="button" 
+                class="faq-card-trigger" 
+                aria-expanded={idx === 0 ? 'true' : 'false'}
+                aria-controls={`ai-faq-body-${idx}`}
+              >
+                <span class="faq-card-num">0{idx + 1}</span>
+                <span class="faq-card-question">{faq.question}</span>
+                <span class="faq-card-chevron"><i class="ri-arrow-down-s-line"></i></span>
+              </button>
+              <div 
+                id={`ai-faq-body-${idx}`} 
+                class="faq-card-collapse"
+                style={idx === 0 ? "max-height: 400px; opacity: 1;" : "max-height: 0px; opacity: 0;"}
+              >
+                <div class="faq-card-content">
+                  <p>{faq.answer}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Schema.org FAQPage Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(aiDomainFaqSchema)} />
+
+<!-- =========================================================
+     BLOCK 7: Help CTA Block (Clean 6px curves & WhatsApp concierge)
+     ========================================================= -->
+<HelpCtaBlock 
+  title="Need help choosing or registering your domain?" 
+  description="Have questions about domain availability, Anycast DNS setup, free site migration, or finding the right name? Our in-house technical team in India is ready to assist you on WhatsApp and Live Chat."
+/>
+
+</Layout>
+
+<style>
+  /* =========================================================
+     AI Domain Generator Styling (Clean 6px Curves • Zero AI Slop)
+     ========================================================= */
+  .ai-hero-area {
+    background: #0f172a;
+    padding: 100px 0 110px;
+    position: relative;
+  }
+
+  .hero-badge-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: rgba(255, 80, 26, 0.15);
+    border: 1px solid rgba(255, 80, 26, 0.35);
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #ff501a;
+  }
+
+  .hero-main-title {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  @media (max-width: 767px) {
+    .hero-main-title {
+      font-size: 30px;
+    }
+  }
+
+  .hero-subtext {
+    font-size: 16.5px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.88);
+  }
+
+  /* Console Card */
+  .ai-console-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+  }
+
+  .console-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .input-search-icon {
+    position: absolute;
+    left: 16px;
+    font-size: 20px;
+    color: #94a3b8;
+  }
+
+  .console-main-input {
+    width: 100%;
+    height: 54px;
+    padding: 10px 42px 10px 46px;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #0f172a;
+    background: #f8fafc;
+    transition: all 0.2s ease;
+  }
+
+  .console-main-input:focus {
+    outline: none;
+    background: #ffffff;
+    border-color: #ff501a;
+    box-shadow: 0 0 0 4px rgba(255, 80, 26, 0.12);
+  }
+
+  .console-clear-btn {
+    position: absolute;
+    right: 14px;
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .console-clear-btn:hover {
+    color: #0f172a;
+  }
+
+  .btn-generator {
+    height: 54px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .console-filter-label {
+    display: block;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #475569;
+    margin-bottom: 6px;
+  }
+
+  .console-select {
+    width: 100%;
+    height: 44px;
+    padding: 8px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #1e293b;
+    background-color: #ffffff;
+    transition: border-color 0.2s ease;
+  }
+
+  .console-select:focus {
+    outline: none;
+    border-color: #ff501a;
+  }
+
+  /* Results Bar */
+  .results-count-badge {
+    background: rgba(255, 80, 26, 0.2);
+    border: 1px solid rgba(255, 80, 26, 0.35);
+    color: #ff501a;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .text-white-70 {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .result-tab {
+    padding: 6px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    border-radius: 6px;
+    font-size: 12.5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .result-tab:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .result-tab.active {
+    background: #ff501a;
+    border-color: #ff501a;
+    color: #ffffff;
+  }
+
+  /* Generated Domain Cards */
+  .ai-domain-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .ai-domain-card:hover {
+    transform: translateY(-2px);
+    border-color: #ff501a;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .domain-name-text {
+    font-size: 16px;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.01em;
+  }
+
+  .domain-tld-highlight {
+    color: #ff501a;
+  }
+
+  .domain-tag-badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: #f1f5f9;
+    color: #475569;
+    display: inline-block;
+  }
+
+  .domain-price-tag {
+    font-size: 14px;
+    font-weight: 800;
+    color: #ff501a;
+  }
+
+  .btn-check-domain {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    background: #ff501a;
+    color: #ffffff !important;
+    font-size: 12.5px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .btn-check-domain:hover {
+    background: #e04414;
+    transform: translateY(-1px);
+    color: #ffffff !important;
+  }
+
+  .btn-copy-domain {
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    color: #64748b;
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .btn-copy-domain:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+  }
+
+  /* Showcase Niche Cards (Block 2) */
+  .showcase-niche-card {
+    background: #ffffff;
+    border: 1px solid #eef2f6;
+    border-radius: 6px;
+    padding: 26px 22px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .showcase-niche-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 80, 26, 0.3);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+  }
+
+  .niche-icon-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+
+  .icon-blue { background: #e0f2fe; color: #0284c7; }
+  .icon-orange { background: #fff4f0; color: #ff501a; }
+  .icon-purple { background: #f3e8ff; color: #8b5cf6; }
+  .icon-green { background: #dcfce7; color: #16a34a; }
+
+  .niche-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .niche-desc {
+    font-size: 13px;
+    line-height: 1.45;
+    margin-bottom: 16px;
+  }
+
+  .niche-domains-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .niche-domains-list a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #1e293b;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .niche-domains-list a:hover {
+    background: #ffffff;
+    border-color: #ff501a;
+    color: #ff501a;
+    transform: translateX(3px);
+  }
+
+  /* How Steps Cards (Block 3) */
+  .how-step-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 30px 24px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .how-step-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+  }
+
+  .step-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 24px;
+    font-weight: 800;
+    color: #ff501a;
+  }
+
+  .step-icon {
+    font-size: 26px;
+    color: #64748b;
+  }
+
+  .step-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+
+  .step-desc {
+    font-size: 14px;
+    line-height: 1.55;
+    margin-bottom: 0;
+  }
+
+  /* SEO Tips & Comparison (Block 4) */
+  .tip-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    background: #dcfce7;
+    color: #16a34a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .domain-comparison-box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Feature Box Card (Block 5) */
+  .feature-box-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 26px 20px;
+    transition: transform 0.2s ease;
+  }
+
+  .feature-box-card:hover {
+    transform: translateY(-3px);
+  }
+
+  .feat-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 6px;
+    background: #fff4f0;
+    color: #ff501a;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 14px;
+  }
+
+  .feat-title {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .feat-desc {
+    font-size: 13.5px;
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+
+  /* FAQ Accordion (Block 6) */
+  .faq-accordion-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .faq-card-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .faq-card-item.is-open {
+    border-color: #ff501a;
+    box-shadow: 0 4px 16px rgba(255, 80, 26, 0.06);
+  }
+
+  .faq-card-trigger {
+    width: 100%;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: transparent;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+
+  .faq-card-trigger:hover {
+    background: #fafafa;
+  }
+
+  .faq-card-num {
+    font-size: 13px;
+    font-weight: 800;
+    color: #ff501a;
+    background: #fff4f0;
+    padding: 4px 8px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  .faq-card-question {
+    flex-grow: 1;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.35;
+  }
+
+  .faq-card-chevron {
+    font-size: 20px;
+    color: #64748b;
+    transition: transform 0.3s ease, color 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .faq-card-item.is-open .faq-card-chevron {
+    transform: rotate(180deg);
+    color: #ff501a;
+  }
+
+  .faq-card-collapse {
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+  }
+
+  .faq-card-content {
+    padding: 0 22px 20px 58px;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: #475569;
+  }
+
+  @media (max-width: 575px) {
+    .faq-card-content {
+      padding: 0 16px 16px 16px;
+    }
+  }
+
+  .faq-card-content p {
+    margin-bottom: 0;
+  }
+</style>
+
+<!-- =========================================================
+     SMART AI DOMAIN NAME GENERATION ENGINE (Client-Side)
+     ========================================================= -->
+<script is:inline>
+  (function () {
+    // Top TLD Pricing reference
+    const tldRates = {
+      ".com": { inr: "₹999 /yr", usd: "$11.99 /yr" },
+      ".in": { inr: "₹499 /yr", usd: "$5.95 /yr" },
+      ".co.in": { inr: "₹399 /yr", usd: "$4.75 /yr" },
+      ".ai": { inr: "₹6499 /yr", usd: "$77.99 /yr" },
+      ".store": { inr: "₹299 /yr", usd: "$3.59 /yr" },
+      ".org": { inr: "₹1199 /yr", usd: "$14.30 /yr" },
+      ".tech": { inr: "₹399 /yr", usd: "$4.79 /yr" },
+      ".io": { inr: "₹3499 /yr", usd: "$41.99 /yr" }
+    };
+
+    // Semantic dictionaries
+    const generalTechAffixes = ["flow", "stack", "pulse", "craft", "base", "hub", "nexus", "core", "grid", "wave", "sync", "scale", "mind", "loop", "byte", "pilot"];
+    const actionPrefixes = ["get", "go", "try", "use", "my", "the", "run", "hey"];
+    const powerAdjectives = ["nova", "swift", "prime", "apex", "vital", "bold", "pure", "omni", "smart", "hyper"];
+    const modernSuffixes = ["ly", "ify", "io", "ix", "ex", "hq", "lab", "box", "zone"];
+
+    const nicheKeywords = {
+      tech: ["code", "cloud", "data", "bot", "auto", "metric", "ops", "algo", "cyber", "ai"],
+      ecommerce: ["cart", "shop", "mart", "bazaar", "drop", "box", "deal", "store", "buy"],
+      finance: ["pay", "vault", "ledger", "coin", "mint", "fund", "fin", "capital", "wallet"],
+      agency: ["studio", "pixel", "brand", "spark", "media", "canvas", "press", "digital"],
+      health: ["fit", "vital", "well", "glow", "cure", "zen", "care", "nourish", "pulse"]
+    };
+
+    // DOM Elements
+    const form = document.getElementById("aiDomainForm");
+    const input = document.getElementById("aiKeywordsInput");
+    const nicheSelect = document.getElementById("nicheSelect");
+    const styleSelect = document.getElementById("styleSelect");
+    const extensionSelect = document.getElementById("extensionSelect");
+    const grid = document.getElementById("domainsOutputGrid");
+    const countBadge = document.getElementById("resultsCountBadge");
+    const filterTabs = document.querySelectorAll(".result-tab");
+    const clearBtn = document.getElementById("clearKeywordBtn");
+
+    let currentGeneratedList = [];
+    let currentFilter = "all";
+
+    // Clean user input
+    function sanitizeKeyword(raw) {
+      return (raw || "")
+        .toLowerCase()
+        .replace(/[^a-z0-9]/g, "")
+        .slice(0, 20);
+    }
+
+    // Generator Engine
+    function generateSmartDomainList() {
+      const rawInput = input.value.trim();
+      const root = sanitizeKeyword(rawInput) || "novaflow";
+      const niche = nicheSelect ? nicheSelect.value : "all";
+      const style = styleSelect ? styleSelect.value : "brandable";
+      const extPref = extensionSelect ? extensionSelect.value : "all";
+
+      const suggestions = new Set();
+      const results = [];
+
+      function addDomain(name, tld, tag) {
+        const full = `${name}${tld}`;
+        if (!suggestions.has(full)) {
+          suggestions.add(full);
+          const rate = tldRates[tld] || { inr: "₹499 /yr", usd: "$5.95 /yr" };
+          const isShort = name.length <= 8;
+          results.push({
+            name: name,
+            tld: tld,
+            full: full,
+            tag: tag,
+            price: rate,
+            isShort: isShort
+          });
+        }
+      }
+
+      // 1. Target TLD Pool
+      let tldPool = [".com", ".in", ".ai", ".store", ".co.in", ".org", ".tech", ".io"];
+      if (extPref === "com") tldPool = [".com"];
+      else if (extPref === "in") tldPool = [".in", ".co.in"];
+      else if (extPref === "tech") tldPool = [".ai", ".io", ".tech", ".com"];
+
+      function getTld(index) {
+        return tldPool[index % tldPool.length];
+      }
+
+      // 2. Synthesize names based on style & niche
+      // Pattern A: Modern Suffixes (-ly, -ify, -io, -hq, -lab)
+      modernSuffixes.forEach((suf, idx) => {
+        addDomain(`${root}${suf}`, getTld(idx), "Brandable");
+      });
+
+      // Pattern B: Action Verbs (get-, try-, go-)
+      actionPrefixes.forEach((pre, idx) => {
+        addDomain(`${pre}${root}`, getTld(idx + 2), "Action SaaS");
+      });
+
+      // Pattern C: Tech / Power Compound Pairs
+      generalTechAffixes.forEach((aff, idx) => {
+        addDomain(`${root}${aff}`, getTld(idx + 1), "Tech Compound");
+        addDomain(`${aff}${root}`, getTld(idx + 3), "Power Brand");
+      });
+
+      // Pattern D: Quality Adjectives
+      powerAdjectives.forEach((adj, idx) => {
+        addDomain(`${adj}${root}`, getTld(idx + 4), "Premium");
+      });
+
+      // Pattern E: Niche-specific
+      const nicheWords = nicheKeywords[niche] || [];
+      nicheWords.forEach((nw, idx) => {
+        addDomain(`${root}${nw}`, getTld(idx), "Niche Focus");
+      });
+
+      // Pattern F: Shortened Root (if long)
+      if (root.length > 5) {
+        const truncated = root.slice(0, 4);
+        addDomain(`${truncated}ly`, getTld(0), "Short Brand");
+        addDomain(`${truncated}io`, getTld(2), "Short Tech");
+        addDomain(`${truncated}ix`, getTld(1), "Short Modern");
+      }
+
+      // Limit to 24 diverse, highest-quality names
+      currentGeneratedList = results.slice(0, 24);
+      renderResults();
+    }
+
+    // Render Results Grid
+    function renderResults() {
+      if (!grid) return;
+
+      const filtered = currentGeneratedList.filter(item => {
+        if (currentFilter === "all") return true;
+        if (currentFilter === "com") return item.tld === ".com";
+        if (currentFilter === "in") return item.tld === ".in" || item.tld === ".co.in";
+        if (currentFilter === "tech") return item.tld === ".ai" || item.tld === ".io" || item.tld === ".tech";
+        if (currentFilter === "short") return item.isShort;
+        return true;
+      });
+
+      if (countBadge) {
+        countBadge.textContent = `${filtered.length} Suggestions`;
+      }
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-12 text-center py-5">
+            <p class="text-white-70 mb-0">No domains match the selected filter. Try switching back to 'All' or change extension preferences above.</p>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(item => {
+        const orderUrl = `https://hostamble.com/dash/domainchecker.php?search=${encodeURIComponent(item.full)}`;
+        return `
+          <div class="col-lg-4 col-md-6 col-12">
+            <div class="ai-domain-card">
+              <div class="d-flex flex-column" style="min-width: 0;">
+                <div class="d-flex align-items-center gap-2 mb-1">
+                  <span class="domain-name-text text-truncate">${item.name}<span class="domain-tld-highlight">${item.tld}</span></span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <span class="domain-tag-badge">${item.tag}</span>
+                  <span class="domain-price-tag prices" data-inr="${item.price.inr}" data-usd="${item.price.usd}">${item.price.inr}</span>
+                </div>
+              </div>
+
+              <div class="d-flex align-items-center gap-2 flex-shrink-0">
+                <button type="button" class="btn-copy-domain" data-domain="${item.full}" title="Copy domain name">
+                  <i class="ri-file-copy-line"></i>
+                </button>
+                <a href="${orderUrl}" target="_blank" rel="noopener noreferrer" class="btn-check-domain" title="Check live availability">
+                  <span>Check</span> <i class="ri-arrow-right-s-line"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      // Bind copy buttons
+      grid.querySelectorAll(".btn-copy-domain").forEach(btn => {
+        btn.addEventListener("click", function () {
+          const dom = this.getAttribute("data-domain");
+          if (dom) {
+            navigator.clipboard.writeText(dom).then(() => {
+              const icon = this.querySelector("i");
+              if (icon) {
+                icon.className = "ri-check-line text-success";
+                setTimeout(() => {
+                  icon.className = "ri-file-copy-line";
+                }, 1800);
+              }
+            });
+          }
+        });
+      });
+    }
+
+    // Filter Tab Clicks
+    filterTabs.forEach(tab => {
+      tab.addEventListener("click", function () {
+        filterTabs.forEach(t => t.classList.remove("active"));
+        this.classList.add("active");
+        currentFilter = this.getAttribute("data-filter") || "all";
+        renderResults();
+      });
+    });
+
+    // Form Submit / Input changes
+    if (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        generateSmartDomainList();
+      });
+    }
+
+    if (input) {
+      input.addEventListener("input", function () {
+        if (clearBtn) {
+          if (this.value.length > 0) clearBtn.classList.remove("d-none");
+          else clearBtn.classList.add("d-none");
+        }
+      });
+    }
+
+    if (clearBtn && input) {
+      clearBtn.addEventListener("click", function () {
+        input.value = "";
+        clearBtn.classList.add("d-none");
+        input.focus();
+      });
+    }
+
+    if (nicheSelect) nicheSelect.addEventListener("change", generateSmartDomainList);
+    if (styleSelect) styleSelect.addEventListener("change", generateSmartDomainList);
+    if (extensionSelect) extensionSelect.addEventListener("change", generateSmartDomainList);
+
+    // Initial run
+    generateSmartDomainList();
+
+    // ==========================================
+    // Accordion Logic for Block 6
+    // ==========================================
+    const faqStack = document.getElementById("aiFaqAccordion");
+    if (faqStack) {
+      const cards = faqStack.querySelectorAll(".faq-card-item");
+      cards.forEach(card => {
+        const trigger = card.querySelector(".faq-card-trigger");
+        const collapse = card.querySelector(".faq-card-collapse");
+        if (!trigger || !collapse) return;
+
+        trigger.addEventListener("click", function () {
+          const isOpen = card.classList.contains("is-open");
+
+          cards.forEach(c => {
+            c.classList.remove("is-open");
+            const btn = c.querySelector(".faq-card-trigger");
+            const col = c.querySelector(".faq-card-collapse");
+            if (btn) btn.setAttribute("aria-expanded", "false");
+            if (col) {
+              col.style.maxHeight = "0px";
+              col.style.opacity = "0";
+            }
+          });
+
+          if (!isOpen) {
+            card.classList.add("is-open");
+            trigger.setAttribute("aria-expanded", "true");
+            collapse.style.maxHeight = collapse.scrollHeight + 30 + "px";
+            collapse.style.opacity = "1";
+          }
+        });
+      });
+    }
+  })();
+</script>
