@@ -30,11 +30,12 @@ if (!$apiKey) {
     $apiKey = base64_decode('QVEuQWI4Uk42THl2eGZ5WS1lWlI1OHkzalc2TWpkRElkZ3JuNVFIeUhqaXJWQjlOdzVtc3c=');
 }
 
-$model = 'gemini-3.8-flash';
+$model = 'gemini-2.0-flash';
 $url = 'https://generativelanguage.googleapis.com/v1beta/models/' . $model . ':generateContent?key=' . $apiKey;
 
-$prompt = "You are an expert domain name generator for Hostamble Mini AI. For the keywords or brand idea '{$cleanKeyword}', generate exactly 18 highly brandable, catchy, short, modern domain names.
-Include a variety of extensions: .com, .in, .ai, .store, .co.in, .tech, .io, .org.
+$prompt = "You are an expert domain name generator for Hostamble Mini AI. For the keywords or brand idea '{$cleanKeyword}', generate exactly 18 highly brandable, creative, modern domain names.
+Include exact keyword variations (.com, .in, .ai), but ALSO generate high-potential available compound/brandable SaaS names combining the keyword with prefixes (get-, try-, go-, use-) or modern affixes (-flow, -stack, -pulse, -hub, -lab, -craft, -hq, -base, -ly, -ify).
+Include a mix of extensions: .com, .in, .ai, .store, .co.in, .tech, .io, .org.
 No hyphens or numbers.
 Return ONLY a valid JSON array of objects with the exact schema:
 [

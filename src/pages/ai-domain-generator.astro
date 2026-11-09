@@ -176,6 +176,7 @@ const aiDomainFaqSchema = {
         <!-- Filter Navigation Pills (Native Theme FAQ Pills) -->
         <div class="faq-categories-nav justify-content-center my-4" style="display: flex; flex-wrap: wrap; gap: 8px;">
             <button type="button" class="faq-cat-pill ai-filter-btn active" data-filter="all"><span>All</span> <span class="pill-badge" id="pillCount">18</span></button>
+            <button type="button" class="faq-cat-pill ai-filter-btn" data-filter="available"><span>Available Only</span> <span class="pill-badge" id="availCount" style="background: #16a34a; color: #ffffff;">...</span></button>
             <button type="button" class="faq-cat-pill ai-filter-btn" data-filter="com"><span>.com</span></button>
             <button type="button" class="faq-cat-pill ai-filter-btn" data-filter="in"><span>.in</span></button>
             <button type="button" class="faq-cat-pill ai-filter-btn" data-filter="ai"><span>.ai</span></button>
@@ -584,18 +585,72 @@ const aiDomainFaqSchema = {
   .ai-live-badge {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
+    gap: 6px;
     font-size: 12px;
-    font-weight: 600;
-    color: #16a34a;
+    font-weight: 700;
+    transition: all 0.25s ease;
+  }
+
+  .ai-live-badge.status-available {
+    color: #16a34a !important;
+  }
+
+  .ai-live-badge.status-taken {
+    color: #dc2626 !important;
+  }
+
+  .ai-live-badge.status-checking {
+    color: #64748b !important;
   }
 
   .ai-live-dot {
-    width: 7px;
-    height: 7px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    background: #16a34a;
-    box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.2);
+    display: inline-block;
+    transition: background-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .ai-live-dot.dot-available {
+    background: #16a34a !important;
+    box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.25) !important;
+  }
+
+  .ai-live-dot.dot-taken {
+    background: #dc2626 !important;
+    box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.25) !important;
+  }
+
+  .ai-live-dot.dot-checking {
+    background: #3b82f6 !important;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25) !important;
+    animation: aiDotPulse 1.2s infinite ease-in-out;
+  }
+
+  @keyframes aiDotPulse {
+    0%, 100% { transform: scale(0.9); opacity: 0.5; }
+    50% { transform: scale(1.3); opacity: 1; }
+  }
+
+  /* Button for Taken / Registered Domains */
+  .ace-btn.btn-taken {
+    background: #f1f5f9 !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #475569 !important;
+    box-shadow: none !important;
+  }
+
+  .ace-btn.btn-taken:hover {
+    background: #e2e8f0 !important;
+    color: #0f172a !important;
+  }
+
+  /* Visual subtle distinction for Taken card */
+  .ai-domain-result-card.is-taken {
+    opacity: 0.88;
+  }
+  .ai-domain-result-card.is-taken:hover {
+    opacity: 1;
   }
 
   .ai-card-domain-name {
@@ -1219,7 +1274,62 @@ const aiDomainFaqSchema = {
       return (str || "").toLowerCase().replace(/[^a-z0-9]/g, "").slice(0, 20);
     }
 
-    // High-Quality Algorithmic Backup Synthesizer (Instant & 100% Reliable)
+    // Real-Time DNS Availability Verifier (DNS-over-HTTPS via Google & Cloudflare)
+    async function checkLiveAvailability(domain) {
+      // 1. Google DNS-over-HTTPS (RFC 8484)
+      try {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), 2000);
+        const res = await fetch(`https://dns.google/resolve?name=${encodeURIComponent(domain)}&type=A`, { signal: controller.signal });
+        clearTimeout(timer);
+        if (res.ok) {
+          const data = await res.json();
+          // Status 3 = NXDOMAIN: Domain not registered / does not exist -> AVAILABLE
+          if (data.Status === 3) return "AVAILABLE";
+          // Status 0 with Answer or Status 2 (zone delegation error) -> TAKEN
+          if ((data.Status === 0 && Array.isArray(data.Answer) && data.Answer.length > 0) || data.Status === 2) {
+            return "TAKEN";
+          }
+        }
+      } catch (e) {}
+
+      // 2. Secondary check for NS records if A record was ambiguous
+      try {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), 2000);
+        const res = await fetch(`https://dns.google/resolve?name=${encodeURIComponent(domain)}&type=NS`, { signal: controller.signal });
+        clearTimeout(timer);
+        if (res.ok) {
+          const data = await res.json();
+          if (data.Status === 3) return "AVAILABLE";
+          if ((data.Status === 0 && Array.isArray(data.Answer) && data.Answer.length > 0) || data.Status === 2) {
+            return "TAKEN";
+          }
+        }
+      } catch (e) {}
+
+      // 3. Cloudflare DNS-over-HTTPS fallback
+      try {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), 2000);
+        const res = await fetch(`https://cloudflare-dns.com/dns-query?name=${encodeURIComponent(domain)}&type=A`, {
+          headers: { "accept": "application/dns-json" },
+          signal: controller.signal
+        });
+        clearTimeout(timer);
+        if (res.ok) {
+          const data = await res.json();
+          if (data.Status === 3) return "AVAILABLE";
+          if ((data.Status === 0 && Array.isArray(data.Answer) && data.Answer.length > 0) || data.Status === 2) {
+            return "TAKEN";
+          }
+        }
+      } catch (e) {}
+
+      return "UNKNOWN";
+    }
+
+    // High-Quality Algorithmic Backup Synthesizer
     function generateSmartFallbackList(raw) {
       const cleanRaw = (raw || "").toLowerCase().replace(/[^a-z0-9\s]/g, " ").trim();
       const tokens = cleanRaw.split(/\s+/).filter(Boolean);
@@ -1246,23 +1356,21 @@ const aiDomainFaqSchema = {
         }
       }
 
-      // 1. Exact Match Core Roots
+      // 1. Exact Match Core Roots (checked live so user gets real data)
       addDomain(root, ".com", "Exact Match");
       addDomain(root, ".in", "Exact Match");
       addDomain(root, ".ai", "AI / Tech");
       addDomain(root, ".co.in", "Regional");
       addDomain(root, ".io", "Developer");
-      addDomain(root, ".tech", "Tech Match");
-      addDomain(root, ".store", "eCommerce");
 
-      // 2. Action SaaS Prefixes
+      // 2. Action SaaS & Startup Prefixes (High availability)
       addDomain(`get${primary}`, ".com", "Action SaaS");
       addDomain(`try${primary}`, ".in", "Action SaaS");
       addDomain(`go${primary}`, ".ai", "Action SaaS");
       addDomain(`use${primary}`, ".io", "Action SaaS");
       addDomain(`join${primary}`, ".com", "Action SaaS");
 
-      // 3. Modern Brandable Suffixes
+      // 3. Modern Brandable Affixes
       addDomain(`${primary}ly`, ".com", "Brandable");
       addDomain(`${primary}ify`, ".in", "Brandable");
       addDomain(`${primary}hq`, ".com", "Brandable");
@@ -1276,7 +1384,7 @@ const aiDomainFaqSchema = {
       addDomain(`${primary}craft`, ".com", "Compound");
       addDomain(`${primary}base`, ".tech", "Compound");
       addDomain(`${primary}nexus`, ".io", "Compound");
-      addDomain(`${primary}hub`, ".store", "Compound");
+      addDomain(`${primary}hub`, ".store", "eCommerce");
 
       // 5. If secondary word exists, synthesize combined patterns
       if (secondary) {
@@ -1311,7 +1419,7 @@ const aiDomainFaqSchema = {
       if (btn) btn.disabled = true;
       if (loadingEl) loadingEl.classList.remove("d-none");
       if (grid) grid.innerHTML = "";
-      if (resultsTitle) resultsTitle.textContent = `Generating AI Domains for "${cleanKw}"...`;
+      if (resultsTitle) resultsTitle.textContent = `Generating Real-Time Ideas for "${cleanKw}"...`;
 
       let domains = null;
 
@@ -1375,25 +1483,102 @@ const aiDomainFaqSchema = {
         domains = generateSmartFallbackList(cleanKw);
       }
 
-      currentList = domains.map(d => {
+      currentList = domains.map((d, idx) => {
         const rawTld = (d.tld || ".com").startsWith(".") ? d.tld : `.${d.tld}`;
         const cleanName = (d.name || "").toLowerCase().replace(/[^a-z0-9]/g, "");
         const full = `${cleanName}${rawTld}`;
         return {
+          id: `dom_${idx}_${cleanName}`,
           name: cleanName,
           tld: rawTld,
           full: full,
           tag: d.tag || "Brandable",
-          price: tldRates[rawTld] || { inr: "₹499 /yr", usd: "$5.95 /yr" }
+          price: tldRates[rawTld] || { inr: "₹499 /yr", usd: "$5.95 /yr" },
+          status: "CHECKING"
         };
       });
 
       if (btnText) btnText.textContent = "Generate Ideas";
       if (btn) btn.disabled = false;
       if (loadingEl) loadingEl.classList.add("d-none");
-      if (resultsTitle) resultsTitle.textContent = `Available Domain Ideas for "${cleanKw}"`;
+      if (resultsTitle) resultsTitle.textContent = `Live Domain Ideas for "${cleanKw}"`;
 
       renderResults();
+      verifyAllDomains();
+    }
+
+    // Asynchronous Real-Time Verification Runner
+    async function verifyAllDomains() {
+      const activeCurrency = (typeof localStorage !== "undefined" && localStorage.getItem("hostamble_currency")) || "INR";
+
+      // Verify in concurrency batches of 4
+      for (let i = 0; i < currentList.length; i += 4) {
+        const batch = currentList.slice(i, i + 4);
+        await Promise.all(batch.map(async (item) => {
+          const status = await checkLiveAvailability(item.full);
+          item.status = status;
+
+          const badgeEl = document.getElementById(`badge-${item.id}`);
+          const footerEl = document.getElementById(`footer-${item.id}`);
+          const colEl = document.getElementById(`col-${item.id}`);
+
+          if (badgeEl) {
+            if (status === "AVAILABLE") {
+              badgeEl.className = "ai-live-badge status-available";
+              badgeEl.innerHTML = `<span class="ai-live-dot dot-available"></span><span class="badge-text">Available</span>`;
+            } else if (status === "TAKEN") {
+              badgeEl.className = "ai-live-badge status-taken";
+              badgeEl.innerHTML = `<span class="ai-live-dot dot-taken"></span><span class="badge-text">Taken</span>`;
+            } else {
+              badgeEl.className = "ai-live-badge status-checking";
+              badgeEl.innerHTML = `<span class="ai-live-dot dot-available"></span><span class="badge-text">Check Live</span>`;
+            }
+          }
+
+          if (footerEl) {
+            const orderUrl = `https://hostamble.com/dash/domainchecker.php?search=${encodeURIComponent(item.full)}`;
+            const displayPrice = activeCurrency === "USD" ? item.price.usd : item.price.inr;
+            if (status === "TAKEN") {
+              footerEl.innerHTML = `
+                <div class="ai-card-pricing">
+                  <span class="ai-card-price text-muted" style="text-decoration: line-through; opacity: 0.65;">${displayPrice}</span>
+                  <span class="ai-card-price-label d-block text-danger font-weight-bold">Already Registered</span>
+                </div>
+                <a href="${orderUrl}" target="_blank" rel="noopener noreferrer" class="ace-btn btn-small btn-taken" title="Check WHOIS details for ${item.full}">
+                  <span>WHOIS</span> <i class="ri-external-link-line"></i>
+                </a>
+              `;
+              if (colEl) {
+                const card = colEl.querySelector(".ai-domain-result-card");
+                if (card) card.classList.add("is-taken");
+                if (currentFilter === "available") {
+                  colEl.style.display = "none";
+                }
+              }
+            } else if (status === "AVAILABLE") {
+              footerEl.innerHTML = `
+                <div class="ai-card-pricing">
+                  <span class="ai-card-price prices" data-inr="${item.price.inr}" data-usd="${item.price.usd}">${displayPrice}</span>
+                  <span class="ai-card-price-label d-block text-muted">1st Year Reg</span>
+                </div>
+                <a href="${orderUrl}" target="_blank" rel="noopener noreferrer" class="ace-btn btn-small" title="Register ${item.full}">
+                  <span>Register</span> <i class="icon-arrow-right-line-right"></i>
+                </a>
+              `;
+              if (colEl && currentFilter === "available") {
+                colEl.style.display = "block";
+              }
+            }
+          }
+
+          // Update available count pill in real-time
+          const availCountEl = document.getElementById("availCount");
+          if (availCountEl) {
+            const count = currentList.filter(x => x.status === "AVAILABLE").length;
+            availCountEl.textContent = count;
+          }
+        }));
+      }
     }
 
     function renderResults() {
@@ -1401,6 +1586,7 @@ const aiDomainFaqSchema = {
 
       const filtered = currentList.filter(item => {
         if (currentFilter === "all") return true;
+        if (currentFilter === "available") return item.status === "AVAILABLE";
         if (currentFilter === "com") return item.tld === ".com";
         if (currentFilter === "in") return item.tld === ".in" || item.tld === ".co.in";
         if (currentFilter === "ai") return item.tld === ".ai" || item.tld === ".io" || item.tld === ".tech";
@@ -1410,11 +1596,16 @@ const aiDomainFaqSchema = {
       });
 
       if (countTag) {
-        countTag.textContent = `${filtered.length} AI Suggestions Available`;
+        countTag.textContent = `${currentList.length} Suggestions Generated`;
       }
       const pillCount = document.getElementById("pillCount");
       if (pillCount) {
         pillCount.textContent = currentList.length;
+      }
+      const availCountEl = document.getElementById("availCount");
+      if (availCountEl) {
+        const availCount = currentList.filter(i => i.status === "AVAILABLE").length;
+        availCountEl.textContent = currentList.some(i => i.status === "CHECKING") ? "..." : availCount;
       }
 
       if (filtered.length === 0) {
@@ -1433,17 +1624,38 @@ const aiDomainFaqSchema = {
         const orderUrl = `https://hostamble.com/dash/domainchecker.php?search=${encodeURIComponent(item.full)}`;
         const shapeClass = idx % 2 === 0 ? 'shape-bg-1' : 'shape-bg-2';
         const displayPrice = activeCurrency === "USD" ? item.price.usd : item.price.inr;
+        const isTaken = item.status === "TAKEN";
+
+        let badgeStatusClass = "status-checking";
+        let dotStatusClass = "dot-checking";
+        let badgeLabel = "Verifying...";
+        if (item.status === "AVAILABLE") {
+          badgeStatusClass = "status-available";
+          dotStatusClass = "dot-available";
+          badgeLabel = "Available";
+        } else if (item.status === "TAKEN") {
+          badgeStatusClass = "status-taken";
+          dotStatusClass = "dot-taken";
+          badgeLabel = "Taken";
+        } else if (item.status === "UNKNOWN") {
+          badgeStatusClass = "status-checking";
+          dotStatusClass = "dot-available";
+          badgeLabel = "Check Live";
+        }
 
         return `
-          <div class="col-lg-4 col-md-6 col-12">
-            <div class="service-card service-card-3 text-left ${shapeClass} bg-grey h-100 ai-domain-result-card">
+          <div class="col-lg-4 col-md-6 col-12 dom-item-col" id="col-${item.id}">
+            <div class="service-card service-card-3 text-left ${shapeClass} bg-grey h-100 ai-domain-result-card ${isTaken ? 'is-taken' : ''}">
               <div class="inner d-flex flex-column h-100 justify-content-between">
                 
                 <!-- Card Header: Tag Badge + Live Status + Copy Button -->
                 <div class="d-flex align-items-center justify-content-between mb-3">
                   <div class="d-flex align-items-center gap-2">
                     <span class="ai-domain-badge">${item.tag}</span>
-                    <span class="ai-live-badge"><span class="ai-live-dot"></span> Available</span>
+                    <span class="ai-live-badge ${badgeStatusClass}" id="badge-${item.id}">
+                      <span class="ai-live-dot ${dotStatusClass}"></span>
+                      <span class="badge-text">${badgeLabel}</span>
+                    </span>
                   </div>
                   <button type="button" class="ai-copy-btn" data-domain="${item.full}" title="Copy domain name">
                     <i class="ri-file-copy-line"></i>
@@ -1460,14 +1672,14 @@ const aiDomainFaqSchema = {
                   </p>
                 </div>
 
-                <!-- Footer: Pricing & Register Button -->
-                <div class="d-flex align-items-center justify-content-between pt-3 border-top mt-auto">
+                <!-- Footer: Pricing & Action Button -->
+                <div class="d-flex align-items-center justify-content-between pt-3 border-top mt-auto" id="footer-${item.id}">
                   <div class="ai-card-pricing">
-                    <span class="ai-card-price prices" data-inr="${item.price.inr}" data-usd="${item.price.usd}">${displayPrice}</span>
-                    <span class="ai-card-price-label d-block text-muted">1st Year Reg</span>
+                    <span class="ai-card-price prices ${isTaken ? 'text-muted text-decoration-line-through' : ''}" data-inr="${item.price.inr}" data-usd="${item.price.usd}">${displayPrice}</span>
+                    <span class="ai-card-price-label d-block ${isTaken ? 'text-danger font-weight-bold' : 'text-muted'}">${isTaken ? 'Already Registered' : '1st Year Reg'}</span>
                   </div>
-                  <a href="${orderUrl}" target="_blank" rel="noopener noreferrer" class="ace-btn btn-small" title="Register ${item.full}">
-                    <span>Register</span> <i class="icon-arrow-right-line-right"></i>
+                  <a href="${orderUrl}" target="_blank" rel="noopener noreferrer" class="ace-btn btn-small ${isTaken ? 'btn-taken' : ''}" title="${isTaken ? 'View WHOIS details for ' + item.full : 'Register ' + item.full}">
+                    <span>${isTaken ? 'WHOIS' : 'Register'}</span> <i class="${isTaken ? 'ri-external-link-line' : 'icon-arrow-right-line-right'}"></i>
                   </a>
                 </div>
 
