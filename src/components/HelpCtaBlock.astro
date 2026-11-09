@@ -8,20 +8,23 @@ interface Props {
 }
 
 const {
-  preTitle = "Dedicated WhatsApp Support",
+  preTitle = "In-House Hosting & Domain Concierge",
   title = "Need help? We're always here for you.",
-  description = "Have questions about domain setup, free website migration, or choosing the right hosting plan? Our in-house technical team is ready to assist you on WhatsApp with fast response times.",
+  description = "Have questions about domain registration, Anycast DNS setup, free cPanel migration, or selecting the right hosting plan? Our dedicated technical team in India is ready to assist you directly on WhatsApp and Live Chat with fast, human-first guidance.",
   showPerks = true,
   showWhatsApp = true,
 } = Astro.props;
 ---
 
 <div class="ace-help-area bg-image domain-style-3 ace-section-gap bg-color-primary help-cta-block position-relative overflow-hidden">
-  <!-- Subtle ambient decorative accent -->
-  <div class="help-ambient-glow" aria-hidden="true"></div>
+  <!-- Ambient Flowing Decorative Glows -->
+  <div class="help-ambient-glow glow-top" aria-hidden="true"></div>
+  <div class="help-ambient-glow glow-bottom" aria-hidden="true"></div>
 
-  <div class="container position-relative">
+  <div class="container position-relative" style="z-index: 2;">
     <div class="row g-5 align-items-center">
+      
+      <!-- Left Column: Rich SEO Content & Assistance Pillars -->
       <div class="col-lg-7 col-md-12">
         <div class="inner">
           <div
@@ -47,19 +50,63 @@ const {
               {description}
             </p>
 
+            <!-- SEO & Assistance Highlights Grid -->
+            <div class="help-pillars-grid mt-4 pt-2">
+              <div class="pillar-item">
+                <div class="pillar-icon">
+                  <i class="ri-global-line"></i>
+                </div>
+                <div class="pillar-text">
+                  <h6 class="pillar-title">DNS &amp; Nameserver Setup</h6>
+                  <p class="pillar-desc">Free assistance configuring A, CNAME, and MX records for Shopify, WordPress, or external VPS.</p>
+                </div>
+              </div>
+
+              <div class="pillar-item">
+                <div class="pillar-icon">
+                  <i class="ri-rocket-line"></i>
+                </div>
+                <div class="pillar-text">
+                  <h6 class="pillar-title">Zero-Downtime Migration</h6>
+                  <p class="pillar-desc">We handle domain transfer unlocks, EPP codes, and complete website file migrations at no extra fee.</p>
+                </div>
+              </div>
+
+              <div class="pillar-item">
+                <div class="pillar-icon">
+                  <i class="ri-mail-check-line"></i>
+                </div>
+                <div class="pillar-text">
+                  <h6 class="pillar-title">Business Email Routing</h6>
+                  <p class="pillar-desc">Step-by-step guidance setting up custom domain mailboxes with DKIM, SPF, and DMARC verification.</p>
+                </div>
+              </div>
+
+              <div class="pillar-item">
+                <div class="pillar-icon">
+                  <i class="ri-shield-keyhole-line"></i>
+                </div>
+                <div class="pillar-text">
+                  <h6 class="pillar-title">Free WHOIS Privacy &amp; Security</h6>
+                  <p class="pillar-desc">Keep your personal contact details masked from public databases with zero renewal surcharges.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trust Badges Strip -->
             {showPerks && (
-              <div class="help-perks d-flex flex-wrap align-items-center gap-2 pt-2">
+              <div class="help-perks d-flex flex-wrap align-items-center gap-2 pt-3 mt-2">
                 <div class="help-perk-item">
                   <i class="ri-checkbox-circle-fill" aria-hidden="true"></i>
-                  <span>Semi-Managed Support</span>
+                  <span>Average Response &lt; 5 Mins</span>
                 </div>
                 <div class="help-perk-item">
                   <i class="ri-checkbox-circle-fill" aria-hidden="true"></i>
-                  <span>Free Website Migration</span>
+                  <span>Support in Hindi &amp; English</span>
                 </div>
                 <div class="help-perk-item">
                   <i class="ri-checkbox-circle-fill" aria-hidden="true"></i>
-                  <span>Average Reply &lt; 5 Mins</span>
+                  <span>Semi-Managed Technical Assistance</span>
                 </div>
               </div>
             )}
@@ -67,76 +114,123 @@ const {
         </div>
       </div>
 
+      <!-- Right Column: Elevated Glassmorphic Concierge Support Card -->
       <div class="col-lg-5 col-md-12">
         <div
-          class="domain-right-content d-block d-sm-flex align-items-center justify-content-start justify-content-lg-end"
+          class="help-concierge-card"
           data-sal="slide-up"
           data-sal-delay="250"
           data-sal-duration="800"
         >
-          <div class="contact-btn">
+          <div class="concierge-header d-flex align-items-center gap-3 mb-4">
+            <div class="concierge-avatar-wrap position-relative">
+              <span class="avatar-icon"><i class="ri-customer-service-2-line"></i></span>
+              <span class="avatar-status-dot" title="Online"></span>
+            </div>
+            <div>
+              <h5 class="concierge-title text-white mb-0">Human Technical Support</h5>
+              <span class="concierge-subtitle">Real specialists on duty • Zero frustrating chatbots</span>
+            </div>
+          </div>
+
+          <p class="concierge-notice mb-4">
+            Need urgent assistance with nameserver changes, domain transfers, or payment verification? Reach our direct concierge immediately:
+          </p>
+
+          <!-- Primary CTA: Direct WhatsApp Link -->
+          {showWhatsApp && (
             <a
-              class="ace-btn btn-white help-livechat-btn"
+              href="https://wa.me/916284719083?text=Hi%20Hostamble,%20I%20need%20help%20with%20domain%20setup%20and%20hosting"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="concierge-whatsapp-btn w-100 mb-3"
+              title="Chat directly on WhatsApp"
+            >
+              <i class="ri-whatsapp-fill"></i>
+              <div class="text-start">
+                <span class="btn-top-label">Chat on WhatsApp</span>
+                <span class="btn-main-label">+91 62847 19083</span>
+              </div>
+              <i class="ri-arrow-right-line ms-auto"></i>
+            </a>
+          )}
+
+          <!-- Secondary CTA: Start Live Chat -->
+          <div class="concierge-actions d-flex flex-wrap gap-2">
+            <a
+              class="concierge-chat-btn flex-grow-1"
               href="javascript:void(Tawk_API.toggle())"
               title="Open Live Chat"
             >
               <i class="ri-chat-smile-2-line" aria-hidden="true"></i>
               <span>Start Live Chat</span>
             </a>
+
+            <a 
+              href="/contacts" 
+              class="concierge-ticket-btn"
+              title="Open Support Ticket"
+            >
+              <i class="ri-ticket-2-line" aria-hidden="true"></i>
+              <span>Open Ticket</span>
+            </a>
           </div>
 
-          <div class="contact-info">
-            <a href="/contacts" title="Go to Contact Page">
-              <i class="ri-customer-service-2-line" aria-hidden="true"></i>
-              <span>Contact Us</span>
-            </a>
+          <!-- Bottom Micro SLA Guarantee -->
+          <div class="concierge-footer mt-4 pt-3 border-top border-white-15 d-flex align-items-center justify-content-between text-white-80 small">
+            <span><i class="ri-flashlight-line text-warning me-1"></i> Quick resolution guaranteed</span>
+            <span><i class="ri-shield-check-line text-success me-1"></i> ICANN Partner</span>
           </div>
         </div>
-
-        {showWhatsApp && (
-          <div class="support-channels-note text-start text-lg-end mt-3">
-            <a
-              href="https://wa.me/916284719083?text=Hi%20Hostamble,%20I%20have%20a%20question%20about%20hosting"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="whatsapp-pill-link"
-              title="Chat with us on WhatsApp"
-            >
-              <i class="ri-whatsapp-fill" aria-hidden="true"></i>
-              <span>Instant WhatsApp Support: <strong>+91 62847 19083</strong></span>
-            </a>
-          </div>
-        )}
       </div>
+
     </div>
   </div>
 </div>
 
 <style>
+  /* =========================================================
+     Elevated Help CTA Block & Concierge Styling
+     ========================================================= */
   .help-cta-block {
     position: relative;
     background-size: cover;
     background-position: center;
+    /* Height & Vertical Breathing Room Enhancement */
+    padding: 105px 0 115px;
+    min-height: 480px;
+    display: flex;
+    align-items: center;
   }
 
   .help-ambient-glow {
     position: absolute;
-    top: -50%;
-    right: -10%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 70%);
+    width: 650px;
+    height: 650px;
+    border-radius: 50%;
     pointer-events: none;
     z-index: 0;
+  }
+
+  .glow-top {
+    top: -40%;
+    right: -15%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 70%);
+  }
+
+  .glow-bottom {
+    bottom: -40%;
+    left: -15%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0) 70%);
   }
 
   /* Live Pulse Status Badge */
   .help-status-badge {
     background: rgba(255, 255, 255, 0.16);
-    border: 1px solid rgba(255, 255, 255, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    padding: 6px 14px;
+    padding: 7px 16px;
     border-radius: 999px;
     gap: 8px;
   }
@@ -144,7 +238,7 @@ const {
   .badge-text {
     font-size: 13px;
     font-weight: 700;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     color: #ffffff;
     line-height: 1;
@@ -165,7 +259,7 @@ const {
     height: 8px;
     border-radius: 50%;
     background-color: #22c55e;
-    box-shadow: 0 0 8px rgba(34, 197, 94, 0.8);
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.9);
   }
 
   .live-dot-ring {
@@ -190,7 +284,7 @@ const {
 
   /* Headings & Descriptions */
   .help-cta-block .title {
-    font-size: 36px;
+    font-size: 38px;
     font-weight: 800;
     line-height: 1.25;
     margin-bottom: 14px;
@@ -201,13 +295,62 @@ const {
     color: rgba(255, 255, 255, 0.92) !important;
     font-size: 16.5px;
     line-height: 1.65;
-    max-width: 600px;
+    max-width: 640px;
+    margin-bottom: 0;
+  }
+
+  /* SEO Assistance Pillars Grid */
+  .help-pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 20px;
+  }
+
+  @media (max-width: 767px) {
+    .help-pillars-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .pillar-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .pillar-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .pillar-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 2px;
+    line-height: 1.3;
+  }
+
+  .pillar-desc {
+    font-size: 13px;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.85);
     margin-bottom: 0;
   }
 
   /* Micro-Perks Checklist */
   .help-perks {
-    margin-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
   }
 
   .help-perk-item {
@@ -219,7 +362,7 @@ const {
     color: #ffffff;
     background: rgba(255, 255, 255, 0.12);
     border: 1px solid rgba(255, 255, 255, 0.22);
-    padding: 6px 13px;
+    padding: 6px 14px;
     border-radius: 999px;
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
@@ -232,123 +375,186 @@ const {
   }
 
   .help-perk-item i {
-    color: #ffffff;
+    color: #22c55e;
     font-size: 15px;
     line-height: 1;
   }
 
-  /* Live Chat CTA Button */
-  .help-livechat-btn {
-    display: inline-flex !important;
-    align-items: center;
-    gap: 8px;
-    font-size: 16px;
-    font-weight: 700;
-    padding: 0 28px;
-    height: 56px;
-    line-height: 56px;
-    border-radius: 8px;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .help-livechat-btn i {
-    font-size: 19px;
-    transition: transform 0.3s ease;
-  }
-
-  .help-livechat-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
-  }
-
-  .help-livechat-btn:hover i {
-    transform: scale(1.15);
-  }
-
-  /* Underlined Contact Link */
-  .domain-style-3 .contact-info a {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 17px;
-    font-weight: 700;
-    color: #ffffff;
-  }
-
-  .domain-style-3 .contact-info a i {
-    font-size: 19px;
-    margin-right: 2px;
-  }
-
-  /* WhatsApp Support Sub-Channel Link */
-  .support-channels-note {
+  /* =========================================================
+     Right Column: Glassmorphic Concierge Support Card
+     ========================================================= */
+  .help-concierge-card {
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 20px;
+    padding: 34px 30px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.14);
     position: relative;
-    z-index: 1;
+    z-index: 2;
   }
 
-  .whatsapp-pill-link {
+  .concierge-avatar-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff501a;
+    font-size: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .avatar-status-dot {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #22c55e;
+    border: 2px solid #ffffff;
+  }
+
+  .concierge-title {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .concierge-subtitle {
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .concierge-notice {
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Big Direct WhatsApp Button */
+  .concierge-whatsapp-btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #25d366;
+    color: #ffffff !important;
+    padding: 12px 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  }
+
+  .concierge-whatsapp-btn:hover {
+    background: #20ba59;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+    color: #ffffff !important;
+  }
+
+  .concierge-whatsapp-btn i:first-child {
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  .btn-top-label {
+    display: block;
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.95;
+    line-height: 1.2;
+  }
+
+  .btn-main-label {
+    display: block;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+  }
+
+  /* Secondary Actions */
+  .concierge-chat-btn,
+  .concierge-ticket-btn {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
-    font-size: 13.5px;
-    color: rgba(255, 255, 255, 0.9);
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
     text-decoration: none;
     transition: all 0.25s ease;
   }
 
-  .whatsapp-pill-link strong {
-    color: #ffffff;
-  }
-
-  .whatsapp-pill-link i {
-    font-size: 16px;
-    color: #25d366;
+  .concierge-chat-btn {
     background: #ffffff;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    color: #0f172a !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
   }
 
-  .whatsapp-pill-link:hover {
-    color: #ffffff;
-    transform: translateX(2px);
+  .concierge-chat-btn:hover {
+    background: #f8fafc;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
   }
 
-  .whatsapp-pill-link:hover span {
-    text-decoration: underline;
+  .concierge-ticket-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff !important;
+  }
+
+  .concierge-ticket-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    color: #ffffff !important;
+    transform: translateY(-2px);
+  }
+
+  .border-white-15 {
+    border-color: rgba(255, 255, 255, 0.18) !important;
+  }
+
+  .text-white-80 {
+    color: rgba(255, 255, 255, 0.85);
   }
 
   /* Responsive Adjustments */
   @media only screen and (max-width: 991px) {
+    .help-cta-block {
+      padding: 80px 0;
+    }
     .help-cta-block .title {
       font-size: 30px;
-    }
-    .support-channels-note {
-      text-align: left !important;
-      margin-top: 15px;
     }
   }
 
   @media only screen and (max-width: 575px) {
+    .help-cta-block {
+      padding: 60px 0;
+    }
     .help-cta-block .title {
       font-size: 26px;
     }
     .help-cta-block .text-white-90 {
       font-size: 15px;
     }
-    .help-perk-item {
-      font-size: 12.5px;
-      padding: 5px 11px;
+    .help-concierge-card {
+      padding: 24px 20px;
     }
-    .help-livechat-btn {
+    .concierge-actions {
+      flex-direction: column;
+    }
+    .concierge-chat-btn,
+    .concierge-ticket-btn {
       width: 100%;
-      justify-content: center;
     }
   }
 </style>
-
