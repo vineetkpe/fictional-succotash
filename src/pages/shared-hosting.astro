@@ -234,41 +234,73 @@ const plans = sharedHosting.plans;
           </script>
 
 
-         <div class="ace-services-area bg-image ace-section-gap">
+         <!-- =========================================================
+              FEATURES: Basic Web Presence (Connected Flow Design)
+              ========================================================= -->
+         <div class="ace-services-area bg-image ace-section-gap position-relative overflow-hidden" id="hosting-features-flow">
+            <!-- Flowing Ambient Gradient Mesh Overlay -->
+            <div class="features-ambient-flow" aria-hidden="true">
+                <div class="flow-glow-orb orb-1"></div>
+                <div class="flow-glow-orb orb-2"></div>
+            </div>
 
-         <div class="container aceorbit-animated-shape">
-            <div class="row g-5">
+            <div class="container aceorbit-animated-shape position-relative" style="z-index: 2;">
+                <div class="row g-5">
                     <div class="col-lg-12">
                         <div class="section-title text-center" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                            <span class="pre-title">Just what you need for a </span>
-                            <h3 class="title"> Basic Web Presence</h3>
+                            <span class="pre-title">Features</span>
+                            <h3 class="title">Just what you need for a Basic Web Presence</h3>
+                            <p class="description max-w-750 mx-auto mt-2 text-muted">
+                                Everything required to launch, secure, and accelerate your personal website or business online with zero technical friction.
+                            </p>
                         </div>
                     </div>
                 </div>
 
+                <!-- Cards Row with Connected Flow Stream -->
+                <div class="row aceorbit-about-one-service g-5 mt--20 justify-content-center position-relative features-flow-row">
 
-                 <div class="row aceorbit-about-one-service g-5 mt--20 justify-content-center">
-
+                    <!-- Flowing Streamline Connector (Desktop) -->
+                    <div class="features-flow-stream d-none d-lg-block" aria-hidden="true">
+                        <svg class="flow-stream-svg" viewBox="0 0 1000 40" fill="none" preserveAspectRatio="none">
+                            <path class="flow-track-path" d="M 120 20 L 880 20" stroke="url(#flowLineGrad)" stroke-width="2" stroke-dasharray="6 6" />
+                            <circle class="flow-pulse-particle" r="4" fill="#ff501a">
+                                <animateMotion path="M 120 20 L 880 20" dur="4.5s" repeatCount="indefinite" />
+                            </circle>
+                            <defs>
+                                <linearGradient id="flowLineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#ff501a" stop-opacity="0.25" />
+                                    <stop offset="50%" stop-color="#0284c7" stop-opacity="0.45" />
+                                    <stop offset="100%" stop-color="#ff501a" stop-opacity="0.25" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
                     
+                    <!-- Card 1: LiteSpeed Turbo NVMe Hosting -->
                     <div class="col-lg-4 col-md-6 col-12" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                        <div class="service-card service-card-3 text-left shape-bg-1">
+                        <div class="service-card service-card-3 text-left shape-bg-1 flow-enhanced-card">
+                            <span class="card-flow-num" aria-hidden="true">01</span>
+                            <div class="card-shimmer-sheen" aria-hidden="true"></div>
                             <div class="inner">
                                 <div class="icon">
                                     <span>
-                                        <i class="ri-line-chart-line"></i>
+                                        <i class="ri-flashlight-line"></i>
                                     </span>
                                 </div>
                                 <div class="content">
-                                    <h6 class="title">A Web Hosting</h6>
-                                    <p class="description">Our web application accelerator, powered by Varnish Cache, ensures the maximum performance of your website at all times!</p>
-                                    
+                                    <h6 class="title">LiteSpeed Turbo Hosting</h6>
+                                    <p class="description">Enterprise LiteSpeed Web Server with built-in LSCache and pure NVMe SSDs delivers 10x faster dynamic PHP loading and instant page delivery.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
+                    <!-- Card 2: Professional Business Email -->
                     <div class="col-lg-4 col-md-6 col-12" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
-                        <div class="service-card service-card-3 text-left shape-bg-2">
+                        <div class="service-card service-card-3 text-left shape-bg-2 flow-enhanced-card">
+                            <span class="card-flow-num" aria-hidden="true">02</span>
+                            <div class="card-shimmer-sheen" aria-hidden="true"></div>
                             <div class="inner">
                                 <div class="icon">
                                     <span>
@@ -276,35 +308,34 @@ const plans = sharedHosting.plans;
                                     </span>
                                 </div>
                                 <div class="content">
-                                    <h6 class="title">Email included</h6>
-                                    <p class="description">Advanced email management features in cPanel allow you manage your emails, mailing lists and more without any hassles. </p>
-                                    
+                                    <h6 class="title">Professional Email Included</h6>
+                                    <p class="description">Create custom @yourdomain.com inboxes with responsive Webmail, IMAP/POP3 mobile sync, forwarders, autoresponders, and automated anti-spam.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                    
+                    <!-- Card 3: Genuine cPanel & 1-Click Apps -->
                     <div class="col-lg-4 col-md-6 col-12" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
-                        <div class="service-card service-card-3 text-left shape-bg-1">
+                        <div class="service-card service-card-3 text-left shape-bg-1 flow-enhanced-card">
+                            <span class="card-flow-num" aria-hidden="true">03</span>
+                            <div class="card-shimmer-sheen" aria-hidden="true"></div>
                             <div class="inner">
                                 <div class="icon">
                                     <span>
-                                        <i class="ri-code-s-slash-line"></i>
+                                        <i class="ri-dashboard-3-line"></i>
                                     </span>
                                 </div>
                                 <div class="content">
-                                    <h6 class="title">cPanel for Management</h6>
-                                    <p class="description">cPanel, an intuitive and powerful control panel, is available on all plans which makes your hosting package management a breeze!</p>
-                                    
+                                    <h6 class="title">Official cPanel &amp; Softaculous</h6>
+                                    <p class="description">Manage your entire hosting environment effortlessly with industry-standard cPanel, MariaDB databases, File Manager, and 400+ 1-click app installs.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-
-
-             <div class="shape-dot-wrapper shape-wrapper d-xl-block d-none">
+                <div class="shape-dot-wrapper shape-wrapper d-xl-block d-none">
                     <div class="shape-image shape-image-1">
                         <img src="/assets/images/shape32.png" alt="Shape Thumb">
                     </div>
@@ -315,9 +346,8 @@ const plans = sharedHosting.plans;
                         <img src="/assets/images/shape2701.png" alt="Shape Thumb">
                     </div>
                 </div>
+            </div>
          </div>
-           
-        </div>
 
         
 
@@ -687,5 +717,196 @@ const plans = sharedHosting.plans;
     color: #10b981;
     font-size: 16px;
   }
+
+  /* ════════════════════════════════════════════════════════════════
+     CONNECTED FLOW FEATURES DESIGN (Matches Domain Search)
+     ════════════════════════════════════════════════════════════════ */
+  #hosting-features-flow {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Ambient Flow Gradient Orbs Overlay */
+  .features-ambient-flow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .flow-glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.45;
+    pointer-events: none;
+    animation: orbFloatingFlow 14s ease-in-out infinite alternate;
+  }
+
+  .flow-glow-orb.orb-1 {
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(255, 80, 26, 0.16) 0%, rgba(255, 80, 26, 0) 70%);
+    top: 10%;
+    left: -100px;
+  }
+
+  .flow-glow-orb.orb-2 {
+    width: 480px;
+    height: 480px;
+    background: radial-gradient(circle, rgba(2, 132, 199, 0.14) 0%, rgba(2, 132, 199, 0) 70%);
+    bottom: 5%;
+    right: -100px;
+    animation-delay: -7s;
+  }
+
+  @keyframes orbFloatingFlow {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(40px, -30px) scale(1.1); }
+    100% { transform: translate(-30px, 25px) scale(0.95); }
+  }
+
+  /* Desktop Flowing Connector Stream */
+  .features-flow-row {
+    position: relative;
+  }
+
+  .features-flow-stream {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .flow-stream-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  .flow-pulse-particle {
+    filter: drop-shadow(0 0 6px #ff501a);
+  }
+
+  /* Enhanced Service Cards with Transition & Flowing Shimmer */
+  .flow-enhanced-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important;
+    border-radius: 16px !important;
+    background: #ffffff !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                border-color 0.4s ease !important;
+    z-index: 2;
+  }
+
+  /* Interactive Cursor Spotlight Glow */
+  .flow-enhanced-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle 240px at var(--mouse-x, -500px) var(--mouse-y, -500px), rgba(255, 80, 26, 0.07), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+  }
+
+  .flow-enhanced-card:hover::before {
+    opacity: 1;
+  }
+
+  .flow-enhanced-card:hover {
+    transform: translateY(-12px) !important;
+    border-color: rgba(255, 80, 26, 0.35) !important;
+    box-shadow: 0 20px 40px -10px rgba(255, 80, 26, 0.14), 
+                0 6px 16px rgba(0, 0, 0, 0.04) !important;
+  }
+
+  /* Card Flow Watermark Number */
+  .card-flow-num {
+    position: absolute;
+    top: 16px;
+    right: 22px;
+    font-family: 'Space Mono', monospace, sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1;
+    color: rgba(15, 23, 42, 0.05);
+    user-select: none;
+    pointer-events: none;
+    transition: color 0.4s ease, transform 0.4s ease;
+  }
+
+  .flow-enhanced-card:hover .card-flow-num {
+    color: rgba(255, 80, 26, 0.18);
+    transform: translateY(-3px) scale(1.05);
+  }
+
+  /* Shimmer Sheen Diagonal Light Sweep */
+  .card-shimmer-sheen {
+    position: absolute;
+    top: -60%;
+    left: -60%;
+    width: 220%;
+    height: 220%;
+    background: linear-gradient(
+      115deg,
+      transparent 35%,
+      rgba(255, 255, 255, 0.8) 50%,
+      rgba(255, 80, 26, 0.06) 52%,
+      transparent 65%
+    );
+    transform: rotate(25deg) translateY(-120%);
+    pointer-events: none;
+    transition: transform 0.85s cubic-bezier(0.2, 0.8, 0.2, 1);
+    z-index: 3;
+  }
+
+  .flow-enhanced-card:hover .card-shimmer-sheen {
+    transform: rotate(25deg) translateY(120%);
+  }
+
+  /* Icon Spring Transition */
+  .flow-enhanced-card .inner .icon span {
+    transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                box-shadow 0.4s ease !important;
+  }
+
+  .flow-enhanced-card:hover .inner .icon span {
+    transform: scale(1.14) rotate(4deg);
+    box-shadow: 0 10px 22px rgba(255, 80, 26, 0.28);
+  }
 </style>
+
+<script is:inline>
+  (function () {
+    function initCardSpotlight() {
+      const cards = document.querySelectorAll(".flow-enhanced-card");
+      cards.forEach(function (card) {
+        card.addEventListener("mousemove", function (e) {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          card.style.setProperty("--mouse-x", x + "px");
+          card.style.setProperty("--mouse-y", y + "px");
+        });
+      });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initCardSpotlight);
+    } else {
+      initCardSpotlight();
+    }
+    document.addEventListener("astro:page-load", initCardSpotlight);
+  })();
+</script>
 </Layout>
