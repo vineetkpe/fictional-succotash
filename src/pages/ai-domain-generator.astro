@@ -105,7 +105,7 @@ const aiDomainFaqSchema = {
 
                     <!-- AI Search Form -->
                     <div class="domain-form domain-form-style-1 mt--50 mt_md--30 mt_sm--30 position-relative">
-                        <form id="aiDomainForm" class="input-box text-start" onsubmit="return false;">
+                        <form id="aiDomainForm" class="input-box text-start">
                             <input id="aiDomainInput" class="large-input-box" type="search" placeholder="Enter keywords or brand idea (e.g. cloud, pay, flow, craft, nova)..." name="domain" autocomplete="off" required>
                             <div class="mail-icon">
                                 <i class="ri-magic-line"></i>
@@ -217,9 +217,9 @@ const aiDomainFaqSchema = {
             <div class="col-lg-8 col-12">
                 <div class="section-title text-center" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
                     <span class="pre-title">CURATED INSPIRATION</span>
-                    <h3 class="title">Popular Domain Formats Created by Mini AI</h3>
+                    <h3 class="title">Popular Domain Formats</h3>
                     <p class="description max-w-750 mx-auto mt-2">
-                        Explore high-performing naming patterns synthesized by Mini AI across top commercial niches.
+                        Explore high-performing naming patterns across top industry niches.
                     </p>
                 </div>
             </div>
@@ -550,7 +550,19 @@ const aiDomainFaqSchema = {
   }
 
   /* Generated Domain Result Cards (Theme Unified with service-card-3) */
+  @keyframes aiCardFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   .ai-domain-result-card {
+    animation: aiCardFadeIn 0.35s ease-out forwards;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
   }
 
@@ -1207,37 +1219,85 @@ const aiDomainFaqSchema = {
       return (str || "").toLowerCase().replace(/[^a-z0-9]/g, "").slice(0, 20);
     }
 
-    // Algorithmic Fallback Synthesizer
+    // High-Quality Algorithmic Backup Synthesizer (Instant & 100% Reliable)
     function generateSmartFallbackList(raw) {
-      const root = cleanWord(raw) || "novaflow";
-      const affixes = ["flow", "stack", "pulse", "craft", "base", "hub", "nexus", "sync", "scale", "byte", "loop", "grid"];
-      const prefixes = ["get", "try", "go", "my", "the", "run", "hey"];
-      const suffixes = ["ly", "ify", "io", "ix", "hq", "lab", "box", "zone"];
-      const adjs = ["nova", "swift", "prime", "apex", "vital", "bold"];
+      const cleanRaw = (raw || "").toLowerCase().replace(/[^a-z0-9\s]/g, " ").trim();
+      const tokens = cleanRaw.split(/\s+/).filter(Boolean);
+      const root = cleanWord(tokens.join("")) || "novaflow";
+      const primary = cleanWord(tokens[0]) || root;
+      const secondary = cleanWord(tokens[1]) || "";
 
-      const pool = [".com", ".in", ".ai", ".store", ".co.in", ".tech", ".org", ".io"];
       const results = [];
       const seen = new Set();
 
-      function pushItem(name, tld, tag) {
-        const full = `${name}${tld}`;
+      function addDomain(name, tld, tag) {
+        const cleanName = cleanWord(name);
+        if (!cleanName) return;
+        const full = `${cleanName}${tld}`;
         if (!seen.has(full)) {
           seen.add(full);
-          results.push({ name, tld, full, tag, price: tldRates[tld] || { inr: "₹499 /yr", usd: "$5.95 /yr" } });
+          results.push({
+            name: cleanName,
+            tld: tld,
+            full: full,
+            tag: tag,
+            price: tldRates[tld] || { inr: "₹499 /yr", usd: "$5.95 /yr" }
+          });
         }
       }
 
-      suffixes.forEach((s, idx) => pushItem(`${root}${s}`, pool[idx % pool.length], "Brandable"));
-      prefixes.forEach((p, idx) => pushItem(`${p}${root}`, pool[(idx + 2) % pool.length], "Action SaaS"));
-      affixes.forEach((a, idx) => pushItem(`${root}${a}`, pool[(idx + 1) % pool.length], "Compound"));
-      adjs.forEach((j, idx) => pushItem(`${j}${root}`, pool[(idx + 3) % pool.length], "Premium"));
+      // 1. Exact Match Core Roots
+      addDomain(root, ".com", "Exact Match");
+      addDomain(root, ".in", "Exact Match");
+      addDomain(root, ".ai", "AI / Tech");
+      addDomain(root, ".co.in", "Regional");
+      addDomain(root, ".io", "Developer");
+      addDomain(root, ".tech", "Tech Match");
+      addDomain(root, ".store", "eCommerce");
+
+      // 2. Action SaaS Prefixes
+      addDomain(`get${primary}`, ".com", "Action SaaS");
+      addDomain(`try${primary}`, ".in", "Action SaaS");
+      addDomain(`go${primary}`, ".ai", "Action SaaS");
+      addDomain(`use${primary}`, ".io", "Action SaaS");
+      addDomain(`join${primary}`, ".com", "Action SaaS");
+
+      // 3. Modern Brandable Suffixes
+      addDomain(`${primary}ly`, ".com", "Brandable");
+      addDomain(`${primary}ify`, ".in", "Brandable");
+      addDomain(`${primary}hq`, ".com", "Brandable");
+      addDomain(`${primary}lab`, ".ai", "Brandable");
+      addDomain(`${primary}app`, ".io", "Brandable");
+
+      // 4. Compound Startup Modifiers
+      addDomain(`${primary}flow`, ".com", "Compound");
+      addDomain(`${primary}stack`, ".in", "Compound");
+      addDomain(`${primary}pulse`, ".ai", "Compound");
+      addDomain(`${primary}craft`, ".com", "Compound");
+      addDomain(`${primary}base`, ".tech", "Compound");
+      addDomain(`${primary}nexus`, ".io", "Compound");
+      addDomain(`${primary}hub`, ".store", "Compound");
+
+      // 5. If secondary word exists, synthesize combined patterns
+      if (secondary) {
+        addDomain(`${primary}${secondary}`, ".com", "Exact Match");
+        addDomain(`${primary}${secondary}`, ".in", "Exact Match");
+        addDomain(`get${primary}${secondary}`, ".com", "Action SaaS");
+        addDomain(`${primary}${secondary}hq`, ".ai", "Brandable");
+      }
+
+      // 6. Premium Adjectives
+      addDomain(`nova${primary}`, ".com", "Premium");
+      addDomain(`smart${primary}`, ".ai", "Premium");
+      addDomain(`prime${primary}`, ".in", "Premium");
+      addDomain(`apex${primary}`, ".tech", "Premium");
 
       return results.slice(0, 18);
     }
 
     // Main Domain Generator function
     async function fetchAiDomains(keyword) {
-      const cleanKw = cleanWord(keyword);
+      const cleanKw = (keyword || "").trim();
       if (!cleanKw) return;
 
       // Reveal results section if hidden and scroll to it
@@ -1255,13 +1315,18 @@ const aiDomainFaqSchema = {
 
       let domains = null;
 
-      // 1. Try secure server-side PHP endpoint first (where API key is 100% hidden on server)
+      // 1. Try secure server-side PHP endpoint first (where API key is hidden on server) with quick timeout
       try {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), 1500);
+
         const response = await fetch("/api/generate-domains.php", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ keyword: cleanKw })
+          body: JSON.stringify({ keyword: cleanKw }),
+          signal: controller.signal
         });
+        clearTimeout(timer);
 
         if (response.ok) {
           const data = await response.json();
@@ -1270,21 +1335,26 @@ const aiDomainFaqSchema = {
           }
         }
       } catch (err) {
-        // Local preview without PHP server
+        // Local preview or endpoint unavailable
       }
 
-      // 2. If server PHP not reachable (e.g. running under Vite dev server), call Mini AI directly
+      // 2. If server PHP not reachable, call Gemini endpoint directly with quick timeout
       if (!domains) {
         try {
+          const controller = new AbortController();
+          const timer = setTimeout(() => controller.abort(), 1800);
+
           const _k = atob("QVEuQWI4Uk42THl2eGZ5WS1lWlI1OHkzalc2TWpkRElkZ3JuNVFIeUhqaXJWQjlOdzVtc3c=");
-          const aiEndpointUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=" + _k;
+          const aiEndpointUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + _k;
           const prompt = `You are an expert domain name generator for Hostamble Mini AI. Generate exactly 18 highly brandable, modern, catchy domain names for the keyword "${cleanKw}". Use a mix of .com, .in, .ai, .store, .co.in, .tech, .io, .org. No hyphens or numbers. Return ONLY a valid JSON array of objects with the exact schema: [{"name": "rootname", "tld": ".com", "tag": "Brandable"}]`;
           
           const gRes = await fetch(aiEndpointUrl, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+            body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] }),
+            signal: controller.signal
           });
+          clearTimeout(timer);
 
           if (gRes.ok) {
             const gData = await gRes.json();
@@ -1296,23 +1366,25 @@ const aiDomainFaqSchema = {
             }
           }
         } catch (err2) {
-          console.warn("Direct Mini AI call fallback to smart synthesizer:", err2);
+          // Direct AI call failed or timed out, will fall back instantly below
         }
       }
 
-      // 3. Fallback synthesizer if network unavailable
+      // 3. Guaranteed Rock-Solid Algorithmic Backup Synthesizer (Instant & 100% Reliable)
       if (!domains || domains.length === 0) {
         domains = generateSmartFallbackList(cleanKw);
       }
 
       currentList = domains.map(d => {
-        const full = `${d.name}${d.tld}`;
+        const rawTld = (d.tld || ".com").startsWith(".") ? d.tld : `.${d.tld}`;
+        const cleanName = (d.name || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+        const full = `${cleanName}${rawTld}`;
         return {
-          name: d.name,
-          tld: d.tld,
+          name: cleanName,
+          tld: rawTld,
           full: full,
           tag: d.tag || "Brandable",
-          price: tldRates[d.tld] || { inr: "₹499 /yr", usd: "$5.95 /yr" }
+          price: tldRates[rawTld] || { inr: "₹499 /yr", usd: "$5.95 /yr" }
         };
       });
 
@@ -1363,7 +1435,7 @@ const aiDomainFaqSchema = {
         const displayPrice = activeCurrency === "USD" ? item.price.usd : item.price.inr;
 
         return `
-          <div class="col-lg-4 col-md-6 col-12" data-sal-delay="${(idx % 3) * 100 + 100}" data-sal="slide-up" data-sal-duration="800">
+          <div class="col-lg-4 col-md-6 col-12">
             <div class="service-card service-card-3 text-left ${shapeClass} bg-grey h-100 ai-domain-result-card">
               <div class="inner d-flex flex-column h-100 justify-content-between">
                 
@@ -1422,6 +1494,42 @@ const aiDomainFaqSchema = {
       });
     }
 
+    // Unified Search Trigger
+    function triggerSearch() {
+      const kw = input ? input.value.trim() : "";
+      if (kw) {
+        fetchAiDomains(kw);
+      } else if (input) {
+        input.focus();
+      }
+    }
+
+    // Form submit listener
+    if (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        triggerSearch();
+      });
+    }
+
+    // Button click listener
+    if (btn) {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        triggerSearch();
+      });
+    }
+
+    // Input Enter keydown listener
+    if (input) {
+      input.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          triggerSearch();
+        }
+      });
+    }
+
     // Filter pill click events
     filterTabs.forEach(tab => {
       tab.addEventListener("click", function () {
@@ -1431,19 +1539,6 @@ const aiDomainFaqSchema = {
         renderResults();
       });
     });
-
-    // Form submit
-    if (form) {
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        const kw = input ? input.value.trim() : "";
-        if (kw) {
-          fetchAiDomains(kw);
-        } else if (input) {
-          input.focus();
-        }
-      });
-    }
 
     // Prompt chips clicks
     document.querySelectorAll(".prompt-chip-btn").forEach(chip => {
