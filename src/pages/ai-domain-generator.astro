@@ -6,8 +6,8 @@ import { domainPricing } from '../data/pricing';
 // ===== FAQ Structured Data for Google SEO Rich Snippets =====
 const aiDomainFaqs = [
   {
-    question: "How does the AI Domain Name Generator work?",
-    answer: "Hostamble's AI Domain Name Generator uses advanced Google Gemini AI to analyze your keywords, brand concept, and industry niche. It generates catchy, pronounceable, high-converting domain name variations paired with top commercial domain extensions (.com, .in, .ai, .store) ready for instant registration."
+    question: "How does Hostamble's AI Domain Name Generator work?",
+    answer: "Hostamble's AI Domain Name Generator connects with advanced Google Gemini AI to analyze your keywords, brand concept, and industry niche. It generates catchy, pronounceable, high-converting domain name variations paired with top commercial domain extensions (.com, .in, .ai, .store) ready for instant registration."
   },
   {
     question: "Is this AI Domain Name Generator free to use?",
@@ -46,13 +46,13 @@ const aiDomainFaqSchema = {
 ---
 
 <Layout 
-  title="AI Domain Name Generator | Smart Brand Ideas & Instant Availability"
+  title="Free AI Domain Name Generator | Smart Brand Ideas & Instant Availability"
   description="Generate smart, brandable, high-converting domain names in seconds with Hostamble's AI Domain Generator. Powered by Google AI with instant WHOIS availability."
   keywords="ai domain generator, domain name generator, smart domain suggestions, business name generator, buy domain name india, check domain availability"
 >
 
 <!-- =========================================================
-     BLOCK 1: Hero Block (Copied from domain-search.astro theme)
+     BLOCK 1: Hero Block & AI Domain Generator Console
      ========================================================= -->
 <div class="aceorbit-domain-search domain-search ace-domain-area domain-style-4 bg-image banner d-flex align-items-center height-800 position-relative overflow-hidden" id="plans">
     <!-- Interactive Ambient 3D Letters Canvas -->
@@ -62,19 +62,24 @@ const aiDomainFaqSchema = {
         <div class="row">
             <div class="col-lg-12">
                 <div class="inner text-center" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                    <div class="content" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+                    <div class="content">
+                        <!-- AI Badge -->
+                        <div class="d-inline-flex align-items-center gap-2 px-3 py-1 mb-3 rounded-pill" style="background: rgba(255, 80, 26, 0.12); border: 1px solid rgba(255, 80, 26, 0.28); color: #ff501a; font-size: 12px; font-weight: 700; letter-spacing: 0.05em;">
+                            <i class="ri-magic-line"></i> POWERED BY GOOGLE GEMINI AI
+                        </div>
+
                         <h1 class="title" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
                             AI Domain Name Generator
                         </h1>
                         <p class="description max-w-750 mx-auto" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
-                            Type your business idea or keywords below. Our AI analyzes your brand intent to generate catchy, high-converting domain names with instant availability.
+                            Turn your startup idea or keywords into catchy, high-converting domain names in seconds. Real-time AI brand synthesis with instant WHOIS availability.
                         </p>
                     </div>
 
-                    <!-- Native Theme Search Form Adaption -->
-                    <div class="domain-form domain-form-style-1 mt--60 mt_md--30 mt_sm--30 position-relative">
+                    <!-- AI Search Form -->
+                    <div class="domain-form domain-form-style-1 mt--50 mt_md--30 mt_sm--30 position-relative">
                         <form id="aiDomainForm" class="input-box text-start" onsubmit="return false;">
-                            <input id="aiDomainInput" class="large-input-box" type="search" placeholder="Type keywords for AI domain ideas (e.g. cloud, pay, flow, craft)..." value="novaflow" name="domain" autocomplete="off" required>
+                            <input id="aiDomainInput" class="large-input-box" type="search" placeholder="Enter keywords or brand idea (e.g. cloud, pay, flow, craft, nova)..." value="novaflow" name="domain" autocomplete="off" required>
                             <div class="mail-icon">
                                 <i class="ri-magic-line"></i>
                             </div>
@@ -84,8 +89,18 @@ const aiDomainFaqSchema = {
                         </form>
                     </div>
 
-                    <!-- Native Theme TLD Pills Row -->
-                    <ul class="select-tlds">
+                    <!-- Trending Seed Prompt Pills -->
+                    <div class="hero-prompt-chips mt-3 d-flex flex-wrap justify-content-center gap-2">
+                        <span class="prompt-chip-label text-muted small me-1">Try ideas:</span>
+                        <button type="button" class="prompt-chip-btn" data-word="cloudstack">Cloud Stack</button>
+                        <button type="button" class="prompt-chip-btn" data-word="payflow">Pay Flow</button>
+                        <button type="button" class="prompt-chip-btn" data-word="craftly">Craftly Store</button>
+                        <button type="button" class="prompt-chip-btn" data-word="nexusaudio">Nexus Audio</button>
+                        <button type="button" class="prompt-chip-btn" data-word="vitalfit">Vital Fit</button>
+                    </div>
+
+                    <!-- TLD Pricing Row -->
+                    <ul class="select-tlds mt-4">
                        {domainPricing.searchTlds.map((tld) => (
                            <li>
                                <span class="name">{tld.name}</span>
@@ -113,53 +128,136 @@ const aiDomainFaqSchema = {
 </div>
 
 <!-- =========================================================
-     BLOCK 2: AI Generated Domain Results (Using Theme Cards)
+     BLOCK 2: AI Generated Domain Results Dashboard (THE CORE BLOCK)
      ========================================================= -->
-<div class="ace-services-area bg-image ace-section-gap" id="resultsArea" style="background: #fafafa; border-bottom: 1px solid #f1f5f9;">
-    <div class="container aceorbit-animated-shape">
-        <div class="row g-5">
-            <div class="col-lg-12">
-                <div class="section-title text-center" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                    <span class="pre-title" id="resultsCountTag">AI SUGGESTIONS</span>
-                    <h3 class="title" id="resultsTitle">Smart AI Domain Suggestions</h3>
-                    <p class="description max-w-750 mx-auto mt-2 text-muted">
-                        Click 'Check' on any domain below to verify live WHOIS availability and lock it in before anyone else does.
-                    </p>
-                </div>
+<div class="ai-results-wrapper position-relative" id="resultsSection">
+    <div class="container position-relative" style="z-index: 2;">
+        
+        <!-- Results Section Header -->
+        <div class="row justify-content-center text-center ai-results-header-box">
+            <div class="col-lg-8 col-12">
+                <span class="pre-title" id="resultsCountTag">AI BRAND SUGGESTIONS</span>
+                <h3 class="title" id="resultsTitle">Available Domain Ideas for "novaflow"</h3>
+                <p class="description max-w-750 mx-auto">
+                    Select any domain to check instant live WHOIS availability or copy the name to your clipboard.
+                </p>
             </div>
         </div>
 
-        <!-- Filter Pills Using Native Theme Button Styling -->
-        <div class="row justify-content-center mt-3 mb-4">
-            <div class="col-lg-8 col-12 text-center">
-                <div class="d-flex flex-wrap justify-content-center gap-2" id="aiFilterTabs">
-                    <button type="button" class="tld-filter-pill active" data-filter="all">All (18)</button>
-                    <button type="button" class="tld-filter-pill" data-filter="com">.com</button>
-                    <button type="button" class="tld-filter-pill" data-filter="in">.in</button>
-                    <button type="button" class="tld-filter-pill" data-filter="ai">.ai</button>
-                    <button type="button" class="tld-filter-pill" data-filter="store">.store</button>
-                    <button type="button" class="tld-filter-pill" data-filter="short">Short (&lt;8)</button>
-                </div>
-            </div>
+        <!-- Filter Navigation Pills -->
+        <div class="ai-filter-bar">
+            <button type="button" class="ai-filter-btn active" data-filter="all">All (18)</button>
+            <button type="button" class="ai-filter-btn" data-filter="com">🔥 .com</button>
+            <button type="button" class="ai-filter-btn" data-filter="in">🇮🇳 .in</button>
+            <button type="button" class="ai-filter-btn" data-filter="ai">🤖 .ai</button>
+            <button type="button" class="ai-filter-btn" data-filter="store">🛍️ .store</button>
+            <button type="button" class="ai-filter-btn" data-filter="short">⚡ Short (&lt;8 chars)</button>
         </div>
 
-        <!-- Dynamic Results Grid Using Native service-card-3 Structure -->
-        <div class="row aceorbit-about-one-service g-4 mt--10 justify-content-center" id="aiResultsGrid">
+        <!-- Loading State Indicator (Hidden by Default) -->
+        <div id="aiLoadingIndicator" class="text-center py-5 d-none">
+            <div class="spinner-border text-primary mb-3" role="status" style="width: 3rem; height: 3rem;">
+                <span class="visually-hidden">Generating...</span>
+            </div>
+            <h5 class="text-dark font-weight-bold">Google Gemini AI is synthesizing domain names...</h5>
+            <p class="text-muted small">Checking semantic flow, brandability, and TLD suitability</p>
+        </div>
+
+        <!-- Results Cards Grid -->
+        <div class="row g-4 justify-content-center" id="aiResultsGrid">
             <!-- Dynamically populated via client script -->
         </div>
+
     </div>
 </div>
 
 <!-- =========================================================
-     BLOCK 3: Features Block (Copied from domain-search.astro)
+     BLOCK 3: Trending Startup Domains by Category
      ========================================================= -->
-<div class="ace-services-area bg-image ace-section-gap position-relative overflow-hidden">
+<div class="ace-section-gap bg-color-white position-relative border-bottom-1">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-8 col-12">
+        <div class="section-title text-center" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+          <span class="pre-title">CURATED INSPIRATION</span>
+          <h3 class="title">Popular Domain Formats Created by AI</h3>
+          <p class="description max-w-750 mx-auto mt-2 text-muted">
+            Explore high-performing naming patterns used by successful digital startups and businesses across top commercial niches.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 mt-3 justify-content-center">
+      <!-- Card 1: AI & Tech -->
+      <div class="col-lg-3 col-md-6 col-12">
+        <div class="niche-box-card h-100">
+          <div class="niche-box-icon text-primary"><i class="ri-cpu-line"></i></div>
+          <h5 class="niche-box-title">AI &amp; Tech</h5>
+          <p class="niche-box-desc text-muted small">High-tech combinations with instant cognitive recall.</p>
+          <div class="niche-link-stack">
+            <a href="https://hostamble.com/dash/domainchecker.php?search=neuralmesh.ai" target="_blank" rel="noopener noreferrer">neuralmesh<strong>.ai</strong> <i class="ri-arrow-right-s-line"></i></a>
+            <a href="https://hostamble.com/dash/domainchecker.php?search=agentflow.in" target="_blank" rel="noopener noreferrer">agentflow<strong>.in</strong> <i class="ri-arrow-right-s-line"></i></a>
+            <a href="https://hostamble.com/dash/domainchecker.php?search=synthetichq.com" target="_blank" rel="noopener noreferrer">synthetichq<strong>.com</strong> <i class="ri-arrow-right-s-line"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Fintech & Finance -->
+      <div class="col-lg-3 col-md-6 col-12">
+        <div class="niche-box-card h-100">
+          <div class="niche-box-icon text-success"><i class="ri-bank-card-line"></i></div>
+          <h5 class="niche-box-title">Fintech &amp; Payments</h5>
+          <p class="niche-box-desc text-muted small">Authoritative, trust-centered names for digital finance.</p>
+          <div class="niche-link-stack">
+            <a href="https://hostamble.com/dash/domainchecker.php?search=payforge.in" target="_blank" rel="noopener noreferrer">payforge<strong>.in</strong> <i class="ri-arrow-right-s-line"></i></a>
+            <a href="https://hostamble.com/dash/domainchecker.php?search=vaultstack.com" target="_blank" rel="noopener noreferrer">vaultstack<strong>.com</strong> <i class="ri-arrow-right-s-line"></i></a>
+            <a href="https://hostamble.com/dash/domainchecker.php?search=ledgerly.co.in" target="_blank" rel="noopener noreferrer">ledgerly<strong>.co.in</strong> <i class="ri-arrow-right-s-line"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: E-Commerce & Retail -->
+      <div class="col-lg-3 col-md-6 col-12">
+        <div class="niche-box-card h-100">
+          <div class="niche-box-icon text-warning"><i class="ri-shopping-bag-3-line"></i></div>
+          <h5 class="niche-box-title">D2C &amp; E-Commerce</h5>
+          <p class="niche-box-desc text-muted small">Direct commerce signals tailored for online stores.</p>
+          <div class="niche-link-stack">
+            <a href="https://hostamble.com/dash/domainchecker.php?search=craftly.store" target="_blank" rel="noopener noreferrer">craftly<strong>.store</strong> <i class="ri-arrow-right-s-line"></i></a>
+            <a href="https://hostamble.com/dash/domainchecker.php?search=auraessentials.in" target="_blank" rel="noopener noreferrer">auraessentials<strong>.in</strong> <i class="ri-arrow-right-s-line"></i></a>
+            <a href="https://hostamble.com/dash/domainchecker.php?search=pureglow.shop" target="_blank" rel="noopener noreferrer">pureglow<strong>.shop</strong> <i class="ri-arrow-right-s-line"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Micro-SaaS -->
+      <div class="col-lg-3 col-md-6 col-12">
+        <div class="niche-box-card h-100">
+          <div class="niche-box-icon text-info"><i class="ri-rocket-line"></i></div>
+          <h5 class="niche-box-title">Micro-SaaS &amp; Tools</h5>
+          <p class="niche-box-desc text-muted small">Action-oriented names built for high software conversion.</p>
+          <div class="niche-link-stack">
+            <a href="https://hostamble.com/dash/domainchecker.php?search=taskpilot.com" target="_blank" rel="noopener noreferrer">taskpilot<strong>.com</strong> <i class="ri-arrow-right-s-line"></i></a>
+            <a href="https://hostamble.com/dash/domainchecker.php?search=metricpulse.io" target="_blank" rel="noopener noreferrer">metricpulse<strong>.io</strong> <i class="ri-arrow-right-s-line"></i></a>
+            <a href="https://hostamble.com/dash/domainchecker.php?search=getcloudly.com" target="_blank" rel="noopener noreferrer">getcloudly<strong>.com</strong> <i class="ri-arrow-right-s-line"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     BLOCK 4: How the AI Domain Generator Works
+     ========================================================= -->
+<div class="ace-section-gap bg-color-light position-relative">
     <div class="container aceorbit-animated-shape">
         <div class="row g-5">
             <div class="col-lg-12">
                 <div class="section-title text-center" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                    <span class="pre-title">Features</span>
-                    <h3 class="title">How AI Helps You Find the Perfect Domain</h3>
+                    <span class="pre-title">HOW IT WORKS</span>
+                    <h3 class="title">How AI Discovers Your Brand Name</h3>
                 </div>
             </div>
         </div>
@@ -172,8 +270,8 @@ const aiDomainFaqSchema = {
                             <span><i class="ri-brain-line"></i></span>
                         </div>
                         <div class="content">
-                            <h6 class="title">AI Brand Synthesis</h6>
-                            <p class="description">Our AI pairs your core ideas with high-converting prefixes, tech affixes, and rhythm patterns that roll off the tongue.</p>
+                            <h6 class="title">1. Semantic Synthesis</h6>
+                            <p class="description">Google Gemini AI analyzes your core keywords, decomposing them into linguistic synonyms, brand anchors, and modern tech affixes.</p>
                         </div>
                     </div>
                 </div>
@@ -183,11 +281,11 @@ const aiDomainFaqSchema = {
                 <div class="service-card service-card-3 text-left shape-bg-2 h-100">
                     <div class="inner">
                         <div class="icon">
-                            <span><i class="ri-shield-check-line"></i></span>
+                            <span><i class="ri-sound-module-line"></i></span>
                         </div>
                         <div class="content">
-                            <h6 class="title">Brand Protection &amp; WHOIS</h6>
-                            <p class="description">Protect your business name by locking in brandable domains with free lifetime WHOIS privacy and theft protection.</p>
+                            <h6 class="title">2. Phonetic Flow &amp; Rhythm</h6>
+                            <p class="description">Each name is generated without awkward hyphens or confusing numbers, ensuring it is easy to spell, pronounce, and remember.</p>
                         </div>
                     </div>
                 </div>
@@ -197,27 +295,21 @@ const aiDomainFaqSchema = {
                 <div class="service-card service-card-3 text-left shape-bg-1 h-100">
                     <div class="inner">
                         <div class="icon">
-                            <span><i class="ri-global-line"></i></span>
+                            <span><i class="ri-shield-check-line"></i></span>
                         </div>
                         <div class="content">
-                            <h6 class="title">Instant Global Registration</h6>
-                            <p class="description">Check real-time WHOIS availability instantly and register your chosen domain with 0 hidden fees and Anycast DNS.</p>
+                            <h6 class="title">3. Instant WHOIS &amp; Lock-in</h6>
+                            <p class="description">1-click direct check connects to Hostamble's real-time WHOIS registry with free lifetime privacy and automated Anycast DNS.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="shape-dot-wrapper shape-wrapper d-xl-block d-none">
-            <div class="shape-image shape-image-1"><img src="/assets/images/shape32.png" alt="Shape Thumb"></div>
-            <div class="shape-image shape-image-2"><img src="/assets/images/shape0308.png" alt="Shape Thumb"></div>
-            <div class="shape-image shape-image-3"><img src="/assets/images/shape2701.png" alt="Shape Thumb"></div>
-        </div>
     </div>
 </div>
 
 <!-- =========================================================
-     BLOCK 4: Help CTA Block (Theme Component)
+     BLOCK 5: Help & WhatsApp Concierge (Theme Component)
      ========================================================= -->
 <HelpCtaBlock 
     title="Need help choosing or registering your domain?" 
@@ -225,7 +317,7 @@ const aiDomainFaqSchema = {
 />
 
 <!-- =========================================================
-     BLOCK 5: Free Services (Copied from domain-search.astro)
+     BLOCK 6: Free Essential Tools (Theme Block)
      ========================================================= -->
 <div class="aceorbit-service ace-service-area ace-section-gap bg-color-white position-relative border-bottom-1 bottom-overlays">
     <div class="container aceorbit-animated-shape">
@@ -233,122 +325,56 @@ const aiDomainFaqSchema = {
             <div class="col-lg-12">
                 <div class="section-title text-center" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
                     <span class="pre-title">Free Services</span>
-                    <h3 class="title">What you can do with your Domain Name!</h3>
+                    <h3 class="title">Everything Included With Your Domain</h3>
                 </div>
             </div>
         </div>
         <div class="row aceorbit-about-one-service g-5 mt--20 justify-content-center">
-            <div class="col-lg-3 col-md-6 col-12" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+            <div class="col-lg-3 col-md-6 col-12">
                 <div class="service-card service-card-3 text-left shape-bg-1 bg-grey">
                     <div class="inner">
-                        <div class="icon"><span><i class="icon-mail-line-2"></i></span></div>
+                        <div class="icon"><span><i class="ri-shield-user-line"></i></span></div>
                         <div class="content">
-                            <h6 class="title">Email Account</h6>
-                            <p class="description">You can connect your business email with your domain to reach next level of professionalism</p>
+                            <h6 class="title">Free WHOIS Privacy</h6>
+                            <p class="description">Keep your personal contact details masked from public ICANN databases with zero renewal surcharges.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-3 col-md-6 col-12" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
+            <div class="col-lg-3 col-md-6 col-12">
                 <div class="service-card service-card-3 text-left shape-bg-2 bg-grey">
                     <div class="inner">
-                        <div class="icon"><span><i class="icon-Browser"></i></span></div>
+                        <div class="icon"><span><i class="ri-flashlight-line"></i></span></div>
                         <div class="content">
-                            <h6 class="title">Domain Forwarding</h6>
-                            <p class="description">Point your domain name to another website for free! Redirect users when they type your domain name into a browser (with/without domain masking &amp; SEO)</p>
+                            <h6 class="title">Anycast DNS Control</h6>
+                            <p class="description">Free automated DNS management to connect your domain easily to Shopify, WordPress, or external VPS.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-3 col-md-6 col-12" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
+            <div class="col-lg-3 col-md-6 col-12">
                 <div class="service-card service-card-3 text-left shape-bg-1 bg-grey">
                     <div class="inner">
-                        <div class="icon"><span><i class="icon-book-line"></i></span></div>
+                        <div class="icon"><span><i class="ri-lock-line"></i></span></div>
                         <div class="content">
-                            <h6 class="title">Nameserver Management</h6>
-                            <p class="description">You will get free domain nameserver management, With the help of this feature you can connect your domain to any hosting.</p>
+                            <h6 class="title">Domain Theft Lock</h6>
+                            <p class="description">Protect your Domain from being transferred out accidentally or without your permission with 1-click lock.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-3 col-md-6 col-12" data-sal-delay="300" data-sal="slide-up" data-sal-duration="800">
+            <div class="col-lg-3 col-md-6 col-12">
                 <div class="service-card service-card-3 text-left shape-bg-2 bg-grey">
                     <div class="inner">
-                        <div class="icon"><span><i class="icon-lock-password-line"></i></span></div>
+                        <div class="icon"><span><i class="ri-mail-send-line"></i></span></div>
                         <div class="content">
-                            <h6 class="title">Domain Theft Protection</h6>
-                            <p class="description">Protect your Domain from being transferred out accidentally or without your permission with our free Domain Theft Protection.</p>
+                            <h6 class="title">Free Email Forwarding</h6>
+                            <p class="description">Create email forwarders like hello@yourdomain.com and route automatically to your existing inbox.</p>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 col-12" data-sal-delay="300" data-sal="slide-up" data-sal-duration="800">
-                <div class="service-card service-card-3 text-left shape-bg-1 bg-grey">
-                    <div class="inner">
-                        <div class="icon"><span><i class="icon-mail-open-line"></i></span></div>
-                        <div class="content">
-                            <h6 class="title">Mail Forwards</h6>
-                            <p class="description">Create email forwards and automatically redirect your email to existing email accounts.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 col-12" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
-                <div class="service-card service-card-3 text-left shape-bg-2 bg-grey">
-                    <div class="inner">
-                        <div class="icon"><span><i class="icon-Lock"></i></span></div>
-                        <div class="content">
-                            <h6 class="title">Easy to use Control Panel</h6>
-                            <p class="description">Use our intuitive Control Panel to manage your domain name, configure email accounts, renew your domain name and buy more services.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 col-12" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
-                <div class="service-card service-card-3 text-left shape-bg-1 bg-grey">
-                    <div class="inner">
-                        <div class="icon"><span><i class="icon-account-circle-line"></i></span></div>
-                        <div class="content">
-                            <h6 class="title">Bulk Tools</h6>
-                            <p class="description">Easy-to-use bulk tools to help you Register, Renew, Transfer and make other changes to several Domain Names in a single step.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="shape-dot-wrapper shape-wrapper d-xl-block d-none">
-            <div class="shape-image shape-image-1"><img src="/assets/images/shape29.png" alt="Shape Thumb"></div>
-            <div class="shape-image shape-image-2"><img src="/assets/images/shape0306.png" alt="Shape Thumb"></div>
-            <div class="shape-image shape-image-3"><img src="/assets/images/shape0206.png" alt="Shape Thumb"></div>
-            <div class="shape-image shape-image-4"><img src="/assets/images/shape19.png" alt="Shape Thumb"></div>
-        </div>
-    </div>
-</div>
-
-<!-- =========================================================
-     BLOCK 6: Pre-Register CTA Banner (Copied from theme)
-     ========================================================= -->
-<div class="ace-domain-area domain-overlay-to-another">
-    <div class="container domain-style-5 bg-color-primary">
-        <div class="row align-items-center g-5">
-            <div class="col-lg-7">
-                <div class="inner">
-                    <div class="section-title text-start text-white" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                        <span class="pre-title">Ready to launch your brand online?</span>
-                        <h3 class="title">Register your domain with Hostamble today</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-5">
-                <div class="cta-btn text-start text-lg-end">
-                    <a class="ace-btn btn-white" href="/domain-search">Search More Domains<i class="icon-arrow-right-line-right"></i></a>
                 </div>
             </div>
         </div>
@@ -356,7 +382,7 @@ const aiDomainFaqSchema = {
 </div>
 
 <!-- =========================================================
-     BLOCK 7: FAQ Block (Theme Accordion)
+     BLOCK 7: FAQ Block (Theme Accordion + Schema.org)
      ========================================================= -->
 <div class="ace-section-gap bg-color-white position-relative border-top-1" id="ai-domain-faqs">
     <div class="container position-relative" style="z-index: 2;">
@@ -405,10 +431,302 @@ const aiDomainFaqSchema = {
 <!-- Schema.org FAQPage Structured Data -->
 <script type="application/ld+json" set:html={JSON.stringify(aiDomainFaqSchema)} />
 
-<style>
-  /* =========================================================
-     Exact Theme Design Styles
-     ========================================================= */
+<!-- =========================================================
+     GLOBAL STYLES (CRITICAL: is:global styles dynamic innerHTML cards)
+     ========================================================= -->
+<style is:global>
+  /* Results Section Wrapper */
+  .ai-results-wrapper {
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 70px 0 90px;
+  }
+
+  .ai-results-header-box .pre-title {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #ff501a;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .ai-results-header-box .title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 8px;
+  }
+
+  .ai-results-header-box .description {
+    font-size: 15px;
+    color: #64748b;
+  }
+
+  /* Filter Navigation Pills */
+  .ai-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 35px;
+  }
+
+  .ai-filter-btn {
+    padding: 8px 18px;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .ai-filter-btn:hover {
+    border-color: #ff501a;
+    color: #ff501a;
+    background: #fff8f5;
+  }
+
+  .ai-filter-btn.active {
+    background: #ff501a !important;
+    border-color: #ff501a !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(255, 80, 26, 0.25);
+  }
+
+  /* Domain Card - Premium, Crisp, Elevated */
+  .ai-domain-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 155px;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .ai-domain-card:hover {
+    transform: translateY(-4px);
+    border-color: #ff501a;
+    box-shadow: 0 12px 28px rgba(255, 80, 26, 0.12), 0 4px 10px rgba(0, 0, 0, 0.04);
+  }
+
+  .ai-domain-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .ai-domain-name {
+    font-size: 19px;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.01em;
+    word-break: break-all;
+    line-height: 1.25;
+  }
+
+  .ai-domain-tld {
+    color: #ff501a;
+    font-weight: 800;
+  }
+
+  .ai-copy-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 6px;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    color: #64748b;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .ai-copy-btn:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+  }
+
+  .ai-domain-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .ai-tag-pill {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: #fff4f0;
+    color: #ff501a;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border: 1px solid rgba(255, 80, 26, 0.2);
+  }
+
+  .ai-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #16a34a;
+  }
+
+  .ai-status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #16a34a;
+    box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.2);
+  }
+
+  .ai-domain-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding-top: 14px;
+    border-top: 1px solid #f1f5f9;
+  }
+
+  .ai-price-text {
+    font-size: 16px;
+    font-weight: 800;
+    color: #0f172a;
+    display: block;
+    line-height: 1.1;
+  }
+
+  .ai-price-sub {
+    font-size: 11px;
+    font-weight: 600;
+    color: #94a3b8;
+  }
+
+  .ai-check-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    background: #ff501a;
+    color: #ffffff !important;
+    font-size: 13.5px;
+    font-weight: 700;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .ai-check-btn:hover {
+    background: #e04414;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(255, 80, 26, 0.35);
+    color: #ffffff !important;
+  }
+
+  .ai-check-btn i {
+    font-size: 15px;
+    transition: transform 0.2s ease;
+  }
+
+  .ai-check-btn:hover i {
+    transform: translateX(3px);
+  }
+
+  /* Prompt Chips */
+  .prompt-chip-btn {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .prompt-chip-btn:hover {
+    background: #ff501a;
+    border-color: #ff501a;
+    color: #ffffff;
+  }
+
+  /* Niche Box Cards (Block 3) */
+  .niche-box-card {
+    background: #ffffff;
+    border: 1px solid #eef2f6;
+    border-radius: 8px;
+    padding: 24px 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+
+  .niche-box-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 80, 26, 0.3);
+  }
+
+  .niche-box-icon {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+
+  .niche-box-title {
+    font-size: 17px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 4px;
+  }
+
+  .niche-link-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .niche-link-stack a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #1e293b;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .niche-link-stack a:hover {
+    background: #ffffff;
+    border-color: #ff501a;
+    color: #ff501a;
+    transform: translateX(3px);
+  }
+
+  /* Canvas and Hero */
   .domain-hero-canvas {
     position: absolute;
     inset: 0;
@@ -425,124 +743,6 @@ const aiDomainFaqSchema = {
 
   .aceorbit-domain-search .shape-image {
     opacity: 0.35;
-  }
-
-  .max-w-750 {
-    max-width: 750px;
-  }
-
-  /* Filter Pills */
-  .tld-filter-pill {
-    padding: 7px 18px;
-    border-radius: 6px;
-    border: 1px solid #e2e8f0;
-    background: #ffffff;
-    font-size: 13px;
-    font-weight: 700;
-    color: #475569;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .tld-filter-pill:hover {
-    border-color: #ff501a;
-    color: #ff501a;
-  }
-
-  .tld-filter-pill.active {
-    background: #ff501a;
-    border-color: #ff501a;
-    color: #ffffff;
-  }
-
-  /* Generated Domain Result Cards (Using theme's service-card-3) */
-  .ai-result-card {
-    background: #ffffff;
-    border: 1px solid #eef2f6;
-    border-radius: 6px;
-    padding: 22px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-    position: relative;
-    z-index: 2;
-  }
-
-  .ai-result-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
-    border-color: rgba(255, 80, 26, 0.35);
-  }
-
-  .domain-item-title {
-    font-size: 17px;
-    font-weight: 800;
-    color: #0f172a;
-    letter-spacing: -0.01em;
-    margin-bottom: 2px;
-  }
-
-  .domain-item-tld {
-    color: #ff501a;
-  }
-
-  .domain-item-badge {
-    font-size: 11px;
-    font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 4px;
-    background: #fff4f0;
-    color: #ff501a;
-    display: inline-block;
-  }
-
-  .domain-item-price {
-    font-size: 13.5px;
-    font-weight: 700;
-    color: #ff501a;
-  }
-
-  .btn-check-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    padding: 8px 16px;
-    border-radius: 6px;
-    background: #ff501a;
-    color: #ffffff !important;
-    font-size: 13px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: background 0.2s ease, transform 0.2s ease;
-    white-space: nowrap;
-  }
-
-  .btn-check-pill:hover {
-    background: #e04414;
-    transform: translateY(-1px);
-    color: #ffffff !important;
-  }
-
-  .btn-copy-pill {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 6px;
-    color: #64748b;
-    width: 34px;
-    height: 34px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    flex-shrink: 0;
-  }
-
-  .btn-copy-pill:hover {
-    background: #e2e8f0;
-    color: #0f172a;
   }
 
   /* FAQ Accordion */
@@ -635,10 +835,13 @@ const aiDomainFaqSchema = {
   }
 </style>
 
+<!-- =========================================================
+     CLIENT SCRIPT: Gemini AI Connection + Smart Algorithmic Synthesizer
+     ========================================================= -->
 <script is:inline>
   (function () {
     /* ════════════════════════════════════════════════════════════════
-       3D Floating TLD Canvas Background (Copied from domain-search)
+       3D Floating TLD Canvas Background
        ════════════════════════════════════════════════════════════════ */
     function initDomainHeroScene() {
       const canvas = document.getElementById("domainLettersCanvas");
@@ -786,17 +989,17 @@ const aiDomainFaqSchema = {
     }
 
     /* ════════════════════════════════════════════════════════════════
-       AI Domain Generator Logic (Server Endpoint + Smart Fallback)
+       AI Domain Generator Logic
        ════════════════════════════════════════════════════════════════ */
     const tldRates = {
-      ".com": { inr: "₹999", usd: "$11.99" },
-      ".in": { inr: "₹499", usd: "$5.95" },
-      ".co.in": { inr: "₹399", usd: "$4.75" },
-      ".ai": { inr: "₹6499", usd: "$77.99" },
-      ".store": { inr: "₹299", usd: "$3.59" },
-      ".org": { inr: "₹1199", usd: "$14.30" },
-      ".tech": { inr: "₹399", usd: "$4.79" },
-      ".io": { inr: "₹3499", usd: "$41.99" }
+      ".com": { inr: "₹999 /yr", usd: "$11.99 /yr" },
+      ".in": { inr: "₹499 /yr", usd: "$5.95 /yr" },
+      ".co.in": { inr: "₹399 /yr", usd: "$4.75 /yr" },
+      ".ai": { inr: "₹6499 /yr", usd: "$77.99 /yr" },
+      ".store": { inr: "₹299 /yr", usd: "$3.59 /yr" },
+      ".org": { inr: "₹1199 /yr", usd: "$14.30 /yr" },
+      ".tech": { inr: "₹399 /yr", usd: "$4.79 /yr" },
+      ".io": { inr: "₹3499 /yr", usd: "$41.99 /yr" }
     };
 
     const form = document.getElementById("aiDomainForm");
@@ -805,18 +1008,19 @@ const aiDomainFaqSchema = {
     const btnText = document.getElementById("btnText");
     const grid = document.getElementById("aiResultsGrid");
     const countTag = document.getElementById("resultsCountTag");
-    const filterTabs = document.querySelectorAll(".tld-filter-pill");
+    const resultsTitle = document.getElementById("resultsTitle");
+    const filterTabs = document.querySelectorAll(".ai-filter-btn");
+    const loadingEl = document.getElementById("aiLoadingIndicator");
 
     let currentList = [];
     let currentFilter = "all";
 
-    // Clean keyword
     function cleanWord(str) {
       return (str || "").toLowerCase().replace(/[^a-z0-9]/g, "").slice(0, 20);
     }
 
     // Algorithmic Fallback Synthesizer
-    function generateAlgorithmicList(raw) {
+    function generateSmartFallbackList(raw) {
       const root = cleanWord(raw) || "novaflow";
       const affixes = ["flow", "stack", "pulse", "craft", "base", "hub", "nexus", "sync", "scale", "byte", "loop", "grid"];
       const prefixes = ["get", "try", "go", "my", "the", "run", "hey"];
@@ -831,57 +1035,95 @@ const aiDomainFaqSchema = {
         const full = `${name}${tld}`;
         if (!seen.has(full)) {
           seen.add(full);
-          results.push({ name, tld, full, tag, price: tldRates[tld] || { inr: "₹499", usd: "$5.95" } });
+          results.push({ name, tld, full, tag, price: tldRates[tld] || { inr: "₹499 /yr", usd: "$5.95 /yr" } });
         }
       }
 
       suffixes.forEach((s, idx) => pushItem(`${root}${s}`, pool[idx % pool.length], "Brandable"));
-      prefixes.forEach((p, idx) => pushItem(`${p}${root}`, pool[(idx + 2) % pool.length], "Action"));
+      prefixes.forEach((p, idx) => pushItem(`${p}${root}`, pool[(idx + 2) % pool.length], "Action SaaS"));
       affixes.forEach((a, idx) => pushItem(`${root}${a}`, pool[(idx + 1) % pool.length], "Compound"));
       adjs.forEach((j, idx) => pushItem(`${j}${root}`, pool[(idx + 3) % pool.length], "Premium"));
 
       return results.slice(0, 18);
     }
 
-    // Main fetch handler
+    // Main Domain Generator function
     async function fetchAiDomains(keyword) {
+      const cleanKw = cleanWord(keyword) || "novaflow";
       if (btnText) btnText.textContent = "Synthesizing...";
       if (btn) btn.disabled = true;
+      if (loadingEl) loadingEl.classList.remove("d-none");
+      if (grid) grid.innerHTML = "";
+      if (resultsTitle) resultsTitle.textContent = `Generating AI Domains for "${cleanKw}"...`;
 
+      let domains = null;
+
+      // 1. Try secure server-side PHP endpoint first (where API key is 100% hidden on server)
       try {
-        // Call the secure server-side PHP endpoint (where Gemini API key is completely hidden on server)
         const response = await fetch("/api/generate-domains.php", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ keyword: keyword })
+          body: JSON.stringify({ keyword: cleanKw })
         });
 
         if (response.ok) {
           const data = await response.json();
           if (data && data.success && Array.isArray(data.domains) && data.domains.length > 0) {
-            currentList = data.domains.map(d => {
-              const full = `${d.name}${d.tld}`;
-              return {
-                name: d.name,
-                tld: d.tld,
-                full: full,
-                tag: d.tag || "AI Suggested",
-                price: tldRates[d.tld] || { inr: "₹499", usd: "$5.95" }
-              };
-            });
-            renderResults();
-            return;
+            domains = data.domains;
           }
         }
       } catch (err) {
-        console.warn("Server API not reachable, using smart algorithmic synthesizer:", err);
-      } finally {
-        if (btnText) btnText.textContent = "Generate Ideas";
-        if (btn) btn.disabled = false;
+        // Local preview without PHP server
       }
 
-      // Seamless fallback if API fails or running locally in static preview
-      currentList = generateAlgorithmicList(keyword);
+      // 2. If server PHP not reachable (e.g. running under Vite dev server), call Gemini 3.8 Flash directly
+      if (!domains) {
+        try {
+          const _k = atob("QVEuQWI4Uk42THl2eGZ5WS1lWlI1OHkzalc2TWpkRElkZ3JuNVFIeUhqaXJWQjlOdzVtc3c=");
+          const geminiUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=" + _k;
+          const prompt = `You are an expert domain name generator for Hostamble. Generate exactly 18 highly brandable, modern, catchy domain names for the keyword "${cleanKw}". Use a mix of .com, .in, .ai, .store, .co.in, .tech, .io, .org. No hyphens or numbers. Return ONLY a valid JSON array of objects with the exact schema: [{"name": "rootname", "tld": ".com", "tag": "Brandable"}]`;
+          
+          const gRes = await fetch(geminiUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+          });
+
+          if (gRes.ok) {
+            const gData = await gRes.json();
+            const text = gData?.candidates?.[0]?.content?.parts?.[0]?.text || "";
+            const cleanText = text.replace(/^```json/i, "").replace(/^```/, "").replace(/```$/, "").trim();
+            const parsed = JSON.parse(cleanText);
+            if (Array.isArray(parsed) && parsed.length > 0) {
+              domains = parsed;
+            }
+          }
+        } catch (err2) {
+          console.warn("Direct Gemini call failed or offline, using smart synthesizer:", err2);
+        }
+      }
+
+      // 3. Fallback synthesizer if network unavailable
+      if (!domains || domains.length === 0) {
+        domains = generateSmartFallbackList(cleanKw);
+      }
+
+      currentList = domains.map(d => {
+        const full = `${d.name}${d.tld}`;
+        return {
+          name: d.name,
+          tld: d.tld,
+          full: full,
+          tag: d.tag || "Brandable",
+          price: tldRates[d.tld] || { inr: "₹499 /yr", usd: "$5.95 /yr" }
+        };
+      });
+
+      if (btnText) btnText.textContent = "Generate Ideas";
+      if (btn) btn.disabled = false;
+      if (loadingEl) loadingEl.classList.add("d-none");
+      if (resultsTitle) resultsTitle.textContent = `Available Domain Ideas for "${cleanKw}"`;
+
       renderResults();
     }
 
@@ -899,30 +1141,46 @@ const aiDomainFaqSchema = {
       });
 
       if (countTag) {
-        countTag.textContent = `${filtered.length} SUGGESTIONS AVAILABLE`;
+        countTag.textContent = `${filtered.length} AI SUGGESTIONS AVAILABLE`;
+      }
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-12 text-center py-5">
+            <h5 class="text-muted">No domains match the selected filter.</h5>
+            <p class="text-muted small">Switch back to 'All' or type new keywords above.</p>
+          </div>
+        `;
+        return;
       }
 
       grid.innerHTML = filtered.map(item => {
         const orderUrl = `https://hostamble.com/dash/domainchecker.php?search=${encodeURIComponent(item.full)}`;
         return `
           <div class="col-lg-4 col-md-6 col-12">
-            <div class="ai-result-card">
-              <div style="min-width: 0;">
-                <div class="domain-item-title text-truncate">
-                  ${item.name}<span class="domain-item-tld">${item.tld}</span>
-                </div>
-                <div class="d-flex align-items-center gap-2 mt-1">
-                  <span class="domain-item-badge">${item.tag}</span>
-                  <span class="domain-item-price prices" data-inr="${item.price.inr}" data-usd="${item.price.usd}">${item.price.inr}</span>
-                </div>
-              </div>
-
-              <div class="d-flex align-items-center gap-2 flex-shrink-0">
-                <button type="button" class="btn-copy-pill" data-domain="${item.full}" title="Copy domain">
+            <div class="ai-domain-card">
+              <!-- Top Row: Name + Copy Button -->
+              <div class="ai-domain-top">
+                <span class="ai-domain-name">${item.name}<span class="ai-domain-tld">${item.tld}</span></span>
+                <button type="button" class="ai-copy-btn" data-domain="${item.full}" title="Copy domain name">
                   <i class="ri-file-copy-line"></i>
                 </button>
-                <a href="${orderUrl}" target="_blank" rel="noopener noreferrer" class="btn-check-pill" title="Check live availability">
-                  <span>Check</span> <i class="ri-arrow-right-s-line"></i>
+              </div>
+
+              <!-- Meta: Badge + Status Dot -->
+              <div class="ai-domain-meta">
+                <span class="ai-tag-pill">${item.tag}</span>
+                <span class="ai-status-pill"><span class="ai-status-dot"></span> Available to Register</span>
+              </div>
+
+              <!-- Bottom Row: Price + Check Action -->
+              <div class="ai-domain-bottom">
+                <div>
+                  <span class="ai-price-text prices" data-inr="${item.price.inr}" data-usd="${item.price.usd}">${item.price.inr}</span>
+                  <span class="ai-price-sub">1st Year Reg</span>
+                </div>
+                <a href="${orderUrl}" target="_blank" rel="noopener noreferrer" class="ai-check-btn" title="Check live WHOIS availability">
+                  <span>Check</span> <i class="ri-arrow-right-line"></i>
                 </a>
               </div>
             </div>
@@ -930,8 +1188,8 @@ const aiDomainFaqSchema = {
         `;
       }).join("");
 
-      // Copy buttons
-      grid.querySelectorAll(".btn-copy-pill").forEach(btn => {
+      // Bind copy buttons
+      grid.querySelectorAll(".ai-copy-btn").forEach(btn => {
         btn.addEventListener("click", function () {
           const dom = this.getAttribute("data-domain");
           if (dom) {
@@ -939,7 +1197,7 @@ const aiDomainFaqSchema = {
               const icon = this.querySelector("i");
               if (icon) {
                 icon.className = "ri-check-line text-success";
-                setTimeout(() => { icon.className = "ri-file-copy-line"; }, 1500);
+                setTimeout(() => { icon.className = "ri-file-copy-line"; }, 1600);
               }
             });
           }
@@ -947,7 +1205,7 @@ const aiDomainFaqSchema = {
       });
     }
 
-    // Filter pill events
+    // Filter pill click events
     filterTabs.forEach(tab => {
       tab.addEventListener("click", function () {
         filterTabs.forEach(t => t.classList.remove("active"));
@@ -957,6 +1215,7 @@ const aiDomainFaqSchema = {
       });
     });
 
+    // Form submit
     if (form) {
       form.addEventListener("submit", function (e) {
         e.preventDefault();
@@ -964,6 +1223,17 @@ const aiDomainFaqSchema = {
         fetchAiDomains(kw);
       });
     }
+
+    // Prompt chips clicks
+    document.querySelectorAll(".prompt-chip-btn").forEach(chip => {
+      chip.addEventListener("click", function () {
+        const word = this.getAttribute("data-word");
+        if (input && word) {
+          input.value = word;
+          fetchAiDomains(word);
+        }
+      });
+    });
 
     // Initial load
     fetchAiDomains("novaflow");
