@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import HelpCtaBlock from '../components/HelpCtaBlock.astro';
+import FaqBlock from '../components/FaqBlock.astro';
 import { domainPricing } from '../data/pricing';
 
 // ===== FAQ Structured Data for Google SEO Rich Snippets =====
@@ -154,30 +155,32 @@ const aiDomainFaqSchema = {
 </div>
 
 <!-- =========================================================
-     BLOCK 2: AI Generated Domain Results Dashboard (THE CORE BLOCK)
+     BLOCK 2: AI Generated Domain Results Dashboard (Native Theme Styling)
      ========================================================= -->
-<div class="ai-results-wrapper position-relative" id="resultsSection">
-    <div class="container position-relative" style="z-index: 2;">
+<div class="aceorbit-service ace-service-area ace-section-gap bg-color-white position-relative border-bottom-1 bottom-overlays" id="resultsSection">
+    <div class="container aceorbit-animated-shape position-relative" style="z-index: 2;">
         
-        <!-- Results Section Header -->
-        <div class="row justify-content-center text-center ai-results-header-box">
+        <!-- Results Section Header (Theme Unified) -->
+        <div class="row justify-content-center text-center">
             <div class="col-lg-8 col-12">
-                <span class="pre-title" id="resultsCountTag">AI BRAND SUGGESTIONS</span>
-                <h3 class="title" id="resultsTitle">Available Domain Ideas for "novaflow"</h3>
-                <p class="description max-w-750 mx-auto">
-                    Select any domain to check instant live WHOIS availability or copy the name to your clipboard.
-                </p>
+                <div class="section-title text-center" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+                    <span class="pre-title" id="resultsCountTag">AI Brand Suggestions</span>
+                    <h3 class="title" id="resultsTitle">Available Domain Ideas for "novaflow"</h3>
+                    <p class="description max-w-750 mx-auto mt-2">
+                        Select any domain to check instant live WHOIS availability or copy the name to your clipboard.
+                    </p>
+                </div>
             </div>
         </div>
 
-        <!-- Filter Navigation Pills -->
-        <div class="ai-filter-bar">
-            <button type="button" class="ai-filter-btn active" data-filter="all">All (18)</button>
-            <button type="button" class="ai-filter-btn" data-filter="com">🔥 .com</button>
-            <button type="button" class="ai-filter-btn" data-filter="in">🇮🇳 .in</button>
-            <button type="button" class="ai-filter-btn" data-filter="ai">🤖 .ai</button>
-            <button type="button" class="ai-filter-btn" data-filter="store">🛍️ .store</button>
-            <button type="button" class="ai-filter-btn" data-filter="short">⚡ Short (&lt;8 chars)</button>
+        <!-- Filter Navigation Pills (Native Theme FAQ Pills) -->
+        <div class="faq-categories-nav justify-content-center my-4" style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <button type="button" class="faq-cat-pill ai-filter-btn active" data-filter="all"><span>All</span> <span class="pill-badge" id="pillCount">18</span></button>
+            <button type="button" class="faq-cat-pill ai-filter-btn" data-filter="com"><span>.com</span></button>
+            <button type="button" class="faq-cat-pill ai-filter-btn" data-filter="in"><span>.in</span></button>
+            <button type="button" class="faq-cat-pill ai-filter-btn" data-filter="ai"><span>.ai</span></button>
+            <button type="button" class="faq-cat-pill ai-filter-btn" data-filter="store"><span>.store</span></button>
+            <button type="button" class="faq-cat-pill ai-filter-btn" data-filter="short"><span>Short (&lt;8)</span></button>
         </div>
 
         <!-- Loading State Indicator (Hidden by Default) -->
@@ -189,11 +192,19 @@ const aiDomainFaqSchema = {
             <p class="text-muted small">Checking semantic flow, brandability, and TLD suitability</p>
         </div>
 
-        <!-- Results Cards Grid -->
-        <div class="row g-4 justify-content-center" id="aiResultsGrid">
-            <!-- Dynamically populated via client script -->
+        <!-- Results Cards Grid (Theme Unified Cards) -->
+        <div class="row aceorbit-about-one-service g-4 mt--10 justify-content-center" id="aiResultsGrid">
+            <!-- Dynamically populated via client script with theme service-card-3 -->
         </div>
 
+    </div>
+
+    <!-- Floating Background Shapes -->
+    <div class="shape-dot-wrapper shape-wrapper d-xl-block d-none">
+        <div class="shape-image shape-image-1"><img src="/assets/images/shape29.png" alt="Shape"></div>
+        <div class="shape-image shape-image-2"><img src="/assets/images/shape0306.png" alt="Shape"></div>
+        <div class="shape-image shape-image-3"><img src="/assets/images/shape0206.png" alt="Shape"></div>
+        <div class="shape-image shape-image-4"><img src="/assets/images/shape19.png" alt="Shape"></div>
     </div>
 </div>
 
@@ -481,95 +492,14 @@ const aiDomainFaqSchema = {
 </div>
 
 <!-- =========================================================
-     BLOCK 7: Frequently Asked Questions (Home Page Unified Design)
+     BLOCK 7: Frequently Asked Questions (Reused FaqBlock Component)
      ========================================================= -->
-<section class="hostamble-faq-section" id="ai-domain-faqs" aria-labelledby="faq-main-heading">
-  <!-- Subtle ambient decorative glow -->
-  <div class="faq-ambient-glow" aria-hidden="true"></div>
-
-  <div class="container position-relative">
-    <!-- Standard Centered Section Header -->
-    <div class="row justify-content-center mb-4">
-      <div class="col-lg-8 col-12 text-center">
-        <div class="section-title text-center" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
-          <span class="pre-title">FAQ</span>
-          <h2 id="faq-main-heading" class="title">Frequently Asked Questions</h2>
-          <p class="description mt-2">
-            Clear, honest answers about our domain name generator, instant WHOIS availability, Anycast DNS, and domain registrations.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Centered Accordion Stack (Max-Width 920px) -->
-    <div class="faq-accordion-container" id="faqCardsStack" data-sal="slide-up" data-sal-delay="250" data-sal-duration="800">
-      {aiDomainFaqs.map((faq, idx) => (
-        <article class={`faq-item-card ${idx === 0 ? 'is-open' : ''}`} data-faq-id={`faq-${idx}`}>
-          <button 
-            type="button" 
-            class="faq-header-trigger" 
-            aria-expanded={idx === 0 ? "true" : "false"}
-            aria-controls={`faq-answer-${idx}`}
-          >
-            <div class="faq-question-meta">
-              <span class="faq-cat-label">{faq.category}</span>
-              <h3 class="faq-question-text">{faq.question}</h3>
-            </div>
-            <div class="faq-toggle-icon" aria-hidden="true">
-              <i class="ri-add-line icon-plus"></i>
-              <i class="ri-subtract-line icon-minus"></i>
-            </div>
-          </button>
-
-          <div 
-            id={`faq-answer-${idx}`} 
-            class="faq-answer-collapse"
-            style={idx === 0 ? "display: block;" : "display: none;"}
-          >
-            <div class="faq-answer-body">
-              <p class="faq-answer-text">{faq.answer}</p>
-            </div>
-          </div>
-        </article>
-      ))}
-    </div>
-
-    <!-- Bottom Human Support Reassurance Card -->
-    <div class="faq-bottom-concierge" data-sal="slide-up" data-sal-delay="300" data-sal-duration="800">
-      <div class="concierge-content">
-        <div class="concierge-icon-wrap" aria-hidden="true">
-          <i class="ri-customer-service-2-fill"></i>
-        </div>
-        <div class="concierge-text">
-          <h4 class="concierge-title">Still have questions or need custom setup?</h4>
-          <p class="concierge-desc">
-            Talk directly with our in-house domain team. We speak your language and usually reply in under 3 minutes.
-          </p>
-        </div>
-      </div>
-      <div class="concierge-actions">
-        <a 
-          href="https://wa.me/916284719083?text=Hi%20Hostamble,%20I%20have%20a%20question%20about%20domain%20registration%20and%20hosting" 
-          class="concierge-btn btn-whatsapp"
-          target="_blank" 
-          rel="noopener noreferrer"
-        >
-          <i class="ri-whatsapp-fill"></i>
-          <span>WhatsApp Chat</span>
-        </a>
-        <a 
-          href="https://hostamble.com/dash/submitticket.php?step=2&deptid=1" 
-          class="concierge-btn btn-ticket"
-          target="_blank" 
-          rel="noopener noreferrer"
-        >
-          <i class="ri-ticket-2-line"></i>
-          <span>Submit a Ticket</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+<FaqBlock 
+  items={aiDomainFaqs} 
+  preTitle="FAQ" 
+  title="Frequently Asked Questions" 
+  description="Clear, honest answers about our domain name generator, instant WHOIS availability, Anycast DNS, and domain registrations."
+/>
 
 <!-- Schema.org FAQPage Structured Data -->
 <script type="application/ld+json" set:html={JSON.stringify(aiDomainFaqSchema)} />
@@ -578,153 +508,71 @@ const aiDomainFaqSchema = {
      GLOBAL STYLES (CRITICAL: is:global styles dynamic innerHTML cards)
      ========================================================= -->
 <style is:global>
-  /* Results Section Wrapper */
-  .ai-results-wrapper {
-    background: #f8fafc;
-    border-top: 1px solid #e2e8f0;
-    border-bottom: 1px solid #e2e8f0;
-    padding: 70px 0 90px;
-  }
-
-  .ai-results-header-box .pre-title {
-    display: inline-block;
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    color: #ff501a;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-
-  .ai-results-header-box .title {
-    font-size: 32px;
-    font-weight: 800;
-    color: #0f172a;
-    margin-bottom: 8px;
-  }
-
-  .ai-results-header-box .description {
-    font-size: 15px;
-    color: #64748b;
-  }
-
-  /* Filter Navigation Pills */
-  .ai-filter-bar {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-    margin-bottom: 35px;
-  }
-
-  .ai-filter-btn {
-    padding: 8px 18px;
-    background: #ffffff;
-    border: 1px solid #cbd5e1;
-    border-radius: 6px;
-    font-size: 13.5px;
-    font-weight: 700;
-    color: #475569;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .ai-filter-btn:hover {
-    border-color: #ff501a;
-    color: #ff501a;
-    background: #fff8f5;
-  }
-
-  .ai-filter-btn.active {
-    background: #ff501a !important;
-    border-color: #ff501a !important;
-    color: #ffffff !important;
-    box-shadow: 0 4px 12px rgba(255, 80, 26, 0.25);
-  }
-
-  /* Domain Card - Premium, Crisp, Elevated */
-  .ai-domain-card {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 22px 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 155px;
-    position: relative;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  }
-
-  .ai-domain-card:hover {
-    transform: translateY(-4px);
-    border-color: #ff501a;
-    box-shadow: 0 12px 28px rgba(255, 80, 26, 0.12), 0 4px 10px rgba(0, 0, 0, 0.04);
-  }
-
-  .ai-domain-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 12px;
-  }
-
-  .ai-domain-name {
-    font-size: 19px;
-    font-weight: 800;
-    color: #0f172a;
-    letter-spacing: -0.01em;
-    word-break: break-all;
-    line-height: 1.25;
-  }
-
-  .ai-domain-tld {
-    color: #ff501a;
-    font-weight: 800;
-  }
-
-  .ai-copy-btn {
-    width: 34px;
-    height: 34px;
-    border-radius: 6px;
-    background: #f1f5f9;
-    border: 1px solid #e2e8f0;
-    color: #64748b;
+  /* Filter Navigation Pills (Theme Unified) */
+  .faq-cat-pill {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: #ffffff;
+    border: 1px solid #e5e9f0;
+    color: #4b5565;
+    font-size: 14px;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
-    flex-shrink: 0;
   }
 
-  .ai-copy-btn:hover {
-    background: #e2e8f0;
-    color: #0f172a;
+  .faq-cat-pill:hover {
+    border-color: rgba(255, 80, 26, 0.4);
+    color: var(--color-primary, #ff501a);
+    transform: translateY(-1px);
   }
 
-  .ai-domain-meta {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 16px;
+  .faq-cat-pill.active {
+    background: #fff5f0;
+    border-color: var(--color-primary, #ff501a);
+    color: var(--color-primary, #ff501a);
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(255, 80, 26, 0.12);
   }
 
-  .ai-tag-pill {
+  .faq-cat-pill .pill-badge {
+    background: #f1f4f9;
+    color: #64748b;
     font-size: 11px;
     font-weight: 700;
-    padding: 3px 8px;
-    border-radius: 4px;
-    background: #fff4f0;
-    color: #ff501a;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    border: 1px solid rgba(255, 80, 26, 0.2);
+    padding: 2px 7px;
+    border-radius: 999px;
   }
 
-  .ai-status-pill {
+  .faq-cat-pill.active .pill-badge {
+    background: var(--color-primary, #ff501a);
+    color: #ffffff;
+  }
+
+  /* Generated Domain Result Cards (Theme Unified with service-card-3) */
+  .ai-domain-result-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  }
+
+  .ai-domain-result-card:hover {
+    transform: translateY(-6px) !important;
+  }
+
+  .ai-domain-badge {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: rgba(var(--color-primary-rgb, 255, 80, 26), 0.1);
+    color: var(--color-primary, #ff501a);
+  }
+
+  .ai-live-badge {
     display: inline-flex;
     align-items: center;
     gap: 5px;
@@ -733,7 +581,7 @@ const aiDomainFaqSchema = {
     color: #16a34a;
   }
 
-  .ai-status-dot {
+  .ai-live-dot {
     width: 7px;
     height: 7px;
     border-radius: 50%;
@@ -741,58 +589,45 @@ const aiDomainFaqSchema = {
     box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.2);
   }
 
-  .ai-domain-bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    padding-top: 14px;
-    border-top: 1px solid #f1f5f9;
+  .ai-card-domain-name {
+    font-size: 18px !important;
+    font-weight: 800 !important;
+    color: var(--color-heading, #1e293b) !important;
+    line-height: 1.3 !important;
+    word-break: break-all;
   }
 
-  .ai-price-text {
+  .ai-copy-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 5px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    color: #64748b;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .ai-copy-btn:hover {
+    border-color: var(--color-primary, #ff501a);
+    color: var(--color-primary, #ff501a);
+    background: #fff8f5;
+  }
+
+  .ai-card-price {
     font-size: 16px;
     font-weight: 800;
-    color: #0f172a;
-    display: block;
+    color: var(--color-heading, #1e293b);
     line-height: 1.1;
   }
 
-  .ai-price-sub {
+  .ai-card-price-label {
     font-size: 11px;
     font-weight: 600;
     color: #94a3b8;
-  }
-
-  .ai-check-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 18px;
-    background: #ff501a;
-    color: #ffffff !important;
-    font-size: 13.5px;
-    font-weight: 700;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    white-space: nowrap;
-  }
-
-  .ai-check-btn:hover {
-    background: #e04414;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(255, 80, 26, 0.35);
-    color: #ffffff !important;
-  }
-
-  .ai-check-btn i {
-    font-size: 15px;
-    transition: transform 0.2s ease;
-  }
-
-  .ai-check-btn:hover i {
-    transform: translateX(3px);
   }
 
   /* Prompt Chips */
@@ -1497,7 +1332,11 @@ const aiDomainFaqSchema = {
       });
 
       if (countTag) {
-        countTag.textContent = `${filtered.length} AI SUGGESTIONS AVAILABLE`;
+        countTag.textContent = `${filtered.length} AI Suggestions Available`;
+      }
+      const pillCount = document.getElementById("pillCount");
+      if (pillCount) {
+        pillCount.textContent = currentList.length;
       }
 
       if (filtered.length === 0) {
@@ -1510,34 +1349,50 @@ const aiDomainFaqSchema = {
         return;
       }
 
-      grid.innerHTML = filtered.map(item => {
+      const activeCurrency = (typeof localStorage !== "undefined" && localStorage.getItem("hostamble_currency")) || "INR";
+
+      grid.innerHTML = filtered.map((item, idx) => {
         const orderUrl = `https://hostamble.com/dash/domainchecker.php?search=${encodeURIComponent(item.full)}`;
+        const shapeClass = idx % 2 === 0 ? 'shape-bg-1' : 'shape-bg-2';
+        const displayPrice = activeCurrency === "USD" ? item.price.usd : item.price.inr;
+
         return `
-          <div class="col-lg-4 col-md-6 col-12">
-            <div class="ai-domain-card">
-              <!-- Top Row: Name + Copy Button -->
-              <div class="ai-domain-top">
-                <span class="ai-domain-name">${item.name}<span class="ai-domain-tld">${item.tld}</span></span>
-                <button type="button" class="ai-copy-btn" data-domain="${item.full}" title="Copy domain name">
-                  <i class="ri-file-copy-line"></i>
-                </button>
-              </div>
-
-              <!-- Meta: Badge + Status Dot -->
-              <div class="ai-domain-meta">
-                <span class="ai-tag-pill">${item.tag}</span>
-                <span class="ai-status-pill"><span class="ai-status-dot"></span> Available to Register</span>
-              </div>
-
-              <!-- Bottom Row: Price + Check Action -->
-              <div class="ai-domain-bottom">
-                <div>
-                  <span class="ai-price-text prices" data-inr="${item.price.inr}" data-usd="${item.price.usd}">${item.price.inr}</span>
-                  <span class="ai-price-sub">1st Year Reg</span>
+          <div class="col-lg-4 col-md-6 col-12" data-sal-delay="${(idx % 3) * 100 + 100}" data-sal="slide-up" data-sal-duration="800">
+            <div class="service-card service-card-3 text-left ${shapeClass} bg-grey h-100 ai-domain-result-card">
+              <div class="inner d-flex flex-column h-100 justify-content-between">
+                
+                <!-- Card Header: Tag Badge + Live Status + Copy Button -->
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="ai-domain-badge">${item.tag}</span>
+                    <span class="ai-live-badge"><span class="ai-live-dot"></span> Available</span>
+                  </div>
+                  <button type="button" class="ai-copy-btn" data-domain="${item.full}" title="Copy domain name">
+                    <i class="ri-file-copy-line"></i>
+                  </button>
                 </div>
-                <a href="${orderUrl}" target="_blank" rel="noopener noreferrer" class="ai-check-btn" title="Check live WHOIS availability">
-                  <span>Check</span> <i class="ri-arrow-right-line"></i>
-                </a>
+
+                <!-- Domain Name & Subtitle -->
+                <div class="content mb-3">
+                  <h5 class="title ai-card-domain-name mb-1">
+                    ${item.name}<strong class="text-primary">${item.tld}</strong>
+                  </h5>
+                  <p class="description mb-0 text-muted" style="font-size: 13px;">
+                    Free WHOIS Privacy &amp; Anycast DNS
+                  </p>
+                </div>
+
+                <!-- Footer: Pricing & Register Button -->
+                <div class="d-flex align-items-center justify-content-between pt-3 border-top mt-auto">
+                  <div class="ai-card-pricing">
+                    <span class="ai-card-price prices" data-inr="${item.price.inr}" data-usd="${item.price.usd}">${displayPrice}</span>
+                    <span class="ai-card-price-label d-block text-muted">1st Year Reg</span>
+                  </div>
+                  <a href="${orderUrl}" target="_blank" rel="noopener noreferrer" class="ace-btn btn-small" title="Register ${item.full}">
+                    <span>Register</span> <i class="icon-arrow-right-line-right"></i>
+                  </a>
+                </div>
+
               </div>
             </div>
           </div>
@@ -1593,42 +1448,6 @@ const aiDomainFaqSchema = {
 
     // Initial load
     fetchAiDomains("novaflow");
-
-    // ==========================================
-    // Accordion Logic for FAQ Block (Home Page Unified)
-    // ==========================================
-    const faqCards = document.querySelectorAll("#faqCardsStack .faq-item-card");
-    faqCards.forEach(card => {
-      const trigger = card.querySelector(".faq-header-trigger");
-      const answer = card.querySelector(".faq-answer-collapse");
-
-      if (trigger && answer) {
-        trigger.addEventListener("click", function () {
-          const isOpen = card.classList.contains("is-open");
-
-          // Close other cards for clean, focused reading
-          faqCards.forEach(other => {
-            if (other !== card && other.classList.contains("is-open")) {
-              other.classList.remove("is-open");
-              const otherTrigger = other.querySelector(".faq-header-trigger");
-              const otherAnswer = other.querySelector(".faq-answer-collapse");
-              if (otherTrigger) otherTrigger.setAttribute("aria-expanded", "false");
-              if (otherAnswer) otherAnswer.style.display = "none";
-            }
-          });
-
-          if (isOpen) {
-            card.classList.remove("is-open");
-            trigger.setAttribute("aria-expanded", "false");
-            answer.style.display = "none";
-          } else {
-            card.classList.add("is-open");
-            trigger.setAttribute("aria-expanded", "true");
-            answer.style.display = "block";
-          }
-        });
-      }
-    });
 
     initDomainHeroScene();
   })();
