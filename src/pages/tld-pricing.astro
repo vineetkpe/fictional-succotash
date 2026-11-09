@@ -1,7 +1,36 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import FaqBlock from '../components/FaqBlock.astro';
 import { domainPricing } from '../data/pricing';
 const { heroStartPrice, allTlds } = domainPricing;
+
+const tldFaqs = [
+  {
+    category: "Pricing & Fees",
+    question: "Are there any hidden fees or ICANN charges added at checkout?",
+    answer: "No. Hostamble practices 100% transparent pricing. The price you see includes all mandatory registry fees and standard ICANN charges. What you see is the exact amount you pay at checkout."
+  },
+  {
+    category: "Privacy Protection",
+    question: "Is WHOIS domain privacy protection really free forever?",
+    answer: "Yes, WHOIS privacy protection is 100% free forever for all eligible TLDs (.com, .net, .org, .co, etc.) where registry regulations allow privacy masking. We never introduce surprise privacy renewal fees in Year 2."
+  },
+  {
+    category: "Transfers",
+    question: "How does transferring a domain to Hostamble work?",
+    answer: "Simply unlock your domain at your current registrar, obtain the EPP/Auth code, and submit the transfer request on our Domain Transfer page. Most transfers include an additional 1-year registration extension with zero website downtime."
+  },
+  {
+    category: "Hosting & Setup",
+    question: "Can I register a domain without purchasing web hosting?",
+    answer: "Yes! You can register and hold domains independently. You get full access to our free Anycast DNS Manager, URL forwarding, and custom email forwarding controls anytime."
+  },
+  {
+    category: "Payment Methods",
+    question: "What payment methods are supported for domain purchases?",
+    answer: "We accept UPI (Google Pay, PhonePe, Paytm), Indian Netbanking, Debit & Credit Cards, International Visa/Mastercard/Amex, and PayPal."
+  }
+];
 ---
 
 <Layout 
@@ -73,15 +102,15 @@ const { heroStartPrice, allTlds } = domainPricing;
         </div>
       </div>
 
-      <!-- Filter Category Buttons -->
+      <!-- Filter Category Navigation Pills (Theme Unified) -->
       <div class="row mb-4">
         <div class="col-12">
-          <div class="d-flex flex-wrap gap-2" id="tldCategoryPills">
-            <button type="button" class="btn btn-sm btn-dark px-3 py-2 rounded-pill tld-cat-btn active" onclick="filterTldCategory('all', this)">All Extensions</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary px-3 py-2 rounded-pill tld-cat-btn" onclick="filterTldCategory('popular', this)">🔥 Popular</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary px-3 py-2 rounded-pill tld-cat-btn" onclick="filterTldCategory('india', this)">🇮🇳 India (.IN)</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary px-3 py-2 rounded-pill tld-cat-btn" onclick="filterTldCategory('tech', this)">💻 Tech &amp; Dev</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary px-3 py-2 rounded-pill tld-cat-btn" onclick="filterTldCategory('business', this)">🏢 Business &amp; Commerce</button>
+          <div class="faq-categories-nav justify-content-start my-2" id="tldCategoryPills" style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <button type="button" class="faq-cat-pill tld-cat-btn active" onclick="filterTldCategory('all', this)"><span>All Extensions</span></button>
+            <button type="button" class="faq-cat-pill tld-cat-btn" onclick="filterTldCategory('popular', this)"><span>Popular</span></button>
+            <button type="button" class="faq-cat-pill tld-cat-btn" onclick="filterTldCategory('india', this)"><span>India (.IN)</span></button>
+            <button type="button" class="faq-cat-pill tld-cat-btn" onclick="filterTldCategory('tech', this)"><span>Tech &amp; Dev</span></button>
+            <button type="button" class="faq-cat-pill tld-cat-btn" onclick="filterTldCategory('business', this)"><span>Business &amp; Commerce</span></button>
           </div>
         </div>
       </div>
@@ -128,234 +157,314 @@ const { heroStartPrice, allTlds } = domainPricing;
     </div>
   </div>
 
-  <!-- Block 3: Included Free With Every Domain (4 Cards) -->
-  <div class="ace-feature-area ace-section-gap bg-image bg-color-light">
-    <div class="container aceorbit-animated-shape">
-      <div class="row mb-5 text-center">
-        <div class="col-lg-12">
-          <div class="section-title">
-            <span class="pre-title">Zero Hidden Fees</span>
-            <h3 class="title">Everything Included Free with Your Domain</h3>
-          </div>
-        </div>
-      </div>
-
-      <div class="row g-4">
-        <div class="col-lg-3 col-md-6 col-12">
-          <div class="service-card service-card-3 shape-bg-1 h-100 p-4 bg-white border rounded-3 text-center">
-            <div class="icon mb-3 fs-1 text-primary"><i class="ri-shield-user-line"></i></div>
-            <h5 class="title font-weight-bold">Free WHOIS Privacy</h5>
-            <p class="description small mb-0">Mask your personal phone number, home address, and email from public spam harvesters at no extra cost.</p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-12">
-          <div class="service-card service-card-3 shape-bg-2 h-100 p-4 bg-white border rounded-3 text-center">
-            <div class="icon mb-3 fs-1 text-success"><i class="ri-global-line"></i></div>
-            <h5 class="title font-weight-bold">Anycast DNS Manager</h5>
-            <p class="description small mb-0">Instant DNS record changes for A, CNAME, MX, TXT, and SPF records backed by globally distributed Anycast nameservers.</p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-12">
-          <div class="service-card service-card-3 shape-bg-1 h-100 p-4 bg-white border rounded-3 text-center">
-            <div class="icon mb-3 fs-1 text-warning"><i class="ri-mail-forward-line"></i></div>
-            <h5 class="title font-weight-bold">2 Free Email Accounts</h5>
-            <p class="description small mb-0">Create custom branded email forwarders (e.g. `hello@yourdomain.com`) routed straight to your existing personal inbox.</p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-12">
-          <div class="service-card service-card-3 shape-bg-2 h-100 p-4 bg-white border rounded-3 text-center">
-            <div class="icon mb-3 fs-1 text-danger"><i class="ri-lock-2-line"></i></div>
-            <h5 class="title font-weight-bold">Domain Theft Lock</h5>
-            <p class="description small mb-0">Prevent unauthorized domain hijacking or accidental transfer with automated registrar-level security locking.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- New Block 1: High-Impact TLD Spotlight & Use Cases -->
-  <div class="ace-section-gap bg-image" style="background: #0d0d12; color: #fff;">
-    <div class="container">
-      <div class="row align-items-center g-5 mb-5">
-        <div class="col-lg-6" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-          <div class="section-title text-start mb-4">
-            <span class="pre-title" style="color: #ff501a;">Strategic Branding</span>
-            <h3 class="title text-white">Find the Exact Extension That Defines Your Mission</h3>
-            <p class="description text-muted">
-              Your domain extension is your brand's first impression. Modern founders pick niche TLDs to signal innovation, sector authority, and instant credibility.
+  <!-- =========================================================
+       BLOCK 3: Strategic Branding (Top TLD Extensions Spotlight)
+       ========================================================= -->
+  <div class="aceorbit-service ace-service-area ace-section-gap bg-color-white position-relative border-bottom-1 bottom-overlays">
+    <div class="container aceorbit-animated-shape position-relative" style="z-index: 2;">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-8 col-12">
+          <div class="section-title text-center" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+            <span class="pre-title">Strategic Branding</span>
+            <h3 class="title">Find the Exact Extension That Defines Your Mission</h3>
+            <p class="description max-w-750 mx-auto mt-2">
+              Your domain extension is your brand's digital identity. Choose an extension tailored for commercial authority, tech innovation, and search visibility.
             </p>
           </div>
+        </div>
+      </div>
 
-          <div class="row g-3">
-            <div class="col-sm-6">
-              <div class="p-3 rounded-3 border border-secondary h-100" style="background: rgba(255,255,255,0.03);">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                  <span class="fs-4 font-weight-bold text-danger">.ai</span>
-                  <span class="badge bg-danger">Trending</span>
+      <div class="row aceorbit-about-one-service g-4 mt--20 justify-content-center">
+        <!-- Card 1: .com -->
+        <div class="col-lg-3 col-md-6 col-12" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+          <div class="service-card service-card-3 text-left shape-bg-1 bg-grey h-100">
+            <div class="inner d-flex flex-column h-100 justify-content-between">
+              <div>
+                <div class="icon">
+                  <span><i class="ri-global-line"></i></span>
                 </div>
-                <h6 class="text-white mb-1">Artificial Intelligence</h6>
-                <p class="small text-muted mb-0">The universal badge of innovation for LLM agents, robotics, and tech pioneers.</p>
+                <div class="content">
+                  <div class="d-flex align-items-center justify-content-between mb-2">
+                    <h6 class="title mb-0">.com Domain</h6>
+                    <span class="badge-theme-tld">Universal</span>
+                  </div>
+                  <p class="description">The worldwide gold standard of digital credibility. High recall for global startups and enterprises.</p>
+                </div>
               </div>
-            </div>
-
-            <div class="col-sm-6">
-              <div class="p-3 rounded-3 border border-secondary h-100" style="background: rgba(255,255,255,0.03);">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                  <span class="fs-4 font-weight-bold text-info">.io</span>
-                  <span class="badge bg-info text-dark">Developer</span>
+              <div class="tld-card-pricing-row pt-3 border-top mt-auto d-flex align-items-center justify-content-between">
+                <div>
+                  <span class="tld-price-val prices" data-inr="₹999" data-usd="$11.99">₹999</span>
+                  <span class="tld-price-unit d-block text-muted">/1st Year</span>
                 </div>
-                <h6 class="text-white mb-1">Tech &amp; SaaS Platforms</h6>
-                <p class="small text-muted mb-0">Short, memorable, and globally embraced by developers and digital startups.</p>
-              </div>
-            </div>
-
-            <div class="col-sm-6">
-              <div class="p-3 rounded-3 border border-secondary h-100" style="background: rgba(255,255,255,0.03);">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                  <span class="fs-4 font-weight-bold text-success">.in</span>
-                  <span class="badge bg-success">National</span>
-                </div>
-                <h6 class="text-white mb-1">India Digital Economy</h6>
-                <p class="small text-muted mb-0">Rank higher locally in Indian search results and build deep local trust with 1.4B consumers.</p>
-              </div>
-            </div>
-
-            <div class="col-sm-6">
-              <div class="p-3 rounded-3 border border-secondary h-100" style="background: rgba(255,255,255,0.03);">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                  <span class="fs-4 font-weight-bold text-warning">.store</span>
-                  <span class="badge bg-warning text-dark">E-Commerce</span>
-                </div>
-                <h6 class="text-white mb-1">D2C &amp; Online Retail</h6>
-                <p class="small text-muted mb-0">Tell shoppers exactly what you do. Boost sales conversion for Shopify &amp; WooCommerce.</p>
+                <a href="/domain-search" class="ace-btn btn-small">Register</a>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="col-lg-6 text-center" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
-          <div class="position-relative">
-            <img src="/assets/images/tld-domains-showcase.jpg" alt="Hostamble Domain Registration Hub" class="img-fluid rounded-4 shadow-lg border border-secondary" style="max-height: 440px; object-fit: cover; width: 100%;" />
-            <div class="position-absolute bottom-0 start-50 translate-middle-x mb-3 px-3 py-2 bg-dark rounded-pill border border-danger text-white small" style="white-space: nowrap;">
-              <i class="ri-check-double-line text-danger me-1"></i> Instant Domain Registration &amp; Anycast DNS
+        <!-- Card 2: .in -->
+        <div class="col-lg-3 col-md-6 col-12" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
+          <div class="service-card service-card-3 text-left shape-bg-2 bg-grey h-100">
+            <div class="inner d-flex flex-column h-100 justify-content-between">
+              <div>
+                <div class="icon">
+                  <span><i class="ri-map-pin-user-line"></i></span>
+                </div>
+                <div class="content">
+                  <div class="d-flex align-items-center justify-content-between mb-2">
+                    <h6 class="title mb-0">.in Domain</h6>
+                    <span class="badge-theme-tld">India SEO</span>
+                  </div>
+                  <p class="description">Rank higher on Google India (google.co.in) and build direct localized trust with 1.4B Indian consumers.</p>
+                </div>
+              </div>
+              <div class="tld-card-pricing-row pt-3 border-top mt-auto d-flex align-items-center justify-content-between">
+                <div>
+                  <span class="tld-price-val prices" data-inr="₹499" data-usd="$5.99">₹499</span>
+                  <span class="tld-price-unit d-block text-muted">/1st Year</span>
+                </div>
+                <a href="/domain-search" class="ace-btn btn-small">Register</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: .ai -->
+        <div class="col-lg-3 col-md-6 col-12" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
+          <div class="service-card service-card-3 text-left shape-bg-1 bg-grey h-100">
+            <div class="inner d-flex flex-column h-100 justify-content-between">
+              <div>
+                <div class="icon">
+                  <span><i class="ri-cpu-line"></i></span>
+                </div>
+                <div class="content">
+                  <div class="d-flex align-items-center justify-content-between mb-2">
+                    <h6 class="title mb-0">.ai Domain</h6>
+                    <span class="badge-theme-tld">Tech Alpha</span>
+                  </div>
+                  <p class="description">The undisputed category flag for artificial intelligence, machine learning, autonomous agents, and SaaS.</p>
+                </div>
+              </div>
+              <div class="tld-card-pricing-row pt-3 border-top mt-auto d-flex align-items-center justify-content-between">
+                <div>
+                  <span class="tld-price-val prices" data-inr="₹6,499" data-usd="$79.99">₹6,499</span>
+                  <span class="tld-price-unit d-block text-muted">/1st Year</span>
+                </div>
+                <a href="/domain-search" class="ace-btn btn-small">Register</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: .store -->
+        <div class="col-lg-3 col-md-6 col-12" data-sal-delay="300" data-sal="slide-up" data-sal-duration="800">
+          <div class="service-card service-card-3 text-left shape-bg-2 bg-grey h-100">
+            <div class="inner d-flex flex-column h-100 justify-content-between">
+              <div>
+                <div class="icon">
+                  <span><i class="ri-shopping-bag-3-line"></i></span>
+                </div>
+                <div class="content">
+                  <div class="d-flex align-items-center justify-content-between mb-2">
+                    <h6 class="title mb-0">.store Domain</h6>
+                    <span class="badge-theme-tld">E-Commerce</span>
+                  </div>
+                  <p class="description">High commercial purchase intent that signals retail instantly. Ideal for D2C brands, boutiques, and Shopify stores.</p>
+                </div>
+              </div>
+              <div class="tld-card-pricing-row pt-3 border-top mt-auto d-flex align-items-center justify-content-between">
+                <div>
+                  <span class="tld-price-val prices" data-inr="₹299" data-usd="$3.99">₹299</span>
+                  <span class="tld-price-unit d-block text-muted">/1st Year</span>
+                </div>
+                <a href="/domain-search" class="ace-btn btn-small">Register</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Floating Background Shapes -->
+    <div class="shape-dot-wrapper shape-wrapper d-xl-block d-none">
+      <div class="shape-image shape-image-1"><img src="/assets/images/shape29.png" alt="Shape"></div>
+      <div class="shape-image shape-image-2"><img src="/assets/images/shape0306.png" alt="Shape"></div>
+      <div class="shape-image shape-image-3"><img src="/assets/images/shape0206.png" alt="Shape"></div>
+      <div class="shape-image shape-image-4"><img src="/assets/images/shape19.png" alt="Shape"></div>
+    </div>
   </div>
 
-  <!-- New Block 2: Renewal Price-Lock Transparency & No Hidden Fees Guarantee -->
-  <div class="ace-section-gap bg-image">
-    <div class="container">
-      <div class="row text-center mb-5">
-        <div class="col-lg-12">
-          <div class="section-title" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+  <!-- =========================================================
+       BLOCK 4: 100% Transparent Zero Renewal Bait-and-Switch Guarantees
+       ========================================================= -->
+  <div class="aceorbit-service ace-service-area ace-section-gap bg-color-light position-relative border-bottom-1">
+    <div class="container aceorbit-animated-shape">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-8 col-12">
+          <div class="section-title text-center" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
             <span class="pre-title">100% Transparent</span>
             <h3 class="title">Zero Renewal Bait-and-Switch Guarantees</h3>
-            <p class="description max-w-700 mx-auto mt-2">
-              Unlike legacy registrars who lure you in with ₹99 introductory rates and then silently charge ₹2,999 on renewal, Hostamble commits to clear, upfront, honest pricing for life.
+            <p class="description max-w-750 mx-auto mt-2">
+              Unlike legacy registrars who lure you in with promotional rates and silently hike renewal fees by 500%, Hostamble commits to clear, upfront, honest pricing for life.
             </p>
           </div>
         </div>
       </div>
 
-      <div class="row g-4 justify-content-center">
-        <div class="col-lg-3 col-md-6" data-sal-delay="100" data-sal="slide-up" data-sal-duration="800">
-          <div class="p-4 bg-white border rounded-3 shadow-sm text-center h-100">
-            <div class="mb-3 text-danger fs-1"><i class="ri-lock-unlock-line"></i></div>
-            <h5 class="mb-2 font-weight-bold">No Transfer-Out Lock</h5>
-            <p class="small text-muted mb-0">You own your domain outright. Generate your EPP auth code anytime directly from the dashboard with zero lock-in penalties.</p>
+      <div class="row aceorbit-about-one-service g-4 mt--20 justify-content-center">
+        <!-- Feature 1: No Transfer Lock -->
+        <div class="col-lg-3 col-md-6 col-12" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+          <div class="service-card service-card-3 text-left shape-bg-1 bg-white h-100">
+            <div class="inner">
+              <div class="icon">
+                <span><i class="ri-lock-unlock-line"></i></span>
+              </div>
+              <div class="content">
+                <h6 class="title">No Transfer-Out Lock</h6>
+                <p class="description">You own your domain outright. Generate your EPP auth code 24/7 directly from your dashboard with zero penalty fees or artificial holdbacks.</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="col-lg-3 col-md-6" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-          <div class="p-4 bg-white border rounded-3 shadow-sm text-center h-100">
-            <div class="mb-3 text-danger fs-1"><i class="ri-price-tag-3-line"></i></div>
-            <h5 class="mb-2 font-weight-bold">Clear Renewal Table</h5>
-            <p class="small text-muted mb-0">Our full renewal rates are published in plain sight in our TLD directory before you purchase. No surprise credit card renewals.</p>
+        <!-- Feature 2: Published Renewal Table -->
+        <div class="col-lg-3 col-md-6 col-12" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
+          <div class="service-card service-card-3 text-left shape-bg-2 bg-white h-100">
+            <div class="inner">
+              <div class="icon">
+                <span><i class="ri-price-tag-3-line"></i></span>
+              </div>
+              <div class="content">
+                <h6 class="title">Clear Renewal Table</h6>
+                <p class="description">All renewal rates are published in plain sight in our rate card before you checkout. Never experience surprise credit card renewals.</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="col-lg-3 col-md-6" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
-          <div class="p-4 bg-white border rounded-3 shadow-sm text-center h-100">
-            <div class="mb-3 text-danger fs-1"><i class="ri-user-unfollow-line"></i></div>
-            <h5 class="mb-2 font-weight-bold">Free WHOIS Forever</h5>
-            <p class="small text-muted mb-0">We never charge for privacy in Year 2. Your contact details remain shielded from scrapers, spam bots, and unsolicited cold calls.</p>
+        <!-- Feature 3: Free WHOIS Privacy Forever -->
+        <div class="col-lg-3 col-md-6 col-12" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
+          <div class="service-card service-card-3 text-left shape-bg-1 bg-white h-100">
+            <div class="inner">
+              <div class="icon">
+                <span><i class="ri-shield-user-line"></i></span>
+              </div>
+              <div class="content">
+                <h6 class="title">Free WHOIS Privacy Forever</h6>
+                <p class="description">We never charge for privacy in subsequent years. Your personal phone and address remain shielded from spammers and scrapers for life.</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="col-lg-3 col-md-6" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
-          <div class="p-4 bg-white border rounded-3 shadow-sm text-center h-100">
-            <div class="mb-3 text-danger fs-1"><i class="ri-coupon-3-line"></i></div>
-            <h5 class="mb-2 font-weight-bold">No Hidden ICANN Fees</h5>
-            <p class="small text-muted mb-0">Every mandatory registry fee and ICANN fee is completely included in the quoted checkout price. What you see is what you pay.</p>
+        <!-- Feature 4: No Hidden ICANN Fees -->
+        <div class="col-lg-3 col-md-6 col-12" data-sal-delay="300" data-sal="slide-up" data-sal-duration="800">
+          <div class="service-card service-card-3 text-left shape-bg-2 bg-white h-100">
+            <div class="inner">
+              <div class="icon">
+                <span><i class="ri-checkbox-circle-line"></i></span>
+              </div>
+              <div class="content">
+                <h6 class="title">All Registry &amp; ICANN Fees Included</h6>
+                <p class="description">Mandatory ICANN and registry surcharges are already factored into our quoted prices. The price you see is the exact amount you pay.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- New Block 3: The $45+ Free Domain Extras Value Stack -->
-  <div class="ace-section-gap bg-image" style="background: #f8f9fa;">
-    <div class="container">
+  <!-- =========================================================
+       BLOCK 5: Included Free of Charge (Complimentary Domain Tools)
+       ========================================================= -->
+  <div class="ace-feature-area ace-section-gap bg-color-white position-relative border-bottom-1">
+    <div class="container aceorbit-animated-shape">
       <div class="row align-items-center g-5">
         <div class="col-lg-5" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
           <div class="section-title text-start">
             <span class="pre-title">Included Free of Charge</span>
-            <h3 class="title">Over $45 Worth of Complimentary Tools with Every Domain</h3>
-            <p class="description">
-              Other registrars charge extra fees for basic features. At Hostamble, we include enterprise-grade security and DNS management tools with every single registered domain.
+            <h3 class="title">Over ₹3,500 ($45+) Worth of Free Tools Included with Every Domain</h3>
+            <p class="description mt-3">
+              While other registrars charge separate annual add-on fees for basic functionality, Hostamble bundles enterprise-grade Anycast DNS, WHOIS identity masking, branded email forwarders, and theft locks free with every single domain.
             </p>
             <div class="mt-4">
-              <a href="#tld-table" class="ace-btn">Register Your Domain Today</a>
+              <a href="#tld-table" class="ace-btn">View All Domain Rates <i class="icon-arrow-right-line-right"></i></a>
             </div>
           </div>
         </div>
 
         <div class="col-lg-7" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
-          <div class="p-4 p-md-5 bg-white rounded-4 shadow-sm border">
-            <div class="d-flex justify-content-between align-items-center py-3 border-bottom">
-              <div>
-                <h6 class="mb-0 font-weight-bold">Enterprise Anycast DNS Hosting</h6>
-                <small class="text-muted">High-availability global DNS cluster</small>
-              </div>
-              <div>
-                <span class="text-muted text-decoration-line-through me-2">$10/yr</span>
-                <span class="badge bg-success text-white">FREE</span>
-              </div>
-            </div>
-
-            <div class="d-flex justify-content-between align-items-center py-3 border-bottom">
-              <div>
-                <h6 class="mb-0 font-weight-bold">WHOIS Privacy Masking</h6>
-                <small class="text-muted">Guards your identity against scrapers</small>
-              </div>
-              <div>
-                <span class="text-muted text-decoration-line-through me-2">$12/yr</span>
-                <span class="badge bg-success text-white">FREE</span>
+          <div class="row g-4">
+            <!-- Tool 1 -->
+            <div class="col-sm-6 col-12">
+              <div class="service-card service-card-3 text-left shape-bg-1 bg-grey h-100">
+                <div class="inner">
+                  <div class="icon">
+                    <span><i class="ri-flashlight-line"></i></span>
+                  </div>
+                  <div class="content">
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                      <h6 class="title mb-0">Anycast DNS Control</h6>
+                      <span class="badge-free-included">FREE</span>
+                    </div>
+                    <p class="description">Instant propagation across globally distributed Tier-IV edge nameservers for lightning-fast speeds.</p>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div class="d-flex justify-content-between align-items-center py-3 border-bottom">
-              <div>
-                <h6 class="mb-0 font-weight-bold">Registrar-Lock Theft Shield</h6>
-                <small class="text-muted">Blocks unauthorized transfer attempts</small>
-              </div>
-              <div>
-                <span class="text-muted text-decoration-line-through me-2">$15/yr</span>
-                <span class="badge bg-success text-white">FREE</span>
+            <!-- Tool 2 -->
+            <div class="col-sm-6 col-12">
+              <div class="service-card service-card-3 text-left shape-bg-2 bg-grey h-100">
+                <div class="inner">
+                  <div class="icon">
+                    <span><i class="ri-shield-keyhole-line"></i></span>
+                  </div>
+                  <div class="content">
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                      <h6 class="title mb-0">WHOIS Privacy Shield</h6>
+                      <span class="badge-free-included">FREE</span>
+                    </div>
+                    <p class="description">Guards your personal name, address, and mobile number from scrapers, marketing bots, and cold calls.</p>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div class="d-flex justify-content-between align-items-center py-3">
-              <div>
-                <h6 class="mb-0 font-weight-bold">Email &amp; URL Forwarding</h6>
-                <small class="text-muted">Route branded emails to Gmail or Outlook</small>
+            <!-- Tool 3 -->
+            <div class="col-sm-6 col-12">
+              <div class="service-card service-card-3 text-left shape-bg-2 bg-grey h-100">
+                <div class="inner">
+                  <div class="icon">
+                    <span><i class="ri-lock-2-line"></i></span>
+                  </div>
+                  <div class="content">
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                      <h6 class="title mb-0">Domain Theft Lock</h6>
+                      <span class="badge-free-included">FREE</span>
+                    </div>
+                    <p class="description">Registrar-level security guard prevents accidental transfers or unauthorized hijacking attempts.</p>
+                  </div>
+                </div>
               </div>
-              <div>
-                <span class="text-muted text-decoration-line-through me-2">$8/yr</span>
-                <span class="badge bg-success text-white">FREE</span>
+            </div>
+
+            <!-- Tool 4 -->
+            <div class="col-sm-6 col-12">
+              <div class="service-card service-card-3 text-left shape-bg-1 bg-grey h-100">
+                <div class="inner">
+                  <div class="icon">
+                    <span><i class="ri-mail-send-line"></i></span>
+                  </div>
+                  <div class="content">
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                      <h6 class="title mb-0">Email Forwarders</h6>
+                      <span class="badge-free-included">FREE</span>
+                    </div>
+                    <p class="description">Create custom branded forwarders (e.g. info@yourdomain.com) routed straight to your existing inbox.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -364,38 +473,65 @@ const { heroStartPrice, allTlds } = domainPricing;
     </div>
   </div>
 
-  <!-- Block 4: Domain Lifecycle & Easy 3-Step Process -->
-  <div class="ace-section-gap bg-image">
-    <div class="container">
-      <div class="row text-center mb-5">
+  <!-- =========================================================
+       BLOCK 6: Simple Steps (Authentic Theme service-card-7 Sequence)
+       ========================================================= -->
+  <div class="aceorbit-progress ace-service-area ace-section-gap bg-color-light position-relative">
+    <div class="container aceorbit-animated-shape">
+      <div class="row">
         <div class="col-lg-12">
-          <div class="section-title">
+          <div class="section-title text-center" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
             <span class="pre-title">Simple Steps</span>
             <h3 class="title">How to Register or Transfer Your Domain</h3>
+            <p class="description max-w-750 mx-auto mt-2">
+              Get your domain registered and live in three simple steps with automated instant provisioning and zero technical friction.
+            </p>
           </div>
         </div>
       </div>
+      <div class="row g-5 mt--20 justify-content-center">
+        <!-- Step 1 -->
+        <div class="service-card-single col-lg-4 col-md-6 col-12" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+          <div class="service-card service-card-7 shape-bg-1">
+            <div class="inner">
+              <div class="icon">
+                <span><i class="ri-search-2-line"></i></span>
+              </div>
+              <div class="content">
+                <h6 class="title">1. Search Domain Name</h6>
+                <p class="description">Type your desired brand or business name into our real-time search engine to check instant availability across 400+ extensions.</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <div class="row g-4 justify-content-center">
-        <div class="col-lg-4 col-md-6 col-12 text-center">
-          <div class="p-4 bg-white rounded-3 border shadow-sm h-100">
-            <div class="step-num bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 48px; height: 48px; font-weight: bold; font-size: 20px;">1</div>
-            <h5 class="font-weight-bold">Search Domain Name</h5>
-            <p class="text-muted small">Type your desired brand or business name into our real-time search engine to verify instant availability.</p>
+        <!-- Step 2 -->
+        <div class="service-card-single col-lg-4 col-md-6 col-12" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
+          <div class="service-card service-card-7 shape-bg-2">
+            <div class="inner">
+              <div class="icon">
+                <span><i class="ri-shield-check-line"></i></span>
+              </div>
+              <div class="content">
+                <h6 class="title">2. Select TLD &amp; Configure</h6>
+                <p class="description">Pick your preferred extension (.com, .in, .ai) and enable free Anycast DNS and WHOIS privacy protection with a single click.</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6 col-12 text-center">
-          <div class="p-4 bg-white rounded-3 border shadow-sm h-100">
-            <div class="step-num bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 48px; height: 48px; font-weight: bold; font-size: 20px;">2</div>
-            <h5 class="font-weight-bold">Select TLD &amp; Configure</h5>
-            <p class="text-muted small">Choose your extension (.com, .in, etc.) and add free DNS management and WHOIS privacy with a single click.</p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-12 text-center">
-          <div class="p-4 bg-white rounded-3 border shadow-sm h-100">
-            <div class="step-num bg-warning text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 48px; height: 48px; font-weight: bold; font-size: 20px;">3</div>
-            <h5 class="font-weight-bold">Instant Activation</h5>
-            <p class="text-muted small">Complete checkout with secure Indian UPI, cards, or international payment methods. Your domain is active in minutes.</p>
+
+        <!-- Step 3 -->
+        <div class="service-card-single col-lg-4 col-md-6 col-12" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
+          <div class="service-card service-card-7 shape-bg-3">
+            <div class="inner">
+              <div class="icon">
+                <span><i class="ri-rocket-line"></i></span>
+              </div>
+              <div class="content">
+                <h6 class="title">3. Instant Global Activation</h6>
+                <p class="description">Complete checkout via UPI, Netbanking, or international cards. Your domain is provisioned instantly across global root DNS clusters.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -429,79 +565,13 @@ const { heroStartPrice, allTlds } = domainPricing;
     </div>
   </div>
 
-  <!-- Block 6: Domain FAQs Accordion -->
-  <div class="aceorbit-progress ace-service-area ace-section-gap bg-image faq">
-    <div class="container aceorbit-animated-shape">
-      <div class="row mb-5 text-center">
-        <div class="col-lg-12">
-          <div class="section-title">
-            <span class="pre-title">Got Questions?</span>
-            <h3 class="title">Frequently Asked Questions About Domain Pricing</h3>
-          </div>
-        </div>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-12 col-lg-10">
-          <div class="accordion accordion-flush" id="tldFaqs">
-            <div class="accordion-item">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#tld-faq-1" aria-expanded="true">
-                Are there any hidden fees or ICANN charges added at checkout?
-              </button>
-              <div id="tld-faq-1" class="accordion-collapse collapse show" data-bs-parent="#tldFaqs">
-                <div class="accordion-body">
-                  No. Hostamble practices transparent pricing. The price you see includes all mandatory registry fees and standard ICANN fees. What you see is what you pay.
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tld-faq-2" aria-expanded="false">
-                Is WHOIS domain privacy protection really free?
-              </button>
-              <div id="tld-faq-2" class="accordion-collapse collapse" data-bs-parent="#tldFaqs">
-                <div class="accordion-body">
-                  Yes, WHOIS privacy protection is 100% free forever for all eligible TLDs (.com, .net, .org, .co, etc.) where registry regulations allow privacy masking.
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tld-faq-3" aria-expanded="false">
-                How does transferring a domain to Hostamble work?
-              </button>
-              <div id="tld-faq-3" class="accordion-collapse collapse" data-bs-parent="#tldFaqs">
-                <div class="accordion-body">
-                  Simply unlock your domain at your current registrar, obtain the EPP/Auth code, and submit the transfer request on our Domain Transfer page. Most transfers include an additional 1-year registration extension.
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tld-faq-4" aria-expanded="false">
-                Can I register a domain without purchasing web hosting?
-              </button>
-              <div id="tld-faq-4" class="accordion-collapse collapse" data-bs-parent="#tldFaqs">
-                <div class="accordion-body">
-                  Yes! You can register and hold domains independently. You still get full access to our free Anycast DNS Manager, URL forwarding, and email forwarding controls.
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tld-faq-5" aria-expanded="false">
-                What payment methods are supported for domain purchases?
-              </button>
-              <div id="tld-faq-5" class="accordion-collapse collapse" data-bs-parent="#tldFaqs">
-                <div class="accordion-body">
-                  We accept UPI (Google Pay, PhonePe, Paytm), Indian Netbanking, Debit &amp; Credit Cards, International Visa/Mastercard/Amex, and PayPal.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- Block 6: Domain FAQs (Reused FaqBlock Component) -->
+  <FaqBlock 
+    items={tldFaqs} 
+    preTitle="Got Questions?" 
+    title="Frequently Asked Questions About Domain Pricing" 
+    description="Transparent answers about ICANN fees, renewal price locks, free WHOIS privacy, and transfer processes."
+  />
 
 </Layout>
 
@@ -523,12 +593,10 @@ const { heroStartPrice, allTlds } = domainPricing;
 
   function filterTldCategory(category, btn) {
     document.querySelectorAll('.tld-cat-btn').forEach(b => {
-      b.classList.remove('active', 'btn-dark');
-      b.classList.add('btn-outline-secondary');
+      b.classList.remove('active');
     });
     if (btn) {
-      btn.classList.add('active', 'btn-dark');
-      btn.classList.remove('btn-outline-secondary');
+      btn.classList.add('active');
     }
 
     const rows = document.querySelectorAll('#tldTableBody tr');
@@ -542,3 +610,71 @@ const { heroStartPrice, allTlds } = domainPricing;
     });
   }
 </script>
+
+<style is:global>
+  /* TLD Category Navigation Pills (Theme Unified) */
+  .faq-cat-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: #ffffff;
+    border: 1px solid #e5e9f0;
+    color: #4b5565;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .faq-cat-pill:hover {
+    border-color: rgba(255, 80, 26, 0.4);
+    color: var(--color-primary, #ff501a);
+    transform: translateY(-1px);
+  }
+
+  .faq-cat-pill.active {
+    background: #fff5f0;
+    border-color: var(--color-primary, #ff501a);
+    color: var(--color-primary, #ff501a);
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(255, 80, 26, 0.12);
+  }
+
+  /* Badge and Price Styling */
+  .badge-theme-tld {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: rgba(var(--color-primary-rgb, 255, 80, 26), 0.1);
+    color: var(--color-primary, #ff501a);
+  }
+
+  .badge-free-included {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: #ecfdf5;
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+  }
+
+  .tld-price-val {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--color-heading, #1e293b);
+    line-height: 1.1;
+  }
+
+  .tld-price-unit {
+    font-size: 11px;
+    font-weight: 600;
+  }
+</style>
