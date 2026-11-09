@@ -1,16 +1,51 @@
 ---
+export interface Pillar {
+  icon: string;
+  title: string;
+  desc: string;
+}
+
 interface Props {
   preTitle?: string;
   title?: string;
   description?: string;
   showPerks?: boolean;
   showWhatsApp?: boolean;
+  conciergeNotice?: string;
+  whatsAppText?: string;
+  pillars?: Pillar[];
 }
+
+const defaultPillars: Pillar[] = [
+  {
+    icon: "ri-global-line",
+    title: "DNS & Nameserver Setup",
+    desc: "Free assistance configuring A, CNAME, and MX records for Shopify, WordPress, or external VPS."
+  },
+  {
+    icon: "ri-rocket-line",
+    title: "Zero-Downtime Migration",
+    desc: "We handle domain transfer unlocks, EPP codes, and complete website file migrations at no extra fee."
+  },
+  {
+    icon: "ri-mail-check-line",
+    title: "Business Email Routing",
+    desc: "Step-by-step guidance setting up custom domain mailboxes with DKIM, SPF, and DMARC verification."
+  },
+  {
+    icon: "ri-shield-keyhole-line",
+    title: "Free WHOIS Privacy & Security",
+    desc: "Keep your personal contact details masked from public databases with zero renewal surcharges."
+  }
+];
 
 const {
   title = "Need help? We're always here for you.",
   description = "Have questions about domain registration, Anycast DNS setup, free cPanel migration, or selecting the right hosting plan? Our dedicated technical team in India is ready to assist you directly on WhatsApp and Live Chat with fast, human-first guidance.",
   showWhatsApp = true,
+  conciergeNotice = "Need urgent assistance with nameserver changes, domain transfers, or payment verification? Reach our direct team immediately:",
+  whatsAppText = "Hi%20Hostamble,%20I%20need%20help%20with%20domain%20setup%20and%20hosting",
+  pillars = defaultPillars,
 } = Astro.props;
 ---
 
@@ -41,45 +76,17 @@ const {
 
             <!-- SEO & Assistance Highlights Grid -->
             <div class="help-pillars-grid mt-4 pt-2">
-              <div class="pillar-item">
-                <div class="pillar-icon">
-                  <i class="ri-global-line"></i>
+              {pillars.map((p) => (
+                <div class="pillar-item">
+                  <div class="pillar-icon">
+                    <i class={p.icon}></i>
+                  </div>
+                  <div class="pillar-text">
+                    <h6 class="pillar-title">{p.title}</h6>
+                    <p class="pillar-desc">{p.desc}</p>
+                  </div>
                 </div>
-                <div class="pillar-text">
-                  <h6 class="pillar-title">DNS &amp; Nameserver Setup</h6>
-                  <p class="pillar-desc">Free assistance configuring A, CNAME, and MX records for Shopify, WordPress, or external VPS.</p>
-                </div>
-              </div>
-
-              <div class="pillar-item">
-                <div class="pillar-icon">
-                  <i class="ri-rocket-line"></i>
-                </div>
-                <div class="pillar-text">
-                  <h6 class="pillar-title">Zero-Downtime Migration</h6>
-                  <p class="pillar-desc">We handle domain transfer unlocks, EPP codes, and complete website file migrations at no extra fee.</p>
-                </div>
-              </div>
-
-              <div class="pillar-item">
-                <div class="pillar-icon">
-                  <i class="ri-mail-check-line"></i>
-                </div>
-                <div class="pillar-text">
-                  <h6 class="pillar-title">Business Email Routing</h6>
-                  <p class="pillar-desc">Step-by-step guidance setting up custom domain mailboxes with DKIM, SPF, and DMARC verification.</p>
-                </div>
-              </div>
-
-              <div class="pillar-item">
-                <div class="pillar-icon">
-                  <i class="ri-shield-keyhole-line"></i>
-                </div>
-                <div class="pillar-text">
-                  <h6 class="pillar-title">Free WHOIS Privacy &amp; Security</h6>
-                  <p class="pillar-desc">Keep your personal contact details masked from public databases with zero renewal surcharges.</p>
-                </div>
-              </div>
+              ))}
             </div>
 
           </div>
@@ -106,13 +113,13 @@ const {
           </div>
 
           <p class="concierge-notice mb-4">
-            Need urgent assistance with nameserver changes, domain transfers, or payment verification? Reach our direct team immediately:
+            {conciergeNotice}
           </p>
 
           <!-- Primary CTA: Direct WhatsApp Link -->
           {showWhatsApp && (
             <a
-              href="https://wa.me/916284719083?text=Hi%20Hostamble,%20I%20need%20help%20with%20domain%20setup%20and%20hosting"
+              href={`https://wa.me/916284719083?text=${whatsAppText}`}
               target="_blank"
               rel="noopener noreferrer"
               class="concierge-whatsapp-btn w-100 mb-3"
