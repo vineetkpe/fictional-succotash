@@ -8,10 +8,8 @@ interface Props {
 }
 
 const {
-  preTitle = "In-House Hosting & Domain Concierge",
   title = "Need help? We're always here for you.",
   description = "Have questions about domain registration, Anycast DNS setup, free cPanel migration, or selecting the right hosting plan? Our dedicated technical team in India is ready to assist you directly on WhatsApp and Live Chat with fast, human-first guidance.",
-  showPerks = true,
   showWhatsApp = true,
 } = Astro.props;
 ---
@@ -33,15 +31,6 @@ const {
             data-sal-delay="150"
             data-sal-duration="800"
           >
-            <!-- Live Pulse Status Badge -->
-            <div class="help-status-badge d-inline-flex align-items-center mb-3">
-              <span class="live-dot-wrap" aria-hidden="true">
-                <span class="live-dot-ring"></span>
-                <span class="live-dot-core"></span>
-              </span>
-              <span class="badge-text">{preTitle}</span>
-            </div>
-
             <h3 class="title text-white">
               {title}
             </h3>
@@ -93,28 +82,11 @@ const {
               </div>
             </div>
 
-            <!-- Trust Badges Strip -->
-            {showPerks && (
-              <div class="help-perks d-flex flex-wrap align-items-center gap-2 pt-3 mt-2">
-                <div class="help-perk-item">
-                  <i class="ri-checkbox-circle-fill" aria-hidden="true"></i>
-                  <span>Average Response &lt; 5 Mins</span>
-                </div>
-                <div class="help-perk-item">
-                  <i class="ri-checkbox-circle-fill" aria-hidden="true"></i>
-                  <span>Support in Hindi &amp; English</span>
-                </div>
-                <div class="help-perk-item">
-                  <i class="ri-checkbox-circle-fill" aria-hidden="true"></i>
-                  <span>Semi-Managed Technical Assistance</span>
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </div>
 
-      <!-- Right Column: Elevated Glassmorphic Concierge Support Card -->
+      <!-- Right Column: Crisp Concierge Support Card (Very Little Curve) -->
       <div class="col-lg-5 col-md-12">
         <div
           class="help-concierge-card"
@@ -129,12 +101,12 @@ const {
             </div>
             <div>
               <h5 class="concierge-title text-white mb-0">Human Technical Support</h5>
-              <span class="concierge-subtitle">Real specialists on duty • Zero frustrating chatbots</span>
+              <span class="concierge-subtitle">Real specialists on duty • Direct assistance</span>
             </div>
           </div>
 
           <p class="concierge-notice mb-4">
-            Need urgent assistance with nameserver changes, domain transfers, or payment verification? Reach our direct concierge immediately:
+            Need urgent assistance with nameserver changes, domain transfers, or payment verification? Reach our direct team immediately:
           </p>
 
           <!-- Primary CTA: Direct WhatsApp Link -->
@@ -176,10 +148,10 @@ const {
             </a>
           </div>
 
-          <!-- Bottom Micro SLA Guarantee -->
+          <!-- Bottom Micro SLA Guarantee (Honest & Clean) -->
           <div class="concierge-footer mt-4 pt-3 border-top border-white-15 d-flex align-items-center justify-content-between text-white-80 small">
             <span><i class="ri-flashlight-line text-warning me-1"></i> Quick resolution guaranteed</span>
-            <span><i class="ri-shield-check-line text-success me-1"></i> ICANN Partner</span>
+            <span><i class="ri-checkbox-circle-line text-success me-1"></i> Free Migration &amp; DNS Help</span>
           </div>
         </div>
       </div>
@@ -196,9 +168,8 @@ const {
     position: relative;
     background-size: cover;
     background-position: center;
-    /* Height & Vertical Breathing Room Enhancement */
-    padding: 105px 0 115px;
-    min-height: 480px;
+    padding: 95px 0 105px;
+    min-height: 460px;
     display: flex;
     align-items: center;
   }
@@ -222,64 +193,6 @@ const {
     bottom: -40%;
     left: -15%;
     background: radial-gradient(circle, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0) 70%);
-  }
-
-  /* Live Pulse Status Badge */
-  .help-status-badge {
-    background: rgba(255, 255, 255, 0.16);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    padding: 7px 16px;
-    border-radius: 999px;
-    gap: 8px;
-  }
-
-  .badge-text {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: #ffffff;
-    line-height: 1;
-  }
-
-  .live-dot-wrap {
-    position: relative;
-    width: 10px;
-    height: 10px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .live-dot-core {
-    position: relative;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #22c55e;
-    box-shadow: 0 0 8px rgba(34, 197, 94, 0.9);
-  }
-
-  .live-dot-ring {
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background-color: rgba(34, 197, 94, 0.45);
-    animation: livePulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
-  @keyframes livePulse {
-    0% {
-      transform: scale(0.6);
-      opacity: 0.9;
-    }
-    100% {
-      transform: scale(1.6);
-      opacity: 0;
-    }
   }
 
   /* Headings & Descriptions */
@@ -321,7 +234,8 @@ const {
   .pillar-icon {
     width: 36px;
     height: 36px;
-    border-radius: 10px;
+    /* Very little curve */
+    border-radius: 6px;
     background: rgba(255, 255, 255, 0.18);
     border: 1px solid rgba(255, 255, 255, 0.28);
     display: flex;
@@ -348,63 +262,33 @@ const {
     margin-bottom: 0;
   }
 
-  /* Micro-Perks Checklist */
-  .help-perks {
-    border-top: 1px solid rgba(255, 255, 255, 0.18);
-  }
-
-  .help-perk-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    font-size: 13.5px;
-    font-weight: 600;
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    padding: 6px 14px;
-    border-radius: 999px;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    transition: all 0.25s ease;
-  }
-
-  .help-perk-item:hover {
-    background: rgba(255, 255, 255, 0.22);
-    transform: translateY(-2px);
-  }
-
-  .help-perk-item i {
-    color: #22c55e;
-    font-size: 15px;
-    line-height: 1;
-  }
-
   /* =========================================================
-     Right Column: Glassmorphic Concierge Support Card
+     Right Column: Clean Concierge Card (Very Little Curve: 6px)
      ========================================================= */
   .help-concierge-card {
     background: rgba(255, 255, 255, 0.14);
     border: 1px solid rgba(255, 255, 255, 0.28);
-    border-radius: 20px;
-    padding: 34px 30px;
+    /* Very little curve as requested */
+    border-radius: 6px;
+    padding: 32px 28px;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.14);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
     position: relative;
     z-index: 2;
   }
 
   .concierge-avatar-wrap {
-    width: 48px;
-    height: 48px;
-    border-radius: 14px;
+    width: 44px;
+    height: 44px;
+    /* Very little curve */
+    border-radius: 6px;
     background: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #ff501a;
-    font-size: 24px;
+    font-size: 22px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
@@ -412,8 +296,8 @@ const {
     position: absolute;
     bottom: -2px;
     right: -2px;
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background-color: #22c55e;
     border: 2px solid #ffffff;
@@ -435,7 +319,7 @@ const {
     color: rgba(255, 255, 255, 0.9);
   }
 
-  /* Big Direct WhatsApp Button */
+  /* Direct WhatsApp Button (Very Little Curve: 6px) */
   .concierge-whatsapp-btn {
     display: flex;
     align-items: center;
@@ -443,21 +327,22 @@ const {
     background: #25d366;
     color: #ffffff !important;
     padding: 12px 18px;
-    border-radius: 12px;
+    /* Very little curve */
+    border-radius: 6px;
     text-decoration: none;
-    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
   }
 
   .concierge-whatsapp-btn:hover {
     background: #20ba59;
-    transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(37, 211, 102, 0.45);
     color: #ffffff !important;
   }
 
   .concierge-whatsapp-btn i:first-child {
-    font-size: 28px;
+    font-size: 26px;
     line-height: 1;
   }
 
@@ -479,31 +364,32 @@ const {
     line-height: 1.2;
   }
 
-  /* Secondary Actions */
+  /* Secondary Actions (Very Little Curve: 6px) */
   .concierge-chat-btn,
   .concierge-ticket-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 12px 18px;
-    border-radius: 10px;
+    padding: 11px 16px;
+    /* Very little curve */
+    border-radius: 6px;
     font-size: 14px;
     font-weight: 700;
     text-decoration: none;
-    transition: all 0.25s ease;
+    transition: all 0.2s ease;
   }
 
   .concierge-chat-btn {
     background: #ffffff;
     color: #0f172a !important;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
 
   .concierge-chat-btn:hover {
     background: #f8fafc;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
   }
 
   .concierge-ticket-btn {
@@ -529,7 +415,7 @@ const {
   /* Responsive Adjustments */
   @media only screen and (max-width: 991px) {
     .help-cta-block {
-      padding: 80px 0;
+      padding: 75px 0;
     }
     .help-cta-block .title {
       font-size: 30px;
@@ -538,7 +424,7 @@ const {
 
   @media only screen and (max-width: 575px) {
     .help-cta-block {
-      padding: 60px 0;
+      padding: 55px 0;
     }
     .help-cta-block .title {
       font-size: 26px;
