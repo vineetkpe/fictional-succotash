@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import HelpCtaBlock from '../components/HelpCtaBlock.astro';
+import InteractiveHeroIllustration from '../components/InteractiveHeroIllustration.astro';
 import { sharedHosting } from '../data/pricing';
 
 const plans = sharedHosting.plans;
@@ -22,13 +23,34 @@ const plans = sharedHosting.plans;
                   <div class="col-lg-6 col-md-12">
                      <div class="inner">
                         <div class="content">
-                           <span class="pre-title" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">Start Building your web presence at <span data-inr={sharedHosting.heroStartPrice.inr} data-usd={sharedHosting.heroStartPrice.usd}>{sharedHosting.heroStartPrice.inr}</span></span>
+                           <div class="hero-eyebrow-pill mb-3" data-sal="slide-up" data-sal-delay="100" data-sal-duration="800">
+                              <span class="eyebrow-dot"></span>
+                              <span class="eyebrow-label">SHARED HOSTING</span>
+                              <span class="eyebrow-sep">•</span>
+                              <span class="eyebrow-tag">FROM <span data-inr={sharedHosting.heroStartPrice.inr} data-usd={sharedHosting.heroStartPrice.usd}>{sharedHosting.heroStartPrice.inr}</span></span>
+                           </div>
                            <h1 class="title" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
                               Shared Hosting - At it's Simplest Best
                            </h1>
-                           <p class="description" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
-                              Perfect for smaller websites and blogs. Comes with cPanel, PHP, Apache and more
+                           <p class="description mb-4" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
+                              Perfect for personal blogs, business portfolios, and fast-growing sites. Powered by LiteSpeed Enterprise, pure NVMe SSDs, and genuine cPanel.
                            </p>
+
+                           <div class="hero-features-list mb-4 d-flex flex-wrap gap-2" data-sal="slide-up" data-sal-delay="280" data-sal-duration="800">
+                              <div class="hero-pill-badge">
+                                 <i class="ri-flashlight-fill text-primary-accent"></i>
+                                 <span>LiteSpeed Turbo</span>
+                              </div>
+                              <div class="hero-pill-badge">
+                                 <i class="ri-shield-check-fill text-success-accent"></i>
+                                 <span>Free SSL &amp; JetBackup</span>
+                              </div>
+                              <div class="hero-pill-badge">
+                                 <i class="ri-dashboard-3-line text-warning"></i>
+                                 <span>cPanel Control</span>
+                              </div>
+                           </div>
+
                            <div class="read-more-btn" data-sal-delay="300" data-sal="slide-up" data-sal-duration="800">
                               <a class="ace-btn" href="#plans">Get Started Today <i class="icon-arrow-right-line-right"></i></a>
                            </div>
@@ -39,10 +61,7 @@ const plans = sharedHosting.plans;
                      </div>
                   </div>
                   <div class="col-lg-6">
-                     <div class="banner-thumbnail">
-                        <img class="img-thumb" src="/assets/images/banner05.png" alt="Banner Images" data-sal-delay="150" data-sal="fade" data-sal-duration="800">
-                     </div>
-                  
+                     <InteractiveHeroIllustration />
                   </div>
                </div>
                <div class="shape-dot-wrapper shape-wrapper d-xl-block d-none">
@@ -359,6 +378,88 @@ const plans = sharedHosting.plans;
            </div>
         </div>
 
+        <!-- =========================================================
+             FEATURED ARCHITECTURE: Next-Gen Shared Cloud (Custom 3D AI Visual)
+             ========================================================= -->
+        <div class="ace-section-gap bg-image position-relative border-top-1 border-bottom-1">
+           <div class="container aceorbit-animated-shape">
+              <div class="row align-items-center g-5">
+                 <!-- Left: Feature Breakdown -->
+                 <div class="col-lg-6" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+                    <div class="section-title text-start mb-4">
+                       <span class="pre-title">CLOUD CLUSTER ARCHITECTURE</span>
+                       <h3 class="title">Next-Gen NVMe Storage with Isolated CloudLinux Speed</h3>
+                       <p class="description mt-2">
+                          Unlike legacy budget web hosts that crowd hundreds of sites onto spinning disks, Hostamble partitions dedicated CPU cores, LVE memory, and lightning-fast pure NVMe SSDs for every client.
+                       </p>
+                    </div>
+
+                    <div class="row g-4 mt-2">
+                       <div class="col-sm-6">
+                          <div class="p-3 rounded-3 border" style="background: rgba(255, 80, 26, 0.04); border-color: rgba(255, 80, 26, 0.15) !important;">
+                             <div class="d-flex align-items-center gap-2 mb-2">
+                                <i class="ri-flashlight-line text-danger" style="font-size: 20px;"></i>
+                                <h6 class="mb-0 font-weight-bold">LiteSpeed Turbo</h6>
+                             </div>
+                             <p class="small text-muted mb-0">10x faster page load and dynamic PHP execution with built-in LSCache integration.</p>
+                          </div>
+                       </div>
+
+                       <div class="col-sm-6">
+                          <div class="p-3 rounded-3 border" style="background: rgba(22, 163, 74, 0.04); border-color: rgba(22, 163, 74, 0.15) !important;">
+                             <div class="d-flex align-items-center gap-2 mb-2">
+                                <i class="ri-shield-check-line text-success" style="font-size: 20px;"></i>
+                                <h6 class="mb-0 font-weight-bold">BitNinja Shield</h6>
+                             </div>
+                             <p class="small text-muted mb-0">24/7 proactive web application firewall (WAF), anti-malware, and DDoS mitigation.</p>
+                          </div>
+                       </div>
+
+                       <div class="col-sm-6">
+                          <div class="p-3 rounded-3 border" style="background: rgba(59, 130, 246, 0.04); border-color: rgba(59, 130, 246, 0.15) !important;">
+                             <div class="d-flex align-items-center gap-2 mb-2">
+                                <i class="ri-hard-drive-2-line text-primary" style="font-size: 20px;"></i>
+                                <h6 class="mb-0 font-weight-bold">Pure NVMe Storage</h6>
+                             </div>
+                             <p class="small text-muted mb-0">Raid-10 enterprise NVMe solid state drives delivering up to 3,500 MB/s read/write speeds.</p>
+                          </div>
+                       </div>
+
+                       <div class="col-sm-6">
+                          <div class="p-3 rounded-3 border" style="background: rgba(245, 158, 11, 0.04); border-color: rgba(245, 158, 11, 0.15) !important;">
+                             <div class="d-flex align-items-center gap-2 mb-2">
+                                <i class="ri-history-line text-warning" style="font-size: 20px;"></i>
+                                <h6 class="mb-0 font-weight-bold">JetBackup 5 Restores</h6>
+                             </div>
+                             <p class="small text-muted mb-0">Automated daily snapshots and 1-click self-service rollbacks right from your cPanel.</p>
+                          </div>
+                       </div>
+                    </div>
+
+                    <div class="mt-4 pt-2 d-flex align-items-center gap-3">
+                       <a href="#plans" class="ace-btn"><span>Choose Your Plan</span> <i class="icon-arrow-right-line-right"></i></a>
+                       <span class="text-muted small"><i class="ri-checkbox-circle-fill text-success me-1"></i> Free Site Migration Included</span>
+                    </div>
+                 </div>
+
+                 <!-- Right: Custom 3D AI Generated Visual -->
+                 <div class="col-lg-6 text-center" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
+                    <div class="position-relative">
+                       <img 
+                          src="/assets/images/shared-hosting-cloud.jpg" 
+                          alt="Hostamble Shared Hosting High Performance Cloud Architecture" 
+                          class="img-fluid rounded-4 shadow-lg border" 
+                          style="max-height: 440px; object-fit: cover; width: 100%; border-color: rgba(255, 80, 26, 0.2) !important;" 
+                       />
+                       <div class="position-absolute bottom-0 start-50 translate-middle-x mb-3 px-3 py-2 bg-dark rounded-pill border border-danger text-white small" style="white-space: nowrap; box-shadow: 0 4px 20px rgba(0,0,0,0.4);">
+                          <i class="ri-radar-line text-danger me-1"></i> Live Infrastructure: LiteSpeed Enterprise &bull; Pure NVMe
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+
          <div class="aceorbit-underhood bg-image ace-section-gap">
             <div class="container aceorbit-animated-shape">
                <div class="row">
@@ -556,4 +657,86 @@ const plans = sharedHosting.plans;
                 </div>
            </div>
         </div>
+
+<style>
+  /* Hero Eyebrow Pill */
+  .hero-eyebrow-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: rgba(255, 80, 26, 0.08);
+    border: 1px solid rgba(255, 80, 26, 0.22);
+    border-radius: 9999px;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #ff501a;
+    letter-spacing: 0.04em;
+    user-select: none;
+  }
+
+  .eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #ff501a;
+    box-shadow: 0 0 8px #ff501a;
+    animation: liveBlink 1.4s infinite;
+  }
+
+  @keyframes liveBlink {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+  }
+
+  .eyebrow-label {
+    letter-spacing: 0.06em;
+  }
+
+  .eyebrow-sep {
+    color: rgba(255, 80, 26, 0.4);
+  }
+
+  .eyebrow-tag {
+    background: #ff501a;
+    color: #ffffff;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 800;
+  }
+
+  /* Hero Pill Badges */
+  .hero-features-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    align-items: center;
+  }
+
+  .hero-pill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(220, 226, 235, 0.95);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1f2937;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  }
+
+  .text-primary-accent {
+    color: #ff501a;
+    font-size: 16px;
+  }
+  .text-success-accent {
+    color: #10b981;
+    font-size: 16px;
+  }
+</style>
 </Layout>
