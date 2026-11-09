@@ -106,7 +106,7 @@ const aiDomainFaqSchema = {
                     <!-- AI Search Form -->
                     <div class="domain-form domain-form-style-1 mt--50 mt_md--30 mt_sm--30 position-relative">
                         <form id="aiDomainForm" class="input-box text-start" onsubmit="return false;">
-                            <input id="aiDomainInput" class="large-input-box" type="search" placeholder="Enter keywords or brand idea (e.g. cloud, pay, flow, craft, nova)..." value="novaflow" name="domain" autocomplete="off" required>
+                            <input id="aiDomainInput" class="large-input-box" type="search" placeholder="Enter keywords or brand idea (e.g. cloud, pay, flow, craft, nova)..." name="domain" autocomplete="off" required>
                             <div class="mail-icon">
                                 <i class="ri-magic-line"></i>
                             </div>
@@ -157,7 +157,7 @@ const aiDomainFaqSchema = {
 <!-- =========================================================
      BLOCK 2: AI Generated Domain Results Dashboard (Native Theme Styling)
      ========================================================= -->
-<div class="aceorbit-service ace-service-area ace-section-gap bg-color-white position-relative border-bottom-1 bottom-overlays" id="resultsSection">
+<div class="aceorbit-service ace-service-area position-relative border-bottom-1" id="resultsSection" style="display: none; padding: 60px 0 70px;">
     <div class="container aceorbit-animated-shape position-relative" style="z-index: 2;">
         
         <!-- Results Section Header (Theme Unified) -->
@@ -165,7 +165,7 @@ const aiDomainFaqSchema = {
             <div class="col-lg-8 col-12">
                 <div class="section-title text-center" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
                     <span class="pre-title" id="resultsCountTag">AI Brand Suggestions</span>
-                    <h3 class="title" id="resultsTitle">Available Domain Ideas for "novaflow"</h3>
+                    <h3 class="title" id="resultsTitle">Available Domain Ideas</h3>
                     <p class="description max-w-750 mx-auto mt-2">
                         Select any domain to check instant live WHOIS availability or copy the name to your clipboard.
                     </p>
@@ -1237,7 +1237,16 @@ const aiDomainFaqSchema = {
 
     // Main Domain Generator function
     async function fetchAiDomains(keyword) {
-      const cleanKw = cleanWord(keyword) || "novaflow";
+      const cleanKw = cleanWord(keyword);
+      if (!cleanKw) return;
+
+      // Reveal results section if hidden and scroll to it
+      const resultsSec = document.getElementById("resultsSection");
+      if (resultsSec) {
+        resultsSec.style.display = "block";
+        resultsSec.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
       if (btnText) btnText.textContent = "Synthesizing...";
       if (btn) btn.disabled = true;
       if (loadingEl) loadingEl.classList.remove("d-none");
@@ -1427,8 +1436,12 @@ const aiDomainFaqSchema = {
     if (form) {
       form.addEventListener("submit", function (e) {
         e.preventDefault();
-        const kw = input ? input.value.trim() : "novaflow";
-        fetchAiDomains(kw);
+        const kw = input ? input.value.trim() : "";
+        if (kw) {
+          fetchAiDomains(kw);
+        } else if (input) {
+          input.focus();
+        }
       });
     }
 
@@ -1436,15 +1449,25 @@ const aiDomainFaqSchema = {
     document.querySelectorAll(".prompt-chip-btn").forEach(chip => {
       chip.addEventListener("click", function () {
         const word = this.getAttribute("data-word");
-        if (input && word) {
-          input.value = word;
+        if (word) {
+          if (input) input.value = word;
           fetchAiDomains(word);
         }
       });
     });
 
-    // Initial load
-    fetchAiDomains("novaflow");
+    // Check if user arrived with URL search query e.g. ?q=mybrand or ?domain=mybrand
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlQuery = urlParams.get("q") || urlParams.get("domain") || urlParams.get("search");
+      if (urlQuery && urlQuery.trim()) {
+        const q = urlQuery.trim();
+        if (input) input.value = q;
+        fetchAiDomains(q);
+      }
+    } catch (e) {
+      // safe fallback
+    }
 
     initDomainHeroScene();
   })();
