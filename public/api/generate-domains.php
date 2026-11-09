@@ -33,7 +33,7 @@ if (!$apiKey) {
 $model = 'gemini-3.8-flash';
 $url = 'https://generativelanguage.googleapis.com/v1beta/models/' . $model . ':generateContent?key=' . $apiKey;
 
-$prompt = "You are an expert domain name generator for Hostamble. For the keywords or brand idea '{$cleanKeyword}', generate exactly 18 highly brandable, catchy, short, modern domain names.
+$prompt = "You are an expert domain name generator for Hostamble Mini AI. For the keywords or brand idea '{$cleanKeyword}', generate exactly 18 highly brandable, catchy, short, modern domain names.
 Include a variety of extensions: .com, .in, .ai, .store, .co.in, .tech, .io, .org.
 No hyphens or numbers.
 Return ONLY a valid JSON array of objects with the exact schema:
@@ -73,7 +73,7 @@ if ($httpCode === 200 && $response) {
         if (is_array($domains) && count($domains) > 0) {
             echo json_encode([
                 'success' => true,
-                'source' => 'gemini-ai',
+                'source' => 'mini-ai',
                 'domains' => $domains
             ]);
             exit;
