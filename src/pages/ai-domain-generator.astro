@@ -1274,26 +1274,9 @@ const aiDomainFaqSchema = {
       return (str || "").toLowerCase().replace(/[^a-z0-9]/g, "").slice(0, 20);
     }
 
-    // Real-Time DNS Availability Verifier (DNS-over-HTTPS via Google & Cloudflare)
+    // Real-Time DNS Availability Verifier (Multi-Source: Google, Cloudflare & RDAP)
     async function checkLiveAvailability(domain) {
-      // 1. Google DNS-over-HTTPS (RFC 8484)
-      try {
-        const controller = new AbortController();
-        const timer = setTimeout(() => controller.abort(), 2000);
-        const res = await fetch(`https://dns.google/resolve?name=${encodeURIComponent(domain)}&type=A`, { signal: controller.signal });
-        clearTimeout(timer);
-        if (res.ok) {
-          const data = await res.json();
-          // Status 3 = NXDOMAIN: Domain not registered / does not exist -> AVAILABLE
-          if (data.Status === 3) return "AVAILABLE";
-          // Status 0 with Answer or Status 2 (zone delegation error) -> TAKEN
-          if ((data.Status === 0 && Array.isArray(data.Answer) && data.Answer.length > 0) || data.Status === 2) {
-            return "TAKEN";
-          }
-        }
-      } catch (e) {}
-
-      // 2. Secondary check for NS records if A record was ambiguous
+      // 1. Google DNS-over-HTTPS (RFC 8484) - Check NS records
       try {
         const controller = new AbortController();
         const timer = setTimeout(() => controller.abort(), 2000);
@@ -1301,18 +1284,31 @@ const aiDomainFaqSchema = {
         clearTimeout(timer);
         if (res.ok) {
           const data = await res.json();
+          // Status 3 = NXDOMAIN: Domain not registered in registry -> AVAILABLE
           if (data.Status === 3) return "AVAILABLE";
-          if ((data.Status === 0 && Array.isArray(data.Answer) && data.Answer.length > 0) || data.Status === 2) {
-            return "TAKEN";
-          }
+          // Status 0 (NOERROR) or Status 2 (SERVFAIL): Domain exists in registry -> TAKEN
+          if (data.Status === 0 || data.Status === 2) return "TAKEN";
         }
       } catch (e) {}
 
-      // 3. Cloudflare DNS-over-HTTPS fallback
+      // 1b. Google DNS-over-HTTPS - Check A records
       try {
         const controller = new AbortController();
         const timer = setTimeout(() => controller.abort(), 2000);
-        const res = await fetch(`https://cloudflare-dns.com/dns-query?name=${encodeURIComponent(domain)}&type=A`, {
+        const res = await fetch(`https://dns.google/resolve?name=${encodeURIComponent(domain)}&type=A`, { signal: controller.signal });
+        clearTimeout(timer);
+        if (res.ok) {
+          const data = await res.json();
+          if (data.Status === 3) return "AVAILABLE";
+          if (data.Status === 0 || data.Status === 2) return "TAKEN";
+        }
+      } catch (e) {}
+
+      // 2. Cloudflare DNS-over-HTTPS fallback
+      try {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), 2000);
+        const res = await fetch(`https://cloudflare-dns.com/dns-query?name=${encodeURIComponent(domain)}&type=NS`, {
           headers: { "accept": "application/dns-json" },
           signal: controller.signal
         });
@@ -1320,10 +1316,18 @@ const aiDomainFaqSchema = {
         if (res.ok) {
           const data = await res.json();
           if (data.Status === 3) return "AVAILABLE";
-          if ((data.Status === 0 && Array.isArray(data.Answer) && data.Answer.length > 0) || data.Status === 2) {
-            return "TAKEN";
-          }
+          if (data.Status === 0 || data.Status === 2) return "TAKEN";
         }
+      } catch (e) {}
+
+      // 3. RDAP fallback (Official Registry Data: 200 = Registered, 404 = Available)
+      try {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), 2500);
+        const res = await fetch(`https://rdap.org/domain/${encodeURIComponent(domain)}`, { signal: controller.signal });
+        clearTimeout(timer);
+        if (res.status === 200) return "TAKEN";
+        if (res.status === 404) return "AVAILABLE";
       } catch (e) {}
 
       return "UNKNOWN";
@@ -1531,7 +1535,7 @@ const aiDomainFaqSchema = {
               badgeEl.innerHTML = `<span class="ai-live-dot dot-taken"></span><span class="badge-text">Taken</span>`;
             } else {
               badgeEl.className = "ai-live-badge status-checking";
-              badgeEl.innerHTML = `<span class="ai-live-dot dot-available"></span><span class="badge-text">Check Live</span>`;
+              badgeEl.innerHTML = `<span class="ai-live-dot dot-checking"></span><span class="badge-text">Check Live</span>`;
             }
           }
 
@@ -1568,6 +1572,16 @@ const aiDomainFaqSchema = {
               if (colEl && currentFilter === "available") {
                 colEl.style.display = "block";
               }
+            } else {
+              footerEl.innerHTML = `
+                <div class="ai-card-pricing">
+                  <span class="ai-card-price prices" data-inr="${item.price.inr}" data-usd="${item.price.usd}">${displayPrice}</span>
+                  <span class="ai-card-price-label d-block text-muted">1st Year Reg</span>
+                </div>
+                <a href="${orderUrl}" target="_blank" rel="noopener noreferrer" class="ace-btn btn-small" title="Check Live WHOIS for ${item.full}">
+                  <span>Check Live</span> <i class="ri-external-link-line"></i>
+                </a>
+              `;
             }
           }
 
@@ -1639,7 +1653,7 @@ const aiDomainFaqSchema = {
           badgeLabel = "Taken";
         } else if (item.status === "UNKNOWN") {
           badgeStatusClass = "status-checking";
-          dotStatusClass = "dot-available";
+          dotStatusClass = "dot-checking";
           badgeLabel = "Check Live";
         }
 

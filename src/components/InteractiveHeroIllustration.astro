@@ -1,27 +1,62 @@
 ---
 // Interactive Hero Illustration with 3D Parallax & Floating Telemetry Badges
+interface Props {
+  image?: string;
+  alt?: string;
+  badge1Label?: string;
+  badge1Value?: string;
+  badge1Icon?: string;
+  badge2Label?: string;
+  badge2Value?: string;
+  badge2Tag?: string;
+  badge2Icon?: string;
+  badge3Label?: string;
+  badge3Value?: string;
+  badge3Icon?: string;
+  badge4Label?: string;
+  badge4Value?: string;
+  badge4Icon?: string;
+}
+
+const {
+  image = "/assets/images/banner06.png",
+  alt = "Hostamble WordPress Web Hosting Platform",
+  badge1Label = "99.9% Uptime",
+  badge1Value = "Zero-Downtime Live",
+  badge1Icon = "ri-pulse-line",
+  badge2Label = "LiteSpeed Turbo",
+  badge2Value = "10x Faster PHP",
+  badge2Tag = "SUPERCHARGED",
+  badge2Icon = "ri-rocket-2-fill",
+  badge3Label = "Free Auto SSL",
+  badge3Value = "256-Bit TLS Secured",
+  badge3Icon = "ri-shield-check-fill",
+  badge4Label = "1-Click Auto Deploy",
+  badge4Value = "Instant Activation",
+  badge4Icon = "ri-flashlight-fill",
+} = Astro.props;
 ---
 
-<div class="hero-interactive-stage" id="heroInteractiveStage">
-  <div class="stage-3d-card" id="stage3dCard">
-    <!-- Base Authentic Artwork (Kept exactly as it is) -->
+<div class="hero-interactive-stage">
+  <div class="stage-3d-card">
+    <!-- Base Authentic Artwork from Image Library -->
     <img 
-      src="/assets/images/banner06.png" 
-      alt="Hostamble WordPress Web Hosting Platform" 
+      src={image} 
+      alt={alt} 
       class="base-illustration" 
       loading="eager"
       decoding="async"
     />
 
-    <!-- Floating Badge 1: 99.9% Uptime (Top Left over analytics chart) -->
+    <!-- Floating Badge 1: Uptime (Top Left) -->
     <div class="hero-float-card card-uptime" style="--depth: 42px; --delay: 0s;">
       <div class="card-icon-wrap icon-green">
         <span class="pulse-beacon"></span>
-        <i class="ri-pulse-line" aria-hidden="true"></i>
+        <i class={badge1Icon} aria-hidden="true"></i>
       </div>
       <div class="card-content">
-        <div class="card-label">99.9% Uptime</div>
-        <div class="card-value">Zero-Downtime Live</div>
+        <div class="card-label">{badge1Label}</div>
+        <div class="card-value">{badge1Value}</div>
       </div>
       <!-- Mini Sparkline SVG -->
       <svg class="mini-sparkline" viewBox="0 0 40 16" aria-hidden="true">
@@ -29,37 +64,37 @@
       </svg>
     </div>
 
-    <!-- Floating Badge 2: LiteSpeed Turbo (Top Right above bar graph) -->
+    <!-- Floating Badge 2: LiteSpeed Turbo (Top Right) -->
     <div class="hero-float-card card-litespeed" style="--depth: 55px; --delay: 1.2s;">
       <div class="card-icon-wrap icon-orange">
-        <i class="ri-rocket-2-fill" aria-hidden="true"></i>
+        <i class={badge2Icon} aria-hidden="true"></i>
       </div>
       <div class="card-content">
-        <div class="card-label">LiteSpeed Turbo</div>
-        <div class="card-value">10x Faster PHP</div>
+        <div class="card-label">{badge2Label}</div>
+        <div class="card-value">{badge2Value}</div>
       </div>
-      <span class="boost-badge">SUPERCHARGED</span>
+      {badge2Tag && <span class="boost-badge">{badge2Tag}</span>}
     </div>
 
-    <!-- Floating Badge 3: Free SSL Security (Bottom Left near developer) -->
+    <!-- Floating Badge 3: Security / cPanel (Bottom Left) -->
     <div class="hero-float-card card-security" style="--depth: 35px; --delay: 2.4s;">
       <div class="card-icon-wrap icon-cyan">
-        <i class="ri-shield-check-fill" aria-hidden="true"></i>
+        <i class={badge3Icon} aria-hidden="true"></i>
       </div>
       <div class="card-content">
-        <div class="card-label">Free Auto SSL</div>
-        <div class="card-value">256-Bit TLS Secured</div>
+        <div class="card-label">{badge3Label}</div>
+        <div class="card-value">{badge3Value}</div>
       </div>
     </div>
 
-    <!-- Floating Badge 4: 1-Click Install (Bottom Right near presenter) -->
+    <!-- Floating Badge 4: Deployment / Backups (Bottom Right) -->
     <div class="hero-float-card card-install" style="--depth: 48px; --delay: 0.8s;">
       <div class="card-icon-wrap icon-amber">
-        <i class="ri-flashlight-fill" aria-hidden="true"></i>
+        <i class={badge4Icon} aria-hidden="true"></i>
       </div>
       <div class="card-content">
-        <div class="card-label">1-Click Auto Deploy</div>
-        <div class="card-value">Instant Activation</div>
+        <div class="card-label">{badge4Label}</div>
+        <div class="card-value">{badge4Value}</div>
       </div>
     </div>
 
@@ -72,64 +107,69 @@
 </div>
 
 <script>
-  // 3D Parallax Tilt Script
-  const stage = document.getElementById('heroInteractiveStage');
-  const card = document.getElementById('stage3dCard');
+  // 3D Parallax Tilt Script supporting multiple stages
+  function initHeroParallax() {
+    const stages = document.querySelectorAll<HTMLElement>('.hero-interactive-stage');
+    stages.forEach((stageEl) => {
+      const cardEl = stageEl.querySelector<HTMLElement>('.stage-3d-card');
+      if (!cardEl) return;
 
-  if (stage && card) {
-    const stageEl = stage;
-    const cardEl = card;
-    let bounds = stageEl.getBoundingClientRect();
-    let isHovering = false;
+      let bounds = stageEl.getBoundingClientRect();
+      let isHovering = false;
 
-    function updateBounds() {
-      bounds = stageEl.getBoundingClientRect();
-    }
+      function updateBounds() {
+        bounds = stageEl.getBoundingClientRect();
+      }
 
-    window.addEventListener('resize', updateBounds);
-    window.addEventListener('scroll', updateBounds, { passive: true });
+      window.addEventListener('resize', updateBounds);
+      window.addEventListener('scroll', updateBounds, { passive: true });
 
-    stageEl.addEventListener('mouseenter', () => {
-      isHovering = true;
-      cardEl.style.transition = 'transform 0.15s ease-out';
-    });
-
-    stageEl.addEventListener('mousemove', (e) => {
-      if (!isHovering) return;
-      const x = e.clientX - bounds.left;
-      const y = e.clientY - bounds.top;
-
-      const normX = (x / bounds.width) - 0.5; // -0.5 to 0.5
-      const normY = (y / bounds.height) - 0.5;
-
-      // Subtle 3D tilt angles
-      const rotateY = normX * 18; // Max 9 deg
-      const rotateX = -normY * 14; // Max 7 deg
-
-      cardEl.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.02, 1.02, 1.02)`;
-
-      // Dynamic parallax on floating cards
-      const floatCards = stageEl.querySelectorAll<HTMLElement>('.hero-float-card');
-      floatCards.forEach((fc) => {
-        const depth = parseFloat(fc.style.getPropertyValue('--depth') || '30');
-        const moveX = normX * depth * 0.45;
-        const moveY = normY * depth * 0.45;
-        fc.style.transform = `translate3d(${moveX.toFixed(1)}px, ${moveY.toFixed(1)}px, ${depth}px)`;
+      stageEl.addEventListener('mouseenter', () => {
+        isHovering = true;
+        cardEl.style.transition = 'transform 0.15s ease-out';
       });
-    });
 
-    stageEl.addEventListener('mouseleave', () => {
-      isHovering = false;
-      cardEl.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
-      cardEl.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+      stageEl.addEventListener('mousemove', (e) => {
+        if (!isHovering) return;
+        const x = e.clientX - bounds.left;
+        const y = e.clientY - bounds.top;
 
-      const floatCards = stageEl.querySelectorAll<HTMLElement>('.hero-float-card');
-      floatCards.forEach((fc) => {
-        const depth = parseFloat(fc.style.getPropertyValue('--depth') || '30');
-        fc.style.transform = `translate3d(0px, 0px, ${depth}px)`;
+        const normX = (x / bounds.width) - 0.5; // -0.5 to 0.5
+        const normY = (y / bounds.height) - 0.5;
+
+        // Subtle 3D tilt angles
+        const rotateY = normX * 18; // Max 9 deg
+        const rotateX = -normY * 14; // Max 7 deg
+
+        cardEl.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.02, 1.02, 1.02)`;
+
+        // Dynamic parallax on floating cards
+        const floatCards = stageEl.querySelectorAll<HTMLElement>('.hero-float-card');
+        floatCards.forEach((fc) => {
+          const depth = parseFloat(fc.style.getPropertyValue('--depth') || '30');
+          const moveX = normX * depth * 0.45;
+          const moveY = normY * depth * 0.45;
+          fc.style.transform = `translate3d(${moveX.toFixed(1)}px, ${moveY.toFixed(1)}px, ${depth}px)`;
+        });
+      });
+
+      stageEl.addEventListener('mouseleave', () => {
+        isHovering = false;
+        cardEl.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
+        cardEl.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+
+        const floatCards = stageEl.querySelectorAll<HTMLElement>('.hero-float-card');
+        floatCards.forEach((fc) => {
+          const depth = parseFloat(fc.style.getPropertyValue('--depth') || '30');
+          fc.style.transform = `translate3d(0px, 0px, ${depth}px)`;
+        });
       });
     });
   }
+
+  // Initialize on load and on Astro page transitions
+  initHeroParallax();
+  document.addEventListener('astro:page-load', initHeroParallax);
 </script>
 
 <style>
