@@ -411,8 +411,8 @@ import { domainPricing } from '../data/pricing';
         mouse.active = true;
 
         // Subtle 3D parallax tilt (like thepowerhost.in orbit-scene)
-        mouse.targetTiltX = (mouse.x / width - 0.5) * 26;
-        mouse.targetTiltY = (mouse.y / height - 0.5) * 18;
+        mouse.targetTiltX = (mouse.x / width - 0.5) * 12;
+        mouse.targetTiltY = (mouse.y / height - 0.5) * 8;
       }
 
       hero.addEventListener("mousemove", updateMouse, { passive: true });
@@ -467,7 +467,7 @@ import { domainPricing } from '../data/pricing';
         const z = -2.5 + Math.random() * 5.0; // depth coordinate
 
         const angle = Math.random() * Math.PI * 2;
-        const speed = 0.18 + Math.random() * 0.2;
+        const speed = 0.05 + Math.random() * 0.06;
 
         sprites.push({
           text: spec.text,
@@ -482,24 +482,24 @@ import { domainPricing } from '../data/pricing';
           baseVx: Math.cos(angle) * speed,
           baseVy: Math.sin(angle) * speed,
           isRight: isRight,
-          wobbleSpeed: 0.012 + Math.random() * 0.015,
-          wobbleAmp: 0.2 + Math.random() * 0.3,
+          wobbleSpeed: 0.006 + Math.random() * 0.008,
+          wobbleAmp: 0.06 + Math.random() * 0.08,
           wobbleOffset: Math.random() * 100,
         });
       }
 
       // Ambient Star / Dust Points (SphereCloud-style)
-      const starsCount = isMobile ? 25 : 45;
+      const starsCount = isMobile ? 20 : 35;
       const stars = [];
       for (let s = 0; s < starsCount; s++) {
         stars.push({
           x: Math.random() * width,
           y: Math.random() * height,
-          radius: 0.7 + Math.random() * 1.2,
-          alpha: 0.12 + Math.random() * 0.25,
-          vx: (Math.random() - 0.5) * 0.15,
-          vy: (Math.random() - 0.5) * 0.15,
-          color: s % 3 === 0 ? "rgba(255, 80, 26, 0.3)" : "rgba(148, 163, 184, 0.25)",
+          radius: 0.7 + Math.random() * 1.0,
+          alpha: 0.10 + Math.random() * 0.20,
+          vx: (Math.random() - 0.5) * 0.05,
+          vy: (Math.random() - 0.5) * 0.05,
+          color: s % 3 === 0 ? "rgba(255, 80, 26, 0.25)" : "rgba(148, 163, 184, 0.20)",
         });
       }
 
@@ -515,8 +515,8 @@ import { domainPricing } from '../data/pricing';
         ctx.clearRect(0, 0, width, height);
 
         // Smooth parallax lerp
-        mouse.tiltX += (mouse.targetTiltX - mouse.tiltX) * 0.05;
-        mouse.tiltY += (mouse.targetTiltY - mouse.tiltY) * 0.05;
+        mouse.tiltX += (mouse.targetTiltX - mouse.tiltX) * 0.04;
+        mouse.tiltY += (mouse.targetTiltY - mouse.tiltY) * 0.04;
 
         // 1. Draw Ambient Dust Stars
         for (let s = 0; s < stars.length; s++) {
@@ -529,8 +529,8 @@ import { domainPricing } from '../data/pricing';
           if (star.y < 0) star.y = height;
           if (star.y > height) star.y = 0;
 
-          const px = star.x + mouse.tiltX * 0.3;
-          const py = star.y + mouse.tiltY * 0.3;
+          const px = star.x + mouse.tiltX * 0.2;
+          const py = star.y + mouse.tiltY * 0.2;
 
           ctx.beginPath();
           ctx.arc(px, py, star.radius, 0, Math.PI * 2);
@@ -547,18 +547,18 @@ import { domainPricing } from '../data/pricing';
             const dx = sp.x - mouse.x;
             const dy = sp.y - mouse.y;
             const dist = Math.hypot(dx, dy);
-            const repelRadius = 110;
+            const repelRadius = 90;
 
             if (dist < repelRadius && dist > 1) {
-              const force = Math.pow(1 - dist / repelRadius, 1.4) * 3.2;
+              const force = Math.pow(1 - dist / repelRadius, 1.4) * 1.5;
               sp.vx += (dx / dist) * force;
               sp.vy += (dy / dist) * force;
             }
           }
 
           // Restore to ambient base speed
-          sp.vx += (sp.baseVx - sp.vx) * 0.035;
-          sp.vy += (sp.baseVy - sp.vy) * 0.035;
+          sp.vx += (sp.baseVx - sp.vx) * 0.025;
+          sp.vy += (sp.baseVy - sp.vy) * 0.025;
 
           // Organic sine wobble
           const wobbleY = Math.sin(tick * sp.wobbleSpeed + sp.wobbleOffset) * sp.wobbleAmp;
