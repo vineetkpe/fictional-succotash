@@ -273,8 +273,25 @@ const {
 } = Astro.props;
 
 const displayFaqs = items || faqs;
-const displayCategories = categories || defaultCategories;
-const defaultActiveCat = displayCategories[0]?.id || "general";
+
+function slugify(str: string): string {
+  return (str || "").toLowerCase().trim().replace(/[^a-z0-9]+/g, "-");
+}
+
+let displayCategories: CategoryItem[] = categories || [];
+if (!displayCategories || displayCategories.length === 0) {
+  if (items && items.length > 0) {
+    const rawCats = Array.from(new Set(items.map(f => f.categoryLabel || f.category || "General")));
+    displayCategories = [
+      { id: "all", label: "All Questions" },
+      ...rawCats.map(c => ({ id: slugify(c), label: c }))
+    ];
+  } else {
+    displayCategories = defaultCategories;
+  }
+}
+
+const defaultActiveCat = displayCategories[0]?.id || "all";
 
 // Schema.org FAQPage structured data for Google SEO
 const faqSchema = {
@@ -345,23 +362,26 @@ const faqSchema = {
 
     <!-- Centered Accordion Stack (Max-Width 920px for optimal reading) -->
     <div class="faq-accordion-container" id="faqCardsStack" data-sal="slide-up" data-sal-delay="250" data-sal-duration="800">
-      {displayFaqs.map((faq) => {
-        const isDefaultVisible = (defaultActiveCat === 'all') || (faq.category === defaultActiveCat);
+      {displayFaqs.map((faq, idx) => {
+        const faqCatSlug = slugify(faq.category || "general");
+        const faqCatLabel = faq.categoryLabel || faq.category || "General";
+        const faqId = faq.id || `faq-${idx}`;
+        const isDefaultVisible = (defaultActiveCat === 'all') || (faqCatSlug === defaultActiveCat) || (slugify(faq.categoryLabel || "") === defaultActiveCat) || (faq.category === defaultActiveCat);
         return (
           <article 
             class={`faq-item-card ${faq.defaultOpen ? 'is-open' : ''}`}
-            data-category={faq.category}
-            data-faq-id={faq.id}
+            data-category={faqCatSlug}
+            data-faq-id={faqId}
             style={isDefaultVisible ? "display: block;" : "display: none;"}
           >
             <button 
               type="button" 
               class="faq-header-trigger" 
               aria-expanded={faq.defaultOpen ? "true" : "false"}
-              aria-controls={`faq-answer-${faq.id}`}
+              aria-controls={`faq-answer-${faqId}`}
             >
               <div class="faq-question-meta">
-                <span class="faq-cat-label">{faq.categoryLabel}</span>
+                <span class="faq-cat-label">{faqCatLabel}</span>
                 <h3 class="faq-question-text">{faq.question}</h3>
               </div>
               <div class="faq-toggle-icon" aria-hidden="true">
@@ -371,7 +391,7 @@ const faqSchema = {
             </button>
 
             <div 
-              id={`faq-answer-${faq.id}`} 
+              id={`faq-answer-${faqId}`} 
               class="faq-answer-collapse"
               style={faq.defaultOpen ? "display: block;" : "display: none;"}
             >
@@ -444,7 +464,7 @@ const faqSchema = {
     const resetBtn = document.getElementById("faqResetBtn");
 
     const activePill = document.querySelector(".faq-cat-pill.active");
-    let activeCat = activePill ? (activePill.getAttribute("data-category") || "general") : "general";
+    let activeCat = activePill ? (activePill.getAttribute("data-category") || "all") : "all";
     let activeQuery = "";
 
     function filterFaqs() {
@@ -489,7 +509,7 @@ const faqSchema = {
       pill.addEventListener("click", function () {
         catPills.forEach(p => p.classList.remove("active"));
         this.classList.add("active");
-        activeCat = this.getAttribute("data-category") || "general";
+        activeCat = this.getAttribute("data-category") || "all";
         filterFaqs();
       });
     });
@@ -523,7 +543,7 @@ const faqSchema = {
           catPills.forEach((p, idx) => {
             p.classList.toggle("active", idx === 0);
           });
-          activeCat = catPills[0].getAttribute("data-category") || "general";
+          activeCat = catPills[0].getAttribute("data-category") || "all";
         }
         filterFaqs();
       });

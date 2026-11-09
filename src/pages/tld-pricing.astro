@@ -7,29 +7,75 @@ const { heroStartPrice, allTlds } = domainPricing;
 const tldFaqs = [
   {
     category: "Pricing & Fees",
+    categoryLabel: "Pricing & Fees",
     question: "Are there any hidden fees or ICANN charges added at checkout?",
-    answer: "No. Hostamble practices 100% transparent pricing. The price you see includes all mandatory registry fees and standard ICANN charges. What you see is the exact amount you pay at checkout."
+    answer: "No. Hostamble practices 100% transparent pricing. The price you see includes all mandatory registry fees and standard ICANN charges. What you see is the exact amount you pay at checkout.",
+    defaultOpen: true
   },
   {
-    category: "Privacy Protection",
+    category: "Pricing & Fees",
+    categoryLabel: "Pricing & Fees",
+    question: "Do domain renewal rates increase after the introductory first year?",
+    answer: "No. Unlike legacy registrars who offer ₹99 introductory traps and then hike renewals to ₹2,999+, Hostamble commits to published, upfront wholesale renewal rates. You can view the exact annual renewal price for every single TLD extension in our live rate card table above before purchasing."
+  },
+  {
+    category: "Privacy & Security",
+    categoryLabel: "Privacy & Security",
     question: "Is WHOIS domain privacy protection really free forever?",
-    answer: "Yes, WHOIS privacy protection is 100% free forever for all eligible TLDs (.com, .net, .org, .co, etc.) where registry regulations allow privacy masking. We never introduce surprise privacy renewal fees in Year 2."
+    answer: "Yes, WHOIS privacy protection is 100% free forever for all eligible TLDs (.com, .net, .org, .co, etc.) where registry regulations allow privacy masking. Your personal name, residential address, telephone number, and private email remain shielded from scrapers, spam bots, and cold calls without any Year 2 surcharges."
   },
   {
-    category: "Transfers",
+    category: "Privacy & Security",
+    categoryLabel: "Privacy & Security",
+    question: "What is Domain Theft Protection (Registrar Lock) and is it included?",
+    answer: "Yes, registrar-level Domain Theft Protection is included free with every domain registration. It prevents unauthorized transfer requests or domain hijacking. You retain full control and can easily toggle the lock on or off directly inside your Hostamble client dashboard."
+  },
+  {
+    category: "Domain Transfers",
+    categoryLabel: "Domain Transfers",
     question: "How does transferring a domain to Hostamble work?",
-    answer: "Simply unlock your domain at your current registrar, obtain the EPP/Auth code, and submit the transfer request on our Domain Transfer page. Most transfers include an additional 1-year registration extension with zero website downtime."
+    answer: "Simply unlock your domain at your current registrar (GoDaddy, Namecheap, Google Domains, etc.), copy your EPP authorization code, and initiate the transfer on our Domain Transfer page. Transfers include an automatic 1-year registration renewal extension with zero website or email downtime."
   },
   {
-    category: "Hosting & Setup",
+    category: "Domain Transfers",
+    categoryLabel: "Domain Transfers",
+    question: "Is there any penalty or lock-in fee if I ever want to transfer out?",
+    answer: "Zero. At Hostamble, you own your domain outright. You can generate your EPP auth code anytime 24/7 directly from your management dashboard with zero artificial holdbacks, penalty fees, or administrative delays."
+  },
+  {
+    category: "DNS & Hosting",
+    categoryLabel: "DNS & Hosting",
     question: "Can I register a domain without purchasing web hosting?",
-    answer: "Yes! You can register and hold domains independently. You get full access to our free Anycast DNS Manager, URL forwarding, and custom email forwarding controls anytime."
+    answer: "Yes! You can register and hold domains independently without buying web hosting. You still receive full access to our free Tier-IV Anycast DNS Manager, URL redirection, and custom email forwarding controls anytime."
+  },
+  {
+    category: "DNS & Hosting",
+    categoryLabel: "DNS & Hosting",
+    question: "Can I connect my Hostamble domain to Shopify, WordPress, or external servers?",
+    answer: "Yes. Every domain registered at Hostamble includes full Anycast DNS management. You can easily configure A, CNAME, MX, TXT, and SPF records to point your domain to Shopify, WordPress, Wix, Webflow, GitHub Pages, or any cloud VPS in seconds."
   },
   {
     category: "Payment Methods",
+    categoryLabel: "Payment Methods",
     question: "What payment methods are supported for domain purchases?",
-    answer: "We accept UPI (Google Pay, PhonePe, Paytm), Indian Netbanking, Debit & Credit Cards, International Visa/Mastercard/Amex, and PayPal."
+    answer: "We accept all major Indian and international payment options: UPI (Google Pay, PhonePe, Paytm, BHIM), Indian Netbanking across 50+ banks, Debit & Credit Cards (Visa, Mastercard, RuPay, Amex), and PayPal for international clients."
+  },
+  {
+    category: "Lifecycle & Renewal",
+    categoryLabel: "Lifecycle & Renewal",
+    question: "What happens if I forget to renew my domain on time?",
+    answer: "Hostamble provides an automated renewal grace period (typically 30–40 days depending on the registry) during which you can renew your domain at the standard regular renewal rate without penalty fees. We also send multiple automated email reminders before expiration so you never lose your brand."
   }
+];
+
+const tldFaqCategories = [
+  { id: "all", label: "All Questions" },
+  { id: "pricing-fees", label: "Pricing & Fees" },
+  { id: "privacy-security", label: "Privacy & Security" },
+  { id: "domain-transfers", label: "Domain Transfers" },
+  { id: "dns-hosting", label: "DNS & Hosting" },
+  { id: "payment-methods", label: "Payment Methods" },
+  { id: "lifecycle-renewal", label: "Lifecycle & Renewal" }
 ];
 ---
 
@@ -568,9 +614,14 @@ const tldFaqs = [
   <!-- Block 6: Domain FAQs (Reused FaqBlock Component) -->
   <FaqBlock 
     items={tldFaqs} 
+    categories={tldFaqCategories}
     preTitle="Got Questions?" 
     title="Frequently Asked Questions About Domain Pricing" 
     description="Transparent answers about ICANN fees, renewal price locks, free WHOIS privacy, and transfer processes."
+    searchPlaceholder="Search pricing questions (e.g., renewal, ICANN fees, WHOIS, transfer, UPI)..."
+    whatsAppText="Hi Hostamble, I have a question about domain TLD pricing and renewals"
+    conciergeTitle="Need help choosing or registering your domain?"
+    conciergeDesc="Talk directly with our in-house domain team. We speak your language and reply in under 3 minutes on WhatsApp."
   />
 
 </Layout>
