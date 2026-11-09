@@ -1,74 +1,92 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import HelpCtaBlock from '../components/HelpCtaBlock.astro';
+import FaqBlock from '../components/FaqBlock.astro';
 import { domainPricing } from '../data/pricing';
 
-// ===== High-Intent SEO FAQs for Domain Search =====
+// ===== High-Intent SEO FAQs for Domain Search (Home Page Unified Structure) =====
 const domainSearchFaqs = [
   {
-    category: "Registration",
+    id: "faq-search-registration-steps",
+    category: "registration",
+    categoryLabel: "Registration & TLDs",
     question: "How do I search and register a new domain name?",
-    answer: "Searching and registering a domain at Hostamble is simple: (1) Type your desired brand name or keywords into the domain search box above. (2) Review live WHOIS availability and wholesale pricing across extensions like .com, .in, .ai, or .store. (3) Click 'Search Now' and add the domain to your cart. (4) Complete our instant checkout via UPI, Net Banking, Card, or PayPal. Your domain is provisioned and active within minutes."
+    answer: "Searching and registering a domain at Hostamble is simple: (1) Type your desired brand name or keywords into the domain search box above. (2) Review live WHOIS availability and wholesale pricing across extensions like .com, .in, .ai, or .store. (3) Click 'Search Now' and add the domain to your cart. (4) Complete our instant checkout via UPI, Net Banking, Card, or PayPal. Your domain is provisioned and active within minutes.",
+    defaultOpen: true
   },
   {
-    category: "TLD Choice",
+    id: "faq-best-tld-choice",
+    category: "registration",
+    categoryLabel: "Registration & TLDs",
     question: "Which domain extension (TLD) is best for my business?",
     answer: "Your choice depends on your target market: For businesses targeting clients within India, a .in or .co.in extension signals strong local trust and improves Google India local search rankings. For international products, technology companies, and global eCommerce, .com remains the gold standard. For artificial intelligence startups and SaaS platforms, .ai and .io offer high prestige and availability."
   },
   {
-    category: "Activation Speed",
+    id: "faq-dns-propagation-speed",
+    category: "performance",
+    categoryLabel: "Speed & Anycast DNS",
     question: "How long does domain activation and Anycast DNS propagation take?",
     answer: "At Hostamble, domain registrations are activated immediately upon payment confirmation. Powered by our global Tier-IV Anycast DNS network, standard nameserver updates and record changes (A, CNAME, MX) propagate globally within 10 to 30 minutes, compared to up to 24–48 hours on conventional registrars."
   },
   {
-    category: "WHOIS Privacy",
+    id: "faq-free-whois-privacy-forever",
+    category: "security",
+    categoryLabel: "Privacy & Security",
     question: "Is WHOIS Privacy Protection really 100% free forever?",
     answer: "Yes, absolutely. Unlike other registrars that charge high annual fees for privacy, Hostamble includes free lifetime WHOIS Privacy Protection on all eligible domain extensions. Your personal name, residential address, telephone number, and private email are shielded from public spam harvesters and telemarketers."
   },
   {
-    category: "Domain Transfer",
+    id: "faq-domain-transfer-to-hostamble",
+    category: "transfers",
+    categoryLabel: "Transfers & Renewals",
     question: "Can I transfer my domain to Hostamble from another registrar?",
     answer: "Yes. Transferring your domain to Hostamble is straightforward with zero downtime. Simply unlock your domain at your current registrar (e.g. GoDaddy, Namecheap, Google Domains), obtain the EPP authorization code, and submit a transfer on our Domain Transfer page. Our team assists you throughout to ensure your website and emails remain uninterrupted."
   },
   {
-    category: "Hosting & Setup",
+    id: "faq-shopify-wordpress-setup",
+    category: "hosting",
+    categoryLabel: "Hosting & Setup",
     question: "Can I connect my Hostamble domain to Shopify, WordPress, or external hosting?",
     answer: "Yes. Hostamble provides a full-featured DNS management console. You can easily point your domain to Shopify, WordPress.com, Wix, Squarespace, Webflow, GitHub Pages, or any VPS by configuring A records, CNAME records, and custom nameservers in seconds."
   },
   {
-    category: "DNS Performance",
+    id: "faq-anycast-dns-advantage",
+    category: "performance",
+    categoryLabel: "Speed & Anycast DNS",
     question: "What is Anycast DNS and why is it faster than standard DNS?",
     answer: "Anycast DNS is an advanced routing technology where the same IP address is advertised across dozens of geographically dispersed server locations worldwide. When a user visits your domain, their DNS request is automatically routed to the closest physical server, drastically reducing lookup latency and improving website loading speeds."
   },
   {
-    category: "Custom Email",
+    id: "faq-business-email-routing",
+    category: "hosting",
+    categoryLabel: "Hosting & Setup",
     question: "Can I create custom business email addresses with my domain?",
     answer: "Yes. You can either use our free built-in email forwarding tools to redirect emails like contact@yourdomain.com to your personal Gmail or Outlook inbox, or pair your domain with Hostamble Business Email hosting to send and receive encrypted business emails with dedicated cPanel webmail."
   },
   {
-    category: "Renewals",
+    id: "faq-transparent-renewals",
+    category: "transfers",
+    categoryLabel: "Transfers & Renewals",
     question: "Are there hidden fees or renewal price hikes after the first year?",
     answer: "None at all. Hostamble is committed to honest, transparent pricing. What you see on our pricing table is what you pay. We never apply deceptive introductory price tricks or triple your invoice at renewal. You can check renewal rates for every TLD in advance on our TLD Pricing page."
   },
   {
-    category: "Security & Lock",
+    id: "faq-domain-theft-lock",
+    category: "security",
+    categoryLabel: "Privacy & Security",
     question: "What is Domain Theft Protection (Registrar Lock)?",
     answer: "Domain Theft Protection (Registrar Lock) is an essential security safeguard that prevents unauthorized or accidental transfer requests for your domain name. While the lock is active, your domain cannot be transferred out even if someone attempts to initiate a transfer without your explicit dashboard verification."
   }
 ];
 
-const domainSearchFaqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": domainSearchFaqs.map(item => ({
-    "@type": "Question",
-    "name": item.question,
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": item.answer
-    }
-  }))
-};
+const domainSearchCategories = [
+  { id: "all", label: "All Questions" },
+  { id: "registration", label: "Registration & TLDs" },
+  { id: "performance", label: "Speed & Anycast DNS" },
+  { id: "security", label: "Privacy & Security" },
+  { id: "hosting", label: "Hosting & Setup" },
+  { id: "transfers", label: "Transfers & Renewals" }
+];
 ---
 
 <Layout 
@@ -452,101 +470,18 @@ const domainSearchFaqSchema = {
             </div>
         </div>
 
-        <!-- =========================================================
-             Frequently Asked Questions (Home Page Unified Design)
-             ========================================================= -->
-        <section class="hostamble-faq-section" id="faq" aria-labelledby="faq-main-heading">
-          <!-- Subtle ambient decorative glow -->
-          <div class="faq-ambient-glow" aria-hidden="true"></div>
-
-          <div class="container position-relative">
-            <!-- Standard Centered Section Header -->
-            <div class="row justify-content-center mb-4">
-              <div class="col-lg-8 col-12 text-center">
-                <div class="section-title text-center" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
-                  <span class="pre-title">FAQ</span>
-                  <h2 id="faq-main-heading" class="title">Frequently Asked Questions</h2>
-                  <p class="description mt-2">
-                    Everything you need to know about registering domains, Anycast DNS, free WHOIS privacy, and transferring domains to Hostamble.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Centered Accordion Stack (Max-Width 920px) -->
-            <div class="faq-accordion-container" id="faqCardsStack" data-sal="slide-up" data-sal-delay="250" data-sal-duration="800">
-              {domainSearchFaqs.map((faq, idx) => (
-                <article class={`faq-item-card ${idx === 0 ? 'is-open' : ''}`} data-faq-id={`faq-${idx}`}>
-                  <button 
-                    type="button" 
-                    class="faq-header-trigger" 
-                    aria-expanded={idx === 0 ? "true" : "false"}
-                    aria-controls={`faq-answer-${idx}`}
-                  >
-                    <div class="faq-question-meta">
-                      <span class="faq-cat-label">{faq.category}</span>
-                      <h3 class="faq-question-text">{faq.question}</h3>
-                    </div>
-                    <div class="faq-toggle-icon" aria-hidden="true">
-                      <i class="ri-add-line icon-plus"></i>
-                      <i class="ri-subtract-line icon-minus"></i>
-                    </div>
-                  </button>
-
-                  <div 
-                    id={`faq-answer-${idx}`}
-                    class="faq-answer-collapse" 
-                    role="region"
-                    style={idx === 0 ? 'display: block;' : 'display: none;'}
-                  >
-                    <div class="faq-answer-body">
-                      <p class="faq-answer-text">{faq.answer}</p>
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
-
-            <!-- Bottom Human Support Reassurance Card -->
-            <div class="faq-bottom-concierge" data-sal="slide-up" data-sal-delay="300" data-sal-duration="800">
-              <div class="concierge-content">
-                <div class="concierge-icon-wrap" aria-hidden="true">
-                  <i class="ri-customer-service-2-fill"></i>
-                </div>
-                <div class="concierge-text">
-                  <h4 class="concierge-title">Still have questions or need custom setup?</h4>
-                  <p class="concierge-desc">
-                    Talk directly with our in-house domain team. We speak Hindi &amp; English and reply in under 3 minutes.
-                  </p>
-                </div>
-              </div>
-              <div class="concierge-actions">
-                <a 
-                  href="https://wa.me/916284719083?text=Hi%20Hostamble,%20I%20have%20a%20question%20about%20domain%20registration%20and%20DNS" 
-                  class="concierge-btn btn-whatsapp"
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
-                  <i class="ri-whatsapp-fill"></i>
-                  <span>WhatsApp Chat</span>
-                </a>
-                <a 
-                  href="https://hostamble.com/dash/submitticket.php?step=2&deptid=1" 
-                  class="concierge-btn btn-ticket"
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
-                  <i class="ri-ticket-2-line"></i>
-                  <span>Submit a Ticket</span>
-                </a>
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-        <!-- Schema.org FAQPage Structured Data -->
-        <script type="application/ld+json" set:html={JSON.stringify(domainSearchFaqSchema)} />
+        <!-- Frequently Asked Questions (Home Page Unified Design) -->
+        <FaqBlock 
+          preTitle="COMMON QUESTIONS"
+          title="Frequently Asked Questions"
+          description="Everything you need to know about registering domains, Anycast DNS, free WHOIS privacy, and transferring domains to Hostamble."
+          items={domainSearchFaqs}
+          categories={domainSearchCategories}
+          searchPlaceholder="Search domain questions (e.g., registration, WHOIS, Anycast, WordPress, transfer)..."
+          whatsAppText="Hi Hostamble, I have a question about domain registration and DNS"
+          conciergeTitle="Still have questions or need custom setup?"
+          conciergeDesc="Talk directly with our in-house domain team. We speak Hindi & English and reply in under 3 minutes."
+        />
 
 <style>
   /* =========================================================
@@ -741,296 +676,6 @@ const domainSearchFaqSchema = {
   .flow-enhanced-card:hover .inner .icon span {
     transform: scale(1.14) rotate(4deg);
     box-shadow: 0 10px 22px rgba(255, 80, 26, 0.28);
-  }
-
-  /* =========================================================
-     Hostamble FAQ Section - Authentic Theme Styling
-     ========================================================= */
-  .hostamble-faq-section {
-    position: relative;
-    background-color: #fafbfc;
-    padding: 90px 0 100px 0;
-    overflow: hidden;
-  }
-
-  .faq-ambient-glow {
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 900px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(255, 80, 26, 0.04) 0%, rgba(250, 251, 252, 0) 70%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* Centered Accordion Stack */
-  .faq-accordion-container {
-    max-width: 920px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  /* Accordion Item Card - Subtle curves (6px) */
-  .faq-item-card {
-    background: #ffffff;
-    border: 1px solid #e8edf5;
-    border-radius: 6px;
-    overflow: hidden;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-  }
-
-  .faq-item-card:hover {
-    border-color: rgba(255, 80, 26, 0.35);
-    box-shadow: 0 6px 20px -8px rgba(255, 80, 26, 0.12);
-    transform: translateY(-1px);
-  }
-
-  .faq-item-card.is-open {
-    border-color: rgba(255, 80, 26, 0.38);
-    box-shadow: 0 10px 28px -10px rgba(255, 80, 26, 0.14);
-    background: #ffffff;
-  }
-
-  /* Header Trigger */
-  .faq-header-trigger {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 18px;
-    padding: 20px 24px;
-    background: none;
-    border: none;
-    text-align: left;
-    cursor: pointer;
-    font-family: inherit;
-  }
-
-  .faq-question-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    flex-grow: 1;
-    min-width: 0;
-  }
-
-  .faq-cat-label {
-    display: inline-block;
-    font-size: 11.5px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
-    color: #8c97a8;
-    transition: color 0.2s ease;
-  }
-
-  .faq-item-card.is-open .faq-cat-label {
-    color: #ff501a;
-  }
-
-  .faq-question-text {
-    margin: 0;
-    font-size: 17.5px;
-    font-weight: 700;
-    line-height: 1.35;
-    color: #17181c;
-    transition: color 0.2s ease;
-  }
-
-  .faq-header-trigger:hover .faq-question-text {
-    color: #ff501a;
-  }
-
-  .faq-item-card.is-open .faq-question-text {
-    color: #ff501a;
-  }
-
-  /* Plus / Minus Toggle Pod */
-  .faq-toggle-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: 6px;
-    background: #f4f6fa;
-    color: #64748b;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    transition: all 0.22s ease;
-    font-size: 18px;
-  }
-
-  .faq-toggle-icon .icon-minus {
-    display: none;
-  }
-
-  .faq-header-trigger:hover .faq-toggle-icon {
-    background: #fff0eb;
-    color: #ff501a;
-  }
-
-  .faq-item-card.is-open .faq-toggle-icon {
-    background: #ff501a;
-    color: #ffffff;
-  }
-
-  .faq-item-card.is-open .faq-toggle-icon .icon-plus {
-    display: none;
-  }
-
-  .faq-item-card.is-open .faq-toggle-icon .icon-minus {
-    display: block;
-  }
-
-  /* Answer Collapse */
-  .faq-answer-collapse {
-    border-top: 1px solid #f1f4f8;
-  }
-
-  .faq-answer-body {
-    padding: 18px 24px 24px;
-  }
-
-  .faq-answer-text {
-    margin: 0;
-    font-size: 15.5px;
-    line-height: 1.75;
-    color: #475467;
-  }
-
-  /* Bottom Concierge Card */
-  .faq-bottom-concierge {
-    max-width: 920px;
-    margin: 40px auto 0;
-    padding: 24px 28px;
-    background: #ffffff;
-    border: 1px solid #e5e9f0;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
-  }
-
-  .concierge-content {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-grow: 1;
-    min-width: 0;
-  }
-
-  .concierge-icon-wrap {
-    width: 48px;
-    height: 48px;
-    border-radius: 6px;
-    background: #fff0eb;
-    color: #ff501a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    flex-shrink: 0;
-  }
-
-  .concierge-title {
-    font-size: 16.5px;
-    font-weight: 700;
-    color: #17181c;
-    margin: 0 0 4px 0;
-  }
-
-  .concierge-desc {
-    font-size: 14px;
-    color: #5c6678;
-    margin: 0;
-    line-height: 1.5;
-  }
-
-  .concierge-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
-  }
-
-  .concierge-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    height: 44px;
-    padding: 0 18px;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: all 0.22s ease;
-    white-space: nowrap;
-  }
-
-  .concierge-btn i {
-    font-size: 16px;
-  }
-
-  .btn-whatsapp {
-    background: #25d366;
-    color: #ffffff;
-    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
-  }
-
-  .btn-whatsapp:hover {
-    background: #20ba5a;
-    color: #ffffff;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
-  }
-
-  .btn-ticket {
-    background: #f1f5f9;
-    color: #334155;
-    border: 1px solid #e2e8f0;
-  }
-
-  .btn-ticket:hover {
-    background: #e2e8f0;
-    color: #0f172a;
-    transform: translateY(-1px);
-  }
-
-  @media only screen and (max-width: 860px) {
-    .faq-bottom-concierge {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 20px;
-    }
-
-    .concierge-actions {
-      width: 100%;
-      flex-direction: column;
-    }
-
-    .concierge-btn {
-      width: 100%;
-      justify-content: center;
-    }
-  }
-
-  @media only screen and (max-width: 575px) {
-    .faq-header-trigger {
-      padding: 16px 18px;
-    }
-    .faq-question-text {
-      font-size: 15.5px;
-    }
-    .faq-answer-body {
-      padding: 14px 18px 18px;
-    }
   }
 </style>
 
@@ -1310,48 +955,14 @@ const domainSearchFaqSchema = {
       });
     }
 
-    /* ════════════════════════════════════════════════════════════════
-       FAQ Accordion Toggle Handler
-       ════════════════════════════════════════════════════════════════ */
-    function initFaqAccordion() {
-      const cards = document.querySelectorAll("#faqCardsStack .faq-item-card");
-      cards.forEach(card => {
-        const trigger = card.querySelector(".faq-header-trigger");
-        const collapse = card.querySelector(".faq-answer-collapse");
-        if (!trigger || !collapse) return;
-
-        trigger.addEventListener("click", () => {
-          const isOpen = card.classList.contains("is-open");
-
-          // Close all cards
-          cards.forEach(otherCard => {
-            otherCard.classList.remove("is-open");
-            const otherTrigger = otherCard.querySelector(".faq-header-trigger");
-            const otherCollapse = otherCard.querySelector(".faq-answer-collapse");
-            if (otherTrigger) otherTrigger.setAttribute("aria-expanded", "false");
-            if (otherCollapse) otherCollapse.style.display = "none";
-          });
-
-          // Toggle current
-          if (!isOpen) {
-            card.classList.add("is-open");
-            trigger.setAttribute("aria-expanded", "true");
-            collapse.style.display = "block";
-          }
-        });
-      });
-    }
-
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", function () {
         initDomainHeroScene();
         initCardSpotlight();
-        initFaqAccordion();
       });
     } else {
       initDomainHeroScene();
       initCardSpotlight();
-      initFaqAccordion();
     }
   })();
 </script>

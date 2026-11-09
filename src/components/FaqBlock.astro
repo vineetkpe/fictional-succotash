@@ -9,11 +9,28 @@
 
 interface FaqItem {
   id: string;
-  category: 'general' | 'hosting' | 'billing' | 'domains' | 'support';
+  category: string;
   categoryLabel: string;
   question: string;
   answer: string;
   defaultOpen?: boolean;
+}
+
+interface CategoryItem {
+  id: string;
+  label: string;
+}
+
+interface Props {
+  preTitle?: string;
+  title?: string;
+  description?: string;
+  items?: FaqItem[];
+  categories?: CategoryItem[];
+  searchPlaceholder?: string;
+  whatsAppText?: string;
+  conciergeTitle?: string;
+  conciergeDesc?: string;
 }
 
 const faqs: FaqItem[] = [
@@ -235,11 +252,35 @@ const faqs: FaqItem[] = [
   },
 ];
 
+const defaultCategories: CategoryItem[] = [
+  { id: "general", label: "General" },
+  { id: "hosting", label: "Hosting & WordPress" },
+  { id: "billing", label: "Pricing & Renewals" },
+  { id: "support", label: "Migration & Support" },
+  { id: "domains", label: "Domains & SSL" },
+];
+
+const {
+  preTitle = "COMMON QUESTIONS",
+  title = "Got Questions? We’ve Got Answers.",
+  description = "Clear, honest facts about renewals, free migrations, LiteSpeed speeds, and our direct WhatsApp support.",
+  items,
+  categories,
+  searchPlaceholder = "Search common questions (e.g., migration, refund, UPI, cPanel)...",
+  whatsAppText = "Hi Hostamble, I have a question about your hosting plans",
+  conciergeTitle = "Still have questions or need custom setup?",
+  conciergeDesc = "Talk directly with our in-house hosting team. We speak your language and usually reply in under 3 minutes."
+} = Astro.props;
+
+const displayFaqs = items || faqs;
+const displayCategories = categories || defaultCategories;
+const defaultActiveCat = displayCategories[0]?.id || "general";
+
 // Schema.org FAQPage structured data for Google SEO
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": faqs.map(item => ({
+  "mainEntity": displayFaqs.map(item => ({
     "@type": "Question",
     "name": item.question,
     "acceptedAnswer": {
@@ -260,10 +301,10 @@ const faqSchema = {
     <div class="row justify-content-center mb-4">
       <div class="col-lg-8 col-12 text-center">
         <div class="section-title text-center" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
-          <span class="pre-title">COMMON QUESTIONS</span>
-          <h2 id="faq-main-heading" class="title">Got Questions? We’ve Got Answers.</h2>
+          <span class="pre-title">{preTitle}</span>
+          <h2 id="faq-main-heading" class="title">{title}</h2>
           <p class="description mt-2">
-            Clear, honest facts about renewals, free migrations, LiteSpeed speeds, and our direct WhatsApp support.
+            {description}
           </p>
         </div>
       </div>
@@ -274,21 +315,15 @@ const faqSchema = {
       
       <!-- Category Filter Pills -->
       <nav class="faq-categories-nav" aria-label="Filter FAQ Topics">
-        <button type="button" class="faq-cat-pill active" data-category="general">
-          <span>General</span>
-        </button>
-        <button type="button" class="faq-cat-pill" data-category="hosting">
-          <span>Hosting &amp; WordPress</span>
-        </button>
-        <button type="button" class="faq-cat-pill" data-category="billing">
-          <span>Pricing &amp; Renewals</span>
-        </button>
-        <button type="button" class="faq-cat-pill" data-category="support">
-          <span>Migration &amp; Support</span>
-        </button>
-        <button type="button" class="faq-cat-pill" data-category="domains">
-          <span>Domains &amp; SSL</span>
-        </button>
+        {displayCategories.map((cat, idx) => (
+          <button 
+            type="button" 
+            class={`faq-cat-pill ${idx === 0 ? 'active' : ''}`} 
+            data-category={cat.id}
+          >
+            <span>{cat.label}</span>
+          </button>
+        ))}
       </nav>
 
       <!-- Instant Search Input -->
@@ -298,7 +333,7 @@ const faqSchema = {
           type="text" 
           id="faqSearchInput" 
           class="faq-search-input" 
-          placeholder="Search common questions (e.g., migration, refund, UPI, cPanel)..."
+          placeholder={searchPlaceholder}
           autocomplete="off"
         />
         <button type="button" id="faqClearSearch" class="faq-clear-btn d-none" aria-label="Clear Search">
@@ -310,8 +345,8 @@ const faqSchema = {
 
     <!-- Centered Accordion Stack (Max-Width 920px for optimal reading) -->
     <div class="faq-accordion-container" id="faqCardsStack" data-sal="slide-up" data-sal-delay="250" data-sal-duration="800">
-      {faqs.map((faq) => {
-        const isDefaultVisible = faq.category === 'general';
+      {displayFaqs.map((faq) => {
+        const isDefaultVisible = (defaultActiveCat === 'all') || (faq.category === defaultActiveCat);
         return (
           <article 
             class={`faq-item-card ${faq.defaultOpen ? 'is-open' : ''}`}
@@ -364,15 +399,15 @@ const faqSchema = {
           <i class="ri-customer-service-2-fill"></i>
         </div>
         <div class="concierge-text">
-          <h4 class="concierge-title">Still have questions or need custom setup?</h4>
+          <h4 class="concierge-title">{conciergeTitle}</h4>
           <p class="concierge-desc">
-            Talk directly with our in-house hosting team. We speak your language and usually reply in under 3 minutes.
+            {conciergeDesc}
           </p>
         </div>
       </div>
       <div class="concierge-actions">
         <a 
-          href="https://wa.me/916284719083?text=Hi%20Hostamble,%20I%20have%20a%20question%20about%20your%20hosting%20plans" 
+          href={`https://wa.me/916284719083?text=${encodeURIComponent(whatsAppText)}`} 
           class="concierge-btn btn-whatsapp"
           target="_blank" 
           rel="noopener noreferrer"
@@ -408,7 +443,8 @@ const faqSchema = {
     const noResults = document.getElementById("faqNoResults");
     const resetBtn = document.getElementById("faqResetBtn");
 
-    let activeCat = "general";
+    const activePill = document.querySelector(".faq-cat-pill.active");
+    let activeCat = activePill ? (activePill.getAttribute("data-category") || "general") : "general";
     let activeQuery = "";
 
     function filterFaqs() {
@@ -420,7 +456,7 @@ const faqSchema = {
         const text = card.textContent.toLowerCase();
 
         // When user types a search query, search across all questions; otherwise filter by activeCat
-        const catMatches = (query.length > 0) ? true : (cat === activeCat);
+        const catMatches = (query.length > 0) ? true : (activeCat === "all" || cat === activeCat);
         const queryMatches = (query === "") || text.includes(query);
 
         if (catMatches && queryMatches) {
@@ -483,10 +519,12 @@ const faqSchema = {
       resetBtn.addEventListener("click", function () {
         if (searchInput) searchInput.value = "";
         activeQuery = "";
-        activeCat = "general";
-        catPills.forEach(p => {
-          p.classList.toggle("active", p.getAttribute("data-category") === "general");
-        });
+        if (catPills.length > 0) {
+          catPills.forEach((p, idx) => {
+            p.classList.toggle("active", idx === 0);
+          });
+          activeCat = catPills[0].getAttribute("data-category") || "general";
+        }
         filterFaqs();
       });
     }
