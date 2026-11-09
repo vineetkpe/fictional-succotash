@@ -433,20 +433,20 @@ import { domainPricing } from '../data/pricing';
         mouse.targetTiltY = 0;
       });
 
-      // TLD Sprites List (Hostamble palette + glowing accents)
+      // TLD Sprites List (Hostamble palette + subtle compact size)
       const tldSpecs = [
-        { text: ".com", color: "#ff501a", size: 36, isBold: true },
-        { text: ".in", color: "#ff501a", size: 34, isBold: true },
-        { text: ".org", color: "#16a34a", size: 30, isBold: false },
-        { text: ".xyz", color: "#0284c7", size: 28, isBold: false },
-        { text: ".net", color: "#8b5cf6", size: 28, isBold: false },
-        { text: ".ai", color: "#ff6e3a", size: 32, isBold: true },
-        { text: ".co.in", color: "#ff501a", size: 26, isBold: false },
-        { text: ".store", color: "#16a34a", size: 26, isBold: false },
-        { text: ".app", color: "#0284c7", size: 28, isBold: false },
-        { text: ".io", color: "#8b5cf6", size: 30, isBold: true },
-        { text: ".tech", color: "#ff501a", size: 26, isBold: false },
-        { text: ".dev", color: "#64748b", size: 26, isBold: false },
+        { text: ".com", color: "#ff501a", size: 16, isBold: true },
+        { text: ".in", color: "#ff501a", size: 15, isBold: true },
+        { text: ".org", color: "#16a34a", size: 14, isBold: false },
+        { text: ".xyz", color: "#0284c7", size: 13, isBold: false },
+        { text: ".net", color: "#8b5cf6", size: 13, isBold: false },
+        { text: ".ai", color: "#ff6e3a", size: 15, isBold: true },
+        { text: ".co.in", color: "#ff501a", size: 13, isBold: false },
+        { text: ".store", color: "#16a34a", size: 13, isBold: false },
+        { text: ".app", color: "#0284c7", size: 14, isBold: false },
+        { text: ".io", color: "#8b5cf6", size: 14, isBold: true },
+        { text: ".tech", color: "#ff501a", size: 13, isBold: false },
+        { text: ".dev", color: "#64748b", size: 13, isBold: false },
       ];
 
       // Spawn in left & right side bands (away from the center text column, just like thepowerhost.in)
@@ -467,7 +467,7 @@ import { domainPricing } from '../data/pricing';
         const z = -2.5 + Math.random() * 5.0; // depth coordinate
 
         const angle = Math.random() * Math.PI * 2;
-        const speed = 0.3 + Math.random() * 0.35;
+        const speed = 0.18 + Math.random() * 0.2;
 
         sprites.push({
           text: spec.text,
@@ -489,17 +489,17 @@ import { domainPricing } from '../data/pricing';
       }
 
       // Ambient Star / Dust Points (SphereCloud-style)
-      const starsCount = isMobile ? 30 : 65;
+      const starsCount = isMobile ? 25 : 45;
       const stars = [];
       for (let s = 0; s < starsCount; s++) {
         stars.push({
           x: Math.random() * width,
           y: Math.random() * height,
-          radius: 0.8 + Math.random() * 1.6,
-          alpha: 0.15 + Math.random() * 0.35,
-          vx: (Math.random() - 0.5) * 0.2,
-          vy: (Math.random() - 0.5) * 0.2,
-          color: s % 3 === 0 ? "rgba(255, 80, 26, 0.4)" : "rgba(148, 163, 184, 0.35)",
+          radius: 0.7 + Math.random() * 1.2,
+          alpha: 0.12 + Math.random() * 0.25,
+          vx: (Math.random() - 0.5) * 0.15,
+          vy: (Math.random() - 0.5) * 0.15,
+          color: s % 3 === 0 ? "rgba(255, 80, 26, 0.3)" : "rgba(148, 163, 184, 0.25)",
         });
       }
 
@@ -547,10 +547,10 @@ import { domainPricing } from '../data/pricing';
             const dx = sp.x - mouse.x;
             const dy = sp.y - mouse.y;
             const dist = Math.hypot(dx, dy);
-            const repelRadius = 140;
+            const repelRadius = 110;
 
             if (dist < repelRadius && dist > 1) {
-              const force = Math.pow(1 - dist / repelRadius, 1.4) * 4.8;
+              const force = Math.pow(1 - dist / repelRadius, 1.4) * 3.2;
               sp.vx += (dx / dist) * force;
               sp.vy += (dy / dist) * force;
             }
@@ -592,21 +592,21 @@ import { domainPricing } from '../data/pricing';
           }
 
           // Depth scaling & Parallax offset
-          const depthFactor = 0.85 + (sp.z + 2.5) * 0.12;
-          const opacity = Math.min(0.85, Math.max(0.25, 0.32 + (sp.z + 2.5) * 0.1));
+          const depthFactor = 0.9 + (sp.z + 2.5) * 0.08;
+          const opacity = Math.min(0.42, Math.max(0.18, 0.20 + (sp.z + 2.5) * 0.04));
           const fontSize = Math.round(sp.baseSize * depthFactor);
 
-          const renderX = sp.x + mouse.tiltX * (0.6 + (sp.z + 2.5) * 0.15);
-          const renderY = sp.y + mouse.tiltY * (0.6 + (sp.z + 2.5) * 0.15);
+          const renderX = sp.x + mouse.tiltX * (0.4 + (sp.z + 2.5) * 0.1);
+          const renderY = sp.y + mouse.tiltY * (0.4 + (sp.z + 2.5) * 0.1);
 
-          // Draw TLD Sprite with Glow
+          // Draw TLD Sprite with Soft Glow
           ctx.save();
-          ctx.font = `${sp.isBold ? "800" : "700"} ${fontSize}px "Space Mono", ui-monospace, SFMono-Regular, Menlo, monospace`;
+          ctx.font = `${sp.isBold ? "700" : "600"} ${fontSize}px "Space Mono", ui-monospace, SFMono-Regular, Menlo, monospace`;
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
           ctx.globalAlpha = opacity;
           ctx.shadowColor = sp.color;
-          ctx.shadowBlur = 18;
+          ctx.shadowBlur = 8;
           ctx.fillStyle = sp.color;
           ctx.fillText(sp.text, renderX, renderY);
           ctx.restore();
