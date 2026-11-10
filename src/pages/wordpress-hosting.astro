@@ -435,156 +435,225 @@ const faqSchema = {
   </div>
 
   <!-- =========================================================
-       FEATURES: "It Just Works Auto-magically" (Theme-Native 6-Card Grid)
+       FEATURES: "It Just Works Auto-magically" (Sticky Stacking Showcase)
        ========================================================= -->
-  <div class="ace-services-area bg-image ace-section-gap border-bottom">
+  <div class="aceorbit-service ace-service-area ace-section-gap bg-color-white position-relative border-bottom" id="managed-features">
     <div class="container aceorbit-animated-shape">
-      <div class="row g-5">
-        <div class="col-lg-12">
-          <div class="section-title text-center" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+      <div class="services-two-col-layout">
+        
+        <!-- LEFT COLUMN: Locked Still while scrolling -->
+        <div class="sticky-left-col">
+          <div class="section-title text-start" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
             <span class="pre-title">MANAGED AUTOMATION</span>
             <h3 class="title">WordPress Hosting That Just Works — Auto-Magically</h3>
-            <p class="description mx-auto mt-2" style="max-width: 680px;">
-              No manual server configuration, complex terminal commands, or security headaches. Every technical task is handled automatically under the hood so you can focus on building your business.
+            <p class="description mt-3">
+              Reliable cloud infrastructure, managed WordPress environments, and high-security web solutions built for scale. No manual server configuration, complex terminal commands, or security headaches. Every technical task is handled automatically under the hood so you can focus on building your business.
             </p>
           </div>
+
+          <!-- Native Theme Reassurance Box (Matches Home Page) -->
+          <div class="theme-reassurance-box mt-4 p-4 rounded bg-grey">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="reassurance-icon shape-1">
+                <i class="ri-shield-check-line" aria-hidden="true"></i>
+              </div>
+              <div>
+                <h6 class="mb-0 reassurance-title">99.9% Zero Downtime</h6>
+                <span class="reassurance-sub">Tier-4 Certified Datacenter Fleet</span>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+              <div class="reassurance-icon shape-2">
+                <i class="ri-customer-service-2-line" aria-hidden="true"></i>
+              </div>
+              <div>
+                <h6 class="mb-0 reassurance-title">WhatsApp Support</h6>
+                <span class="reassurance-sub">Fast WhatsApp &amp; Dedicated Assistance</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <a class="ace-btn" href="#plans">Explore WordPress Plans</a>
+          </div>
         </div>
+
+        <!-- RIGHT COLUMN: Moves and Stacks smoothly on scroll with Timeline Transition -->
+        <div class="moving-right-col">
+          <div class="services-stack-list wp-stack-list">
+            
+            <!-- 01: Auto-Setup -->
+            <div 
+              class="service-card service-card-3 text-left shape-bg-1 bg-grey stack-card is-active"
+              style="--card-index: 0;"
+              data-stack-card
+            >
+              <div class="inner">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <div class="icon m-0">
+                    <span><i class="ri-magic-line" aria-hidden="true"></i></span>
+                  </div>
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="badge bg-light text-primary px-3 py-1 rounded-pill small font-weight-bold">ZERO CONFIG</span>
+                    <span class="service-idx-badge">01</span>
+                  </div>
+                </div>
+                <div class="content">
+                  <h6 class="title font-weight-bold">1-Click Auto-Setup</h6>
+                  <p class="description">
+                    Pre-configured with the latest stable WordPress, PHP 8.3, and optimized MariaDB databases. Your website is ready for content within 60 seconds of checkout.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 02: Auto-Updates -->
+            <div 
+              class="service-card service-card-3 text-left shape-bg-2 bg-grey stack-card"
+              style="--card-index: 1;"
+              data-stack-card
+            >
+              <div class="inner">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <div class="icon m-0">
+                    <span><i class="ri-refresh-line" aria-hidden="true"></i></span>
+                  </div>
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="badge bg-light text-secondary px-3 py-1 rounded-pill small font-weight-bold">SAFE UPDATES</span>
+                    <span class="service-idx-badge">02</span>
+                  </div>
+                </div>
+                <div class="content">
+                  <h6 class="title font-weight-bold">Smart Auto-Updates</h6>
+                  <p class="description">
+                    WordPress core, themes, and plugins update automatically in the background. Automated restore checkpoints ensure immediate rollback if any plugin conflicts arise.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 03: Auto-Caching -->
+            <div 
+              class="service-card service-card-3 text-left shape-bg-1 bg-grey stack-card"
+              style="--card-index: 2;"
+              data-stack-card
+            >
+              <div class="inner">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <div class="icon m-0">
+                    <span><i class="ri-flashlight-line" aria-hidden="true"></i></span>
+                  </div>
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="badge bg-light text-primary px-3 py-1 rounded-pill small font-weight-bold">10X FASTER</span>
+                    <span class="service-idx-badge">03</span>
+                  </div>
+                </div>
+                <div class="content">
+                  <h6 class="title font-weight-bold">LiteSpeed Auto-Caching</h6>
+                  <p class="description">
+                    Pre-activated LiteSpeed LSCache and Redis object caching store dynamic PHP requests at the server level, delivering instant page loads and sub-second TTFB.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 04: Auto-Backups -->
+            <div 
+              class="service-card service-card-3 text-left shape-bg-2 bg-grey stack-card"
+              style="--card-index: 3;"
+              data-stack-card
+            >
+              <div class="inner">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <div class="icon m-0">
+                    <span><i class="ri-history-line" aria-hidden="true"></i></span>
+                  </div>
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="badge bg-light text-secondary px-3 py-1 rounded-pill small font-weight-bold">DAILY OFFSITE</span>
+                    <span class="service-idx-badge">04</span>
+                  </div>
+                </div>
+                <div class="content">
+                  <h6 class="title font-weight-bold">JetBackup 5 Daily Snapshots</h6>
+                  <p class="description">
+                    Automated daily offsite backups preserve your entire website, files, databases, and emails. Restore individual components or entire sites with 1-click self-service.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 05: Auto-Secured -->
+            <div 
+              class="service-card service-card-3 text-left shape-bg-1 bg-grey stack-card"
+              style="--card-index: 4;"
+              data-stack-card
+            >
+              <div class="inner">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <div class="icon m-0">
+                    <span><i class="ri-shield-flash-line" aria-hidden="true"></i></span>
+                  </div>
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="badge bg-light text-primary px-3 py-1 rounded-pill small font-weight-bold">AI WAF SHIELD</span>
+                    <span class="service-idx-badge">05</span>
+                  </div>
+                </div>
+                <div class="content">
+                  <h6 class="title font-weight-bold">Imunify360 AI Defense</h6>
+                  <p class="description">
+                    Multi-layer real-time malware scanner, automated cleanup, and proactive Web Application Firewall (WAF) blocking botnets, SQL injection, and zero-day exploits.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 06: 1-Click Staging & Cloning -->
+            <div 
+              class="service-card service-card-3 text-left shape-bg-2 bg-grey stack-card"
+              style="--card-index: 5;"
+              data-stack-card
+            >
+              <div class="inner">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <div class="icon m-0">
+                    <span><i class="ri-git-merge-line" aria-hidden="true"></i></span>
+                  </div>
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="badge bg-light text-secondary px-3 py-1 rounded-pill small font-weight-bold">SANDBOX READY</span>
+                    <span class="service-idx-badge">06</span>
+                  </div>
+                </div>
+                <div class="content">
+                  <h6 class="title font-weight-bold">1-Click Staging &amp; Cloning</h6>
+                  <p class="description">
+                    Clone your production site to a private staging environment to test new themes, plugins, and custom PHP code. Push changes live safely with zero downtime.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
 
-      <div class="row aceorbit-about-one-service g-4 mt-3 justify-content-center">
-        <!-- 1: Auto-Setup -->
-        <div class="col-lg-4 col-md-6 col-12" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-          <div class="service-card service-card-3 text-left shape-bg-1 h-100">
-            <div class="inner">
-              <div class="d-flex align-items-center justify-content-between mb-3">
-                <div class="icon m-0">
-                  <span><i class="ri-magic-line"></i></span>
-                </div>
-                <span class="badge bg-light text-primary px-3 py-1 rounded-pill small font-weight-bold">ZERO CONFIG</span>
-              </div>
-              <div class="content">
-                <h6 class="title font-weight-bold">1-Click Auto-Setup</h6>
-                <p class="description">
-                  Pre-configured with the latest stable WordPress, PHP 8.3, and optimized MariaDB databases. Your website is ready for content within 60 seconds of checkout.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 2: Auto-Updates -->
-        <div class="col-lg-4 col-md-6 col-12" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
-          <div class="service-card service-card-3 text-left shape-bg-2 h-100">
-            <div class="inner">
-              <div class="d-flex align-items-center justify-content-between mb-3">
-                <div class="icon m-0">
-                  <span><i class="ri-refresh-line"></i></span>
-                </div>
-                <span class="badge bg-light text-secondary px-3 py-1 rounded-pill small font-weight-bold">SAFE UPDATES</span>
-              </div>
-              <div class="content">
-                <h6 class="title font-weight-bold">Smart Auto-Updates</h6>
-                <p class="description">
-                  WordPress core, themes, and plugins update automatically in the background. Automated restore checkpoints ensure immediate rollback if any plugin conflicts arise.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 3: Auto-Caching -->
-        <div class="col-lg-4 col-md-6 col-12" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
-          <div class="service-card service-card-3 text-left shape-bg-1 h-100">
-            <div class="inner">
-              <div class="d-flex align-items-center justify-content-between mb-3">
-                <div class="icon m-0">
-                  <span><i class="ri-flashlight-line"></i></span>
-                </div>
-                <span class="badge bg-light text-primary px-3 py-1 rounded-pill small font-weight-bold">10X FASTER</span>
-              </div>
-              <div class="content">
-                <h6 class="title font-weight-bold">LiteSpeed Auto-Caching</h6>
-                <p class="description">
-                  Pre-activated LiteSpeed LSCache and Redis object caching store dynamic PHP requests at the server level, delivering instant page loads and sub-second TTFB.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 4: Auto-Backups -->
-        <div class="col-lg-4 col-md-6 col-12" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
-          <div class="service-card service-card-3 text-left shape-bg-2 h-100">
-            <div class="inner">
-              <div class="d-flex align-items-center justify-content-between mb-3">
-                <div class="icon m-0">
-                  <span><i class="ri-history-line"></i></span>
-                </div>
-                <span class="badge bg-light text-secondary px-3 py-1 rounded-pill small font-weight-bold">DAILY OFFSITE</span>
-              </div>
-              <div class="content">
-                <h6 class="title font-weight-bold">JetBackup 5 Daily Snapshots</h6>
-                <p class="description">
-                  Automated daily offsite backups preserve your entire website, files, databases, and emails. Restore individual components or entire sites with 1-click self-service.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 5: Auto-Secured (Imunify360) -->
-        <div class="col-lg-4 col-md-6 col-12" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
-          <div class="service-card service-card-3 text-left shape-bg-1 h-100">
-            <div class="inner">
-              <div class="d-flex align-items-center justify-content-between mb-3">
-                <div class="icon m-0">
-                  <span><i class="ri-shield-flash-line"></i></span>
-                </div>
-                <span class="badge bg-light text-primary px-3 py-1 rounded-pill small font-weight-bold">AI WAF SHIELD</span>
-              </div>
-              <div class="content">
-                <h6 class="title font-weight-bold">Imunify360 AI Defense</h6>
-                <p class="description">
-                  Multi-layer real-time malware scanner, automated cleanup, and proactive Web Application Firewall (WAF) blocking botnets, SQL injection, and zero-day exploits.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 6: 1-Click Staging & Cloning -->
-        <div class="col-lg-4 col-md-6 col-12" data-sal-delay="300" data-sal="slide-up" data-sal-duration="800">
-          <div class="service-card service-card-3 text-left shape-bg-2 h-100">
-            <div class="inner">
-              <div class="d-flex align-items-center justify-content-between mb-3">
-                <div class="icon m-0">
-                  <span><i class="ri-git-merge-line"></i></span>
-                </div>
-                <span class="badge bg-light text-secondary px-3 py-1 rounded-pill small font-weight-bold">SANDBOX READY</span>
-              </div>
-              <div class="content">
-                <h6 class="title font-weight-bold">1-Click Staging &amp; Cloning</h6>
-                <p class="description">
-                  Clone your production site to a private staging environment to test new themes, plugins, and custom PHP code. Push changes live safely with zero downtime.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Animated Shape Accents -->
+      <!-- Native Theme Decorative Floating Shapes -->
       <div class="shape-dot-wrapper shape-wrapper d-xl-block d-none">
         <div class="shape-image shape-image-1">
-          <img src="/assets/images/shape32.png" alt="Shape Thumb">
+          <img alt="Shape Thumb" src="/assets/images/shape29.png" />
         </div>
         <div class="shape-image shape-image-2">
-          <img src="/assets/images/shape0308.png" alt="Shape Thumb">
+          <img alt="Shape Thumb" src="/assets/images/shape0306.png" />
         </div>
         <div class="shape-image shape-image-3">
-          <img src="/assets/images/shape2701.png" alt="Shape Thumb">
+          <img alt="Shape Thumb" src="/assets/images/shape0206.png" />
+        </div>
+        <div class="shape-image shape-image-4">
+          <img alt="Shape Thumb" src="/assets/images/shape19.png" />
         </div>
       </div>
+
     </div>
   </div>
 
@@ -999,6 +1068,85 @@ const faqSchema = {
 
 <script>
   import '../scripts/pricing';
+
+  function initWpStackingMovement() {
+    const list = document.querySelector<HTMLElement>('.wp-stack-list');
+    if (!list) return;
+
+    const cards = Array.from(list.querySelectorAll<HTMLElement>('.stack-card'));
+    if (!cards.length) return;
+
+    let isTicking = false;
+
+    function onScroll() {
+      if (window.innerWidth < 992) {
+        cards.forEach(card => {
+          card.style.transform = '';
+          card.style.filter = '';
+        });
+        isTicking = false;
+        return;
+      }
+
+      const listRect = list!.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      // Update vertical progress line
+      const triggerStart = viewportHeight * 0.7;
+      const totalTravel = listRect.height;
+      const currentScroll = triggerStart - listRect.top;
+      const progressPercent = Math.max(0, Math.min(100, (currentScroll / totalTravel) * 100));
+      list!.style.setProperty('--scroll-progress', `${progressPercent}%`);
+
+      // Find active card index based on scroll position
+      const threshold = 170;
+      let activeIndex = 0;
+
+      cards.forEach((card, i) => {
+        const rect = card.getBoundingClientRect();
+        if (rect.top <= threshold) {
+          activeIndex = i;
+        }
+      });
+
+      // Apply stacking depth scaling to moving cards
+      cards.forEach((card, i) => {
+        const isActive = (i === activeIndex);
+        card.classList.toggle('is-active', isActive);
+
+        if (i < activeIndex) {
+          const depth = activeIndex - i;
+          const scale = Math.max(0.93, 1 - depth * 0.025);
+          const brightness = Math.max(0.92, 1 - depth * 0.03);
+          card.style.transform = `scale(${scale})`;
+          card.style.filter = `brightness(${brightness})`;
+        } else {
+          card.style.transform = 'scale(1)';
+          card.style.filter = 'brightness(1)';
+        }
+      });
+
+      isTicking = false;
+    }
+
+    function requestScroll() {
+      if (!isTicking) {
+        window.requestAnimationFrame(onScroll);
+        isTicking = true;
+      }
+    }
+
+    window.addEventListener('scroll', requestScroll, { passive: true });
+    window.addEventListener('resize', requestScroll, { passive: true });
+    onScroll();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initWpStackingMovement);
+  } else {
+    initWpStackingMovement();
+  }
+  document.addEventListener('astro:page-load', initWpStackingMovement);
 </script>
 
 <!-- Multi-Duration Switcher for WordPress Pricing -->
@@ -1313,9 +1461,157 @@ const faqSchema = {
       font-size: 13.5px;
     }
   }
-      text-align: center;
-      padding: 0 8px;
-      font-size: 13.5px;
+
+  /* ════════════════════════════════════════════════════════════════
+     MANAGED AUTOMATION TWO-COLUMN STICKY STACKING SHOWCASE
+     ════════════════════════════════════════════════════════════════ */
+  .services-two-col-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    position: relative;
+  }
+
+  @media (min-width: 992px) {
+    .services-two-col-layout {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 50px;
+      align-items: start;
     }
+
+    .sticky-left-col {
+      position: sticky;
+      top: 105px;
+      z-index: 5;
+    }
+
+    .moving-right-col {
+      position: relative;
+    }
+  }
+
+  .theme-reassurance-box {
+    border: 1px solid var(--color-border, #eeeeee);
+  }
+
+  .reassurance-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 22px 22px 3px 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .reassurance-icon.shape-1 {
+    background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.1);
+    color: var(--color-primary, #ff501a);
+  }
+
+  .reassurance-icon.shape-2 {
+    background: rgba(var(--color-secondary-rgb, 32, 33, 51), 0.1);
+    color: var(--color-secondary, #202133);
+  }
+
+  .reassurance-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-heading, #202133);
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+  }
+
+  .reassurance-sub {
+    font-size: 13px;
+    color: var(--color-body, #6F6B80);
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+  }
+
+  .services-stack-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    position: relative;
+  }
+
+  @media (min-width: 992px) {
+    .services-stack-list {
+      padding-left: 36px;
+    }
+
+    .services-stack-list::before {
+      content: "";
+      position: absolute;
+      top: 25px;
+      bottom: 25px;
+      left: 10px;
+      width: 2px;
+      background: var(--color-border, #eeeeee);
+      border-radius: 2px;
+    }
+
+    .services-stack-list::after {
+      content: "";
+      position: absolute;
+      top: 25px;
+      left: 10px;
+      width: 2px;
+      height: var(--scroll-progress, 0%);
+      max-height: calc(100% - 50px);
+      background: var(--color-primary, #ff501a);
+      border-radius: 2px;
+      transition: height 0.15s ease-out;
+    }
+
+    .stack-card {
+      position: sticky;
+      top: calc(105px + var(--card-index, 0) * 18px);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, background 0.35s ease, filter 0.35s ease;
+      transform-origin: top center;
+    }
+
+    .stack-card::before {
+      content: "";
+      position: absolute;
+      top: 40px;
+      left: -32px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--color-white, #ffffff);
+      border: 2px solid var(--color-border, #d5dae2);
+      transition: all 0.35s ease;
+      z-index: 3;
+    }
+
+    .stack-card.is-active::before {
+      background: var(--color-primary, #ff501a);
+      border-color: var(--color-primary, #ff501a);
+      box-shadow: 0 0 0 5px rgba(var(--color-primary-rgb, 210, 116, 29), 0.2);
+      transform: scale(1.2);
+    }
+
+    .stack-card.is-active {
+      background: var(--color-white, #ffffff);
+      box-shadow: 0px 14px 35px rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  .service-idx-badge {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--color-primary, #ff501a);
+    background: rgba(var(--color-primary-rgb, 210, 116, 29), 0.1);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-family: var(--font-primary, "Urbanist", sans-serif);
+    transition: all 0.3s ease;
+  }
+
+  .stack-card.is-active .service-idx-badge {
+    background: var(--color-primary, #ff501a);
+    color: var(--color-white, #ffffff);
   }
 </style>
