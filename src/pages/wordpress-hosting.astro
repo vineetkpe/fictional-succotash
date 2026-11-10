@@ -12,82 +12,82 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What makes Hostamble Managed WordPress Hosting faster than standard web hosting?",
+      "name": "What is the difference between WordPress hosting and standard shared web hosting?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Hostamble WordPress Hosting is provisioned on enterprise AMD EPYC processors with PCIe 4.0 NVMe SSD storage in high-redundancy RAID-10. Each account is accelerated by the LiteSpeed Enterprise Web Server with native LSCache and Redis object caching, bypassing standard PHP bottlenecks to deliver up to 10x faster dynamic page serving, sub-second TTFB, and 99.9% uptime."
+        "text": "WordPress hosting is specifically pre-configured and optimized for the WordPress CMS stack. Unlike generic shared hosting, WordPress hosting includes dedicated server-level caching (such as LiteSpeed LSCache and Redis), isolated CloudLinux PHP memory pools (256MB–512MB+), automated core and plugin updates with safety rollback checkpoints, and WordPress-specific firewall rules blocking XML-RPC exploits and brute-force login attempts."
       }
     },
     {
       "@type": "Question",
-      "name": "Is genuine cPanel access and 1-Click Staging included with WordPress Hosting?",
+      "name": "Do I need specialized WordPress hosting, or can I use regular web hosting?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Unlike proprietary hosting providers that lock you into restricted dashboards, Hostamble provides official cPanel access alongside the Softaculous 1-Click Installer. You get dedicated staging and cloning environments to test plugins, themes, and PHP updates safely in private before pushing them live in a single click."
+        "text": "While WordPress can technically run on basic web hosting, specialized WordPress hosting significantly improves website speed, Core Web Vitals, and search engine rankings. It eliminates complex manual configurations by automating database optimization, SSL certificate provisioning, staging sandboxes, daily backups, and server-side object caching out of the box."
       }
     },
     {
       "@type": "Question",
-      "name": "Does Hostamble provide free WordPress website migration?",
+      "name": "How does LiteSpeed Enterprise Web Server accelerate WordPress site speed?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, 100% free migration is included with every WordPress Hosting plan. Our dedicated WordPress technical team migrates your files, MySQL databases, plugins, themes, and email accounts from your current host with zero downtime and complete data integrity."
+        "text": "LiteSpeed Enterprise replaces traditional Apache web servers with an event-driven architecture that consumes minimal RAM and CPU. Combined with native LiteSpeed Cache (LSCache) and HTTP/3 QUIC protocol support, dynamic PHP pages are cached as static HTML directly at the server level, cutting server response times (TTFB) to under 100ms and handling up to 10x more concurrent visitors without slowdowns."
       }
     },
     {
       "@type": "Question",
-      "name": "How does Imunify360 protect my WordPress website against malware and hackers?",
+      "name": "How much SSD storage and RAM does an active WordPress website need?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Every WordPress plan includes integrated Imunify360 AI Security with proactive real-time malware scanning, automated malicious file cleanup, and a smart Web Application Firewall (WAF). Imunify360 actively blocks brute-force login attempts, SQL injections, cross-site scripting (XSS), and zero-day threats directly at the kernel level."
+        "text": "A standard WordPress blog or portfolio website typically uses 2 GB to 5 GB of storage including themes, core files, and plugins. An eCommerce store using WooCommerce with 500+ product images typically needs 8 GB to 25 GB of NVMe SSD storage. For memory, 256MB to 512MB of dedicated PHP memory_limit ensures seamless execution of heavy page builders like Elementor without memory exhaustion errors."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I run a WooCommerce store on Hostamble WordPress Hosting?",
+      "name": "Can I migrate an existing WordPress site without any downtime or data loss?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Hostamble WordPress hosting is fully optimized for WooCommerce, offering high PHP memory limits (up to 512MB+), MariaDB query acceleration, HTTP/3 QUIC protocol support, and dedicated CloudLinux LVE CPU/RAM allocations, ensuring blazing-fast shopping cart checkout and order processing even during heavy traffic surges."
+        "text": "Yes. Zero-downtime WordPress migration is achieved by copying your WordPress files (public_html) and exporting your MySQL database to the new server while your old host remains active. You can preview and test the transferred website using a temporary URL or hosts file modification before updating your domain nameservers (DNS), ensuring zero visitor interruption."
       }
     },
     {
       "@type": "Question",
-      "name": "Are automated backups included and how do I restore my website?",
+      "name": "What are the best security practices to protect a WordPress website from hackers?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Automated daily offsite snapshots are powered by JetBackup 5. You can restore individual WordPress files, specific MySQL database tables, email inboxes, or your entire account with a single click directly from your cPanel dashboard at no additional charge."
+        "text": "Essential WordPress security requires multi-layered defense: an automated Web Application Firewall (WAF) to filter malicious requests, real-time kernel-level malware scanners like Imunify360, brute-force login throttling, automated Let's Encrypt SSL encryption, disabling XML-RPC pingbacks, enforcing strong admin passwords with 2FA, and running regular offsite backups."
       }
     },
     {
       "@type": "Question",
-      "name": "Where are Hostamble datacenters located, and can I get low latency in India?",
+      "name": "What is WordPress 1-Click Staging and why is it important?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Hostamble operates Tier-III high-speed datacenters in India as well as premier global locations equipped with redundant multi-homed 10Gbps fiber uplinks. This ensures ultra-low ping latency (<18ms across India), fast edge routing, and optimal local search engine performance."
+        "text": "1-Click Staging creates an exact, private clone of your live WordPress website in an isolated sandbox. This allows you to safely test major WordPress core updates, new WooCommerce plugins, custom PHP functions, or theme redesigns without risking crashes on your live production site. Once validated, you can push the staged changes to your live site in a single click."
       }
     },
     {
       "@type": "Question",
-      "name": "What versions of PHP are supported on WordPress Hosting?",
+      "name": "Why is server TTFB (Time to First Byte) critical for WordPress SEO rankings?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "You can select and switch between PHP 8.0, 8.1, 8.2, 8.3, and 8.4 instantly using the Multi-PHP Selector in cPanel. You can also customize PHP extensions (OPcache, Redis, Imagick, IonCube) and php.ini directives to match your exact plugin requirements."
+        "text": "Google's Core Web Vitals prioritize fast-loading websites, and Time to First Byte (TTFB) measures how quickly your server responds to a browser request. A slow TTFB delays Largest Contentful Paint (LCP) and First Input Delay (FID). Hosting WordPress on enterprise AMD EPYC CPUs with PCIe 4.0 NVMe SSDs and LiteSpeed caching keeps TTFB under 200ms, directly improving crawl efficiency and organic search rank."
       }
     },
     {
       "@type": "Question",
-      "name": "Is a Free SSL Certificate and Free Domain included?",
+      "name": "Can I run WooCommerce on standard WordPress hosting plans?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Automated Let's Encrypt Wildcard SSL certificates are generated and auto-renewed every 90 days for all primary domains and subdomains. Additionally, annual and multi-year subscriptions on qualifying plans include a Free Domain Name registration."
+        "text": "Yes, provided the WordPress hosting plan provides sufficient hardware isolation, high PHP memory allocation (minimum 256MB, recommended 512MB+), modern PHP 8.2/8.3 execution, and OPcache. WooCommerce requires dynamic cart operations that cannot be fully cached, so enterprise NVMe storage and fast database query execution are vital for fast checkout processing."
       }
     },
     {
       "@type": "Question",
-      "name": "What is Hostamble's refund and money-back guarantee policy?",
+      "name": "Can I host multiple WordPress websites on one hosting account?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Hostamble provides an unconditional 30-day money-back guarantee on all annual and multi-year WordPress hosting plans. If you are not completely satisfied with our performance, speed, or support within the first 30 days, you can request a prompt, hassle-free refund."
+        "text": "Yes. Multi-domain WordPress hosting plans allow you to host multiple distinct websites (from 3 to 10+ domains) under a single management dashboard. Each domain maintains its own independent root directory, dedicated MySQL database, separate FTP/SFTP credentials, and auto-renewing SSL certificate."
       }
     }
   ]
@@ -252,7 +252,7 @@ const faqSchema = {
       </div>
       <div class="row g-4 mt--20 four-planss">
         <!-- Starter Plan -->
-        <div class="col-xl-3 col-lg-6 col-md-6 col-12" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+        <div class="col-xl-3 col-lg-6 col-md-6 col-12 d-flex" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
           <div class="pricing-table">
             <div class="pricing-header">
               <h3 class="title">Starter</h3>
@@ -295,7 +295,7 @@ const faqSchema = {
         </div>
 
         <!-- Essential Plan -->
-        <div class="col-xl-3 col-lg-6 col-md-6 col-12" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
+        <div class="col-xl-3 col-lg-6 col-md-6 col-12 d-flex" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
           <div class="pricing-table active">
             <div class="pricing-header">
               <div class="ace-badge"><span>Recommended</span></div>
@@ -340,7 +340,7 @@ const faqSchema = {
         </div>
 
         <!-- Growth Plan -->
-        <div class="col-xl-3 col-lg-6 col-md-6 col-12" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
+        <div class="col-xl-3 col-lg-6 col-md-6 col-12 d-flex" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
           <div class="pricing-table">
             <div class="pricing-header">
               <h3 class="title">Growth</h3>
@@ -384,7 +384,7 @@ const faqSchema = {
         </div>
 
         <!-- Prime Plan -->
-        <div class="col-xl-3 col-lg-6 col-md-6 col-12" data-sal-delay="300" data-sal="slide-up" data-sal-duration="800">
+        <div class="col-xl-3 col-lg-6 col-md-6 col-12 d-flex" data-sal-delay="300" data-sal="slide-up" data-sal-duration="800">
           <div class="pricing-table">
             <div class="pricing-header">
               <h3 class="title">Prime</h3>
@@ -428,8 +428,13 @@ const faqSchema = {
         </div>
       </div>
 
-      <div class="section-title text-start mt-4" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
-        <span class="pre-title">&quot;Only Annual Plans are eligible for free domain names. &quot;</span>
+      <div class="row mt-4 pt-2">
+        <div class="col-12 text-center" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+          <div class="domain-eligibility-note">
+            <i class="ri-information-line me-1 text-primary"></i>
+            <span><strong>* Free Domain Registration:</strong> Included with all Annual and Multi-Year billing plans.</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -895,10 +900,10 @@ const faqSchema = {
       <div class="row">
         <div class="col-lg-12">
           <div class="section-title text-center" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-            <span class="pre-title">GOT QUESTIONS?</span>
+            <span class="pre-title">KNOWLEDGE BASE</span>
             <h3 class="title">Frequently Asked Questions</h3>
             <p class="description mx-auto mt-2" style="max-width: 650px;">
-              Everything you need to know about Hostamble's Managed WordPress Hosting, LiteSpeed caching, backups, security, and migration.
+              Essential answers to top questions about WordPress hosting performance, LiteSpeed caching, WooCommerce optimization, staging environments, and site security.
             </p>
           </div>
         </div>
@@ -907,142 +912,142 @@ const faqSchema = {
       <div class="row mt-4 justify-content-center">
         <div class="col-12 col-lg-10">
           <div class="accordion accordion-flush" id="faqAccordion">
-            <!-- 1: Why Faster -->
+            <!-- 1: Difference vs Shared -->
             <div class="accordion-item">
               <h2 class="accordion-header">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-1" aria-expanded="true" aria-controls="faq-1">
-                  What makes Hostamble Managed WordPress Hosting faster than standard web hosting?
+                  What is the difference between WordPress hosting and standard shared web hosting?
                 </button>
               </h2>
               <div id="faq-1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
                 <div class="accordion-body">
-                  Hostamble WordPress Hosting runs on high-frequency enterprise processors with pure PCIe 4.0 NVMe SSD storage in RAID-10. Each site is accelerated by the LiteSpeed Enterprise Web Server with native LSCache and Redis object caching, bypassing standard PHP execution bottlenecks to deliver up to 10x faster dynamic page serving, sub-second TTFB, and 99.9% uptime.
+                  WordPress hosting is specifically pre-configured and optimized for the WordPress CMS stack. Unlike generic shared hosting, WordPress hosting includes dedicated server-level caching (such as LiteSpeed LSCache and Redis), isolated CloudLinux PHP memory pools (256MB–512MB+), automated core and plugin updates with safety rollback checkpoints, and WordPress-specific firewall rules blocking XML-RPC exploits and brute-force login attempts.
                 </div>
               </div>
             </div>
 
-            <!-- 2: cPanel & Staging -->
+            <!-- 2: Specialized vs Regular -->
             <div class="accordion-item">
               <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-2" aria-expanded="false" aria-controls="faq-2">
-                  Is genuine cPanel access and 1-Click Staging included with every WordPress plan?
+                  Do I need specialized WordPress hosting, or can I use regular web hosting?
                 </button>
               </h2>
               <div id="faq-2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                 <div class="accordion-body">
-                  Yes. Unlike proprietary hosting providers that lock you into restricted dashboards, Hostamble provides official cPanel access alongside the Softaculous 1-Click Installer. You get dedicated staging and cloning environments to test plugins, themes, and PHP updates safely in private before pushing them live in a single click.
+                  While WordPress can technically run on basic web hosting, specialized WordPress hosting significantly improves website speed, Core Web Vitals, and search engine rankings. It eliminates complex manual configurations by automating database optimization, SSL certificate provisioning, staging sandboxes, daily backups, and server-side object caching out of the box.
                 </div>
               </div>
             </div>
 
-            <!-- 3: Migration -->
+            <!-- 3: LiteSpeed Speed -->
             <div class="accordion-item">
               <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-3" aria-expanded="false" aria-controls="faq-3">
-                  Does Hostamble provide free WordPress website migration?
+                  How does LiteSpeed Enterprise Web Server accelerate WordPress site speed?
                 </button>
               </h2>
               <div id="faq-3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                 <div class="accordion-body">
-                  Yes, 100% free migration is included with every WordPress Hosting plan. Our dedicated WordPress technical team migrates your files, MySQL databases, plugins, themes, and email accounts from your current host with zero downtime and complete data integrity.
+                  LiteSpeed Enterprise replaces traditional Apache web servers with an event-driven architecture that consumes minimal RAM and CPU. Combined with native LiteSpeed Cache (LSCache) and HTTP/3 QUIC protocol support, dynamic PHP pages are cached as static HTML directly at the server level, cutting server response times (TTFB) to under 100ms and handling up to 10x more concurrent visitors without slowdowns.
                 </div>
               </div>
             </div>
 
-            <!-- 4: Imunify360 Security -->
+            <!-- 4: SSD Storage & RAM Needs -->
             <div class="accordion-item">
               <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-4" aria-expanded="false" aria-controls="faq-4">
-                  How does Imunify360 protect my WordPress website against malware and hackers?
+                  How much SSD storage and RAM does an active WordPress website need?
                 </button>
               </h2>
               <div id="faq-4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                 <div class="accordion-body">
-                  Every WordPress plan includes integrated Imunify360 AI Security with proactive real-time malware scanning, automated malicious file cleanup, and a smart Web Application Firewall (WAF). Imunify360 actively blocks brute-force login attempts, SQL injections, cross-site scripting (XSS), and zero-day threats directly at the kernel level.
+                  A standard WordPress blog or portfolio website typically uses 2 GB to 5 GB of storage including themes, core files, and plugins. An eCommerce store using WooCommerce with 500+ product images typically needs 8 GB to 25 GB of NVMe SSD storage. For memory, 256MB to 512MB of dedicated PHP memory_limit ensures seamless execution of heavy page builders like Elementor without memory exhaustion errors.
                 </div>
               </div>
             </div>
 
-            <!-- 5: WooCommerce -->
+            <!-- 5: Zero Downtime Migration -->
             <div class="accordion-item">
               <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-5" aria-expanded="false" aria-controls="faq-5">
-                  Can I host a WooCommerce store on Hostamble WordPress Hosting?
+                  Can I migrate an existing WordPress site without any downtime or data loss?
                 </button>
               </h2>
               <div id="faq-5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                 <div class="accordion-body">
-                  Yes. Hostamble WordPress hosting is fully optimized for WooCommerce, offering high PHP memory limits (up to 512MB+), MariaDB query acceleration, HTTP/3 QUIC protocol support, and dedicated CloudLinux LVE CPU/RAM allocations, ensuring blazing-fast shopping cart checkout and order processing even during heavy traffic surges.
+                  Yes. Zero-downtime WordPress migration is achieved by copying your WordPress files (public_html) and exporting your MySQL database to the new server while your old host remains active. You can preview and test the transferred website using a temporary URL or hosts file modification before updating your domain nameservers (DNS), ensuring zero visitor interruption.
                 </div>
               </div>
             </div>
 
-            <!-- 6: Backups & Restore -->
+            <!-- 6: Security Practices -->
             <div class="accordion-item">
               <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-6" aria-expanded="false" aria-controls="faq-6">
-                  Are automated daily backups included, and how do I restore my website?
+                  What are the best security practices to protect a WordPress website from hackers?
                 </button>
               </h2>
               <div id="faq-6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                 <div class="accordion-body">
-                  Yes. Automated daily offsite snapshots are powered by JetBackup 5. You can restore individual WordPress files, specific MySQL database tables, email inboxes, or your entire account with a single click directly from your cPanel dashboard at no additional charge.
+                  Essential WordPress security requires multi-layered defense: an automated Web Application Firewall (WAF) to filter malicious requests, real-time kernel-level malware scanners like Imunify360, brute-force login throttling, automated Let's Encrypt SSL encryption, disabling XML-RPC pingbacks, enforcing strong admin passwords with 2FA, and running regular offsite backups.
                 </div>
               </div>
             </div>
 
-            <!-- 7: Indian Datacenters -->
+            <!-- 7: 1-Click Staging -->
             <div class="accordion-item">
               <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-7" aria-expanded="false" aria-controls="faq-7">
-                  Where are Hostamble datacenters located, and can I get low latency in India?
+                  What is WordPress 1-Click Staging and why is it important?
                 </button>
               </h2>
               <div id="faq-7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                 <div class="accordion-body">
-                  Hostamble operates Tier-III high-speed datacenters in India as well as premier global locations equipped with redundant multi-homed 10Gbps fiber uplinks. This ensures ultra-low ping latency (&lt;18ms across India), fast edge routing, and optimal local search engine performance.
+                  1-Click Staging creates an exact, private clone of your live WordPress website in an isolated sandbox. This allows you to safely test major WordPress core updates, new WooCommerce plugins, custom PHP functions, or theme redesigns without risking crashes on your live production site. Once validated, you can push the staged changes to your live site in a single click.
                 </div>
               </div>
             </div>
 
-            <!-- 8: PHP Versions -->
+            <!-- 8: TTFB & SEO -->
             <div class="accordion-item">
               <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-8" aria-expanded="false" aria-controls="faq-8">
-                  What versions of PHP are supported on WordPress Hosting?
+                  Why is server TTFB (Time to First Byte) critical for WordPress SEO rankings?
                 </button>
               </h2>
               <div id="faq-8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                 <div class="accordion-body">
-                  You can select and switch between PHP 8.0, 8.1, 8.2, 8.3, and 8.4 instantly using the Multi-PHP Selector in cPanel. You can also customize PHP extensions (OPcache, Redis, Imagick, IonCube) and php.ini directives to match your exact plugin requirements.
+                  Google's Core Web Vitals prioritize fast-loading websites, and Time to First Byte (TTFB) measures how quickly your server responds to a browser request. A slow TTFB delays Largest Contentful Paint (LCP) and First Input Delay (FID). Hosting WordPress on enterprise AMD EPYC CPUs with PCIe 4.0 NVMe SSDs and LiteSpeed caching keeps TTFB under 200ms, directly improving crawl efficiency and organic search rank.
                 </div>
               </div>
             </div>
 
-            <!-- 9: Free SSL & Domain -->
+            <!-- 9: WooCommerce Support -->
             <div class="accordion-item">
               <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-9" aria-expanded="false" aria-controls="faq-9">
-                  Is a Free SSL Certificate and Free Domain included?
+                  Can I run WooCommerce on standard WordPress hosting plans?
                 </button>
               </h2>
               <div id="faq-9" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                 <div class="accordion-body">
-                  Yes. Automated Let's Encrypt Wildcard SSL certificates are generated and auto-renewed every 90 days for all primary domains and subdomains. Additionally, annual and multi-year subscriptions on qualifying plans include a Free Domain Name registration.
+                  Yes, provided the WordPress hosting plan provides sufficient hardware isolation, high PHP memory allocation (minimum 256MB, recommended 512MB+), modern PHP 8.2/8.3 execution, and OPcache. WooCommerce requires dynamic cart operations that cannot be fully cached, so enterprise NVMe storage and fast database query execution are vital for fast checkout processing.
                 </div>
               </div>
             </div>
 
-            <!-- 10: Refund Policy -->
+            <!-- 10: Multiple Websites -->
             <div class="accordion-item">
               <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-10" aria-expanded="false" aria-controls="faq-10">
-                  What is Hostamble's refund and money-back guarantee policy?
+                  Can I host multiple WordPress websites on one hosting account?
                 </button>
               </h2>
               <div id="faq-10" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                 <div class="accordion-body">
-                  Hostamble provides an unconditional 30-day money-back guarantee on all annual and multi-year WordPress hosting plans. If you are not completely satisfied with our performance, speed, or support within the first 30 days, you can request a prompt, hassle-free refund.
+                  Yes. Multi-domain WordPress hosting plans allow you to host multiple distinct websites under a single management dashboard. Each domain maintains its own independent root directory, dedicated MySQL database, separate FTP/SFTP credentials, and auto-renewing SSL certificate.
                 </div>
               </div>
             </div>
@@ -1406,35 +1411,129 @@ const faqSchema = {
      THEME-NATIVE PRICING TABLE (4-COLUMN COMPACT LAYOUT)
      ════════════════════════════════════════════════════════════════ */
   .four-planss .pricing-table {
-    padding: 40px 22px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    padding: 38px 24px 28px !important;
+    height: 100% !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    border-radius: 12px !important;
+    border: 1px solid #edf1f7 !important;
+    background: #ffffff !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+    position: relative !important;
+    transform: none !important; /* CRITICAL: Ensures perfect horizontal baseline alignment */
+    transition: box-shadow 0.25s ease, border-color 0.25s ease !important;
   }
 
-  .four-planss .pricing-table .pricing-header {
-    margin-bottom: 24px;
-  }
-
-  .four-planss .pricing-table .pricing-body {
-    flex-grow: 1;
-    margin-bottom: 24px;
-  }
-
-  .four-planss .pricing-table .pricing-btn {
-    margin-top: auto;
-  }
-
-  .four-planss .pricing-table .pricing-btn .ace-btn {
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-    padding: 12px 18px;
+  .four-planss .pricing-table:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
   }
 
   .four-planss .pricing-table.active {
-    transform: translateY(-10px);
+    transform: none !important; /* Overrides style.css translateY(-20px) so card bottoms align */
+    border: 2px solid var(--color-primary, #ff501a) !important;
+    box-shadow: 0 12px 35px rgba(255, 80, 26, 0.16) !important;
+  }
+
+  .four-planss .pricing-table .pricing-header {
+    margin-bottom: 22px !important;
+    text-align: center !important;
+  }
+
+  .four-planss .pricing-table .pricing-header .title {
+    font-size: 18px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.04em !important;
+    text-transform: uppercase !important;
+    margin-bottom: 12px !important;
+    color: #1e293b !important;
+  }
+
+  .four-planss .pricing-table .pricing-header .price-wrap .amount {
+    font-size: 38px !important;
+    line-height: 1.1 !important;
+    font-weight: 800 !important;
+    color: var(--color-primary, #ff501a) !important;
+  }
+
+  .four-planss .pricing-table .pricing-header .price-wrap .duration {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #64748b !important;
+    text-transform: lowercase !important;
+    display: inline-block !important;
+    margin-left: 2px !important;
+  }
+
+  .four-planss .pricing-table .pricing-body {
+    flex-grow: 1 !important;
+    margin-bottom: 24px !important;
+  }
+
+  .four-planss .pricing-table .pricing-body .list-item li {
+    font-size: 14.5px !important;
+    line-height: 1.45 !important;
+    color: #1e293b !important;
+    font-weight: 600 !important;
+    padding-left: 22px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .four-planss .pricing-table .pricing-body .list-item li::before {
+    top: 3px !important;
+    color: var(--color-primary, #ff501a) !important;
+    font-size: 14px !important;
+  }
+
+  .four-planss .pricing-table .pricing-btn {
+    margin-top: auto !important;
+    padding-top: 10px !important;
+  }
+
+  .four-planss .pricing-table .pricing-btn .ace-btn {
+    width: 100% !important;
+    height: 48px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    font-size: 14.5px !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+    padding: 0 18px !important;
+    transition: all 0.25s ease !important;
+    background: #1b1c2b !important;
+    color: #ffffff !important;
+  }
+
+  .four-planss .pricing-table .pricing-btn .ace-btn:hover {
+    background: var(--color-primary, #ff501a) !important;
+    color: #ffffff !important;
+  }
+
+  .four-planss .pricing-table.active .pricing-btn .ace-btn {
+    background: var(--color-primary, #ff501a) !important;
+    color: #ffffff !important;
+    box-shadow: 0 6px 18px rgba(255, 80, 26, 0.35) !important;
+  }
+
+  .four-planss .pricing-table.active .pricing-btn .ace-btn:hover {
+    background: #e04413 !important;
+    box-shadow: 0 8px 22px rgba(255, 80, 26, 0.45) !important;
+  }
+
+  .domain-eligibility-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    background: rgba(255, 80, 26, 0.05);
+    border: 1px dashed rgba(255, 80, 26, 0.35);
+    border-radius: 9999px;
+    font-size: 13.5px;
+    color: #475569;
+    font-weight: 500;
   }
 
   /* Responsive Duration Switcher */
