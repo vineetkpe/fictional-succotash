@@ -250,7 +250,7 @@ const faqSchema = {
           </div>
         </div>
       </div>
-      <div class="row g-4 mt--20 four-planss">
+      <div class="row g-4 mt-3 four-planss">
         <!-- Starter Plan -->
         <div class="col-xl-3 col-lg-6 col-md-6 col-12 d-flex" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
           <div class="pricing-table">
@@ -298,7 +298,7 @@ const faqSchema = {
         <div class="col-xl-3 col-lg-6 col-md-6 col-12 d-flex" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
           <div class="pricing-table active">
             <div class="pricing-header">
-              <div class="ace-badge"><span>Recommended</span></div>
+              <div class="ace-badge"><span><i class="ri-star-fill" style="font-size: 11px;"></i> Recommended</span></div>
               <h3 class="title">Essential</h3>
               <div class="price-wrap">
                 <div class="monthly-pricing" style="display: block;">
@@ -1434,6 +1434,39 @@ const faqSchema = {
     transform: none !important; /* Overrides style.css translateY(-20px) so card bottoms align */
     border: 2px solid var(--color-primary, #ff501a) !important;
     box-shadow: 0 12px 35px rgba(255, 80, 26, 0.16) !important;
+  }
+
+  /* Recommended Badge: Floating Pill Centered on Top Border (Never Overlaps Plan Title) */
+  .four-planss .pricing-table.active .ace-badge {
+    position: absolute !important;
+    top: -14px !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    background: linear-gradient(135deg, #ff501a 0%, #ff7a00 100%) !important;
+    padding: 4px 18px !important;
+    border-radius: 9999px !important;
+    height: auto !important;
+    line-height: normal !important;
+    box-shadow: 0 4px 14px rgba(255, 80, 26, 0.38) !important;
+    z-index: 10 !important;
+    white-space: nowrap !important;
+    border: none !important;
+  }
+
+  .four-planss .pricing-table.active .ace-badge span {
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    color: #ffffff !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+  }
+
+  .four-planss .pricing-table.active .ace-badge::after {
+    display: none !important; /* Removes the dark triangle cut-out */
   }
 
   .four-planss .pricing-table .pricing-header {
