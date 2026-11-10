@@ -1,15 +1,22 @@
 ---
 interface Props {
-  showSearch?: boolean;
+    showSearch?: boolean;
 }
-import CurrencySwitcher from './CurrencySwitcher.astro';
+import CurrencySwitcher from "./CurrencySwitcher.astro";
 ---
-<header class="ace-header header-sticky header-transparent header-style-one header-default">
+
+<header
+    class="ace-header header-sticky header-transparent header-style-one header-default"
+>
     <div class="row align-items-center">
         <div class="col-lg-4 col-xl-2 col-md-6 col-6">
             <div class="logo">
                 <a href="/">
-                    <img class="logo-light" src="/assets/images/logo.png" alt="Site Logo">
+                    <img
+                        class="logo-light"
+                        src="/assets/images/logo.png"
+                        alt="Site Logo"
+                    />
                 </a>
             </div>
         </div>
@@ -17,18 +24,30 @@ import CurrencySwitcher from './CurrencySwitcher.astro';
             <nav class="mainmenu-nav d-none d-lg-block">
                 <ul class="mainmenu">
                     <li class="mainmenu"><a href="/">Home</a></li>
-                    <li class="has-droupdown"><a href="#">Domain</a>
+                    <li class="has-droupdown">
+                        <a href="#">Domain</a>
                         <ul class="submenu">
                             <li><a href="/domain-search">Domain Search</a></li>
-                            <li><a href="/transfer-domain">Domain Transfer</a></li>
+                            <li>
+                                <a href="/transfer-domain">Domain Transfer</a>
+                            </li>
                             <li><a href="/tld-pricing">TLD Pricing List</a></li>
-                            <li><a href="/ai-domain-generator">AI Domain Generator</a></li>
+                            <li>
+                                <a href="/ai-domain-generator"
+                                    >AI Domain Generator</a>
+                            </li>
                         </ul>
                     </li>
-                    <li class="has-droupdown"><a href="#">Hosting</a>
+                    <li class="has-droupdown">
+                        <a href="#">Hosting</a>
                         <ul class="submenu">
-                            <li><a href="/shared-hosting">Shared Hosting</a></li>
-                            <li><a href="/wordpress-hosting">WordPress Hosting</a></li>
+                            <li>
+                                <a href="/shared-hosting">Shared Hosting</a>
+                            </li>
+                            <li>
+                                <a href="/wordpress-hosting"
+                                    >WordPress Hosting</a>
+                            </li>
                         </ul>
                     </li>
                     <li><a href="/knowledge-base">Knowledge Base</a></li>
@@ -42,17 +61,26 @@ import CurrencySwitcher from './CurrencySwitcher.astro';
             </nav>
         </div>
         <div class="col-lg-8 col-xl-4 col-md-6 col-6">
-            <div class="header-right d-flex justify-content-end align-items-center">
+            <div
+                class="header-right d-flex justify-content-end align-items-center"
+            >
                 <CurrencySwitcher variant="header" />
                 <div class="header-menu-bar">
                     <!-- For larger screens, show "Login / Register" text -->
-                    <div class="quote-icon quote-user d-none d-md-block ml--15 ml_sm--5">
-                        <a class="ace-btn btn-medium left-icon header-button text-nowrap" href="/login">
+                    <div
+                        class="quote-icon quote-user d-none d-md-block ml--15 ml_sm--5"
+                    >
+                        <a
+                            class="ace-btn btn-medium left-icon header-button text-nowrap"
+                            href="/login"
+                        >
                             <i class="ri-user-line"></i>Login / Register
                         </a>
                     </div>
                     <!-- For mobile devices, show only the icon -->
-                    <div class="quote-icon quote-user d-block d-md-none ml--15 ml_sm--5">
+                    <div
+                        class="quote-icon quote-user d-block d-md-none ml--15 ml_sm--5"
+                    >
                         <a class="white-box-icon" href="/login">
                             <i class="ri-user-line"></i>
                         </a>
@@ -60,7 +88,9 @@ import CurrencySwitcher from './CurrencySwitcher.astro';
                 </div>
                 <div class="mobile-menu-bar ml--15 ml_sm--5 d-block d-xl-none">
                     <div class="hamberger">
-                        <button class="white-box-icon hamberger-button header-menu">
+                        <button
+                            class="white-box-icon hamberger-button header-menu"
+                        >
                             <i class="ri-menu-line"></i>
                         </button>
                     </div>
@@ -69,4 +99,3 @@ import CurrencySwitcher from './CurrencySwitcher.astro';
         </div>
     </div>
 </header>
-
