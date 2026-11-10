@@ -204,10 +204,10 @@ const faqSchema = {
   </div>
 
   <!-- =========================================================
-       PRICING SECTION: Choose Your Pricing Plan (Top-Priced 4 Durations)
+       PRICING SECTION: Choose Your Pricing Plan (Theme-Native Pricing Table)
        ========================================================= -->
   <div class="ace-pricing-area aceorbit-pricing-plan-page ace-section-gap bg-image" id="plans">
-    <div class="container-fluid aceorbit-animated-shape px-md-5 px-sm-5">
+    <div class="container aceorbit-animated-shape">
       <div class="row g-5">
         <div class="col-lg-6 col-md-6">
           <div class="section-title text-start" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
@@ -222,217 +222,214 @@ const faqSchema = {
                 <button
                   class="nav-link active"
                   id="monthly-plan-btn"
-                  onclick="switchWpPricing('monthly')"
+                  onclick="document.querySelectorAll('.pricing-billing-duration .nav-link').forEach(btn=>btn.classList.remove('active')); this.classList.add('active'); updatePricing('monthly');"
                   type="button">Monthly</button>
               </li>
               <li class="nav-item">
                 <button
                   class="nav-link"
                   id="quarterly-plan-btn"
-                  onclick="switchWpPricing('quarterly')"
+                  onclick="document.querySelectorAll('.pricing-billing-duration .nav-link').forEach(btn=>btn.classList.remove('active')); this.classList.add('active'); updatePricing('quarterly');"
                   type="button">Quarterly</button>
               </li>
               <li class="nav-item">
                 <button
                   class="nav-link"
                   id="semiannual-plan-btn"
-                  onclick="switchWpPricing('semiannual')"
+                  onclick="document.querySelectorAll('.pricing-billing-duration .nav-link').forEach(btn=>btn.classList.remove('active')); this.classList.add('active'); updatePricing('semiannual');"
                   type="button">Semi-Annual</button>
               </li>
               <li class="nav-item">
                 <button
                   class="nav-link"
                   id="annual-plan-btn"
-                  onclick="switchWpPricing('annual')"
+                  onclick="document.querySelectorAll('.pricing-billing-duration .nav-link').forEach(btn=>btn.classList.remove('active')); this.classList.add('active'); updatePricing('annual');"
                   type="button">Annual</button>
               </li>
             </ul>
           </div>
         </div>
       </div>
-      <div class="row g-5 mt--20 four-planss">
+      <div class="row g-4 mt--20 four-planss">
         <!-- Starter Plan -->
         <div class="col-xl-3 col-lg-6 col-md-6 col-12" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-          <div class="princing-table-two">
-            <div class="inner">
-              <div class="card-plan-header">
-                <h4 class="name">Starter</h4>
-                <div class="card-price-top">
-                  <div class="monthly-pricing" style="display: block;">
-                    <span class="amount" data-inr={plans.starter.pricing.monthly.inr} data-usd={plans.starter.pricing.monthly.usd}>{plans.starter.pricing.monthly.inr}</span>
-                    <span class="duration">/Month</span>
-                  </div>
-                  <div class="quarterly-pricing" style="display: none;">
-                    <span class="amount" data-inr={plans.starter.pricing.quarterly.inr} data-usd={plans.starter.pricing.quarterly.usd}>{plans.starter.pricing.quarterly.inr}</span>
-                    <span class="duration">/Quarter</span>
-                  </div>
-                  <div class="semiannual-pricing" style="display: none;">
-                    <span class="amount" data-inr={plans.starter.pricing.semiannual.inr} data-usd={plans.starter.pricing.semiannual.usd}>{plans.starter.pricing.semiannual.inr}</span>
-                    <span class="duration">/6 Months</span>
-                  </div>
-                  <div class="annual-pricing" style="display: none;">
-                    <span class="amount" data-inr={plans.starter.pricing.annual.inr} data-usd={plans.starter.pricing.annual.usd}>{plans.starter.pricing.annual.inr}</span>
-                    <span class="duration">/Year</span>
-                    <span class="free-domain-badge free-domain" style="display: none;">+ Free Domain Included</span>
-                  </div>
+          <div class="pricing-table">
+            <div class="pricing-header">
+              <h3 class="title">Starter</h3>
+              <div class="price-wrap">
+                <div class="monthly-pricing" style="display: block;">
+                  <span class="amount" data-inr={plans.starter.pricing.monthly.inr} data-usd={plans.starter.pricing.monthly.usd}>{plans.starter.pricing.monthly.inr}</span>
+                  <span class="duration">/monthly</span>
+                </div>
+                <div class="quarterly-pricing" style="display: none;">
+                  <span class="amount" data-inr={plans.starter.pricing.quarterly.inr} data-usd={plans.starter.pricing.quarterly.usd}>{plans.starter.pricing.quarterly.inr}</span>
+                  <span class="duration">/quarterly</span>
+                </div>
+                <div class="semiannual-pricing" style="display: none;">
+                  <span class="amount" data-inr={plans.starter.pricing.semiannual.inr} data-usd={plans.starter.pricing.semiannual.usd}>{plans.starter.pricing.semiannual.inr}</span>
+                  <span class="duration">/semiannual</span>
+                </div>
+                <div class="annual-pricing" style="display: none;">
+                  <span class="amount" data-inr={plans.starter.pricing.annual.inr} data-usd={plans.starter.pricing.annual.usd}>{plans.starter.pricing.annual.inr}</span>
+                  <span class="duration">/annual</span>
                 </div>
               </div>
+            </div>
+            <div class="pricing-body">
               <ul class="list-item">
-                <li>1 Domain</li>
-                <li>1 SubDomain</li>
-                <li>4 GB SSD Storage</li>
-                <li>Imunify360 Security</li>
-                <li>1 Email Accounts</li>
-                <li>Jetbackup 5</li>
-                <li>2 MySql</li>
-                <li>Free SSL Certificate</li>
+                <li class="free-domain" style="display: none; color: #000; font-weight: bold;">Free Domain</li>
+                <li style="color: #000; font-weight: bold;">1 Domain</li>
+                <li style="color: #000; font-weight: bold;">1 SubDomain</li>
+                <li style="color: #000; font-weight: bold;">4 GB SSD Storage</li>
+                <li style="color: #000; font-weight: bold;">Imunify360 Security</li>
+                <li style="color: #000; font-weight: bold;">1 Email Accounts</li>
+                <li style="color: #000; font-weight: bold;">Jetbackup 5</li>
+                <li style="color: #000; font-weight: bold;">2 MySql</li>
+                <li style="color: #000; font-weight: bold;">Free SSL Certificate</li>
               </ul>
-              <div class="pricing-btn">
-                <a class="ace-btn btn-dark" href="https://hostamble.com/dash/store/wordpresshosting/starter">Buy Now<i class="icon-arrow-right-line-right"></i></a>
-              </div>
+            </div>
+            <div class="pricing-btn">
+              <a class="ace-btn btn-dark" href="https://hostamble.com/dash/store/wordpresshosting/starter">Buy Now<i class="icon-arrow-right-line-right"></i></a>
             </div>
           </div>
         </div>
 
         <!-- Essential Plan -->
         <div class="col-xl-3 col-lg-6 col-md-6 col-12" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
-          <div class="princing-table-two featured-plan">
-            <div class="inner">
-              <div class="card-plan-header">
-                <div class="d-flex justify-content-between align-items-center mb-1">
-                  <h4 class="name mb-0">Essential</h4>
-                  <span class="plan-popular-pill">Most Popular</span>
+          <div class="pricing-table active">
+            <div class="pricing-header">
+              <div class="ace-badge"><span>Recommended</span></div>
+              <h3 class="title">Essential</h3>
+              <div class="price-wrap">
+                <div class="monthly-pricing" style="display: block;">
+                  <span class="amount" data-inr={plans.essential.pricing.monthly.inr} data-usd={plans.essential.pricing.monthly.usd}>{plans.essential.pricing.monthly.inr}</span>
+                  <span class="duration">/monthly</span>
                 </div>
-                <div class="card-price-top">
-                  <div class="monthly-pricing" style="display: block;">
-                    <span class="amount" data-inr={plans.essential.pricing.monthly.inr} data-usd={plans.essential.pricing.monthly.usd}>{plans.essential.pricing.monthly.inr}</span>
-                    <span class="duration">/Month</span>
-                  </div>
-                  <div class="quarterly-pricing" style="display: none;">
-                    <span class="amount" data-inr={plans.essential.pricing.quarterly.inr} data-usd={plans.essential.pricing.quarterly.usd}>{plans.essential.pricing.quarterly.inr}</span>
-                    <span class="duration">/Quarter</span>
-                  </div>
-                  <div class="semiannual-pricing" style="display: none;">
-                    <span class="amount" data-inr={plans.essential.pricing.semiannual.inr} data-usd={plans.essential.pricing.semiannual.usd}>{plans.essential.pricing.semiannual.inr}</span>
-                    <span class="duration">/6 Months</span>
-                  </div>
-                  <div class="annual-pricing" style="display: none;">
-                    <span class="amount" data-inr={plans.essential.pricing.annual.inr} data-usd={plans.essential.pricing.annual.usd}>{plans.essential.pricing.annual.inr}</span>
-                    <span class="duration">/Year</span>
-                    <span class="free-domain-badge free-domain" style="display: none;">+ Free Domain Included</span>
-                  </div>
+                <div class="quarterly-pricing" style="display: none;">
+                  <span class="amount" data-inr={plans.essential.pricing.quarterly.inr} data-usd={plans.essential.pricing.quarterly.usd}>{plans.essential.pricing.quarterly.inr}</span>
+                  <span class="duration">/quarterly</span>
+                </div>
+                <div class="semiannual-pricing" style="display: none;">
+                  <span class="amount" data-inr={plans.essential.pricing.semiannual.inr} data-usd={plans.essential.pricing.semiannual.usd}>{plans.essential.pricing.semiannual.inr}</span>
+                  <span class="duration">/semiannual</span>
+                </div>
+                <div class="annual-pricing" style="display: none;">
+                  <span class="amount" data-inr={plans.essential.pricing.annual.inr} data-usd={plans.essential.pricing.annual.usd}>{plans.essential.pricing.annual.inr}</span>
+                  <span class="duration">/annual</span>
+                  <span class="free-domain">+ Free Domain</span>
                 </div>
               </div>
+            </div>
+            <div class="pricing-body">
               <ul class="list-item">
-                <li>3 Domain</li>
-                <li>2 SubDomain</li>
-                <li>8 GB SSD Storage</li>
-                <li>Imunify360 Security</li>
-                <li>2 Email Accounts</li>
-                <li>Jetbackup 5</li>
-                <li>5 MySql</li>
-                <li>Free SSL Certificate</li>
+                <li class="free-domain" style="display: none; color: #000; font-weight: bold;">Free Domain</li>
+                <li style="color: #000; font-weight: bold;">3 Domain</li>
+                <li style="color: #000; font-weight: bold;">2 SubDomain</li>
+                <li style="color: #000; font-weight: bold;">8 GB SSD Storage</li>
+                <li style="color: #000; font-weight: bold;">Imunify360 Security</li>
+                <li style="color: #000; font-weight: bold;">2 Email Accounts</li>
+                <li style="color: #000; font-weight: bold;">Jetbackup 5</li>
+                <li style="color: #000; font-weight: bold;">5 MySql</li>
+                <li style="color: #000; font-weight: bold;">Free SSL Certificate</li>
               </ul>
-              <div class="pricing-btn">
-                <a class="ace-btn btn-dark" href="https://hostamble.com/dash/store/wordpresshosting/essential">Buy Now<i class="icon-arrow-right-line-right"></i></a>
-              </div>
+            </div>
+            <div class="pricing-btn">
+              <a class="ace-btn btn-dark" href="https://hostamble.com/dash/store/wordpresshosting/essential">Buy Now<i class="icon-arrow-right-line-right"></i></a>
             </div>
           </div>
         </div>
 
         <!-- Growth Plan -->
         <div class="col-xl-3 col-lg-6 col-md-6 col-12" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
-          <div class="princing-table-two">
-            <div class="inner">
-              <div class="card-plan-header">
-                <h4 class="name">Growth</h4>
-                <div class="card-price-top">
-                  <div class="monthly-pricing" style="display: block;">
-                    <span class="amount" data-inr={plans.growth.pricing.monthly.inr} data-usd={plans.growth.pricing.monthly.usd}>{plans.growth.pricing.monthly.inr}</span>
-                    <span class="duration">/Month</span>
-                  </div>
-                  <div class="quarterly-pricing" style="display: none;">
-                    <span class="amount" data-inr={plans.growth.pricing.quarterly.inr} data-usd={plans.growth.pricing.quarterly.usd}>{plans.growth.pricing.quarterly.inr}</span>
-                    <span class="duration">/Quarter</span>
-                  </div>
-                  <div class="semiannual-pricing" style="display: none;">
-                    <span class="amount" data-inr={plans.growth.pricing.semiannual.inr} data-usd={plans.growth.pricing.semiannual.usd}>{plans.growth.pricing.semiannual.inr}</span>
-                    <span class="duration">/6 Months</span>
-                  </div>
-                  <div class="annual-pricing" style="display: none;">
-                    <span class="amount" data-inr={plans.growth.pricing.annual.inr} data-usd={plans.growth.pricing.annual.usd}>{plans.growth.pricing.annual.inr}</span>
-                    <span class="duration">/Year</span>
-                    <span class="free-domain-badge free-domain" style="display: none;">+ Free Domain Included</span>
-                  </div>
+          <div class="pricing-table">
+            <div class="pricing-header">
+              <h3 class="title">Growth</h3>
+              <div class="price-wrap">
+                <div class="monthly-pricing" style="display: block;">
+                  <span class="amount" data-inr={plans.growth.pricing.monthly.inr} data-usd={plans.growth.pricing.monthly.usd}>{plans.growth.pricing.monthly.inr}</span>
+                  <span class="duration">/monthly</span>
+                </div>
+                <div class="quarterly-pricing" style="display: none;">
+                  <span class="amount" data-inr={plans.growth.pricing.quarterly.inr} data-usd={plans.growth.pricing.quarterly.usd}>{plans.growth.pricing.quarterly.inr}</span>
+                  <span class="duration">/quarterly</span>
+                </div>
+                <div class="semiannual-pricing" style="display: none;">
+                  <span class="amount" data-inr={plans.growth.pricing.semiannual.inr} data-usd={plans.growth.pricing.semiannual.usd}>{plans.growth.pricing.semiannual.inr}</span>
+                  <span class="duration">/semiannual</span>
+                </div>
+                <div class="annual-pricing" style="display: none;">
+                  <span class="amount" data-inr={plans.growth.pricing.annual.inr} data-usd={plans.growth.pricing.annual.usd}>{plans.growth.pricing.annual.inr}</span>
+                  <span class="duration">/annual</span>
+                  <span class="free-domain">+ Free Domain</span>
                 </div>
               </div>
+            </div>
+            <div class="pricing-body">
               <ul class="list-item">
-                <li>Upto 5 Domain</li>
-                <li>3 SubDomain</li>
-                <li>15 GB SSD Storage</li>
-                <li>Imunify360 Security</li>
-                <li>3 Email Accounts</li>
-                <li>Jetbackup 5</li>
-                <li>10 MySql</li>
-                <li>Free SSL Certificate</li>
+                <li class="free-domain" style="display: none; color: #000; font-weight: bold;">Free Domain</li>
+                <li style="color: #000; font-weight: bold;">Upto 5 Domain</li>
+                <li style="color: #000; font-weight: bold;">3 SubDomain</li>
+                <li style="color: #000; font-weight: bold;">15 GB SSD Storage</li>
+                <li style="color: #000; font-weight: bold;">Imunify360 Security</li>
+                <li style="color: #000; font-weight: bold;">3 Email Accounts</li>
+                <li style="color: #000; font-weight: bold;">Jetbackup 5</li>
+                <li style="color: #000; font-weight: bold;">10 MySql</li>
+                <li style="color: #000; font-weight: bold;">Free SSL Certificate</li>
               </ul>
-              <div class="pricing-btn">
-                <a class="ace-btn btn-dark" href="https://hostamble.com/dash/store/wordpresshosting/growth">Buy Now<i class="icon-arrow-right-line-right"></i></a>
-              </div>
+            </div>
+            <div class="pricing-btn">
+              <a class="ace-btn btn-dark" href="https://hostamble.com/dash/store/wordpresshosting/growth">Buy Now<i class="icon-arrow-right-line-right"></i></a>
             </div>
           </div>
         </div>
 
         <!-- Prime Plan -->
         <div class="col-xl-3 col-lg-6 col-md-6 col-12" data-sal-delay="300" data-sal="slide-up" data-sal-duration="800">
-          <div class="princing-table-two">
-            <div class="inner">
-              <div class="card-plan-header">
-                <h4 class="name">Prime</h4>
-                <div class="card-price-top">
-                  <div class="monthly-pricing" style="display: block;">
-                    <span class="amount" data-inr={plans.prime.pricing.monthly.inr} data-usd={plans.prime.pricing.monthly.usd}>{plans.prime.pricing.monthly.inr}</span>
-                    <span class="duration">/Month</span>
-                  </div>
-                  <div class="quarterly-pricing" style="display: none;">
-                    <span class="amount" data-inr={plans.prime.pricing.quarterly.inr} data-usd={plans.prime.pricing.quarterly.usd}>{plans.prime.pricing.quarterly.inr}</span>
-                    <span class="duration">/Quarter</span>
-                  </div>
-                  <div class="semiannual-pricing" style="display: none;">
-                    <span class="amount" data-inr={plans.prime.pricing.semiannual.inr} data-usd={plans.prime.pricing.semiannual.usd}>{plans.prime.pricing.semiannual.inr}</span>
-                    <span class="duration">/6 Months</span>
-                  </div>
-                  <div class="annual-pricing" style="display: none;">
-                    <span class="amount" data-inr={plans.prime.pricing.annual.inr} data-usd={plans.prime.pricing.annual.usd}>{plans.prime.pricing.annual.inr}</span>
-                    <span class="duration">/Year</span>
-                    <span class="free-domain-badge free-domain" style="display: none;">+ Free Domain Included</span>
-                  </div>
+          <div class="pricing-table">
+            <div class="pricing-header">
+              <h3 class="title">Prime</h3>
+              <div class="price-wrap">
+                <div class="monthly-pricing" style="display: block;">
+                  <span class="amount" data-inr={plans.prime.pricing.monthly.inr} data-usd={plans.prime.pricing.monthly.usd}>{plans.prime.pricing.monthly.inr}</span>
+                  <span class="duration">/monthly</span>
+                </div>
+                <div class="quarterly-pricing" style="display: none;">
+                  <span class="amount" data-inr={plans.prime.pricing.quarterly.inr} data-usd={plans.prime.pricing.quarterly.usd}>{plans.prime.pricing.quarterly.inr}</span>
+                  <span class="duration">/quarterly</span>
+                </div>
+                <div class="semiannual-pricing" style="display: none;">
+                  <span class="amount" data-inr={plans.prime.pricing.semiannual.inr} data-usd={plans.prime.pricing.semiannual.usd}>{plans.prime.pricing.semiannual.inr}</span>
+                  <span class="duration">/semiannual</span>
+                </div>
+                <div class="annual-pricing" style="display: none;">
+                  <span class="amount" data-inr={plans.prime.pricing.annual.inr} data-usd={plans.prime.pricing.annual.usd}>{plans.prime.pricing.annual.inr}</span>
+                  <span class="duration">/annual</span>
+                  <span class="free-domain">+ Free Domain</span>
                 </div>
               </div>
+            </div>
+            <div class="pricing-body">
               <ul class="list-item">
-                <li>10 Domain</li>
-                <li>5 SubDomain</li>
-                <li>25 GB SSD Storage</li>
-                <li>Imunify360 Security</li>
-                <li>5 Email Accounts</li>
-                <li>Jetbackup 5</li>
-                <li>Unlimited MySql</li>
-                <li>Free SSL Certificate</li>
+                <li class="free-domain" style="display: none; color: #000; font-weight: bold;">Free Domain</li>
+                <li style="color: #000; font-weight: bold;">10 Domain</li>
+                <li style="color: #000; font-weight: bold;">5 SubDomain</li>
+                <li style="color: #000; font-weight: bold;">25 GB SSD Storage</li>
+                <li style="color: #000; font-weight: bold;">Imunify360 Security</li>
+                <li style="color: #000; font-weight: bold;">5 Email Accounts</li>
+                <li style="color: #000; font-weight: bold;">Jetbackup 5</li>
+                <li style="color: #000; font-weight: bold;">Unlimited MySql</li>
+                <li style="color: #000; font-weight: bold;">Free SSL Certificate</li>
               </ul>
-              <div class="pricing-btn">
-                <a class="ace-btn btn-dark" href="https://hostamble.com/dash/store/wordpresshosting/prime">Buy Now<i class="icon-arrow-right-line-right"></i></a>
-              </div>
+            </div>
+            <div class="pricing-btn">
+              <a class="ace-btn btn-dark" href="https://hostamble.com/dash/store/wordpresshosting/prime">Buy Now<i class="icon-arrow-right-line-right"></i></a>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="row mt-4">
-        <div class="col-12 text-center">
-          <p class="text-muted small mb-0">
-            <i class="feather-check-circle text-success me-1"></i> Free Domain registration is included with Annual billing plans. All plans include automated daily backups, 24/7 technical support, and a 30-day money-back guarantee.
-          </p>
-        </div>
+      <div class="section-title text-start mt-4" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+        <span class="pre-title">&quot;Only Annual Plans are eligible for free domain names. &quot;</span>
       </div>
     </div>
   </div>
@@ -1258,128 +1255,38 @@ const faqSchema = {
   }
 
   /* ════════════════════════════════════════════════════════════════
-     WORDPRESS PRICING TABLE & TOP PRICE POSITIONING
+     THEME-NATIVE PRICING TABLE (4-COLUMN COMPACT LAYOUT)
      ════════════════════════════════════════════════════════════════ */
-  .four-planss .princing-table-two {
-    padding: 0 !important;
-    position: relative;
+  .four-planss .pricing-table {
+    padding: 40px 22px;
     height: 100%;
-  }
-
-  .four-planss .princing-table-two .inner {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 28px 24px 24px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
     display: flex;
     flex-direction: column;
-    height: 100%;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    justify-content: space-between;
   }
 
-  .four-planss .princing-table-two:hover .inner {
-    transform: translateY(-6px);
-    box-shadow: 0 14px 34px rgba(255, 80, 26, 0.12);
-    border-color: rgba(255, 80, 26, 0.35);
+  .four-planss .pricing-table .pricing-header {
+    margin-bottom: 24px;
   }
 
-  .four-planss .princing-table-two.featured-plan .inner {
-    border-color: #ff501a;
-    box-shadow: 0 8px 28px rgba(255, 80, 26, 0.14);
-    position: relative;
-  }
-
-  .plan-popular-pill {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    background: rgba(255, 80, 26, 0.12);
-    color: #ff501a;
-    padding: 3px 10px;
-    border-radius: 999px;
-  }
-
-  .four-planss .princing-table-two .inner .name {
-    font-size: 22px;
-    font-weight: 800;
-    color: #0f172a;
-    margin-bottom: 6px;
-    font-family: var(--font-primary, 'Urbanist', sans-serif);
-  }
-
-  .four-planss .card-price-top {
-    margin-bottom: 20px;
-    padding-bottom: 16px;
-    border-bottom: 1px dashed #e2e8f0;
-    min-height: 64px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .four-planss .card-price-top .amount {
-    font-size: 34px;
-    font-weight: 800;
-    color: #ff501a;
-    line-height: 1.1;
-    font-family: var(--font-primary, 'Urbanist', sans-serif);
-    letter-spacing: -0.02em;
-  }
-
-  .four-planss .card-price-top .duration {
-    font-size: 14px;
-    font-weight: 600;
-    color: #64748b;
-    margin-left: 4px;
-  }
-
-  .four-planss .free-domain-badge {
-    font-size: 12px;
-    font-weight: 700;
-    color: #10b981;
-    margin-top: 4px;
-    letter-spacing: 0.02em;
-  }
-
-  .four-planss .princing-table-two .inner .list-item {
+  .four-planss .pricing-table .pricing-body {
     flex-grow: 1;
     margin-bottom: 24px;
-    padding-left: 0;
   }
 
-  .four-planss .princing-table-two .inner .list-item li {
-    font-size: 14.5px;
-    color: #334155;
-    font-weight: 600;
-    line-height: 1.45;
-  }
-
-  .four-planss .princing-table-two .pricing-btn {
+  .four-planss .pricing-table .pricing-btn {
     margin-top: auto;
   }
 
-  .four-planss .princing-table-two .pricing-btn .ace-btn {
+  .four-planss .pricing-table .pricing-btn .ace-btn {
     width: 100%;
+    text-align: center;
     justify-content: center;
-    padding: 12px 20px;
-    font-weight: 700;
-    border-radius: 8px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+    padding: 12px 18px;
   }
 
-  .four-planss .princing-table-two.featured-plan .pricing-btn .ace-btn {
-    background: #ff501a;
-    border-color: #ff501a;
-    color: #ffffff;
-  }
-
-  .four-planss .princing-table-two.featured-plan .pricing-btn .ace-btn:hover {
-    background: #e04413;
-    border-color: #e04413;
+  .four-planss .pricing-table.active {
+    transform: translateY(-10px);
   }
 
   /* Responsive Duration Switcher */
@@ -1401,6 +1308,11 @@ const faqSchema = {
     }
     .pricing-billing-duration ul .nav-item .nav-link {
       width: 100%;
+      text-align: center;
+      padding: 0 8px;
+      font-size: 13.5px;
+    }
+  }
       text-align: center;
       padding: 0 8px;
       font-size: 13.5px;
