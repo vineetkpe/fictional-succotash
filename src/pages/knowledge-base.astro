@@ -1,0 +1,842 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HelpCtaBlock from '../components/HelpCtaBlock.astro';
+
+interface KnowledgeItem {
+  id: string;
+  category: string;
+  categoryLabel: string;
+  question: string;
+  answer: string;
+  tags: string[];
+}
+
+const categories = [
+  { id: "all", label: "All Questions" },
+  { id: "hosting", label: "Web Hosting & cPanel" },
+  { id: "wordpress", label: "WordPress & LiteSpeed" },
+  { id: "domains", label: "Domains & DNS" },
+  { id: "security", label: "Security & Backups" },
+  { id: "migration", label: "Migration & Account" },
+];
+
+const knowledgeItems: KnowledgeItem[] = [
+  // ─── 1. WEB HOSTING & CPANEL ───
+  {
+    id: "kb-shared-vs-wordpress",
+    category: "hosting",
+    categoryLabel: "Web Hosting & cPanel",
+    question: "What is the difference between standard shared hosting and managed WordPress hosting?",
+    answer: "Standard shared hosting is an all-purpose web hosting environment suitable for general PHP scripts, HTML/CSS websites, and diverse CMS systems like Joomla and Drupal. Managed WordPress hosting, by contrast, is engineered specifically for the WordPress stack—featuring server-level LiteSpeed LSCache caching, Redis object cache integration, isolated CloudLinux PHP memory pools (minimum 256MB to 512MB+), automated core updates with instant rollback checkpoints, and WordPress-specific firewall rules blocking XML-RPC exploits and login brute-force attacks.",
+    tags: ["shared hosting", "wordpress", "difference", "cpanel", "comparison"]
+  },
+  {
+    id: "kb-cpanel-access",
+    category: "hosting",
+    categoryLabel: "Web Hosting & cPanel",
+    question: "Does Hostamble provide genuine cPanel access with every plan?",
+    answer: "Yes. Every Hostamble shared and WordPress hosting plan includes genuine cPanel access at no extra charge. Unlike providers that lock you into proprietary or restricted dashboards, Hostamble gives you industry-standard cPanel equipped with Softaculous 1-Click Installer (400+ apps), phpMyAdmin, File Manager, Multi-PHP Selector, Cron Job Scheduler, JetBackup 5, and full DNS Zone Editors.",
+    tags: ["cpanel", "dashboard", "file manager", "softaculous", "phpmyadmin"]
+  },
+  {
+    id: "kb-storage-and-ram",
+    category: "hosting",
+    categoryLabel: "Web Hosting & cPanel",
+    question: "How much SSD storage and RAM does my website actually need?",
+    answer: "A typical WordPress blog, business portfolio, or brochure site uses between 2 GB to 5 GB of storage including themes, core files, and medium image uploads. An eCommerce store using WooCommerce with 500+ product images typically requires 8 GB to 25 GB of NVMe SSD storage. For memory, 256MB to 512MB of dedicated PHP memory_limit ensures seamless performance with heavy page builders like Elementor, Divi, or WooCommerce without 'Memory Exhausted' errors.",
+    tags: ["ram", "storage", "ssd", "nvme", "memory limit", "requirements"]
+  },
+  {
+    id: "kb-cloudlinux-isolation",
+    category: "hosting",
+    categoryLabel: "Web Hosting & cPanel",
+    question: "What is CloudLinux OS and how does resource isolation protect my website?",
+    answer: "CloudLinux OS isolates each hosting account on the server into its own Lightweight Virtualized Environment (LVE). This guarantees that your account is allocated dedicated CPU cores, RAM, I/O speed, and process limits. If a neighboring account experiences a massive traffic spike or runs a runaway script, it is confined to its own limits and cannot slow down, crash, or consume the resources allocated to your website.",
+    tags: ["cloudlinux", "isolation", "lve", "security", "noisy neighbor"]
+  },
+  {
+    id: "kb-php-versions",
+    category: "hosting",
+    categoryLabel: "Web Hosting & cPanel",
+    question: "What PHP versions are supported and how do I switch PHP versions?",
+    answer: "Hostamble supports multiple active PHP versions including PHP 8.0, 8.1, 8.2, 8.3, and 8.4. You can switch PHP versions instantly for your entire account or set different PHP versions per directory or subdomain directly inside cPanel using the Multi-PHP Manager. You can also toggle common extensions (OPcache, Redis, Imagick, IonCube) and adjust directives (upload_max_filesize, max_execution_time) with one click.",
+    tags: ["php", "multi-php", "php 8.3", "extensions", "opcache"]
+  },
+  {
+    id: "kb-multiple-websites",
+    category: "hosting",
+    categoryLabel: "Web Hosting & cPanel",
+    question: "Can I host multiple domain names and websites on a single hosting account?",
+    answer: "Yes, multi-domain hosting plans allow you to host multiple distinct websites under a single cPanel account using Addon Domains. Each addon domain has its own independent root directory (e.g., /public_html/site2), dedicated MySQL database, separate email mailboxes, and automated auto-renewing SSL certificate. Subdomains (e.g., blog.yourdomain.com) are also supported on all plans.",
+    tags: ["addon domain", "multiple sites", "subdomains", "cpanel"]
+  },
+  {
+    id: "kb-resource-limits",
+    category: "hosting",
+    categoryLabel: "Web Hosting & cPanel",
+    question: "What happens if my website exceeds its allocated CPU or RAM limits?",
+    answer: "If your website temporarily approaches its resource limits during a massive traffic surge, CloudLinux throttles requests gracefully rather than crashing your account. Visitors may notice a brief delay rather than a server error. You will receive an automated alert in your client portal, and you can upgrade your plan or allocate more storage, memory, or bandwidth instantly with 1-click and zero downtime.",
+    tags: ["limits", "cpu", "throttle", "scaling", "upgrade"]
+  },
+
+  // ─── 2. WORDPRESS & LITESPEED ───
+  {
+    id: "kb-litespeed-vs-apache",
+    category: "wordpress",
+    categoryLabel: "WordPress & LiteSpeed",
+    question: "How does LiteSpeed Enterprise Web Server accelerate site speed compared to Apache or Nginx?",
+    answer: "LiteSpeed Enterprise replaces traditional Apache architectures with an event-driven, highly optimized engine that handles tens of thousands of concurrent connections with minimal memory and CPU usage. Combined with the native LiteSpeed Cache (LSCache) plugin and server-level tag-based caching, dynamic PHP pages are saved as static HTML at the web server layer. This bypasses the PHP interpreter and database queries entirely for cached requests, cutting Time to First Byte (TTFB) to under 100ms and serving traffic up to 10x faster.",
+    tags: ["litespeed", "apache", "nginx", "lscache", "speed", "ttfb"]
+  },
+  {
+    id: "kb-ttfb-seo-ranking",
+    category: "wordpress",
+    categoryLabel: "WordPress & LiteSpeed",
+    question: "Why is server TTFB (Time to First Byte) critical for Google SEO rankings and Core Web Vitals?",
+    answer: "Time to First Byte (TTFB) measures the time from when a visitor's browser requests a URL until it receives the very first byte of data from your web server. Google's Core Web Vitals specifically penalize websites with slow server response times because high TTFB directly delays Largest Contentful Paint (LCP) and First Input Delay (FID). By combining AMD EPYC enterprise processors, PCIe 4.0 NVMe storage, and LiteSpeed server caching, Hostamble maintains sub-200ms TTFB across global routes, significantly improving search engine crawl rates and organic rankings.",
+    tags: ["ttfb", "seo", "google", "core web vitals", "lcp"]
+  },
+  {
+    id: "kb-1click-staging",
+    category: "wordpress",
+    categoryLabel: "WordPress & LiteSpeed",
+    question: "What is WordPress 1-Click Staging and how does it prevent site downtime?",
+    answer: "1-Click Staging allows you to create an exact clone of your live production website in an isolated sandbox environment with a single click in cPanel. You can safely install new plugins, modify PHP code, test major WordPress core upgrades, or overhaul your theme without risking errors or downtime on your live site. Once your tests pass, you can push the staged changes to your live site seamlessly with 1-click.",
+    tags: ["staging", "cloning", "testing", "push to live", "downtime"]
+  },
+  {
+    id: "kb-clear-litespeed-cache",
+    category: "wordpress",
+    categoryLabel: "WordPress & LiteSpeed",
+    question: "How do I clear or purge the LiteSpeed Cache after updating content in WordPress?",
+    answer: "When using the official LiteSpeed Cache plugin, the cache automatically purges relevant pages whenever you publish or edit a post. To manually purge the entire website cache, hover over the LiteSpeed diamond icon in the top WordPress admin toolbar and click 'Purge All'. You can also purge specific CSS, JavaScript, or object cache layers individually from the LiteSpeed Cache dashboard.",
+    tags: ["purge cache", "lscache", "clear cache", "wordpress admin"]
+  },
+  {
+    id: "kb-database-connection-error",
+    category: "wordpress",
+    categoryLabel: "WordPress & LiteSpeed",
+    question: "How do I fix the 'Error Establishing a Database Connection' in WordPress?",
+    answer: "This error occurs when WordPress cannot connect to your MySQL database. To fix it: (1) Log in to cPanel and open File Manager. (2) Edit your wp-config.php file in the public_html directory. (3) Verify that DB_NAME, DB_USER, DB_PASSWORD, and DB_HOST (usually 'localhost') match the credentials in cPanel MySQL Databases. (4) Ensure your database user is assigned to the database with 'ALL PRIVILEGES'. (5) If the database is corrupted, you can run 'Repair Database' in cPanel or restore a 1-click snapshot via JetBackup 5.",
+    tags: ["database error", "mysql", "wp-config", "troubleshooting", "repair"]
+  },
+  {
+    id: "kb-woocommerce-optimization",
+    category: "wordpress",
+    categoryLabel: "WordPress & LiteSpeed",
+    question: "Can I run WooCommerce on standard plans and how is eCommerce checkout optimized?",
+    answer: "Yes, Hostamble hosting is fully compatible with WooCommerce. Because shopping carts, checkout pages, and customer accounts contain dynamic user data that cannot be cached, our servers provide high dedicated PHP memory limits (up to 512MB+), MariaDB query optimization, OPcache bytecode pre-compilation, and HTTP/3 QUIC protocol support. This ensures instantaneous checkout and cart operations without database stalls even during flash sales.",
+    tags: ["woocommerce", "ecommerce", "cart", "checkout", "scaling"]
+  },
+
+  // ─── 3. DOMAINS & DNS ───
+  {
+    id: "kb-point-domain-nameservers",
+    category: "domains",
+    categoryLabel: "Domains & DNS",
+    question: "How do I point my domain name to Hostamble nameservers?",
+    answer: "To connect your domain to Hostamble hosting, log into the registrar where you purchased the domain (e.g., GoDaddy, Namecheap, Hostinger) and update the custom nameservers to Hostamble's primary nameservers provided in your welcome email (ns1.hostamble.com and ns2.hostamble.com). DNS propagation typically completes within 1 to 4 hours worldwide (maximum 24 hours).",
+    tags: ["nameservers", "dns", "point domain", "propagation"]
+  },
+  {
+    id: "kb-dns-records-explained",
+    category: "domains",
+    categoryLabel: "Domains & DNS",
+    question: "What are A, CNAME, MX, and TXT records, and how do I edit them in cPanel?",
+    answer: "DNS records instruct the internet where to direct traffic for your domain: (1) 'A' records map your domain to a server IPv4 address. (2) 'CNAME' records alias one domain or subdomain to another hostname. (3) 'MX' records specify the mail servers responsible for handling your domain's emails. (4) 'TXT' records hold text data used for domain ownership verification and email security protocols (SPF, DKIM, DMARC). In cPanel, navigate to 'Zone Editor' to add, edit, or delete any DNS record instantly.",
+    tags: ["dns records", "a record", "cname", "mx record", "txt", "zone editor"]
+  },
+  {
+    id: "kb-domain-transfer-process",
+    category: "domains",
+    categoryLabel: "Domains & DNS",
+    question: "How do I transfer an existing domain name to Hostamble?",
+    answer: "Transferring a domain to Hostamble is simple and includes an automatic 1-year registration renewal: (1) Unlock your domain at your current registrar and disable WHOIS privacy. (2) Request the Authorization/EPP transfer code from your current provider. (3) Visit Hostamble's Domain Transfer page, enter your domain and EPP code, and complete checkout. (4) Approve the transfer confirmation email. The registry completes the transfer within 5 to 7 days with zero website downtime.",
+    tags: ["domain transfer", "epp code", "auth code", "transfer in"]
+  },
+  {
+    id: "kb-whois-privacy",
+    category: "domains",
+    categoryLabel: "Domains & DNS",
+    question: "What is Domain WHOIS Privacy Protection and why is it important?",
+    answer: "Whenever you register a domain, ICANN regulations require your personal contact information (full name, phone number, physical address, and email) to be recorded in a public WHOIS database. Without WHOIS Privacy Protection, data scrapers, telemarketers, and spammers can easily harvest your contact details. WHOIS privacy masks your real information with proxy registrar data, preventing identity theft and spam.",
+    tags: ["whois", "privacy protection", "icann", "spam prevention"]
+  },
+
+  // ─── 4. SECURITY & BACKUPS ───
+  {
+    id: "kb-imunify360-protection",
+    category: "security",
+    categoryLabel: "Security & Backups",
+    question: "How does Imunify360 AI Security protect my website against malware and hackers?",
+    answer: "Every Hostamble hosting account includes integrated Imunify360 AI Security operating at the server kernel level. Imunify360 includes: (1) An intelligent Web Application Firewall (WAF) blocking SQL injections, cross-site scripting (XSS), and zero-day vulnerabilities. (2) Real-time proactive malware scanning that instantly detects malicious file uploads. (3) Automated malware cleanup that disinfects infected scripts without breaking website functionality. (4) Brute-force login defense that throttles unauthorized WordPress login attempts.",
+    tags: ["imunify360", "malware", "waf", "security", "firewall", "brute force"]
+  },
+  {
+    id: "kb-free-ssl-certificates",
+    category: "security",
+    categoryLabel: "Security & Backups",
+    question: "Are free SSL certificates included and how do they renew?",
+    answer: "Yes. Automated Let's Encrypt Wildcard SSL certificates are generated and provisioned automatically for all primary domains, addon domains, and subdomains within 30 minutes of connecting nameservers. Certificates auto-renew every 90 days in the background without any manual intervention. HTTPS enforcement can be enabled with one click in cPanel to ensure all visitor traffic is securely encrypted with 256-bit TLS.",
+    tags: ["ssl", "https", "let's encrypt", "free ssl", "encryption", "padlock"]
+  },
+  {
+    id: "kb-jetbackup-restore",
+    category: "security",
+    categoryLabel: "Security & Backups",
+    question: "How do JetBackup 5 daily snapshots work and how can I restore my site?",
+    answer: "Hostamble runs automated daily offsite snapshots powered by JetBackup 5. Snapshots are stored on independent, redundant cloud storage nodes separate from the web servers. If your website ever experiences an issue, you can log in to cPanel, open JetBackup 5, and perform granular 1-click self-service restorations: restore your full account, individual public_html files, single MySQL database tables, cron jobs, or email mailboxes with zero technical assistance required.",
+    tags: ["jetbackup", "backups", "restore", "snapshots", "cpanel"]
+  },
+  {
+    id: "kb-ddos-protection",
+    category: "security",
+    categoryLabel: "Security & Backups",
+    question: "Does Hostamble provide automated DDoS protection?",
+    answer: "Yes. All Hostamble servers are protected by enterprise upstream DDoS mitigation hardware with over 10+ Tbps network capacity. Malicious volumetric attacks (SYN floods, UDP amplification, HTTP floods) are scrubbed at the network edge before reaching your server node, ensuring your site remains responsive and online 24/7.",
+    tags: ["ddos", "mitigation", "attack", "uptime", "network security"]
+  },
+
+  // ─── 5. MIGRATION & ACCOUNT ───
+  {
+    id: "kb-free-website-migration",
+    category: "migration",
+    categoryLabel: "Migration & Account",
+    question: "How does the 100% Free Website Migration work and will my site go offline?",
+    answer: "Hostamble provides 100% free white-glove website migration with every plan. Our technical migration team securely copies all website files, MySQL databases, PHP settings, and email accounts from your previous host to your new Hostamble environment while your old host remains completely active. You can preview the transferred site using a temporary URL or hosts file modification. Once confirmed, you point your domain nameservers—resulting in zero visitor downtime.",
+    tags: ["migration", "free migration", "transfer site", "zero downtime", "switch host"]
+  },
+  {
+    id: "kb-money-back-guarantee",
+    category: "migration",
+    categoryLabel: "Migration & Account",
+    question: "What is Hostamble's refund and 30-day money-back guarantee policy?",
+    answer: "Hostamble offers an unconditional 30-day money-back guarantee on all annual and multi-year shared and WordPress hosting plans. If you are not completely satisfied with our performance, speed, or customer support within the first 30 days of registration, you can open a billing ticket or message our support team to receive a prompt, hassle-free refund. (Domain name registration fees are non-refundable as they are paid directly to top-level registries).",
+    tags: ["refund", "money back guarantee", "cancellation", "policy"]
+  },
+  {
+    id: "kb-support-channels",
+    category: "migration",
+    categoryLabel: "Migration & Account",
+    question: "How can I contact Hostamble technical support when I need help?",
+    answer: "Hostamble provides 24/7/365 multi-channel human support: (1) WhatsApp Live Chat for instant assistance with common questions, nameserver setup, and billing queries. (2) Official Client Portal Support Tickets for deep technical troubleshooting, server logs inspection, and complex database migrations (average response time under 15 minutes). (3) Email support directly from your registered account.",
+    tags: ["support", "whatsapp", "ticket", "help", "customer service"]
+  },
+  {
+    id: "kb-datacenter-locations",
+    category: "migration",
+    categoryLabel: "Migration & Account",
+    question: "Where are Hostamble datacenters located and how does it ensure low latency in India?",
+    answer: "Hostamble operates high-speed Tier-III and Tier-IV datacenter facilities equipped with multi-homed 10Gbps fiber uplinks directly connected to premier National Internet Exchange points in India (NIXI, Mumbai) as well as global strategic nodes. This localized routing ensures ultra-low ping latency (<18ms across major Indian metros), rapid initial connection times, and optimal compliance with regional data residency guidelines.",
+    tags: ["datacenter", "latency", "india", "mumbai", "ping", "speed"]
+  }
+];
+
+// Schema.org FAQPage structured data for Google Rich Snippets & AI Chatbots
+const faqPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": knowledgeItems.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer
+    }
+  }))
+};
+---
+
+<Layout
+  title="Knowledge Base & Hosting FAQ | Comprehensive Technical Guides — Hostamble"
+  description="Explore Hostamble's extensive knowledge base. Expert answers to web hosting, cPanel configuration, LiteSpeed caching, WordPress performance, DNS management, and server security."
+  keywords="web hosting knowledge base, cpanel guide, litespeed cache faq, wordpress speed optimization, dns records tutorial, hostamble help center"
+>
+  <!-- SEO & AI Chatbot Structured Data (FAQPage Schema) -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqPageSchema)} />
+
+  <!-- =========================================================
+       HERO SECTION: Knowledge Base & Live Search
+       ========================================================= -->
+  <div class="slider-area banner bg-image d-flex align-items-center kb-hero-section">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-10 col-xl-8">
+          <div class="inner">
+            <div class="content">
+              <!-- Eyebrow Pill -->
+              <div class="hero-eyebrow-pill mb-3" data-sal="slide-up" data-sal-delay="100" data-sal-duration="800">
+                <span class="eyebrow-dot"></span>
+                <span class="eyebrow-label">HELP CENTER &amp; KNOWLEDGE BASE</span>
+                <span class="eyebrow-sep">•</span>
+                <span class="eyebrow-tag">UPDATED 2026</span>
+              </div>
+
+              <!-- Main Title -->
+              <h1 class="hero-kb-title mb-3" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+                How Can We Help You <span class="kb-accent-text">Succeed Online?</span>
+              </h1>
+
+              <p class="hero-lead-text mx-auto mb-4" data-sal="slide-up" data-sal-delay="200" data-sal-duration="800">
+                Search our comprehensive guides, cPanel tutorials, WordPress performance optimizations, DNS records setup, and security FAQs.
+              </p>
+
+              <!-- Interactive Search Bar -->
+              <div class="kb-search-box-wrapper mx-auto mb-4" data-sal="slide-up" data-sal-delay="250" data-sal-duration="800">
+                <div class="kb-search-input-group">
+                  <i class="ri-search-line search-icon"></i>
+                  <input
+                    type="text"
+                    id="kbSearchInput"
+                    placeholder="Search keywords (e.g., LiteSpeed, DNS, Nameservers, cPanel, Staging)..."
+                    aria-label="Search Knowledge Base"
+                    autocomplete="off"
+                  />
+                  <button type="button" id="kbSearchClear" class="kb-search-clear-btn" aria-label="Clear Search" style="display: none;">
+                    <i class="ri-close-line"></i>
+                  </button>
+                </div>
+                <div class="kb-search-meta mt-2 d-flex justify-content-between align-items-center">
+                  <span id="kbResultCount" class="kb-result-badge">{knowledgeItems.length} Guides Available</span>
+                  <span class="kb-quick-tags d-none d-md-inline-block">
+                    Popular: 
+                    <a href="javascript:void(0)" class="quick-filter-tag" data-tag="litespeed">LiteSpeed</a>,
+                    <a href="javascript:void(0)" class="quick-filter-tag" data-tag="dns">DNS</a>,
+                    <a href="javascript:void(0)" class="quick-filter-tag" data-tag="cpanel">cPanel</a>,
+                    <a href="javascript:void(0)" class="quick-filter-tag" data-tag="migration">Migration</a>
+                  </span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       MAIN KNOWLEDGE BASE SECTION: Categories + Accordions
+       ========================================================= -->
+  <div class="aceorbit-service ace-service-area ace-section-gap bg-color-white" id="articles">
+    <div class="container aceorbit-animated-shape">
+      
+      <!-- Category Filter Pills -->
+      <div class="row justify-content-center mb-5">
+        <div class="col-12">
+          <div class="kb-category-pills-wrapper d-flex flex-wrap justify-content-center gap-2">
+            {categories.map((cat, idx) => (
+              <button
+                type="button"
+                class={`kb-cat-btn ${idx === 0 ? 'active' : ''}`}
+                data-category={cat.id}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion Questions List -->
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
+          
+          <div class="accordion accordion-flush" id="kbAccordion">
+            {knowledgeItems.map((item, index) => (
+              <div 
+                class="accordion-item kb-item"
+                data-category={item.category}
+                data-keywords={`${item.question} ${item.answer} ${item.tags.join(' ')}`.toLowerCase()}
+                id={`item-${item.id}`}
+              >
+                <h2 class="accordion-header" id={`heading-${item.id}`}>
+                  <button
+                    class={`accordion-button ${index !== 0 ? 'collapsed' : ''}`}
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target={`#collapse-${item.id}`}
+                    aria-expanded={index === 0 ? "true" : "false"}
+                    aria-controls={`collapse-${item.id}`}
+                  >
+                    <span class="kb-q-category-tag">{item.categoryLabel}</span>
+                    <span class="kb-q-text">{item.question}</span>
+                  </button>
+                </h2>
+                <div
+                  id={`collapse-${item.id}`}
+                  class={`accordion-collapse collapse ${index === 0 ? 'show' : ''}`}
+                  aria-labelledby={`heading-${item.id}`}
+                  data-bs-parent="#kbAccordion"
+                >
+                  <div class="accordion-body">
+                    <p class="mb-3">{item.answer}</p>
+                    <div class="kb-item-tags d-flex flex-wrap gap-1 align-items-center">
+                      <span class="text-muted small me-2 font-weight-bold"><i class="ri-price-tag-3-line me-1"></i>Related Topics:</span>
+                      {item.tags.map(tag => (
+                        <span class="badge bg-light text-secondary rounded-pill px-2 py-1 small">{tag}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- No Results State -->
+          <div id="kbNoResults" class="text-center py-5" style="display: none;">
+            <div class="mb-3">
+              <i class="ri-questionnaire-line text-muted" style="font-size: 54px;"></i>
+            </div>
+            <h4 class="font-weight-bold text-dark">No matching guides found</h4>
+            <p class="text-muted mx-auto" style="max-width: 480px;">
+              We couldn't find any questions matching your query. Try searching with different keywords, or connect directly with our 24/7 technical team.
+            </p>
+            <div class="d-flex justify-content-center gap-3 mt-4">
+              <button type="button" class="ace-btn btn-border" id="kbResetSearchBtn">Reset Search</button>
+              <a href="https://wa.me/916284719083?text=Hi%20Hostamble%20Support%2C%20I%20have%20a%20technical%20question" target="_blank" rel="noopener noreferrer" class="ace-btn btn-success" style="background: #25D366; border-color: #25D366; color: #fff;">
+                <i class="ri-whatsapp-line me-1"></i> Ask on WhatsApp
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Quick Concierge Help Card -->
+      <div class="row justify-content-center mt-5 pt-3">
+        <div class="col-12 col-lg-10">
+          <div class="kb-concierge-card p-4 p-md-5 rounded-4 d-flex flex-column flex-md-row align-items-center justify-content-between gap-4">
+            <div class="concierge-content text-center text-md-start">
+              <span class="badge bg-primary text-white px-3 py-1 rounded-pill small font-weight-bold mb-2">24/7 IN-HOUSE ASSISTANCE</span>
+              <h4 class="font-weight-bold text-white mb-2">Can't Find What You're Looking For?</h4>
+              <p class="text-white-50 mb-0" style="max-width: 520px;">
+                Our certified Linux server administrators and WordPress experts are available around the clock to assist you with migrations, configurations, and inquiries.
+              </p>
+            </div>
+            <div class="concierge-actions d-flex flex-column flex-sm-row gap-3">
+              <a href="https://wa.me/916284719083?text=Hi%20Hostamble%20Support%2C%20I%20need%20assistance" target="_blank" rel="noopener noreferrer" class="ace-btn btn-whatsapp">
+                <i class="ri-whatsapp-fill me-1"></i> WhatsApp Support
+              </a>
+              <a href="/contacts" class="ace-btn btn-light-solid">
+                <i class="ri-mail-send-line me-1"></i> Open Ticket
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animated Shape Accents -->
+      <div class="shape-dot-wrapper shape-wrapper d-xl-block d-none">
+        <div class="shape-image shape-image-1">
+          <img src="/assets/images/shape29.png" alt="Shape Thumb">
+        </div>
+        <div class="shape-image shape-image-2">
+          <img src="/assets/images/shape0306.png" alt="Shape Thumb">
+        </div>
+        <div class="shape-image shape-image-3">
+          <img src="/assets/images/shape0206.png" alt="Shape Thumb">
+        </div>
+        <div class="shape-image shape-image-4">
+          <img src="/assets/images/shape19.png" alt="Shape Thumb">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <HelpCtaBlock />
+</Layout>
+
+<script is:inline>
+  (function () {
+    function initKbSearch() {
+      const searchInput = document.getElementById('kbSearchInput');
+      const clearBtn = document.getElementById('kbSearchClear');
+      const resultBadge = document.getElementById('kbResultCount');
+      const categoryBtns = document.querySelectorAll('.kb-cat-btn');
+      const items = document.querySelectorAll('.kb-item');
+      const noResults = document.getElementById('kbNoResults');
+      const resetBtn = document.getElementById('kbResetSearchBtn');
+      const quickTags = document.querySelectorAll('.quick-filter-tag');
+
+      if (!searchInput || !items.length) return;
+
+      let currentCategory = 'all';
+      let currentQuery = '';
+
+      function filterKnowledgeBase() {
+        let visibleCount = 0;
+        const query = currentQuery.trim().toLowerCase();
+
+        items.forEach(item => {
+          const itemCat = item.getAttribute('data-category') || '';
+          const itemKeywords = item.getAttribute('data-keywords') || '';
+
+          const matchesCat = (currentCategory === 'all' || itemCat === currentCategory);
+          const matchesQuery = (!query || itemKeywords.includes(query));
+
+          if (matchesCat && matchesQuery) {
+            item.style.display = '';
+            visibleCount++;
+          } else {
+            item.style.display = 'none';
+          }
+        });
+
+        // Update counter and no-results UI
+        if (resultBadge) {
+          resultBadge.textContent = `${visibleCount} Guide${visibleCount === 1 ? '' : 's'} Found`;
+        }
+        if (noResults) {
+          noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+        if (clearBtn) {
+          clearBtn.style.display = query ? 'block' : 'none';
+        }
+      }
+
+      // Search input handler
+      searchInput.addEventListener('input', function (e) {
+        currentQuery = e.target.value;
+        filterKnowledgeBase();
+      });
+
+      // Clear button handler
+      if (clearBtn) {
+        clearBtn.addEventListener('click', function () {
+          searchInput.value = '';
+          currentQuery = '';
+          filterKnowledgeBase();
+          searchInput.focus();
+        });
+      }
+
+      // Category tab click handler
+      categoryBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+          categoryBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          currentCategory = this.getAttribute('data-category') || 'all';
+          filterKnowledgeBase();
+        });
+      });
+
+      // Quick tags click handler
+      quickTags.forEach(tag => {
+        tag.addEventListener('click', function () {
+          const tagValue = this.getAttribute('data-tag') || '';
+          searchInput.value = tagValue;
+          currentQuery = tagValue;
+          filterKnowledgeBase();
+        });
+      });
+
+      // Reset search button handler
+      if (resetBtn) {
+        resetBtn.addEventListener('click', function () {
+          searchInput.value = '';
+          currentQuery = '';
+          currentCategory = 'all';
+          categoryBtns.forEach(b => b.classList.remove('active'));
+          const allBtn = document.querySelector('.kb-cat-btn[data-category="all"]');
+          if (allBtn) allBtn.classList.add('active');
+          filterKnowledgeBase();
+        });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initKbSearch);
+    } else {
+      initKbSearch();
+    }
+    document.addEventListener('astro:page-load', initKbSearch);
+  })();
+</script>
+
+<style>
+  /* ════════════════════════════════════════════════════════════════
+     HERO & SEARCH BOX STYLING
+     ════════════════════════════════════════════════════════════════ */
+  .kb-hero-section {
+    padding: 130px 0 70px !important;
+    background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+  }
+
+  .hero-eyebrow-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: rgba(255, 80, 26, 0.08);
+    border: 1px solid rgba(255, 80, 26, 0.22);
+    border-radius: 9999px;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #ff501a;
+    letter-spacing: 0.04em;
+    user-select: none;
+  }
+
+  .eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #ff501a;
+    box-shadow: 0 0 8px #ff501a;
+  }
+
+  .eyebrow-label {
+    letter-spacing: 0.06em;
+  }
+
+  .eyebrow-sep {
+    color: rgba(255, 80, 26, 0.4);
+  }
+
+  .eyebrow-tag {
+    background: #ff501a;
+    color: #ffffff;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 800;
+  }
+
+  .hero-kb-title {
+    font-family: var(--font-primary, 'Urbanist', -apple-system, sans-serif);
+    font-size: clamp(30px, 3.8vw, 48px);
+    font-weight: 800;
+    line-height: 1.25;
+    color: #111827;
+    letter-spacing: -0.025em;
+  }
+
+  .kb-accent-text {
+    color: #ff501a;
+  }
+
+  .hero-lead-text {
+    font-size: clamp(16px, 1.2vw, 18px);
+    line-height: 1.6;
+    color: #4b5563;
+    max-width: 640px;
+  }
+
+  .kb-search-box-wrapper {
+    max-width: 680px;
+    width: 100%;
+  }
+
+  .kb-search-input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    padding: 6px 18px;
+    transition: all 0.25s ease;
+  }
+
+  .kb-search-input-group:focus-within {
+    border-color: #ff501a;
+    box-shadow: 0 12px 35px rgba(255, 80, 26, 0.15);
+  }
+
+  .kb-search-input-group .search-icon {
+    font-size: 20px;
+    color: #94a3b8;
+    margin-right: 12px;
+  }
+
+  .kb-search-input-group input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 15.5px;
+    font-weight: 600;
+    color: #0f172a;
+    padding: 10px 0;
+    background: transparent;
+  }
+
+  .kb-search-clear-btn {
+    background: #f1f5f9;
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+
+  .kb-search-clear-btn:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+  }
+
+  .kb-search-meta {
+    font-size: 13px;
+    color: #64748b;
+    padding: 0 10px;
+  }
+
+  .kb-result-badge {
+    font-weight: 700;
+    color: #ff501a;
+  }
+
+  .quick-filter-tag {
+    color: #0284c7;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .quick-filter-tag:hover {
+    color: #ff501a;
+  }
+
+  /* ════════════════════════════════════════════════════════════════
+     CATEGORY FILTER PILLS
+     ════════════════════════════════════════════════════════════════ */
+  .kb-category-pills-wrapper {
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+
+  .kb-cat-btn {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 8px 20px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+  }
+
+  .kb-cat-btn:hover {
+    border-color: #cbd5e1;
+    background: #f1f5f9;
+    color: #0f172a;
+  }
+
+  .kb-cat-btn.active {
+    background: #ff501a;
+    border-color: #ff501a;
+    color: #ffffff;
+    box-shadow: 0 6px 18px rgba(255, 80, 26, 0.3);
+  }
+
+  /* ════════════════════════════════════════════════════════════════
+     ACCORDION CARD STYLING
+     ════════════════════════════════════════════════════════════════ */
+  .kb-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px !important;
+    margin-bottom: 14px;
+    overflow: hidden;
+    transition: all 0.25s ease;
+  }
+
+  .kb-item:hover {
+    border-color: rgba(255, 80, 26, 0.35);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+  }
+
+  .kb-item .accordion-button {
+    font-size: 16.5px;
+    font-weight: 700;
+    color: #0f172a;
+    padding: 20px 24px;
+    background: #ffffff;
+    box-shadow: none !important;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .kb-item .accordion-button:not(.collapsed) {
+    color: #ff501a;
+    background: rgba(255, 80, 26, 0.04);
+  }
+
+  .kb-q-category-tag {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: #f1f5f9;
+    color: #64748b;
+    padding: 3px 10px;
+    border-radius: 6px;
+  }
+
+  .kb-item .accordion-button:not(.collapsed) .kb-q-category-tag {
+    background: rgba(255, 80, 26, 0.12);
+    color: #ff501a;
+  }
+
+  .kb-q-text {
+    flex: 1 1 70%;
+  }
+
+  .kb-item .accordion-body {
+    padding: 16px 24px 24px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #475569;
+    border-top: 1px solid #f1f5f9;
+  }
+
+  /* ════════════════════════════════════════════════════════════════
+     CONCIERGE CARD
+     ════════════════════════════════════════════════════════════════ */
+  .kb-concierge-card {
+    background: linear-gradient(135deg, #1b1c2b 0%, #292a40 100%);
+    box-shadow: 0 16px 40px rgba(27, 28, 43, 0.15);
+  }
+
+  .btn-whatsapp {
+    background: #25D366 !important;
+    border-color: #25D366 !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .btn-whatsapp:hover {
+    background: #1eb855 !important;
+    color: #ffffff !important;
+  }
+
+  .btn-light-solid {
+    background: #ffffff !important;
+    border-color: #ffffff !important;
+    color: #1b1c2b !important;
+    font-weight: 700 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .btn-light-solid:hover {
+    background: #f1f5f9 !important;
+    color: #1b1c2b !important;
+  }
+</style>

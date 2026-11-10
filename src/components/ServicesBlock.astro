@@ -4,8 +4,6 @@
 import {
   sharedHosting,
   wordpressHosting,
-  googleWorkspace,
-  businessEmail,
   domainPricing
 } from "../data/pricing";
 
@@ -43,22 +41,22 @@ const services = [
   {
     num: "04",
     shapeClass: "shape-bg-2",
-    icon: "ri-google-line",
-    title: "Google Workspace",
-    desc: "Official Gmail for business, Google Meet, and secure cloud drive storage integrated directly with your custom domain name.",
-    price: googleWorkspace.heroStartPrice,
-    link: "/google-workspace",
-    linkText: "Get Workspace"
+    icon: "ri-swap-box-line",
+    title: "Domain Transfer",
+    desc: "Seamless domain transfer with zero downtime, automated DNS migration, and free 1-year registration extension on all eligible TLDs.",
+    price: domainPricing.heroStartPrice,
+    link: "/transfer-domain",
+    linkText: "Transfer Domain"
   },
   {
     num: "05",
     shapeClass: "shape-bg-1",
-    icon: "ri-mail-star-line",
-    title: "Business Email",
-    desc: "Professional branded corporate email with responsive webmail, intelligent anti-spam filters, and DKIM identity authentication.",
-    price: businessEmail.heroStartPrice,
-    link: "/business-email",
-    linkText: "Get Email"
+    icon: "ri-book-read-line",
+    title: "Knowledge Base",
+    desc: "In-depth technical guides, cPanel tutorials, WordPress speed optimizations, DNS record configurations, and 24/7 expert answers.",
+    price: { inr: "Free Guides", usd: "Free Guides" },
+    link: "/knowledge-base",
+    linkText: "Browse Help"
   },
   {
     num: "06",
