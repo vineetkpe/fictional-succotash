@@ -125,6 +125,9 @@ export const wordpressHosting = {
       name: "Starter",
       pricing: {
         monthly: { inr: "₹59", usd: "$0.79" },
+        quarterly: { inr: "₹177", usd: "$2.35" },
+        semiannual: { inr: "₹354", usd: "$4.70" },
+        annual: { inr: "₹708", usd: "$8.40" },
         yearly: { inr: "₹708", usd: "$8.40" }
       }
     },
@@ -134,6 +137,9 @@ export const wordpressHosting = {
       isPopular: true,
       pricing: {
         monthly: { inr: "₹99", usd: "$1.19" },
+        quarterly: { inr: "₹297", usd: "$3.55" },
+        semiannual: { inr: "₹594", usd: "$7.10" },
+        annual: { inr: "₹1188", usd: "$14.15" },
         yearly: { inr: "₹1188", usd: "$14.15" }
       }
     },
@@ -142,7 +148,10 @@ export const wordpressHosting = {
       name: "Growth",
       pricing: {
         monthly: { inr: "₹139", usd: "$1.65" },
-        yearly: { inr: "₹1168", usd: "$13.90" }
+        quarterly: { inr: "₹417", usd: "$4.95" },
+        semiannual: { inr: "₹834", usd: "$9.90" },
+        annual: { inr: "₹1668", usd: "$19.80" },
+        yearly: { inr: "₹1668", usd: "$19.80" }
       }
     },
     prime: {
@@ -150,6 +159,9 @@ export const wordpressHosting = {
       name: "Prime",
       pricing: {
         monthly: { inr: "₹179", usd: "$2.15" },
+        quarterly: { inr: "₹537", usd: "$6.45" },
+        semiannual: { inr: "₹1074", usd: "$12.90" },
+        annual: { inr: "₹2148", usd: "$25.60" },
         yearly: { inr: "₹2148", usd: "$25.60" }
       }
     },
@@ -158,6 +170,9 @@ export const wordpressHosting = {
       name: "Starter",
       pricing: {
         monthly: { inr: "₹59", usd: "$0.79" },
+        quarterly: { inr: "₹177", usd: "$2.35" },
+        semiannual: { inr: "₹354", usd: "$4.70" },
+        annual: { inr: "₹708", usd: "$8.40" },
         yearly: { inr: "₹708", usd: "$8.40" }
       }
     },
@@ -167,6 +182,9 @@ export const wordpressHosting = {
       isPopular: true,
       pricing: {
         monthly: { inr: "₹99", usd: "$1.19" },
+        quarterly: { inr: "₹297", usd: "$3.55" },
+        semiannual: { inr: "₹594", usd: "$7.10" },
+        annual: { inr: "₹1188", usd: "$14.15" },
         yearly: { inr: "₹1188", usd: "$14.15" }
       }
     },
@@ -175,7 +193,10 @@ export const wordpressHosting = {
       name: "Growth",
       pricing: {
         monthly: { inr: "₹139", usd: "$1.65" },
-        yearly: { inr: "₹1168", usd: "$13.90" }
+        quarterly: { inr: "₹417", usd: "$4.95" },
+        semiannual: { inr: "₹834", usd: "$9.90" },
+        annual: { inr: "₹1668", usd: "$19.80" },
+        yearly: { inr: "₹1668", usd: "$19.80" }
       }
     },
     ultimate: {
@@ -183,6 +204,9 @@ export const wordpressHosting = {
       name: "Prime",
       pricing: {
         monthly: { inr: "₹179", usd: "$2.15" },
+        quarterly: { inr: "₹537", usd: "$6.45" },
+        semiannual: { inr: "₹1074", usd: "$12.90" },
+        annual: { inr: "₹2148", usd: "$25.60" },
         yearly: { inr: "₹2148", usd: "$25.60" }
       }
     }
