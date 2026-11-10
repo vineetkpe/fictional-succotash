@@ -518,81 +518,120 @@ const sharedHostingFaqCategories = [
         <!-- =========================================================
              FEATURED ARCHITECTURE: Next-Gen Shared Cloud (3D Transparent Render)
              ========================================================= -->
-        <div class="ace-section-gap bg-image position-relative border-top-1 border-bottom-1" id="cloud-architecture">
-           <div class="container aceorbit-animated-shape">
+        <div class="ace-section-gap position-relative border-top-1 border-bottom-1 arch-cluster-section" id="cloud-architecture">
+           <div class="container aceorbit-animated-shape position-relative" style="z-index: 2;">
               <div class="row align-items-center g-5">
                  <!-- Left: Feature Breakdown -->
                  <div class="col-lg-6" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
                     <div class="section-title text-start mb-4">
-                       <div class="d-inline-flex align-items-center gap-2 px-3 py-1 mb-2 rounded-pill bg-light border border-danger-subtle text-danger small font-weight-bold">
-                          <span class="live-pulse-dot"></span>
-                          <span>CLOUD CLUSTER ARCHITECTURE</span>
+                       <div class="arch-section-badge mb-3">
+                          <span class="arch-badge-pulse-dot"></span>
+                          <span class="arch-badge-text">CLOUD CLUSTER ARCHITECTURE</span>
                        </div>
-                       <h3 class="title">Next-Gen NVMe Storage with Isolated CloudLinux Speed</h3>
-                       <p class="description mt-2">
-                          Unlike legacy budget web hosts that crowd hundreds of sites onto spinning disks, Hostamble partitions dedicated CPU cores, LVE memory, and lightning-fast pure NVMe SSDs for every client.
+                       <h2 class="title mb-3">Next-Gen NVMe Storage with Isolated CloudLinux Speed</h2>
+                       <p class="description">
+                          Unlike legacy budget web hosts that crowd hundreds of sites onto shared spinning disks, Hostamble partitions dedicated CPU cores, isolated LVE memory, and lightning-fast enterprise NVMe SSDs with LiteSpeed acceleration for every client.
                        </p>
                     </div>
 
-                    <div class="row g-4 mt-2">
+                    <div class="row g-3 g-md-4 mt-2">
+                       <!-- 1: LiteSpeed Turbo -->
                        <div class="col-sm-6">
-                          <div class="p-3 rounded-3 border bg-white shadow-sm h-100" style="border-color: rgba(255, 80, 26, 0.2) !important;">
-                             <div class="d-flex align-items-center gap-2 mb-2">
-                                <div class="p-2 rounded-2 bg-light text-danger">
-                                   <i class="ri-flashlight-line" style="font-size: 20px;"></i>
+                          <div class="arch-spec-card arch-spec-litespeed">
+                             <div class="arch-spec-top">
+                                <div class="arch-spec-icon-box">
+                                   <i class="ri-flashlight-fill"></i>
                                 </div>
-                                <h6 class="mb-0 font-weight-bold">LiteSpeed Turbo</h6>
+                                <span class="arch-spec-chip">10x Faster</span>
                              </div>
-                             <p class="small text-muted mb-0">10x faster dynamic page serving and built-in LSCache integration for WordPress.</p>
+                             <div class="arch-spec-body">
+                                <h4 class="arch-spec-title">LiteSpeed Turbo</h4>
+                                <p class="arch-spec-desc">Native HTTP/3 &amp; QUIC protocol acceleration with built-in server-level LSCache for WordPress &amp; WooCommerce.</p>
+                             </div>
+                             <div class="arch-spec-footer">
+                                <span class="arch-spec-metric"><i class="ri-speed-up-line"></i> 300% Faster TTFB</span>
+                             </div>
                           </div>
                        </div>
 
+                       <!-- 2: CloudLinux CageFS -->
                        <div class="col-sm-6">
-                          <div class="p-3 rounded-3 border bg-white shadow-sm h-100" style="border-color: rgba(22, 163, 74, 0.2) !important;">
-                             <div class="d-flex align-items-center gap-2 mb-2">
-                                <div class="p-2 rounded-2 bg-light text-success">
-                                   <i class="ri-shield-flash-line" style="font-size: 20px;"></i>
+                          <div class="arch-spec-card arch-spec-cloudlinux">
+                             <div class="arch-spec-top">
+                                <div class="arch-spec-icon-box">
+                                   <i class="ri-cpu-line"></i>
                                 </div>
-                                <h6 class="mb-0 font-weight-bold">Imunify360 AI Shield</h6>
+                                <span class="arch-spec-chip">Isolated LVE</span>
                              </div>
-                             <p class="small text-muted mb-0">Proactive real-time malware scanner, automated file cleanup, and smart WAF defense.</p>
+                             <div class="arch-spec-body">
+                                <h4 class="arch-spec-title">CloudLinux Isolation</h4>
+                                <p class="arch-spec-desc">Kernel-level CageFS virtualization guarantees your dedicated CPU &amp; RAM are never impacted by noisy neighbors.</p>
+                             </div>
+                             <div class="arch-spec-footer">
+                                <span class="arch-spec-metric"><i class="ri-shield-keyhole-line"></i> 100% Resource Cage</span>
+                             </div>
                           </div>
                        </div>
 
+                       <!-- 3: Pure NVMe RAID-10 -->
                        <div class="col-sm-6">
-                          <div class="p-3 rounded-3 border bg-white shadow-sm h-100" style="border-color: rgba(59, 130, 246, 0.2) !important;">
-                             <div class="d-flex align-items-center gap-2 mb-2">
-                                <div class="p-2 rounded-2 bg-light text-primary">
-                                   <i class="ri-hard-drive-2-line" style="font-size: 20px;"></i>
+                          <div class="arch-spec-card arch-spec-nvme">
+                             <div class="arch-spec-top">
+                                <div class="arch-spec-icon-box">
+                                   <i class="ri-hard-drive-2-fill"></i>
                                 </div>
-                                <h6 class="mb-0 font-weight-bold">Pure NVMe Storage</h6>
+                                <span class="arch-spec-chip">PCIe 4.0 Array</span>
                              </div>
-                             <p class="small text-muted mb-0">Enterprise PCIe 4.0 NVMe SSDs in RAID-10 delivering up to 3,500 MB/s read/write speed.</p>
+                             <div class="arch-spec-body">
+                                <h4 class="arch-spec-title">Pure NVMe Storage</h4>
+                                <p class="arch-spec-desc">Enterprise solid-state drives in high-redundancy RAID-10 push up to 3,500 MB/s read/write speed for instantaneous queries.</p>
+                             </div>
+                             <div class="arch-spec-footer">
+                                <span class="arch-spec-metric"><i class="ri-rocket-line"></i> 3,500 MB/s Low Latency</span>
+                             </div>
                           </div>
                        </div>
 
+                       <!-- 4: Imunify360 & JetBackup -->
                        <div class="col-sm-6">
-                          <div class="p-3 rounded-3 border bg-white shadow-sm h-100" style="border-color: rgba(245, 158, 11, 0.2) !important;">
-                             <div class="d-flex align-items-center gap-2 mb-2">
-                                <div class="p-2 rounded-2 bg-light text-warning">
-                                   <i class="ri-history-line" style="font-size: 20px;"></i>
+                          <div class="arch-spec-card arch-spec-security">
+                             <div class="arch-spec-top">
+                                <div class="arch-spec-icon-box">
+                                   <i class="ri-shield-flash-fill"></i>
                                 </div>
-                                <h6 class="mb-0 font-weight-bold">JetBackup 5 Restores</h6>
+                                <span class="arch-spec-chip">AI WAF Active</span>
                              </div>
-                             <p class="small text-muted mb-0">Automated daily offsite snapshots with 1-click self-service file &amp; DB rollbacks.</p>
+                             <div class="arch-spec-body">
+                                <h4 class="arch-spec-title">Imunify360 &amp; JetBackup</h4>
+                                <p class="arch-spec-desc">Proactive real-time malware cleanup, zero-day threat shield, plus automated daily snapshots with 1-click self-restore.</p>
+                             </div>
+                             <div class="arch-spec-footer">
+                                <span class="arch-spec-metric"><i class="ri-history-line"></i> Daily Offsite Backups</span>
+                             </div>
                           </div>
                        </div>
                     </div>
 
-                    <div class="mt-4 pt-2 d-flex flex-wrap align-items-center gap-3">
-                       <a href="#plans" class="ace-btn"><span>Choose Your Plan</span> <i class="icon-arrow-right-line-right"></i></a>
-                       <span class="text-muted small"><i class="ri-checkbox-circle-fill text-success me-1"></i> Free cPanel Site Migration Included</span>
+                    <div class="arch-cta-wrap mt-4 pt-2">
+                       <div class="d-flex flex-wrap align-items-center gap-3">
+                          <a href="#plans" class="ace-btn"><span>Choose Your Plan</span> <i class="icon-arrow-right-line-right"></i></a>
+                          <div class="arch-trust-badges d-flex flex-wrap align-items-center gap-3">
+                             <span class="arch-trust-item"><i class="ri-checkbox-circle-fill text-success"></i> Free cPanel Migration</span>
+                             <span class="arch-trust-item"><i class="ri-checkbox-circle-fill text-success"></i> 99.9% Uptime SLA</span>
+                             <span class="arch-trust-item"><i class="ri-checkbox-circle-fill text-success"></i> Instant Setup</span>
+                          </div>
+                       </div>
                     </div>
                  </div>
 
                  <!-- Right: Transparent 3D Isometric Cluster Stage with Micro-Elements -->
                  <div class="col-lg-6 text-center" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
                     <div class="arch-visual-stage position-relative d-inline-block w-100">
+                       <!-- Ambient Radar & Glow Effects -->
+                       <div class="arch-stage-ambient-glow" aria-hidden="true"></div>
+                       <div class="arch-stage-radar-ring ring-1" aria-hidden="true"></div>
+                       <div class="arch-stage-radar-ring ring-2" aria-hidden="true"></div>
+
                        <div class="arch-img-wrapper position-relative">
                           <img 
                              src="/assets/images/cloud-cluster-architecture.png" 
@@ -601,48 +640,80 @@ const sharedHostingFaqCategories = [
                              loading="lazy"
                           />
                           
-                          <!-- Floating Micro-Element 1: Imunify360 (Top Left) -->
+                          <!-- Floating Telemetry Pill 1: Imunify360 (Top Left) -->
                           <div class="arch-floating-pill pill-imunify">
-                             <span class="arch-pill-dot dot-green"></span>
-                             <i class="ri-shield-flash-fill text-success"></i>
+                             <span class="arch-beacon-dot beacon-emerald"></span>
+                             <div class="arch-pill-icon-box icon-emerald">
+                                <i class="ri-shield-flash-fill"></i>
+                             </div>
                              <div class="text-start">
                                 <div class="arch-pill-title">Imunify360 Active</div>
                                 <div class="arch-pill-sub">AI WAF &amp; Malware Shield</div>
                              </div>
                           </div>
 
-                          <!-- Floating Micro-Element 2: LiteSpeed (Top Right) -->
+                          <!-- Floating Telemetry Pill 2: LiteSpeed (Top Right) -->
                           <div class="arch-floating-pill pill-litespeed">
-                             <i class="ri-rocket-2-fill text-danger"></i>
+                             <span class="arch-beacon-dot beacon-orange"></span>
+                             <div class="arch-pill-icon-box icon-orange">
+                                <i class="ri-rocket-2-fill"></i>
+                             </div>
                              <div class="text-start">
                                 <div class="arch-pill-title">LiteSpeed Turbo</div>
                                 <div class="arch-pill-sub">10x Faster Dynamic PHP</div>
                              </div>
                           </div>
 
-                          <!-- Floating Micro-Element 3: NVMe RAID-10 (Bottom Left) -->
+                          <!-- Floating Telemetry Pill 3: NVMe RAID-10 (Bottom Left) -->
                           <div class="arch-floating-pill pill-nvme">
-                             <i class="ri-hard-drive-2-fill text-primary"></i>
+                             <span class="arch-beacon-dot beacon-blue"></span>
+                             <div class="arch-pill-icon-box icon-blue">
+                                <i class="ri-hard-drive-2-fill"></i>
+                             </div>
                              <div class="text-start">
                                 <div class="arch-pill-title">PCIe 4.0 NVMe RAID-10</div>
                                 <div class="arch-pill-sub">3,500 MB/s Low-Latency I/O</div>
                              </div>
                           </div>
 
-                          <!-- Floating Micro-Element 4: CloudLinux OS (Bottom Right) -->
+                          <!-- Floating Telemetry Pill 4: CloudLinux OS (Bottom Right) -->
                           <div class="arch-floating-pill pill-cloudlinux">
-                             <i class="ri-cpu-line text-warning"></i>
+                             <span class="arch-beacon-dot beacon-purple"></span>
+                             <div class="arch-pill-icon-box icon-purple">
+                                <i class="ri-cpu-line"></i>
+                             </div>
                              <div class="text-start">
-                                <div class="arch-pill-title">CloudLinux LVE Cage</div>
+                                <div class="arch-pill-title">CloudLinux CageFS</div>
                                 <div class="arch-pill-sub">Dedicated CPU &amp; RAM Guarantee</div>
                              </div>
                           </div>
                        </div>
 
-                       <!-- Live Status Bar -->
-                       <div class="arch-status-pill mt-3 mx-auto">
-                          <span class="arch-status-dot"></span>
-                          <span>Infrastructure Status: All NVMe Nodes Healthy &bull; Imunify360 Active</span>
+                       <!-- Live Infrastructure Telemetry Dashboard Strip -->
+                       <div class="arch-telemetry-strip mt-4">
+                          <div class="arch-telemetry-col">
+                             <span class="arch-telemetry-status-dot"></span>
+                             <div class="text-start">
+                                <span class="arch-telemetry-label">Cluster Status</span>
+                                <span class="arch-telemetry-val">100% Operational</span>
+                             </div>
+                          </div>
+                          <div class="arch-telemetry-divider" aria-hidden="true"></div>
+                          <div class="arch-telemetry-col">
+                             <i class="ri-flashlight-line text-warning"></i>
+                             <div class="text-start">
+                                <span class="arch-telemetry-label">Edge Latency</span>
+                                <span class="arch-telemetry-val">&lt;18ms Global</span>
+                             </div>
+                          </div>
+                          <div class="arch-telemetry-divider" aria-hidden="true"></div>
+                          <div class="arch-telemetry-col">
+                             <i class="ri-shield-check-fill text-success"></i>
+                             <div class="text-start">
+                                <span class="arch-telemetry-label">Security Shield</span>
+                                <span class="arch-telemetry-val">Zero-Day Protected</span>
+                             </div>
+                          </div>
                        </div>
                     </div>
                  </div>
@@ -1080,127 +1151,429 @@ const sharedHostingFaqCategories = [
   }
 
   /* ════════════════════════════════════════════════════════════════
-     CLOUD CLUSTER ARCHITECTURE 3D STAGE & FLOATING MICRO-ELEMENTS
+     CLOUD CLUSTER ARCHITECTURE SECTION & SPECIFICATION CARDS
+     ════════════════════════════════════════════════════════════════ */
+  .arch-cluster-section {
+    background: linear-gradient(180deg, #ffffff 0%, #f9fbfd 50%, #ffffff 100%);
+    overflow: hidden;
+  }
+
+  .arch-cluster-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(148, 163, 184, 0.16) 1px, transparent 1px);
+    background-size: 26px 26px;
+    pointer-events: none;
+    opacity: 0.7;
+    z-index: 1;
+  }
+
+  /* Eyebrow Badge */
+  .arch-section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: rgba(255, 80, 26, 0.08);
+    border: 1px solid rgba(255, 80, 26, 0.22);
+    border-radius: 30px;
+  }
+
+  .arch-badge-pulse-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #ff501a;
+    box-shadow: 0 0 8px #ff501a;
+    animation: liveBlink 1.4s infinite;
+  }
+
+  .arch-badge-text {
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #ff501a;
+    text-transform: uppercase;
+  }
+
+  /* Specification Cards */
+  .arch-spec-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 22px 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.03);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+  }
+
+  .arch-spec-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .arch-spec-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+  }
+
+  .arch-spec-card:hover::after {
+    opacity: 1;
+  }
+
+  /* Accent variants */
+  .arch-spec-litespeed::after { background: linear-gradient(90deg, #ff501a, #ff8c42); }
+  .arch-spec-litespeed:hover { border-color: rgba(255, 80, 26, 0.4); }
+  .arch-spec-litespeed .arch-spec-icon-box { background: rgba(255, 80, 26, 0.1); color: #ff501a; }
+  .arch-spec-litespeed .arch-spec-chip { background: rgba(255, 80, 26, 0.08); color: #ff501a; }
+
+  .arch-spec-cloudlinux::after { background: linear-gradient(90deg, #525fe1, #818cf8); }
+  .arch-spec-cloudlinux:hover { border-color: rgba(82, 95, 225, 0.4); }
+  .arch-spec-cloudlinux .arch-spec-icon-box { background: rgba(82, 95, 225, 0.1); color: #525fe1; }
+  .arch-spec-cloudlinux .arch-spec-chip { background: rgba(82, 95, 225, 0.08); color: #525fe1; }
+
+  .arch-spec-nvme::after { background: linear-gradient(90deg, #0284c7, #38bdf8); }
+  .arch-spec-nvme:hover { border-color: rgba(2, 132, 199, 0.4); }
+  .arch-spec-nvme .arch-spec-icon-box { background: rgba(2, 132, 199, 0.1); color: #0284c7; }
+  .arch-spec-nvme .arch-spec-chip { background: rgba(2, 132, 199, 0.08); color: #0284c7; }
+
+  .arch-spec-security::after { background: linear-gradient(90deg, #10b981, #34d399); }
+  .arch-spec-security:hover { border-color: rgba(16, 185, 129, 0.4); }
+  .arch-spec-security .arch-spec-icon-box { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+  .arch-spec-security .arch-spec-chip { background: rgba(16, 185, 129, 0.08); color: #10b981; }
+
+  .arch-spec-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+
+  .arch-spec-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .arch-spec-card:hover .arch-spec-icon-box {
+    transform: scale(1.1) rotate(4deg);
+  }
+
+  .arch-spec-chip {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+
+  .arch-spec-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .arch-spec-desc {
+    font-size: 13px;
+    line-height: 1.55;
+    color: #64748b;
+    margin-bottom: 14px;
+  }
+
+  .arch-spec-footer {
+    padding-top: 10px;
+    border-top: 1px dashed #f1f5f9;
+  }
+
+  .arch-spec-metric {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1e293b;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* Trust Badges */
+  .arch-trust-badges {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .arch-trust-item {
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* ════════════════════════════════════════════════════════════════
+     CLOUD CLUSTER 3D STAGE & FLOATING TELEMETRY BADGES
      ════════════════════════════════════════════════════════════════ */
   .arch-visual-stage {
-    max-width: 540px;
+    max-width: 560px;
     margin: 0 auto;
+    position: relative;
+    padding: 20px 0;
+  }
+
+  /* Ambient Stage Effects */
+  .arch-stage-ambient-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 440px;
+    height: 440px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(255, 80, 26, 0.12) 0%, rgba(82, 95, 225, 0.08) 42%, rgba(255, 255, 255, 0) 70%);
+    pointer-events: none;
+    z-index: 1;
+    filter: blur(20px);
+  }
+
+  .arch-stage-radar-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1px dashed rgba(148, 163, 184, 0.25);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .arch-stage-radar-ring.ring-1 {
+    width: 380px;
+    height: 380px;
+    animation: archRadarPulse 8s linear infinite;
+  }
+
+  .arch-stage-radar-ring.ring-2 {
+    width: 480px;
+    height: 480px;
+    border-style: dotted;
+    border-color: rgba(82, 95, 225, 0.18);
+    animation: archRadarPulse 14s linear infinite reverse;
+  }
+
+  @keyframes archRadarPulse {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+
+  .arch-img-wrapper {
+    position: relative;
+    z-index: 2;
   }
 
   .arch-main-img {
-    max-height: 420px;
+    max-height: 430px;
     width: auto;
-    filter: drop-shadow(0 20px 30px rgba(15, 23, 42, 0.08));
-    transition: transform 0.4s ease;
+    filter: drop-shadow(0 25px 35px rgba(15, 23, 42, 0.12));
+    transition: transform 0.45s ease;
   }
 
   .arch-visual-stage:hover .arch-main-img {
-    transform: translateY(-4px) scale(1.02);
+    transform: translateY(-5px) scale(1.02);
   }
 
+  /* Floating Telemetry Pills */
   .arch-floating-pill {
     position: absolute;
     display: inline-flex;
     align-items: center;
-    gap: 9px;
+    gap: 10px;
     padding: 8px 14px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border: 1px solid rgba(226, 232, 240, 0.95);
-    border-radius: 12px;
-    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
-    animation: archFloat 4s ease-in-out infinite alternate;
+    border-radius: 14px;
+    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08), 0 2px 6px rgba(0, 0, 0, 0.03);
     z-index: 5;
-    transition: all 0.25s ease;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .arch-floating-pill:hover {
-    transform: translateY(-3px) scale(1.04);
-    box-shadow: 0 14px 28px rgba(255, 80, 26, 0.16);
-    border-color: rgba(255, 80, 26, 0.4);
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
+    border-color: rgba(255, 80, 26, 0.45);
+    background: #ffffff;
   }
 
-  .arch-floating-pill i {
-    font-size: 18px;
+  .arch-pill-icon-box {
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
     flex-shrink: 0;
   }
 
+  .icon-emerald { background: rgba(16, 185, 129, 0.12); color: #10b981; }
+  .icon-orange  { background: rgba(255, 80, 26, 0.12); color: #ff501a; }
+  .icon-blue    { background: rgba(2, 132, 199, 0.12); color: #0284c7; }
+  .icon-purple  { background: rgba(82, 95, 225, 0.12); color: #525fe1; }
+
+  .arch-beacon-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    position: absolute;
+    top: 7px;
+    right: 8px;
+  }
+
+  .beacon-emerald { background: #10b981; box-shadow: 0 0 6px #10b981; }
+  .beacon-orange  { background: #ff501a; box-shadow: 0 0 6px #ff501a; }
+  .beacon-blue    { background: #0284c7; box-shadow: 0 0 6px #0284c7; }
+  .beacon-purple  { background: #525fe1; box-shadow: 0 0 6px #525fe1; }
+
   .arch-pill-title {
-    font-size: 11px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.25;
+    white-space: nowrap;
+  }
+
+  .arch-pill-sub {
+    font-size: 10px;
+    font-weight: 500;
+    color: #64748b;
+    line-height: 1.25;
+    white-space: nowrap;
+  }
+
+  /* Keyframe animations & offsets */
+  .pill-imunify {
+    top: 6%;
+    left: 0%;
+    animation: archFloatA 4.5s ease-in-out infinite alternate;
+  }
+
+  .pill-litespeed {
+    top: 4%;
+    right: 0%;
+    animation: archFloatB 4.2s ease-in-out infinite alternate 0.8s;
+  }
+
+  .pill-nvme {
+    bottom: 8%;
+    left: 0%;
+    animation: archFloatB 4.6s ease-in-out infinite alternate 1.6s;
+  }
+
+  .pill-cloudlinux {
+    bottom: 6%;
+    right: 0%;
+    animation: archFloatA 4.4s ease-in-out infinite alternate 2.4s;
+  }
+
+  @keyframes archFloatA {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-8px); }
+  }
+
+  @keyframes archFloatB {
+    0% { transform: translateY(-6px); }
+    100% { transform: translateY(3px); }
+  }
+
+  /* Live Telemetry Strip */
+  .arch-telemetry-strip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 16px;
+    padding: 10px 22px;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid #e2e8f0;
+    border-radius: 30px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    position: relative;
+    z-index: 3;
+    max-width: 520px;
+    width: 100%;
+  }
+
+  .arch-telemetry-col {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .arch-telemetry-col i {
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .arch-telemetry-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 8px #10b981;
+    animation: liveBlink 1.4s infinite;
+  }
+
+  .arch-telemetry-label {
+    display: block;
+    font-size: 9.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #94a3b8;
+    line-height: 1.1;
+  }
+
+  .arch-telemetry-val {
+    display: block;
+    font-size: 12px;
     font-weight: 700;
     color: #0f172a;
     line-height: 1.2;
     white-space: nowrap;
   }
 
-  .arch-pill-sub {
-    font-size: 9.5px;
-    color: #64748b;
-    line-height: 1.2;
-    white-space: nowrap;
+  .arch-telemetry-divider {
+    width: 1px;
+    height: 24px;
+    background: #e2e8f0;
   }
 
-  .arch-pill-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-  }
-  .dot-green {
-    background: #10b981;
-    box-shadow: 0 0 6px #10b981;
-  }
-
-  .pill-imunify {
-    top: 6%;
-    left: 2%;
-    animation-delay: 0s;
-  }
-
-  .pill-litespeed {
-    top: 4%;
-    right: 2%;
-    animation-delay: 1.2s;
-  }
-
-  .pill-nvme {
-    bottom: 12%;
-    left: 2%;
-    animation-delay: 2s;
-  }
-
-  .pill-cloudlinux {
-    bottom: 10%;
-    right: 2%;
-    animation-delay: 0.8s;
-  }
-
-  @keyframes archFloat {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-7px); }
-  }
-
-  .arch-status-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 16px;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 30px;
-    font-size: 12px;
-    font-weight: 600;
-    color: #1e293b;
-    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
-  }
-
-  .arch-status-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #10b981;
-    box-shadow: 0 0 8px #10b981;
-    animation: liveBlink 1.4s infinite;
+  /* Mobile & Tablet Responsiveness */
+  @media (max-width: 991px) {
+    .arch-visual-stage {
+      margin-top: 30px;
+    }
   }
 
   @media (max-width: 767px) {
@@ -1209,12 +1582,26 @@ const sharedHostingFaqCategories = [
       margin: 6px auto;
       display: flex;
       width: fit-content;
-      animation: none;
+      animation: none !important;
     }
     .arch-img-wrapper {
       display: flex;
       flex-direction: column;
       align-items: center;
+    }
+    .arch-stage-radar-ring,
+    .arch-stage-ambient-glow {
+      display: none;
+    }
+    .arch-telemetry-strip {
+      flex-direction: column;
+      border-radius: 16px;
+      gap: 10px;
+      padding: 14px;
+    }
+    .arch-telemetry-divider {
+      width: 100%;
+      height: 1px;
     }
   }
 
