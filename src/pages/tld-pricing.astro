@@ -4,6 +4,11 @@ import FaqBlock from '../components/FaqBlock.astro';
 import { domainPricing } from '../data/pricing';
 const { heroStartPrice, allTlds } = domainPricing;
 
+const comTld = allTlds.find((t) => t.tld === '.com') || { register: { inr: '₹999', usd: '$11.99' } };
+const inTld = allTlds.find((t) => t.tld === '.in') || { register: { inr: '₹499', usd: '$5.99' } };
+const aiTld = allTlds.find((t) => t.tld === '.ai') || { register: { inr: '₹6,499', usd: '$79.99' } };
+const storeTld = allTlds.find((t) => t.tld === '.store') || { register: { inr: '₹299', usd: '$3.99' } };
+
 const tldFaqs = [
   {
     category: "Pricing & Fees",
@@ -239,7 +244,7 @@ const tldFaqCategories = [
               </div>
               <div class="tld-card-pricing-row pt-3 border-top mt-auto d-flex align-items-center justify-content-between">
                 <div>
-                  <span class="tld-price-val prices" data-inr="₹999" data-usd="$11.99">₹999</span>
+                  <span class="tld-price-val prices" data-inr={comTld.register.inr} data-usd={comTld.register.usd}>{comTld.register.inr}</span>
                   <span class="tld-price-unit d-block text-muted">/1st Year</span>
                 </div>
                 <a href="/domain-search" class="ace-btn btn-small">Register</a>
@@ -266,7 +271,7 @@ const tldFaqCategories = [
               </div>
               <div class="tld-card-pricing-row pt-3 border-top mt-auto d-flex align-items-center justify-content-between">
                 <div>
-                  <span class="tld-price-val prices" data-inr="₹499" data-usd="$5.99">₹499</span>
+                  <span class="tld-price-val prices" data-inr={inTld.register.inr} data-usd={inTld.register.usd}>{inTld.register.inr}</span>
                   <span class="tld-price-unit d-block text-muted">/1st Year</span>
                 </div>
                 <a href="/domain-search" class="ace-btn btn-small">Register</a>
@@ -293,7 +298,7 @@ const tldFaqCategories = [
               </div>
               <div class="tld-card-pricing-row pt-3 border-top mt-auto d-flex align-items-center justify-content-between">
                 <div>
-                  <span class="tld-price-val prices" data-inr="₹6,499" data-usd="$79.99">₹6,499</span>
+                  <span class="tld-price-val prices" data-inr={aiTld.register.inr} data-usd={aiTld.register.usd}>{aiTld.register.inr}</span>
                   <span class="tld-price-unit d-block text-muted">/1st Year</span>
                 </div>
                 <a href="/domain-search" class="ace-btn btn-small">Register</a>
@@ -320,7 +325,7 @@ const tldFaqCategories = [
               </div>
               <div class="tld-card-pricing-row pt-3 border-top mt-auto d-flex align-items-center justify-content-between">
                 <div>
-                  <span class="tld-price-val prices" data-inr="₹299" data-usd="$3.99">₹299</span>
+                  <span class="tld-price-val prices" data-inr={storeTld.register.inr} data-usd={storeTld.register.usd}>{storeTld.register.inr}</span>
                   <span class="tld-price-unit d-block text-muted">/1st Year</span>
                 </div>
                 <a href="/domain-search" class="ace-btn btn-small">Register</a>

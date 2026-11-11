@@ -4,6 +4,10 @@ import HelpCtaBlock from '../components/HelpCtaBlock.astro';
 import FaqBlock from '../components/FaqBlock.astro';
 import { domainPricing } from '../data/pricing';
 
+const tldRatesMap = Object.fromEntries(
+  domainPricing.allTlds.map((t) => [t.tld, { inr: t.register.inr, usd: t.register.usd }])
+);
+
 // ===== FAQ Structured Data for Google SEO Rich Snippets =====
 const aiDomainFaqs = [
   {
@@ -1093,6 +1097,7 @@ const aiDomainFaqSchema = {
 <!-- =========================================================
      CLIENT SCRIPT: Hostamble Mini AI Connection + Smart Algorithmic Synthesizer
      ========================================================= -->
+<script id="hostamble-tld-rates" type="application/json" set:html={JSON.stringify(tldRatesMap)}></script>
 <script is:inline>
   (function () {
     /* ════════════════════════════════════════════════════════════════
@@ -1246,16 +1251,16 @@ const aiDomainFaqSchema = {
     /* ════════════════════════════════════════════════════════════════
        AI Domain Generator Logic
        ════════════════════════════════════════════════════════════════ */
-    const tldRates = {
-      ".com": { inr: "₹999 /yr", usd: "$11.99 /yr" },
-      ".in": { inr: "₹499 /yr", usd: "$5.95 /yr" },
-      ".co.in": { inr: "₹399 /yr", usd: "$4.75 /yr" },
-      ".ai": { inr: "₹6499 /yr", usd: "$77.99 /yr" },
-      ".store": { inr: "₹299 /yr", usd: "$3.59 /yr" },
-      ".org": { inr: "₹1199 /yr", usd: "$14.30 /yr" },
-      ".tech": { inr: "₹399 /yr", usd: "$4.79 /yr" },
-      ".io": { inr: "₹3499 /yr", usd: "$41.99 /yr" }
-    };
+    let tldRates = {};
+    try {
+      const ratesEl = document.getElementById("hostamble-tld-rates");
+      if (ratesEl && ratesEl.textContent) {
+        tldRates = JSON.parse(ratesEl.textContent);
+      }
+    } catch (e) {
+      console.warn("Could not load dynamic TLD rates:", e);
+    }
+    const defaultTldRate = tldRates[".com"] || { inr: "₹499 /yr", usd: "$5.95 /yr" };
 
     const form = document.getElementById("aiDomainForm");
     const input = document.getElementById("aiDomainInput");
@@ -1355,7 +1360,7 @@ const aiDomainFaqSchema = {
             tld: tld,
             full: full,
             tag: tag,
-            price: tldRates[tld] || { inr: "₹499 /yr", usd: "$5.95 /yr" }
+            price: tldRates[tld] || defaultTldRate
           });
         }
       }
@@ -1497,7 +1502,7 @@ const aiDomainFaqSchema = {
           tld: rawTld,
           full: full,
           tag: d.tag || "Brandable",
-          price: tldRates[rawTld] || { inr: "₹499 /yr", usd: "$5.95 /yr" },
+          price: tldRates[rawTld] || defaultTldRate,
           status: "CHECKING"
         };
       });
