@@ -20,14 +20,22 @@ export interface PlanPeriodDetail extends PricePair {
   totalInr?: string;
   totalUsd?: string;
   periodLabel?: string;
+  originalInr?: string;
+  originalUsd?: string;
+  saveInr?: string;
+  saveUsd?: string;
   discount?: string;
+  renewalInr?: string;
+  renewalUsd?: string;
   freeDomain?: boolean;
   freeDomainNote?: string;
+  cartUrl?: string;
 }
 
 export interface HostingPlan {
   id: string;
   name: string;
+  tagline?: string;
   badge?: string;
   isPopular?: boolean;
   orderUrl?: string;
@@ -94,6 +102,7 @@ export const sharedHosting = {
     basic: {
       id: "basic",
       name: "Basic",
+      tagline: "For a personal blog, portfolio or first website",
       orderUrl: "https://hostamble.com/dash/store/sharedhosting/basic",
       features: [
         "1 Website",
@@ -111,9 +120,12 @@ export const sharedHosting = {
         monthly: {
           inr: "₹149",
           usd: "$1.79",
-          totalInr: "₹149 each month",
-          totalUsd: "$1.79 each month",
+          totalInr: "Billed monthly",
+          totalUsd: "Billed monthly",
           periodLabel: "each month",
+          renewalInr: "Renews at ₹149/month",
+          renewalUsd: "Renews at $1.79/month",
+          cartUrl: "https://hostamble.com/dash/store/sharedhosting/basic?billingcycle=monthly",
           freeDomain: false
         },
         quarterly: {
@@ -122,31 +134,55 @@ export const sharedHosting = {
           totalInr: "₹417 every 3 months",
           totalUsd: "$5.07 every 3 months",
           periodLabel: "every 3 months",
+          renewalInr: "Renews at ₹139/mo (₹417/3 months)",
+          renewalUsd: "Renews at $1.69/mo ($5.07/3 months)",
+          cartUrl: "https://hostamble.com/dash/store/sharedhosting/basic?billingcycle=quarterly",
           freeDomain: false
         },
         semiannual: {
           inr: "₹119",
           usd: "$1.45",
-          totalInr: "₹714 every 6 months",
+          originalInr: "₹149/mo",
+          originalUsd: "$1.79/mo",
+          saveInr: "You save ₹180",
+          saveUsd: "You save $2.04",
+          totalInr: "₹714 billed every 6 months",
           totalUsd: "$8.70 every 6 months",
           periodLabel: "every 6 months",
+          renewalInr: "Renews at ₹119/mo (₹714/6 months)",
+          renewalUsd: "Renews at $1.45/mo ($8.70/6 months)",
+          cartUrl: "https://hostamble.com/dash/store/sharedhosting/basic?billingcycle=semiannually",
           freeDomain: false
         },
         annual: {
           inr: "₹99",
           usd: "$1.19",
-          totalInr: "₹1,188 every year",
+          originalInr: "₹149/mo",
+          originalUsd: "$1.79/mo",
+          saveInr: "You save ₹600",
+          saveUsd: "You save $7.20",
+          totalInr: "₹1,188 billed every year",
           totalUsd: "$14.28 every year",
           periodLabel: "every year",
+          renewalInr: "Renews at ₹99/mo (₹1,188/year)",
+          renewalUsd: "Renews at $1.19/mo ($14.28/year)",
+          cartUrl: "https://hostamble.com/dash/store/sharedhosting/basic?billingcycle=annually",
           freeDomain: false
         },
         biennial: {
           inr: "₹69",
           usd: "$0.85",
+          originalInr: "₹149/mo",
+          originalUsd: "$1.79/mo",
+          saveInr: "You save ₹1,920 (54% OFF)",
+          saveUsd: "You save $22.56 (54% OFF)",
           totalInr: "₹1,656 billed upfront for 2 years",
           totalUsd: "$19.99 billed upfront for 2 years",
           periodLabel: "billed upfront for 2 years",
           discount: "Save 54% compared with monthly billing",
+          renewalInr: "Renews at ₹69/mo (₹1,656/2 years)",
+          renewalUsd: "Renews at $0.85/mo ($19.99/2 years)",
+          cartUrl: "https://hostamble.com/dash/store/sharedhosting/basic?billingcycle=biennially",
           freeDomain: true,
           freeDomainNote: "1 domain FREE for the first year"
         }
@@ -157,6 +193,7 @@ export const sharedHosting = {
       name: "Starter",
       badge: "Recommended",
       isPopular: true,
+      tagline: "For growing businesses & active multi-site projects",
       orderUrl: "https://hostamble.com/dash/store/sharedhosting/starter",
       features: [
         "5 Websites",
@@ -174,9 +211,12 @@ export const sharedHosting = {
         monthly: {
           inr: "₹249",
           usd: "$2.99",
-          totalInr: "₹249 each month",
-          totalUsd: "$2.99 each month",
+          totalInr: "Billed monthly",
+          totalUsd: "Billed monthly",
           periodLabel: "each month",
+          renewalInr: "Renews at ₹249/month",
+          renewalUsd: "Renews at $2.99/month",
+          cartUrl: "https://hostamble.com/dash/store/sharedhosting/starter?billingcycle=monthly",
           freeDomain: false
         },
         quarterly: {
@@ -185,31 +225,55 @@ export const sharedHosting = {
           totalInr: "₹687 every 3 months",
           totalUsd: "$8.25 every 3 months",
           periodLabel: "every 3 months",
+          renewalInr: "Renews at ₹229/mo (₹687/3 months)",
+          renewalUsd: "Renews at $2.75/mo ($8.25/3 months)",
+          cartUrl: "https://hostamble.com/dash/store/sharedhosting/starter?billingcycle=quarterly",
           freeDomain: false
         },
         semiannual: {
           inr: "₹199",
           usd: "$2.39",
-          totalInr: "₹1,194 every 6 months",
+          originalInr: "₹249/mo",
+          originalUsd: "$2.99/mo",
+          saveInr: "You save ₹300",
+          saveUsd: "You save $3.60",
+          totalInr: "₹1,194 billed every 6 months",
           totalUsd: "$14.34 every 6 months",
           periodLabel: "every 6 months",
+          renewalInr: "Renews at ₹199/mo (₹1,194/6 months)",
+          renewalUsd: "Renews at $2.39/mo ($14.34/6 months)",
+          cartUrl: "https://hostamble.com/dash/store/sharedhosting/starter?billingcycle=semiannually",
           freeDomain: false
         },
         annual: {
           inr: "₹159",
           usd: "$1.89",
-          totalInr: "₹1,908 every year",
+          originalInr: "₹249/mo",
+          originalUsd: "$2.99/mo",
+          saveInr: "You save ₹1,080",
+          saveUsd: "You save $13.20",
+          totalInr: "₹1,908 billed every year",
           totalUsd: "$22.68 every year",
           periodLabel: "every year",
+          renewalInr: "Renews at ₹159/mo (₹1,908/year)",
+          renewalUsd: "Renews at $1.89/mo ($22.68/year)",
+          cartUrl: "https://hostamble.com/dash/store/sharedhosting/starter?billingcycle=annually",
           freeDomain: false
         },
         biennial: {
           inr: "₹119",
           usd: "$1.45",
+          originalInr: "₹249/mo",
+          originalUsd: "$2.99/mo",
+          saveInr: "You save ₹3,120 (52% OFF)",
+          saveUsd: "You save $36.96 (52% OFF)",
           totalInr: "₹2,856 billed upfront for 2 years",
           totalUsd: "$34.80 billed upfront for 2 years",
           periodLabel: "billed upfront for 2 years",
           discount: "Save 52% compared with monthly billing",
+          renewalInr: "Renews at ₹119/mo (₹2,856/2 years)",
+          renewalUsd: "Renews at $1.45/mo ($34.80/2 years)",
+          cartUrl: "https://hostamble.com/dash/store/sharedhosting/starter?billingcycle=biennially",
           freeDomain: true,
           freeDomainNote: "1 domain FREE for the first year"
         }
@@ -218,6 +282,7 @@ export const sharedHosting = {
     elite: {
       id: "elite",
       name: "Elite",
+      tagline: "For dynamic stores, high-traffic apps & agencies",
       orderUrl: "https://hostamble.com/dash/store/sharedhosting/elite",
       features: [
         "20 Websites",
@@ -237,9 +302,12 @@ export const sharedHosting = {
         monthly: {
           inr: "₹399",
           usd: "$4.79",
-          totalInr: "₹399 each month",
-          totalUsd: "$4.79 each month",
+          totalInr: "Billed monthly",
+          totalUsd: "Billed monthly",
           periodLabel: "each month",
+          renewalInr: "Renews at ₹399/month",
+          renewalUsd: "Renews at $4.79/month",
+          cartUrl: "https://hostamble.com/dash/store/sharedhosting/elite?billingcycle=monthly",
           freeDomain: false
         },
         quarterly: {
@@ -248,31 +316,55 @@ export const sharedHosting = {
           totalInr: "₹1,047 every 3 months",
           totalUsd: "$12.57 every 3 months",
           periodLabel: "every 3 months",
+          renewalInr: "Renews at ₹349/mo (₹1,047/3 months)",
+          renewalUsd: "Renews at $4.19/mo ($12.57/3 months)",
+          cartUrl: "https://hostamble.com/dash/store/sharedhosting/elite?billingcycle=quarterly",
           freeDomain: false
         },
         semiannual: {
           inr: "₹299",
           usd: "$3.59",
-          totalInr: "₹1,794 every 6 months",
+          originalInr: "₹399/mo",
+          originalUsd: "$4.79/mo",
+          saveInr: "You save ₹600",
+          saveUsd: "You save $7.20",
+          totalInr: "₹1,794 billed every 6 months",
           totalUsd: "$21.54 every 6 months",
           periodLabel: "every 6 months",
+          renewalInr: "Renews at ₹299/mo (₹1,794/6 months)",
+          renewalUsd: "Renews at $3.59/mo ($21.54/6 months)",
+          cartUrl: "https://hostamble.com/dash/store/sharedhosting/elite?billingcycle=semiannually",
           freeDomain: false
         },
         annual: {
           inr: "₹249",
           usd: "$2.99",
-          totalInr: "₹2,988 every year",
+          originalInr: "₹399/mo",
+          originalUsd: "$4.79/mo",
+          saveInr: "You save ₹1,800",
+          saveUsd: "You save $21.60",
+          totalInr: "₹2,988 billed every year",
           totalUsd: "$35.88 every year",
           periodLabel: "every year",
+          renewalInr: "Renews at ₹249/mo (₹2,988/year)",
+          renewalUsd: "Renews at $2.99/mo ($35.88/year)",
+          cartUrl: "https://hostamble.com/dash/store/sharedhosting/elite?billingcycle=annually",
           freeDomain: false
         },
         biennial: {
           inr: "₹199",
           usd: "$2.39",
+          originalInr: "₹399/mo",
+          originalUsd: "$4.79/mo",
+          saveInr: "You save ₹4,800 (50% OFF)",
+          saveUsd: "You save $57.60 (50% OFF)",
           totalInr: "₹4,776 billed upfront for 2 years",
           totalUsd: "$57.36 billed upfront for 2 years",
           periodLabel: "billed upfront for 2 years",
           discount: "Save 50% compared with monthly billing",
+          renewalInr: "Renews at ₹199/mo (₹4,776/2 years)",
+          renewalUsd: "Renews at $2.39/mo ($57.36/2 years)",
+          cartUrl: "https://hostamble.com/dash/store/sharedhosting/elite?billingcycle=biennially",
           freeDomain: true,
           freeDomainNote: "1 domain FREE for the first year"
         }
