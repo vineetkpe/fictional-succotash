@@ -2,7 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import HelpCtaBlock from '../components/HelpCtaBlock.astro';
 import InteractiveHeroIllustration from '../components/InteractiveHeroIllustration.astro';
-import { wordpressHosting } from '../data/pricing';
+import { wordpressHosting, wordpressPlanSpecs } from '../data/pricing';
+import PlanSpecsTable from '../components/PlanSpecsTable.astro';
 
 const plans = wordpressHosting.plans;
 
@@ -154,7 +155,7 @@ const faqSchema = {
                 <a href="#plans" class="hero-offer-cta">
                   <span class="offer-tag">SPECIAL DEAL</span>
                   <span class="offer-label">
-                    <span class="prices" data-inr={`Get Started for ${plans.starter.pricing.monthly.inr}/mo`} data-usd={`Get Started for ${plans.starter.pricing.monthly.usd}/mo`}>Get Started for {plans.starter.pricing.monthly.inr}/mo</span>
+                    <span class="prices" data-inr={`Get Started for ${plans.starter.pricing.biennial?.inr || plans.starter.pricing.monthly.inr}/mo`} data-usd={`Get Started for ${plans.starter.pricing.biennial?.usd || plans.starter.pricing.monthly.usd}/mo`}>Get Started for {plans.starter.pricing.biennial?.inr || plans.starter.pricing.monthly.inr}/mo</span>
                     <i class="ri-arrow-right-line offer-arrow"></i>
                   </span>
                 </a>
@@ -203,7 +204,7 @@ const faqSchema = {
     </div>
   </div>
 
-  <!-- =========================================================
+    <!-- =========================================================
        PRICING SECTION: Choose Your Pricing Plan (Theme-Native Pricing Table)
        ========================================================= -->
   <div class="ace-pricing-area aceorbit-pricing-plan-page ace-section-gap bg-image" id="plans">
@@ -220,36 +221,45 @@ const faqSchema = {
             <ul>
               <li class="nav-item">
                 <button
-                  class="nav-link active"
-                  id="monthly-plan-btn"
-                  onclick="document.querySelectorAll('.pricing-billing-duration .nav-link').forEach(btn=>btn.classList.remove('active')); this.classList.add('active'); updatePricing('monthly');"
-                  type="button">Monthly</button>
-              </li>
-              <li class="nav-item">
-                <button
                   class="nav-link"
-                  id="quarterly-plan-btn"
-                  onclick="document.querySelectorAll('.pricing-billing-duration .nav-link').forEach(btn=>btn.classList.remove('active')); this.classList.add('active'); updatePricing('quarterly');"
-                  type="button">Quarterly</button>
+                  id="monthly-plan-btn"
+                  data-cycle="monthly"
+                  onclick="updatePricing('monthly');"
+                  type="button"
+                  aria-pressed="false">Monthly</button>
               </li>
               <li class="nav-item">
                 <button
                   class="nav-link"
                   id="semiannual-plan-btn"
-                  onclick="document.querySelectorAll('.pricing-billing-duration .nav-link').forEach(btn=>btn.classList.remove('active')); this.classList.add('active'); updatePricing('semiannual');"
-                  type="button">Semi-Annual</button>
+                  data-cycle="semiannual"
+                  onclick="updatePricing('semiannual');"
+                  type="button"
+                  aria-pressed="false">Semi-Annual</button>
               </li>
               <li class="nav-item">
                 <button
                   class="nav-link"
                   id="annual-plan-btn"
-                  onclick="document.querySelectorAll('.pricing-billing-duration .nav-link').forEach(btn=>btn.classList.remove('active')); this.classList.add('active'); updatePricing('annual');"
-                  type="button">Annual</button>
+                  data-cycle="annual"
+                  onclick="updatePricing('annual');"
+                  type="button"
+                  aria-pressed="false">Annual</button>
+              </li>
+              <li class="nav-item">
+                <button
+                  class="nav-link active"
+                  id="biennial-plan-btn"
+                  data-cycle="biennial"
+                  onclick="updatePricing('biennial');"
+                  type="button"
+                  aria-pressed="true">2 Years <span class="badge bg-warning text-dark ms-1" style="font-size: 10px; padding: 2px 6px; border-radius: 4px;">Best value</span></button>
               </li>
             </ul>
           </div>
         </div>
       </div>
+
       <div class="row g-4 mt-3 four-planss">
         <!-- Starter Plan -->
         <div class="col-xl-3 col-lg-6 col-md-6 col-12 d-flex" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
@@ -257,39 +267,49 @@ const faqSchema = {
             <div class="pricing-header">
               <h3 class="title">Starter</h3>
               <div class="price-wrap">
-                <div class="monthly-pricing" style="display: block;">
-                  <span class="amount" data-inr={plans.starter.pricing.monthly.inr} data-usd={plans.starter.pricing.monthly.usd}>{plans.starter.pricing.monthly.inr}</span>
-                  <span class="duration">/monthly</span>
+                <div class="biennial-pricing" style="display: block;">
+                  <span class="amount" data-inr={plans.starter.pricing.biennial?.inr} data-usd={plans.starter.pricing.biennial?.usd}>{plans.starter.pricing.biennial?.inr}</span>
+                  <span class="duration">/month</span>
+                  <span class="discount-badge d-block small font-weight-bold mt-1" style="color: #ff501a;">Best value — 2-year plan</span>
+                  <span class="billed-total d-block text-muted small mt-1">{plans.starter.pricing.biennial?.totalInr}</span>
+                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.starter.pricing.biennial?.renewalInr}</span>
                 </div>
-                <div class="quarterly-pricing" style="display: none;">
-                  <span class="amount" data-inr={plans.starter.pricing.quarterly.inr} data-usd={plans.starter.pricing.quarterly.usd}>{plans.starter.pricing.quarterly.inr}</span>
-                  <span class="duration">/quarterly</span>
+                <div class="monthly-pricing" style="display: none;">
+                  <span class="amount" data-inr={plans.starter.pricing.monthly.inr} data-usd={plans.starter.pricing.monthly.usd}>{plans.starter.pricing.monthly.inr}</span>
+                  <span class="duration">/month</span>
+                  <span class="billed-total d-block text-muted small mt-1">{plans.starter.pricing.monthly.totalInr}</span>
+                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.starter.pricing.monthly.renewalInr}</span>
                 </div>
                 <div class="semiannual-pricing" style="display: none;">
-                  <span class="amount" data-inr={plans.starter.pricing.semiannual.inr} data-usd={plans.starter.pricing.semiannual.usd}>{plans.starter.pricing.semiannual.inr}</span>
-                  <span class="duration">/semiannual</span>
+                  <span class="amount" data-inr={plans.starter.pricing.semiannual?.inr} data-usd={plans.starter.pricing.semiannual?.usd}>{plans.starter.pricing.semiannual?.inr}</span>
+                  <span class="duration">/month</span>
+                  <span class="billed-total d-block text-muted small mt-1">{plans.starter.pricing.semiannual?.totalInr}</span>
+                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.starter.pricing.semiannual?.renewalInr}</span>
                 </div>
                 <div class="annual-pricing" style="display: none;">
                   <span class="amount" data-inr={plans.starter.pricing.annual.inr} data-usd={plans.starter.pricing.annual.usd}>{plans.starter.pricing.annual.inr}</span>
-                  <span class="duration">/annual</span>
+                  <span class="duration">/month</span>
+                  <span class="billed-total d-block text-muted small mt-1">{plans.starter.pricing.annual.totalInr}</span>
+                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.starter.pricing.annual.renewalInr}</span>
                 </div>
               </div>
             </div>
             <div class="pricing-body">
               <ul class="list-item">
-                <li class="free-domain" style="display: none; color: #000; font-weight: bold;">Free Domain</li>
-                <li style="color: #000; font-weight: bold;">1 Domain</li>
-                <li style="color: #000; font-weight: bold;">1 SubDomain</li>
-                <li style="color: #000; font-weight: bold;">4 GB SSD Storage</li>
-                <li style="color: #000; font-weight: bold;">Imunify360 Security</li>
-                <li style="color: #000; font-weight: bold;">1 Email Accounts</li>
-                <li style="color: #000; font-weight: bold;">Jetbackup 5</li>
-                <li style="color: #000; font-weight: bold;">2 MySql</li>
-                <li style="color: #000; font-weight: bold;">Free SSL Certificate</li>
+                <li style="color: #000; font-weight: bold;">1 WordPress website</li>
+                <li style="color: #000; font-weight: bold;">5 GB NVMe SSD storage</li>
+                <li style="color: #000; font-weight: bold;">50 GB monthly bandwidth</li>
+                <li style="color: #000; font-weight: bold;">1 email account — 500 MB</li>
+                <li style="color: #000; font-weight: bold;">Free SSL certificate</li>
+                <li style="color: #000; font-weight: bold;">WordPress + Softaculous with automatic core updates</li>
+                <li style="color: #000; font-weight: bold;">LiteSpeed Server + configured LiteSpeed Cache</li>
+                <li style="color: #000; font-weight: bold;">Imunify360 security protection</li>
+                <li style="color: #000; font-weight: bold;">Daily backups — 3-day retention</li>
+                <li style="color: #16a34a; font-weight: bold;">1 domain free for 1 year — two-year plan only</li>
               </ul>
             </div>
             <div class="pricing-btn">
-              <a class="ace-btn btn-dark" href="https://hostamble.com/dash/store/wordpresshosting/starter">Buy Now<i class="icon-arrow-right-line-right"></i></a>
+              <a class="ace-btn btn-dark" data-base-url="https://hostamble.com/dash/store/wordpresshosting/starter" href="https://hostamble.com/dash/store/wordpresshosting/starter?billingcycle=biennially">Buy Now<i class="icon-arrow-right-line-right"></i></a>
             </div>
           </div>
         </div>
@@ -301,40 +321,49 @@ const faqSchema = {
               <div class="ace-badge"><span><i class="ri-star-fill" style="font-size: 11px;"></i> Recommended</span></div>
               <h3 class="title">Essential</h3>
               <div class="price-wrap">
-                <div class="monthly-pricing" style="display: block;">
-                  <span class="amount" data-inr={plans.essential.pricing.monthly.inr} data-usd={plans.essential.pricing.monthly.usd}>{plans.essential.pricing.monthly.inr}</span>
-                  <span class="duration">/monthly</span>
+                <div class="biennial-pricing" style="display: block;">
+                  <span class="amount" data-inr={plans.essential.pricing.biennial?.inr} data-usd={plans.essential.pricing.biennial?.usd}>{plans.essential.pricing.biennial?.inr}</span>
+                  <span class="duration">/month</span>
+                  <span class="discount-badge d-block small font-weight-bold mt-1" style="color: #ff501a;">Best value — 2-year plan</span>
+                  <span class="billed-total d-block text-muted small mt-1">{plans.essential.pricing.biennial?.totalInr}</span>
+                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.essential.pricing.biennial?.renewalInr}</span>
                 </div>
-                <div class="quarterly-pricing" style="display: none;">
-                  <span class="amount" data-inr={plans.essential.pricing.quarterly.inr} data-usd={plans.essential.pricing.quarterly.usd}>{plans.essential.pricing.quarterly.inr}</span>
-                  <span class="duration">/quarterly</span>
+                <div class="monthly-pricing" style="display: none;">
+                  <span class="amount" data-inr={plans.essential.pricing.monthly.inr} data-usd={plans.essential.pricing.monthly.usd}>{plans.essential.pricing.monthly.inr}</span>
+                  <span class="duration">/month</span>
+                  <span class="billed-total d-block text-muted small mt-1">{plans.essential.pricing.monthly.totalInr}</span>
+                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.essential.pricing.monthly.renewalInr}</span>
                 </div>
                 <div class="semiannual-pricing" style="display: none;">
-                  <span class="amount" data-inr={plans.essential.pricing.semiannual.inr} data-usd={plans.essential.pricing.semiannual.usd}>{plans.essential.pricing.semiannual.inr}</span>
-                  <span class="duration">/semiannual</span>
+                  <span class="amount" data-inr={plans.essential.pricing.semiannual?.inr} data-usd={plans.essential.pricing.semiannual?.usd}>{plans.essential.pricing.semiannual?.inr}</span>
+                  <span class="duration">/month</span>
+                  <span class="billed-total d-block text-muted small mt-1">{plans.essential.pricing.semiannual?.totalInr}</span>
+                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.essential.pricing.semiannual?.renewalInr}</span>
                 </div>
                 <div class="annual-pricing" style="display: none;">
                   <span class="amount" data-inr={plans.essential.pricing.annual.inr} data-usd={plans.essential.pricing.annual.usd}>{plans.essential.pricing.annual.inr}</span>
-                  <span class="duration">/annual</span>
-                  <span class="free-domain">+ Free Domain</span>
+                  <span class="duration">/month</span>
+                  <span class="billed-total d-block text-muted small mt-1">{plans.essential.pricing.annual.totalInr}</span>
+                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.essential.pricing.annual.renewalInr}</span>
                 </div>
               </div>
             </div>
             <div class="pricing-body">
               <ul class="list-item">
-                <li class="free-domain" style="display: none; color: #000; font-weight: bold;">Free Domain</li>
-                <li style="color: #000; font-weight: bold;">3 Domain</li>
-                <li style="color: #000; font-weight: bold;">2 SubDomain</li>
-                <li style="color: #000; font-weight: bold;">8 GB SSD Storage</li>
-                <li style="color: #000; font-weight: bold;">Imunify360 Security</li>
-                <li style="color: #000; font-weight: bold;">2 Email Accounts</li>
-                <li style="color: #000; font-weight: bold;">Jetbackup 5</li>
-                <li style="color: #000; font-weight: bold;">5 MySql</li>
-                <li style="color: #000; font-weight: bold;">Free SSL Certificate</li>
+                <li style="color: #000; font-weight: bold;">3 WordPress websites</li>
+                <li style="color: #000; font-weight: bold;">10 GB NVMe SSD storage</li>
+                <li style="color: #000; font-weight: bold;">100 GB monthly bandwidth</li>
+                <li style="color: #000; font-weight: bold;">3 email accounts — 1 GB each</li>
+                <li style="color: #000; font-weight: bold;">Free SSL for all hosted websites</li>
+                <li style="color: #000; font-weight: bold;">WordPress + Softaculous with automatic core updates</li>
+                <li style="color: #000; font-weight: bold;">LiteSpeed Server + configured LiteSpeed Cache</li>
+                <li style="color: #000; font-weight: bold;">Imunify360 security protection</li>
+                <li style="color: #000; font-weight: bold;">Daily backups — 7-day retention</li>
+                <li style="color: #16a34a; font-weight: bold;">1 domain free for 1 year — two-year plan only</li>
               </ul>
             </div>
             <div class="pricing-btn">
-              <a class="ace-btn btn-dark" href="https://hostamble.com/dash/store/wordpresshosting/essential">Buy Now<i class="icon-arrow-right-line-right"></i></a>
+              <a class="ace-btn" data-base-url="https://hostamble.com/dash/store/wordpresshosting/essential" href="https://hostamble.com/dash/store/wordpresshosting/essential?billingcycle=biennially">Buy Now<i class="icon-arrow-right-line-right"></i></a>
             </div>
           </div>
         </div>
@@ -345,40 +374,49 @@ const faqSchema = {
             <div class="pricing-header">
               <h3 class="title">Growth</h3>
               <div class="price-wrap">
-                <div class="monthly-pricing" style="display: block;">
-                  <span class="amount" data-inr={plans.growth.pricing.monthly.inr} data-usd={plans.growth.pricing.monthly.usd}>{plans.growth.pricing.monthly.inr}</span>
-                  <span class="duration">/monthly</span>
+                <div class="biennial-pricing" style="display: block;">
+                  <span class="amount" data-inr={plans.growth.pricing.biennial?.inr} data-usd={plans.growth.pricing.biennial?.usd}>{plans.growth.pricing.biennial?.inr}</span>
+                  <span class="duration">/month</span>
+                  <span class="discount-badge d-block small font-weight-bold mt-1" style="color: #ff501a;">Best value — 2-year plan</span>
+                  <span class="billed-total d-block text-muted small mt-1">{plans.growth.pricing.biennial?.totalInr}</span>
+                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.growth.pricing.biennial?.renewalInr}</span>
                 </div>
-                <div class="quarterly-pricing" style="display: none;">
-                  <span class="amount" data-inr={plans.growth.pricing.quarterly.inr} data-usd={plans.growth.pricing.quarterly.usd}>{plans.growth.pricing.quarterly.inr}</span>
-                  <span class="duration">/quarterly</span>
+                <div class="monthly-pricing" style="display: none;">
+                  <span class="amount" data-inr={plans.growth.pricing.monthly.inr} data-usd={plans.growth.pricing.monthly.usd}>{plans.growth.pricing.monthly.inr}</span>
+                  <span class="duration">/month</span>
+                  <span class="billed-total d-block text-muted small mt-1">{plans.growth.pricing.monthly.totalInr}</span>
+                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.growth.pricing.monthly.renewalInr}</span>
                 </div>
                 <div class="semiannual-pricing" style="display: none;">
-                  <span class="amount" data-inr={plans.growth.pricing.semiannual.inr} data-usd={plans.growth.pricing.semiannual.usd}>{plans.growth.pricing.semiannual.inr}</span>
-                  <span class="duration">/semiannual</span>
+                  <span class="amount" data-inr={plans.growth.pricing.semiannual?.inr} data-usd={plans.growth.pricing.semiannual?.usd}>{plans.growth.pricing.semiannual?.inr}</span>
+                  <span class="duration">/month</span>
+                  <span class="billed-total d-block text-muted small mt-1">{plans.growth.pricing.semiannual?.totalInr}</span>
+                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.growth.pricing.semiannual?.renewalInr}</span>
                 </div>
                 <div class="annual-pricing" style="display: none;">
                   <span class="amount" data-inr={plans.growth.pricing.annual.inr} data-usd={plans.growth.pricing.annual.usd}>{plans.growth.pricing.annual.inr}</span>
-                  <span class="duration">/annual</span>
-                  <span class="free-domain">+ Free Domain</span>
+                  <span class="duration">/month</span>
+                  <span class="billed-total d-block text-muted small mt-1">{plans.growth.pricing.annual.totalInr}</span>
+                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.growth.pricing.annual.renewalInr}</span>
                 </div>
               </div>
             </div>
             <div class="pricing-body">
               <ul class="list-item">
-                <li class="free-domain" style="display: none; color: #000; font-weight: bold;">Free Domain</li>
-                <li style="color: #000; font-weight: bold;">Upto 5 Domain</li>
-                <li style="color: #000; font-weight: bold;">3 SubDomain</li>
-                <li style="color: #000; font-weight: bold;">15 GB SSD Storage</li>
-                <li style="color: #000; font-weight: bold;">Imunify360 Security</li>
-                <li style="color: #000; font-weight: bold;">3 Email Accounts</li>
-                <li style="color: #000; font-weight: bold;">Jetbackup 5</li>
-                <li style="color: #000; font-weight: bold;">10 MySql</li>
-                <li style="color: #000; font-weight: bold;">Free SSL Certificate</li>
+                <li style="color: #000; font-weight: bold;">10 WordPress websites</li>
+                <li style="color: #000; font-weight: bold;">25 GB NVMe SSD storage</li>
+                <li style="color: #000; font-weight: bold;">250 GB monthly bandwidth</li>
+                <li style="color: #000; font-weight: bold;">10 email accounts — 1 GB each</li>
+                <li style="color: #000; font-weight: bold;">Free SSL for all hosted websites</li>
+                <li style="color: #000; font-weight: bold;">WordPress + Softaculous with automatic core updates</li>
+                <li style="color: #000; font-weight: bold;">LiteSpeed Server + configured LiteSpeed Cache</li>
+                <li style="color: #000; font-weight: bold;">Imunify360 security protection</li>
+                <li style="color: #000; font-weight: bold;">Daily backups — 7-day retention</li>
+                <li style="color: #16a34a; font-weight: bold;">1 domain free for 1 year — two-year plan only</li>
               </ul>
             </div>
             <div class="pricing-btn">
-              <a class="ace-btn btn-dark" href="https://hostamble.com/dash/store/wordpresshosting/growth">Buy Now<i class="icon-arrow-right-line-right"></i></a>
+              <a class="ace-btn btn-dark" data-base-url="https://hostamble.com/dash/store/wordpresshosting/growth" href="https://hostamble.com/dash/store/wordpresshosting/growth?billingcycle=biennially">Buy Now<i class="icon-arrow-right-line-right"></i></a>
             </div>
           </div>
         </div>
@@ -389,55 +427,70 @@ const faqSchema = {
             <div class="pricing-header">
               <h3 class="title">Prime</h3>
               <div class="price-wrap">
-                <div class="monthly-pricing" style="display: block;">
-                  <span class="amount" data-inr={plans.prime.pricing.monthly.inr} data-usd={plans.prime.pricing.monthly.usd}>{plans.prime.pricing.monthly.inr}</span>
-                  <span class="duration">/monthly</span>
+                <div class="biennial-pricing" style="display: block;">
+                  <span class="amount" data-inr={plans.prime.pricing.biennial?.inr} data-usd={plans.prime.pricing.biennial?.usd}>{plans.prime.pricing.biennial?.inr}</span>
+                  <span class="duration">/month</span>
+                  <span class="discount-badge d-block small font-weight-bold mt-1" style="color: #ff501a;">Best value — 2-year plan</span>
+                  <span class="billed-total d-block text-muted small mt-1">{plans.prime.pricing.biennial?.totalInr}</span>
+                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.prime.pricing.biennial?.renewalInr}</span>
                 </div>
-                <div class="quarterly-pricing" style="display: none;">
-                  <span class="amount" data-inr={plans.prime.pricing.quarterly.inr} data-usd={plans.prime.pricing.quarterly.usd}>{plans.prime.pricing.quarterly.inr}</span>
-                  <span class="duration">/quarterly</span>
+                <div class="monthly-pricing" style="display: none;">
+                  <span class="amount" data-inr={plans.prime.pricing.monthly.inr} data-usd={plans.prime.pricing.monthly.usd}>{plans.prime.pricing.monthly.inr}</span>
+                  <span class="duration">/month</span>
+                  <span class="billed-total d-block text-muted small mt-1">{plans.prime.pricing.monthly.totalInr}</span>
+                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.prime.pricing.monthly.renewalInr}</span>
                 </div>
                 <div class="semiannual-pricing" style="display: none;">
-                  <span class="amount" data-inr={plans.prime.pricing.semiannual.inr} data-usd={plans.prime.pricing.semiannual.usd}>{plans.prime.pricing.semiannual.inr}</span>
-                  <span class="duration">/semiannual</span>
+                  <span class="amount" data-inr={plans.prime.pricing.semiannual?.inr} data-usd={plans.prime.pricing.semiannual?.usd}>{plans.prime.pricing.semiannual?.inr}</span>
+                  <span class="duration">/month</span>
+                  <span class="billed-total d-block text-muted small mt-1">{plans.prime.pricing.semiannual?.totalInr}</span>
+                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.prime.pricing.semiannual?.renewalInr}</span>
                 </div>
                 <div class="annual-pricing" style="display: none;">
                   <span class="amount" data-inr={plans.prime.pricing.annual.inr} data-usd={plans.prime.pricing.annual.usd}>{plans.prime.pricing.annual.inr}</span>
-                  <span class="duration">/annual</span>
-                  <span class="free-domain">+ Free Domain</span>
+                  <span class="duration">/month</span>
+                  <span class="billed-total d-block text-muted small mt-1">{plans.prime.pricing.annual.totalInr}</span>
+                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.prime.pricing.annual.renewalInr}</span>
                 </div>
               </div>
             </div>
             <div class="pricing-body">
               <ul class="list-item">
-                <li class="free-domain" style="display: none; color: #000; font-weight: bold;">Free Domain</li>
-                <li style="color: #000; font-weight: bold;">10 Domain</li>
-                <li style="color: #000; font-weight: bold;">5 SubDomain</li>
-                <li style="color: #000; font-weight: bold;">25 GB SSD Storage</li>
-                <li style="color: #000; font-weight: bold;">Imunify360 Security</li>
-                <li style="color: #000; font-weight: bold;">5 Email Accounts</li>
-                <li style="color: #000; font-weight: bold;">Jetbackup 5</li>
-                <li style="color: #000; font-weight: bold;">Unlimited MySql</li>
-                <li style="color: #000; font-weight: bold;">Free SSL Certificate</li>
+                <li style="color: #000; font-weight: bold;">20 WordPress websites</li>
+                <li style="color: #000; font-weight: bold;">50 GB NVMe SSD storage</li>
+                <li style="color: #000; font-weight: bold;">500 GB monthly bandwidth</li>
+                <li style="color: #000; font-weight: bold;">20 email accounts — 1 GB each</li>
+                <li style="color: #000; font-weight: bold;">Free SSL for all hosted websites</li>
+                <li style="color: #000; font-weight: bold;">WordPress + Softaculous with automatic core updates</li>
+                <li style="color: #000; font-weight: bold;">LiteSpeed Server + configured LiteSpeed Cache</li>
+                <li style="color: #000; font-weight: bold;">Imunify360 security protection</li>
+                <li style="color: #000; font-weight: bold;">Daily backups — 14-day retention</li>
+                <li style="color: #16a34a; font-weight: bold;">1 domain free for 1 year — two-year plan only</li>
               </ul>
             </div>
             <div class="pricing-btn">
-              <a class="ace-btn btn-dark" href="https://hostamble.com/dash/store/wordpresshosting/prime">Buy Now<i class="icon-arrow-right-line-right"></i></a>
+              <a class="ace-btn btn-dark" data-base-url="https://hostamble.com/dash/store/wordpresshosting/prime" href="https://hostamble.com/dash/store/wordpresshosting/prime?billingcycle=biennially">Buy Now<i class="icon-arrow-right-line-right"></i></a>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="row mt-4 pt-2">
-        <div class="col-12 text-center" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
-          <div class="domain-eligibility-note">
-            <i class="ri-information-line me-1 text-primary"></i>
-            <span><strong>* Free Domain Registration:</strong> Included with all Annual and Multi-Year billing plans.</span>
-          </div>
+      <div class="pricing-disclaimer-note text-center mt-5" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+        <div class="d-inline-flex flex-wrap align-items-center justify-content-center gap-2 p-3 px-4 rounded-pill" style="background: rgba(255, 80, 26, 0.06); border: 1px solid rgba(255, 80, 26, 0.2);">
+          <i class="ri-information-line text-warning font-weight-bold" style="color: #ff501a !important; font-size: 18px;"></i>
+          <span class="small" style="color: #4b5563 !important; font-size: 13px; font-weight: 500;">
+            <strong style="color: #ff501a;">Special Offer:</strong> 1 Free domain registration (.shop, .site, .fun, .sbs, .space) included with 2-Year plans for the first year. Domain renewal charged separately from year two. All prices exclude applicable taxes.
+          </span>
         </div>
       </div>
+
+      <!-- Technical Comparison Specs Table -->
+      <PlanSpecsTable title="WordPress Hosting Technical Specifications" specs={wordpressPlanSpecs} />
     </div>
   </div>
+  <script>
+    import '../scripts/pricing';
+  </script>
 
   <!-- =========================================================
        FEATURES: "It Just Works Auto-magically" (Sticky Stacking Showcase)
