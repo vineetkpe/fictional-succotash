@@ -235,7 +235,7 @@ const faqSchema = {
                   data-cycle="semiannual"
                   onclick="updatePricing('semiannual');"
                   type="button"
-                  aria-pressed="false">Semi-Annual</button>
+                  aria-pressed="false">Semi-Annual <span class="badge-best-value ms-1">20% OFF</span></button>
               </li>
               <li class="nav-item">
                 <button
@@ -244,7 +244,7 @@ const faqSchema = {
                   data-cycle="annual"
                   onclick="updatePricing('annual');"
                   type="button"
-                  aria-pressed="false">Annual</button>
+                  aria-pressed="false">Annual <span class="badge-best-value ms-1">36% OFF</span></button>
               </li>
               <li class="nav-item">
                 <button
@@ -301,17 +301,23 @@ const faqSchema = {
                   <span class="amount" data-inr={plans.starter.pricing.semiannual?.inr} data-usd={plans.starter.pricing.semiannual?.usd}>{plans.starter.pricing.semiannual?.inr}</span>
                   <span class="duration">/month</span>
                   <div class="pricing-billing-terms">
-                                        <span class="billed-total">{plans.starter.pricing.semiannual?.totalInr}</span>
-                                        <span class="renewal-note">{plans.starter.pricing.semiannual?.renewalInr}</span>
-                                    </div>
+                    {plans.starter.pricing.semiannual?.discount && (
+                      <span class="discount-badge">{plans.starter.pricing.semiannual.discount}</span>
+                    )}
+                    <span class="billed-total">{plans.starter.pricing.semiannual?.totalInr}</span>
+                    <span class="renewal-note">{plans.starter.pricing.semiannual?.renewalInr}</span>
+                  </div>
                 </div>
                 <div class="annual-pricing" style="display: none;">
                   <span class="amount" data-inr={plans.starter.pricing.annual.inr} data-usd={plans.starter.pricing.annual.usd}>{plans.starter.pricing.annual.inr}</span>
                   <span class="duration">/month</span>
                   <div class="pricing-billing-terms">
-                                        <span class="billed-total">{plans.starter.pricing.annual.totalInr}</span>
-                                        <span class="renewal-note">{plans.starter.pricing.annual.renewalInr}</span>
-                                    </div>
+                    {plans.starter.pricing.annual?.discount && (
+                      <span class="discount-badge">{plans.starter.pricing.annual.discount}</span>
+                    )}
+                    <span class="billed-total">{plans.starter.pricing.annual.totalInr}</span>
+                    <span class="renewal-note">{plans.starter.pricing.annual.renewalInr}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -362,17 +368,23 @@ const faqSchema = {
                   <span class="amount" data-inr={plans.essential.pricing.semiannual?.inr} data-usd={plans.essential.pricing.semiannual?.usd}>{plans.essential.pricing.semiannual?.inr}</span>
                   <span class="duration">/month</span>
                   <div class="pricing-billing-terms">
-                                        <span class="billed-total">{plans.essential.pricing.semiannual?.totalInr}</span>
-                                        <span class="renewal-note">{plans.essential.pricing.semiannual?.renewalInr}</span>
-                                    </div>
+                    {plans.essential.pricing.semiannual?.discount && (
+                      <span class="discount-badge">{plans.essential.pricing.semiannual.discount}</span>
+                    )}
+                    <span class="billed-total">{plans.essential.pricing.semiannual?.totalInr}</span>
+                    <span class="renewal-note">{plans.essential.pricing.semiannual?.renewalInr}</span>
+                  </div>
                 </div>
                 <div class="annual-pricing" style="display: none;">
                   <span class="amount" data-inr={plans.essential.pricing.annual.inr} data-usd={plans.essential.pricing.annual.usd}>{plans.essential.pricing.annual.inr}</span>
                   <span class="duration">/month</span>
                   <div class="pricing-billing-terms">
-                                        <span class="billed-total">{plans.essential.pricing.annual.totalInr}</span>
-                                        <span class="renewal-note">{plans.essential.pricing.annual.renewalInr}</span>
-                                    </div>
+                    {plans.essential.pricing.annual?.discount && (
+                      <span class="discount-badge">{plans.essential.pricing.annual.discount}</span>
+                    )}
+                    <span class="billed-total">{plans.essential.pricing.annual.totalInr}</span>
+                    <span class="renewal-note">{plans.essential.pricing.annual.renewalInr}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -422,17 +434,23 @@ const faqSchema = {
                   <span class="amount" data-inr={plans.growth.pricing.semiannual?.inr} data-usd={plans.growth.pricing.semiannual?.usd}>{plans.growth.pricing.semiannual?.inr}</span>
                   <span class="duration">/month</span>
                   <div class="pricing-billing-terms">
-                                        <span class="billed-total">{plans.growth.pricing.semiannual?.totalInr}</span>
-                                        <span class="renewal-note">{plans.growth.pricing.semiannual?.renewalInr}</span>
-                                    </div>
+                    {plans.growth.pricing.semiannual?.discount && (
+                      <span class="discount-badge">{plans.growth.pricing.semiannual.discount}</span>
+                    )}
+                    <span class="billed-total">{plans.growth.pricing.semiannual?.totalInr}</span>
+                    <span class="renewal-note">{plans.growth.pricing.semiannual?.renewalInr}</span>
+                  </div>
                 </div>
                 <div class="annual-pricing" style="display: none;">
                   <span class="amount" data-inr={plans.growth.pricing.annual.inr} data-usd={plans.growth.pricing.annual.usd}>{plans.growth.pricing.annual.inr}</span>
                   <span class="duration">/month</span>
                   <div class="pricing-billing-terms">
-                                        <span class="billed-total">{plans.growth.pricing.annual.totalInr}</span>
-                                        <span class="renewal-note">{plans.growth.pricing.annual.renewalInr}</span>
-                                    </div>
+                    {plans.growth.pricing.annual?.discount && (
+                      <span class="discount-badge">{plans.growth.pricing.annual.discount}</span>
+                    )}
+                    <span class="billed-total">{plans.growth.pricing.annual.totalInr}</span>
+                    <span class="renewal-note">{plans.growth.pricing.annual.renewalInr}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -482,17 +500,23 @@ const faqSchema = {
                   <span class="amount" data-inr={plans.prime.pricing.semiannual?.inr} data-usd={plans.prime.pricing.semiannual?.usd}>{plans.prime.pricing.semiannual?.inr}</span>
                   <span class="duration">/month</span>
                   <div class="pricing-billing-terms">
-                                        <span class="billed-total">{plans.prime.pricing.semiannual?.totalInr}</span>
-                                        <span class="renewal-note">{plans.prime.pricing.semiannual?.renewalInr}</span>
-                                    </div>
+                    {plans.prime.pricing.semiannual?.discount && (
+                      <span class="discount-badge">{plans.prime.pricing.semiannual.discount}</span>
+                    )}
+                    <span class="billed-total">{plans.prime.pricing.semiannual?.totalInr}</span>
+                    <span class="renewal-note">{plans.prime.pricing.semiannual?.renewalInr}</span>
+                  </div>
                 </div>
                 <div class="annual-pricing" style="display: none;">
                   <span class="amount" data-inr={plans.prime.pricing.annual.inr} data-usd={plans.prime.pricing.annual.usd}>{plans.prime.pricing.annual.inr}</span>
                   <span class="duration">/month</span>
                   <div class="pricing-billing-terms">
-                                        <span class="billed-total">{plans.prime.pricing.annual.totalInr}</span>
-                                        <span class="renewal-note">{plans.prime.pricing.annual.renewalInr}</span>
-                                    </div>
+                    {plans.prime.pricing.annual?.discount && (
+                      <span class="discount-badge">{plans.prime.pricing.annual.discount}</span>
+                    )}
+                    <span class="billed-total">{plans.prime.pricing.annual.totalInr}</span>
+                    <span class="renewal-note">{plans.prime.pricing.annual.renewalInr}</span>
+                  </div>
                 </div>
               </div>
             </div>

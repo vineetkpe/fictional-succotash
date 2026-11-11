@@ -272,7 +272,7 @@ const sharedHostingFaqCategories = [
                                     data-cycle="semiannual"
                                     onclick="updatePricing('semiannual');"
                                     type="button"
-                                    aria-pressed="false">Semi-Annual</button
+                                    aria-pressed="false">Semi-Annual <span class="badge-best-value ms-1">20% OFF</span></button
                                 >
                             </li>
 
@@ -283,7 +283,7 @@ const sharedHostingFaqCategories = [
                                     data-cycle="annual"
                                     onclick="updatePricing('annual');"
                                     type="button"
-                                    aria-pressed="false">Annual</button
+                                    aria-pressed="false">Annual <span class="badge-best-value ms-1">36% OFF</span></button
                                 >
                             </li>
 
@@ -375,6 +375,9 @@ const sharedHostingFaqCategories = [
                                     >
                                     <span class="duration">/month</span>
                                     <div class="pricing-billing-terms">
+                                        {plans.basic.pricing.semiannual?.discount && (
+                                            <span class="discount-badge">{plans.basic.pricing.semiannual.discount}</span>
+                                        )}
                                         <span class="billed-total">{plans.basic.pricing.semiannual?.totalInr}</span>
                                         <span class="renewal-note">{plans.basic.pricing.semiannual?.renewalInr}</span>
                                     </div>
@@ -392,6 +395,9 @@ const sharedHostingFaqCategories = [
                                     >
                                     <span class="duration">/month</span>
                                     <div class="pricing-billing-terms">
+                                        {plans.basic.pricing.annual?.discount && (
+                                            <span class="discount-badge">{plans.basic.pricing.annual.discount}</span>
+                                        )}
                                         <span class="billed-total">{plans.basic.pricing.annual.totalInr}</span>
                                         <span class="renewal-note">{plans.basic.pricing.annual.renewalInr}</span>
                                     </div>
@@ -505,6 +511,9 @@ const sharedHostingFaqCategories = [
                                     >
                                     <span class="duration">/month</span>
                                     <div class="pricing-billing-terms">
+                                        {plans.starter.pricing.semiannual?.discount && (
+                                            <span class="discount-badge">{plans.starter.pricing.semiannual.discount}</span>
+                                        )}
                                         <span class="billed-total">{plans.starter.pricing.semiannual?.totalInr}</span>
                                         <span class="renewal-note">{plans.starter.pricing.semiannual?.renewalInr}</span>
                                     </div>
@@ -522,6 +531,9 @@ const sharedHostingFaqCategories = [
                                     >
                                     <span class="duration">/month</span>
                                     <div class="pricing-billing-terms">
+                                        {plans.starter.pricing.annual?.discount && (
+                                            <span class="discount-badge">{plans.starter.pricing.annual.discount}</span>
+                                        )}
                                         <span class="billed-total">{plans.starter.pricing.annual.totalInr}</span>
                                         <span class="renewal-note">{plans.starter.pricing.annual.renewalInr}</span>
                                     </div>
@@ -631,6 +643,9 @@ const sharedHostingFaqCategories = [
                                     >
                                     <span class="duration">/month</span>
                                     <div class="pricing-billing-terms">
+                                        {plans.elite.pricing.semiannual?.discount && (
+                                            <span class="discount-badge">{plans.elite.pricing.semiannual.discount}</span>
+                                        )}
                                         <span class="billed-total">{plans.elite.pricing.semiannual?.totalInr}</span>
                                         <span class="renewal-note">{plans.elite.pricing.semiannual?.renewalInr}</span>
                                     </div>
@@ -648,6 +663,9 @@ const sharedHostingFaqCategories = [
                                     >
                                     <span class="duration">/month</span>
                                     <div class="pricing-billing-terms">
+                                        {plans.elite.pricing.annual?.discount && (
+                                            <span class="discount-badge">{plans.elite.pricing.annual.discount}</span>
+                                        )}
                                         <span class="billed-total">{plans.elite.pricing.annual.totalInr}</span>
                                         <span class="renewal-note">{plans.elite.pricing.annual.renewalInr}</span>
                                     </div>
