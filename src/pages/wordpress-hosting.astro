@@ -270,27 +270,34 @@ const faqSchema = {
                 <div class="biennial-pricing" style="display: block;">
                   <span class="amount" data-inr={plans.starter.pricing.biennial?.inr} data-usd={plans.starter.pricing.biennial?.usd}>{plans.starter.pricing.biennial?.inr}</span>
                   <span class="duration">/month</span>
-                  <span class="discount-badge d-block small font-weight-bold mt-1" style="color: #ff501a;">Best value — 2-year plan</span>
-                  <span class="billed-total d-block text-muted small mt-1">{plans.starter.pricing.biennial?.totalInr}</span>
-                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.starter.pricing.biennial?.renewalInr}</span>
+                  <div class="pricing-billing-terms">
+                                        <span class="billed-total">{plans.starter.pricing.biennial?.totalInr}</span>
+                                        <span class="renewal-note">{plans.starter.pricing.biennial?.renewalInr}</span>
+                                    </div>
                 </div>
                 <div class="monthly-pricing" style="display: none;">
                   <span class="amount" data-inr={plans.starter.pricing.monthly.inr} data-usd={plans.starter.pricing.monthly.usd}>{plans.starter.pricing.monthly.inr}</span>
                   <span class="duration">/month</span>
-                  <span class="billed-total d-block text-muted small mt-1">{plans.starter.pricing.monthly.totalInr}</span>
-                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.starter.pricing.monthly.renewalInr}</span>
+                  <div class="pricing-billing-terms">
+                                        <span class="billed-total">{plans.starter.pricing.monthly.totalInr}</span>
+                                        <span class="renewal-note">{plans.starter.pricing.monthly.renewalInr}</span>
+                                    </div>
                 </div>
                 <div class="semiannual-pricing" style="display: none;">
                   <span class="amount" data-inr={plans.starter.pricing.semiannual?.inr} data-usd={plans.starter.pricing.semiannual?.usd}>{plans.starter.pricing.semiannual?.inr}</span>
                   <span class="duration">/month</span>
-                  <span class="billed-total d-block text-muted small mt-1">{plans.starter.pricing.semiannual?.totalInr}</span>
-                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.starter.pricing.semiannual?.renewalInr}</span>
+                  <div class="pricing-billing-terms">
+                                        <span class="billed-total">{plans.starter.pricing.semiannual?.totalInr}</span>
+                                        <span class="renewal-note">{plans.starter.pricing.semiannual?.renewalInr}</span>
+                                    </div>
                 </div>
                 <div class="annual-pricing" style="display: none;">
                   <span class="amount" data-inr={plans.starter.pricing.annual.inr} data-usd={plans.starter.pricing.annual.usd}>{plans.starter.pricing.annual.inr}</span>
                   <span class="duration">/month</span>
-                  <span class="billed-total d-block text-muted small mt-1">{plans.starter.pricing.annual.totalInr}</span>
-                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.starter.pricing.annual.renewalInr}</span>
+                  <div class="pricing-billing-terms">
+                                        <span class="billed-total">{plans.starter.pricing.annual.totalInr}</span>
+                                        <span class="renewal-note">{plans.starter.pricing.annual.renewalInr}</span>
+                                    </div>
                 </div>
               </div>
             </div>
@@ -324,27 +331,34 @@ const faqSchema = {
                 <div class="biennial-pricing" style="display: block;">
                   <span class="amount" data-inr={plans.essential.pricing.biennial?.inr} data-usd={plans.essential.pricing.biennial?.usd}>{plans.essential.pricing.biennial?.inr}</span>
                   <span class="duration">/month</span>
-                  <span class="discount-badge d-block small font-weight-bold mt-1" style="color: #ff501a;">Best value — 2-year plan</span>
-                  <span class="billed-total d-block text-muted small mt-1">{plans.essential.pricing.biennial?.totalInr}</span>
-                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.essential.pricing.biennial?.renewalInr}</span>
+                  <div class="pricing-billing-terms">
+                                        <span class="billed-total">{plans.essential.pricing.biennial?.totalInr}</span>
+                                        <span class="renewal-note">{plans.essential.pricing.biennial?.renewalInr}</span>
+                                    </div>
                 </div>
                 <div class="monthly-pricing" style="display: none;">
                   <span class="amount" data-inr={plans.essential.pricing.monthly.inr} data-usd={plans.essential.pricing.monthly.usd}>{plans.essential.pricing.monthly.inr}</span>
                   <span class="duration">/month</span>
-                  <span class="billed-total d-block text-muted small mt-1">{plans.essential.pricing.monthly.totalInr}</span>
-                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.essential.pricing.monthly.renewalInr}</span>
+                  <div class="pricing-billing-terms">
+                                        <span class="billed-total">{plans.essential.pricing.monthly.totalInr}</span>
+                                        <span class="renewal-note">{plans.essential.pricing.monthly.renewalInr}</span>
+                                    </div>
                 </div>
                 <div class="semiannual-pricing" style="display: none;">
                   <span class="amount" data-inr={plans.essential.pricing.semiannual?.inr} data-usd={plans.essential.pricing.semiannual?.usd}>{plans.essential.pricing.semiannual?.inr}</span>
                   <span class="duration">/month</span>
-                  <span class="billed-total d-block text-muted small mt-1">{plans.essential.pricing.semiannual?.totalInr}</span>
-                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.essential.pricing.semiannual?.renewalInr}</span>
+                  <div class="pricing-billing-terms">
+                                        <span class="billed-total">{plans.essential.pricing.semiannual?.totalInr}</span>
+                                        <span class="renewal-note">{plans.essential.pricing.semiannual?.renewalInr}</span>
+                                    </div>
                 </div>
                 <div class="annual-pricing" style="display: none;">
                   <span class="amount" data-inr={plans.essential.pricing.annual.inr} data-usd={plans.essential.pricing.annual.usd}>{plans.essential.pricing.annual.inr}</span>
                   <span class="duration">/month</span>
-                  <span class="billed-total d-block text-muted small mt-1">{plans.essential.pricing.annual.totalInr}</span>
-                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.essential.pricing.annual.renewalInr}</span>
+                  <div class="pricing-billing-terms">
+                                        <span class="billed-total">{plans.essential.pricing.annual.totalInr}</span>
+                                        <span class="renewal-note">{plans.essential.pricing.annual.renewalInr}</span>
+                                    </div>
                 </div>
               </div>
             </div>
@@ -377,27 +391,34 @@ const faqSchema = {
                 <div class="biennial-pricing" style="display: block;">
                   <span class="amount" data-inr={plans.growth.pricing.biennial?.inr} data-usd={plans.growth.pricing.biennial?.usd}>{plans.growth.pricing.biennial?.inr}</span>
                   <span class="duration">/month</span>
-                  <span class="discount-badge d-block small font-weight-bold mt-1" style="color: #ff501a;">Best value — 2-year plan</span>
-                  <span class="billed-total d-block text-muted small mt-1">{plans.growth.pricing.biennial?.totalInr}</span>
-                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.growth.pricing.biennial?.renewalInr}</span>
+                  <div class="pricing-billing-terms">
+                                        <span class="billed-total">{plans.growth.pricing.biennial?.totalInr}</span>
+                                        <span class="renewal-note">{plans.growth.pricing.biennial?.renewalInr}</span>
+                                    </div>
                 </div>
                 <div class="monthly-pricing" style="display: none;">
                   <span class="amount" data-inr={plans.growth.pricing.monthly.inr} data-usd={plans.growth.pricing.monthly.usd}>{plans.growth.pricing.monthly.inr}</span>
                   <span class="duration">/month</span>
-                  <span class="billed-total d-block text-muted small mt-1">{plans.growth.pricing.monthly.totalInr}</span>
-                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.growth.pricing.monthly.renewalInr}</span>
+                  <div class="pricing-billing-terms">
+                                        <span class="billed-total">{plans.growth.pricing.monthly.totalInr}</span>
+                                        <span class="renewal-note">{plans.growth.pricing.monthly.renewalInr}</span>
+                                    </div>
                 </div>
                 <div class="semiannual-pricing" style="display: none;">
                   <span class="amount" data-inr={plans.growth.pricing.semiannual?.inr} data-usd={plans.growth.pricing.semiannual?.usd}>{plans.growth.pricing.semiannual?.inr}</span>
                   <span class="duration">/month</span>
-                  <span class="billed-total d-block text-muted small mt-1">{plans.growth.pricing.semiannual?.totalInr}</span>
-                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.growth.pricing.semiannual?.renewalInr}</span>
+                  <div class="pricing-billing-terms">
+                                        <span class="billed-total">{plans.growth.pricing.semiannual?.totalInr}</span>
+                                        <span class="renewal-note">{plans.growth.pricing.semiannual?.renewalInr}</span>
+                                    </div>
                 </div>
                 <div class="annual-pricing" style="display: none;">
                   <span class="amount" data-inr={plans.growth.pricing.annual.inr} data-usd={plans.growth.pricing.annual.usd}>{plans.growth.pricing.annual.inr}</span>
                   <span class="duration">/month</span>
-                  <span class="billed-total d-block text-muted small mt-1">{plans.growth.pricing.annual.totalInr}</span>
-                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.growth.pricing.annual.renewalInr}</span>
+                  <div class="pricing-billing-terms">
+                                        <span class="billed-total">{plans.growth.pricing.annual.totalInr}</span>
+                                        <span class="renewal-note">{plans.growth.pricing.annual.renewalInr}</span>
+                                    </div>
                 </div>
               </div>
             </div>
@@ -430,27 +451,34 @@ const faqSchema = {
                 <div class="biennial-pricing" style="display: block;">
                   <span class="amount" data-inr={plans.prime.pricing.biennial?.inr} data-usd={plans.prime.pricing.biennial?.usd}>{plans.prime.pricing.biennial?.inr}</span>
                   <span class="duration">/month</span>
-                  <span class="discount-badge d-block small font-weight-bold mt-1" style="color: #ff501a;">Best value — 2-year plan</span>
-                  <span class="billed-total d-block text-muted small mt-1">{plans.prime.pricing.biennial?.totalInr}</span>
-                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.prime.pricing.biennial?.renewalInr}</span>
+                  <div class="pricing-billing-terms">
+                                        <span class="billed-total">{plans.prime.pricing.biennial?.totalInr}</span>
+                                        <span class="renewal-note">{plans.prime.pricing.biennial?.renewalInr}</span>
+                                    </div>
                 </div>
                 <div class="monthly-pricing" style="display: none;">
                   <span class="amount" data-inr={plans.prime.pricing.monthly.inr} data-usd={plans.prime.pricing.monthly.usd}>{plans.prime.pricing.monthly.inr}</span>
                   <span class="duration">/month</span>
-                  <span class="billed-total d-block text-muted small mt-1">{plans.prime.pricing.monthly.totalInr}</span>
-                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.prime.pricing.monthly.renewalInr}</span>
+                  <div class="pricing-billing-terms">
+                                        <span class="billed-total">{plans.prime.pricing.monthly.totalInr}</span>
+                                        <span class="renewal-note">{plans.prime.pricing.monthly.renewalInr}</span>
+                                    </div>
                 </div>
                 <div class="semiannual-pricing" style="display: none;">
                   <span class="amount" data-inr={plans.prime.pricing.semiannual?.inr} data-usd={plans.prime.pricing.semiannual?.usd}>{plans.prime.pricing.semiannual?.inr}</span>
                   <span class="duration">/month</span>
-                  <span class="billed-total d-block text-muted small mt-1">{plans.prime.pricing.semiannual?.totalInr}</span>
-                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.prime.pricing.semiannual?.renewalInr}</span>
+                  <div class="pricing-billing-terms">
+                                        <span class="billed-total">{plans.prime.pricing.semiannual?.totalInr}</span>
+                                        <span class="renewal-note">{plans.prime.pricing.semiannual?.renewalInr}</span>
+                                    </div>
                 </div>
                 <div class="annual-pricing" style="display: none;">
                   <span class="amount" data-inr={plans.prime.pricing.annual.inr} data-usd={plans.prime.pricing.annual.usd}>{plans.prime.pricing.annual.inr}</span>
                   <span class="duration">/month</span>
-                  <span class="billed-total d-block text-muted small mt-1">{plans.prime.pricing.annual.totalInr}</span>
-                  <span class="renewal-note d-block small mt-1" style="color: #64748b; font-size: 11.5px; line-height: 1.4;">{plans.prime.pricing.annual.renewalInr}</span>
+                  <div class="pricing-billing-terms">
+                                        <span class="billed-total">{plans.prime.pricing.annual.totalInr}</span>
+                                        <span class="renewal-note">{plans.prime.pricing.annual.renewalInr}</span>
+                                    </div>
                 </div>
               </div>
             </div>

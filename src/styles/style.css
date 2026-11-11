@@ -1893,6 +1893,31 @@ body {
   margin-left: -4px;
 }
 
+.pricing-billing-terms {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: center;
+  text-align: center;
+}
+
+.pricing-billing-terms .billed-total {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-heading, #202133);
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+.pricing-billing-terms .renewal-note {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-body, #6F6B80);
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
 .pricing-table .pricing-header .title {
   letter-spacing: 0.1em;
   text-transform: uppercase;
