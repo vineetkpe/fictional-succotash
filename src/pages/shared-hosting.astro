@@ -277,7 +277,7 @@ const sharedHostingFaqCategories = [
           </div>
           
           <div class="row g-5 mt--20"><!-- Basic Plan -->
-          <div class="col-xl-4 col-lg-6 col-md-6 col-12" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+          <div class="col-xl-4 col-lg-6 col-md-6 col-12 d-flex" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
           <div class="pricing-table">
           <div class="pricing-header">
           <h3 class="title">Basic</h3>
@@ -307,15 +307,15 @@ const sharedHostingFaqCategories = [
           </ul>
           </div>
           
-          <div class="pricing-btn"><a class="ace-btn btn-dark" href="https://hostamble.com/dash/store/sharedhosting/basic">Buy This Plan</a></div>
+          <div class="pricing-btn"><a class="ace-btn btn-dark" href="https://hostamble.com/dash/store/sharedhosting/basic"><span>Buy This Plan</span><i class="icon-arrow-right-line-right"></i></a></div>
           </div>
           </div>
           <!-- Starter Plan -->
           
-          <div class="col-xl-4 col-lg-6 col-md-6 col-12" data-sal="slide-up" data-sal-delay="200" data-sal-duration="800">
+          <div class="col-xl-4 col-lg-6 col-md-6 col-12 d-flex" data-sal="slide-up" data-sal-delay="200" data-sal-duration="800">
           <div class="pricing-table active">
           <div class="pricing-header">
-          <div class="ace-badge"><span>Recommended</span></div>
+          <div class="ace-badge"><span><i class="ri-star-fill" style="font-size: 11px;"></i> Recommended</span></div>
           
           <h3 class="title">Starter</h3>
           
@@ -344,12 +344,12 @@ const sharedHostingFaqCategories = [
           </ul>
           </div>
           
-          <div class="pricing-btn"><a class="ace-btn btn-dark" href="https://hostamble.com/dash/store/sharedhosting/starter">Buy This Plan</a></div>
+          <div class="pricing-btn"><a class="ace-btn btn-dark" href="https://hostamble.com/dash/store/sharedhosting/starter"><span>Buy This Plan</span><i class="icon-arrow-right-line-right"></i></a></div>
           </div>
           </div>
           <!-- Elite Plan -->
           
-          <div class="col-xl-4 col-lg-6 col-md-6 col-12" data-sal="slide-up" data-sal-delay="250" data-sal-duration="800">
+          <div class="col-xl-4 col-lg-6 col-md-6 col-12 d-flex" data-sal="slide-up" data-sal-delay="250" data-sal-duration="800">
           <div class="pricing-table">
           <div class="pricing-header">
           <h3 class="title">Elite</h3>
@@ -379,12 +379,19 @@ const sharedHostingFaqCategories = [
           </ul>
           </div>
           
-          <div class="pricing-btn"><a class="ace-btn btn-dark" href="https://hostamble.com/dash/store/sharedhosting/elite">Buy This Plan</a></div>
+          <div class="pricing-btn"><a class="ace-btn btn-dark" href="https://hostamble.com/dash/store/sharedhosting/elite"><span>Buy This Plan</span><i class="icon-arrow-right-line-right"></i></a></div>
           </div>
           </div>
           </div>
           
-          <div class="section-title text-start" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800"><span class="pre-title">&quot;Only Annual Plans are eligible for free domain names. &quot;</span></div>
+          <div class="row mt-4 pt-2">
+            <div class="col-12 text-center" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+              <div class="domain-eligibility-note">
+                <i class="ri-information-line me-1 text-primary"></i>
+                <span><strong>* Free Domain Registration:</strong> Included with all Annual and Multi-Year billing plans.</span>
+              </div>
+            </div>
+          </div>
           </div>
           </div>
           <script>
@@ -1660,6 +1667,274 @@ const sharedHostingFaqCategories = [
     font-size: 15px;
     margin-top: 2px;
     flex-shrink: 0;
+  }
+
+  /* ════════════════════════════════════════════════════════════════
+     PRICING BLOCK MODERN POLISH & FINISHING
+     ════════════════════════════════════════════════════════════════ */
+  #plans.ace-pricing-area {
+    position: relative;
+    padding-bottom: 90px;
+  }
+
+  /* Duration Switcher Styling */
+  #plans .pricing-billing-duration {
+    text-align: right;
+  }
+  @media only screen and (max-width: 767px) {
+    #plans .pricing-billing-duration {
+      text-align: left;
+      margin-top: 15px;
+    }
+  }
+
+  #plans .pricing-billing-duration ul {
+    background: #f1f5f9 !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 9999px !important;
+    padding: 5px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+  }
+
+  #plans .pricing-billing-duration ul .nav-item {
+    float: none !important;
+    margin: 0 !important;
+  }
+
+  #plans .pricing-billing-duration ul .nav-item .nav-link {
+    height: 38px !important;
+    line-height: 38px !important;
+    padding: 0 18px !important;
+    font-size: 14.5px !important;
+    font-weight: 700 !important;
+    border-radius: 9999px !important;
+    color: #64748b !important;
+    border: none !important;
+    background: transparent !important;
+    transition: all 0.25s ease !important;
+  }
+
+  #plans .pricing-billing-duration ul .nav-item .nav-link:hover:not(.active) {
+    color: #ff501a !important;
+    background: rgba(255, 80, 26, 0.08) !important;
+  }
+
+  #plans .pricing-billing-duration ul .nav-item .nav-link.active {
+    background: #ff501a !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 14px rgba(255, 80, 26, 0.35) !important;
+  }
+
+  /* Cards Styling */
+  #plans .pricing-table {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 14px !important;
+    border: 1px solid #e2e8f0 !important;
+    padding: 38px 30px 32px !important;
+    background: #ffffff !important;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04) !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    position: relative !important;
+  }
+
+  #plans .pricing-table:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08) !important;
+    border-color: #ff501a !important;
+  }
+
+  #plans .pricing-table.active {
+    border: 2px solid #ff501a !important;
+    box-shadow: 0 12px 32px rgba(255, 80, 26, 0.14) !important;
+    transform: translateY(-12px) !important;
+  }
+
+  #plans .pricing-table.active:hover {
+    transform: translateY(-16px) !important;
+    box-shadow: 0 20px 42px rgba(255, 80, 26, 0.22) !important;
+  }
+
+  #plans .pricing-table .pricing-header {
+    margin-bottom: 24px !important;
+    text-align: center !important;
+  }
+
+  #plans .pricing-table .pricing-header .title {
+    font-size: 18px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.04em !important;
+    text-transform: uppercase !important;
+    margin-bottom: 12px !important;
+    color: #1e293b !important;
+  }
+
+  #plans .pricing-table .pricing-header .price-wrap .amount {
+    font-size: 40px !important;
+    line-height: 1.1 !important;
+    font-weight: 800 !important;
+    color: #ff501a !important;
+  }
+
+  #plans .pricing-table .pricing-header .price-wrap .duration {
+    font-size: 14.5px !important;
+    font-weight: 600 !important;
+    color: #64748b !important;
+    text-transform: lowercase !important;
+    display: inline-block !important;
+    margin-left: 2px !important;
+  }
+
+  #plans .pricing-table .pricing-header .price-wrap .free-domain {
+    display: inline-block;
+    background: rgba(37, 211, 102, 0.14);
+    color: #16a34a;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  #plans .pricing-table .pricing-body {
+    flex-grow: 1 !important;
+    margin-bottom: 24px !important;
+  }
+
+  #plans .pricing-table .pricing-body .list-item {
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+  }
+
+  #plans .pricing-table .pricing-body .list-item li {
+    font-size: 14.5px !important;
+    line-height: 1.45 !important;
+    color: #334155 !important;
+    font-weight: 600 !important;
+    padding-left: 24px !important;
+    margin-bottom: 12px !important;
+    position: relative !important;
+    display: block !important;
+  }
+
+  #plans .pricing-table .pricing-body .list-item li:before {
+    content: "\e92e";
+    font-family: 'icomoon' !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 2px !important;
+    color: #ff501a !important;
+    font-size: 14px !important;
+    font-weight: normal !important;
+  }
+
+  #plans .pricing-table.active .ace-badge {
+    background: #ff501a !important;
+    padding: 0 16px !important;
+    position: absolute !important;
+    right: 0 !important;
+    top: 18px !important;
+    height: 28px !important;
+    line-height: 28px !important;
+    border-top-left-radius: 4px !important;
+    border-bottom-left-radius: 4px !important;
+  }
+
+  #plans .pricing-table.active .ace-badge span {
+    font-weight: 700 !important;
+    font-size: 12px !important;
+    color: #ffffff !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+  }
+
+  #plans .pricing-table.active .ace-badge::after {
+    display: none !important;
+  }
+
+  #plans .pricing-table .pricing-btn {
+    margin-top: auto !important;
+    padding-top: 10px !important;
+  }
+
+  #plans .pricing-table .pricing-btn .ace-btn {
+    width: 100% !important;
+    height: 48px !important;
+    line-height: 48px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    font-size: 14.5px !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+    padding: 0 20px !important;
+    transition: all 0.25s ease !important;
+    background: #1b1c2b !important;
+    color: #ffffff !important;
+    border: none !important;
+    text-decoration: none !important;
+  }
+
+  #plans .pricing-table .pricing-btn .ace-btn:hover {
+    background: #ff501a !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(255, 80, 26, 0.35) !important;
+  }
+
+  #plans .pricing-table.active .pricing-btn .ace-btn {
+    background: #ff501a !important;
+    color: #ffffff !important;
+    box-shadow: 0 6px 18px rgba(255, 80, 26, 0.35) !important;
+  }
+
+  #plans .pricing-table.active .pricing-btn .ace-btn:hover {
+    background: #e04413 !important;
+    box-shadow: 0 8px 22px rgba(255, 80, 26, 0.45) !important;
+    transform: translateY(-2px);
+  }
+
+  #plans .pricing-table .pricing-btn .ace-btn i {
+    font-size: 16px !important;
+    position: static !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    transition: transform 0.2s ease !important;
+  }
+
+  #plans .pricing-table .pricing-btn .ace-btn:hover i {
+    transform: translateX(4px);
+  }
+
+  /* Centered Domain Eligibility Note */
+  .domain-eligibility-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    background: rgba(255, 80, 26, 0.05);
+    border: 1px dashed rgba(255, 80, 26, 0.35);
+    border-radius: 9999px;
+    font-size: 13.5px;
+    color: #475569;
+    font-weight: 500;
+  }
+
+  .domain-eligibility-note strong {
+    color: #1e293b;
+    font-weight: 700;
   }
 </style>
 

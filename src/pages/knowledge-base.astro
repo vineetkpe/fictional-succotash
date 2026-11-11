@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import HelpCtaBlock from '../components/HelpCtaBlock.astro';
 import { knowledgeItems, kbCategories } from '../data/knowledgeBase';
+import type { KnowledgeCategory, KnowledgeItem } from '../data/knowledgeBase';
 
 // Schema.org FAQPage structured data for Google Rich Snippets & AI Chatbots (ChatGPT, Perplexity, Claude, Gemini)
 const faqPageSchema = {
@@ -98,7 +99,7 @@ const faqPageSchema = {
       <div class="row justify-content-center mb-5">
         <div class="col-12">
           <div class="kb-category-pills-wrapper d-flex flex-wrap justify-content-center gap-2">
-            {kbCategories.map((cat, idx) => (
+            {kbCategories.map((cat: KnowledgeCategory, idx: number) => (
               <button
                 type="button"
                 class={`kb-cat-btn ${idx === 0 ? 'active' : ''}`}
@@ -116,7 +117,7 @@ const faqPageSchema = {
         <div class="col-12 col-lg-10">
           
           <div class="accordion accordion-flush" id="kbAccordion">
-            {knowledgeItems.map((item, index) => (
+            {knowledgeItems.map((item: KnowledgeItem, index: number) => (
               <div 
                 class="accordion-item kb-item"
                 data-category={item.category}
@@ -146,7 +147,7 @@ const faqPageSchema = {
                     <p class="mb-3">{item.answer}</p>
                     <div class="kb-item-tags d-flex flex-wrap gap-1 align-items-center">
                       <span class="text-muted small me-2 font-weight-bold"><i class="ri-price-tag-3-line me-1"></i>Related Topics:</span>
-                      {item.tags.map(tag => (
+                      {item.tags.map((tag: string) => (
                         <span class="badge bg-light text-secondary rounded-pill px-2 py-1 small">{tag}</span>
                       ))}
                     </div>
