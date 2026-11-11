@@ -209,14 +209,14 @@ const faqSchema = {
        ========================================================= -->
   <div class="ace-pricing-area aceorbit-pricing-plan-page ace-section-gap bg-image" id="plans">
     <div class="container aceorbit-animated-shape">
-      <div class="row g-5">
-        <div class="col-lg-6 col-md-6">
+      <div class="row g-4 align-items-center mb-3">
+        <div class="col-lg-5 col-md-12">
           <div class="section-title text-start" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
             <span class="pre-title">Pricing Plan</span>
-            <h3 class="title">Choose Your Pricing Plan</h3>
+            <h3 class="title mb-0">Choose Your Pricing Plan</h3>
           </div>
         </div>
-        <div class="col-lg-6 col-md-6">
+        <div class="col-lg-7 col-md-12 text-lg-end text-center mt-3 mt-lg-0">
           <div class="pricing-billing-duration">
             <ul>
               <li class="nav-item">
@@ -253,7 +253,7 @@ const faqSchema = {
                   data-cycle="biennial"
                   onclick="updatePricing('biennial');"
                   type="button"
-                  aria-pressed="true">2 Years <span class="badge bg-warning text-dark ms-1" style="font-size: 10px; padding: 2px 6px; border-radius: 4px;">Best value</span></button>
+                  aria-pressed="true">2 Years <span class="badge-best-value ms-1">Best value</span></button>
               </li>
             </ul>
           </div>
@@ -1624,26 +1624,9 @@ const faqSchema = {
 
   /* Responsive Duration Switcher */
   @media only screen and (max-width: 991px) {
-    .pricing-billing-duration ul .nav-item .nav-link {
-      padding: 0 14px;
-      font-size: 15px;
-    }
-  }
-
-  @media only screen and (max-width: 575px) {
-    .pricing-billing-duration ul {
-      display: flex;
-      flex-wrap: wrap;
-      width: 100%;
-    }
-    .pricing-billing-duration ul .nav-item {
-      flex: 1 1 50%;
-    }
-    .pricing-billing-duration ul .nav-item .nav-link {
-      width: 100%;
-      text-align: center;
-      padding: 0 8px;
-      font-size: 13.5px;
+    .pricing-billing-duration {
+      justify-content: center;
+      margin-top: 15px;
     }
   }
 
