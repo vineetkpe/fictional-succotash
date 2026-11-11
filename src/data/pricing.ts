@@ -109,7 +109,7 @@ export const sharedHosting = {
       id: "basic",
       name: "Shared Basic",
       tagline: "For a first website, personal portfolio or small blog",
-      orderUrl: "https://hostamble.com/dash/store/sharedhosting/basic",
+      orderUrl: "https://hostamble.com/dash/cart.php?a=add&pid=35",
       features: [
         "1 website",
         "5 GB SSD storage",
@@ -136,7 +136,7 @@ export const sharedHosting = {
           renewalPaymentUsd: "$2.39/month",
           renewalInr: "Renews at ₹199/month",
           renewalUsd: "Renews at $2.39/month",
-          cartUrl: "https://hostamble.com/dash/store/sharedhosting/basic?billingcycle=monthly",
+          cartUrl: "https://hostamble.com/dash/cart.php?a=add&pid=35&billingcycle=monthly",
           freeDomain: false
         },
         semiannual: {
@@ -154,7 +154,7 @@ export const sharedHosting = {
           renewalPaymentUsd: "$10.74 every 6 months",
           renewalInr: "Renews at ₹894 / 6 mos (₹149/mo)",
           renewalUsd: "Renews at $10.74 / 6 mos ($1.79/mo)",
-          cartUrl: "https://hostamble.com/dash/store/sharedhosting/basic?billingcycle=semiannually",
+          cartUrl: "https://hostamble.com/dash/cart.php?a=add&pid=35&billingcycle=semiannually",
           freeDomain: false
         },
         annual: {
@@ -172,7 +172,7 @@ export const sharedHosting = {
           renewalPaymentUsd: "$18.60/year",
           renewalInr: "Renews at ₹1,548/yr (₹129/mo)",
           renewalUsd: "Renews at $18.60/yr ($1.55/mo)",
-          cartUrl: "https://hostamble.com/dash/store/sharedhosting/basic?billingcycle=annually",
+          cartUrl: "https://hostamble.com/dash/cart.php?a=add&pid=35&billingcycle=annually",
           freeDomain: false
         },
         biennial: {
@@ -190,7 +190,7 @@ export const sharedHosting = {
           renewalPaymentUsd: "$28.56 every 2 years",
           renewalInr: "Renews at ₹2,376 (₹99/mo)",
           renewalUsd: "Renews at $28.56 ($1.19/mo)",
-          cartUrl: "https://hostamble.com/dash/store/sharedhosting/basic?billingcycle=biennially",
+          cartUrl: "https://hostamble.com/dash/cart.php?a=add&pid=35&billingcycle=biennially",
           freeDomain: true,
           freeDomainNote: "1 domain free for 1 year — two-year plan only"
         }
@@ -202,7 +202,7 @@ export const sharedHosting = {
       badge: "Recommended",
       isPopular: true,
       tagline: "For customers managing several small websites",
-      orderUrl: "https://hostamble.com/dash/store/sharedhosting/starter",
+      orderUrl: "https://hostamble.com/dash/cart.php?a=add&pid=35",
       features: [
         "5 websites",
         "15 GB SSD storage",
@@ -229,7 +229,7 @@ export const sharedHosting = {
           renewalPaymentUsd: "$3.99/month",
           renewalInr: "Renews at ₹329/month",
           renewalUsd: "Renews at $3.99/month",
-          cartUrl: "https://hostamble.com/dash/store/sharedhosting/starter?billingcycle=monthly",
+          cartUrl: "https://hostamble.com/dash/cart.php?a=add&pid=35&billingcycle=monthly",
           freeDomain: false
         },
         semiannual: {
@@ -247,7 +247,7 @@ export const sharedHosting = {
           renewalPaymentUsd: "$17.94 every 6 months",
           renewalInr: "Renews at ₹1,494 / 6 mos (₹249/mo)",
           renewalUsd: "Renews at $17.94 / 6 mos ($2.99/mo)",
-          cartUrl: "https://hostamble.com/dash/store/sharedhosting/starter?billingcycle=semiannually",
+          cartUrl: "https://hostamble.com/dash/cart.php?a=add&pid=35&billingcycle=semiannually",
           freeDomain: false
         },
         annual: {
@@ -265,7 +265,7 @@ export const sharedHosting = {
           renewalPaymentUsd: "$28.68/year",
           renewalInr: "Renews at ₹2,388/yr (₹199/mo)",
           renewalUsd: "Renews at $28.68/yr ($2.39/mo)",
-          cartUrl: "https://hostamble.com/dash/store/sharedhosting/starter?billingcycle=annually",
+          cartUrl: "https://hostamble.com/dash/cart.php?a=add&pid=35&billingcycle=annually",
           freeDomain: false
         },
         biennial: {
@@ -283,7 +283,7 @@ export const sharedHosting = {
           renewalPaymentUsd: "$45.36 every 2 years",
           renewalInr: "Renews at ₹3,816 (₹159/mo)",
           renewalUsd: "Renews at $45.36 ($1.89/mo)",
-          cartUrl: "https://hostamble.com/dash/store/sharedhosting/starter?billingcycle=biennially",
+          cartUrl: "https://hostamble.com/dash/cart.php?a=add&pid=35&billingcycle=biennially",
           freeDomain: true,
           freeDomainNote: "1 domain free for 1 year — two-year plan only"
         }
@@ -293,7 +293,7 @@ export const sharedHosting = {
       id: "elite",
       name: "Shared Elite",
       tagline: "For customers managing a larger collection of websites",
-      orderUrl: "https://hostamble.com/dash/store/sharedhosting/elite",
+      orderUrl: "https://hostamble.com/dash/cart.php?a=add&pid=35",
       features: [
         "20 websites",
         "50 GB NVMe SSD storage",
@@ -320,7 +320,7 @@ export const sharedHosting = {
           renewalPaymentUsd: "$5.99/month",
           renewalInr: "Renews at ₹499/month",
           renewalUsd: "Renews at $5.99/month",
-          cartUrl: "https://hostamble.com/dash/store/sharedhosting/elite?billingcycle=monthly",
+          cartUrl: "https://hostamble.com/dash/cart.php?a=add&pid=35&billingcycle=monthly",
           freeDomain: false
         },
         semiannual: {
@@ -338,7 +338,7 @@ export const sharedHosting = {
           renewalPaymentUsd: "$28.74 every 6 months",
           renewalInr: "Renews at ₹2,394 / 6 mos (₹399/mo)",
           renewalUsd: "Renews at $28.74 / 6 mos ($4.79/mo)",
-          cartUrl: "https://hostamble.com/dash/store/sharedhosting/elite?billingcycle=semiannually",
+          cartUrl: "https://hostamble.com/dash/cart.php?a=add&pid=35&billingcycle=semiannually",
           freeDomain: false
         },
         annual: {
@@ -352,11 +352,11 @@ export const sharedHosting = {
           discount: "Save 38%",
           renewalRateInr: "₹329",
           renewalRateUsd: "$3.99",
-          renewalPaymentInr: "₹3,948/year",
+          renewalPaymentInr: "₹3948/year",
           renewalPaymentUsd: "$47.88/year",
           renewalInr: "Renews at ₹3,948/yr (₹329/mo)",
           renewalUsd: "Renews at $47.88/yr ($3.99/mo)",
-          cartUrl: "https://hostamble.com/dash/store/sharedhosting/elite?billingcycle=annually",
+          cartUrl: "https://hostamble.com/dash/cart.php?a=add&pid=35&billingcycle=annually",
           freeDomain: false
         },
         biennial: {
@@ -374,7 +374,7 @@ export const sharedHosting = {
           renewalPaymentUsd: "$78.00 every 2 years",
           renewalInr: "Renews at ₹6,456 (₹269/mo)",
           renewalUsd: "Renews at $78.00 ($3.25/mo)",
-          cartUrl: "https://hostamble.com/dash/store/sharedhosting/elite?billingcycle=biennially",
+          cartUrl: "https://hostamble.com/dash/cart.php?a=add&pid=35&billingcycle=biennially",
           freeDomain: true,
           freeDomainNote: "1 domain free for 1 year — two-year plan only"
         }

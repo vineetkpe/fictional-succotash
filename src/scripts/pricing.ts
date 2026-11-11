@@ -61,8 +61,20 @@ export function updatePricing(plan: 'monthly' | 'quarterly' | 'semiannual' | 'an
   const whmcsCycle = WHMCS_CYCLE_MAP[plan] || 'biennially';
   document.querySelectorAll<HTMLAnchorElement>('.pricing-btn a, .plan-cta-btn').forEach((btn) => {
     const rawHref = btn.getAttribute('data-base-url') || btn.href;
-    const baseHref = rawHref.split('?')[0];
-    if (baseHref && baseHref.includes('hostamble.com/dash/store/')) {
+    if (!rawHref) return;
+
+    if (rawHref.includes('cart.php')) {
+      try {
+        const url = new URL(rawHref, window.location.origin);
+        url.searchParams.set('billingcycle', whmcsCycle);
+        btn.href = url.toString();
+      } catch (e) {
+        const cleanUrl = rawHref.replace(/([?&])billingcycle=[^&]*/i, '');
+        const sep = cleanUrl.includes('?') ? '&' : '?';
+        btn.href = `${cleanUrl}${sep}billingcycle=${whmcsCycle}`;
+      }
+    } else if (rawHref.includes('hostamble.com/dash/store/')) {
+      const baseHref = rawHref.split('?')[0];
       btn.href = `${baseHref}?billingcycle=${whmcsCycle}`;
     }
   });
