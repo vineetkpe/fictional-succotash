@@ -1,509 +1,451 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import InteractiveHeroIllustration from '../components/InteractiveHeroIllustration.astro';
+import TestimonialsBlock from '../components/TestimonialsBlock.astro';
 import BlogBlock from '../components/BlogBlock.astro';
 ---
 
 <Layout 
   title="About Hostamble — Reliable Cloud Hosting & Domain Solutions"
-  description="Learn about Hostamble's mission to empower businesses, developers, and creators worldwide with high-speed, affordable NVMe web hosting and dedicated WhatsApp support."
-  keywords="about hostamble, hostamble web hosting, indian cloud hosting, affordable web host, reliable server provider"
+  description="Learn about Hostamble's mission to empower businesses, developers, and creators worldwide with high-speed, affordable NVMe web hosting, 99.9% uptime SLA, and dedicated 24/7 WhatsApp support."
+  keywords="about hostamble, hostamble web hosting, indian cloud hosting, affordable web host, reliable server provider, litespeed nvme hosting"
 >
-<!--first block -->
-         
-         <div class="slider-area banner banner-style-two bg-image d-flex align-items-center  height-800">
-            <div class="container">
-               <div class="row g-5 align-items-center">
-                  <div class="col-lg-6 col-md-12">
-                     <div class="inner">
-                        <div class="content">
-                           
-                           <h1 class="title" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
-                               About Us
-                           </h1>
-                           <p class="description mb-4" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
-                            Hostamble provides reliable, affordable web hosting solutions. We prioritize customer success with secure, accessible, and supportive services.
-                         </p>
-                         
+  <!-- Hero Section with 3D Interactive Parallax Illustration -->
+  <div class="slider-area banner banner-style-two bg-image d-flex align-items-center min-vh-70 py-5">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <!-- Left: Mission & Value Proposition -->
+        <div class="col-lg-6 col-md-12">
+          <div class="inner">
+            <div class="content">
+              <!-- Eyebrow Badge -->
+              <div class="hero-eyebrow-pill mb-3" data-sal="slide-up" data-sal-delay="100" data-sal-duration="800">
+                <span class="eyebrow-dot"></span>
+                <span class="eyebrow-label">OUR MISSION &amp; INFRASTRUCTURE</span>
+                <span class="eyebrow-sep">•</span>
+                <span class="eyebrow-tag">HOSTAMBLE</span>
+              </div>
 
-                           <ul class="list-tick" data-sal-delay="300" data-sal="slide-up" data-sal-duration="800">
-                              <li>Security Managment</li>
-                              <li>1 Click Install Apps</li>
-                              <li>Free Site Optimization</li>
-                              <li>Uptime & Backup</li>
-                           </ul>
-                           
-                           <div class="read-more-btn" data-sal-delay="300" data-sal="slide-up" data-sal-duration="800">
-                              <a class="ace-btn" href="/shared-hosting#plans">Get Started Now<i class="icon-arrow-right-line-right"></i></a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-6">
-                     <div class="banner-thumbnail">
-                        <img class="img-thumb" src="/assets/images/banner08.png" alt="Banner Images" data-sal-delay="150" data-sal="fade" data-sal-duration="800">
-                     </div>
-                  
-                  </div>
-               </div>
-               <div class="shape-dot-wrapper shape-wrapper d-xl-block d-none">
-                  <div class="shape-image shape-image-1">
-                     <img src="/assets/images/shape1108.png" alt="Shape Thumb">
-                  </div>
-                  <div class="shape-image shape-image-2">
-                     <img src="/assets/images/shape03.png" alt="Shape Thumb">
-                  </div>
-                  <div class="shape-image shape-image-3">
-                     <img src="/assets/images/shape2302.png" alt="Shape Thumb">
-                  </div>
-               </div>
+              <h1 class="title hero-headline mb-3" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
+                High-Performance Web Hosting Built on Transparency &amp; Speed
+              </h1>
+
+              <p class="description mb-4 text-muted" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800" style="font-size: 16px; line-height: 1.7;">
+                Founded with a clear commitment: eliminate deceptive introductory pricing traps, banish slow legacy Apache architectures, and deliver enterprise LiteSpeed NVMe performance backed by responsive, human technical support.
+              </p>
+
+              <!-- Feature Tick List -->
+              <ul class="list-tick mb-4" data-sal-delay="300" data-sal="slide-up" data-sal-duration="800">
+                <li>LiteSpeed Enterprise Web Servers with LSCache</li>
+                <li>Pure RAID-10 Enterprise NVMe SSD Storage</li>
+                <li>Guaranteed 99.9% Uptime SLA Backed by Redundant Hardware</li>
+                <li>Automated Daily JetBackup Cloud Snapshots</li>
+                <li>Free Let's Encrypt SSL &amp; Anycast DNS</li>
+                <li>Direct In-House WhatsApp Support (English &amp; Hindi)</li>
+              </ul>
+
+              <!-- Action CTAs -->
+              <div class="d-flex align-items-center flex-wrap gap-3 pt-2" data-sal-delay="350" data-sal="slide-up" data-sal-duration="800">
+                <a class="ace-btn" href="/shared-hosting#plans">
+                  Explore Hosting Plans <i class="icon-arrow-right-line-right"></i>
+                </a>
+                <a class="ace-btn btn-border" href="/contacts">
+                  Contact Support Team
+                </a>
+              </div>
             </div>
-         </div>
-
-         <div class="ace-just-one ace-section-gap bg-image">
-           <div class="container aceorbit-animated-shape">
-             <div class="row g-5">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="section-title text-start" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                            <span class="pre-title">Install a Shopping Cart</span>
-                            <h3 class="title">Photo Gallery, a Blog or any other module in just 1 click</h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <p class="discription">
-                            Hostamble is a leading web hosting company and provides incredible web hosting by offering adaptable highlights and high transparency at reliable costs. If you’ve never run a website before or you are a professional developer, we’ve got you wrapped with a high-completion solution!
-                        </p>
-                    </div>
-                </div>
-
-                <div class="row mt--20">
-                   <div class="col-12">
-                      <div class="just-one-click mt--40 ace-slick-button" data-sal-delay="150" data-sal="slide-down" data-sal-duration="800">
-                         <div class="images-items">
-                            <div class="inner">
-                              <img src="/assets/images/logo1.png" alt="Just One Click logo">
-                               <h4>Wordpress</h4>
-                            </div>
-                         </div>
-                         <div class="images-items">
-                            <div class="inner">
-                              <img src="/assets/images/logo2.png" alt="Just One Click logo">
-                               <h4>Joomla</h4>
-                            </div>
-                         </div>
-                         <div class="images-items">
-                            <div class="inner">
-                              <img src="/assets/images/logo3.png" alt="Just One Click logo">
-                               <h4>Magento</h4>
-                            </div>
-                         </div>
-                         <div class="images-items">
-                            <div class="inner">
-                              <img src="/assets/images/logo4.png" alt="Just One Click logo">
-                               <h4>Open Cart</h4>
-                            </div>
-                         </div>
-                         <div class="images-items">
-                            <div class="inner">
-                              <img src="/assets/images/logo5.png" alt="Just One Click logo">
-                               <h4>PrestaShop</h4>
-                            </div>
-                         </div>
-                         <div class="images-items">
-                            <div class="inner">
-                              <img src="/assets/images/logo6.png" alt="Just One Click logo">
-                               <h4>Drupal</h4>
-                            </div>
-                         </div>
-                         <div class="images-items">
-                            <div class="inner">
-                              <img src="/assets/images/logo7.png" alt="Just One Click logo">
-                               <h4>Zencart</h4>
-                            </div>
-                         </div>
-                         <div class="images-items">
-                            <div class="inner">
-                              <img src="/assets/images/logo8.png" alt="Just One Click logo">
-                               <h4>LimeSurvey</h4>
-                            </div>
-                         </div>
-                      </div>
-                   </div>
-                </div>
-           </div>
+          </div>
         </div>
 
-
-        <div class="ace-services-area bg-image ace-section-gap">
-
-         <div class="container aceorbit-animated-shape">
-            <div class="row g-5">
-                    <div class="col-lg-12">
-                        <div class="section-title text-center" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                            <span class="pre-title">WE KEEP THE TERMS SIMPLE</span>
-                            <h3 class="title"> Why Choose Us For business</h3>
-                        </div>
-                    </div>
-                </div>
-                 <div class="row aceorbit-about-one-service g-5 mt--20 justify-content-center">
-                    <div class="col-lg-6 col-md-6 col-12" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                        <div class="service-card service-card-1 text-left">
-                            <div class="inner">
-                                <div class="icon">
-                                    <span>
-                                        <i class="ri-file-shield-2-line"></i>
-                                    </span>
-                                    <h6 class="title">SECURITY MANAGMENT</h6>
-                                </div>
-                                <div class="content">
-                                    <p class="description">We Provide Bitninja Security in your cpanel, Use to protect. </p>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 col-12" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                        <div class="service-card service-card-1 text-left">
-                            <div class="inner">
-                                <div class="icon">
-                                    <span>
-                                        <i class="ri-fingerprint-line"></i>
-                                    </span>
-                                    <h6 class="title">1 CLICK INSTALL APPS</h6>
-                                </div>
-                                <div class="content">
-                                    <p class="description">One Click Apps install for You Convenience in Cpanel.</p>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 col-12" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                        <div class="service-card service-card-1 text-left">
-                            <div class="inner">
-                                <div class="icon">
-                                    <span>
-                                       <i class="ri-global-line"></i>
-                                    </span>
-                                    <h6 class="title">FREE Domain Names</h6>
-                                </div>
-                                <div class="content">
-                                    <p class="description">Our Special Hosting Plan Have free domain to get online.</p>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 col-12" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                        <div class="service-card service-card-1 text-left">
-                            <div class="inner">
-                                <div class="icon">
-                                    <span>
-                                        <i class="ri-user-2-line"></i>
-                                    </span>
-                                    <h6 class="title">CUSTOMER STRATEGY</h6>
-                                </div>
-                                <div class="content">
-                                    <p class="description">We always try to provide best service to our customer.</p>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 col-12" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                        <div class="service-card service-card-1 text-left">
-                            <div class="inner">
-                                <div class="icon">
-                                    <span>
-                                        <i class="ri-upload-cloud-2-line"></i>
-                                    </span>
-                                    <h6 class="title">UPTIME & BACKUP</h6>
-                                </div>
-                                <div class="content">
-                                    <p class="description">We provide 99% uptime and jetbackup in your cpanel.</p>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 col-12" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                        <div class="service-card service-card-1 text-left">
-                            <div class="inner">
-                                <div class="icon">
-                                    <span>
-                                        <i class="ri-server-line"></i>
-                                    </span>
-                                    <h6 class="title">DDOS PROTECED HOSTING</h6>
-                                </div>
-                                <div class="content">
-                                    <p class="description">We use DDos protection for user convenience and best service.</p>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
-
-             <div class="shape-dot-wrapper shape-wrapper d-xl-block d-none">
-                    <div class="shape-image shape-image-1">
-                        <img src="/assets/images/shape32.png" alt="Shape Thumb">
-                    </div>
-                    <div class="shape-image shape-image-2">
-                        <img src="/assets/images/shape0308.png" alt="Shape Thumb">
-                    </div>
-                    <div class="shape-image shape-image-3">
-                        <img src="/assets/images/shape2701.png" alt="Shape Thumb">
-                    </div>
-                </div>
-         </div>
-           
+        <!-- Right: 3D Interactive Parallax Illustration (Preserving banner08.png) -->
+        <div class="col-lg-6">
+          <InteractiveHeroIllustration 
+            image="/assets/images/banner08.png"
+            alt="Hostamble Cloud Infrastructure and Enterprise Servers"
+            badge1Label="99.9% Uptime"
+            badge1Value="SLA Guaranteed"
+            badge1Icon="ri-pulse-line"
+            badge2Label="LiteSpeed Turbo"
+            badge2Value="5x Faster NVMe"
+            badge2Tag="ENTERPRISE"
+            badge2Icon="ri-rocket-2-fill"
+            badge3Label="Free SSL & Backups"
+            badge3Value="JetBackup Included"
+            badge3Icon="ri-shield-check-fill"
+            badge4Label="24/7 In-House Help"
+            badge4Value="WhatsApp Support"
+            badge4Icon="ri-whatsapp-fill"
+          />
         </div>
+      </div>
 
-        <div class="ace-help-area bg-image domain-style-3 ace-section-gap bg-color-primary">
-            <div class="container">
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-6">
-                        <div class="inner">
-                            <div class="section-title text-white text-start" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                                <span class="pre-title">Let Us Help</span>
-                                <h3 class="title">Need help? We're always here for you.</h3>
-                                <span class="pre-title">Whatsapp Number : +91 6284719083</span>
-                                <span class="pre-title">Call Number : +91 6284719083</span>
-                                <span class="pre-title">Office Address  : Chandigarh Sector 52, 1564 , 160036</span>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="domain-right-content d-block d-sm-flex align-items-center justify-content-start justify-content-lg-end">
-                            <div class="contact-btn">
-                                <a class="ace-btn btn-white" href="javascript:void(Tawk_API.toggle())"><i class="ri-chat-smile-2-line"></i> Start Live Chat</a>
-                            </div>
-                            <div class="contact-info">
-                                <a href="/contacts"><i class="icon-Headphone"></i> Contact Us</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <!-- Animated Background Shapes -->
+      <div class="shape-dot-wrapper shape-wrapper d-xl-block d-none">
+        <div class="shape-image shape-image-1">
+          <img src="/assets/images/shape1108.png" alt="Shape Thumb">
+        </div>
+        <div class="shape-image shape-image-2">
+          <img src="/assets/images/shape03.png" alt="Shape Thumb">
+        </div>
+        <div class="shape-image shape-image-3">
+          <img src="/assets/images/shape2302.png" alt="Shape Thumb">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1-Click Application Deployment Section -->
+  <div class="ace-just-one ace-section-gap bg-image">
+    <div class="container aceorbit-animated-shape">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6 col-md-6">
+          <div class="section-title text-start mb-0" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+            <span class="pre-title">1-Click Application Deployment</span>
+            <h3 class="title">Deploy WordPress, eCommerce, or Custom Frameworks in Seconds</h3>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <p class="discription mb-0">
+            Whether you are launching your first WordPress blog, running an expanding WooCommerce storefront, or deploying PHP &amp; MySQL web applications, Hostamble provides pre-configured, production-ready staging and automated Softaculous deployment with zero server setup friction.
+          </p>
+        </div>
+      </div>
+
+      <div class="row mt--20">
+        <div class="col-12">
+          <div class="just-one-click mt--40 ace-slick-button" data-sal-delay="150" data-sal="slide-down" data-sal-duration="800">
+            <div class="images-items">
+              <div class="inner">
+                <img src="/assets/images/logo1.png" alt="WordPress Hosting">
+                <h4>WordPress</h4>
+              </div>
             </div>
-        </div>
-
-
-
-        <div class="ace-testimonial-area aceorbit-testimonial bg-color-white testimonial-card-box-bg ace-section-gap position-relative bg-image">
-            <div class="container aceorbit-animated-shape">
-                <div class="row g-5">
-                    <div class="col-lg-12">
-                        <div class="section-title text-center" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                            <span class="pre-title">TESTIMONIALS</span>
-                            <h3 class="title">Our Customers Reviews</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="ace-testimonial-activation testimonial-item-3 mt--40 ace-slick-button">
-
-                   
-                    <div class="testimonial-card-box">
-                        <div class="inner">
-                            <div class="client-info">
-                                <div class="thumbnail">
-                                    <img src="/assets/images/client1.png" alt="Client Images">
-                                </div>
-                                <div class="content">
-                                    <h6 class="title">Berick    </h6>
-                                    <span class="designation">Web Designer</span>
-                                </div>
-                            </div>
-                            <p class="description">“Top-notch web hosting with seamless domain registration and professional web design services. Reliable uptime and excellent support make it perfect for businesses. ”</p>
-                            <div class="rating">
-                                <i class="on icon-Star"></i>
-                                <i class="on icon-Star"></i>
-                                <i class="on icon-Star"></i>
-                                <i class="on icon-Star"></i>
-                                <i class="on icon-Star"></i>
-                            </div>
-                        </div>
-                    </div>
-                   
-
-                    
-                    <div class="testimonial-card-box">
-                        <div class="inner">
-                            <div class="client-info">
-                                <div class="thumbnail">
-                                    <img src="/assets/images/client2.png" alt="Client Images">
-                                </div>
-                                <div class="content">
-                                    <h6 class="title">Razima</h6>
-                                    <span class="designation">Blogger</span>
-                                </div>
-                            </div>
-                            <p class="description">“ Exceptional web hosting with fast domain setup and custom web design services. Reliable uptime and stellar support make it a great choice for businesses. ”</p>
-                            <div class="rating">
-                                <i class="on icon-Star"></i>
-                                <i class="on icon-Star"></i>
-                                <i class="on icon-Star"></i>
-                                <i class="on icon-Star"></i>
-                                <i class="on icon-Star"></i>
-                            </div>
-                        </div>
-                    </div>
-                   
-                    <div class="testimonial-card-box">
-                        <div class="inner">
-                            <div class="client-info">
-                                <div class="thumbnail">
-                                    <img src="/assets/images/client3.png" alt="Client Images">
-                                </div>
-                                <div class="content">
-                                    <h6 class="title">Samantha</h6>
-                                    <span class="designation">Model</span>
-                                </div>
-                            </div>
-                            <p class="description">“ I chose you because you create added value over the price offered by other hosting companies. it's been a great experience for me. I'm leaving happy. Thank you. ”</p>
-                            <div class="rating">
-                                <i class="on icon-Star"></i>
-                                <i class="on icon-Star"></i>
-                                <i class="on icon-Star"></i>
-                                <i class="on icon-Star"></i>
-                                <i class="on icon-Star"></i>
-                            </div>
-                        </div>
-                    </div>
-    
-                </div>
-
-
+            <div class="images-items">
+              <div class="inner">
+                <img src="/assets/images/logo2.png" alt="Joomla Hosting">
+                <h4>Joomla</h4>
+              </div>
             </div>
-        </div>
-
-
-         <div class="ace-instructor-area aceorbit-instructor ace-section-gap bg-color-primary">
-            <div class="container aceorbit-animated-shape">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-title text-white text-center">
-                            <span class="pre-title">Team Member</span>
-                            <h3 class="title">Meet Our Team</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="row g-5 mt--20">
-             
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-12" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                        <div class="ace-instructor-grid ace-instructor-design ace-instructor-design-visible">
-                            <div class="ace-instructor">
-                                <div class="inner">
-                                    <div class="thumbnail">
-                                        <a href="/contacts" title="Contact WordPress Support Team">
-                                            <img src="/assets/images/team1.jpg" alt="James Carlson - WordPress Expert">
-                                        </a>
-                                    </div>
-                                    <div class="ace-instructor-info">
-                                        <h5 class="title"><a href="/contacts">James Carlson</a></h5>
-                                        <span class="desc">WordPress Expert</span>
-                                        <div class="team-share-info bg-transparent">
-                                            <a class="linkedin" href="https://hostamble.com/dash/submitticket.php?step=2&deptid=1" title="Submit Support Ticket"><i class="ri-ticket-line"></i></a>
-                                            <a class="facebook" href="https://wa.me/916284719083?text=Hi%20Hostamble%20Support%2C%20I%20need%20assistance" target="_blank" rel="noopener noreferrer" title="WhatsApp Live Chat"><i class="ri-whatsapp-line"></i></a>
-                                            <a class="twitter" href="mailto:support@hostamble.com" title="Email Support Desk"><i class="ri-mail-line"></i></a>
-                                            <a class="youtube" href="/knowledge-base" title="Explore Knowledge Base"><i class="ri-book-open-line"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                   
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-12" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
-                        <div class="ace-instructor-grid ace-instructor-design ace-instructor-design-visible">
-                            <div class="ace-instructor">
-                                <div class="inner">
-                                    <div class="thumbnail">
-                                        <a href="/contacts" title="Contact Growth & Marketing Team">
-                                            <img src="/assets/images/team2.jpg" alt="Nancy Phipps - Digital Marketer">
-                                        </a>
-                                    </div>
-                                    <div class="ace-instructor-info">
-                                        <h5 class="title"><a href="/contacts">Nancy Phipps</a></h5>
-                                        <span class="desc">Digital Marketer</span>
-                                        <div class="team-share-info bg-transparent">
-                                            <a class="linkedin" href="https://hostamble.com/dash/submitticket.php?step=2&deptid=1" title="Submit Support Ticket"><i class="ri-ticket-line"></i></a>
-                                            <a class="facebook" href="https://wa.me/916284719083?text=Hi%20Hostamble%20Support%2C%20I%20need%20assistance" target="_blank" rel="noopener noreferrer" title="WhatsApp Live Chat"><i class="ri-whatsapp-line"></i></a>
-                                            <a class="twitter" href="mailto:support@hostamble.com" title="Email Support Desk"><i class="ri-mail-line"></i></a>
-                                            <a class="youtube" href="/knowledge-base" title="Explore Knowledge Base"><i class="ri-book-open-line"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                   
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-12" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
-                        <div class="ace-instructor-grid ace-instructor-design ace-instructor-design-visible aceorbit-hover-active">
-                            <div class="ace-instructor">
-                                <div class="inner">
-                                    <div class="thumbnail">
-                                        <a href="/contacts" title="Contact Linux & PHP Systems Team">
-                                            <img src="/assets/images/team3.jpg" alt="Troy Hall - PHP Expert">
-                                        </a>
-                                    </div>
-                                    <div class="ace-instructor-info">
-                                        <h5 class="title"><a href="/contacts">Troy Hall</a></h5>
-                                        <span class="desc">PHP Expert</span>
-                                        <div class="team-share-info bg-transparent">
-                                            <a class="linkedin" href="https://hostamble.com/dash/submitticket.php?step=2&deptid=1" title="Submit Support Ticket"><i class="ri-ticket-line"></i></a>
-                                            <a class="facebook" href="https://wa.me/916284719083?text=Hi%20Hostamble%20Support%2C%20I%20need%20assistance" target="_blank" rel="noopener noreferrer" title="WhatsApp Live Chat"><i class="ri-whatsapp-line"></i></a>
-                                            <a class="twitter" href="mailto:support@hostamble.com" title="Email Support Desk"><i class="ri-mail-line"></i></a>
-                                            <a class="youtube" href="/knowledge-base" title="Explore Knowledge Base"><i class="ri-book-open-line"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-12" data-sal-delay="300" data-sal="slide-up" data-sal-duration="800">
-                        <div class="ace-instructor-grid ace-instructor-design ace-instructor-design-visible">
-                            <div class="ace-instructor">
-                                <div class="inner">
-                                    <div class="thumbnail">
-                                        <a href="/contacts" title="Contact UI/UX & Web Design Team">
-                                            <img src="/assets/images/team4.jpg" alt="Isabelle Bruner - UI Designer">
-                                        </a>
-                                    </div>
-                                    <div class="ace-instructor-info">
-                                        <h5 class="title"><a href="/contacts">Isabelle Bruner</a></h5>
-                                        <span class="desc">UI Designer</span>
-                                        <div class="team-share-info bg-transparent">
-                                            <a class="linkedin" href="https://hostamble.com/dash/submitticket.php?step=2&deptid=1" title="Submit Support Ticket"><i class="ri-ticket-line"></i></a>
-                                            <a class="facebook" href="https://wa.me/916284719083?text=Hi%20Hostamble%20Support%2C%20I%20need%20assistance" target="_blank" rel="noopener noreferrer" title="WhatsApp Live Chat"><i class="ri-whatsapp-line"></i></a>
-                                            <a class="twitter" href="mailto:support@hostamble.com" title="Email Support Desk"><i class="ri-mail-line"></i></a>
-                                            <a class="youtube" href="/knowledge-base" title="Explore Knowledge Base"><i class="ri-book-open-line"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                 
-                </div>
-
-                <div class="shape-dot-wrapper shape-wrapper d-xl-block d-none">
-                    <div class="shape-image shape-image-1"><img src="/assets/images/shape0303.png" alt="Shape Thumb"></div>
-                    <div class="shape-image shape-image-2"><img src="/assets/images/shape0202.png" alt="Shape Thumb"></div>
-                </div>
+            <div class="images-items">
+              <div class="inner">
+                <img src="/assets/images/logo3.png" alt="Magento Hosting">
+                <h4>Magento</h4>
+              </div>
             </div>
+            <div class="images-items">
+              <div class="inner">
+                <img src="/assets/images/logo4.png" alt="OpenCart Hosting">
+                <h4>OpenCart</h4>
+              </div>
+            </div>
+            <div class="images-items">
+              <div class="inner">
+                <img src="/assets/images/logo5.png" alt="PrestaShop Hosting">
+                <h4>PrestaShop</h4>
+              </div>
+            </div>
+            <div class="images-items">
+              <div class="inner">
+                <img src="/assets/images/logo6.png" alt="Drupal Hosting">
+                <h4>Drupal</h4>
+              </div>
+            </div>
+            <div class="images-items">
+              <div class="inner">
+                <img src="/assets/images/logo7.png" alt="Zen Cart Hosting">
+                <h4>Zen Cart</h4>
+              </div>
+            </div>
+            <div class="images-items">
+              <div class="inner">
+                <img src="/assets/images/logo8.png" alt="LimeSurvey Hosting">
+                <h4>LimeSurvey</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Why Choose Us / Infrastructure Advantage -->
+  <div class="ace-services-area bg-image ace-section-gap">
+    <div class="container aceorbit-animated-shape">
+      <div class="row g-5">
+        <div class="col-lg-12">
+          <div class="section-title text-center" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+            <span class="pre-title">ENGINEERED FOR SPEED &amp; STABILITY</span>
+            <h3 class="title">The Hostamble Infrastructure Advantage</h3>
+            <p class="description max-w-750 mx-auto mt-2 text-muted">
+              Enterprise hardware, isolated resource pools, and direct human technical support designed to keep your mission-critical websites running at peak performance.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row aceorbit-about-one-service g-4 mt--20 justify-content-center">
+        <!-- Card 1: Enterprise Security & CloudLinux -->
+        <div class="col-lg-4 col-md-6 col-12" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+          <div class="service-card service-card-1 text-left h-100">
+            <div class="inner">
+              <div class="icon">
+                <span>
+                  <i class="ri-shield-flash-line"></i>
+                </span>
+                <h6 class="title">ENTERPRISE SECURITY &amp; ISOLATION</h6>
+              </div>
+              <div class="content">
+                <p class="description">
+                  CloudLinux OS isolates each cPanel account with dedicated virtual CPU, RAM, and I/O limits (CageFS). Built-in WAF rules, ModSecurity, and automated malware scanning shield your sites 24/7.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <BlogBlock />
+        <!-- Card 2: 1-Click Softaculous -->
+        <div class="col-lg-4 col-md-6 col-12" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
+          <div class="service-card service-card-1 text-left h-100">
+            <div class="inner">
+              <div class="icon">
+                <span>
+                  <i class="ri-flashlight-line"></i>
+                </span>
+                <h6 class="title">1-CLICK SOFTACULOUS APPS</h6>
+              </div>
+              <div class="content">
+                <p class="description">
+                  Deploy WordPress, WooCommerce, Joomla, Laravel, and 400+ scripts instantly from cPanel. Includes automatic script updates, clone testing, and staging sandboxes with zero complex setup.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Free Domain & SSL -->
+        <div class="col-lg-4 col-md-6 col-12" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
+          <div class="service-card service-card-1 text-left h-100">
+            <div class="inner">
+              <div class="icon">
+                <span>
+                  <i class="ri-global-line"></i>
+                </span>
+                <h6 class="title">FREE DOMAIN &amp; AUTO SSL</h6>
+              </div>
+              <div class="content">
+                <p class="description">
+                  Select annual hosting packages include a free domain registration (.com, .in). Every account includes complimentary, automated Let's Encrypt 256-bit TLS/SSL certificates with zero renewal fees.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: 24/7 Human WhatsApp Support -->
+        <div class="col-lg-4 col-md-6 col-12" data-sal-delay="300" data-sal="slide-up" data-sal-duration="800">
+          <div class="service-card service-card-1 text-left h-100">
+            <div class="inner">
+              <div class="icon">
+                <span>
+                  <i class="ri-customer-service-2-line"></i>
+                </span>
+                <h6 class="title">24/7 IN-HOUSE WHATSAPP HELP</h6>
+              </div>
+              <div class="content">
+                <p class="description">
+                  Skip robotic chatbots and endless ticket queues. Chat directly with certified Linux system administrators and WordPress technicians in Hindi and English via WhatsApp and live tickets.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: LiteSpeed Turbo & NVMe -->
+        <div class="col-lg-4 col-md-6 col-12" data-sal-delay="350" data-sal="slide-up" data-sal-duration="800">
+          <div class="service-card service-card-1 text-left h-100">
+            <div class="inner">
+              <div class="icon">
+                <span>
+                  <i class="ri-rocket-2-line"></i>
+                </span>
+                <h6 class="title">LITESPEED TURBO &amp; PURE NVME</h6>
+              </div>
+              <div class="content">
+                <p class="description">
+                  Powered by enterprise LiteSpeed Web Servers and ultra-fast NVMe SSDs in RAID-10 arrays. Enjoy up to 5x faster database queries, lower TTFB, and built-in LSCache server-side caching.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6: 99.9% Uptime SLA & JetBackup -->
+        <div class="col-lg-4 col-md-6 col-12" data-sal-delay="400" data-sal="slide-up" data-sal-duration="800">
+          <div class="service-card service-card-1 text-left h-100">
+            <div class="inner">
+              <div class="icon">
+                <span>
+                  <i class="ri-server-line"></i>
+                </span>
+                <h6 class="title">99.9% UPTIME SLA &amp; JETBACKUP</h6>
+              </div>
+              <div class="content">
+                <p class="description">
+                  Guaranteed 99.9% server uptime backed by high-availability Tier-3 data centers with automated daily JetBackup snapshots, 1-click account restoration, and multi-gigabit DDoS mitigation.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decorative Shapes -->
+      <div class="shape-dot-wrapper shape-wrapper d-xl-block d-none">
+        <div class="shape-image shape-image-1">
+          <img src="/assets/images/shape32.png" alt="Shape Thumb">
+        </div>
+        <div class="shape-image shape-image-2">
+          <img src="/assets/images/shape0308.png" alt="Shape Thumb">
+        </div>
+        <div class="shape-image shape-image-3">
+          <img src="/assets/images/shape2701.png" alt="Shape Thumb">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Support Assistance Banner (Office Address Removed per instructions) -->
+  <div class="ace-help-area bg-image domain-style-3 ace-section-gap bg-color-primary">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-7">
+          <div class="inner">
+            <div class="section-title text-white text-start mb-0" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+              <span class="pre-title text-white-50">24/7 IN-HOUSE ASSISTANCE</span>
+              <h3 class="title text-white mb-3">Need Technical Help? We're Always Here.</h3>
+              <p class="text-white-50 mb-4" style="font-size: 15px; line-height: 1.6;">
+                Our certified Linux server administrators and WordPress experts are available around the clock to assist you with migrations, configurations, and inquiries.
+              </p>
+
+              <!-- Live Channels (Office address removed) -->
+              <div class="d-flex flex-wrap gap-2 align-items-center">
+                <a href="https://wa.me/916284719083?text=Hi%20Hostamble%20Support%2C%20I%20need%20assistance" target="_blank" rel="noopener noreferrer" class="help-channel-pill">
+                  <i class="ri-whatsapp-fill text-success"></i>
+                  <span>WhatsApp: (+91) 628 471 9083</span>
+                </a>
+                <a href="tel:+916284719083" class="help-channel-pill">
+                  <i class="ri-phone-fill text-warning"></i>
+                  <span>Call: (+91) 628 471 9083</span>
+                </a>
+                <a href="mailto:support@hostamble.com" class="help-channel-pill">
+                  <i class="ri-mail-fill text-info"></i>
+                  <span>support@hostamble.com</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="domain-right-content d-flex flex-wrap gap-3 align-items-center justify-content-start justify-content-lg-end" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
+            <a class="ace-btn btn-white" href="javascript:void(Tawk_API.toggle())">
+              <i class="ri-chat-smile-2-line"></i> Start Live Chat
+            </a>
+            <a class="ace-btn btn-border text-white" href="/contacts" style="border-color: rgba(255,255,255,0.45);">
+              <i class="icon-Headphone"></i> Contact Desk
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Verified Testimonials Block (HostAdvice & Trustpilot Verified Reviews) -->
+  <TestimonialsBlock />
+
+  <!-- Modern Blog Block -->
+  <BlogBlock />
+
+  <!-- Page Scoped Inline Styling -->
+  <style is:inline>
+    .min-vh-70 {
+      min-height: 65vh;
+    }
+
+    .hero-eyebrow-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(255, 80, 26, 0.08);
+      border: 1px solid rgba(255, 80, 26, 0.22);
+      border-radius: 9999px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #ff501a;
+      letter-spacing: 0.04em;
+      user-select: none;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #ff501a;
+      box-shadow: 0 0 8px #ff501a;
+      animation: liveBlink 1.4s infinite;
+    }
+
+    .eyebrow-label {
+      letter-spacing: 0.06em;
+    }
+
+    .eyebrow-sep {
+      color: rgba(255, 80, 26, 0.4);
+    }
+
+    .eyebrow-tag {
+      background: #ff501a;
+      color: #ffffff;
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 800;
+    }
+
+    .hero-headline {
+      font-size: clamp(30px, 3.8vw, 50px);
+      line-height: 1.25;
+      font-weight: 800;
+      color: #1a1e2b;
+      letter-spacing: -0.02em;
+    }
+
+    .help-channel-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 9999px;
+      color: #ffffff !important;
+      font-size: 13.5px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .help-channel-pill:hover {
+      background: rgba(255, 255, 255, 0.22);
+      border-color: rgba(255, 255, 255, 0.45);
+      transform: translateY(-2px);
+      color: #ffffff !important;
+    }
+
+    @keyframes liveBlink {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+  </style>
 </Layout>
