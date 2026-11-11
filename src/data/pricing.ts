@@ -16,6 +16,15 @@ export interface PricePair {
   usd: string;
 }
 
+export interface PlanPeriodDetail extends PricePair {
+  totalInr?: string;
+  totalUsd?: string;
+  periodLabel?: string;
+  discount?: string;
+  freeDomain?: boolean;
+  freeDomainNote?: string;
+}
+
 export interface HostingPlan {
   id: string;
   name: string;
@@ -24,10 +33,12 @@ export interface HostingPlan {
   orderUrl?: string;
   features?: string[];
   pricing: {
-    monthly: PricePair;
-    quarterly?: PricePair;
-    semiannual?: PricePair;
-    annual: PricePair;
+    monthly: PlanPeriodDetail;
+    quarterly?: PlanPeriodDetail;
+    semiannual?: PlanPeriodDetail;
+    annual: PlanPeriodDetail;
+    biennial?: PlanPeriodDetail;
+    yearly?: PlanPeriodDetail;
   };
 }
 
@@ -78,37 +89,193 @@ export interface DomainTld {
  * 1. SHARED HOSTING PRICING
  * ============================================================================== */
 export const sharedHosting = {
-  heroStartPrice: { inr: "₹49 /mo", usd: "$0.59 /mo" },
+  heroStartPrice: { inr: "₹69 /mo", usd: "$0.85 /mo" },
   plans: {
     basic: {
       id: "basic",
       name: "Basic",
+      orderUrl: "https://hostamble.com/dash/store/sharedhosting/basic",
+      features: [
+        "1 Website",
+        "5 GB SSD Storage",
+        "50 GB Monthly Bandwidth",
+        "1 Email Account (500 MB)",
+        "2 Databases & 5 Subdomains",
+        "Free SSL Certificate",
+        "One-Click WordPress Installation",
+        "Daily Backups (3-Day Retention)*",
+        "1 Standard Website Migration",
+        "Standard Hosting Support"
+      ],
       pricing: {
-        monthly: { inr: "₹149", usd: "$0.59" },
-        quarterly: { inr: "₹147", usd: "$1.75" },
-        semiannual: { inr: "₹294", usd: "$3.50" },
-        annual: { inr: "₹588", usd: "$7.00" }
+        monthly: {
+          inr: "₹149",
+          usd: "$1.79",
+          totalInr: "₹149 each month",
+          totalUsd: "$1.79 each month",
+          periodLabel: "each month",
+          freeDomain: false
+        },
+        quarterly: {
+          inr: "₹139",
+          usd: "$1.69",
+          totalInr: "₹417 every 3 months",
+          totalUsd: "$5.07 every 3 months",
+          periodLabel: "every 3 months",
+          freeDomain: false
+        },
+        semiannual: {
+          inr: "₹119",
+          usd: "$1.45",
+          totalInr: "₹714 every 6 months",
+          totalUsd: "$8.70 every 6 months",
+          periodLabel: "every 6 months",
+          freeDomain: false
+        },
+        annual: {
+          inr: "₹99",
+          usd: "$1.19",
+          totalInr: "₹1,188 every year",
+          totalUsd: "$14.28 every year",
+          periodLabel: "every year",
+          freeDomain: false
+        },
+        biennial: {
+          inr: "₹69",
+          usd: "$0.85",
+          totalInr: "₹1,656 billed upfront for 2 years",
+          totalUsd: "$19.99 billed upfront for 2 years",
+          periodLabel: "billed upfront for 2 years",
+          discount: "Save 54% compared with monthly billing",
+          freeDomain: true,
+          freeDomainNote: "1 domain FREE for the first year"
+        }
       }
     },
     starter: {
       id: "starter",
       name: "Starter",
+      badge: "Recommended",
       isPopular: true,
+      orderUrl: "https://hostamble.com/dash/store/sharedhosting/starter",
+      features: [
+        "5 Websites",
+        "15 GB SSD Storage",
+        "150 GB Monthly Bandwidth",
+        "5 Email Accounts (1 GB each)",
+        "10 Databases & 15 Subdomains",
+        "Free SSL Certificates (All Sites)",
+        "WordPress + Softaculous 1-Click",
+        "LiteSpeed Server",
+        "Imunify360 Server Security",
+        "Daily Backups (3-Day Retention)*"
+      ],
       pricing: {
-        monthly: { inr: "₹79", usd: "$0.99" },
-        quarterly: { inr: "₹237", usd: "$2.80" },
-        semiannual: { inr: "₹474", usd: "$5.60" },
-        annual: { inr: "₹948", usd: "$11.20" }
+        monthly: {
+          inr: "₹249",
+          usd: "$2.99",
+          totalInr: "₹249 each month",
+          totalUsd: "$2.99 each month",
+          periodLabel: "each month",
+          freeDomain: false
+        },
+        quarterly: {
+          inr: "₹229",
+          usd: "$2.75",
+          totalInr: "₹687 every 3 months",
+          totalUsd: "$8.25 every 3 months",
+          periodLabel: "every 3 months",
+          freeDomain: false
+        },
+        semiannual: {
+          inr: "₹199",
+          usd: "$2.39",
+          totalInr: "₹1,194 every 6 months",
+          totalUsd: "$14.34 every 6 months",
+          periodLabel: "every 6 months",
+          freeDomain: false
+        },
+        annual: {
+          inr: "₹159",
+          usd: "$1.89",
+          totalInr: "₹1,908 every year",
+          totalUsd: "$22.68 every year",
+          periodLabel: "every year",
+          freeDomain: false
+        },
+        biennial: {
+          inr: "₹119",
+          usd: "$1.45",
+          totalInr: "₹2,856 billed upfront for 2 years",
+          totalUsd: "$34.80 billed upfront for 2 years",
+          periodLabel: "billed upfront for 2 years",
+          discount: "Save 52% compared with monthly billing",
+          freeDomain: true,
+          freeDomainNote: "1 domain FREE for the first year"
+        }
       }
     },
     elite: {
       id: "elite",
       name: "Elite",
+      orderUrl: "https://hostamble.com/dash/store/sharedhosting/elite",
+      features: [
+        "20 Websites",
+        "50 GB NVMe Storage",
+        "500 GB Monthly Bandwidth",
+        "20 Email Accounts (1 GB each)",
+        "40 Databases & 50 Subdomains",
+        "Free SSL Certificates (All Sites)",
+        "WordPress + Softaculous 1-Click",
+        "LiteSpeed Server",
+        "Imunify360 Server Security",
+        "Daily Backups (3-Day Retention)*",
+        "Free Migration",
+        "Standard Hosting Support"
+      ],
       pricing: {
-        monthly: { inr: "₹109", usd: "$1.29" },
-        quarterly: { inr: "₹327", usd: "$3.90" },
-        semiannual: { inr: "₹654", usd: "$7.80" },
-        annual: { inr: "₹1308", usd: "$15.50" }
+        monthly: {
+          inr: "₹399",
+          usd: "$4.79",
+          totalInr: "₹399 each month",
+          totalUsd: "$4.79 each month",
+          periodLabel: "each month",
+          freeDomain: false
+        },
+        quarterly: {
+          inr: "₹349",
+          usd: "$4.19",
+          totalInr: "₹1,047 every 3 months",
+          totalUsd: "$12.57 every 3 months",
+          periodLabel: "every 3 months",
+          freeDomain: false
+        },
+        semiannual: {
+          inr: "₹299",
+          usd: "$3.59",
+          totalInr: "₹1,794 every 6 months",
+          totalUsd: "$21.54 every 6 months",
+          periodLabel: "every 6 months",
+          freeDomain: false
+        },
+        annual: {
+          inr: "₹249",
+          usd: "$2.99",
+          totalInr: "₹2,988 every year",
+          totalUsd: "$35.88 every year",
+          periodLabel: "every year",
+          freeDomain: false
+        },
+        biennial: {
+          inr: "₹199",
+          usd: "$2.39",
+          totalInr: "₹4,776 billed upfront for 2 years",
+          totalUsd: "$57.36 billed upfront for 2 years",
+          periodLabel: "billed upfront for 2 years",
+          discount: "Save 50% compared with monthly billing",
+          freeDomain: true,
+          freeDomainNote: "1 domain FREE for the first year"
+        }
       }
     }
   }

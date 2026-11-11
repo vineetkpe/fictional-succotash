@@ -62,6 +62,12 @@ const aiDomainFaqs = [
   }
 ];
 
+const aiDomainFaqItems = aiDomainFaqs.map((item, idx) => ({
+  id: `ai-faq-${idx}`,
+  categoryLabel: item.category,
+  ...item
+}));
+
 const aiDomainFaqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -81,6 +87,8 @@ const aiDomainFaqSchema = {
   description="Generate smart, brandable, high-converting domain names in seconds with Hostamble's AI Domain Generator. Powered by Mini AI with instant WHOIS availability."
   keywords="ai domain generator, domain name generator, smart domain suggestions, business name generator, buy domain name india, check domain availability"
 >
+  <!-- SEO Structured Data (FAQPage Schema) -->
+  <script type="application/ld+json" set:html={JSON.stringify(aiDomainFaqSchema)} />
 
 <!-- =========================================================
      BLOCK 1: Hero Block & AI Domain Generator Console
@@ -500,7 +508,7 @@ const aiDomainFaqSchema = {
      BLOCK 7: Frequently Asked Questions (Reused FaqBlock Component)
      ========================================================= -->
 <FaqBlock 
-  items={aiDomainFaqs} 
+  items={aiDomainFaqItems} 
   preTitle="FAQ" 
   title="Frequently Asked Questions" 
   description="Clear, honest answers about our domain name generator, instant WHOIS availability, Anycast DNS, and domain registrations."

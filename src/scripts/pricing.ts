@@ -1,7 +1,7 @@
 /**
  * Shared Hosting / WordPress Hosting Pricing Switcher
  */
-export function updatePricing(plan: 'monthly' | 'quarterly' | 'semiannual' | 'annual' | string): void {
+export function updatePricing(plan: 'monthly' | 'quarterly' | 'semiannual' | 'annual' | 'biennial' | string): void {
   // 1. Update active tab button highlight across all pricing duration switchers
   const allNavLinks = document.querySelectorAll<HTMLElement>('.pricing-billing-duration .nav-link');
   allNavLinks.forEach((btn) => {
@@ -23,7 +23,7 @@ export function updatePricing(plan: 'monthly' | 'quarterly' | 'semiannual' | 'an
   });
 
   // 2. Hide all pricing period blocks
-  const plans = ['monthly', 'quarterly', 'semiannual', 'annual'];
+  const plans = ['monthly', 'quarterly', 'semiannual', 'annual', 'biennial'];
   plans.forEach((p) => {
     document.querySelectorAll<HTMLElement>(`.${p}-pricing`).forEach((el) => {
       el.style.display = 'none';
@@ -47,9 +47,17 @@ export function updatePricing(plan: 'monthly' | 'quarterly' | 'semiannual' | 'an
     el.style.display = 'block';
   });
 
-  if (plan === 'semiannual' || plan === 'annual') {
-    document.querySelectorAll<HTMLElement>(`.${plan}-pricing .free-domain`).forEach((el) => {
+  // 4. Free domain handling: show on 2-year (biennial) plans
+  if (plan === 'biennial') {
+    document.querySelectorAll<HTMLElement>('.free-domain').forEach((el) => {
       el.style.display = 'block';
+    });
+    document.querySelectorAll<HTMLElement>('.list-item .free-domain, .pricing-body .free-domain').forEach((el) => {
+      el.style.display = 'list-item';
+    });
+  } else {
+    document.querySelectorAll<HTMLElement>('.free-domain').forEach((el) => {
+      el.style.display = 'none';
     });
   }
 }

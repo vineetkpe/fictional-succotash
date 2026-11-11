@@ -245,17 +245,10 @@ const sharedHostingFaqCategories = [
           <ul>
             <li class="nav-item">
               <button
-                class="nav-link active"
+                class="nav-link"
                 id="monthly-plan-btn"
                 onclick="document.querySelectorAll('.pricing-billing-duration .nav-link').forEach(btn=>btn.classList.remove('active')); this.classList.add('active'); updatePricing('monthly');"
                 type="button">Monthly</button>
-            </li>
-            <li class="nav-item">
-              <button
-                class="nav-link"
-                id="quarterly-plan-btn"
-                onclick="document.querySelectorAll('.pricing-billing-duration .nav-link').forEach(btn=>btn.classList.remove('active')); this.classList.add('active'); updatePricing('quarterly');"
-                type="button">Quarterly</button>
             </li>
             <li class="nav-item">
               <button
@@ -271,6 +264,13 @@ const sharedHostingFaqCategories = [
                 onclick="document.querySelectorAll('.pricing-billing-duration .nav-link').forEach(btn=>btn.classList.remove('active')); this.classList.add('active'); updatePricing('annual');"
                 type="button">Annual</button>
             </li>
+            <li class="nav-item">
+              <button
+                class="nav-link active"
+                id="biennial-plan-btn"
+                onclick="document.querySelectorAll('.pricing-billing-duration .nav-link').forEach(btn=>btn.classList.remove('active')); this.classList.add('active'); updatePricing('biennial');"
+                type="button">2 Years <span class="badge bg-warning text-dark ms-1" style="font-size: 10px; padding: 2px 6px; border-radius: 4px;">Best Value</span></button>
+            </li>
           </ul>
           </div>
           </div>
@@ -283,27 +283,49 @@ const sharedHostingFaqCategories = [
           <h3 class="title">Basic</h3>
           
           <div class="price-wrap">
-          <div class="monthly-pricing" style="display: block;"><span class="amount" data-inr={plans.basic.pricing.monthly.inr} data-usd={plans.basic.pricing.monthly.usd}>{plans.basic.pricing.monthly.inr}</span> <span class="duration">/monthly</span></div>
+          <div class="biennial-pricing" style="display: block;">
+            <span class="amount" data-inr={plans.basic.pricing.biennial?.inr} data-usd={plans.basic.pricing.biennial?.usd}>{plans.basic.pricing.biennial?.inr}</span>
+            <span class="duration">/month</span>
+            <span class="discount-badge d-block small font-weight-bold mt-1" style="color: #ff501a;">Save 54% compared with monthly</span>
+            <span class="billed-total d-block text-muted small mt-1">{plans.basic.pricing.biennial?.totalInr}</span>
+            <span class="free-domain d-block text-success font-weight-bold small mt-1">{plans.basic.pricing.biennial?.freeDomainNote}</span>
+          </div>
+
+          <div class="monthly-pricing" style="display: none;">
+            <span class="amount" data-inr={plans.basic.pricing.monthly.inr} data-usd={plans.basic.pricing.monthly.usd}>{plans.basic.pricing.monthly.inr}</span>
+            <span class="duration">/month</span>
+            <span class="billed-total d-block text-muted small mt-1">{plans.basic.pricing.monthly.totalInr}</span>
+          </div>
           
-          <div class="quarterly-pricing" style="display: none;"><span class="amount" data-inr={plans.basic.pricing.quarterly.inr} data-usd={plans.basic.pricing.quarterly.usd}>{plans.basic.pricing.quarterly.inr}</span> <span class="duration">/quarterly</span></div>
+          <div class="semiannual-pricing" style="display: none;">
+            <span class="amount" data-inr={plans.basic.pricing.semiannual?.inr} data-usd={plans.basic.pricing.semiannual?.usd}>{plans.basic.pricing.semiannual?.inr}</span>
+            <span class="duration">/month</span>
+            <span class="billed-total d-block text-muted small mt-1">{plans.basic.pricing.semiannual?.totalInr}</span>
+          </div>
           
-          <div class="semiannual-pricing" style="display: none;"><span class="amount" data-inr={plans.basic.pricing.semiannual.inr} data-usd={plans.basic.pricing.semiannual.usd}>{plans.basic.pricing.semiannual.inr}</span> <span class="duration">/semiannual</span></div>
-          
-          <div class="annual-pricing" style="display: none;"><span class="amount" data-inr={plans.basic.pricing.annual.inr} data-usd={plans.basic.pricing.annual.usd}>{plans.basic.pricing.annual.inr}</span> <span class="duration">/annual</span></div>
+          <div class="annual-pricing" style="display: none;">
+            <span class="amount" data-inr={plans.basic.pricing.annual.inr} data-usd={plans.basic.pricing.annual.usd}>{plans.basic.pricing.annual.inr}</span>
+            <span class="duration">/month</span>
+            <span class="billed-total d-block text-muted small mt-1">{plans.basic.pricing.annual.totalInr}</span>
+          </div>
           </div>
           </div>
           
           <div class="pricing-body">
           <ul class="list-item">
-            <li class="free-domain" style="display: none; color: #000; font-weight: bold;">Free Domain</li>
+            <li class="free-domain" style="display: list-item; color: #16a34a; font-weight: bold;">
+              <i class="ri-checkbox-circle-fill me-1"></i> 1 Domain FREE (1st Year)
+            </li>
             <li style="color: #000; font-weight: bold;">1 Website</li>
-            <li style="color: #000; font-weight: bold;">4 GB SSD</li>
-            <li style="color: #000; font-weight: bold;">40 GB Bandwidth</li>
-            <li style="color: #000; font-weight: bold;">2 MySql Database</li>
-            <li style="color: #000; font-weight: bold;">1 Subdomain</li>
-            <li style="color: #000; font-weight: bold;">Bitninja Security</li>
-            <li style="color: #000; font-weight: bold;">Free JetBackup</li>
-            <li style="color: #000; font-weight: bold;">SSL Included</li>
+            <li style="color: #000; font-weight: bold;">5 GB SSD Storage</li>
+            <li style="color: #000; font-weight: bold;">50 GB Monthly Bandwidth</li>
+            <li style="color: #000; font-weight: bold;">1 Email Account (500 MB)</li>
+            <li style="color: #000; font-weight: bold;">2 Databases &amp; 5 Subdomains</li>
+            <li style="color: #000; font-weight: bold;">Free SSL Certificate</li>
+            <li style="color: #000; font-weight: bold;">One-Click WordPress Installation</li>
+            <li style="color: #000; font-weight: bold;">Daily Backups (3-Day Retention)*</li>
+            <li style="color: #000; font-weight: bold;">1 Standard Website Migration</li>
+            <li style="color: #000; font-weight: bold;">Standard Hosting Support</li>
           </ul>
           </div>
           
@@ -320,27 +342,49 @@ const sharedHostingFaqCategories = [
           <h3 class="title">Starter</h3>
           
           <div class="price-wrap">
-          <div class="monthly-pricing" style="display: block;"><span class="amount" data-inr={plans.starter.pricing.monthly.inr} data-usd={plans.starter.pricing.monthly.usd}>{plans.starter.pricing.monthly.inr}</span> <span class="duration">/monthly</span></div>
+          <div class="biennial-pricing" style="display: block;">
+            <span class="amount" data-inr={plans.starter.pricing.biennial?.inr} data-usd={plans.starter.pricing.biennial?.usd}>{plans.starter.pricing.biennial?.inr}</span>
+            <span class="duration">/month</span>
+            <span class="discount-badge d-block small font-weight-bold mt-1" style="color: #ff501a;">Save 52% compared with monthly</span>
+            <span class="billed-total d-block text-muted small mt-1">{plans.starter.pricing.biennial?.totalInr}</span>
+            <span class="free-domain d-block text-success font-weight-bold small mt-1">{plans.starter.pricing.biennial?.freeDomainNote}</span>
+          </div>
+
+          <div class="monthly-pricing" style="display: none;">
+            <span class="amount" data-inr={plans.starter.pricing.monthly.inr} data-usd={plans.starter.pricing.monthly.usd}>{plans.starter.pricing.monthly.inr}</span>
+            <span class="duration">/month</span>
+            <span class="billed-total d-block text-muted small mt-1">{plans.starter.pricing.monthly.totalInr}</span>
+          </div>
           
-          <div class="quarterly-pricing" style="display: none;"><span class="amount" data-inr={plans.starter.pricing.quarterly.inr} data-usd={plans.starter.pricing.quarterly.usd}>{plans.starter.pricing.quarterly.inr}</span> <span class="duration">/quarterly</span></div>
+          <div class="semiannual-pricing" style="display: none;">
+            <span class="amount" data-inr={plans.starter.pricing.semiannual?.inr} data-usd={plans.starter.pricing.semiannual?.usd}>{plans.starter.pricing.semiannual?.inr}</span>
+            <span class="duration">/month</span>
+            <span class="billed-total d-block text-muted small mt-1">{plans.starter.pricing.semiannual?.totalInr}</span>
+          </div>
           
-          <div class="semiannual-pricing" style="display: none;"><span class="amount" data-inr={plans.starter.pricing.semiannual.inr} data-usd={plans.starter.pricing.semiannual.usd}>{plans.starter.pricing.semiannual.inr}</span> <span class="duration">/semiannual</span></div>
-          
-          <div class="annual-pricing" style="display: none;"><span class="amount" data-inr={plans.starter.pricing.annual.inr} data-usd={plans.starter.pricing.annual.usd}>{plans.starter.pricing.annual.inr}</span> <span class="duration">/annual</span> <span class="free-domain">+ Free Domain</span></div>
+          <div class="annual-pricing" style="display: none;">
+            <span class="amount" data-inr={plans.starter.pricing.annual.inr} data-usd={plans.starter.pricing.annual.usd}>{plans.starter.pricing.annual.inr}</span>
+            <span class="duration">/month</span>
+            <span class="billed-total d-block text-muted small mt-1">{plans.starter.pricing.annual.totalInr}</span>
+          </div>
           </div>
           </div>
           
           <div class="pricing-body">
           <ul class="list-item">
-            <li class="free-domain" style="display: none; color: #000; font-weight: bold;">Free Domain</li>
-            <li style="color: #000; font-weight: bold;">3 Websites</li>
-            <li style="color: #000; font-weight: bold;">10 GB SSD</li>
-            <li style="color: #000; font-weight: bold;">100 GB Bandwidth</li>
-            <li style="color: #000; font-weight: bold;">6 MySql Database</li>
-            <li style="color: #000; font-weight: bold;">3 Subdomains</li>
-            <li style="color: #000; font-weight: bold;">Bitninja Security</li>
-            <li style="color: #000; font-weight: bold;">Free JetBackup</li>
-            <li style="color: #000; font-weight: bold;">SSL Included</li>
+            <li class="free-domain" style="display: list-item; color: #16a34a; font-weight: bold;">
+              <i class="ri-checkbox-circle-fill me-1"></i> 1 Domain FREE (1st Year)
+            </li>
+            <li style="color: #000; font-weight: bold;">5 Websites</li>
+            <li style="color: #000; font-weight: bold;">15 GB SSD Storage</li>
+            <li style="color: #000; font-weight: bold;">150 GB Monthly Bandwidth</li>
+            <li style="color: #000; font-weight: bold;">5 Email Accounts (1 GB each)</li>
+            <li style="color: #000; font-weight: bold;">10 Databases &amp; 15 Subdomains</li>
+            <li style="color: #000; font-weight: bold;">Free SSL Certificates (All Sites)</li>
+            <li style="color: #000; font-weight: bold;">WordPress + Softaculous 1-Click</li>
+            <li style="color: #000; font-weight: bold;">LiteSpeed Server</li>
+            <li style="color: #000; font-weight: bold;">Imunify360 Server Security</li>
+            <li style="color: #000; font-weight: bold;">Daily Backups (3-Day Retention)*</li>
           </ul>
           </div>
           
@@ -355,27 +399,51 @@ const sharedHostingFaqCategories = [
           <h3 class="title">Elite</h3>
           
           <div class="price-wrap">
-          <div class="monthly-pricing" style="display: block;"><span class="amount" data-inr={plans.elite.pricing.monthly.inr} data-usd={plans.elite.pricing.monthly.usd}>{plans.elite.pricing.monthly.inr}</span> <span class="duration">/monthly</span></div>
+          <div class="biennial-pricing" style="display: block;">
+            <span class="amount" data-inr={plans.elite.pricing.biennial?.inr} data-usd={plans.elite.pricing.biennial?.usd}>{plans.elite.pricing.biennial?.inr}</span>
+            <span class="duration">/month</span>
+            <span class="discount-badge d-block small font-weight-bold mt-1" style="color: #ff501a;">Save 50% compared with monthly</span>
+            <span class="billed-total d-block text-muted small mt-1">{plans.elite.pricing.biennial?.totalInr}</span>
+            <span class="free-domain d-block text-success font-weight-bold small mt-1">{plans.elite.pricing.biennial?.freeDomainNote}</span>
+          </div>
+
+          <div class="monthly-pricing" style="display: none;">
+            <span class="amount" data-inr={plans.elite.pricing.monthly.inr} data-usd={plans.elite.pricing.monthly.usd}>{plans.elite.pricing.monthly.inr}</span>
+            <span class="duration">/month</span>
+            <span class="billed-total d-block text-muted small mt-1">{plans.elite.pricing.monthly.totalInr}</span>
+          </div>
           
-          <div class="quarterly-pricing" style="display: none;"><span class="amount" data-inr={plans.elite.pricing.quarterly.inr} data-usd={plans.elite.pricing.quarterly.usd}>{plans.elite.pricing.quarterly.inr}</span> <span class="duration">/quarterly</span></div>
+          <div class="semiannual-pricing" style="display: none;">
+            <span class="amount" data-inr={plans.elite.pricing.semiannual?.inr} data-usd={plans.elite.pricing.semiannual?.usd}>{plans.elite.pricing.semiannual?.inr}</span>
+            <span class="duration">/month</span>
+            <span class="billed-total d-block text-muted small mt-1">{plans.elite.pricing.semiannual?.totalInr}</span>
+          </div>
           
-          <div class="semiannual-pricing" style="display: none;"><span class="amount" data-inr={plans.elite.pricing.semiannual.inr} data-usd={plans.elite.pricing.semiannual.usd}>{plans.elite.pricing.semiannual.inr}</span> <span class="duration">/semiannual</span></div>
-          
-          <div class="annual-pricing" style="display: none;"><span class="amount" data-inr={plans.elite.pricing.annual.inr} data-usd={plans.elite.pricing.annual.usd}>{plans.elite.pricing.annual.inr}</span> <span class="duration">/annual</span> <span class="free-domain">+ Free Domain</span></div>
+          <div class="annual-pricing" style="display: none;">
+            <span class="amount" data-inr={plans.elite.pricing.annual.inr} data-usd={plans.elite.pricing.annual.usd}>{plans.elite.pricing.annual.inr}</span>
+            <span class="duration">/month</span>
+            <span class="billed-total d-block text-muted small mt-1">{plans.elite.pricing.annual.totalInr}</span>
+          </div>
           </div>
           </div>
           
           <div class="pricing-body">
           <ul class="list-item">
-            <li class="free-domain" style="display: none; color: #000; font-weight: bold;">Free Domain</li>
-            <li style="color: #000; font-weight: bold;">10 Websites</li>
-            <li style="color: #000; font-weight: bold;">25 GB SSD</li>
-            <li style="color: #000; font-weight: bold;">250 GB Bandwidth</li>
-            <li style="color: #000; font-weight: bold;">20 MySql Database</li>
-            <li style="color: #000; font-weight: bold;">10 Subdomains</li>
-            <li style="color: #000; font-weight: bold;">Bitninja Security</li>
-            <li style="color: #000; font-weight: bold;">Free JetBackup</li>
-            <li style="color: #000; font-weight: bold;">SSL Included</li>
+            <li class="free-domain" style="display: list-item; color: #16a34a; font-weight: bold;">
+              <i class="ri-checkbox-circle-fill me-1"></i> 1 Domain FREE (1st Year)
+            </li>
+            <li style="color: #000; font-weight: bold;">20 Websites</li>
+            <li style="color: #000; font-weight: bold;">50 GB NVMe Storage</li>
+            <li style="color: #000; font-weight: bold;">500 GB Monthly Bandwidth</li>
+            <li style="color: #000; font-weight: bold;">20 Email Accounts (1 GB each)</li>
+            <li style="color: #000; font-weight: bold;">40 Databases &amp; 50 Subdomains</li>
+            <li style="color: #000; font-weight: bold;">Free SSL Certificates (All Sites)</li>
+            <li style="color: #000; font-weight: bold;">WordPress + Softaculous 1-Click</li>
+            <li style="color: #000; font-weight: bold;">LiteSpeed Server</li>
+            <li style="color: #000; font-weight: bold;">Imunify360 Server Security</li>
+            <li style="color: #000; font-weight: bold;">Daily Backups (3-Day Retention)*</li>
+            <li style="color: #000; font-weight: bold;">Free Migration Included</li>
+            <li style="color: #000; font-weight: bold;">Standard Hosting Support</li>
           </ul>
           </div>
           
@@ -384,7 +452,14 @@ const sharedHostingFaqCategories = [
           </div>
           </div>
           
-          <div class="section-title text-start" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800"><span class="pre-title">&quot;Only Annual Plans are eligible for free domain names. &quot;</span></div>
+          <div class="pricing-disclaimer-note text-center mt-5" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+            <div class="d-inline-flex flex-wrap align-items-center justify-content-center gap-2 p-3 px-4 rounded-pill" style="background: rgba(255, 80, 26, 0.06); border: 1px solid rgba(255, 80, 26, 0.2);">
+              <i class="ri-information-line text-warning font-weight-bold" style="color: #ff501a !important; font-size: 18px;"></i>
+              <span class="small" style="color: #4b5563 !important; font-size: 13px; font-weight: 500;">
+                <strong style="color: #ff501a;">Special Offer:</strong> 1 Free domain registration (.shop, .site, .fun, .sbs, .space) included with 2-Year plans for the first year. Domain renewal charged separately from year two. All prices exclude applicable taxes.
+              </span>
+            </div>
+          </div>
           </div>
           </div>
           <script>
@@ -436,8 +511,8 @@ const sharedHostingFaqCategories = [
                     </div>
                     
                     <!-- Card 1: LiteSpeed Turbo NVMe Hosting -->
-                    <div class="col-lg-4 col-md-6 col-12" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
-                        <div class="service-card service-card-3 text-left shape-bg-1 flow-enhanced-card">
+                    <div class="col-lg-4 col-md-6 col-12 d-flex" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+                        <div class="service-card service-card-3 text-left flow-enhanced-card w-100">
                             <span class="card-flow-num" aria-hidden="true">01</span>
                             <div class="card-shimmer-sheen" aria-hidden="true"></div>
                             <div class="inner">
@@ -449,14 +524,17 @@ const sharedHostingFaqCategories = [
                                 <div class="content">
                                     <h6 class="title">LiteSpeed Turbo Hosting</h6>
                                     <p class="description">Enterprise LiteSpeed Web Server with built-in LSCache and pure NVMe SSDs delivers 10x faster dynamic PHP loading and instant page delivery.</p>
+                                    <div class="card-feature-tag">
+                                        <i class="ri-flashlight-line"></i> LiteSpeed Turbo
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Card 2: Professional Business Email -->
-                    <div class="col-lg-4 col-md-6 col-12" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
-                        <div class="service-card service-card-3 text-left shape-bg-2 flow-enhanced-card">
+                    <div class="col-lg-4 col-md-6 col-12 d-flex" data-sal-delay="200" data-sal="slide-up" data-sal-duration="800">
+                        <div class="service-card service-card-3 text-left flow-enhanced-card w-100">
                             <span class="card-flow-num" aria-hidden="true">02</span>
                             <div class="card-shimmer-sheen" aria-hidden="true"></div>
                             <div class="inner">
@@ -468,14 +546,17 @@ const sharedHostingFaqCategories = [
                                 <div class="content">
                                     <h6 class="title">Professional Email Included</h6>
                                     <p class="description">Create custom @yourdomain.com inboxes with responsive Webmail, IMAP/POP3 mobile sync, forwarders, autoresponders, and automated anti-spam.</p>
+                                    <div class="card-feature-tag">
+                                        <i class="ri-mail-check-line"></i> Free Inboxes Included
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                    
                     <!-- Card 3: Genuine cPanel & 1-Click Apps -->
-                    <div class="col-lg-4 col-md-6 col-12" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
-                        <div class="service-card service-card-3 text-left shape-bg-1 flow-enhanced-card">
+                    <div class="col-lg-4 col-md-6 col-12 d-flex" data-sal-delay="250" data-sal="slide-up" data-sal-duration="800">
+                        <div class="service-card service-card-3 text-left flow-enhanced-card w-100">
                             <span class="card-flow-num" aria-hidden="true">03</span>
                             <div class="card-shimmer-sheen" aria-hidden="true"></div>
                             <div class="inner">
@@ -487,6 +568,9 @@ const sharedHostingFaqCategories = [
                                 <div class="content">
                                     <h6 class="title">Official cPanel &amp; Softaculous</h6>
                                     <p class="description">Manage your entire hosting environment effortlessly with industry-standard cPanel, MariaDB databases, File Manager, and 400+ 1-click app installs.</p>
+                                    <div class="card-feature-tag">
+                                        <i class="ri-dashboard-line"></i> Genuine cPanel
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1139,15 +1223,58 @@ const sharedHostingFaqCategories = [
     transform: rotate(25deg) translateY(120%);
   }
 
-  /* Icon Spring Transition */
+  /* Icon Spring Transition & Modern Rounded Styling */
   .flow-enhanced-card .inner .icon span {
-    transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), 
-                box-shadow 0.4s ease !important;
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 14px !important;
+    background: rgba(255, 80, 26, 0.08) !important;
+    border: 1px solid rgba(255, 80, 26, 0.2) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  }
+
+  .flow-enhanced-card .inner .icon span i {
+    font-size: 26px !important;
+    color: #ff501a !important;
+    line-height: 1 !important;
+    transition: color 0.3s ease !important;
   }
 
   .flow-enhanced-card:hover .inner .icon span {
-    transform: scale(1.14) rotate(4deg);
-    box-shadow: 0 10px 22px rgba(255, 80, 26, 0.28);
+    background: #ff501a !important;
+    border-color: #ff501a !important;
+    transform: scale(1.08) rotate(4deg) !important;
+    box-shadow: 0 10px 24px rgba(255, 80, 26, 0.35) !important;
+  }
+
+  .flow-enhanced-card:hover .inner .icon span i {
+    color: #ffffff !important;
+  }
+
+  /* Card Feature Tag (Aligned to Bottom) */
+  .card-feature-tag {
+    margin-top: 18px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    font-size: 12.5px !important;
+    font-weight: 700 !important;
+    color: #ff501a !important;
+    background: rgba(255, 80, 26, 0.06) !important;
+    border: 1px solid rgba(255, 80, 26, 0.16) !important;
+    padding: 6px 14px !important;
+    border-radius: 9999px !important;
+    width: fit-content !important;
+    transition: all 0.25s ease !important;
+  }
+
+  .flow-enhanced-card:hover .card-feature-tag {
+    background: rgba(255, 80, 26, 0.12) !important;
+    border-color: rgba(255, 80, 26, 0.3) !important;
   }
 
   /* ════════════════════════════════════════════════════════════════

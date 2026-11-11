@@ -1746,7 +1746,7 @@
 <!-- Interactive Script for Softaculous Showcase & Live Simulation -->
 <script>
   function initSoftaculousShowcase() {
-    const appsData = {
+    const appsData: Record<string, any> = {
       woocommerce: {
         title: "WooCommerce",
         badge: "SHOPPING CART",
@@ -1895,15 +1895,14 @@
     const spotlightLogoWrap = document.getElementById("spotlightLogoWrap");
     const destUrl = document.getElementById("destUrl");
 
-    const runBtn = document.getElementById("runSimulationBtn");
-    const resetBtn = document.getElementById("resetSimulationBtn");
+    const runBtn = document.getElementById("runSimulationBtn") as HTMLButtonElement | null;
+    const resetBtn = document.getElementById("resetSimulationBtn") as HTMLButtonElement | null;
     const progressFill = document.getElementById("progressFill");
     const progressPercent = document.getElementById("progressPercent");
     const progressStepText = document.getElementById("progressStepText");
-    const terminalLogs = document.getElementById("terminalLogs");
     const terminalStatusBadge = document.getElementById("terminalStatusBadge");
 
-    function selectApp(appId) {
+    function selectApp(appId: string) {
       const app = appsData[appId];
       if (!app) return;
       activeAppKey = appId;

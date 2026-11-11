@@ -82,6 +82,8 @@ const tldFaqCategories = [
   { id: "payment-methods", label: "Payment Methods" },
   { id: "lifecycle-renewal", label: "Lifecycle & Renewal" }
 ];
+
+const tldFaqItems = tldFaqs.map((item, idx) => ({ id: `tld-faq-${idx}`, ...item }));
 ---
 
 <Layout 
@@ -618,7 +620,7 @@ const tldFaqCategories = [
 
   <!-- Block 6: Domain FAQs (Reused FaqBlock Component) -->
   <FaqBlock 
-    items={tldFaqs} 
+    items={tldFaqItems} 
     categories={tldFaqCategories}
     preTitle="Got Questions?" 
     title="Frequently Asked Questions About Domain Pricing" 

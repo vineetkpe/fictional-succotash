@@ -728,7 +728,7 @@ const plans = sharedHosting.plans;
                         <ul>
                             <li class="nav-item">
                                 <button
-                                    class="nav-link active"
+                                    class="nav-link"
                                     id="monthly-plan-btn"
                                     onclick="
                         document.querySelectorAll('.pricing-billing-duration .nav-link')
@@ -737,20 +737,6 @@ const plans = sharedHosting.plans;
                         updatePricing('monthly');
                         "
                                     type="button">Monthly</button
-                                >
-                            </li>
-
-                            <li class="nav-item">
-                                <button
-                                    class="nav-link"
-                                    id="quarterly-plan-btn"
-                                    onclick="
-                        document.querySelectorAll('.pricing-billing-duration .nav-link')
-                        .forEach(btn=>btn.classList.remove('active'));
-                        this.classList.add('active');
-                        updatePricing('quarterly');
-                        "
-                                    type="button">Quarterly</button
                                 >
                             </li>
 
@@ -781,6 +767,20 @@ const plans = sharedHosting.plans;
                                     type="button">Annual</button
                                 >
                             </li>
+
+                            <li class="nav-item">
+                                <button
+                                    class="nav-link active"
+                                    id="biennial-plan-btn"
+                                    onclick="
+                        document.querySelectorAll('.pricing-billing-duration .nav-link')
+                        .forEach(btn=>btn.classList.remove('active'));
+                        this.classList.add('active');
+                        updatePricing('biennial');
+                        "
+                                    type="button">2 Years <span class="badge bg-warning text-dark ms-1" style="font-size: 10px; padding: 2px 6px; border-radius: 4px;">Best Value</span></button
+                                >
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -800,35 +800,33 @@ const plans = sharedHosting.plans;
 
                             <div class="price-wrap">
                                 <div
-                                    class="monthly-pricing"
+                                    class="biennial-pricing"
                                     style="display: block;"
                                 >
                                     <span
                                         class="amount"
-                                        data-inr={plans.basic.pricing.monthly
-                                            .inr}
-                                        data-usd={plans.basic.pricing.monthly
-                                            .usd}
-                                        >{plans.basic.pricing.monthly.inr}</span
+                                        data-inr={plans.basic.pricing.biennial?.inr}
+                                        data-usd={plans.basic.pricing.biennial?.usd}
+                                        >{plans.basic.pricing.biennial?.inr}</span
                                     >
-                                    <span class="duration">/monthly</span>
+                                    <span class="duration">/month</span>
+                                    <span class="discount-badge d-block small font-weight-bold mt-1" style="color: #ff501a;">Save 54% compared with monthly</span>
+                                    <span class="billed-total d-block text-muted small mt-1">{plans.basic.pricing.biennial?.totalInr}</span>
+                                    <span class="free-domain d-block text-success font-weight-bold small mt-1">{plans.basic.pricing.biennial?.freeDomainNote}</span>
                                 </div>
 
                                 <div
-                                    class="quarterly-pricing"
+                                    class="monthly-pricing"
                                     style="display: none;"
                                 >
                                     <span
                                         class="amount"
-                                        data-inr={plans.basic.pricing.quarterly
-                                            .inr}
-                                        data-usd={plans.basic.pricing.quarterly
-                                            .usd}
-                                        >{
-                                            plans.basic.pricing.quarterly.inr
-                                        }</span
+                                        data-inr={plans.basic.pricing.monthly.inr}
+                                        data-usd={plans.basic.pricing.monthly.usd}
+                                        >{plans.basic.pricing.monthly.inr}</span
                                     >
-                                    <span class="duration">/quarterly</span>
+                                    <span class="duration">/month</span>
+                                    <span class="billed-total d-block text-muted small mt-1">{plans.basic.pricing.monthly.totalInr}</span>
                                 </div>
 
                                 <div
@@ -837,15 +835,12 @@ const plans = sharedHosting.plans;
                                 >
                                     <span
                                         class="amount"
-                                        data-inr={plans.basic.pricing.semiannual
-                                            .inr}
-                                        data-usd={plans.basic.pricing.semiannual
-                                            .usd}
-                                        >{
-                                            plans.basic.pricing.semiannual.inr
-                                        }</span
+                                        data-inr={plans.basic.pricing.semiannual?.inr}
+                                        data-usd={plans.basic.pricing.semiannual?.usd}
+                                        >{plans.basic.pricing.semiannual?.inr}</span
                                     >
-                                    <span class="duration">/semiannual</span>
+                                    <span class="duration">/month</span>
+                                    <span class="billed-total d-block text-muted small mt-1">{plans.basic.pricing.semiannual?.totalInr}</span>
                                 </div>
 
                                 <div
@@ -854,13 +849,12 @@ const plans = sharedHosting.plans;
                                 >
                                     <span
                                         class="amount"
-                                        data-inr={plans.basic.pricing.annual
-                                            .inr}
-                                        data-usd={plans.basic.pricing.annual
-                                            .usd}
+                                        data-inr={plans.basic.pricing.annual.inr}
+                                        data-usd={plans.basic.pricing.annual.usd}
                                         >{plans.basic.pricing.annual.inr}</span
                                     >
-                                    <span class="duration">/annual</span>
+                                    <span class="duration">/month</span>
+                                    <span class="billed-total d-block text-muted small mt-1">{plans.basic.pricing.annual.totalInr}</span>
                                 </div>
                             </div>
                         </div>
@@ -869,33 +863,39 @@ const plans = sharedHosting.plans;
                             <ul class="list-item">
                                 <li
                                     class="free-domain"
-                                    style="display: none; color: #000; font-weight: bold;"
+                                    style="display: list-item; color: #16a34a; font-weight: bold;"
                                 >
-                                    Free Domain
+                                    <i class="ri-checkbox-circle-fill me-1"></i> 1 Domain FREE (1st Year)
                                 </li>
                                 <li style="color: #000; font-weight: bold;">
                                     1 Website
                                 </li>
                                 <li style="color: #000; font-weight: bold;">
-                                    4 GB SSD
+                                    5 GB SSD Storage
                                 </li>
                                 <li style="color: #000; font-weight: bold;">
-                                    40 GB Bandwidth
+                                    50 GB Monthly Bandwidth
                                 </li>
                                 <li style="color: #000; font-weight: bold;">
-                                    2 MySql Database
+                                    1 Email Account (500 MB)
                                 </li>
                                 <li style="color: #000; font-weight: bold;">
-                                    1 Subdomain
+                                    2 Databases &amp; 5 Subdomains
                                 </li>
                                 <li style="color: #000; font-weight: bold;">
-                                    Bitninja Security
+                                    Free SSL Certificate
                                 </li>
                                 <li style="color: #000; font-weight: bold;">
-                                    Free JetBackup
+                                    One-Click WordPress Installation
                                 </li>
                                 <li style="color: #000; font-weight: bold;">
-                                    SSL Included
+                                    Daily Backups (3-Day Retention)*
+                                </li>
+                                <li style="color: #000; font-weight: bold;">
+                                    1 Standard Website Migration
+                                </li>
+                                <li style="color: #000; font-weight: bold;">
+                                    Standard Hosting Support
                                 </li>
                             </ul>
                         </div>
@@ -927,37 +927,33 @@ const plans = sharedHosting.plans;
 
                             <div class="price-wrap">
                                 <div
-                                    class="monthly-pricing"
+                                    class="biennial-pricing"
                                     style="display: block;"
                                 >
                                     <span
                                         class="amount"
-                                        data-inr={plans.starter.pricing.monthly
-                                            .inr}
-                                        data-usd={plans.starter.pricing.monthly
-                                            .usd}
-                                        >{
-                                            plans.starter.pricing.monthly.inr
-                                        }</span
+                                        data-inr={plans.starter.pricing.biennial?.inr}
+                                        data-usd={plans.starter.pricing.biennial?.usd}
+                                        >{plans.starter.pricing.biennial?.inr}</span
                                     >
-                                    <span class="duration">/monthly</span>
+                                    <span class="duration">/month</span>
+                                    <span class="discount-badge d-block small font-weight-bold mt-1" style="color: #ff501a;">Save 52% compared with monthly</span>
+                                    <span class="billed-total d-block text-muted small mt-1">{plans.starter.pricing.biennial?.totalInr}</span>
+                                    <span class="free-domain d-block text-success font-weight-bold small mt-1">{plans.starter.pricing.biennial?.freeDomainNote}</span>
                                 </div>
 
                                 <div
-                                    class="quarterly-pricing"
+                                    class="monthly-pricing"
                                     style="display: none;"
                                 >
                                     <span
                                         class="amount"
-                                        data-inr={plans.starter.pricing
-                                            .quarterly.inr}
-                                        data-usd={plans.starter.pricing
-                                            .quarterly.usd}
-                                        >{
-                                            plans.starter.pricing.quarterly.inr
-                                        }</span
+                                        data-inr={plans.starter.pricing.monthly.inr}
+                                        data-usd={plans.starter.pricing.monthly.usd}
+                                        >{plans.starter.pricing.monthly.inr}</span
                                     >
-                                    <span class="duration">/quarterly</span>
+                                    <span class="duration">/month</span>
+                                    <span class="billed-total d-block text-muted small mt-1">{plans.starter.pricing.monthly.totalInr}</span>
                                 </div>
 
                                 <div
@@ -966,15 +962,12 @@ const plans = sharedHosting.plans;
                                 >
                                     <span
                                         class="amount"
-                                        data-inr={plans.starter.pricing
-                                            .semiannual.inr}
-                                        data-usd={plans.starter.pricing
-                                            .semiannual.usd}
-                                        >{
-                                            plans.starter.pricing.semiannual.inr
-                                        }</span
+                                        data-inr={plans.starter.pricing.semiannual?.inr}
+                                        data-usd={plans.starter.pricing.semiannual?.usd}
+                                        >{plans.starter.pricing.semiannual?.inr}</span
                                     >
-                                    <span class="duration">/semiannual</span>
+                                    <span class="duration">/month</span>
+                                    <span class="billed-total d-block text-muted small mt-1">{plans.starter.pricing.semiannual?.totalInr}</span>
                                 </div>
 
                                 <div
@@ -983,18 +976,12 @@ const plans = sharedHosting.plans;
                                 >
                                     <span
                                         class="amount"
-                                        data-inr={plans.starter.pricing.annual
-                                            .inr}
-                                        data-usd={plans.starter.pricing.annual
-                                            .usd}
-                                        >{
-                                            plans.starter.pricing.annual.inr
-                                        }</span
+                                        data-inr={plans.starter.pricing.annual.inr}
+                                        data-usd={plans.starter.pricing.annual.usd}
+                                        >{plans.starter.pricing.annual.inr}</span
                                     >
-                                    <span class="duration">/annual</span>
-                                    <span class="free-domain"
-                                        >+ Free Domain</span
-                                    >
+                                    <span class="duration">/month</span>
+                                    <span class="billed-total d-block text-muted small mt-1">{plans.starter.pricing.annual.totalInr}</span>
                                 </div>
                             </div>
                         </div>
@@ -1003,33 +990,39 @@ const plans = sharedHosting.plans;
                             <ul class="list-item">
                                 <li
                                     class="free-domain"
-                                    style="display: none; color: #000; font-weight: bold;"
+                                    style="display: list-item; color: #16a34a; font-weight: bold;"
                                 >
-                                    Free Domain
+                                    <i class="ri-checkbox-circle-fill me-1"></i> 1 Domain FREE (1st Year)
                                 </li>
                                 <li style="color: #000; font-weight: bold;">
-                                    3 Websites
+                                    5 Websites
                                 </li>
                                 <li style="color: #000; font-weight: bold;">
-                                    10 GB SSD
+                                    15 GB SSD Storage
                                 </li>
                                 <li style="color: #000; font-weight: bold;">
-                                    100 GB Bandwidth
+                                    150 GB Monthly Bandwidth
                                 </li>
                                 <li style="color: #000; font-weight: bold;">
-                                    6 MySql Database
+                                    5 Email Accounts (1 GB each)
                                 </li>
                                 <li style="color: #000; font-weight: bold;">
-                                    3 Subdomains
+                                    10 Databases &amp; 15 Subdomains
                                 </li>
                                 <li style="color: #000; font-weight: bold;">
-                                    Bitninja Security
+                                    Free SSL Certificates (All Sites)
                                 </li>
                                 <li style="color: #000; font-weight: bold;">
-                                    Free JetBackup
+                                    WordPress + Softaculous 1-Click
                                 </li>
                                 <li style="color: #000; font-weight: bold;">
-                                    SSL Included
+                                    LiteSpeed Server
+                                </li>
+                                <li style="color: #000; font-weight: bold;">
+                                    Imunify360 Server Security
+                                </li>
+                                <li style="color: #000; font-weight: bold;">
+                                    Daily Backups (3-Day Retention)*
                                 </li>
                             </ul>
                         </div>
@@ -1057,35 +1050,33 @@ const plans = sharedHosting.plans;
 
                             <div class="price-wrap">
                                 <div
-                                    class="monthly-pricing"
+                                    class="biennial-pricing"
                                     style="display: block;"
                                 >
                                     <span
                                         class="amount"
-                                        data-inr={plans.elite.pricing.monthly
-                                            .inr}
-                                        data-usd={plans.elite.pricing.monthly
-                                            .usd}
-                                        >{plans.elite.pricing.monthly.inr}</span
+                                        data-inr={plans.elite.pricing.biennial?.inr}
+                                        data-usd={plans.elite.pricing.biennial?.usd}
+                                        >{plans.elite.pricing.biennial?.inr}</span
                                     >
-                                    <span class="duration">/monthly</span>
+                                    <span class="duration">/month</span>
+                                    <span class="discount-badge d-block small font-weight-bold mt-1" style="color: #ff501a;">Save 50% compared with monthly</span>
+                                    <span class="billed-total d-block text-muted small mt-1">{plans.elite.pricing.biennial?.totalInr}</span>
+                                    <span class="free-domain d-block text-success font-weight-bold small mt-1">{plans.elite.pricing.biennial?.freeDomainNote}</span>
                                 </div>
 
                                 <div
-                                    class="quarterly-pricing"
+                                    class="monthly-pricing"
                                     style="display: none;"
                                 >
                                     <span
                                         class="amount"
-                                        data-inr={plans.elite.pricing.quarterly
-                                            .inr}
-                                        data-usd={plans.elite.pricing.quarterly
-                                            .usd}
-                                        >{
-                                            plans.elite.pricing.quarterly.inr
-                                        }</span
+                                        data-inr={plans.elite.pricing.monthly.inr}
+                                        data-usd={plans.elite.pricing.monthly.usd}
+                                        >{plans.elite.pricing.monthly.inr}</span
                                     >
-                                    <span class="duration">/quarterly</span>
+                                    <span class="duration">/month</span>
+                                    <span class="billed-total d-block text-muted small mt-1">{plans.elite.pricing.monthly.totalInr}</span>
                                 </div>
 
                                 <div
@@ -1094,15 +1085,12 @@ const plans = sharedHosting.plans;
                                 >
                                     <span
                                         class="amount"
-                                        data-inr={plans.elite.pricing.semiannual
-                                            .inr}
-                                        data-usd={plans.elite.pricing.semiannual
-                                            .usd}
-                                        >{
-                                            plans.elite.pricing.semiannual.inr
-                                        }</span
+                                        data-inr={plans.elite.pricing.semiannual?.inr}
+                                        data-usd={plans.elite.pricing.semiannual?.usd}
+                                        >{plans.elite.pricing.semiannual?.inr}</span
                                     >
-                                    <span class="duration">/semiannual</span>
+                                    <span class="duration">/month</span>
+                                    <span class="billed-total d-block text-muted small mt-1">{plans.elite.pricing.semiannual?.totalInr}</span>
                                 </div>
 
                                 <div
@@ -1111,16 +1099,12 @@ const plans = sharedHosting.plans;
                                 >
                                     <span
                                         class="amount"
-                                        data-inr={plans.elite.pricing.annual
-                                            .inr}
-                                        data-usd={plans.elite.pricing.annual
-                                            .usd}
+                                        data-inr={plans.elite.pricing.annual.inr}
+                                        data-usd={plans.elite.pricing.annual.usd}
                                         >{plans.elite.pricing.annual.inr}</span
                                     >
-                                    <span class="duration">/annual</span>
-                                    <span class="free-domain"
-                                        >+ Free Domain</span
-                                    >
+                                    <span class="duration">/month</span>
+                                    <span class="billed-total d-block text-muted small mt-1">{plans.elite.pricing.annual.totalInr}</span>
                                 </div>
                             </div>
                         </div>
@@ -1129,33 +1113,45 @@ const plans = sharedHosting.plans;
                             <ul class="list-item">
                                 <li
                                     class="free-domain"
-                                    style="display: none; color: #000; font-weight: bold;"
+                                    style="display: list-item; color: #16a34a; font-weight: bold;"
                                 >
-                                    Free Domain
+                                    <i class="ri-checkbox-circle-fill me-1"></i> 1 Domain FREE (1st Year)
                                 </li>
                                 <li style="color: #000; font-weight: bold;">
-                                    10 Websites
+                                    20 Websites
                                 </li>
                                 <li style="color: #000; font-weight: bold;">
-                                    25 GB SSD
+                                    50 GB NVMe Storage
                                 </li>
                                 <li style="color: #000; font-weight: bold;">
-                                    250 GB Bandwidth
+                                    500 GB Monthly Bandwidth
                                 </li>
                                 <li style="color: #000; font-weight: bold;">
-                                    20 MySql Database
+                                    20 Email Accounts (1 GB each)
                                 </li>
                                 <li style="color: #000; font-weight: bold;">
-                                    10 Subdomains
+                                    40 Databases &amp; 50 Subdomains
                                 </li>
                                 <li style="color: #000; font-weight: bold;">
-                                    Bitninja Security
+                                    Free SSL Certificates (All Sites)
                                 </li>
                                 <li style="color: #000; font-weight: bold;">
-                                    Free JetBackup
+                                    WordPress + Softaculous 1-Click
                                 </li>
                                 <li style="color: #000; font-weight: bold;">
-                                    SSL Included
+                                    LiteSpeed Server
+                                </li>
+                                <li style="color: #000; font-weight: bold;">
+                                    Imunify360 Server Security
+                                </li>
+                                <li style="color: #000; font-weight: bold;">
+                                    Daily Backups (3-Day Retention)*
+                                </li>
+                                <li style="color: #000; font-weight: bold;">
+                                    Free Migration Included
+                                </li>
+                                <li style="color: #000; font-weight: bold;">
+                                    Standard Hosting Support
                                 </li>
                             </ul>
                         </div>
@@ -1171,16 +1167,13 @@ const plans = sharedHosting.plans;
                 </div>
             </div>
 
-            <div
-                class="section-title text-start"
-                data-sal="slide-up"
-                data-sal-delay="150"
-                data-sal-duration="800"
-            >
-                <span class="pre-title"
-                    >&quot;Only Annual Plans are eligible for free domain names.
-                    &quot;</span
-                >
+            <div class="pricing-disclaimer-note text-center mt-5" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
+                <div class="d-inline-flex flex-wrap align-items-center justify-content-center gap-2 p-3 px-4 rounded-pill" style="background: rgba(255, 80, 26, 0.06); border: 1px solid rgba(255, 80, 26, 0.2);">
+                    <i class="ri-information-line text-warning font-weight-bold" style="color: #ff501a !important; font-size: 18px;"></i>
+                    <span class="small" style="color: #4b5563 !important; font-size: 13px; font-weight: 500;">
+                        <strong style="color: #ff501a;">Special Offer:</strong> 1 Free domain registration (.shop, .site, .fun, .sbs, .space) included with 2-Year plans for the first year. Domain renewal charged separately from year two. All prices exclude applicable taxes.
+                    </span>
+                </div>
             </div>
         </div>
     </div>
