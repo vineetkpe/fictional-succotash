@@ -312,7 +312,7 @@ const faqSchema = {
                 <li style="color: #000; font-weight: bold;">LiteSpeed Server + configured LiteSpeed Cache</li>
                 <li style="color: #000; font-weight: bold;">Imunify360 security protection</li>
                 <li style="color: #000; font-weight: bold;">Daily backups — 3-day retention</li>
-                <li style="color: #16a34a; font-weight: bold;">1 domain free for 1 year — two-year plan only</li>
+                <li class="free-domain" style="color: #16a34a; font-weight: bold;">1 domain free for 1 year — two-year plan only</li>
               </ul>
             </div>
             <div class="pricing-btn">
@@ -373,7 +373,7 @@ const faqSchema = {
                 <li style="color: #000; font-weight: bold;">LiteSpeed Server + configured LiteSpeed Cache</li>
                 <li style="color: #000; font-weight: bold;">Imunify360 security protection</li>
                 <li style="color: #000; font-weight: bold;">Daily backups — 7-day retention</li>
-                <li style="color: #16a34a; font-weight: bold;">1 domain free for 1 year — two-year plan only</li>
+                <li class="free-domain" style="color: #16a34a; font-weight: bold;">1 domain free for 1 year — two-year plan only</li>
               </ul>
             </div>
             <div class="pricing-btn">
@@ -433,7 +433,7 @@ const faqSchema = {
                 <li style="color: #000; font-weight: bold;">LiteSpeed Server + configured LiteSpeed Cache</li>
                 <li style="color: #000; font-weight: bold;">Imunify360 security protection</li>
                 <li style="color: #000; font-weight: bold;">Daily backups — 7-day retention</li>
-                <li style="color: #16a34a; font-weight: bold;">1 domain free for 1 year — two-year plan only</li>
+                <li class="free-domain" style="color: #16a34a; font-weight: bold;">1 domain free for 1 year — two-year plan only</li>
               </ul>
             </div>
             <div class="pricing-btn">
@@ -493,7 +493,7 @@ const faqSchema = {
                 <li style="color: #000; font-weight: bold;">LiteSpeed Server + configured LiteSpeed Cache</li>
                 <li style="color: #000; font-weight: bold;">Imunify360 security protection</li>
                 <li style="color: #000; font-weight: bold;">Daily backups — 14-day retention</li>
-                <li style="color: #16a34a; font-weight: bold;">1 domain free for 1 year — two-year plan only</li>
+                <li class="free-domain" style="color: #16a34a; font-weight: bold;">1 domain free for 1 year — two-year plan only</li>
               </ul>
             </div>
             <div class="pricing-btn">
@@ -1235,34 +1235,7 @@ const faqSchema = {
   document.addEventListener('astro:page-load', initWpStackingMovement);
 </script>
 
-<!-- Multi-Duration Switcher for WordPress Pricing -->
-<script is:inline>
-  function switchWpPricing(plan) {
-    if (window.updatePricing) {
-      window.updatePricing(plan);
-      return;
-    }
-    const plans = ['monthly', 'quarterly', 'semiannual', 'annual'];
-    plans.forEach(p => {
-      document.querySelectorAll('.' + p + '-pricing').forEach(el => {
-        el.style.setProperty('display', 'none', 'important');
-      });
-      const btn = document.getElementById(p + '-plan-btn');
-      if (btn) btn.classList.remove('active');
-    });
-    document.querySelectorAll('.' + plan + '-pricing').forEach(el => {
-      el.style.setProperty('display', 'block', 'important');
-    });
-    const activeBtn = document.getElementById(plan + '-plan-btn');
-    if (activeBtn) activeBtn.classList.add('active');
 
-    const showFreeDomain = (plan === 'semiannual' || plan === 'annual');
-    document.querySelectorAll('.free-domain').forEach(el => {
-      el.style.setProperty('display', showFreeDomain ? 'block' : 'none', 'important');
-    });
-  }
-  window.switchWpPricing = switchWpPricing;
-</script>
 
 <style>
   /* ════════════════════════════════════════════════════════════════

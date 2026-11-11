@@ -67,16 +67,17 @@ export function updatePricing(plan: 'monthly' | 'quarterly' | 'semiannual' | 'an
     }
   });
 
-  // 5. Free domain handling: show eligible banner on 2-year (biennial), teaser hint on other cycles
+  // 5. Free domain handling: show on 2-year (biennial) only
   if (plan === 'biennial') {
     document.querySelectorAll<HTMLElement>('.free-domain, .perk-eligible').forEach((el) => {
-      el.style.display = 'block';
+      if (el.tagName === 'LI') {
+        el.style.display = 'list-item';
+      } else {
+        el.style.display = 'block';
+      }
     });
     document.querySelectorAll<HTMLElement>('.perk-teaser').forEach((el) => {
       el.style.display = 'none';
-    });
-    document.querySelectorAll<HTMLElement>('.list-item .free-domain, .pricing-body .free-domain').forEach((el) => {
-      el.style.display = 'list-item';
     });
   } else {
     document.querySelectorAll<HTMLElement>('.free-domain, .perk-eligible').forEach((el) => {
@@ -142,6 +143,11 @@ if (typeof window !== 'undefined') {
         }
       });
     });
+
+    // Run updatePricing on the initially active plan (defaults to 'biennial')
+    const activeBtn = document.querySelector<HTMLElement>('.pricing-billing-duration .nav-link.active, .pricing-duration-toggle button.active');
+    const initialCycle = activeBtn?.getAttribute('data-cycle') || 'biennial';
+    updatePricing(initialCycle);
   };
 
   if (document.readyState === 'loading') {

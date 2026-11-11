@@ -1763,6 +1763,7 @@ body {
 .pricing-billing-duration ul {
   display: inline-flex;
   align-items: center;
+  flex-wrap: nowrap !important;
   background: rgba(82, 95, 225, 0.08);
   border-radius: 5px;
   padding: 6px;
@@ -1774,12 +1775,14 @@ body {
 
 .pricing-billing-duration ul .nav-item {
   display: inline-flex;
+  flex-shrink: 0;
   float: none;
   margin: 0;
 }
 
 .pricing-billing-duration ul .nav-item .nav-link {
   display: inline-flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
   gap: 6px;
