@@ -69,7 +69,7 @@ export function updatePricing(plan: 'monthly' | 'quarterly' | 'semiannual' | 'an
 
   // 5. Free domain handling: show on 2-year (biennial) only
   if (plan === 'biennial') {
-    document.querySelectorAll<HTMLElement>('.free-domain, .perk-eligible').forEach((el) => {
+    document.querySelectorAll<HTMLElement>('.free-domain, .perk-eligible, .pricing-domain-offer').forEach((el) => {
       if (el.tagName === 'LI') {
         el.style.display = 'list-item';
       } else {
@@ -80,7 +80,7 @@ export function updatePricing(plan: 'monthly' | 'quarterly' | 'semiannual' | 'an
       el.style.display = 'none';
     });
   } else {
-    document.querySelectorAll<HTMLElement>('.free-domain, .perk-eligible').forEach((el) => {
+    document.querySelectorAll<HTMLElement>('.free-domain, .perk-eligible, .pricing-domain-offer').forEach((el) => {
       el.style.display = 'none';
     });
     document.querySelectorAll<HTMLElement>('.perk-teaser').forEach((el) => {

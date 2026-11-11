@@ -210,13 +210,13 @@ const faqSchema = {
   <div class="ace-pricing-area aceorbit-pricing-plan-page ace-section-gap bg-image" id="plans">
     <div class="container aceorbit-animated-shape">
       <div class="row g-4 align-items-center mb-3">
-        <div class="col-lg-5 col-md-12">
-          <div class="section-title text-start" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
+        <div class="col-xl-4 col-lg-4 col-md-12">
+          <div class="section-title text-start mb-0" data-sal-delay="150" data-sal="slide-up" data-sal-duration="800">
             <span class="pre-title">Pricing Plan</span>
             <h3 class="title mb-0">Choose Your Pricing Plan</h3>
           </div>
         </div>
-        <div class="col-lg-7 col-md-12 text-lg-end text-center mt-3 mt-lg-0">
+        <div class="col-xl-8 col-lg-8 col-md-12 text-lg-end text-center mt-3 mt-lg-0">
           <div class="pricing-billing-duration">
             <ul>
               <li class="nav-item">
@@ -261,7 +261,7 @@ const faqSchema = {
       </div>
 
       <!-- Top Special Offer Banner (Theme Native) -->
-      <div class="pricing-domain-offer" data-sal="slide-up" data-sal-delay="100" data-sal-duration="800">
+      <div class="pricing-domain-offer free-domain" data-sal="slide-up" data-sal-delay="100" data-sal-duration="800">
         <div class="domain-offer-inner">
           <span class="offer-tag">
             <i class="ri-gift-line"></i> FREE DOMAIN
@@ -1514,8 +1514,8 @@ const faqSchema = {
 
   .four-planss .pricing-table.active {
     transform: none !important; /* Overrides style.css translateY(-20px) so card bottoms align */
-    border: 2px solid var(--color-primary, #ff501a) !important;
-    box-shadow: 0 12px 35px rgba(255, 80, 26, 0.16) !important;
+    border: 2px solid var(--color-primary) !important;
+    box-shadow: 0 12px 35px rgba(211, 117, 29, 0.16) !important;
   }
 
   /* Recommended Badge: Floating Pill Centered on Top Border (Never Overlaps Plan Title) */
@@ -1525,12 +1525,12 @@ const faqSchema = {
     left: 50% !important;
     right: auto !important;
     transform: translateX(-50%) !important;
-    background: linear-gradient(135deg, #ff501a 0%, #ff7a00 100%) !important;
+    background: var(--color-primary) !important;
     padding: 4px 18px !important;
     border-radius: 9999px !important;
     height: auto !important;
     line-height: normal !important;
-    box-shadow: 0 4px 14px rgba(255, 80, 26, 0.38) !important;
+    box-shadow: 0 4px 14px rgba(211, 117, 29, 0.38) !important;
     z-index: 10 !important;
     white-space: nowrap !important;
     border: none !important;
@@ -1569,7 +1569,7 @@ const faqSchema = {
     font-size: 38px !important;
     line-height: 1.1 !important;
     font-weight: 800 !important;
-    color: var(--color-primary, #ff501a) !important;
+    color: var(--color-primary) !important;
   }
 
   .four-planss .pricing-table .pricing-header .price-wrap .duration {
@@ -1597,7 +1597,7 @@ const faqSchema = {
 
   .four-planss .pricing-table .pricing-body .list-item li::before {
     top: 3px !important;
-    color: var(--color-primary, #ff501a) !important;
+    color: var(--color-primary) !important;
     font-size: 14px !important;
   }
 
@@ -1615,7 +1615,7 @@ const faqSchema = {
     gap: 8px !important;
     font-size: 14.5px !important;
     font-weight: 700 !important;
-    border-radius: 8px !important;
+    border-radius: 6px !important;
     padding: 0 18px !important;
     transition: all 0.25s ease !important;
     background: #1b1c2b !important;
@@ -1623,32 +1623,19 @@ const faqSchema = {
   }
 
   .four-planss .pricing-table .pricing-btn .ace-btn:hover {
-    background: var(--color-primary, #ff501a) !important;
+    background: var(--color-primary) !important;
     color: #ffffff !important;
   }
 
   .four-planss .pricing-table.active .pricing-btn .ace-btn {
-    background: var(--color-primary, #ff501a) !important;
+    background: var(--color-primary) !important;
     color: #ffffff !important;
-    box-shadow: 0 6px 18px rgba(255, 80, 26, 0.35) !important;
+    box-shadow: 0 6px 18px rgba(211, 117, 29, 0.35) !important;
   }
 
   .four-planss .pricing-table.active .pricing-btn .ace-btn:hover {
-    background: #e04413 !important;
-    box-shadow: 0 8px 22px rgba(255, 80, 26, 0.45) !important;
-  }
-
-  .domain-eligibility-note {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 24px;
-    background: rgba(255, 80, 26, 0.05);
-    border: 1px dashed rgba(255, 80, 26, 0.35);
-    border-radius: 9999px;
-    font-size: 13.5px;
-    color: #475569;
-    font-weight: 500;
+    background: var(--color-dark) !important;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25) !important;
   }
 
   /* Responsive Duration Switcher */
