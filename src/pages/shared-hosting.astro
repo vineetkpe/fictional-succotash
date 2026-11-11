@@ -294,7 +294,7 @@ const sharedHostingFaqCategories = [
                                     data-cycle="biennial"
                                     onclick="updatePricing('biennial');"
                                     type="button"
-                                    aria-pressed="true">2 Years <span class="badge-best-value ms-1">Best value</span></button
+                                    aria-pressed="true">2 Years <span class="badge-best-value ms-1">54% OFF</span></button
                                 >
                             </li>
                         </ul>
@@ -302,7 +302,20 @@ const sharedHostingFaqCategories = [
                 </div>
             </div>
 
-            <div class="row g-5 mt--20">
+            <!-- Top Special Offer Banner (Theme Native) -->
+            <div class="pricing-domain-offer" data-sal="slide-up" data-sal-delay="100" data-sal-duration="800">
+                <div class="domain-offer-inner">
+                    <span class="offer-tag">
+                        <i class="ri-gift-line"></i> FREE DOMAIN
+                    </span>
+                    <div class="offer-content">
+                        <span class="offer-headline"><strong>Special Offer:</strong> 1 Free domain registration (.shop, .site, .fun, .sbs, .space) included with 2-Year plans for the first year.</span>
+                        <span class="offer-subtext">Domain renewal charged separately from year two. Applicable taxes extra.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-5">
                 <!-- Basic Plan -->
                 <div
                     class="col-xl-4 col-lg-6 col-md-6 col-12"
@@ -327,6 +340,7 @@ const sharedHostingFaqCategories = [
                                     >
                                     <span class="duration">/month</span>
                                     <div class="pricing-billing-terms">
+                                        <span class="discount-badge">{plans.basic.pricing.biennial?.discount}</span>
                                         <span class="billed-total">{plans.basic.pricing.biennial?.totalInr}</span>
                                         <span class="renewal-note">{plans.basic.pricing.biennial?.renewalInr}</span>
                                     </div>
@@ -459,6 +473,7 @@ const sharedHostingFaqCategories = [
                                     >
                                     <span class="duration">/month</span>
                                     <div class="pricing-billing-terms">
+                                        <span class="discount-badge">{plans.starter.pricing.biennial?.discount}</span>
                                         <span class="billed-total">{plans.starter.pricing.biennial?.totalInr}</span>
                                         <span class="renewal-note">{plans.starter.pricing.biennial?.renewalInr}</span>
                                     </div>
@@ -587,6 +602,7 @@ const sharedHostingFaqCategories = [
                                     >
                                     <span class="duration">/month</span>
                                     <div class="pricing-billing-terms">
+                                        <span class="discount-badge">{plans.elite.pricing.biennial?.discount}</span>
                                         <span class="billed-total">{plans.elite.pricing.biennial?.totalInr}</span>
                                         <span class="renewal-note">{plans.elite.pricing.biennial?.renewalInr}</span>
                                     </div>
@@ -689,15 +705,6 @@ const sharedHostingFaqCategories = [
                             >
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="pricing-disclaimer-note text-center mt-5" data-sal="slide-up" data-sal-delay="150" data-sal-duration="800">
-                <div class="d-inline-flex flex-wrap align-items-center justify-content-center gap-2 p-3 px-4 rounded-pill" style="background: rgba(255, 80, 26, 0.06); border: 1px solid rgba(255, 80, 26, 0.2);">
-                    <i class="ri-information-line text-warning font-weight-bold" style="color: #ff501a !important; font-size: 18px;"></i>
-                    <span class="small" style="color: #4b5563 !important; font-size: 13px; font-weight: 500;">
-                        <strong style="color: #ff501a;">Special Offer:</strong> 1 Free domain registration (.shop, .site, .fun, .sbs, .space) included with 2-Year plans for the first year. Domain renewal charged separately from year two. All prices exclude applicable taxes.
-                    </span>
                 </div>
             </div>
 
