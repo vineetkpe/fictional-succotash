@@ -119,8 +119,7 @@ export const sharedHosting = {
         "WordPress + Softaculous installer",
         "2 databases + 5 subdomains",
         "Daily backups — 3-day retention",
-        "1 standard website migration",
-        "1 domain free for 1 year — two-year plan only"
+        "1 standard website migration"
       ],
       pricing: {
         monthly: {
@@ -211,8 +210,7 @@ export const sharedHosting = {
         "WordPress + Softaculous installer",
         "LiteSpeed Server",
         "Imunify360 security protection",
-        "Daily backups — 3-day retention",
-        "1 domain free for 1 year — two-year plan only"
+        "Daily backups — 3-day retention"
       ],
       pricing: {
         monthly: {
@@ -301,8 +299,7 @@ export const sharedHosting = {
         "WordPress + Softaculous installer",
         "LiteSpeed Server",
         "Imunify360 security protection",
-        "Daily backups — 3-day retention",
-        "1 domain free for 1 year — two-year plan only"
+        "Daily backups — 3-day retention"
       ],
       pricing: {
         monthly: {
@@ -400,8 +397,7 @@ export const wordpressHosting = {
         "WordPress + Softaculous with automatic core updates",
         "LiteSpeed Server + configured LiteSpeed Cache",
         "Imunify360 security protection",
-        "Daily backups — 3-day retention",
-        "1 domain free for 1 year — two-year plan only"
+        "Daily backups — 3-day retention"
       ],
       pricing: {
         monthly: {
@@ -492,8 +488,7 @@ export const wordpressHosting = {
         "WordPress + Softaculous with automatic core updates",
         "LiteSpeed Server + configured LiteSpeed Cache",
         "Imunify360 security protection",
-        "Daily backups — 7-day retention",
-        "1 domain free for 1 year — two-year plan only"
+        "Daily backups — 7-day retention"
       ],
       pricing: {
         monthly: {
@@ -582,8 +577,7 @@ export const wordpressHosting = {
         "WordPress + Softaculous with automatic core updates",
         "LiteSpeed Server + configured LiteSpeed Cache",
         "Imunify360 security protection",
-        "Daily backups — 7-day retention",
-        "1 domain free for 1 year — two-year plan only"
+        "Daily backups — 7-day retention"
       ],
       pricing: {
         monthly: {
@@ -672,8 +666,7 @@ export const wordpressHosting = {
         "WordPress + Softaculous with automatic core updates",
         "LiteSpeed Server + configured LiteSpeed Cache",
         "Imunify360 security protection",
-        "Daily backups — 14-day retention",
-        "1 domain free for 1 year — two-year plan only"
+        "Daily backups — 14-day retention"
       ],
       pricing: {
         monthly: {
