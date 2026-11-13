@@ -393,7 +393,7 @@ export const wordpressHosting = {
       id: "starter",
       name: "WordPress Starter",
       tagline: "For one small WordPress website",
-      orderUrl: "https://hostamble.com/dash/store/wordpresshosting/starter",
+      orderUrl: "https://hostamble.com/dash/cart.php?a=add&pid=36",
       features: [
         "1 WordPress website",
         "5 GB NVMe SSD storage",
@@ -420,7 +420,7 @@ export const wordpressHosting = {
           renewalPaymentUsd: "$2.39/month",
           renewalInr: "Renews at ₹199/month",
           renewalUsd: "Renews at $2.39/month",
-          cartUrl: "https://hostamble.com/dash/store/wordpresshosting/starter?billingcycle=monthly",
+          cartUrl: "https://hostamble.com/dash/cart.php?a=add&pid=36&billingcycle=monthly",
           freeDomain: false
         },
         semiannual: {
@@ -438,7 +438,7 @@ export const wordpressHosting = {
           renewalPaymentUsd: "$10.74 every 6 months",
           renewalInr: "Renews at ₹894 / 6 mos (₹149/mo)",
           renewalUsd: "Renews at $10.74 / 6 mos ($1.79/mo)",
-          cartUrl: "https://hostamble.com/dash/store/wordpresshosting/starter?billingcycle=semiannually",
+          cartUrl: "https://hostamble.com/dash/cart.php?a=add&pid=36&billingcycle=semiannually",
           freeDomain: false
         },
         annual: {
@@ -456,7 +456,7 @@ export const wordpressHosting = {
           renewalPaymentUsd: "$18.60/year",
           renewalInr: "Renews at ₹1,548/yr (₹129/mo)",
           renewalUsd: "Renews at $18.60/yr ($1.55/mo)",
-          cartUrl: "https://hostamble.com/dash/store/wordpresshosting/starter?billingcycle=annually",
+          cartUrl: "https://hostamble.com/dash/cart.php?a=add&pid=36&billingcycle=annually",
           freeDomain: false
         },
         biennial: {
@@ -474,7 +474,7 @@ export const wordpressHosting = {
           renewalPaymentUsd: "$28.56 every 2 years",
           renewalInr: "Renews at ₹2,376 (₹99/mo)",
           renewalUsd: "Renews at $28.56 ($1.19/mo)",
-          cartUrl: "https://hostamble.com/dash/store/wordpresshosting/starter?billingcycle=biennially",
+          cartUrl: "https://hostamble.com/dash/cart.php?a=add&pid=36&billingcycle=biennially",
           freeDomain: true,
           freeDomainNote: "1 domain free for 1 year — two-year plan only"
         }
@@ -486,7 +486,7 @@ export const wordpressHosting = {
       badge: "Recommended",
       isPopular: true,
       tagline: "For customers managing several small websites",
-      orderUrl: "https://hostamble.com/dash/store/wordpresshosting/essential",
+      orderUrl: "https://hostamble.com/dash/cart.php?a=add&pid=37",
       features: [
         "3 WordPress websites",
         "10 GB NVMe SSD storage",
@@ -513,7 +513,7 @@ export const wordpressHosting = {
           renewalPaymentUsd: "$3.99/month",
           renewalInr: "Renews at ₹329/month",
           renewalUsd: "Renews at $3.99/month",
-          cartUrl: "https://hostamble.com/dash/store/wordpresshosting/essential?billingcycle=monthly",
+          cartUrl: "https://hostamble.com/dash/cart.php?a=add&pid=37&billingcycle=monthly",
           freeDomain: false
         },
         semiannual: {
@@ -531,7 +531,7 @@ export const wordpressHosting = {
           renewalPaymentUsd: "$17.94 every 6 months",
           renewalInr: "Renews at ₹1,494 / 6 mos (₹249/mo)",
           renewalUsd: "Renews at $17.94 / 6 mos ($2.99/mo)",
-          cartUrl: "https://hostamble.com/dash/store/wordpresshosting/essential?billingcycle=semiannually",
+          cartUrl: "https://hostamble.com/dash/cart.php?a=add&pid=37&billingcycle=semiannually",
           freeDomain: false
         },
         annual: {
@@ -549,7 +549,7 @@ export const wordpressHosting = {
           renewalPaymentUsd: "$28.68/year",
           renewalInr: "Renews at ₹2,388/yr (₹199/mo)",
           renewalUsd: "Renews at $28.68/yr ($2.39/mo)",
-          cartUrl: "https://hostamble.com/dash/store/wordpresshosting/essential?billingcycle=annually",
+          cartUrl: "https://hostamble.com/dash/cart.php?a=add&pid=37&billingcycle=annually",
           freeDomain: false
         },
         biennial: {
@@ -567,7 +567,7 @@ export const wordpressHosting = {
           renewalPaymentUsd: "$45.36 every 2 years",
           renewalInr: "Renews at ₹3,816 (₹159/mo)",
           renewalUsd: "Renews at $45.36 ($1.89/mo)",
-          cartUrl: "https://hostamble.com/dash/store/wordpresshosting/essential?billingcycle=biennially",
+          cartUrl: "https://hostamble.com/dash/cart.php?a=add&pid=37&billingcycle=biennially",
           freeDomain: true,
           freeDomainNote: "1 domain free for 1 year — two-year plan only"
         }
@@ -577,7 +577,7 @@ export const wordpressHosting = {
       id: "growth",
       name: "WordPress Growth",
       tagline: "For fast-growing WordPress websites",
-      orderUrl: "https://hostamble.com/dash/store/wordpresshosting/growth",
+      orderUrl: "https://hostamble.com/dash/cart.php?a=add&pid=38",
       features: [
         "10 WordPress websites",
         "25 GB NVMe SSD storage",
@@ -604,7 +604,7 @@ export const wordpressHosting = {
           renewalPaymentUsd: "$5.39/month",
           renewalInr: "Renews at ₹449/month",
           renewalUsd: "Renews at $5.39/month",
-          cartUrl: "https://hostamble.com/dash/store/wordpresshosting/growth?billingcycle=monthly",
+          cartUrl: "https://hostamble.com/dash/cart.php?a=add&pid=38&billingcycle=monthly",
           freeDomain: false
         },
         semiannual: {
@@ -622,7 +622,7 @@ export const wordpressHosting = {
           renewalPaymentUsd: "$25.14 every 6 months",
           renewalInr: "Renews at ₹2,094 / 6 mos (₹349/mo)",
           renewalUsd: "Renews at $25.14 / 6 mos ($4.19/mo)",
-          cartUrl: "https://hostamble.com/dash/store/wordpresshosting/growth?billingcycle=semiannually",
+          cartUrl: "https://hostamble.com/dash/cart.php?a=add&pid=38&billingcycle=semiannually",
           freeDomain: false
         },
         annual: {
@@ -640,7 +640,7 @@ export const wordpressHosting = {
           renewalPaymentUsd: "$40.20/year",
           renewalInr: "Renews at ₹3,348/yr (₹279/mo)",
           renewalUsd: "Renews at $40.20/yr ($3.35/mo)",
-          cartUrl: "https://hostamble.com/dash/store/wordpresshosting/growth?billingcycle=annually",
+          cartUrl: "https://hostamble.com/dash/cart.php?a=add&pid=38&billingcycle=annually",
           freeDomain: false
         },
         biennial: {
@@ -658,7 +658,7 @@ export const wordpressHosting = {
           renewalPaymentUsd: "$63.60 every 2 years",
           renewalInr: "Renews at ₹5,256 (₹219/mo)",
           renewalUsd: "Renews at $63.60 ($2.65/mo)",
-          cartUrl: "https://hostamble.com/dash/store/wordpresshosting/growth?billingcycle=biennially",
+          cartUrl: "https://hostamble.com/dash/cart.php?a=add&pid=38&billingcycle=biennially",
           freeDomain: true,
           freeDomainNote: "1 domain free for 1 year — two-year plan only"
         }
@@ -668,7 +668,7 @@ export const wordpressHosting = {
       id: "prime",
       name: "WordPress Prime",
       tagline: "For dynamic stores & high-traffic WordPress portfolios",
-      orderUrl: "https://hostamble.com/dash/store/wordpresshosting/prime",
+      orderUrl: "https://hostamble.com/dash/cart.php?a=add&pid=39",
       features: [
         "20 WordPress websites",
         "50 GB NVMe SSD storage",
@@ -695,7 +695,7 @@ export const wordpressHosting = {
           renewalPaymentUsd: "$7.79/month",
           renewalInr: "Renews at ₹649/month",
           renewalUsd: "Renews at $7.79/month",
-          cartUrl: "https://hostamble.com/dash/store/wordpresshosting/prime?billingcycle=monthly",
+          cartUrl: "https://hostamble.com/dash/cart.php?a=add&pid=39&billingcycle=monthly",
           freeDomain: false
         },
         semiannual: {
@@ -713,7 +713,7 @@ export const wordpressHosting = {
           renewalPaymentUsd: "$35.94 every 6 months",
           renewalInr: "Renews at ₹2,994 / 6 mos (₹499/mo)",
           renewalUsd: "Renews at $35.94 / 6 mos ($5.99/mo)",
-          cartUrl: "https://hostamble.com/dash/store/wordpresshosting/prime?billingcycle=semiannually",
+          cartUrl: "https://hostamble.com/dash/cart.php?a=add&pid=39&billingcycle=semiannually",
           freeDomain: false
         },
         annual: {
@@ -731,7 +731,7 @@ export const wordpressHosting = {
           renewalPaymentUsd: "$57.48/year",
           renewalInr: "Renews at ₹4,788/yr (₹399/mo)",
           renewalUsd: "Renews at $57.48/yr ($4.79/mo)",
-          cartUrl: "https://hostamble.com/dash/store/wordpresshosting/prime?billingcycle=annually",
+          cartUrl: "https://hostamble.com/dash/cart.php?a=add&pid=39&billingcycle=annually",
           freeDomain: false
         },
         biennial: {
@@ -749,7 +749,7 @@ export const wordpressHosting = {
           renewalPaymentUsd: "$94.80 every 2 years",
           renewalInr: "Renews at ₹7,896 (₹329/mo)",
           renewalUsd: "Renews at $94.80 ($3.95/mo)",
-          cartUrl: "https://hostamble.com/dash/store/wordpresshosting/prime?billingcycle=biennially",
+          cartUrl: "https://hostamble.com/dash/cart.php?a=add&pid=39&billingcycle=biennially",
           freeDomain: true,
           freeDomainNote: "1 domain free for 1 year — two-year plan only"
         }
