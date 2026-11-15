@@ -74,7 +74,7 @@ const plans = sharedHosting.plans;
                                     "cPanel Control",
                                     "Free Domain & SSL",
                                     "99.9% Uptime SLA",
-                                    "WhatsApp Support"
+                                    "24/7 WhatsApp Support"
                                 ]);
                             </script>
 
@@ -211,7 +211,7 @@ const plans = sharedHosting.plans;
         /* Headline Styling */
         .hero-headline {
             font-size: clamp(34px, 4.4vw, 56px);
-            line-height: 1.2;
+            line-height: 1.18;
             margin-bottom: 20px;
             letter-spacing: -0.035em;
         }
@@ -227,16 +227,17 @@ const plans = sharedHosting.plans;
             color: #111827;
             letter-spacing: -0.035em;
             text-wrap: balance;
+            margin-bottom: 4px;
         }
 
         .headline-row-bottom {
             display: flex;
-            align-items: baseline;
-            flex-wrap: nowrap;
-            gap: 10px;
-            min-height: 1.25em;
-            line-height: 1.2;
-            margin-top: 4px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2px;
+            min-height: 2.3em;
+            line-height: 1.18;
+            margin-top: 2px;
         }
 
         /* Black text: All still text in bold solid black */
@@ -253,20 +254,17 @@ const plans = sharedHosting.plans;
 
         .headline-prefix {
             white-space: nowrap;
-            flex-shrink: 0;
-            display: inline-block;
+            display: block;
         }
 
-        /* Fitted slot: Perfectly fitted so text change never shifts or moves the block */
+        /* Fitted slot: Moving text on its own next line */
         .typewriter-slot {
-            display: inline-block;
-            vertical-align: baseline;
-            min-width: 380px;
-            min-height: 1.25em;
-            line-height: 1.2;
+            display: block;
+            min-height: 1.2em;
+            line-height: 1.18;
             text-align: left;
             white-space: nowrap;
-            flex-shrink: 0;
+            width: 100%;
         }
 
         /* Orange moving text: Different font ('Playfair Display' italic) in brand orange */
@@ -276,7 +274,7 @@ const plans = sharedHosting.plans;
             font-weight: 900;
             color: #ff501a;
             display: inline-block;
-            line-height: 1.2;
+            line-height: 1.18;
             letter-spacing: -0.015em;
             text-shadow: 0 4px 18px rgba(255, 80, 26, 0.22);
         }
@@ -285,17 +283,11 @@ const plans = sharedHosting.plans;
             .hero-headline {
                 font-size: clamp(30px, 3.8vw, 48px);
             }
-            .typewriter-slot {
-                min-width: 330px;
-            }
         }
 
         @media (max-width: 991px) {
             .hero-headline {
                 font-size: clamp(28px, 4.4vw, 42px);
-            }
-            .typewriter-slot {
-                min-width: 290px;
             }
         }
 
@@ -303,23 +295,13 @@ const plans = sharedHosting.plans;
             .hero-headline {
                 font-size: clamp(26px, 4.8vw, 36px);
             }
-            .typewriter-slot {
-                min-width: 250px;
-            }
         }
 
         @media (max-width: 576px) {
             .hero-headline {
                 font-size: clamp(24px, 6vw, 32px);
             }
-            .headline-row-bottom {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 2px;
-            }
             .typewriter-slot {
-                min-width: 0;
-                width: 100%;
                 white-space: normal;
             }
         }
