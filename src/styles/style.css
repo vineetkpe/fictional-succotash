@@ -2085,10 +2085,10 @@ body {
   margin: 0;
   padding-left: 20px;
   position: relative;
-  font-size: 14.5px;
+  font-size: 16px;
   color: #000;
   font-weight: bold;
-  line-height: 24px;
+  line-height: 26px;
 }
 
 .pricing-table .pricing-body .list-item li:before {
@@ -2101,12 +2101,12 @@ body {
   line-height: 1;
   color: var(--color-primary);
   position: absolute;
-  top: 4px;
+  top: 5px;
   left: 0px;
 }
 
 .pricing-table .pricing-body .list-item li+li {
-  margin-top: 13px;
+  margin-top: 16px;
 }
 
 .pricing-table.active {
