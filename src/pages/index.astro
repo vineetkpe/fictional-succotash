@@ -28,7 +28,7 @@ const plans = sharedHosting.plans;
     <div class="slider-area banner bg-image d-flex align-items-center">
         <div class="container">
             <div class="row g-5 align-items-center">
-                <div class="col-lg-6 col-md-12">
+                <div class="col-lg-7 col-xl-7 col-md-12">
                     <div class="inner">
                         <div class="content">
                             <div
@@ -51,14 +51,12 @@ const plans = sharedHosting.plans;
                                 data-sal-delay="150"
                                 data-sal-duration="800"
                             >
-                                <span class="headline-row-top">
-                                    <span class="font-still-black"
-                                        >Affordable Web Hosting in India</span
-                                    >
-                                </span>
+                                <span class="headline-row-top"
+                                    >Affordable Web Hosting in India</span
+                                >
                                 <span class="headline-row-bottom">
-                                    <span class="font-still-black"
-                                        >Powered by&nbsp;</span
+                                    <span class="font-still-black headline-prefix"
+                                        >Powered by</span
                                     ><span class="typewriter-slot"
                                         ><span
                                             id="offerWord"
@@ -148,7 +146,7 @@ const plans = sharedHosting.plans;
                     </div>
                 </div>
 
-                <div class="col-lg-6">
+                <div class="col-lg-5 col-xl-5">
                     <InteractiveHeroIllustration />
                 </div>
             </div>
@@ -212,21 +210,33 @@ const plans = sharedHosting.plans;
 
         /* Headline Styling */
         .hero-headline {
-            font-size: clamp(34px, 4.4vw, 56px);
-            line-height: 1.2;
-            margin-bottom: 18px;
-            letter-spacing: -0.035em;
+            font-size: clamp(28px, 3.4vw, 46px);
+            line-height: 1.22;
+            margin-bottom: 20px;
+            letter-spacing: -0.03em;
         }
 
         .headline-row-top {
             display: block;
+            font-family:
+                "Plus Jakarta Sans",
+                var(--font-primary),
+                -apple-system,
+                sans-serif;
+            font-weight: 900;
+            color: #111827;
+            letter-spacing: -0.03em;
+            text-wrap: balance;
         }
 
         .headline-row-bottom {
-            display: inline-flex;
+            display: flex;
             align-items: baseline;
+            flex-wrap: nowrap;
+            gap: 10px;
             min-height: 1.25em;
-            line-height: 1.2;
+            line-height: 1.22;
+            margin-top: 4px;
         }
 
         /* Black text: All still text in bold solid black */
@@ -238,18 +248,25 @@ const plans = sharedHosting.plans;
                 sans-serif;
             font-weight: 900;
             color: #111827;
-            letter-spacing: -0.035em;
+            letter-spacing: -0.03em;
+        }
+
+        .headline-prefix {
+            white-space: nowrap;
+            flex-shrink: 0;
+            display: inline-block;
         }
 
         /* Fitted slot: Perfectly fitted so text change never shifts or moves the block */
         .typewriter-slot {
             display: inline-block;
             vertical-align: baseline;
-            min-width: 380px;
+            min-width: 320px;
             min-height: 1.25em;
-            line-height: 1.2;
+            line-height: 1.22;
             text-align: left;
             white-space: nowrap;
+            flex-shrink: 0;
         }
 
         /* Orange moving text: Different font ('Playfair Display' italic) in brand orange */
@@ -258,31 +275,42 @@ const plans = sharedHosting.plans;
             font-style: italic;
             font-weight: 900;
             color: #ff501a;
-            padding-left: 2px;
             display: inline-block;
-            line-height: 1.2;
+            line-height: 1.22;
             letter-spacing: -0.015em;
             text-shadow: 0 4px 18px rgba(255, 80, 26, 0.22);
         }
 
         @media (max-width: 991px) {
-            .typewriter-slot {
-                min-width: 320px;
+            .hero-headline {
+                font-size: clamp(26px, 4vw, 38px);
             }
-        }
-
-        @media (max-width: 768px) {
             .typewriter-slot {
                 min-width: 270px;
             }
         }
 
-        @media (max-width: 576px) {
-            .headline-row-bottom {
-                flex-wrap: wrap;
+        @media (max-width: 768px) {
+            .hero-headline {
+                font-size: clamp(24px, 4.2vw, 34px);
             }
             .typewriter-slot {
-                min-width: 220px;
+                min-width: 240px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-headline {
+                font-size: clamp(24px, 5.5vw, 30px);
+            }
+            .headline-row-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 2px;
+            }
+            .typewriter-slot {
+                min-width: 0;
+                width: 100%;
                 white-space: normal;
             }
         }
